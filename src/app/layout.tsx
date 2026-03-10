@@ -6,8 +6,48 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-    title: 'ExamBoost | India\'s Most Advanced Test Platform',
-    description: 'Boost Your Exam Preparation with 12+ Exam Categories, 10,000+ Mock Tests, and AI Performance Analysis.',
+    metadataBase: new URL('https://www.examboost.in'),
+    title: {
+        default: "ExamBoost | India's Most Advanced Test Platform",
+        template: '%s | ExamBoost',
+    },
+    description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams.',
+    applicationName: 'ExamBoost',
+    alternates: {
+        canonical: '/',
+    },
+    openGraph: {
+        type: 'website',
+        url: 'https://www.examboost.in',
+        siteName: 'ExamBoost',
+        title: "ExamBoost | India's Most Advanced Test Platform",
+        description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams.',
+        images: [
+            {
+                url: '/logo.png',
+                width: 512,
+                height: 512,
+                alt: 'ExamBoost',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "ExamBoost | India's Most Advanced Test Platform",
+        description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams.',
+        images: ['/logo.png'],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+            'max-video-preview': -1,
+        },
+    },
     icons: {
         icon: '/logo.png',
         apple: '/logo.png',
