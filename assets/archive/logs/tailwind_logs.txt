@@ -1,0 +1,266 @@
+﻿npx : Browserslist: 
+caniuse-lite is outdated. 
+Please run:
+At line:1 char:1
++ npx tailwindcss -i 
+./src/app/globals.css -o 
+./output.css 2>&1 | Out-F ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo          : 
+    NotSpecified: (Browsersl  
+  ist: c...ed. Please run::   
+ String) [], RemoteExcepti    
+on
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+  npx 
+update-browserslist-db@latest
+  Why you should do it 
+regularly: https://github.com/
+browserslist/update-db#readme
+
+Rebuilding...
+CssSyntaxError: tailwindcss: D
+:\examboost\src\app\globals.cs
+s:26:9: The 
+`shadow-[0_8px_30px_rgb(0,` 
+class does not exist. If 
+`shadow-[0_8px_30px_rgb(0,` 
+is a custom class, make sure 
+it is defined within a 
+`@layer` directive.
+    at Input.error (D:\examboo
+st\node_modules\postcss\lib\in
+put.js:135:16)
+    at AtRule.error (D:\exambo
+ost\node_modules\postcss\lib\n
+ode.js:146:32)
+    at processApply (D:\exambo
+ost\node_modules\tailwindcss\l
+ib\lib\expandApplyAtRules.js:3
+80:29)
+    at D:\examboost\node_modul
+es\tailwindcss\lib\lib\expandA
+pplyAtRules.js:551:9
+    at D:\examboost\node_modul
+es\tailwindcss\lib\processTail
+windFeatures.js:55:50
+    at async Object.Once (D:\e
+xamboost\node_modules\tailwind
+css\lib\cli\build\plugin.js:24
+8:17)
+    at async 
+LazyResult.runAsync (D:\exambo
+ost\node_modules\postcss\lib\l
+azy-result.js:293:11)
+    at async build (D:\examboo
+st\node_modules\tailwindcss\li
+b\cli\build\index.js:49:9) {
+  reason: 'The 
+`shadow-[0_8px_30px_rgb(0,` 
+class does not exist. If 
+`shadow-[0_8px_30px_rgb(0,` 
+is a custom class, make sure 
+it is defined within a 
+`@layer` directive.',
+  file: 'D:\\examboost\\src\\a
+pp\\globals.css',
+  source: '@tailwind 
+base;\r\n' +
+    '@tailwind 
+components;\r\n' +
+    '@tailwind 
+utilities;\r\n' +
+    '\r\n' +
+    '@layer base {\r\n' +
+    '    :root {\r\n' +
+    '        --background: 
+#f8fafc;\r\n' +
+    '        /* Very light 
+slate */\r\n' +
+    '        --foreground: 
+#020617;\r\n' +
+    '        /* Darkest slate 
+*/\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    .dark {\r\n' +
+    '        --background: 
+#020617;\r\n' +
+    '        /* Very dark 
+slate, almost obsidian 
+*/\r\n' +
+    '        --foreground: 
+#f8fafc;\r\n' +
+    '    }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '@layer utilities {\r\n' +
+    '    .glass {\r\n' +
+    '        @apply 
+bg-white/40 
+dark:bg-slate-900/40 
+backdrop-blur-2xl border 
+border-white/40 
+dark:border-white/5 
+shadow-xl;\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    .glass-card {\r\n' +
+    '        @apply 
+bg-white/70 
+dark:bg-slate-900/60 
+backdrop-blur-xl border 
+border-white/60 
+dark:border-white/10 
+shadow-[0_8px_30px_rgb(0, 0, 
+0, 0.04)] dark:shadow-[0_8px_3
+0px_rgb(0, 0, 0, 0.2)] 
+hover:shadow-2xl 
+transition-all 
+duration-300;\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    .glass-panel {\r\n' +
+    '        @apply 
+bg-white/80 
+dark:bg-[#061121]/80 
+backdrop-blur-3xl border 
+border-white 
+dark:border-white/5 
+shadow-2xl;\r\n' +
+    '    }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    'body {\r\n' +
+    '    background-color: 
+var(--background);\r\n' +
+    '    color: 
+var(--foreground);\r\n' +
+    "    font-family: 
+'Inter', sans-serif;\r\n" +
+    '    overflow-x: 
+hidden;\r\n' +
+    '    transition: 
+background-color 0.5s ease, 
+color 0.5s ease;\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '::selection {\r\n' +
+    "    background-color: the
+me('colors.primary.DEFAULT');\
+r\n" +
+    '    color: white;\r\n' +
+    '}',
+  line: 26,
+  column: 9,
+  endLine: 26,
+  endColumn: 237,
+  input: {
+    column: 9,
+    endColumn: 237,
+    endLine: 26,
+    endOffset: 782,
+    line: 26,
+    offset: 554,
+    source: '@tailwind 
+base;\r\n' +
+      '@tailwind 
+components;\r\n' +
+      '@tailwind 
+utilities;\r\n' +
+      '\r\n' +
+      '@layer base {\r\n' +
+      '    :root {\r\n' +
+      '        --background: 
+#f8fafc;\r\n' +
+      '        /* Very light 
+slate */\r\n' +
+      '        --foreground: 
+#020617;\r\n' +
+      '        /* Darkest 
+slate */\r\n' +
+      '    }\r\n' +
+      '\r\n' +
+      '    .dark {\r\n' +
+      '        --background: 
+#020617;\r\n' +
+      '        /* Very dark 
+slate, almost obsidian 
+*/\r\n' +
+      '        --foreground: 
+#f8fafc;\r\n' +
+      '    }\r\n' +
+      '}\r\n' +
+      '\r\n' +
+      '@layer utilities 
+{\r\n' +
+      '    .glass {\r\n' +
+      '        @apply 
+bg-white/40 
+dark:bg-slate-900/40 
+backdrop-blur-2xl border 
+border-white/40 
+dark:border-white/5 
+shadow-xl;\r\n' +
+      '    }\r\n' +
+      '\r\n' +
+      '    .glass-card {\r\n' 
++
+      '        @apply 
+bg-white/70 
+dark:bg-slate-900/60 
+backdrop-blur-xl border 
+border-white/60 
+dark:border-white/10 
+shadow-[0_8px_30px_rgb(0, 0, 
+0, 0.04)] dark:shadow-[0_8px_3
+0px_rgb(0, 0, 0, 0.2)] 
+hover:shadow-2xl 
+transition-all 
+duration-300;\r\n' +
+      '    }\r\n' +
+      '\r\n' +
+      '    .glass-panel 
+{\r\n' +
+      '        @apply 
+bg-white/80 
+dark:bg-[#061121]/80 
+backdrop-blur-3xl border 
+border-white 
+dark:border-white/5 
+shadow-2xl;\r\n' +
+      '    }\r\n' +
+      '}\r\n' +
+      '\r\n' +
+      'body {\r\n' +
+      '    background-color: 
+var(--background);\r\n' +
+      '    color: 
+var(--foreground);\r\n' +
+      "    font-family: 
+'Inter', sans-serif;\r\n" +
+      '    overflow-x: 
+hidden;\r\n' +
+      '    transition: 
+background-color 0.5s ease, 
+color 0.5s ease;\r\n' +
+      '}\r\n' +
+      '\r\n' +
+      '::selection {\r\n' +
+      "    background-color: t
+heme('colors.primary.DEFAULT')
+;\r\n" +
+      '    color: white;\r\n' 
++
+      '}',
+    url: 'file:///D:/examboost
+/src/app/globals.css',
+    file: 'D:\\examboost\\src\
+\app\\globals.css'
+  },
+  plugin: 'tailwindcss'
+}

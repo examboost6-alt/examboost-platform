@@ -1,0 +1,15 @@
+﻿src/app/exams/engineering-entrance/bitsat/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-advanced/full-length-tests/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-advanced/pyqs/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-advanced/subject-wise-tests/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-main/chapter-wise-tests/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-main/full-length-mock-tests/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-main/previous-year-papers/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/jee-main/test-analysis/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/jee/page.tsx(109,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/srmjeee/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/state-engineering-exams/kcet/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/state-engineering-exams/mht-cet/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/state-engineering-exams/page.tsx(119,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/state-engineering-exams/wbjee/page.tsx(81,3): error TS1160: Unterminated template literal.
+src/app/exams/engineering-entrance/viteee/page.tsx(81,3): error TS1160: Unterminated template literal.
