@@ -8,6 +8,9 @@ out
 # production
 build
 
+# backend build output
+backend/dist
+
 # env
 .env
 .env.*
