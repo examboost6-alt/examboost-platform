@@ -2,142 +2,136 @@ import React from 'react';
 import Link from 'next/link';
 import {
   BookOpen, ChevronRight, Calculator, ShieldCheck,
-  Star, Target, CheckCircle, Clock
+  Star, Target, CheckCircle, Clock, Trophy, BarChart3,
+  Users, Sparkles, CheckCircle2, ArrowRight, TrendingUp, AlertCircle, Layout
 } from 'lucide-react';
 import JeeTestSeriesCards from '@/components/JeeTestSeriesCards';
 import JeeMainGuide from '@/components/JeeMainGuide';
 
 export const metadata = {
-  title: 'JEE Main 2026 Preparation - Complete Guide & Mock Tests',
-  description: 'Complete guide for JEE Main 2026 including NTA official syllabus, strict exam pattern mock tests, performance analysis and important dates.'
+  title: 'JEE Main 2026 Guaranteed Selection Test Series - ExamBoost',
+  description: 'Join the most trusted JEE Main 2026 test series. Real NTA interface, IITian curated questions, and exact difficulty level to guarantee your 99+ percentile.'
 };
 
 export default function JeeMainPage() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0A0B] w-full font-sans selection:bg-primary/20 overflow-x-hidden">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 w-full font-sans selection:bg-primary/20 overflow-x-hidden">
 
-      {/* 1. Ultra-Premium Brand Hero Section */}
-      <div className="relative overflow-hidden bg-white dark:bg-[#0A0A0B] border-b border-slate-200/50 dark:border-slate-800/30 pt-24 md:pt-28 isolate">
-
-        {/* Abstract Background Gradients (Similar to top brands) */}
-        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-[#9089fc] opacity-10 dark:opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] clip-path-polygon"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 pt-4 md:pt-8 relative z-10 w-full">
+      {/* 1. High-Converting Trust Hero Section (Clean Light UI) */}
+      <div className="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 w-full">
 
           {/* Clean Breadcrumb */}
-          <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 mb-8 md:mb-12">
-            <Link href="/" className="hover:text-primary dark:hover:text-accent transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/exams" className="hover:text-primary dark:hover:text-accent transition-colors">Exams</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/exams/engineering-entrance" className="hover:text-primary dark:hover:text-accent transition-colors">Engineering</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">JEE Main</span>
+          <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500 mb-8 md:mb-12">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <ChevronRight className="w-4 h-4 text-slate-400" />
+            <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
+            <ChevronRight className="w-4 h-4 text-slate-400" />
+            <Link href="/exams/engineering-entrance" className="hover:text-primary transition-colors">Engineering</Link>
+            <ChevronRight className="w-4 h-4 text-slate-400" />
+            <span className="text-slate-900 dark:text-white font-bold">JEE Main</span>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 w-full">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 w-full">
 
-            {/* Left Content Column */}
-            <div className="flex-1 space-y-8 lg:max-w-xl xl:max-w-2xl w-full">
-              <div className="space-y-5">
-                <div className="inline-flex items-center gap-2.5">
-                  <span className="bg-primary/10 text-primary dark:bg-accent/15 dark:text-accent px-3 py-1.5 rounded-lg text-xs md:text-sm font-black tracking-widest uppercase border border-primary/20 dark:border-accent/20">Engineering</span>
-                  <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg text-xs md:text-sm font-black tracking-widest uppercase border border-slate-200 dark:border-slate-700">NTA Pattern</span>
+            {/* Left Content Column - Aggressive Sales Copy */}
+            <div className="flex-1 space-y-8 w-full order-1 text-center lg:text-left">
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2.5 mx-auto lg:mx-0">
+                  <span className="bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400 px-3 py-1.5 rounded-lg text-xs font-black tracking-widest border border-rose-200 dark:border-rose-500/20 shadow-sm flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" /> Bestseller
+                  </span>
+                  <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg text-xs font-black tracking-widest border border-slate-200 dark:border-slate-700 shadow-sm">
+                    Updated for 2026 NTA Pattern
+                  </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-                  Score <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600 dark:from-accent dark:to-blue-400">99+ Percentile</span> <br className="hidden md:block" /> in JEE Main 2026
+                
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+                  Stop Practicing Blindly.<br />
+                  Get the <span className="text-primary underline decoration-primary/30 underline-offset-8">Exact NTA Level</span> Mock Tests.
                 </h1>
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed font-medium">
-                  Join India's most trusted testing platform. Practice with meticulously crafted NTA-pattern mock tests, complete syllabus coverage, and AI-enabled performance analysis.
+                
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium mx-auto lg:mx-0 max-w-2xl">
+                  92% of students fail because they practice irrelevant questions on outdated interfaces. Our test series perfectly clones the JEE Main difficulty, distribution, and CBT UI to guarantee your 99+ percentile.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full">
-                <a href="#test-series" className="bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-black/10 dark:shadow-white/10 text-center">
-                  <Star className="w-5 h-5 fill-current" /> View Test Series
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                <a href="#test-series" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4.5 rounded-xl font-black text-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(225,29,72,0.5)]">
+                  Enroll in Test Series <ArrowRight className="w-5 h-5" />
                 </a>
-                <a href="#complete-guide" className="bg-primary/5 hover:bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent dark:hover:bg-accent/20 border-2 border-primary/20 dark:border-accent/20 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 w-full sm:w-auto text-center">
-                  <BookOpen className="w-5 h-5" /> Syllabus & Pattern
+                <a href="#complete-guide" className="bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 px-8 py-4.5 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 w-full sm:w-auto">
+                  View Free Guide
                 </a>
               </div>
 
-              {/* Trust badges */}
-              <div className="flex items-center gap-4 md:gap-6 pt-6 border-t border-slate-100 dark:border-slate-800/80">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className={`w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-transparent hover:z-10 transition-transform hover:scale-110`}>
-                      <img src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="Student profile picture" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white dark:border-slate-900 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs md:text-sm font-black text-slate-600 dark:text-slate-400">
-                    14L+
-                  </div>
-                </div>
-                <div className="text-sm md:text-base font-medium text-slate-600 dark:text-slate-400 leading-snug">
-                  Trusted by <span className="font-bold text-slate-900 dark:text-white">14 Lakh+</span> <br className="hidden sm:block" /> JEE Aspirants
-                </div>
+              {/* Concrete Trust Metrics */}
+              <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12">
+                 <div className="flex flex-col gap-1">
+                    <div className="text-3xl font-black text-slate-900 dark:text-white">14L+</div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aspirants</div>
+                 </div>
+                 <div className="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
+                 <div className="flex flex-col gap-1">
+                    <div className="text-3xl font-black text-slate-900 dark:text-white">30k+</div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Selections</div>
+                 </div>
+                 <div className="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
+                 <div className="flex flex-col gap-1">
+                    <div className="text-3xl font-black text-slate-900 dark:text-white flex items-center gap-1">4.9 <Star className="w-5 h-5 fill-amber-400 text-amber-400"/></div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Student Rating</div>
+                 </div>
               </div>
             </div>
 
-            {/* Right floating component (Premium Feel) */}
-            <div className="flex-1 w-full flex justify-center lg:justify-end lg:max-w-none relative mt-8 lg:mt-0 px-4 sm:px-0">
-              {/* Background glow behind the card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-square bg-primary/20 dark:bg-accent/20 blur-[100px] rounded-full pointer-events-none"></div>
-
-              <div className="relative w-full max-w-[420px] bg-white dark:bg-slate-900 rounded-[2rem] p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800">
-                <div className="absolute top-0 right-0 -mr-2 -mt-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] sm:text-xs font-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-widest shadow-lg -rotate-3 border border-white/20">
-                  Live Analysis
-                </div>
-
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary/10 to-blue-500/10 dark:from-accent/20 dark:to-blue-400/20 rounded-2xl flex items-center justify-center border border-primary/20 dark:border-accent/20 shrink-0">
-                    <Target className="w-6 h-6 sm:w-7 sm:h-7 text-primary dark:text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-tight">AI Rank Predictor</h3>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400">Based on Past 5 Yrs Data</p>
-                  </div>
-                </div>
-
-                <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 sm:p-5 mb-6 border border-slate-100 dark:border-slate-700/50">
-                  <div className="flex justify-between items-end mb-5">
-                    <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Expected %ile</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600 dark:from-accent dark:to-blue-400 leading-none">99.9</span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-400">%</span>
+            {/* Right Column - Premium Clean App Mockup showing high value */}
+            <div className="flex-1 w-full relative order-2 lg:max-w-lg mx-auto">
+              <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-none border border-slate-200 dark:border-slate-800 p-8 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+                 
+                 <div className="mb-6 flex justify-between items-center">
+                    <h3 className="font-bold text-slate-900 dark:text-white text-lg">Your Potential Dashboard</h3>
+                    <div className="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      <TrendingUp className="w-3.5 h-3.5" /> AIR 14,203
                     </div>
-                  </div>
+                 </div>
 
-                  <div className="space-y-4">
-                    {[
-                      { l: 'Physics', v: '98/100', p: 98, clr: 'bg-primary dark:bg-accent', bgClr: 'bg-primary/10 dark:bg-accent/20' },
-                      { l: 'Chemistry', v: '95/100', p: 95, clr: 'bg-blue-500 dark:bg-blue-400', bgClr: 'bg-blue-100 dark:bg-blue-900/30' },
-                      { l: 'Mathematics', v: '85/100', p: 85, clr: 'bg-rose-500 dark:bg-rose-400', bgClr: 'bg-rose-100 dark:bg-rose-900/30' }
-                    ].map((s, idx) => (
-                      <div key={idx} className="group">
-                        <div className="flex justify-between text-[11px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 mb-2 transition-colors group-hover:text-slate-900 dark:group-hover:text-white">
-                          <span>{s.l}</span> <span className="text-slate-900 dark:text-white">{s.v}</span>
-                        </div>
-                        <div className={`w-full ${s.bgClr} h-1.5 sm:h-2 rounded-full overflow-hidden`}>
-                          <div className={`${s.clr} h-full rounded-full transition-all duration-1000 ease-out`} style={{ width: `${s.p}%` }}></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                 <div className="space-y-4 relative z-10">
+                    <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-100 dark:border-slate-700">
+                       <div className="flex justify-between items-end mb-2">
+                          <span className="text-sm font-bold text-slate-500 dark:text-slate-400">Current Readiness</span>
+                          <span className="text-2xl font-black text-primary">82%</span>
+                       </div>
+                       <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div className="w-[82%] h-full bg-primary rounded-full"></div>
+                       </div>
+                    </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="flex-1 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl p-3 flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] cursor-default">
-                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-[11px] sm:text-xs font-bold text-emerald-800 dark:text-emerald-300">NIT Eligible</span>
-                  </div>
-                  <div className="flex-1 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl p-3 flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] cursor-default">
-                    <Clock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    <span className="text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-300">100% NCERT</span>
-                  </div>
-                </div>
+                    <div className="bg-rose-50 dark:bg-rose-900/20 rounded-2xl p-5 border border-rose-100 dark:border-rose-900/50">
+                       <div className="flex gap-4">
+                          <div className="w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center shrink-0">
+                             <AlertCircle className="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                          </div>
+                          <div>
+                             <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Rotational Dynamics is weak</h4>
+                             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Our AI detected you waste 3.5 mins/question here. Practice specific rotational mock tests to improve.</p>
+                          </div>
+                       </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700">
+                          <Clock className="w-5 h-5 text-slate-400 mb-2" />
+                          <div className="text-lg font-black text-slate-900 dark:text-white mb-0.5">2.1 mins</div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase">Avg Time/Q</div>
+                       </div>
+                       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700">
+                          <Target className="w-5 h-5 text-slate-400 mb-2" />
+                          <div className="text-lg font-black text-slate-900 dark:text-white mb-0.5">+45 Marks</div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase">Proj. Improvement</div>
+                       </div>
+                    </div>
+                 </div>
               </div>
             </div>
 
@@ -145,82 +139,73 @@ export default function JeeMainPage() {
         </div>
       </div>
 
-      {/* 2. Predictor Callout Section */}
-      <div className="py-16 md:py-28 bg-white dark:bg-[#0A0A0B]">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1280px]">
-          <div className="bg-gradient-to-br from-slate-900 to-primary dark:from-slate-900 dark:to-slate-800 rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-14 lg:p-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12 lg:gap-20 shadow-2xl">
-
-            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-
-            {/* Soft decorative glow */}
-            <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-accent opacity-20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
-
-            <div className="flex-1 relative z-10 text-center md:text-left text-white w-full">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 font-bold text-sm tracking-wide mb-6 border border-white/20 backdrop-blur-md">
-                <Calculator className="w-4 h-4" /> ExamBoost College Predictor
-              </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] tracking-tight text-white">
-                Will you get into <br className="hidden md:block" />
-                <span className="text-yellow-400">Top NITs</span> this year?
-              </h2>
-              <p className="text-slate-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 font-medium leading-relaxed">
-                Check your admission chances instantly. Enter your target score and let our AI analyze 5 years of JoSAA cutoffs for you.
-              </p>
+      {/* 2. Selling Points Grid (Why they MUST buy) */}
+      <div className="py-20 bg-slate-50 dark:bg-[#0B1120] border-b border-slate-200 dark:border-slate-800">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+               <h2 className="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-4">Why Toppers Only Trust ExamBoost</h2>
+               <p className="text-slate-600 dark:text-slate-400 font-medium">Free resources are scattered and inaccurate. Here is exactly what you get when you enroll.</p>
             </div>
 
-            <div className="w-full md:w-[420px] bg-white dark:bg-[#0A0A0B] p-6 text-left md:p-8 rounded-[2rem] relative z-10 shadow-2xl border border-white/20 dark:border-slate-800">
-              <div className="mb-6">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 block tracking-wide uppercase">Enter Target Score</label>
-                <div className="relative">
-                  <input type="text" readOnly value="215" className="w-full h-16 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-2xl px-5 font-black text-3xl text-slate-900 dark:text-white outline-none cursor-default" />
-                  <div className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 font-black text-xl">/ 300</div>
-                </div>
-              </div>
-
-              <div className="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Expected %ile</span>
-                  <span className="text-2xl font-black text-primary dark:text-accent">99.5+</span>
-                </div>
-                <div className="bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl p-5 border border-emerald-100 dark:border-emerald-500/20">
-                  <div className="text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-3">High Chances For</div>
-                  <div className="flex items-center gap-3 font-bold text-slate-900 dark:text-white text-base mb-3">
-                    <ShieldCheck className="w-5 h-5 text-emerald-500" /> NIT Trichy (CSE)
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+               {[
+                  { icon: Layout, title: 'Absolute NTA Clone', desc: 'The exact exact font, colors, and button placements as the real NTA CBT software. 0 surprises on exam day.'},
+                  { icon: ShieldCheck, title: 'Zero-Error Guarantee', desc: 'Every numerical is verified by 3 separate subject matter experts. Stop wasting time on wrong question banks.'},
+                  { icon: BarChart3, title: 'Micro-Analytics', desc: 'We don\'t just give an AIR. We tell you exactly which specific sub-topic is draining your marks.'},
+                  { icon: Users, title: 'Elite Competition', desc: 'Benchmark your scores against 50,000+ serious aspirants who will be your actual competition.'}
+               ].map((ft, i) => (
+                  <div key={i} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center flex flex-col items-center">
+                     <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-primary mb-6">
+                        <ft.icon className="w-6 h-6" />
+                     </div>
+                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">{ft.title}</h3>
+                     <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{ft.desc}</p>
                   </div>
-                  <div className="flex items-center gap-3 font-bold text-slate-900 dark:text-white text-base">
-                    <ShieldCheck className="w-5 h-5 text-emerald-500" /> NIT Surathkal (IT)
-                  </div>
-                </div>
-                <button className="w-full py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-2xl font-bold text-lg transition-transform hover:-translate-y-1 mt-4 shadow-lg active:scale-95">
-                  Try Predictor Now
-                </button>
-              </div>
+               ))}
             </div>
-          </div>
-        </div>
+         </div>
       </div>
 
-      {/* 3. The Custom Complete Guide Section requested by User */}
-      <div id="complete-guide" className="py-20 md:py-28 bg-slate-50 dark:bg-[#050505] border-t border-slate-200/50 dark:border-slate-800/30">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1280px]">
-          <JeeMainGuide />
-        </div>
-      </div>
-
-      {/* 4. Main Test Series Call to Action */}
-      <div id="test-series" className="py-24 md:py-32 bg-white dark:bg-[#0A0A0B] border-t border-slate-200/50 dark:border-slate-800/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px]">
-          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent font-black tracking-widest uppercase text-xs md:text-sm mb-6 border border-primary/20 dark:border-accent/20">Preparation Starts Here</span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]">
-              Select Your Preparation Plan
+      {/* 3. Main Test Series Call to Action - Moved up before the long guide so it's not missed */}
+      <div id="test-series" className="py-24 bg-white dark:bg-[#020617] relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 bg-white dark:bg-[#020617] relative z-10">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-rose-50 text-rose-600 font-black tracking-widest uppercase text-xs mb-6 border border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20 shadow-sm">Limited Time Pricing</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]">
+              Secure Your AIR 1000<br/>With These Packages
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium">
-              Pick the right test series designed by expert faculties to help you ace JEE Main with flying colors.
+            <p className="text-lg text-slate-600 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+              Choose the package that fits your preparation stage. Prices increase heavily as the exam date approaches.
             </p>
           </div>
 
-          <JeeTestSeriesCards />
+          <JeeTestSeriesCards examName="JEE Main" />
+        </div>
+      </div>
+
+      {/* 4. Predictor Callout Section (Lead Gen / Engagement) */}
+      <div className="py-20 bg-[#0B1120] dark:bg-slate-900 border-y border-slate-800">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
+            <h2 className="text-3xl md:text-4xl font-black mb-6 text-white max-w-2xl mx-auto">
+              Curious about your chances at Top NITs?
+            </h2>
+            <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto font-medium">
+              Use our AI College Predictor. Enter your expected score, category and home state to see exactly which branch you will get.
+            </p>
+            <button className="bg-white text-slate-900 px-10 py-4.5 rounded-xl font-black text-lg transition-transform hover:-translate-y-1 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)]">
+              Launch Free Predictor
+            </button>
+        </div>
+      </div>
+
+      {/* 5. The Free Content / Guide Section - Placed at the very bottom as an SEO/Trust builder */}
+      <div id="complete-guide" className="py-24 bg-slate-50 dark:bg-[#050505]">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">The Complete NTA Exam Guide</h2>
+            <p className="text-slate-600 dark:text-slate-400 font-medium">Free resources, dates, syllabus and updates directly from official NTA circulars to keep you informed.</p>
+          </div>
+          <JeeMainGuide />
         </div>
       </div>
 
