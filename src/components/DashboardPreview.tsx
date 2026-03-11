@@ -108,54 +108,54 @@ export default function DashboardPreview() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="w-full bg-white dark:bg-slate-900 rounded-[2rem] p-6 md:p-10 shadow-2xl border border-slate-200 dark:border-slate-700/60 relative overflow-hidden"
+                    className="w-full bg-white dark:bg-slate-900 rounded-[2rem] p-4 sm:p-6 md:p-10 shadow-2xl border border-slate-200 dark:border-slate-700/60 relative overflow-hidden"
                 >
                     {/* Header controls mockup */}
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
-                        <div className="flex items-center gap-4">
-                            <div className="shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl border border-primary/20">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-10 gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg sm:text-xl border border-primary/20">
                                 RA
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-slate-900 dark:text-white text-xl">Detailed Analysis Report</h3>
-                                <p className="text-sm font-bold text-slate-500 mt-1">SSC CGL Tier 1 • Full Mock #4</p>
+                                <h3 className="font-extrabold text-slate-900 dark:text-white text-lg sm:text-xl">Detailed Analysis Report</h3>
+                                <p className="text-xs sm:text-sm font-bold text-slate-500 mt-0.5 sm:mt-1">SSC CGL Tier 1 • Full Mock #4</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 w-full sm:w-auto">
-                            <div className="px-5 py-2.5 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex-1 sm:flex-none text-center">Today, 10:30 AM</div>
+                            <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex-1 sm:flex-none text-center">Today, 10:30 AM</div>
                         </div>
                     </div>
 
                     {/* Top Stats Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10">
                         {[
-                            { label: "Overall Score", value: "152.5", total: "/200", icon: <MdEmojiEvents className="w-6 h-6" />, color: "text-amber-500", border: "border-amber-100 dark:border-amber-900/50" },
-                            { label: "All India Rank", value: "1,204", total: "/2.1L", icon: <MdBarChart className="w-6 h-6" />, color: "text-blue-500", border: "border-blue-100 dark:border-blue-900/50" },
-                            { label: "Total Accuracy", value: "92", total: "%", icon: <MdGpsFixed className="w-6 h-6" />, color: "text-emerald-500", border: "border-emerald-100 dark:border-emerald-900/50" },
-                            { label: "Avg Time/Q", value: "40", total: "s", icon: <MdAccessTime className="w-6 h-6" />, color: "text-purple-500", border: "border-purple-100 dark:border-purple-900/50" }
+                            { label: "Overall Score", value: "152.5", total: "/200", icon: <MdEmojiEvents className="w-5 h-5 sm:w-6 sm:h-6" />, color: "text-amber-500", border: "border-amber-100 dark:border-amber-900/50" },
+                            { label: "India Rank", value: "1,204", total: "/2.1L", icon: <MdBarChart className="w-5 h-5 sm:w-6 sm:h-6" />, color: "text-blue-500", border: "border-blue-100 dark:border-blue-900/50" },
+                            { label: "Total Accuracy", value: "92", total: "%", icon: <MdGpsFixed className="w-5 h-5 sm:w-6 sm:h-6" />, color: "text-emerald-500", border: "border-emerald-100 dark:border-emerald-900/50" },
+                            { label: "Avg Time/Q", value: "40", total: "s", icon: <MdAccessTime className="w-5 h-5 sm:w-6 sm:h-6" />, color: "text-purple-500", border: "border-purple-100 dark:border-purple-900/50" }
                         ].map((stat, i) => (
-                            <div key={i} className={`bg-slate-50 dark:bg-slate-800/50 p-6 rounded-[1.5rem] border ${stat.border} flex flex-col justify-between group hover:shadow-lg transition-all duration-300`}>
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className={`w-12 h-12 bg-white dark:bg-slate-800 rounded-xl ${stat.color} flex items-center justify-center shadow-sm`}>
+                            <div key={i} className={`bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-6 rounded-2xl sm:rounded-[1.5rem] border ${stat.border} flex flex-col justify-between group hover:shadow-lg transition-all duration-300`}>
+                                <div className="flex justify-between items-start mb-4 sm:mb-6">
+                                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-slate-800 rounded-xl ${stat.color} flex items-center justify-center shadow-sm`}>
                                         {stat.icon}
                                     </div>
-                                    <MdNorthEast className="w-5 h-5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
+                                    <MdNorthEast className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-xs uppercase tracking-widest font-bold text-slate-500 mb-2">{stat.label}</p>
-                                    <p className="text-3xl font-black text-slate-900 dark:text-white leading-none">
+                                    <p className="text-[10px] sm:text-xs uppercase tracking-widest font-bold text-slate-500 mb-1 sm:mb-2 line-clamp-1">{stat.label}</p>
+                                    <p className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none">
                                         {stat.value}
-                                        <span className="text-sm font-bold opacity-50 ml-1">{stat.total}</span>
+                                        <span className="text-xs sm:text-sm font-bold opacity-50 ml-1">{stat.total}</span>
                                     </p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-6">
+                    <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
                         {/* Sectional Breakdown */}
-                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-slate-700/50">
-                            <h4 className="font-extrabold text-slate-900 dark:text-white text-lg mb-6 flex items-center gap-2">
+                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 sm:p-6 md:p-8 border border-slate-200 dark:border-slate-700/50">
+                            <h4 className="font-extrabold text-slate-900 dark:text-white text-base sm:text-lg mb-6 flex items-center gap-2">
                                 <MdLayers className="w-5 h-5 text-primary" /> Sectional Breakdown
                             </h4>
                             <div className="space-y-5">
@@ -165,11 +165,11 @@ export default function DashboardPreview() {
                                     { name: "English Comprehension", score: 45, total: 50, color: "bg-blue-500" },
                                 ].map((sub, i) => (
                                     <div key={i}>
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{sub.name}</span>
-                                            <span className="text-sm font-black text-slate-900 dark:text-white">{sub.score}/{sub.total}</span>
+                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1 sm:gap-0">
+                                            <span className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 truncate pr-2">{sub.name}</span>
+                                            <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">{sub.score}/{sub.total}</span>
                                         </div>
-                                        <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div className="w-full h-2 sm:h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${(sub.score / sub.total) * 100}%` }}
@@ -183,19 +183,19 @@ export default function DashboardPreview() {
                         </div>
 
                         {/* AI Action Plan */}
-                        <div className="bg-primary hover:bg-primary/95 transition-colors rounded-2xl p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-primary/20 flex flex-col justify-center cursor-pointer group">
+                        <div className="bg-primary hover:bg-primary/95 transition-colors rounded-2xl p-5 sm:p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-primary/20 flex flex-col justify-center cursor-pointer group">
                             {/* Decorative background logo/icon */}
                             <MdFlashOn className="absolute -right-10 -top-10 w-48 h-48 text-white/5 rotate-12" />
                             
-                            <h4 className="font-extrabold text-2xl mb-2 flex items-center gap-2 relative z-10">
-                                <MdFlashOn className="w-8 h-8 text-yellow-300" /> AI Action Plan Ready
+                            <h4 className="font-extrabold text-xl sm:text-2xl mb-2 flex items-center gap-2 relative z-10">
+                                <MdFlashOn className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300" /> AI Action Plan Ready
                             </h4>
-                            <p className="text-primary-foreground/80 font-medium mb-8 max-w-sm relative z-10">
+                            <p className="text-primary-foreground/80 text-sm sm:text-base font-medium mb-6 sm:mb-8 max-w-sm relative z-10">
                                 We've identified 3 weak chapters costing you 12 marks. Watch the recommended 20-min revision modules to fix them.
                             </p>
                             
-                            <div className="relative z-10 flex items-center gap-4 bg-white text-primary font-black py-4 px-6 rounded-xl w-fit group-hover:scale-105 transition-transform shadow-lg">
-                                Start Revision Module <MdNorthEast className="w-5 h-5" />
+                            <div className="relative z-10 flex items-center justify-center gap-4 bg-white text-primary text-sm sm:text-base font-black py-3 sm:py-4 px-6 rounded-xl w-full sm:w-fit group-hover:scale-[1.02] transition-transform shadow-lg">
+                                Start Revision <MdNorthEast className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
                         </div>
                     </div>
