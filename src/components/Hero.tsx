@@ -38,7 +38,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-[2.75rem] md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white mb-6"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white mb-6"
                         >
                             Crack Your Dream Exam with <span className="text-primary">Confidence.</span>
                         </motion.h1>
@@ -71,11 +71,11 @@ export default function Hero() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex items-center gap-8 border-t border-slate-200 dark:border-slate-800 pt-8 w-full max-w-lg"
+                            className="flex items-center justify-center lg:justify-start gap-4 sm:gap-8 border-t border-slate-200 dark:border-slate-800 pt-8 w-full max-w-lg mx-auto lg:mx-0"
                         >
                             <div>
                                 <div className="text-2xl font-bold text-slate-900 dark:text-white mb-1">4.8/5</div>
-                                <div className="flex gap-1 text-amber-400 mb-1">
+                                <div className="flex justify-center lg:justify-start gap-1 text-amber-400 mb-1">
                                     {[1, 2, 3, 4, 5].map((i) => <MdStar key={i} className="w-4 h-4" />)}
                                 </div>
                                 <div className="text-sm text-slate-500 font-medium">App Rating</div>

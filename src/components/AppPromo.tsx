@@ -80,20 +80,42 @@ export default function AppPromo() {
                                 {/* Notch */}
                                 <div className="absolute top-0 inset-x-0 h-7 bg-darkText dark:border-slate-800 rounded-b-3xl w-40 mx-auto z-30" />
 
-                                {/* Screen Content: Live Website Iframe Preview */}
-                                <div className="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-[2.2rem] overflow-hidden pt-7 relative z-10">
-                                    <div className="absolute inset-0 top-7 w-[400px] h-[850px] origin-top-left scale-[0.65] md:scale-[0.65] xl:scale-[0.70] pointer-events-none select-none">
-                                        <iframe 
-                                            src="/" 
-                                            className="w-full h-full border-none pointer-events-none" 
-                                            scrolling="no" 
-                                            tabIndex={-1}
-                                            title="Website Mobile Preview"
-                                        />
+                                {/* Screen Content: Native App Mockup UI */}
+                                <div className="w-full h-full bg-slate-50 dark:bg-slate-900 flex flex-col pt-12 p-4">
+                                    <div className="flex justify-between items-center mb-6">
+                                        <div>
+                                            <p className="text-slate-900 dark:text-white font-bold text-lg">Hello, Rahul</p>
+                                            <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold">Ready to practice?</p>
+                                        </div>
+                                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">R</div>
                                     </div>
-                                    
-                                    {/* Glass reflection overlay for realism */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none z-20"></div>
+
+                                    <div className="bg-primary rounded-2xl p-4 text-white shadow-lg mb-6 relative overflow-hidden">
+                                        <p className="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Upcoming Exam</p>
+                                        <h4 className="font-extrabold text-xl mb-4">SSC CGL Tier 1</h4>
+                                        <div className="flex gap-4 text-sm font-bold">
+                                            <div>
+                                                <span className="text-2xl font-black">45</span> <span className="opacity-70 text-xs tracking-wider">DAYS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-3">Today's Goals</h4>
+
+                                    <div className="space-y-3">
+                                        {[
+                                            { title: "Daily Current Affairs", status: "10/10 Comp", color: "bg-emerald-500" },
+                                            { title: "Quant Sectional Test", status: "Start", color: "bg-primary" }
+                                        ].map((g, i) => (
+                                            <div key={i} className="bg-white dark:bg-slate-800 rounded-xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-between">
+                                                <div>
+                                                    <p className="text-sm font-bold text-slate-900 dark:text-white">{g.title}</p>
+                                                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">{g.status}</p>
+                                                </div>
+                                                <div className={`w-3 h-3 rounded-full ${g.color}`} />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
 
