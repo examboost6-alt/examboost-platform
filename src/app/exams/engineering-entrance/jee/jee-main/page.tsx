@@ -17,56 +17,56 @@ export default function JeeMainPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 w-full font-sans selection:bg-primary/20 overflow-x-hidden">
 
-      {/* 1. Exam Specific Course Header */}
-      <div className="relative pt-28 pb-16 lg:pt-32 lg:pb-32 bg-slate-900 dark:bg-[#050505] border-b border-slate-800">
+      {/* 1. Exam Specific Course Header (Clean Light UI) */}
+      <div className="relative pt-28 pb-16 lg:pt-36 lg:pb-36 bg-white dark:bg-[#050505] border-b border-slate-200 dark:border-slate-800">
         {/* Subtle Background Elements */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02] dark:opacity-[0.03]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 dark:bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 w-full flex flex-col items-center lg:items-end lg:flex-row gap-12 lg:gap-16">
 
           <div className="flex-1 space-y-6 w-full mt-4 lg:mt-0 lg:pb-6">
             {/* Clean Breadcrumb */}
-            <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-400 mb-8">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500 mb-8">
+              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <Link href="/exams" className="hover:text-white transition-colors">Exams</Link>
+              <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
               <ChevronRight className="w-4 h-4" />
-              <Link href="/exams/engineering-entrance" className="hover:text-white transition-colors">Engineering</Link>
+              <Link href="/exams/engineering-entrance" className="hover:text-primary transition-colors">Engineering</Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-slate-100">JEE Main</span>
+              <span className="text-slate-900 dark:text-slate-100 font-bold">JEE Main</span>
             </div>
 
             <div className="flex items-center gap-3 mb-2">
-              <span className="bg-rose-500/20 text-rose-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-rose-500/30">
+              <span className="bg-rose-50 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-rose-200 dark:border-rose-500/30">
                 Bestseller
               </span>
-              <span className="text-slate-300 text-sm font-bold flex items-center gap-1">
+              <span className="text-slate-600 dark:text-slate-300 text-sm font-bold flex items-center gap-1">
                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" /> 4.9 (12,450 Ratings)
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.2] tracking-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white leading-[1.2] tracking-tight">
               JEE Main 2026: Official NTA Pattern Mock Test Series & Complete Guide
             </h1>
             
-            <p className="text-lg text-slate-300 leading-relaxed font-medium max-w-2xl">
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium max-w-2xl">
               Master the exact exam pattern with our precision mock tests, subject-wise analysis, and step-by-step verified solutions curated by IITians.
             </p>
 
             {/* Exam Quick Meta Info */}
-            <div className="flex flex-wrap gap-8 pt-6 border-t border-slate-800 mt-6">
+            <div className="flex flex-wrap gap-8 pt-6 border-t border-slate-200 dark:border-slate-800 mt-6">
                <div className="flex items-center gap-3">
                   <Target className="w-6 h-6 text-primary" />
-                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Exam Level</p><p className="text-white font-bold text-sm">National (NTA)</p></div>
+                  <div><p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Exam Level</p><p className="text-slate-900 dark:text-white font-bold text-sm">National (NTA)</p></div>
                </div>
                <div className="flex items-center gap-3">
                   <Clock className="w-6 h-6 text-primary" />
-                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Duration</p><p className="text-white font-bold text-sm">180 Mins</p></div>
+                  <div><p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Duration</p><p className="text-slate-900 dark:text-white font-bold text-sm">180 Mins</p></div>
                </div>
                <div className="flex items-center gap-3">
                   <BookOpen className="w-6 h-6 text-primary" />
-                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Total Tests</p><p className="text-white font-bold text-sm">45+ Included</p></div>
+                  <div><p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Total Tests</p><p className="text-slate-900 dark:text-white font-bold text-sm">45+ Included</p></div>
                </div>
             </div>
           </div>
