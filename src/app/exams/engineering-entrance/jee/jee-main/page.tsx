@@ -147,7 +147,7 @@ export default function JeeMainPage() {
       </div>
 
       {/* 3. Main Test Series Call to Action - Moved up before the long guide so it's not missed */}
-      <div id="test-series" className="py-24 bg-white dark:bg-[#020617] relative z-20">
+      <div id="test-series" className="py-24 bg-white dark:bg-[#020617] relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 bg-white dark:bg-[#020617] relative z-10">
             <span className="inline-block py-1.5 px-4 rounded-full bg-rose-50 text-rose-600 font-black tracking-widest uppercase text-xs mb-6 border border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20 shadow-sm">Limited Time Pricing</span>
