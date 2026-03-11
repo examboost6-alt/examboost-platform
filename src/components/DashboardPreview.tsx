@@ -1,88 +1,148 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { MdTimeline, MdNorthEast, MdEmojiEvents, MdBarChart, MdGpsFixed, MdAccessTime, MdLayers, MdFlashOn } from 'react-icons/md';
+import { MdTimeline, MdNorthEast, MdEmojiEvents, MdBarChart, MdGpsFixed, MdAccessTime, MdLayers, MdFlashOn, MdCheckCircle } from 'react-icons/md';
 import Link from 'next/link';
 
 export default function DashboardPreview() {
     return (
-        <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-100 dark:border-slate-800">
+        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-200 dark:border-slate-800">
+            {/* Background embellishments */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+            
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-                <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 text-sm font-bold tracking-widest uppercase text-slate-700 dark:text-slate-300 mb-6"
-                    >
-                        <MdTimeline className="w-5 h-5 text-primary" /> AI-Powered Analytics
-                    </motion.div>
+                
+                {/* 2-Column Layout for Header Section instead of centered text */}
+                <div className="flex flex-col lg:flex-row gap-12 lg:items-center justify-between mb-16 lg:mb-20">
+                    <div className="w-full lg:w-1/2">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 text-sm font-bold tracking-widest uppercase text-slate-700 dark:text-slate-300 mb-6"
+                        >
+                            <MdTimeline className="w-5 h-5 text-primary" /> AI-Powered Analytics
+                        </motion.div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6"
-                    >
-                        Decode Your Performance with <span className="text-primary block mt-2">Forensic Precision</span>
-                    </motion.h2>
+                        <motion.h2
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6"
+                        >
+                            Decode Performance with <span className="text-primary">Forensic Precision</span>
+                        </motion.h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto"
-                    >
-                        Stop practicing blindly. Our proprietary analytics engine dissects your test attempts, exposing hidden weak areas and generating highly personalized study plans to maximize your rank.
-                    </motion.p>
+                        <motion.p
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-8"
+                        >
+                            Stop practicing blindly. Our proprietary analytics engine dissects your test attempts, exposing hidden weak areas and generating highly personalized study plans to maximize your exam rank.
+                        </motion.p>
+
+                        <motion.ul 
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="space-y-4 mb-8"
+                        >
+                            {['Time-Spent Analysis per Sub-Topic', 'National Percentile & Rank Predictor', 'Automated Weakness Revision Playlists'].map((item, idx) => (
+                                <li key={idx} className="flex items-center gap-3">
+                                    <div className="shrink-0 w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                                        <MdCheckCircle className="w-4 h-4" />
+                                    </div>
+                                    <span className="text-slate-800 dark:text-slate-200 font-bold">{item}</span>
+                                </li>
+                            ))}
+                        </motion.ul>
+                    </div>
+
+                    <div className="w-full lg:w-[45%] lg:flex justify-end hidden">
+                        {/* Decorative abstract elements replacing the text description side */}
+                        <div className="relative w-full aspect-square max-w-[400px]">
+                            <motion.div 
+                                animate={{ y: [0, -20, 0] }}
+                                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+                                className="absolute top-0 right-0 w-64 h-64 bg-slate-200 dark:bg-slate-800 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70"
+                            />
+                            <motion.div 
+                                animate={{ x: [0, 20, 0] }}
+                                transition={{ repeat: Infinity, duration: 10, ease: "easeInOut", delay: 1 }}
+                                className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70"
+                            />
+                            {/* Graphic representing data/charts */}
+                            <div className="absolute inset-0 flex items-center justify-center z-10 p-8">
+                                <div className="w-full h-full border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md rounded-3xl p-6 shadow-2xl flex flex-col justify-between">
+                                    <div className="flex gap-4 items-end h-[60%] border-b border-slate-200 dark:border-slate-700 pb-4">
+                                        {[40, 70, 45, 90, 65, 80].map((h, i) => (
+                                            <motion.div 
+                                                key={i}
+                                                initial={{ height: 0 }}
+                                                whileInView={{ height: `${h}%` }}
+                                                transition={{ duration: 1, delay: i * 0.1 }}
+                                                className={`flex-1 rounded-t-md ${i === 3 ? 'bg-primary' : 'bg-slate-200 dark:bg-slate-700'}`}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="h-[30%] flex items-center justify-between">
+                                        <div className="space-y-2 w-full">
+                                            <div className="h-3 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-full" />
+                                            <div className="h-3 w-1/2 bg-slate-200 dark:bg-slate-700 rounded-full" />
+                                        </div>
+                                        <div className="w-12 h-12 rounded-full border-4 border-primary border-r-transparent animate-spin" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Big Dashboard Mockup Container */}
+                {/* Big Dashboard Mockup Container - Restyled and simplified for layout change */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="w-full max-w-5xl mx-auto bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] p-5 md:p-8 lg:p-10 shadow-2xl border border-slate-200 dark:border-slate-700 relative"
+                    viewport={{ once: true }}
+                    className="w-full bg-white dark:bg-slate-900 rounded-[2rem] p-6 md:p-10 shadow-2xl border border-slate-200 dark:border-slate-700/60 relative overflow-hidden"
                 >
                     {/* Header controls mockup */}
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
                         <div className="flex items-center gap-4">
-                            <div className="shrink-0 w-14 h-14 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary font-bold text-xl border border-primary/20">
+                            <div className="shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl border border-primary/20">
                                 RA
                             </div>
                             <div>
                                 <h3 className="font-extrabold text-slate-900 dark:text-white text-xl">Detailed Analysis Report</h3>
-                                <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mt-1">SSC CGL Tier 1 • Full Mock #4</p>
+                                <p className="text-sm font-bold text-slate-500 mt-1">SSC CGL Tier 1 • Full Mock #4</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 w-full sm:w-auto">
-                            <div className="px-5 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex-1 sm:flex-none text-center">Today, 10:30 AM</div>
-                            <div className="px-5 py-2.5 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-foreground text-sm font-bold rounded-xl border border-primary/20 flex items-center justify-center gap-2 cursor-not-allowed">
-                                Share <MdNorthEast className="w-4 h-4" />
-                            </div>
+                            <div className="px-5 py-2.5 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex-1 sm:flex-none text-center">Today, 10:30 AM</div>
                         </div>
                     </div>
 
                     {/* Top Stats Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
                         {[
-                            { label: "Overall Score", value: "152.5", total: "/200", icon: <MdEmojiEvents className="w-6 h-6" />, color: "text-amber-500", bg: "bg-amber-100 dark:bg-amber-900/30" },
-                            { label: "All India Rank", value: "1,204", total: "/2.1L", icon: <MdBarChart className="w-6 h-6" />, color: "text-blue-500", bg: "bg-blue-100 dark:bg-blue-900/30" },
-                            { label: "Total Accuracy", value: "92", total: "%", icon: <MdGpsFixed className="w-6 h-6" />, color: "text-emerald-500", bg: "bg-emerald-100 dark:bg-emerald-900/30" },
-                            { label: "Avg Time/Q", value: "40", total: "s", icon: <MdAccessTime className="w-6 h-6" />, color: "text-purple-500", bg: "bg-purple-100 dark:bg-purple-900/30" }
+                            { label: "Overall Score", value: "152.5", total: "/200", icon: <MdEmojiEvents className="w-6 h-6" />, color: "text-amber-500", border: "border-amber-100 dark:border-amber-900/50" },
+                            { label: "All India Rank", value: "1,204", total: "/2.1L", icon: <MdBarChart className="w-6 h-6" />, color: "text-blue-500", border: "border-blue-100 dark:border-blue-900/50" },
+                            { label: "Total Accuracy", value: "92", total: "%", icon: <MdGpsFixed className="w-6 h-6" />, color: "text-emerald-500", border: "border-emerald-100 dark:border-emerald-900/50" },
+                            { label: "Avg Time/Q", value: "40", total: "s", icon: <MdAccessTime className="w-6 h-6" />, color: "text-purple-500", border: "border-purple-100 dark:border-purple-900/50" }
                         ].map((stat, i) => (
-                            <div key={i} className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
+                            <div key={i} className={`bg-slate-50 dark:bg-slate-800/50 p-6 rounded-[1.5rem] border ${stat.border} flex flex-col justify-between group hover:shadow-lg transition-all duration-300`}>
                                 <div className="flex justify-between items-start mb-6">
-                                    <div className={`w-12 h-12 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shadow-inner`}>
+                                    <div className={`w-12 h-12 bg-white dark:bg-slate-800 rounded-xl ${stat.color} flex items-center justify-center shadow-sm`}>
                                         {stat.icon}
                                     </div>
-                                    <MdNorthEast className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-slate-500 transition-colors" />
+                                    <MdNorthEast className="w-5 h-5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-xs uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-2">{stat.label}</p>
+                                    <p className="text-xs uppercase tracking-widest font-bold text-slate-500 mb-2">{stat.label}</p>
                                     <p className="text-3xl font-black text-slate-900 dark:text-white leading-none">
                                         {stat.value}
                                         <span className="text-sm font-bold opacity-50 ml-1">{stat.total}</span>
@@ -92,28 +152,24 @@ export default function DashboardPreview() {
                         ))}
                     </div>
 
-                    {/* Charts & Details Area */}
-                    <div className="grid lg:grid-cols-3 gap-6">
-
-                        {/* Left Column: Subject wise analysis */}
-                        <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden">
-                            <div className="flex items-center justify-between mb-8">
-                                <h4 className="font-extrabold text-slate-900 dark:text-white text-xl flex items-center gap-2"><MdLayers className="w-6 h-6 text-primary" /> Sectional Breakdown</h4>
-                            </div>
-
-                            <div className="space-y-6">
+                    <div className="grid lg:grid-cols-2 gap-6">
+                        {/* Sectional Breakdown */}
+                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-slate-700/50">
+                            <h4 className="font-extrabold text-slate-900 dark:text-white text-lg mb-6 flex items-center gap-2">
+                                <MdLayers className="w-5 h-5 text-primary" /> Sectional Breakdown
+                            </h4>
+                            <div className="space-y-5">
                                 {[
                                     { name: "General Intelligence & Reasoning", score: 48, total: 50, color: "bg-emerald-500" },
                                     { name: "Quantitative Aptitude", score: 40, total: 50, color: "bg-amber-500" },
                                     { name: "English Comprehension", score: 45, total: 50, color: "bg-blue-500" },
-                                    { name: "General Awareness", score: 19.5, total: 50, color: "bg-rose-500" }
                                 ].map((sub, i) => (
                                     <div key={i}>
-                                        <div className="flex justify-between items-center mb-3">
-                                            <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{sub.name}</span>
-                                            <span className="text-sm font-black text-slate-900 dark:text-white">{sub.score} <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">/{sub.total}</span></span>
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{sub.name}</span>
+                                            <span className="text-sm font-black text-slate-900 dark:text-white">{sub.score}/{sub.total}</span>
                                         </div>
-                                        <div className="w-full h-3 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden shadow-inner">
+                                        <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${(sub.score / sub.total) * 100}%` }}
@@ -126,27 +182,21 @@ export default function DashboardPreview() {
                             </div>
                         </div>
 
-                        {/* Right Column: AI Suggestion */}
-                        <div className="col-span-1 bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-primary/20">
-
-                            <h4 className="font-extrabold text-xl mb-8 flex items-center gap-2"><MdFlashOn className="w-6 h-6 text-yellow-300" /> AI Action Plan</h4>
-
-                            <div className="bg-white/10 rounded-2xl p-5 backdrop-blur-md mb-4 border border-white/20">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-2">Weakness Detected</p>
-                                <p className="font-black text-white text-lg">General Awareness (Current Affairs)</p>
-                                <p className="text-sm mt-2 text-white/80 font-medium">You lost 12 marks here. Accuracy is only 35%.</p>
+                        {/* AI Action Plan */}
+                        <div className="bg-primary hover:bg-primary/95 transition-colors rounded-2xl p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-primary/20 flex flex-col justify-center cursor-pointer group">
+                            {/* Decorative background logo/icon */}
+                            <MdFlashOn className="absolute -right-10 -top-10 w-48 h-48 text-white/5 rotate-12" />
+                            
+                            <h4 className="font-extrabold text-2xl mb-2 flex items-center gap-2 relative z-10">
+                                <MdFlashOn className="w-8 h-8 text-yellow-300" /> AI Action Plan Ready
+                            </h4>
+                            <p className="text-primary-foreground/80 font-medium mb-8 max-w-sm relative z-10">
+                                We've identified 3 weak chapters costing you 12 marks. Watch the recommended 20-min revision modules to fix them.
+                            </p>
+                            
+                            <div className="relative z-10 flex items-center gap-4 bg-white text-primary font-black py-4 px-6 rounded-xl w-fit group-hover:scale-105 transition-transform shadow-lg">
+                                Start Revision Module <MdNorthEast className="w-5 h-5" />
                             </div>
-
-                            <div className="bg-white/10 rounded-2xl p-5 backdrop-blur-md border border-white/20">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-2">Recommended Course</p>
-                                <p className="font-black text-white text-lg">Watch 2x Revision Video</p>
-                                <p className="text-sm mt-2 text-white/80 font-medium">Clear backlogs from last 3 months to secure +15 marks.</p>
-                            </div>
-
-                            <Link href="/exams" className="block w-full mt-6 py-4 bg-white text-primary font-black text-center rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                                Watch Video Now
-                            </Link>
-
                         </div>
                     </div>
                 </motion.div>
