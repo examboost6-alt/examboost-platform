@@ -19,21 +19,21 @@ export default function TrustIndicators() {
                 <div className="mb-16">
                     <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Trusted by Aspirants Preparing For</p>
                     <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 lg:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                        {/* Real logos with fallback styles */}
+                        {/* Real logos securely loaded locally */}
                         <div className="h-12 w-auto flex items-center justify-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/National_Testing_Agency_logo.png" alt="NTA" className="max-h-full object-contain" />
+                            <img src="/logos/nta.png" alt="NTA" className="max-h-full object-contain" />
                         </div>
                         <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Staff_Selection_Commission_Logo.svg/1024px-Staff_Selection_Commission_Logo.svg.png" alt="SSC" className="max-h-full object-contain" />
+                            <img src="/logos/ssc.png" alt="SSC" className="max-h-full object-contain" />
                         </div>
                         <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/UPSC_Logo.svg/1024px-UPSC_Logo.svg.png" alt="UPSC" className="max-h-full object-contain" />
+                            <img src="/logos/upsc.png" alt="UPSC" className="max-h-full object-contain" />
                         </div>
                         <div className="flex items-center gap-2 font-black text-2xl text-slate-800 dark:text-white">
-                            <img src="https://www.ibps.in/wp-content/uploads/2023/10/IBPS_logo-transparent-white-bg-300x126.png" alt="IBPS" className="h-10 object-contain mix-blend-multiply dark:mix-blend-lighten filter dark:invert" />
+                            <img src="/logos/ibps.png" alt="IBPS" className="h-10 object-contain mix-blend-multiply dark:mix-blend-lighten filter dark:invert" />
                         </div>
                         <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Railways_logo.svg/1200px-Indian_Railways_logo.svg.png" alt="RRB" className="max-h-full object-contain" />
+                            <img src="/logos/rrb.png" alt="RRB" className="max-h-full object-contain" />
                         </div>
                     </div>
                 </div>
