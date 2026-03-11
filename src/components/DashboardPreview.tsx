@@ -15,7 +15,7 @@ export default function DashboardPreview() {
                         viewport={{ once: true }}
                         className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 text-sm font-bold tracking-widest uppercase text-slate-700 dark:text-slate-300 mb-6"
                     >
-                        <MdTimeline className="w-5 h-5 text-primary" /> Actionable Analytics
+                        <MdTimeline className="w-5 h-5 text-primary" /> AI-Powered Analytics
                     </motion.div>
 
                     <motion.h2
@@ -25,7 +25,7 @@ export default function DashboardPreview() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6"
                     >
-                        Track Your Improvement with <span className="text-primary block mt-2">Smart Analytics</span>
+                        Decode Your Performance with <span className="text-primary block mt-2">Forensic Precision</span>
                     </motion.h2>
 
                     <motion.p
@@ -33,9 +33,9 @@ export default function DashboardPreview() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto"
+                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto"
                     >
-                        Get deep AI-driven insights into your mock tests. Monitor your speed, accuracy, and subject-wise strength visually to guarantee selection.
+                        Stop practicing blindly. Our proprietary analytics engine dissects your test attempts, exposing hidden weak areas and generating highly personalized study plans to maximize your rank.
                     </motion.p>
                 </div>
 
