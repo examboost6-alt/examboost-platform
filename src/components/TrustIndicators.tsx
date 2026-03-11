@@ -15,32 +15,6 @@ export default function TrustIndicators() {
         <section className="py-16 bg-white dark:bg-[#0B1120] relative z-10 border-t border-slate-200 dark:border-slate-800/50">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 
-                {/* Exam Board / Partner Strip with Real Logos */}
-                <div className="mb-16">
-                    <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Trusted by Aspirants Preparing For</p>
-                    <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 lg:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                        {/* Real logos sourced from official websites */}
-                        <div className="h-12 w-auto flex items-center justify-center">
-                            <img src="https://nta.ac.in/img/National_Testing_Agency_logo.png" alt="NTA" className="max-h-full object-contain" onError={(e) => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/en/e/e0/National_Testing_Agency_logo.png" }} />
-                        </div>
-                        <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://ssc.gov.in/assets/images/ssc-logo.png" alt="SSC" className="max-h-full object-contain" onError={(e) => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Staff_Selection_Commission_Logo.svg/1024px-Staff_Selection_Commission_Logo.svg.png" }} />
-                        </div>
-                        <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://upsc.gov.in/sites/all/themes/upsc/images/upsc_logo.png" alt="UPSC" className="max-h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="font-black text-3xl">UPSC</span>' }} />
-                        </div>
-                        <div className="flex items-center gap-2 font-black text-2xl text-slate-800 dark:text-white">
-                            <img src="https://www.ibps.in/wp-content/uploads/2023/10/IBPS_logo-transparent-white-bg-300x126.png" alt="IBPS" className="h-10 object-contain mix-blend-multiply dark:mix-blend-lighten filter dark:invert" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="font-black text-3xl">IBPS</span>' }} />
-                        </div>
-                        <div className="h-16 w-auto flex items-center justify-center -my-2">
-                            <img src="https://indianrailways.gov.in/railwayboard/images/IR_Logo_0.png" alt="RRB" className="max-h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="font-black italic text-3xl">RRB</span>' }} />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Divider */}
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent mb-16"></div>
-
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 gap-y-12 max-w-5xl mx-auto">
                     {stats.map((stat, idx) => (
                         <motion.div
