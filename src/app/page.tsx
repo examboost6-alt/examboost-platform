@@ -15,6 +15,7 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-transparent font-sans selection:bg-primary/30 relative overflow-hidden flex flex-col">
             <Hero />
+            <TrustIndicators />
             <Banners />
             <Categories />
             <PopularExams />
@@ -25,7 +26,6 @@ export default function Home() {
             <Testimonials />
             <AppPromo />
             <BlogSection />
-            <TrustIndicators />
         </div>
     );
 }
