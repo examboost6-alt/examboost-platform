@@ -165,7 +165,7 @@ export default function JeeTestSeriesCards({ examName = 'JEE Main' }: { examName
 
             {/* Premium Detail Modal Overlay */}
             {selectedPackage && (
-                <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-sm bg-slate-900/60 dark:bg-slate-950/80 transition-all duration-300">
+                <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-sm bg-slate-900/60 dark:bg-slate-950/80 transition-all duration-300">
                     {/* Click outside to close */}
                     <div className="absolute inset-0 cursor-pointer" onClick={() => setSelectedPackage(null)}></div>
                     

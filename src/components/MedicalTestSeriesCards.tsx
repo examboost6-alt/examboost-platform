@@ -169,25 +169,37 @@ export default function MedicalTestSeriesCards({ examName = 'NEET UG' }: { examN
 
             {/* Premium Detail Modal Overlay */}
             {selectedPackage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md bg-slate-900/60 dark:bg-slate-950/80 transition-all duration-300 overflow-y-auto">
-                    <div className="bg-white dark:bg-slate-900 rounded-[2rem] w-full max-w-5xl max-h-[95vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 animate-in fade-in zoom-in-95 duration-200 mt-auto mb-auto sm:my-auto">
+                <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-sm bg-slate-900/60 dark:bg-slate-950/80 transition-all duration-300">
+                    {/* Click outside to close */}
+                    <div className="absolute inset-0 cursor-pointer" onClick={() => setSelectedPackage(null)}></div>
+                    
+                    <div className="bg-white dark:bg-slate-900 w-full max-w-5xl max-h-[90vh] md:max-h-[85vh] flex flex-col rounded-t-[2rem] sm:rounded-[2rem] shadow-2xl relative z-10 animate-in slide-in-from-bottom-8 sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-300">
 
                         {/* Modal Header */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 gap-4">
-                            <div>
-                                <div className="flex items-center gap-3 mb-1">
-                                    <h3 className="text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-5 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 rounded-t-[2rem] gap-4 shrink-0 relative">
+                            {/* Mobile close button (top right absolute) */}
+                            <button
+                                onClick={() => setSelectedPackage(null)}
+                                className="sm:hidden absolute top-5 right-5 p-2 bg-slate-200 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-400"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+
+                            <div className="pr-10 sm:pr-0">
+                                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-1.5">
+                                    <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
                                         {packages[selectedPackage].name}
                                     </h3>
-                                    {selectedPackage === 'ultimate' && <span className="text-xs bg-rose-600 shadow-rose-600/30 text-white px-3 py-1 rounded-full font-bold uppercase tracking-wider shadow-sm">Pro Package</span>}
+                                    {selectedPackage === 'ultimate' && <span className="text-[10px] md:text-xs inline-flex bg-rose-600 text-white px-2.5 py-1 rounded-full font-bold uppercase tracking-wider shadow-sm">Pro Package</span>}
                                 </div>
-                                <p className="text-slate-500 font-medium">{packages[selectedPackage].description}</p>
+                                <p className="text-sm md:text-base text-slate-500 font-medium line-clamp-2 md:line-clamp-none">{packages[selectedPackage].description}</p>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="text-rose-600 dark:text-rose-400 font-black text-3xl">{packages[selectedPackage].price}</div>
+
+                            <div className="flex items-center justify-between sm:justify-end gap-6 sm:gap-4 border-t sm:border-t-0 border-slate-200 dark:border-slate-700 pt-4 sm:pt-0 mt-2 sm:mt-0">
+                                <div className="text-rose-600 dark:text-rose-400 font-black text-3xl md:text-4xl">{packages[selectedPackage].price}</div>
                                 <button
                                     onClick={() => setSelectedPackage(null)}
-                                    className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 transition-colors shadow-sm ml-auto sm:ml-0"
+                                    className="hidden sm:flex p-2.5 bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 transition-colors shadow-sm shrink-0"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
@@ -195,94 +207,97 @@ export default function MedicalTestSeriesCards({ examName = 'NEET UG' }: { examN
                         </div>
 
                         {/* Modal Body - Detailed Breakdown */}
-                        <div className="flex-1 overflow-y-auto overflow-x-hidden w-full custom-scrollbar">
-                            <div className="grid grid-cols-1 lg:grid-cols-12 max-w-none w-full m-0 p-0">
+                        <div className="flex-1 overflow-y-auto w-full custom-scrollbar">
+                            <div className="flex flex-col lg:flex-row w-full m-0 p-0">
 
-                                {/* Very Detailed Papers Table/Grid Column */}
-                                <div className="lg:col-span-7 border-r border-slate-100 dark:border-slate-800 p-6 md:p-8 bg-white dark:bg-slate-950 space-y-8">
+                                {/* Left Column: Detailed Papers */}
+                                <div className="lg:w-7/12 border-b lg:border-b-0 lg:border-r border-slate-100 dark:border-slate-800 p-5 md:p-8 bg-white dark:bg-slate-950">
+                                    <h4 className="flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-5 md:mb-6">
+                                        <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-rose-600 dark:text-rose-400" /> Included Content
+                                    </h4>
 
-                                    <div>
-                                        <h4 className="flex items-center gap-2 text-xl font-bold text-slate-900 dark:text-white mb-6">
-                                            <BookOpen className="w-6 h-6 text-rose-600 dark:text-rose-400" /> Detailed Testing Material Breakdown
-                                        </h4>
-
-                                        <div className="space-y-4">
-                                            {packages[selectedPackage].detailedPapers.map((paper, idx) => (
-                                                <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
-                                                    <div className="w-16 h-16 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center shrink-0">
-                                                        <div className="text-xl font-black text-rose-600 dark:text-rose-400 leading-none">{paper.count}</div>
-                                                        <div className="text-[10px] font-bold text-slate-500 uppercase mt-1">Tests</div>
-                                                    </div>
-                                                    <div>
-                                                        <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{paper.title}</h5>
-                                                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{paper.detail}</p>
-                                                    </div>
+                                    <div className="space-y-4">
+                                        {packages[selectedPackage].detailedPapers.map((paper, idx) => (
+                                            <div key={idx} className="flex gap-4 p-4 md:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+                                                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center shrink-0 shadow-sm">
+                                                    <div className="text-xl md:text-2xl font-black text-rose-600 dark:text-rose-400 leading-none">{paper.count}</div>
+                                                    <div className="text-[9px] md:text-[10px] font-bold text-slate-500 uppercase mt-1">Tests</div>
                                                 </div>
-                                            ))}
-                                        </div>
-
-                                        {/* Exam Interface Teaser inside modal */}
-                                        <div className="mt-8 p-6 bg-rose-50 dark:bg-rose-900/10 rounded-2xl border border-rose-100 dark:border-rose-900/50 flex gap-4">
-                                            <Layers className="w-8 h-8 text-rose-500 shrink-0" />
-                                            <div>
-                                                <h5 className="font-bold text-slate-900 dark:text-white mb-1">Authentic NTA OMR / CBT Interface</h5>
-                                                <p className="text-sm text-slate-600 dark:text-slate-400">All tests are conducted strictly on an interface that perfectly simulates the real test player, complete with 180 mins limits and updated 180-mandatory-questions logic.</p>
+                                                <div>
+                                                    <h5 className="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-1">{paper.title}</h5>
+                                                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{paper.detail}</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        ))}
                                     </div>
 
+                                    {/* Mock Exam Teaser Banner */}
+                                    <div className="mt-6 md:mt-8 p-4 md:p-5 bg-rose-50 dark:bg-rose-900/10 rounded-2xl border border-rose-100 dark:border-rose-900/50 flex gap-3 md:gap-4 items-start">
+                                        <Layers className="w-6 h-6 md:w-8 md:h-8 text-rose-500 shrink-0 mt-0.5" />
+                                        <div>
+                                            <h5 className="text-sm md:text-base font-bold text-slate-900 dark:text-white mb-1">Authentic NTA OMR / CBT Interface</h5>
+                                            <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">All tests are conducted strictly on an interface that perfectly simulates the real test player, complete with 180 mins limits and updated 180-mandatory-questions logic.</p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                {/* Features & Specs Column */}
-                                <div className="lg:col-span-5 p-6 md:p-8 bg-slate-50/50 dark:bg-slate-900/30 space-y-8">
-
-                                    {/* Advanced Features List */}
-                                    <div>
-                                        <h4 className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white mb-5">
-                                            <Target className="w-5 h-5 text-rose-600 dark:text-rose-400" /> Analysis & Solutions
+                                {/* Right Column: Features & Specs */}
+                                <div className="lg:w-5/12 p-5 md:p-8 bg-slate-50/50 dark:bg-slate-900/30">
+                                    <div className="mb-8">
+                                        <h4 className="flex items-center gap-2 text-base md:text-lg font-bold text-slate-900 dark:text-white mb-4">
+                                            <Target className="w-4 h-4 md:w-5 md:h-5 text-rose-600 dark:text-rose-400" /> Key Features
                                         </h4>
-                                        <ul className="space-y-5">
+                                        <ul className="space-y-4 md:space-y-5">
                                             {packages[selectedPackage].features.map((feature, idx) => (
-                                                <li key={idx} className="flex gap-4">
-                                                    <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
-                                                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-500" />
+                                                <li key={idx} className="flex gap-3 md:gap-4">
+                                                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0 mt-0.5">
+                                                        <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-green-600 dark:text-green-500" />
                                                     </div>
                                                     <div>
-                                                        <span className="block font-bold text-slate-900 dark:text-white">{feature.title}</span>
-                                                        <span className="text-sm text-slate-600 dark:text-slate-400 mt-1 block">{feature.detail}</span>
+                                                        <span className="block text-sm md:text-base font-bold text-slate-900 dark:text-white">{feature.title}</span>
+                                                        <span className="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-0.5 md:mt-1 block leading-relaxed">{feature.detail}</span>
                                                     </div>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
 
-                                    {/* Platform Features Grid */}
-                                    <div>
-                                        <h4 className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white mb-4">
-                                            <Award className="w-5 h-5 text-rose-600 dark:text-rose-400" /> Platform Features
+                                    <div className="mb-8">
+                                        <h4 className="flex items-center gap-2 text-base md:text-lg font-bold text-slate-900 dark:text-white mb-3 md:mb-4">
+                                            <Award className="w-4 h-4 md:w-5 md:h-5 text-rose-600 dark:text-rose-400" /> Platform Highlights
                                         </h4>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                                             {packages[selectedPackage].otherFeatures.map((feat, idx) => (
-                                                <div key={idx} className="flex items-center gap-2 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm text-sm font-semibold text-slate-700 dark:text-slate-300">
-                                                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0" /> {feat}
+                                                <div key={idx} className="flex items-center gap-1.5 md:gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 w-full">
+                                                    <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-500 shrink-0" /> {feat}
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
 
+                                    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded-xl shadow-sm">
+                                        <h4 className="text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">Best Suited For</h4>
+                                        <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                            {packages[selectedPackage].bestFor.map((tag, idx) => (
+                                                <span key={idx} className="px-2.5 py-1.5 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md text-[10px] md:text-xs font-bold border border-slate-200 dark:border-slate-700">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Modal Footer */}
-                        <div className="p-4 sm:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.05)] rounded-b-[2rem]">
-                            <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 text-sm font-medium w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
-                                <span className="flex items-center gap-1.5 shrink-0"><Calendar className="w-4 h-4 text-slate-400" /> Validity till {examName} 2026</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0 hidden sm:block"></span>
-                                <span className="flex items-center gap-1.5 shrink-0"><Clock className="w-4 h-4 text-slate-400" /> Instant Access</span>
+                        <div className="p-4 md:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0 rounded-b-[2rem]">
+                            <div className="flex items-center gap-2 sm:gap-3 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium w-full sm:w-auto justify-center sm:justify-start">
+                                <span className="flex items-center gap-1 md:gap-1.5"><Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-400" /> Validity: {examName} '26</span>
+                                <span className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+                                <span className="flex items-center gap-1 md:gap-1.5"><Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-400" /> Instant Access</span>
                             </div>
-                            <button className="w-full sm:w-auto flex items-center justify-center gap-2 py-4 px-10 rounded-xl font-bold text-lg bg-rose-600 hover:bg-rose-700 shadow-rose-600/30 text-white transition-transform hover:-translate-y-1 shadow-lg shrink-0">
-                                <ShoppingCart className="w-6 h-6" /> Proceed to Buy Now
+                            <button className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 md:py-4 px-8 md:px-12 rounded-xl font-bold text-base md:text-lg bg-rose-600 hover:bg-rose-700 text-white transition-transform hover:-translate-y-1 shadow-md shrink-0">
+                                <ShoppingCart className="w-5 h-5" /> Buy Now
                             </button>
                         </div>
 
