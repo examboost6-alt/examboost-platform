@@ -106,11 +106,11 @@ export default function Hero() {
                             <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-primary/20 blur-[80px] rounded-full" />
                             <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-accent/20 blur-[80px] rounded-full" />
 
-                            {/* Floating Mockup Card 1: Score Card */}
+                            {/* Floating Mockup Card 1: Score Card (Hidden on Mobile) */}
                             <motion.div 
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                                className="absolute top-10 right-4 sm:right-10 bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 w-48 sm:w-64 z-20"
+                                className="hidden sm:block absolute top-10 right-4 sm:right-10 bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 w-48 sm:w-64 z-20"
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
@@ -127,29 +127,31 @@ export default function Hero() {
                                 <div className="text-[10px] text-slate-400 mt-2 text-right font-medium">Top 2% Percentile</div>
                             </motion.div>
 
-                            {/* Floating Mockup Card 2: Live Class */}
+                            {/* Floating Mockup Card 2: Live Class (Prominent Video Player on Mobile) */}
                             <motion.div 
                                 animate={{ y: [0, 15, 0] }}
                                 transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-12 left-4 sm:left-6 bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-700 w-56 sm:w-72 z-30"
+                                className="absolute inset-4 sm:inset-auto sm:bottom-12 sm:left-6 flex flex-col justify-center bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-3xl sm:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-700 w-auto sm:w-72 z-30"
                             >
-                                <div className="w-full h-24 sm:h-32 bg-slate-100 dark:bg-slate-700 rounded-xl mb-3 relative overflow-hidden group">
+                                <div className="w-full aspect-[16/9] sm:h-32 bg-slate-100 dark:bg-slate-700 rounded-2xl sm:rounded-xl mb-3 relative overflow-hidden group">
                                     <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2670&auto=format&fit=crop" alt="Live Class" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                                        <div className="w-10 h-10 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center">
-                                            <MdPlayCircleFilled className="w-6 h-6 text-white" />
+                                        <div className="w-12 h-12 sm:w-10 sm:h-10 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white/40 transition-colors">
+                                            <MdPlayCircleFilled className="w-8 h-8 sm:w-6 sm:h-6 text-white shadow-sm" />
                                         </div>
                                     </div>
-                                    <div className="absolute top-2 left-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                                    <div className="absolute top-3 left-3 sm:top-2 sm:left-2 bg-rose-500 text-white text-[10px] sm:text-[10px] font-bold px-2 py-1 sm:py-0.5 rounded flex items-center gap-1.5 sm:gap-1">
+                                        <span className="w-1.5 h-1.5 sm:w-1.5 sm:h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
                                     </div>
                                 </div>
-                                <div className="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1 truncate">Complete Quant Strategy</div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400">By Rahul Sir • 1.2k watching</div>
+                                <div className="px-1">
+                                    <div className="font-bold text-slate-900 dark:text-white text-base mb-1 truncate">Complete Quant Strategy</div>
+                                    <div className="text-xs text-slate-500 dark:text-slate-400">By Rahul Sir • 1.2k watching</div>
+                                </div>
                             </motion.div>
 
-                            {/* Base Image underneath */}
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2670&auto=format&fit=crop" alt="Student studying" className="w-full h-full object-cover opacity-60 dark:opacity-40 mix-blend-overlay" />
+                            {/* Base Image underneath (Hidden on Mobile) */}
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2670&auto=format&fit=crop" alt="Student studying" className="hidden sm:block w-full h-full object-cover opacity-60 dark:opacity-40 mix-blend-overlay" />
                         
                         </div>
                     </motion.div>
