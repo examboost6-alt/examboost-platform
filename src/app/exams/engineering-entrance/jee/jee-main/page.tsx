@@ -17,125 +17,105 @@ export default function JeeMainPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 w-full font-sans selection:bg-primary/20 overflow-x-hidden">
 
-      {/* 1. High-Converting Trust Hero Section (Clean Light UI) */}
-      <div className="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 w-full">
+      {/* 1. Exam Specific Course Header */}
+      <div className="relative pt-28 pb-16 lg:pt-32 lg:pb-32 bg-slate-900 dark:bg-[#050505] border-b border-slate-800">
+        {/* Subtle Background Elements */}
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
 
-          {/* Clean Breadcrumb */}
-          <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500 mb-8 md:mb-12">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <Link href="/exams/engineering-entrance" className="hover:text-primary transition-colors">Engineering</Link>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <span className="text-slate-900 dark:text-white font-bold">JEE Main</span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 w-full flex flex-col items-center lg:items-end lg:flex-row gap-12 lg:gap-16">
+
+          <div className="flex-1 space-y-6 w-full mt-4 lg:mt-0 lg:pb-6">
+            {/* Clean Breadcrumb */}
+            <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-400 mb-8">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <ChevronRight className="w-4 h-4" />
+              <Link href="/exams" className="hover:text-white transition-colors">Exams</Link>
+              <ChevronRight className="w-4 h-4" />
+              <Link href="/exams/engineering-entrance" className="hover:text-white transition-colors">Engineering</Link>
+              <ChevronRight className="w-4 h-4" />
+              <span className="text-slate-100">JEE Main</span>
+            </div>
+
+            <div className="flex items-center gap-3 mb-2">
+              <span className="bg-rose-500/20 text-rose-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-rose-500/30">
+                Bestseller
+              </span>
+              <span className="text-slate-300 text-sm font-bold flex items-center gap-1">
+                <Star className="w-4 h-4 fill-amber-400 text-amber-400" /> 4.9 (12,450 Ratings)
+              </span>
+            </div>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.2] tracking-tight">
+              JEE Main 2026: Official NTA Pattern Mock Test Series & Complete Guide
+            </h1>
+            
+            <p className="text-lg text-slate-300 leading-relaxed font-medium max-w-2xl">
+              Master the exact exam pattern with our precision mock tests, subject-wise analysis, and step-by-step verified solutions curated by IITians.
+            </p>
+
+            {/* Exam Quick Meta Info */}
+            <div className="flex flex-wrap gap-8 pt-6 border-t border-slate-800 mt-6">
+               <div className="flex items-center gap-3">
+                  <Target className="w-6 h-6 text-primary" />
+                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Exam Level</p><p className="text-white font-bold text-sm">National (NTA)</p></div>
+               </div>
+               <div className="flex items-center gap-3">
+                  <Clock className="w-6 h-6 text-primary" />
+                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Duration</p><p className="text-white font-bold text-sm">180 Mins</p></div>
+               </div>
+               <div className="flex items-center gap-3">
+                  <BookOpen className="w-6 h-6 text-primary" />
+                  <div><p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Total Tests</p><p className="text-white font-bold text-sm">45+ Included</p></div>
+               </div>
+            </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 w-full">
-
-            {/* Left Content Column - Aggressive Sales Copy */}
-            <div className="flex-1 space-y-8 w-full order-1 text-center lg:text-left">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2.5 mx-auto lg:mx-0">
-                  <span className="bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400 px-3 py-1.5 rounded-lg text-xs font-black tracking-widest border border-rose-200 dark:border-rose-500/20 shadow-sm flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" /> Bestseller
-                  </span>
-                  <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg text-xs font-black tracking-widest border border-slate-200 dark:border-slate-700 shadow-sm">
-                    Updated for 2026 NTA Pattern
-                  </span>
+          {/* Right Column - Enrollment / Exam Card (Floating effect) */}
+          <div className="w-full lg:w-[400px] shrink-0 relative lg:-mb-48 z-20">
+             <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+                {/* Test Series Thumbnail / Graphic */}
+                <div className="aspect-[16/7] bg-slate-100 dark:bg-slate-800 flex items-center justify-center relative overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-blue-600/10"></div>
+                   <h3 className="text-3xl font-black text-primary dark:text-accent drop-shadow-sm rotate-[-2deg]">ExamBoost</h3>
+                   <div className="absolute bottom-3 right-3 bg-slate-900/80 text-white backdrop-blur px-2 py-1 text-xs font-bold rounded">Updated for '26</div>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-                  Stop Practicing Blindly.<br />
-                  Get the <span className="text-primary underline decoration-primary/30 underline-offset-8">Exact NTA Level</span> Mock Tests.
-                </h1>
-                
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium mx-auto lg:mx-0 max-w-2xl">
-                  92% of students fail because they practice irrelevant questions on outdated interfaces. Our test series perfectly clones the JEE Main difficulty, distribution, and CBT UI to guarantee your 99+ percentile.
-                </p>
-              </div>
+                <div className="p-6 md:p-8">
+                   <div className="flex items-baseline gap-2 mb-6">
+                      <span className="text-4xl font-black text-slate-900 dark:text-white">₹799</span>
+                      <span className="text-sm font-bold text-slate-400 line-through">₹2499</span>
+                      <span className="ml-auto bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded text-xs font-bold border border-green-200 dark:border-green-800">-68% OFF</span>
+                   </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-                <a href="#test-series" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4.5 rounded-xl font-black text-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(225,29,72,0.5)]">
-                  Enroll in Test Series <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="#complete-guide" className="bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 px-8 py-4.5 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 w-full sm:w-auto">
-                  View Free Guide
-                </a>
-              </div>
+                   <div className="space-y-3 mb-8">
+                      <a href="#test-series" className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/30 active:scale-95 text-center text-lg">
+                         View Packages
+                      </a>
+                      <a href="#test-series" className="w-full flex items-center justify-center bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-bold py-4 rounded-xl transition-all">
+                         Try Free Mock Test
+                      </a>
+                   </div>
 
-              {/* Concrete Trust Metrics */}
-              <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12">
-                 <div className="flex flex-col gap-1">
-                    <div className="text-3xl font-black text-slate-900 dark:text-white">14L+</div>
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aspirants</div>
-                 </div>
-                 <div className="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
-                 <div className="flex flex-col gap-1">
-                    <div className="text-3xl font-black text-slate-900 dark:text-white">30k+</div>
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Selections</div>
-                 </div>
-                 <div className="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
-                 <div className="flex flex-col gap-1">
-                    <div className="text-3xl font-black text-slate-900 dark:text-white flex items-center gap-1">4.9 <Star className="w-5 h-5 fill-amber-400 text-amber-400"/></div>
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Student Rating</div>
-                 </div>
-              </div>
-            </div>
-
-            {/* Right Column - Premium Clean App Mockup showing high value */}
-            <div className="flex-1 w-full relative order-2 lg:max-w-lg mx-auto">
-              <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-none border border-slate-200 dark:border-slate-800 p-8 relative overflow-hidden">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
-                 
-                 <div className="mb-6 flex justify-between items-center">
-                    <h3 className="font-bold text-slate-900 dark:text-white text-lg">Your Potential Dashboard</h3>
-                    <div className="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <TrendingUp className="w-3.5 h-3.5" /> AIR 14,203
-                    </div>
-                 </div>
-
-                 <div className="space-y-4 relative z-10">
-                    <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-100 dark:border-slate-700">
-                       <div className="flex justify-between items-end mb-2">
-                          <span className="text-sm font-bold text-slate-500 dark:text-slate-400">Current Readiness</span>
-                          <span className="text-2xl font-black text-primary">82%</span>
-                       </div>
-                       <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                          <div className="w-[82%] h-full bg-primary rounded-full"></div>
-                       </div>
-                    </div>
-
-                    <div className="bg-rose-50 dark:bg-rose-900/20 rounded-2xl p-5 border border-rose-100 dark:border-rose-900/50">
-                       <div className="flex gap-4">
-                          <div className="w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center shrink-0">
-                             <AlertCircle className="w-5 h-5 text-rose-600 dark:text-rose-400" />
-                          </div>
-                          <div>
-                             <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Rotational Dynamics is weak</h4>
-                             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Our AI detected you waste 3.5 mins/question here. Practice specific rotational mock tests to improve.</p>
-                          </div>
-                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700">
-                          <Clock className="w-5 h-5 text-slate-400 mb-2" />
-                          <div className="text-lg font-black text-slate-900 dark:text-white mb-0.5">2.1 mins</div>
-                          <div className="text-[10px] font-bold text-slate-500 uppercase">Avg Time/Q</div>
-                       </div>
-                       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700">
-                          <Target className="w-5 h-5 text-slate-400 mb-2" />
-                          <div className="text-lg font-black text-slate-900 dark:text-white mb-0.5">+45 Marks</div>
-                          <div className="text-[10px] font-bold text-slate-500 uppercase">Proj. Improvement</div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-            </div>
-
+                   <div className="space-y-4">
+                      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Package Includes</h4>
+                      <div className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                         <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" /> 20 Full Length NTA Mocks
+                      </div>
+                      <div className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                         <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" /> 25 Chapter-wise Concept Tests
+                      </div>
+                      <div className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                         <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" /> Step-by-step Detailed Solutions
+                      </div>
+                      <div className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                         <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" /> AI Priority Rank Predictor
+                      </div>
+                   </div>
+                </div>
+             </div>
           </div>
+
         </div>
       </div>
 
