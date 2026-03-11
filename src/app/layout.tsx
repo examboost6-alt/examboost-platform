@@ -59,12 +59,39 @@ export default function RootLayout({
 }: {
     children: ReactNode;
 }) {
+    const jsonLdOrganization = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'ExamBoost',
+        url: 'https://www.examboost.in',
+        logo: 'https://www.examboost.in/logo.png',
+    };
+
+    const jsonLdWebsite = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'ExamBoost',
+        url: 'https://www.examboost.in',
+    };
+
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(jsonLdOrganization),
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(jsonLdWebsite),
+                    }}
+                />
             </head>
             <body className="antialiased font-sans">
                 <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
