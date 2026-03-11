@@ -165,35 +165,61 @@ export default function EngineeringEntrancePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Choose Your Target Exam</h2>
-            <p className="text-slate-600 dark:text-slate-400">Specialized mock tests tailored to the exact syllabus and difficulty level of each exam.</p>
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Specialized mock tests tailored to the exact syllabus and difficulty level of each exam.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {popularExams.map((exam, idx) => (
               <Link
                 key={idx}
                 href={exam.href}
-                className="group bg-white dark:bg-slate-900 flex flex-col sm:flex-row items-center sm:items-stretch gap-6 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:shadow-lg transition-all duration-200"
+                className="group bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden"
               >
-                <div className={`w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl flex items-center justify-center ${exam.bg} ${exam.color}`}>
-                  <Award className="w-10 h-10" />
-                </div>
-                <div className="flex-1 text-center sm:text-left flex flex-col justify-center">
-                  <div className="flex items-center justify-center sm:justify-start gap-3 mb-1">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{exam.name}</h3>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                      {exam.tests}+ Tests
-                    </span>
+                {/* Decorative background element for slight visual lift */}
+                <div className={`absolute top-0 right-0 w-40 h-40 ${exam.bg} opacity-20 dark:opacity-[0.03] rounded-bl-[100px] -z-0 transition-transform group-hover:scale-110`} />
+
+                <div className="flex items-start gap-4 sm:gap-6 mb-6 relative z-10">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-[1.2rem] flex items-center justify-center ${exam.bg} ${exam.color}`}>
+                    <Award className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-3 block">{exam.fullName}</p>
-                  
-                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs font-semibold text-slate-600 dark:text-slate-400 mt-2">
-                    <span className="flex items-center gap-1.5"><ClipboardList className="w-4 h-4" /> {exam.pattern}</span>
+                  <div className="flex-1 pt-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{exam.name}</h3>
+                       <span className="self-start sm:self-auto px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 whitespace-nowrap">
+                         {exam.tests}+ Tests
+                       </span>
+                    </div>
+                    <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{exam.fullName}</p>
                   </div>
                 </div>
-                <div className="hidden sm:flex items-center justify-center px-4">
-                  <div className="w-10 h-10 rounded-full border-2 border-slate-100 dark:border-slate-800 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-white text-slate-400 transition-all">
-                    <ArrowRight className="w-5 h-5" />
+
+                <div className="mb-6 relative z-10">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
+                    {exam.desc}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50 relative z-10 flex-grow">
+                   <div>
+                      <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-2">Exam Pattern</p>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <ClipboardList className="w-4 h-4 text-primary" /> {exam.pattern}
+                      </p>
+                   </div>
+                   <div>
+                      <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-2">Key Subjects</p>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        {exam.subjects.map((sub, i) => (
+                          <span key={i} className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700">{sub}</span>
+                        ))}
+                      </div>
+                   </div>
+                </div>
+
+                {/* Explicit Desktop and Mobile Action Button */}
+                <div className="mt-auto relative z-10 w-full">
+                  <div className="w-full flex items-center justify-center gap-2 py-4 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-200 font-bold rounded-xl transition-colors duration-300 text-sm sm:text-base border border-slate-200 dark:border-slate-700 group-hover:border-primary shadow-sm hover:shadow-md">
+                    View Test Series <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>
