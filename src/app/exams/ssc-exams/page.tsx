@@ -1,338 +1,431 @@
-import React from 'react';
-import Link from 'next/link';
-import { BookOpen, Award, Users, CheckCircle, ArrowRight, PlayCircle, FileText, ChevronRight, Target, ShieldCheck, Zap, Star } from 'lucide-react';
+"use client";
 
-export const metadata = {
-  title: 'SSC Exams Test Series - ExamBoost',
-  description: 'Practice with ExamBoost mock tests for SSC CGL, CHSL, MTS, CPO, GD, and other Staff Selection Commission exams.'
-};
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  BookOpen, Award, Users, CheckCircle2, ArrowRight, PlayCircle, FileText,
+  Target, ShieldCheck, Zap, Star, Activity, BarChart, ChevronDown, Clock,
+  Briefcase, GraduationCap, LayoutDashboard, MonitorSmartphone, Archive
+} from 'lucide-react';
 
 const popularExams = [
-  { name: 'SSC CGL', tests: 150, icon: 'SSC', href: '/exams/ssc-exams/ssc-cgl' },
-  { name: 'SSC CHSL', tests: 120, icon: 'SSC', href: '/exams/ssc-exams/ssc-chsl' },
-  { name: 'SSC MTS', tests: 100, icon: 'SSC', href: '/exams/ssc-exams/ssc-mts' },
-  { name: 'SSC CPO', tests: 85, icon: 'SSC', href: '/exams/ssc-exams/ssc-cpo' },
-  { name: 'SSC GD Constable', tests: 200, icon: 'SSC', href: '#' },
-  { name: 'SSC Stenographer', tests: 60, icon: 'SSC', href: '#' },
-  { name: 'SSC JE', tests: 75, icon: 'SSC', href: '#' },
-  { name: 'Selection Post', tests: 50, icon: 'SSC', href: '#' }
+  {
+    name: 'SSC CGL',
+    fullName: 'Combined Graduate Level',
+    desc: 'The most sought-after exam for Group B & C officer posts in ministries.',
+    tests: 150,
+    pattern: 'Tier 1 & 2 (Computer Based)',
+    subjects: ['Maths', 'English', 'Reasoning', 'GS'],
+    href: '/exams/ssc-exams/ssc-cgl',
+    icon: GraduationCap,
+    popular: true
+  },
+  {
+    name: 'SSC CHSL',
+    fullName: 'Combined Higher Secondary Level',
+    desc: 'Entry-level clerical posts like LDC, JSA, and Postal Assistants.',
+    tests: 120,
+    pattern: 'Tier 1 & 2 + Typing',
+    subjects: ['Maths', 'English', 'Reasoning', 'GS'],
+    href: '/exams/ssc-exams/ssc-chsl',
+    icon: Briefcase
+  },
+  {
+    name: 'SSC MTS',
+    fullName: 'Multi Tasking Non-Technical Staff',
+    desc: 'Gateway to central govt jobs. Focus heavily on speed and accuracy.',
+    tests: 100,
+    pattern: 'Single CBE',
+    subjects: ['English', 'Numerical Aptitude', 'GS'],
+    href: '/exams/ssc-exams/ssc-mts',
+    icon: Activity
+  },
+  {
+    name: 'SSC CPO',
+    fullName: 'Central Police Organization',
+    desc: 'Recruitment of Sub-Inspectors in Delhi Police, CAPFs, CISF.',
+    tests: 85,
+    pattern: 'Paper 1 & 2 + PET/PST',
+    subjects: ['English', 'Reasoning', 'GS'],
+    href: '/exams/ssc-exams/ssc-cpo',
+    icon: ShieldCheck
+  }
 ];
 
 const freeTests = [
-  { name: 'SSC CGL Tier 1 Mock Test', q: 100, t: 60 },
-  { name: 'SSC CHSL Free Mock (New Pattern)', q: 100, t: 60 },
-  { name: 'Quant Sectional Speed Test', q: 25, t: 15 }
+  { name: 'SSC CGL Tier 1 All-India Live Mock', q: 100, t: 60, level: 'Advanced' },
+  { name: 'SSC Quantitative Aptitude Sectional', q: 25, t: 15, level: 'Moderate' },
+  { name: 'SSC English Comprehension Booster', q: 30, t: 20, level: 'Moderate' }
 ];
 
 const reviews = [
-  { name: 'Sumit, SSC CGL Selected', rating: 5, text: 'ExamBoost mock tests have the exact same TCS iON interface. It completely removed my exam fear.' },
-  { name: 'Kavita, CHSL Aspirant', rating: 5, text: 'The short tricks given in Quantitative Aptitude solutions are amazing and save a lot of time.' },
-  { name: 'Manish, SSC GD Candidate', rating: 4, text: 'Previous year papers mock format is the best. It helped me clear the cutoff.' },
-  { name: 'Pooja, CPO Aspirant', rating: 5, text: 'English comprehension passages were exactly like the level of recent SSC exams. Highly recommended.' }
+  { name: 'Sumit Sharma', exam: 'SSC CGL Selected', rating: 5, text: 'ExamBoost mock tests duplicate the exact TCS iON interface. Attempting tests here completely removed my exam-day fear and improved my navigation speed.' },
+  { name: 'Kavita Iyer', exam: 'CHSL Aspirant', rating: 5, text: 'The short tricks given in Quantitative solutions are amazing. The analytics dashboard clearly showed I was wasting too much time on Arithmetic.' },
+  { name: 'Pooja Verma', exam: 'CPO Physical Cleared', rating: 5, text: 'English comprehension passages were exactly like the level of recent SSC exams. Highly recommended for serious aspirants targeting top ranks.' },
+];
+
+const faqs = [
+  { q: "Is the test interface exactly like the real SSC exam?", a: "Yes, our mock test interface is a 1:1 replica of the TCS iON platform used by SSC, ensuring you are completely familiar with the navigation, marking schemes, and layout." },
+  { q: "Are previous year questions (PYQs) included?", a: "Absolutely! Our PRO Pass gives you access to 1000+ past year papers formatted as real mock tests, starting from 2018 onwards." },
+  { q: "Do you provide short tricks for Quantitative Aptitude?", a: "Yes, our detailed text and video solutions prioritize time-saving shortcuts and elimination methods over lengthy traditional approaches." },
+  { q: "Can I take the tests on the mobile app?", a: "Yes, our platform is responsive for mobile browsers and we also offer a dedicated app with offline test download capabilities." }
 ];
 
 export default function SSCExamsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 md:pt-24 w-full overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 pb-12 w-full overflow-x-hidden font-sans">
+      
+      {/* 1. Organic Hero Section */}
+      <section className="relative px-4 sm:px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center">
+        {/* Violet/Fuchsia Background Blobs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-violet-400/20 dark:bg-violet-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-fuchsia-400/20 dark:bg-fuchsia-500/10 rounded-full blur-[60px] md:blur-[100px] -z-10 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
 
-      {/* 1. Hero Section */}
-      <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 dark:opacity-10"></div>
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-          <div className="flex-1 w-full">
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-primary dark:text-accent mb-6 flex-wrap">
-              <Link href="/" className="hover:underline shrink-0">Home</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
-              <Link href="/exams" className="hover:underline shrink-0">All Exams</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
-              <span className="text-slate-500 dark:text-slate-400">SSC Exams</span>
-            </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-900/40 text-violet-800 dark:text-violet-300 text-sm font-semibold mb-6 shadow-sm border border-violet-200 dark:border-violet-800 backdrop-blur-sm"
+        >
+          <MonitorSmartphone className="w-4 h-4 animate-pulse" />
+          <span>India's Most Accurate SSC Mock Platform</span>
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.2] md:leading-[1.1] mb-6 max-w-5xl tracking-tight px-2"
+        >
+          Crack <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500 dark:from-violet-400 dark:to-fuchsia-400">SSC Exams</span> <br className="hidden md:block"/>
+          in Your First Attempt
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed px-4"
+        >
+          Master speed and accuracy with ExamBoost mock tests for CGL, CHSL, MTS & more. Experience the exact TCS iON interface and latest question patterns.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-5 relative z-10 w-full sm:w-auto px-4"
+        >
+          <Link href="#test-series" className="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold transition-all shadow-[0_0_40px_-10px_rgba(139,92,246,0.5)] flex items-center justify-center gap-2 group transform hover:-translate-y-1">
+            Explore PRO Pass <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <button className="px-8 py-4 w-full sm:w-auto rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg">
+            Take Free Mock Test
+          </button>
+        </motion.div>
+      </section>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-              Staff Selection Commission <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500 dark:from-violet-400 dark:to-fuchsia-400 block mt-2">Test Series</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Practice with ExamBoost mock tests for SSC CGL, CHSL, MTS, CPO, and GD. Experience the exact TCS iON interface and latest question patterns.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <button className="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-violet-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shrink-0">
-                Start Free Mock Test <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="w-full sm:w-auto bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shrink-0">
-                Explore Exams
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 w-full flex justify-center lg:justify-end">
-            <img src="/ssc-cgl-banner.svg" alt="SSC Exams Banner" className="w-full max-w-lg object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700" />
-          </div>
+      {/* Trust Scrolling Ticker */}
+      <section className="w-full bg-violet-950 py-4 md:py-5 overflow-hidden border-y border-violet-900 flex items-center shadow-inner relative z-10 pointer-events-none">
+        <div className="flex w-[400%] md:w-[200%] animate-[slide_25s_linear_infinite] whitespace-nowrap">
+           <div className="flex gap-8 md:gap-32 px-4 md:px-8 items-center text-violet-100 font-bold text-sm md:text-xl">
+             <span className="flex items-center gap-3"><MonitorSmartphone className="w-6 h-6 text-violet-400" /> Exact TCS iON Interface</span>
+             <span className="flex items-center gap-3"><Zap className="w-6 h-6 text-violet-400" /> Math Shortcut Tricks</span>
+             <span className="flex items-center gap-3"><Archive className="w-6 h-6 text-violet-400" /> 1000+ PYQ Papers</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-violet-400" /> 2 Lakh+ Aspirants</span>
+             <span className="flex items-center gap-3"><Award className="w-6 h-6 text-violet-400" /> Top Rankers' Choice</span>
+             <span className="flex items-center gap-3"><MonitorSmartphone className="w-6 h-6 text-violet-400" /> Exact TCS iON Interface</span>
+             <span className="flex items-center gap-3"><Zap className="w-6 h-6 text-violet-400" /> Math Shortcut Tricks</span>
+             <span className="flex items-center gap-3"><Archive className="w-6 h-6 text-violet-400" /> 1000+ PYQ Papers</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-violet-400" /> 2 Lakh+ Aspirants</span>
+             <span className="flex items-center gap-3"><Award className="w-6 h-6 text-violet-400" /> Top Rankers' Choice</span>
+           </div>
         </div>
-      </div>
+         <style dangerouslySetInnerHTML={{__html: `
+            @keyframes slide {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}} />
+      </section>
 
-      {/* 2. Popular SSC Exams */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-16 md:py-20 lg:py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Popular SSC Exams</h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg">Target your specific SSC examination with carefully crafted, syllabus-oriented mock tests.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {popularExams.map((exam, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 hover:border-violet-500/30 dark:hover:border-violet-400/30 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-violet-50 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-colors mb-6 ring-4 ring-white dark:ring-[#0f172a] shadow-sm">
-                <Target className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{exam.name}</h3>
-              <div className="mb-8 empty:hidden">
-                <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-4 py-1.5 rounded-lg">{exam.tests} Mock Tests</span>
-              </div>
-              <Link href={exam.href || '#'} className="w-full mt-auto py-3.5 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-violet-600 dark:text-violet-400 font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-700 group-hover:border-violet-500/20 text-center block">
-                Start Practice
+      {/* 2. Target Exams Grid */}
+      <section id="test-series" className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Choose Your Target Exam</h2>
+            <p className="text-slate-600 dark:text-slate-400">Specialized mock tests tailored to exactly replicate the real SSC examinations.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularExams.map((exam, i) => (
+              <Link key={i} href={exam.href} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-violet-500 transition-all relative overflow-hidden block hover:shadow-lg">
+                {exam.popular && (
+                  <span className="absolute top-0 right-0 bg-violet-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">HOT</span>
+                )}
+                <div className="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-violet-600 dark:text-violet-400 mb-4 group-hover:scale-110 transition-transform">
+                  <exam.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{exam.name}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 h-14">{exam.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {exam.subjects.map((sub, i) => (
+                      <span key={i} className="text-[11px] font-bold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded-full">{sub}</span>
+                    ))}
+                </div>
+
+                <div className="flex items-center text-violet-600 dark:text-violet-400 text-sm font-semibold group-hover:gap-2 transition-all">
+                  View Series <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
               </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 3. Featured Test Series Overview (No Price) */}
-      <div className="bg-white dark:bg-[#0f172a] py-20 border-y border-slate-200 dark:border-slate-800 w-full relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-violet-500/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-64 h-64 bg-fuchsia-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 font-bold text-sm mb-4">
-              All-In-One Pass
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-              ExamBoost <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500">SSC Master</span> Series
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              One unified premium pass granting you access to thousands of mock tests, previous year papers, and sectional tests for every SSC exam conducted by TCS.
-            </p>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-[#020617] rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Essential Pass</h3>
-              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-8 border-b border-slate-200 dark:border-slate-700 pb-4">Perfect for heavy mock test practice and self-evaluation.</p>
-              <ul className="space-y-4 mb-10 flex-1">
-                {['2000+ Mock Tests for all SSC Exams', 'Sectional & Chapter-wise Tests', 'Exact TCS iON Exam Interface', 'Live All India Mock Tests', 'Detailed Text Solutions'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                    <CheckCircle className="w-5 h-5 text-violet-500 mt-0.5 shrink-0" />
-                    <span className="font-semibold text-[15px]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full py-4 rounded-xl font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-violet-600 hover:text-violet-600 dark:hover:border-violet-500 dark:hover:text-violet-500 transition-colors text-slate-800 dark:text-slate-200 flex items-center justify-center gap-2">
-                View Schedule <ArrowRight className="w-5 h-5" />
-              </button>
+      {/* 3. Immersive Analytics Section */}
+      <section className="py-20 md:py-32 bg-slate-900 dark:bg-[#080B14] relative overflow-hidden text-white border-y border-slate-800">
+         <div className="absolute top-0 right-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-violet-500/10 rounded-full blur-[40px] md:blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+         <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-fuchsia-500/10 rounded-full blur-[40px] md:blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-900/40 text-violet-300 text-sm font-semibold mb-6 border border-violet-800">
+                  <BarChart className="w-4 h-4" />
+                  <span>AI Speed Analytics</span>
+               </div>
+               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                  Because SSC is a <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Game of Speed.</span>
+               </h2>
+               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                  You know the concepts, but do you have the speed? Our AI dashboard precisely measures your time per question and highlights areas where you need to apply shortcuts.
+               </p>
+               
+               <ul className="space-y-6">
+                 {[
+                   { icon: Clock, title: 'Time vs Accuracy Matrix', desc: 'Identify "time sinks" where you spend >2 minutes on a question and still get it wrong.' },
+                   { icon: Activity, title: 'Sectional Proficiency', desc: 'Detailed breakdown of Maths, Reasoning, English, and GS accuracy against toppers.' },
+                   { icon: Target, title: 'Question Selection Strategy', desc: 'Learn which questions to attempt and which to skip to maximize your score.' }
+                 ].map((fp, i) => (
+                   <li key={i} className="flex items-start gap-4">
+                     <div className="bg-violet-500/20 p-3 rounded-xl mt-1"><fp.icon className="w-5 h-5 text-violet-400" /></div>
+                     <div>
+                       <h4 className="font-bold text-lg text-white mb-1">{fp.title}</h4>
+                       <p className="text-slate-400 text-sm">{fp.desc}</p>
+                     </div>
+                   </li>
+                 ))}
+               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-violet-600 to-fuchsia-700 dark:from-slate-800 dark:to-slate-900 rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-violet-500/20 shadow-2xl relative overflow-hidden group flex flex-col">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold text-xs py-1 px-10 rotate-45 shadow-lg flex items-center gap-1">
-                <Star className="w-3 h-3 fill-current" /> PRO PASS
-              </div>
-
-              <h3 className="text-2xl font-bold text-white mb-2">Pro Ultimate Pass</h3>
-              <p className="text-sm font-semibold text-violet-100 dark:text-slate-400 mb-8 border-b border-white/10 dark:border-slate-700 pb-4">Comprehensive prep including PYQs in test format.</p>
-              <ul className="space-y-4 mb-10 flex-1">
-                {['Everything in Essential Pass', '1000+ Previous Year Papers as Tests', 'Video Solutions for Quant & Reasoning', 'Daily Current Affairs PDF & Quizzes', 'Personalized Weakness Analysis'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-white/90">
-                    <div className="p-0.5 rounded-full bg-white/20 mt-0.5 shrink-0">
-                      <CheckCircle className="w-4 h-4 text-white" />
+            <div className="flex-1 w-full max-w-lg aspect-square relative flex items-center justify-center">
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="absolute z-20 w-full md:w-[90%] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 md:p-8"
+                >
+                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center border border-violet-500/30">
+                        <LayoutDashboard className="w-6 h-6 text-violet-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg mb-1">Time Analysis</h4>
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">SSC CGL Tier-1</p>
+                      </div>
                     </div>
-                    <span className="font-semibold text-[15px]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full py-4 rounded-xl font-bold bg-white text-violet-700 dark:text-slate-900 hover:bg-slate-100 transition-colors shadow-xl flex items-center justify-center gap-2">
-                Explore Features <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Free Mock Test Section */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 w-full">
-        <div className="bg-gradient-to-br from-slate-900 to-violet-950 rounded-3xl lg:rounded-[2.5rem] p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl" />
-          <div className="flex-1 relative z-10 w-full text-center lg:text-left">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-violet-500/20 text-violet-400 font-bold text-sm mb-4 border border-violet-500/30">
-              Try Before You Buy
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Free SSC Mock Tests</h2>
-            <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              Get familiar with the TCS iON exam interface. Improve your speed, accuracy, and time management today.
-            </p>
-            <div className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0">
-              {freeTests.map((t, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm gap-4">
-                  <div>
-                    <h4 className="font-bold text-white text-left">{t.name}</h4>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-violet-200 mt-2 sm:mt-1">
-                      <span className="flex items-center gap-1"><FileText className="w-3 h-3 shrink-0" /> {t.q} Qs</span>
-                      <span className="flex items-center gap-1"><PlayCircle className="w-3 h-3 shrink-0" /> {t.t} Mins</span>
+                    <div className="text-right">
+                      <h4 className="font-black text-violet-400 text-2xl tracking-tight">142/200</h4>
+                      <p className="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1 mt-1">
+                        <Activity className="w-3 h-3" /> Tier 1 Safe Score
+                      </p>
                     </div>
                   </div>
-                  <button className="bg-violet-600 text-white hover:bg-violet-500 px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all shrink-0">
-                    Attempt
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="w-full lg:w-1/3 flex justify-center relative z-10 hidden md:flex">
-            <div className="w-full aspect-square max-w-sm rounded-3xl lg:rounded-[2rem] bg-gradient-to-b from-violet-600 to-fuchsia-700 p-1 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="w-full h-full bg-slate-900 rounded-[1.8rem] p-6 flex flex-col">
-                <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-4">
-                  <h4 className="text-white font-bold">Quantitative Aptitude</h4>
-                  <span className="text-violet-400 font-bold">00:14:32 left</span>
-                </div>
-                <p className="text-slate-300 text-sm flex-1 leading-relaxed">Q1. If x + (1/x) = 5, then what is the value of x³ + (1/x³)?</p>
-                <div className="space-y-2 mb-4">
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-violet-500 cursor-pointer transition-colors">(A) 110</div>
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-violet-500 cursor-pointer transition-colors">(B) 125</div>
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-violet-500 cursor-pointer transition-colors">(C) 140</div>
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-violet-500 cursor-pointer transition-colors">(D) 115</div>
-                </div>
-                <button className="w-full py-3 bg-violet-600 hover:bg-violet-500 text-white rounded-xl font-bold transition-colors shadow-lg">Submit & View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  
+                  <div className="space-y-5">
+                    {[
+                      { name: 'Quantitative Aptitude', score: 90, color: 'bg-violet-500' },
+                      { name: 'General Intelligence', score: 96, color: 'bg-fuchsia-500' },
+                      { name: 'English Comprehension', score: 80, color: 'bg-purple-500' },
+                    ].map((sub, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between text-sm font-bold text-slate-300 mb-2">
+                          <span>{sub.name}</span>
+                          <span>{sub.score}% Accuracy</span>
+                        </div>
+                        <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${sub.score}%` }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + i * 0.1, duration: 1, ease: "easeOut" }}
+                            className={`h-full ${sub.color} rounded-full`} 
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
 
-      {/* 5. Complete SSC Exams List */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring" }}
+                  className="absolute z-30 top-0 left-0 bg-white/10 backdrop-blur-md rounded-full border border-white/20 px-5 py-2.5 flex items-center gap-3 -translate-y-4 -translate-x-4 md:-translate-x-12"
+                >
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </div>
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Avg Time: 42s/Qn</span>
+                </motion.div>
+            </div>
+         </div>
+      </section>
+
+      {/* 4. Core Offerings */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Complete SSC Exams List</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg pt-2">Comprehensive test series modules for every notification released by SSC.</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-900/40 text-violet-800 dark:text-violet-300 text-sm font-semibold mb-6">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Premium Tier Content</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Why ExamBoost PRO Pass?</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A single subscription giving you the ultimate arsenal to conquer any SSC examination.
+          </p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: 'SSC CGL Tier 1 & 2', href: '/exams/ssc-exams/ssc-cgl' },
-            { name: 'SSC CHSL Tier 1 & 2', href: '/exams/ssc-exams/ssc-chsl' },
-            { name: 'SSC MTS & Havaldar', href: '/exams/ssc-exams/ssc-mts' },
-            { name: 'SSC CPO (Delhi Police SI)', href: '/exams/ssc-exams/ssc-cpo' },
-            { name: 'SSC GD Constable', href: '#' },
-            { name: 'SSC Stenographer C & D', href: '#' },
-            { name: 'SSC Selection Post', href: '#' },
-            { name: 'SSC JE (Civil/Mech/Elec)', href: '#' },
-            { name: 'Delhi Police Constable', href: '#' }
-          ].map((exam, idx) => (
-            <Link key={idx} href={exam.href} className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex items-center justify-between group hover:border-violet-500 dark:hover:border-violet-400 hover:shadow-md transition-all cursor-pointer">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                  <Target className="w-6 h-6" />
-                </div>
-                <span className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">{exam.name}</span>
-              </div>
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 text-slate-400 group-hover:bg-violet-600 group-hover:text-white dark:group-hover:bg-violet-500 dark:group-hover:text-slate-900 transition-colors shrink-0">
-                <ArrowRight className="w-5 h-5" />
-              </div>
-            </Link>
+            { icon: MonitorSmartphone, title: 'Real TCS UI', desc: 'Exact replica of the digital interface used physically in SSC test centers.' },
+            { icon: Archive, title: 'Previous Year Papers', desc: 'Access 1000+ real PYQs organized as attemptable timed mock tests.' },
+            { icon: Zap, title: 'Trick Solutions', desc: 'Alternative short-cut methods provided for quantitative & reasoning questions.' },
+            { icon: BookOpen, title: 'Tier 2 Ready', desc: 'Up-to-date with recent SSC syllabus changes including typing and computer modules.' }
+          ].map((feature, idx) => (
+             <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl transition-all group hover:shadow-xl hover:shadow-violet-900/10 hover:-translate-y-1">
+               <div className="w-14 h-14 bg-violet-50 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center text-violet-600 dark:text-violet-400 mb-6 group-hover:bg-violet-600 group-hover:text-white transition-colors">
+                 <feature.icon className="w-7 h-7" />
+               </div>
+               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h3>
+               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                 {feature.desc}
+               </p>
+             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* 6. Why Choose ExamBoost */}
-      <div className="bg-slate-100 dark:bg-slate-900/50 py-16 md:py-20 lg:py-24 border-y border-slate-200 dark:border-slate-800 w-full">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Why ExamBoost for SSC?</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Because crossing the cut-off requires extreme time-management and accuracy.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {[
-              { icon: Target, title: 'TCS iON Interface', desc: 'Mock tests have the identical interface used in actual SSC physical exam centers.' },
-              { icon: Zap, title: 'Speed & Accuracy Analytics', desc: 'Analyze time spent per question and compare your speed directly with toppers.' },
-              { icon: BookOpen, title: 'Shortcut Solutions', desc: 'Unique short tricks in Quantitative Aptitude to solve questions in seconds, not minutes.' },
-              { icon: Award, title: 'Previous Year Papers', desc: 'Attempt all shifts of previous year papers starting from 2018 in real exam format.' },
-              { icon: CheckCircle, title: 'Tier 2 Ready', desc: 'Mocks updated as per the latest SSC pattern with newly introduced computer sections.' },
-              { icon: ShieldCheck, title: 'Bilingual Mocks', desc: 'Switch seamlessly between English and Hindi during the test, just like the real exam.' }
-            ].map((feature, idx) => (
-              <div key={idx} className="flex gap-4 p-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#0f172a] flex items-center justify-center text-violet-600 dark:text-violet-400 shadow-sm border border-slate-200 dark:border-slate-800 shrink-0">
-                  <feature.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-                </div>
+      {/* 5. Free Mock Tests */}
+      <section className="py-20 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-r from-violet-600 to-fuchsia-700 rounded-[2rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            
+            <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
+              <div className="flex-1 text-center lg:text-left">
+                <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight">Try Before You Commit</h2>
+                <p className="text-violet-100 text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                  Experience the interface, the difficulty level, and the deep AI analytics with our free premium mocks.
+                </p>
+                <button className="bg-white text-violet-900 px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto hover:bg-violet-50 shadow-lg flex items-center justify-center gap-2 group mx-auto lg:mx-0">
+                  Register For Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* 7. Student Reviews */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Inspiring Selections</h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Thousands have achieved their Ministry of Government job dreams.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {reviews.map((review, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="flex text-amber-500 mb-4">
-                {[1, 2, 3, 4, 5].map(star => (
-                  <Star key={star} className={`w-4 h-4 ${star <= review.rating ? 'fill-current' : 'text-slate-300 dark:text-slate-700'}`} />
+              <div className="flex-1 w-full flex flex-col gap-4">
+                {freeTests.map((test, idx) => (
+                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/20 transition-colors">
+                    <div>
+                      <h4 className="font-bold text-white text-lg mb-2">{test.name}</h4>
+                      <div className="flex items-center gap-4 text-sm font-semibold text-violet-100">
+                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {test.q} Qs</span>
+                        <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {test.t} Mins</span>
+                      </div>
+                    </div>
+                    <button className="text-sm font-bold text-violet-900 bg-white hover:bg-violet-50 px-6 py-3 rounded-xl transition-colors flex items-center gap-2 shrink-0">
+                       Attempt <PlayCircle className="w-4 h-4" />
+                    </button>
+                  </div>
                 ))}
               </div>
-              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-1 italic">"{review.text}"</p>
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <span className="font-bold text-slate-900 dark:text-white text-sm">{review.name}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Student Reviews */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Inspiring Selections</h2>
+          <p className="text-slate-600 dark:text-slate-400">Thousands have secured reputed government ministries.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reviews.map((r, i) => (
+            <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl flex flex-col gap-6 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex text-amber-500 gap-1">
+                {[...Array(r.rating)].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed flex-grow">
+                "{r.text}"
+              </p>
+              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-full flex items-center justify-center text-violet-600 font-bold text-xl">
+                  {r.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white">{r.name}</h4>
+                  <p className="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-widest">{r.exam}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* 8. Exam Preparation Guide */}
-      <div className="bg-white dark:bg-[#0f172a] py-16 border-t border-slate-200 dark:border-slate-800 w-full overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-8">SSC Preparation Guide</h2>
-          <div className="flex flex-wrap gap-4">
-            {[
-              'SSC CGL Target Strategy',
-              'Maths Short Tricks Handbook',
-              'English Vocabulary Lists',
-              'Previous Year Cut-off Analysis',
-              'Typing Test Preparation Guide'
-            ].map((guide, idx) => (
-              <Link key={idx} href="/blog" className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-500 dark:hover:border-violet-500 transition-colors block text-center flex-1 min-w-[200px]">
-                {guide}
-              </Link>
+      {/* 7. FAQs */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-6 flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+                >
+                  <span className="pr-4">{faq.q}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === idx ? 'bg-violet-600 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+                <AnimatePresence>
+                  {openFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                    >
+                      <p className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* 9. Call To Action */}
-      <div className="bg-violet-700 dark:bg-slate-900 py-20 relative overflow-hidden w-full">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-fuchsia-900/40 dark:bg-violet-900/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3" />
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Secure Your Govt Job Target</h2>
-          <p className="text-violet-100 dark:text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Make your SSC preparation foolproof with our exhaustive test series and exact exam interface.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-            <button className="w-full sm:w-auto bg-white text-violet-700 hover:bg-slate-100 dark:bg-violet-500 dark:text-slate-900 dark:hover:bg-violet-400 px-8 py-4 rounded-xl font-bold text-lg shadow-xl shrink-0 transition-colors">
-              Get SSC Pro Pass
-            </button>
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg shrink-0 transition-colors">
-              Explore Tests
-            </button>
-          </div>
-        </div>
-      </div>
+      </section>
 
     </div>
   );

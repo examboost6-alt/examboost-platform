@@ -1,329 +1,430 @@
-import React from 'react';
-import Link from 'next/link';
-import { BookOpen, Award, Users, CheckCircle, ArrowRight, PlayCircle, FileText, ChevronRight, Target, ShieldCheck, Zap, Star } from 'lucide-react';
+"use client";
 
-export const metadata = {
-    title: 'Police & Defense Exams Test Series - ExamBoost',
-    description: 'Practice with ExamBoost mock tests for UP Police, Delhi Police, Bihar Police Constable, SI and other state police exams.'
-};
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  BookOpen, Award, Users, ArrowRight, PlayCircle, FileText,
+  Target, ShieldCheck, Zap, Star, Activity, BarChart, ChevronDown, Clock,
+  Shield, ShieldAlert, Crosshair, Map, MonitorSmartphone, Layers
+} from 'lucide-react';
 
 const popularExams = [
-    { name: 'UP Police Constable', tests: 150, icon: 'Police' },
-    { name: 'UP Police SI', tests: 120, icon: 'Police' },
-    { name: 'Delhi Police Constable', tests: 100, icon: 'Police' },
-    { name: 'Delhi Police SI (CPO)', tests: 85, icon: 'Police' },
-    { name: 'Bihar Police Constable', tests: 75, icon: 'Police' },
-    { name: 'Bihar Police SI', tests: 60, icon: 'Police' },
-    { name: 'MP Police Constable', tests: 65, icon: 'Police' },
-    { name: 'Rajasthan Police', tests: 50, icon: 'Police' }
+  {
+    name: 'UP Police Constable',
+    fullName: 'Uttar Pradesh Police',
+    desc: 'Massive recruitment focusing heavily on Mental Aptitude and UP Specific GK.',
+    tests: 150,
+    pattern: 'Written (OMR) & Physical',
+    subjects: ['Mental Aptitude', 'Up GK', 'Hindi'],
+    href: '/exams/police/up-police-constable',
+    icon: Shield,
+    popular: true
+  },
+  {
+    name: 'UP Police SI',
+    fullName: 'Sub-Inspector (Daroga)',
+    desc: 'Prestigeous officer post testing deep knowledge of Basic Law and Constitution.',
+    tests: 120,
+    pattern: 'Online CBT & Physical',
+    subjects: ['Mool Vidhi', 'Constitution', 'Maths'],
+    href: '/exams/police/up-police-si',
+    icon: ShieldAlert
+  },
+  {
+    name: 'Delhi Police Constable',
+    fullName: 'Executive Constable',
+    desc: 'Central level police job testing Computer knowledge and National Current Affairs.',
+    tests: 100,
+    pattern: 'Online CBT (SSC) & Physical',
+    subjects: ['Computer', 'Current Affairs', 'Reasoning'],
+    href: '/exams/police/delhi-police',
+    icon: Crosshair
+  },
+  {
+    name: 'Bihar Police Constable',
+    fullName: 'CSBC Recruitment',
+    desc: 'State level written exam where physical marks are primarily considered for merit.',
+    tests: 80,
+    pattern: 'Written (OMR) & Physical',
+    subjects: ['Science', 'General Knowledge', 'Hindi'],
+    href: '#',
+    icon: ShieldCheck
+  }
 ];
 
 const freeTests = [
-    { name: 'UP Police Constable Full Mock 1', q: 150, t: 120 },
-    { name: 'Delhi Police Computer Knowledge', q: 50, t: 40 },
-    { name: 'UP SI Mool Vidhi (Basic Law)', q: 40, t: 30 }
+  { name: 'UP Police Constable OMR Simulation', q: 150, t: 120, level: 'Advanced' },
+  { name: 'Delhi Police Computer Knowledge', q: 50, t: 30, level: 'Crucial' },
+  { name: 'UP SI Mool Vidhi & Constitution', q: 40, t: 30, level: 'Moderate' }
 ];
 
 const reviews = [
-    { name: 'Rohan, UP Police Constable', rating: 5, text: 'The mock tests exactly matched the offline OMR level. Mental aptitude section was a lifesaver.' },
-    { name: 'Shreya, Delhi Police Selected', rating: 5, text: 'Computer questions in the DP mock tests are perfectly aligned with SSC TCS pattern.' },
-    { name: 'Kishan, Bihar Sub-Inspector', rating: 4, text: 'Current affairs and regional GK questions were practically the same as the real exam.' },
-    { name: 'Alok, UP SI Aspirant', rating: 5, text: 'Mool Vidhi and Constitution questions are very deep and conceptual. Highly recommend ExamBoost.' }
+  { name: 'Rohan Chaudhary', exam: 'UP Police Selected', rating: 5, text: 'The mock tests exactly matched the offline OMR level. Their Mental Aptitude section is incredibly relevant and literally saved my reasoning score.' },
+  { name: 'Shreya Tiwary', exam: 'Delhi Police Constable', rating: 5, text: 'Computer questions in the DP mock tests are perfectly aligned with SSC TCS pattern. The AI analytics showed me I was losing marks in Excel formulas.' },
+  { name: 'Alok Singh', exam: 'UP SI Selected', rating: 5, text: 'Mool Vidhi (Law) and Constitution questions are very deep and conceptual. ExamBoost is the only platform that gets the Daroga-level law difficulty right.' },
+];
+
+const faqs = [
+  { q: "Is the UP Police mock interface like the actual OMR sheet format?", a: "Yes, our UP Police Constable mock tests follow the exact section division and question breakdown of the physical exam. We also provide downloadable OMR sheets for you to practice bubbling at home while attempting our test." },
+  { q: "Do you cover the Computer syllabus for Delhi Police?", a: "Absolutely! Delhi Police tests heavily feature MS Word, Excel, and Internet protocols. We have dedicated sectional tests just for the 10-mark computer module." },
+  { q: "Are UP-SI Mool Vidhi modules included in the Sub-Inspector package?", a: "Yes. Basic Law (Mool Vidhi) featuring IPC, CRPC, and minor acts is extensively covered with updated amendments in our specialized SI mocks." },
+  { q: "Can I take the tests in Hindi?", a: "Yes, Police exams are predominantly attempted in Hindi. Our entire platform, including detailed step-by-step solutions, is 100% bilingual." }
 ];
 
 export default function PoliceExamsPage() {
-    return (
-        <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 md:pt-24 w-full overflow-x-hidden">
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-            {/* 1. Hero Section */}
-            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 dark:opacity-10"></div>
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-                    <div className="flex-1 w-full">
-                        <div className="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-primary dark:text-accent mb-6 flex-wrap">
-                            <Link href="/" className="hover:underline shrink-0">Home</Link>
-                            <ChevronRight className="w-4 h-4 shrink-0" />
-                            <Link href="/exams" className="hover:underline shrink-0">All Exams</Link>
-                            <ChevronRight className="w-4 h-4 shrink-0" />
-                            <span className="text-slate-500 dark:text-slate-400">Police Exams</span>
-                        </div>
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 pb-12 w-full overflow-x-hidden font-sans">
+      
+      {/* 1. Organic Hero Section */}
+      <section className="relative px-4 sm:px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center">
+        {/* Indigo/Sky/Blue Background Blobs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-indigo-400/20 dark:bg-indigo-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-sky-400/20 dark:bg-sky-500/10 rounded-full blur-[60px] md:blur-[100px] -z-10 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
 
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-                            Police & Defense <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-400 dark:to-sky-400 block mt-2">Test Series</span>
-                        </h1>
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                            Wear the uniform with pride. Crack UP Police, Delhi Police, and State SI exams with mock tests curated directly by ex-selection board experts.
-                        </p>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300 text-sm font-semibold mb-6 shadow-sm border border-indigo-200 dark:border-indigo-800 backdrop-blur-sm"
+        >
+          <ShieldAlert className="w-4 h-4 animate-pulse" />
+          <span>India's #1 Police Recruitment Test Platform</span>
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.2] md:leading-[1.1] mb-6 max-w-5xl tracking-tight px-2"
+        >
+          Wear the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-400 dark:to-sky-400">Khaki Uniform</span><br className="hidden md:block"/>
+          With Pride & Practice
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed px-4"
+        >
+          Crack UP Police, Delhi Police & State SI exams. Master the mental aptitude sections, Basic Law (Mool Vidhi), and exact TCS Computer modules.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-5 relative z-10 w-full sm:w-auto px-4"
+        >
+          <Link href="#test-series" className="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-bold transition-all shadow-[0_0_40px_-10px_rgba(79,70,229,0.5)] flex items-center justify-center gap-2 group transform hover:-translate-y-1">
+            Choose Your Exam <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <button className="px-8 py-4 w-full sm:w-auto rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg">
+            Take Free Mock Test
+          </button>
+        </motion.div>
+      </section>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                            <button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shrink-0">
-                                Start Free Mock Test <ArrowRight className="w-5 h-5" />
-                            </button>
-                            <button className="w-full sm:w-auto bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shrink-0">
-                                Explore Exams
-                            </button>
-                        </div>
-                    </div>
-                    <div className="flex-1 w-full flex justify-center lg:justify-end">
-                        <img src="/police-banner.png" alt="Police Exams Banner" className="w-full max-w-lg object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700" />
-                    </div>
-                </div>
-            </div>
-
-            {/* 2. Popular Police Exams */}
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-16 md:py-20 lg:py-24">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Top Police Exams</h2>
-                    <p className="text-slate-600 dark:text-slate-400 text-lg">Focus on physical standards while we handle your written exam precision.</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
-                    {popularExams.map((exam, idx) => (
-                        <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/30 dark:hover:border-indigo-400/30 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center text-center">
-                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-colors mb-6 ring-4 ring-white dark:ring-[#0f172a] shadow-sm">
-                                <Target className="w-8 h-8" />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{exam.name}</h3>
-                            <div className="mb-8 empty:hidden">
-                                <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-4 py-1.5 rounded-lg">{exam.tests} Mock Tests</span>
-                            </div>
-                            <button className="w-full mt-auto py-3.5 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-700 group-hover:border-indigo-500/20">
-                                Start Practice
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* 3. Featured Test Series Overview */}
-            <div className="bg-white dark:bg-[#0f172a] py-20 border-y border-slate-200 dark:border-slate-800 w-full relative overflow-hidden">
-                <div className="absolute top-1/2 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
-                <div className="absolute top-1/2 right-0 w-64 h-64 bg-sky-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold text-sm mb-4">
-                            Police Target Batch
-                        </span>
-                        <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-                            ExamBoost <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500">Khaki Master</span> Series
-                        </h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400">
-                            One combined test series focusing extensively on Hindi, Law/Constitution (Mool Vidhi), and Reasoning exactly on the level of Police recruitment boards.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-[#020617] rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col">
-                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Constable Pass</h3>
-                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-8 border-b border-slate-200 dark:border-slate-700 pb-4">Speed and accuracy builder for UP & Delhi Police.</p>
-                            <ul className="space-y-4 mb-10 flex-1">
-                                {['100+ Offline OMR pattern mock tests', 'Dedicated Computer section tests', 'Special UP / Delhi GK modules', 'Speed math and reasoning sets', 'Previous Year Papers with solutions'].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                                        <CheckCircle className="w-5 h-5 text-indigo-500 mt-0.5 shrink-0" />
-                                        <span className="font-semibold text-[15px]">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button className="w-full py-4 rounded-xl font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-600 hover:text-indigo-600 dark:hover:border-indigo-500 dark:hover:text-indigo-500 transition-colors text-slate-800 dark:text-slate-200 flex items-center justify-center gap-2">
-                                View Schedule <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-indigo-600 to-indigo-900 dark:from-slate-800 dark:to-slate-900 rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-indigo-500/20 shadow-2xl relative overflow-hidden group flex flex-col">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-                            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold text-xs py-1 px-10 rotate-45 shadow-lg flex items-center gap-1">
-                                <Star className="w-3 h-3 fill-current" /> DOUBLE STAR
-                            </div>
-
-                            <h3 className="text-2xl font-bold text-white mb-2">Sub-Inspector (SI) Pass</h3>
-                            <p className="text-sm font-semibold text-indigo-100 dark:text-slate-400 mb-8 border-b border-white/10 dark:border-slate-700 pb-4">Extensive coverage of basic law and complex aptitude.</p>
-                            <ul className="space-y-4 mb-10 flex-1">
-                                {['Everything in Constable Pass', 'Deep dive into Mool Vidhi & Polity', 'Mental Aptitude specific tests', 'High-level General Hindi practice', '160 Questions / 400 Marks Exact Pattern'].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-white/90">
-                                        <div className="p-0.5 rounded-full bg-white/20 mt-0.5 shrink-0">
-                                            <CheckCircle className="w-4 h-4 text-white" />
-                                        </div>
-                                        <span className="font-semibold text-[15px]">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button className="w-full py-4 rounded-xl font-bold bg-white text-indigo-700 dark:text-slate-900 hover:bg-slate-100 transition-colors shadow-xl flex items-center justify-center gap-2">
-                                Explore Features <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* 4. Free Mock Test Section */}
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 w-full">
-                <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-3xl lg:rounded-[2.5rem] p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 shadow-2xl">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />
-                    <div className="flex-1 relative z-10 w-full text-center lg:text-left">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-400 font-bold text-sm mb-4 border border-indigo-500/30">
-                            Check Your Level
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Free Police Mock Tests</h2>
-                        <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-                            Gauge your preparation in General Hindi and Mental Aptitude. Understand the actual wording of the recruitment board.
-                        </p>
-                        <div className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0">
-                            {freeTests.map((t, i) => (
-                                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm gap-4">
-                                    <div>
-                                        <h4 className="font-bold text-white text-left">{t.name}</h4>
-                                        <div className="flex flex-wrap items-center gap-3 text-xs text-indigo-200 mt-2 sm:mt-1">
-                                            <span className="flex items-center gap-1"><FileText className="w-3 h-3 shrink-0" /> {t.q} Qs</span>
-                                            <span className="flex items-center gap-1"><PlayCircle className="w-3 h-3 shrink-0" /> {t.t} Mins</span>
-                                        </div>
-                                    </div>
-                                    <button className="bg-indigo-600 text-white hover:bg-indigo-500 px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all shrink-0">
-                                        Attempt
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="w-full lg:w-1/3 flex justify-center relative z-10 hidden md:flex">
-                        <div className="w-full aspect-square max-w-sm rounded-3xl lg:rounded-[2rem] bg-gradient-to-b from-indigo-500 to-sky-700 p-1 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div className="w-full h-full bg-slate-900 rounded-[1.8rem] p-6 flex flex-col">
-                                <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-4">
-                                    <h4 className="text-white font-bold">Mool Vidhi (Basic Law)</h4>
-                                    <span className="text-sky-400 font-bold">01:10:00 left</span>
-                                </div>
-                                <p className="text-slate-300 text-sm flex-1 leading-relaxed">Under which section of the IPC is 'Cyber Crime' specifically dealt with?</p>
-                                <div className="space-y-2 mb-4">
-                                    <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-sky-500 cursor-pointer transition-colors">(A) It is covered under the IT Act, 2000</div>
-                                    <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-sky-500 cursor-pointer transition-colors">(B) Section 378 IPC</div>
-                                    <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-sky-500 cursor-pointer transition-colors">(C) Section 420 IPC</div>
-                                    <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-sky-500 cursor-pointer transition-colors">(D) Section 500 IPC</div>
-                                </div>
-                                <button className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-colors shadow-lg">Save & Next</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* 5. Complete Police Exams List */}
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">All State Police Exams Covered</h2>
-                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg pt-2">Extensive test series modules prepared locally for every state police notification.</p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-                    {['UP Police Constable / Fireman', 'UP Police SI (Sub-Inspector)', 'Delhi Police Constable (Executive)', 'Delhi Police Head Constable', 'Bihar Police Constable', 'Bihar Police SI (Daroga)', 'MP Police Constable', 'Rajasthan Police Constable', 'Haryana Police (HSSC)'].map((examName, idx) => (
-                        <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex items-center justify-between group hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md transition-all">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                    <Target className="w-6 h-6" />
-                                </div>
-                                <span className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{examName}</span>
-                            </div>
-                            <button className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 text-slate-400 group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:bg-indigo-500 dark:group-hover:text-slate-900 transition-colors shrink-0">
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* 6. Why Choose ExamBoost */}
-            <div className="bg-slate-100 dark:bg-slate-900/50 py-16 md:py-20 lg:py-24 border-y border-slate-200 dark:border-slate-800 w-full">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Why ExamBoost for Khaki?</h2>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Score extremely high in written to make the merit comfortably even with average physicals.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                        {[
-                            { icon: Target, title: 'OMR Based Accuracy', desc: 'UP Police is mostly OMR based. We train your accuracy so you never make bubbling mistakes offline.' },
-                            { icon: Zap, title: 'Hindi Grammar Focus', desc: 'Thorough coverage of Ras, Chhand, Alankar and UP specific writers which form the core of Hindi sections.' },
-                            { icon: BookOpen, title: 'IPC / CRPC Basics', desc: 'Basic law modules specifically designed for UP SI and Bihar SI without overwhelming the candidate.' },
-                            { icon: Award, title: 'State GK Injection', desc: 'Deep dive into Uttar Pradesh, Bihar, or your respective state\'s regional general knowledge.' },
-                            { icon: CheckCircle, title: 'Mental Aptitude', desc: 'Tests specifically simulating "Police Attitude" test scenarios (law, order, ethical situations).' },
-                            { icon: ShieldCheck, title: 'Physical Standard Guide', desc: 'Integrated free PDF guides regarding required Physical scales, running times, and medical standards.' }
-                        ].map((feature, idx) => (
-                            <div key={idx} className="flex gap-4 p-4">
-                                <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#0f172a] flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-sm border border-slate-200 dark:border-slate-800 shrink-0">
-                                    <feature.icon className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h4>
-                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* 7. Student Reviews */}
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 max-w-7xl">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Our Star Performers</h2>
-                    <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Join the ranks of thousands who trained physically on grounds and mentally with us.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {reviews.map((review, idx) => (
-                        <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <div className="flex text-amber-500 mb-4">
-                                {[1, 2, 3, 4, 5].map(star => (
-                                    <Star key={star} className={`w-4 h-4 ${star <= review.rating ? 'fill-current' : 'text-slate-300 dark:text-slate-700'}`} />
-                                ))}
-                            </div>
-                            <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-1 italic">"{review.text}"</p>
-                            <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                                <span className="font-bold text-slate-900 dark:text-white text-sm">{review.name}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* 8. Exam Preparation Guide */}
-            <div className="bg-white dark:bg-[#0f172a] py-16 border-t border-slate-200 dark:border-slate-800 w-full overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                    <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-8">Police Preparation Guide</h2>
-                    <div className="flex flex-wrap gap-4">
-                        {[
-                            'UP Police Safe Score 2026',
-                            'Physical Test Diet Plan',
-                            'Mastering Hindi Literature/Vyakaran',
-                            'Mool Vidhi Most Asked Acts',
-                            'Delhi Police Computer Strategies'
-                        ].map((guide, idx) => (
-                            <Link key={idx} href="/blog" className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors block text-center flex-1 min-w-[200px]">
-                                {guide}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* 9. Call To Action */}
-            <div className="bg-indigo-800 dark:bg-slate-900 py-20 relative overflow-hidden w-full">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-900/40 dark:bg-indigo-900/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3" />
-
-                <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Wear Your Khaki Uniform</h2>
-                    <p className="text-indigo-100 dark:text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                        Push your merit score higher with our perfectly analyzed UP Police and Delhi Police mocks.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-                        <button className="w-full sm:w-auto bg-white text-indigo-800 hover:bg-slate-100 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 px-8 py-4 rounded-xl font-bold text-lg shadow-xl shrink-0 transition-colors">
-                            Get Police Master Pass
-                        </button>
-                        <button className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg shrink-0 transition-colors">
-                            Explore Tests
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+      {/* Trust Scrolling Ticker */}
+      <section className="w-full bg-slate-900 py-4 md:py-5 overflow-hidden border-y border-slate-800 flex items-center shadow-inner relative z-10 pointer-events-none">
+        <div className="flex w-[400%] md:w-[200%] animate-[slide_25s_linear_infinite] whitespace-nowrap">
+           <div className="flex gap-8 md:gap-32 px-4 md:px-8 items-center text-indigo-100 font-bold text-sm md:text-xl">
+             <span className="flex items-center gap-3"><MonitorSmartphone className="w-6 h-6 text-sky-400" /> Offline OMR Pattern</span>
+             <span className="flex items-center gap-3"><Shield className="w-6 h-6 text-sky-400" /> SI Level Mool Vidhi</span>
+             <span className="flex items-center gap-3"><Layers className="w-6 h-6 text-sky-400" /> Mental Aptitude Cases</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-sky-400" /> 2 Lakh+ Constables</span>
+             <span className="flex items-center gap-3"><Map className="w-6 h-6 text-sky-400" /> UP/Delhi State GK</span>
+             <span className="flex items-center gap-3"><MonitorSmartphone className="w-6 h-6 text-sky-400" /> Offline OMR Pattern</span>
+             <span className="flex items-center gap-3"><Shield className="w-6 h-6 text-sky-400" /> SI Level Mool Vidhi</span>
+             <span className="flex items-center gap-3"><Layers className="w-6 h-6 text-sky-400" /> Mental Aptitude Cases</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-sky-400" /> 2 Lakh+ Constables</span>
+             <span className="flex items-center gap-3"><Map className="w-6 h-6 text-sky-400" /> UP/Delhi State GK</span>
+           </div>
         </div>
-    );
+         <style dangerouslySetInnerHTML={{__html: `
+            @keyframes slide {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}} />
+      </section>
+
+      {/* 2. Target Exams Grid */}
+      <section id="test-series" className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Choose Your Target Uniform</h2>
+            <p className="text-slate-600 dark:text-slate-400">Specialized mock tests tailored precisely to state and central police notifications.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularExams.map((exam, i) => (
+              <Link key={i} href={exam.href} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition-all relative overflow-hidden block hover:shadow-lg">
+                {exam.popular && (
+                  <span className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">HOT</span>
+                )}
+                <div className="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                  <exam.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{exam.name}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 h-14">{exam.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {exam.subjects.map((sub, i) => (
+                      <span key={i} className="text-[11px] font-bold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded-full">{sub}</span>
+                    ))}
+                </div>
+
+                <div className="flex items-center text-indigo-600 dark:text-indigo-400 text-sm font-semibold group-hover:gap-2 transition-all">
+                  View Series <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Immersive Analytics Section */}
+      <section className="py-20 md:py-32 bg-slate-900 dark:bg-[#080B14] relative overflow-hidden text-white border-y border-slate-800">
+         <div className="absolute top-0 right-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-sky-500/10 rounded-full blur-[40px] md:blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+         <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-indigo-500/10 rounded-full blur-[40px] md:blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-900/40 text-indigo-300 text-sm font-semibold mb-6 border border-indigo-800">
+                  <BarChart className="w-4 h-4" />
+                  <span>Mental Aptitude Micro-Analysis</span>
+               </div>
+               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                  A Uniform Requires <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Perfect Instincts.</span>
+               </h2>
+               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                  Police exams uniquely test your psychological and ethical reasoning. Our AI dashboard isolates logic errors in Situation Reaction Tests (SRT) and Basic Law cases.
+               </p>
+               
+               <ul className="space-y-6">
+                 {[
+                   { icon: Layers, title: 'Situation Reaction Accuracy', desc: 'Identify systematic thinking errors in crowded situation / riot control reasoning scenarios.' },
+                   { icon: Shield, title: 'Mool Vidhi Error Tracking', desc: 'Find out specifically which IPC/CRPC sections or Constitutional articles you get wrong.' },
+                   { icon: Zap, title: 'Negative Marking Analysis', desc: 'State police written exams penalize heavily for guesswork. Track your exact accuracy ratio.' }
+                 ].map((fp, i) => (
+                   <li key={i} className="flex items-start gap-4">
+                     <div className="bg-indigo-500/20 p-3 rounded-xl mt-1"><fp.icon className="w-5 h-5 text-sky-400" /></div>
+                     <div>
+                       <h4 className="font-bold text-lg text-white mb-1">{fp.title}</h4>
+                       <p className="text-slate-400 text-sm">{fp.desc}</p>
+                     </div>
+                   </li>
+                 ))}
+               </ul>
+            </div>
+
+            <div className="flex-1 w-full max-w-lg aspect-square relative flex items-center justify-center">
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="absolute z-20 w-full md:w-[90%] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 md:p-8"
+                >
+                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                        <Activity className="w-6 h-6 text-sky-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg mb-1">Score Breakdown</h4>
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">UP Police Const. Set-04</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <h4 className="font-black text-sky-400 text-2xl tracking-tight">210/300</h4>
+                      <p className="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1 mt-1">
+                        <Activity className="w-3 h-3" /> Cut-off Cleared
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    {[
+                      { name: 'General Hindi', score: 85, color: 'bg-indigo-500' },
+                      { name: 'Mental Aptitude / IQ', score: 62, color: 'bg-rose-500' },
+                      { name: 'Numerical Ability', score: 90, color: 'bg-sky-500' },
+                    ].map((sub, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between text-sm font-bold text-slate-300 mb-2">
+                          <span>{sub.name}</span>
+                          <span>{sub.score}% Accuracy</span>
+                        </div>
+                        <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${sub.score}%` }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + i * 0.1, duration: 1, ease: "easeOut" }}
+                            className={`h-full ${sub.color} rounded-full`} 
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring" }}
+                  className="absolute z-30 top-0 left-0 bg-white/10 backdrop-blur-md rounded-full border border-white/20 px-5 py-2.5 flex items-center gap-3 -translate-y-4 -translate-x-4 md:-translate-x-12"
+                >
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+                  </div>
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Focus: Mental Aptitude</span>
+                </motion.div>
+            </div>
+         </div>
+      </section>
+
+      {/* 4. Core Offerings */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300 text-sm font-semibold mb-6">
+            <ShieldCheck className="w-4 h-4" />
+            <span>State Police Specialization</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Why ExamBoost Master Pass?</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A standard generic test series won't cover state-level variations. We build highly targeted modules for Constables & SIs.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { icon: Map, title: 'Regional Gen-Knowledge', desc: 'Heavy injection of UP/Delhi/Bihar specific historical and geographical data in mocks.' },
+            { icon: BookOpen, title: 'Grammar Heavy Hindi', desc: 'Master Vyakaran, Sandhi, Samas and Literature which forms 25%+ of state police tests.' },
+            { icon: Shield, title: 'Constitutional Law', desc: 'Precise difficulty scaling on Articles, Amendments, and Basic Laws for Daroga Aspirants.' },
+            { icon: MonitorSmartphone, title: 'Computer Formats', desc: 'Exact TCS framework for Delhi Police 10-mark MS Office and networking questions.' }
+          ].map((feature, idx) => (
+             <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl transition-all group hover:shadow-xl hover:shadow-indigo-900/10 hover:-translate-y-1">
+               <div className="w-14 h-14 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                 <feature.icon className="w-7 h-7" />
+               </div>
+               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h3>
+               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                 {feature.desc}
+               </p>
+             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Free Mock Tests */}
+      <section className="py-20 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-r from-indigo-700 to-sky-700 rounded-[2rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
+              <div className="flex-1 text-center lg:text-left">
+                <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight">Try Before You Commit</h2>
+                <p className="text-indigo-100 text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                  Experience the interface, the difficulty of Mental Aptitude cases, and the deep AI analytics with our free premium mocks.
+                </p>
+                <button className="bg-white text-indigo-900 px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto hover:bg-slate-100 shadow-lg flex items-center justify-center gap-2 group mx-auto lg:mx-0">
+                  Register For Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+              <div className="flex-1 w-full flex flex-col gap-4">
+                {freeTests.map((test, idx) => (
+                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/20 transition-colors">
+                    <div>
+                      <h4 className="font-bold text-white text-lg mb-2">{test.name}</h4>
+                      <div className="flex items-center gap-4 text-sm font-semibold text-sky-100">
+                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {test.q} Qs</span>
+                        <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {test.t} Mins</span>
+                      </div>
+                    </div>
+                    <button className="text-sm font-bold text-indigo-900 bg-white hover:bg-slate-100 px-6 py-3 rounded-xl transition-colors flex items-center gap-2 shrink-0">
+                       Attempt <PlayCircle className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Student Reviews */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Inspiring Selections</h2>
+          <p className="text-slate-600 dark:text-slate-400">Thousands have donned the Khaki after training their written mechanics with us.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reviews.map((r, i) => (
+            <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl flex flex-col gap-6 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex text-amber-500 gap-1">
+                {[...Array(r.rating)].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed flex-grow italic">
+                "{r.text}"
+              </p>
+              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
+                  {r.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white">{r.name}</h4>
+                  <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest">{r.exam}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7. FAQs */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-6 flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                >
+                  <span className="pr-4">{faq.q}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === idx ? 'bg-indigo-600 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+                <AnimatePresence>
+                  {openFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                    >
+                      <p className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
 }

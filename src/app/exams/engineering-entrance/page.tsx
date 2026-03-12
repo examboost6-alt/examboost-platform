@@ -14,14 +14,14 @@ import {
   Star,
   CheckCircle2,
   BookOpen,
-  PieChart,
   Laptop,
   Users,
   ChevronDown,
   Award,
   Clock,
   BarChart,
-  ClipboardList
+  BrainCircuit,
+  Zap
 } from 'lucide-react';
 
 const popularExams = [
@@ -30,44 +30,41 @@ const popularExams = [
     fullName: 'Joint Entrance Examination',
     desc: 'For admission to NITs, IIITs, and Centrally Funded Technical Institutions.',
     tests: 45,
-    pattern: 'NTA Pattern (MCQs + Numerical)',
+    pattern: 'NTA Pattern',
     subjects: ['Physics', 'Chemistry', 'Mathematics'],
     href: '/exams/engineering-entrance/jee/jee-main',
-    color: 'text-blue-600 dark:text-blue-400',
-    bg: 'bg-blue-50 dark:bg-blue-900/20'
+    icon: Target,
+    popular: true
   },
   {
     name: 'JEE Advanced',
     fullName: 'Joint Entrance Exam Advanced',
     desc: 'The exclusive entrance exam for admission to the prestigious IITs.',
     tests: 30,
-    pattern: 'Paper 1 & 2 (Multi-Correct, Integer)',
+    pattern: 'Paper 1 & 2',
     subjects: ['Physics', 'Chemistry', 'Mathematics'],
     href: '/exams/engineering-entrance/jee/jee-advanced',
-    color: 'text-indigo-600 dark:text-indigo-400',
-    bg: 'bg-indigo-50 dark:bg-indigo-900/20'
+    icon: BrainCircuit
   },
   {
     name: 'BITSAT',
     fullName: 'BITS Admission Test',
     desc: 'Computer-based test for admission to BITS Pilani, Goa, and Hyderabad.',
     tests: 25,
-    pattern: 'Speed & Accuracy (Includes English)',
+    pattern: 'Speed & Accuracy',
     subjects: ['PCM', 'English', 'Logic'],
     href: '/exams/engineering-entrance/bitsat',
-    color: 'text-amber-600 dark:text-amber-400',
-    bg: 'bg-amber-50 dark:bg-amber-900/20'
+    icon: Zap
   },
   {
     name: 'VITEEE',
     fullName: 'VIT Engineering Entrance',
     desc: 'For admission to B.Tech programs at VIT Vellore, Chennai, AP, and Bhopal.',
     tests: 20,
-    pattern: 'No Negative Marking (MCQ format)',
-    subjects: ['Maths/Bio', 'Phy', 'Chem', 'Eng'],
+    pattern: 'No Negative Marking',
+    subjects: ['Maths', 'Phy', 'Chem', 'Eng'],
     href: '/exams/engineering-entrance/viteee',
-    color: 'text-emerald-600 dark:text-emerald-400',
-    bg: 'bg-emerald-50 dark:bg-emerald-900/20'
+    icon: Activity
   }
 ];
 
@@ -78,252 +75,299 @@ const freeTests = [
 ];
 
 const reviews = [
-  { name: 'Aman Rajput', exam: 'JEE Main, 99.8 PR', rating: 5, text: 'The mock test interface is completely identical to the real NTA exam. It removed all my exam day anxiety. Highly recommended for serious aspirants.' },
-  { name: 'Riya Sharma', exam: 'BITSAT, Score: 320', rating: 5, text: 'Detailed solutions and the logical reasoning section practice gave me an edge. The AI analytics accurately pointed out my weak formulas and careless mistakes.' },
-  { name: 'Sahil Verma', exam: 'JEE Advanced Qualified', rating: 5, text: 'Questions in the advanced test series are exactly of the JEE level. Not too hard just to scare you, but conceptually challenging enough to build deep understanding.' },
+  { name: 'Aman Rajput', exam: 'JEE Main, 99.8 PR', rating: 5, text: 'The mock test interface is completely identical to the real NTA exam. It removed all my exam day anxiety. Highly recommended.' },
+  { name: 'Riya Sharma', exam: 'BITSAT, Score: 320', rating: 5, text: 'Detailed solutions and the logical reasoning section practice gave me an edge. The AI analytics accurately pointed out my weak formulas.' },
+  { name: 'Sahil Verma', exam: 'JEE Advanced Qualified', rating: 5, text: 'Questions in the advanced test series are exactly of the JEE level. Conceptually challenging enough to build deep understanding.' },
 ];
 
 const faqs = [
   { q: "Are the mock test interfaces exactly like the real exams?", a: "Yes, our platform uses the exact same UI as the NTA (for JEE) and TCS iON (for others) to ensure you are completely familiar with the environment on exam day." },
   { q: "Do you provide video solutions?", a: "Yes, for the Ultimate and Masterclass packages, we provide detailed step-by-step video solutions for the hardest questions, along with comprehensive text solutions for all questions." },
   { q: "Can I take the tests on my phone?", a: "Absolutely. Our platform is 100% responsive, and we also have a dedicated Android/iOS app with an offline mode so you can download and attempt tests without internet access." },
-  { q: "How does the AI analytics work?", a: "Our AI engine tracks the exact time you spend on each question, predicts your accuracy under pressure, and compares your attempt strategy with toppers to generate a personalized improvement blueprint." }
+  { q: "How does the AI analytics work?", a: "Our AI engine tracks the exact time you spend on each question, predicts your accuracy under pressure, and compares your attempt strategy with toppers." }
 ];
 
 export default function EngineeringEntrancePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 w-full overflow-x-hidden selection:bg-primary/30 font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 pb-12 w-full overflow-x-hidden font-sans">
       
-      {/* 1. Ultra Clean Professional Hero Section */}
-      <div className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
-          
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 mb-8 md:mb-12">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <span className="text-slate-900 dark:text-white font-bold">Engineering</span>
-          </div>
+      {/* 1. Medical-Style Organic Hero Section */}
+      <section className="relative px-4 sm:px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center">
+        {/* Background Blobs for a clean medical-like aesthetic but with Engineering Colors */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-indigo-400/20 dark:bg-indigo-500/10 rounded-full blur-[60px] md:blur-[100px] -z-10 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-violet-400/20 dark:bg-violet-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex-1 w-full order-1 text-center lg:text-left"
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 font-bold text-xs uppercase tracking-widest mb-6 border border-blue-100 dark:border-blue-800/50">
-                <Target className="w-4 h-4" /> Trusted by 50,000+ Aspirants
-              </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-sm font-semibold mb-6 shadow-sm border border-blue-200 dark:border-blue-800 backdrop-blur-sm"
+        >
+          <Activity className="w-4 h-4 animate-pulse" />
+          <span>India's Most Advanced Engineering Prep</span>
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.2] md:leading-[1.1] mb-6 max-w-5xl tracking-tight px-2"
+        >
+          Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">Engineering</span> <br className="hidden md:block"/>
+          Entrance Exams
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed px-4"
+        >
+          Prepare with exact NTA pattern mock tests, verified solutions curated by IIT alumni, and comprehensive performance analytics to boost your rank.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-5 relative z-10 w-full sm:w-auto px-4"
+        >
+          <Link href="#test-series" className="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold transition-all shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-2 group transform hover:-translate-y-1">
+            Explore Test Series <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <button className="px-8 py-4 w-full sm:w-auto rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg">
+            Take Free Mock Test
+          </button>
+        </motion.div>
+      </section>
 
-              <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] leading-[1.1] font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-                Engineering <br className="hidden md:block"/>
-                <span className="text-primary">Entrance Exams</span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Prepare with exact NTA pattern mock tests, verified solutions curated by IIT alumni, and comprehensive performance analytics to boost your rank.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-sm">
-                  Explore Test Series <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="w-full sm:w-auto bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
-                  Take Free Mock Test
-                </button>
-              </div>
-
-              {/* Clean Trust Indicators */}
-              <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-semibold text-slate-600 dark:text-slate-400">
-                <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Error-Free Content</span>
-                <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Real Exam Interface</span>
-                <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> In-depth Analytics</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-              className="flex-1 w-full order-2"
-            >
-              {/* Clean Professional Graphic */}
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 aspect-[4/3] flex items-center justify-center p-6">
-                <img src="/jee-mains-banner.svg" alt="Engineering Exam Preparation Dashboard" className="w-full h-full object-contain" />
-              </div>
-            </motion.div>
-          </div>
+      {/* Trust Scrolling Ticker */}
+      <section className="w-full bg-indigo-950 py-4 md:py-5 overflow-hidden border-y border-indigo-900 flex items-center shadow-inner relative z-10 pointer-events-none">
+        <div className="flex w-[400%] md:w-[200%] animate-[slide_25s_linear_infinite] whitespace-nowrap">
+           <div className="flex gap-8 md:gap-32 px-4 md:px-8 items-center text-indigo-100 font-bold text-sm md:text-xl">
+             <span className="flex items-center gap-3"><CheckCircle2 className="w-6 h-6 text-indigo-400" /> Error-Free Content</span>
+             <span className="flex items-center gap-3"><Laptop className="w-6 h-6 text-indigo-400" /> Real Exam Interface</span>
+             <span className="flex items-center gap-3"><BarChart className="w-6 h-6 text-indigo-400" /> In-depth Analytics</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-indigo-400" /> 50,000+ Aspirants</span>
+             <span className="flex items-center gap-3"><Award className="w-6 h-6 text-indigo-400" /> IIT Alumni Solutions</span>
+             <span className="flex items-center gap-3"><CheckCircle2 className="w-6 h-6 text-indigo-400" /> Error-Free Content</span>
+             <span className="flex items-center gap-3"><Laptop className="w-6 h-6 text-indigo-400" /> Real Exam Interface</span>
+             <span className="flex items-center gap-3"><BarChart className="w-6 h-6 text-indigo-400" /> In-depth Analytics</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-indigo-400" /> 50,000+ Aspirants</span>
+             <span className="flex items-center gap-3"><Award className="w-6 h-6 text-indigo-400" /> IIT Alumni Solutions</span>
+           </div>
         </div>
-      </div>
+         <style dangerouslySetInnerHTML={{__html: `
+            @keyframes slide {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}} />
+      </section>
 
-      {/* 2. Supported Exams Section (Clean Grid) */}
-      <div className="py-20 bg-slate-50 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Choose Your Target Exam</h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Specialized mock tests tailored to the exact syllabus and difficulty level of each exam.</p>
+      {/* 2. Target Exams Grid (Medical Page Style) */}
+      <section id="test-series" className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Choose Your Target Exam</h2>
+            <p className="text-slate-600 dark:text-slate-400">Specialized mock tests tailored to the exact syllabus and difficulty level.</p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {popularExams.map((exam, idx) => (
-              <Link
-                key={idx}
-                href={exam.href}
-                className="group bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden"
-              >
-                {/* Decorative background element for slight visual lift */}
-                <div className={`absolute top-0 right-0 w-40 h-40 ${exam.bg} opacity-20 dark:opacity-[0.03] rounded-bl-[100px] -z-0 transition-transform group-hover:scale-110`} />
-
-                <div className="flex items-start gap-4 sm:gap-6 mb-6 relative z-10">
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-[1.2rem] flex items-center justify-center ${exam.bg} ${exam.color}`}>
-                    <Award className="w-8 h-8 sm:w-10 sm:h-10" />
-                  </div>
-                  <div className="flex-1 pt-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{exam.name}</h3>
-                       <span className="self-start sm:self-auto px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 whitespace-nowrap">
-                         {exam.tests}+ Tests
-                       </span>
-                    </div>
-                    <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{exam.fullName}</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularExams.map((exam, i) => (
+              <Link key={i} href={exam.href} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all relative overflow-hidden block hover:shadow-lg">
+                {exam.popular && (
+                  <span className="absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">HOT</span>
+                )}
+                <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
+                  <exam.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{exam.name}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 h-10">{exam.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {exam.subjects.map((sub, i) => (
+                      <span key={i} className="text-[11px] font-bold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded-full">{sub}</span>
+                    ))}
                 </div>
 
-                <div className="mb-6 relative z-10">
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
-                    {exam.desc}
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50 relative z-10 flex-grow">
-                   <div>
-                      <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-2">Exam Pattern</p>
-                      <p className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <ClipboardList className="w-4 h-4 text-primary" /> {exam.pattern}
-                      </p>
-                   </div>
-                   <div>
-                      <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-2">Key Subjects</p>
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        {exam.subjects.map((sub, i) => (
-                          <span key={i} className="text-xs font-bold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700">{sub}</span>
-                        ))}
-                      </div>
-                   </div>
-                </div>
-
-                {/* Explicit Desktop and Mobile Action Button */}
-                <div className="mt-auto relative z-10 w-full">
-                  <div className="w-full flex items-center justify-center gap-2 py-4 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-200 font-bold rounded-xl transition-colors duration-300 text-sm sm:text-base border border-slate-200 dark:border-slate-700 group-hover:border-primary shadow-sm hover:shadow-md">
-                    View Test Series <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">
+                  View Series <ArrowRight className="w-4 h-4 ml-1" />
                 </div>
               </Link>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 3. Deep Analytics - Clean Professional Layout */}
-      <div className="py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            
-            <div className="flex-1 w-full order-2 lg:order-1">
-               <div className="bg-slate-50 dark:bg-slate-950 p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
-                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Detailed Performance Analytics dashboard" className="rounded-xl border border-slate-200 dark:border-slate-700 shadow-md w-full relative z-10" />
+      {/* 3. Immersive Analytics Section (Replacing the hero dashboard) */}
+      <section className="py-20 md:py-32 bg-slate-900 dark:bg-[#080B14] relative overflow-hidden text-white border-y border-slate-800">
+         <div className="absolute top-0 right-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-blue-500/10 rounded-full blur-[40px] md:blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+         <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-indigo-500/10 rounded-full blur-[40px] md:blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-900/40 text-blue-300 text-sm font-semibold mb-6 border border-blue-800">
+                  <BarChart className="w-4 h-4" />
+                  <span>Deep AI Analytics</span>
                </div>
+               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                  Move beyond basic scores with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Deep Analytics.</span>
+               </h2>
+               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                  Attempting tests is only half the battle. Our analysis engine breaks down your performance to highlight exact areas where you are losing marks and time.
+               </p>
+               
+               <ul className="space-y-6">
+                 {[
+                   { icon: Clock, title: 'Time Management Graph', desc: 'Identify which question types consume disproportionate amounts of your time.' },
+                   { icon: Activity, title: 'Topic Mastery Index', desc: 'See your accuracy categorized by specific physics, chemistry, and math syllabus headers.' },
+                   { icon: Users, title: 'Peer Comparison', desc: 'Benchmark your section-wise performance with the top 10% of aspirants.' }
+                 ].map((fp, i) => (
+                   <li key={i} className="flex items-start gap-4">
+                     <div className="bg-blue-500/20 p-3 rounded-xl mt-1"><fp.icon className="w-5 h-5 text-blue-400" /></div>
+                     <div>
+                       <h4 className="font-bold text-lg text-white mb-1">{fp.title}</h4>
+                       <p className="text-slate-400 text-sm">{fp.desc}</p>
+                     </div>
+                   </li>
+                 ))}
+               </ul>
             </div>
 
-            <div className="flex-1 w-full order-1 lg:order-2">
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">Move beyond basic scores with deep analytics.</h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-                Attempting tests is only half the battle. Our analysis engine breaks down your performance to highlight exact areas where you are losing marks and time.
-              </p>
-
-              <div className="space-y-8">
-                {[
-                  { icon: Clock, title: 'Time Management Graph', desc: 'Identify which question types consume disproportionate amounts of your time.' },
-                  { icon: BarChart, title: 'Topic Mastery Index', desc: 'See your accuracy categorized by specific physics, chemistry, and math syllabus headers.' },
-                  { icon: Users, title: 'Peer Comparison', desc: 'Benchmark your section-wise performance with the top 10% of aspirants.' }
-                ].map((ft, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-800/50">
-                      <ft.icon className="w-6 h-6" />
+            <div className="flex-1 w-full max-w-lg aspect-square relative flex items-center justify-center">
+                {/* Main Performance Card (Copied from previous hero but styled beautifully here) */}
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="absolute z-20 w-full md:w-[90%] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 md:p-8"
+                >
+                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+                        <BarChart className="w-6 h-6 text-blue-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg mb-1">Performance Analytics</h4>
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">JEE Main Full Test</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1.5">{ft.title}</h4>
-                      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{ft.desc}</p>
+                    <div className="text-right">
+                      <h4 className="font-black text-blue-400 text-2xl tracking-tight">99.8 PR</h4>
+                      <p className="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1 mt-1">
+                        <Activity className="w-3 h-3" /> Top 1%
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  
+                  {/* Subject Bars */}
+                  <div className="space-y-5">
+                    {[
+                      { name: 'Physics', score: 88, color: 'bg-blue-500' },
+                      { name: 'Chemistry', score: 95, color: 'bg-indigo-500' },
+                      { name: 'Mathematics', score: 82, color: 'bg-violet-500' },
+                    ].map((sub, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between text-sm font-bold text-slate-300 mb-2">
+                          <span>{sub.name}</span>
+                          <span>{sub.score}% Accurate</span>
+                        </div>
+                        <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${sub.score}%` }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + i * 0.1, duration: 1, ease: "easeOut" }}
+                            className={`h-full ${sub.color} rounded-full`} 
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Floating Badge */}
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring" }}
+                  className="absolute z-30 top-0 left-0 bg-white/10 backdrop-blur-md rounded-full border border-white/20 px-5 py-2.5 flex items-center gap-3 -translate-y-4 -translate-x-4 md:-translate-x-12"
+                >
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </div>
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Live Analysis</span>
+                </motion.div>
             </div>
+         </div>
+      </section>
+
+      {/* 4. Core Offerings (Medical style boxes) */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-sm font-semibold mb-6">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Comprehensive Features</span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Enterprise Grade Platform</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Engineered to simulate the exact conditions of national competitive exams.
+          </p>
         </div>
-      </div>
-
-       {/* 4. Core Features Summary */}
-       <div className="py-20 bg-slate-50 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Enterprise Grade Test Platform</h2>
-            <p className="text-slate-600 dark:text-slate-400">Engineered to simulate the exact conditions of national competitive exams.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Laptop, title: 'Realistic CBT Interface', desc: 'Familiarize yourself completely with the NTA testing environment.' },
-              { icon: ShieldCheck, title: 'Verified Question Bank', desc: 'Zero error tolerance. Questions structured by subject matter experts.' },
-              { icon: FileText, title: 'Comprehensive Solutions', desc: 'Detailed step-by-step methods and short tricks provided for every question.' },
-              { icon: Activity, title: 'Latest Syllabus', desc: 'Test structures continually updated to reflect latest notification changes.' }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 text-center flex flex-col items-center">
-                <div className="w-14 h-14 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-700 dark:text-slate-300 mb-6 border border-slate-100 dark:border-slate-700">
-                  <feature.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { icon: Laptop, title: 'Realistic Interface', desc: 'Familiarize yourself completely with the NTA CBT environment.' },
+            { icon: ShieldCheck, title: 'Verified Content', desc: 'Zero error tolerance. Questions structured by subject matter experts.' },
+            { icon: FileText, title: 'Detailed Solutions', desc: 'Step-by-step methods and short tricks provided for every question.' },
+            { icon: Activity, title: 'Latest Syllabus', desc: 'Test structures continually updated to reflect latest notification changes.' }
+          ].map((feature, idx) => (
+             <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl transition-all group hover:shadow-xl hover:shadow-blue-900/10 hover:-translate-y-1">
+               <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                 <feature.icon className="w-7 h-7" />
+               </div>
+               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h3>
+               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                 {feature.desc}
+               </p>
+             </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* 5. Free Mock Tests - Clean Professional Look */}
-      <div className="py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-12">
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
-              
+      {/* 5. Free Mock Tests */}
+      <section className="py-20 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-[2rem] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            
+            <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
               <div className="flex-1 text-center lg:text-left">
-                <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">Try completely free mock tests.</h2>
-                <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 max-w-lg mx-auto lg:mx-0">
+                <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight">Try Free Mock Tests</h2>
+                <p className="text-blue-100 text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                   Evaluate our platform's interface, question quality, and analytics dashboard without any upfront commitment.
                 </p>
-                <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3.5 rounded-xl font-bold transition-all w-full sm:w-auto">
-                  Create Free Account
+                <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto hover:bg-blue-50 shadow-lg flex items-center justify-center gap-2 group mx-auto lg:mx-0">
+                  Create Account <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
 
               <div className="flex-1 w-full flex flex-col gap-4">
                 {freeTests.map((test, idx) => (
-                  <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-primary/50 transition-colors">
+                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/20 transition-colors">
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white text-[15px] mb-2">{test.name}</h4>
-                      <div className="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
-                        <span className="flex items-center gap-1"><FileText className="w-3.5 h-3.5" /> {test.q} Qs</span>
-                        <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {test.t} Mins</span>
-                        <span className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">{test.level}</span>
+                      <h4 className="font-bold text-white text-lg mb-2">{test.name}</h4>
+                      <div className="flex items-center gap-4 text-sm font-semibold text-blue-100">
+                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {test.q} Qs</span>
+                        <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {test.t} Mins</span>
                       </div>
                     </div>
-                    <button className="text-sm font-bold text-primary flex items-center gap-1.5 shrink-0 bg-primary/5 hover:bg-primary/10 px-4 py-2 rounded-lg transition-colors">
-                       Attempt Now <PlayCircle className="w-4 h-4" />
+                    <button className="text-sm font-bold text-blue-900 bg-white hover:bg-blue-50 px-6 py-3 rounded-xl transition-colors flex items-center gap-2 shrink-0">
+                       Attempt <PlayCircle className="w-4 h-4" />
                     </button>
                   </div>
                 ))}
@@ -331,55 +375,56 @@ export default function EngineeringEntrancePage() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 6. Student Reviews - Clean Testimonials */}
-      <div className="py-20 bg-slate-50 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Trusted by Top Achievers</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((r, i) => (
-              <div key={i} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
-                <div className="flex text-amber-500 mb-4 gap-0.5">
-                  {[...Array(r.rating)].map((_, idx) => (
-                    <Star key={idx} className="w-4 h-4 fill-current" />
-                  ))}
+      {/* 6. Student Reviews */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Trusted by Top Achievers</h2>
+          <p className="text-slate-600 dark:text-slate-400">Join thousands of successful aspirants.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reviews.map((r, i) => (
+            <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl flex flex-col gap-6 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex text-amber-500 gap-1">
+                {[...Array(r.rating)].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed flex-grow">
+                "{r.text}"
+              </p>
+              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">
+                  {r.name.charAt(0)}
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 block italic">
-                  "{r.text}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">
-                    {r.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">{r.name}</h4>
-                    <p className="text-xs text-slate-500 font-medium">{r.exam}</p>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white">{r.name}</h4>
+                  <p className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{r.exam}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
       {/* 7. FAQs */}
-      <div className="py-24 bg-white dark:bg-slate-900">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+              <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-slate-900 dark:text-white bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors"
+                  className="w-full text-left p-6 flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <span className="pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 text-slate-400 ${openFaq === idx ? 'rotate-180 text-primary' : ''}`} />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === idx ? 'bg-blue-600 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
@@ -388,7 +433,7 @@ export default function EngineeringEntrancePage() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                     >
-                      <p className="px-6 py-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-800">
+                      <p className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -398,7 +443,7 @@ export default function EngineeringEntrancePage() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
   );

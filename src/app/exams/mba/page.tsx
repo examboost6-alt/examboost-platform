@@ -1,339 +1,429 @@
-import React from 'react';
-import Link from 'next/link';
-import { BookOpen, Award, Users, CheckCircle, ArrowRight, PlayCircle, FileText, ChevronRight, Target, ShieldCheck, Zap, Star } from 'lucide-react';
+"use client";
 
-export const metadata = {
-  title: 'MBA Entrance Exams Test Series - ExamBoost',
-  description: 'Practice with ExamBoost mock tests for CAT, XAT, NMAT, SNAP, MAT, and other top management entrance exams.'
-};
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  BookOpen, Award, Users, ArrowRight, PlayCircle, FileText,
+  Target, ShieldCheck, Zap, Star, Activity, BarChart, ChevronDown, Clock,
+  Briefcase, TrendingUp, PieChart, BrainCircuit, LayoutDashboard, Compass
+} from 'lucide-react';
 
 const popularExams = [
-  { name: 'CAT', tests: 150, icon: 'MBA' },
-  { name: 'XAT', tests: 40, icon: 'MBA' },
-  { name: 'NMAT by GMAC', tests: 60, icon: 'MBA' },
-  { name: 'SNAP', tests: 45, icon: 'MBA' },
-  { name: 'MAT', tests: 30, icon: 'MBA' },
-  { name: 'CMAT', tests: 25, icon: 'MBA' },
-  { name: 'TISSNET', tests: 20, icon: 'MBA' },
-  { name: 'MHT CET (MBA)', tests: 35, icon: 'MBA' }
+  {
+    name: 'CAT 2026',
+    fullName: 'Common Admission Test',
+    desc: 'The gold standard for IIMs. Tests extreme logic, pressure handling, and accuracy.',
+    tests: 150,
+    pattern: '66 Qs, 120 Mins',
+    subjects: ['VARC', 'DILR', 'Quant'],
+    href: '/exams/mba/cat',
+    icon: TrendingUp,
+    popular: true
+  },
+  {
+    name: 'XAT',
+    fullName: 'Xavier Aptitude Test',
+    desc: 'Gateway to XLRI. Uniquely features the tricky Decision Making and Poetry sections.',
+    tests: 40,
+    pattern: '100 Qs, 190 Mins',
+    subjects: ['Decision Making', 'VALR', 'QADI'],
+    href: '/exams/mba/xat',
+    icon: Compass
+  },
+  {
+    name: 'NMAT by GMAC',
+    fullName: 'NMIMS Management Aptitude',
+    desc: 'A computer-adaptive test where difficulty changes based on your real-time accuracy.',
+    tests: 60,
+    pattern: '108 Qs, 120 Mins',
+    subjects: ['Language', 'Quant', 'Logic'],
+    href: '#',
+    icon: BrainCircuit
+  },
+  {
+    name: 'SNAP',
+    fullName: 'Symbiosis National Aptitude',
+    desc: '純 speed-based test for SIBM Pune. Requires lightning-fast analytical geometry.',
+    tests: 45,
+    pattern: '60 Qs, 60 Mins',
+    subjects: ['General English', 'A-LR', 'QA-DI'],
+    href: '#',
+    icon: Zap
+  }
 ];
 
 const freeTests = [
-  { name: 'CAT Full Length Mock 1', q: 66, t: 120 },
-  { name: 'SNAP Speed Test (Logical)', q: 25, t: 30 },
-  { name: 'XAT Decision Making Sectional', q: 21, t: 45 }
+  { name: 'CAT 2026 All-India Open Mock', q: 66, t: 120, level: 'Advanced' },
+  { name: 'XAT Decision Making Diagnostic', q: 21, t: 45, level: 'Crucial' },
+  { name: 'SNAP 60-Minute Speed Rush', q: 60, t: 60, level: 'Moderate' }
 ];
 
 const reviews = [
-  { name: 'Vaibhav, IIM Ahmedabad', rating: 5, text: 'The DILR sets provided by ExamBoost were an exact replica of the grueling CAT 2025 level. Highly recommended.' },
-  { name: 'Neha, XLRI Jamshedpur', rating: 5, text: 'The Decision Making caselets for XAT are the best in the market. It fundamentally changed my elimination approach.' },
-  { name: 'Siddharth, NMIMS Mumbai', rating: 4, text: 'Adaptive mock tests for NMAT felt exactly like the real GMAC algorithm. It really helped pace my exam perfectly.' },
-  { name: 'Pooja, SIBM Pune', rating: 5, text: 'SNAP is all about speed and accuracy. ExamBoost analytical reasoning questions gave me the edge I needed.' }
+  { name: 'Vaibhav C.', exam: 'IIM Ahmedabad (99.98%ile)', rating: 5, text: 'The DILR sets provided by ExamBoost were an exact replica of the grueling CAT 2025 level. Their analytics taught me exactly which sets to skip—which is the secret to CAT.' },
+  { name: 'Neha Reddy', exam: 'XLRI Jamshedpur', rating: 5, text: 'The Decision Making caselets for XAT are the best in the market. They don\'t just give answers, they explain the ethical framework required to eliminate the confusingly close options.' },
+  { name: 'Siddharth M.', exam: 'NMIMS Mumbai Core', rating: 5, text: 'Their adaptive engine for NMAT felt exactly like the real GMAC algorithm. It really penalized me for early mistakes, which helped pace my real exam perfectly.' },
+];
+
+const faqs = [
+  { q: "Is the NMAT mock series actually Computer Adaptive?", a: "Yes! Unlike generic platforms, our NMAT engine is truly adaptive. If you get a question right, the next one is harder and carries more weight. Just like the real GMAC algorithm." },
+  { q: "Do the CAT mocks provide percentile predictions?", a: "Yes. Every CAT mock gives you a scaled score and a predicted percentile normalized against our pool of 40,000+ serious test-takers, simulating actual IIM shortlisting metrics." },
+  { q: "Are video solutions provided for DILR?", a: "Absolutely. DILR cannot be understood purely through text. Every single Data Interpretation and Logical Reasoning set in our premium series comes with a faculty-led breakdown video." },
+  { q: "Do you cover non-CAT exams (OMETs) adequately?", a: "Yes, our 'B-School Master' pass includes highly specialized series for XAT, SNAP, NMAT, TISSNET, and MAT—respecting their unique syllabi (like XAT DM or SNAP Analytical Logic)." }
 ];
 
 export default function MBAExamsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 md:pt-24 w-full overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#020617] pt-20 pb-12 w-full overflow-x-hidden font-sans">
+      
+      {/* 1. Organic Hero Section */}
+      <section className="relative px-4 sm:px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center">
+        {/* Fuchsia/Pink/Purple Background Blobs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-fuchsia-400/20 dark:bg-fuchsia-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-pink-400/20 dark:bg-pink-500/10 rounded-full blur-[60px] md:blur-[100px] -z-10 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none"></div>
 
-      {/* 1. Hero Section */}
-      <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 dark:opacity-10"></div>
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-          <div className="flex-1 w-full">
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-primary dark:text-accent mb-6 flex-wrap">
-              <Link href="/" className="hover:underline shrink-0">Home</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
-              <Link href="/exams" className="hover:underline shrink-0">All Exams</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
-              <span className="text-slate-500 dark:text-slate-400">MBA Entrance</span>
-            </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fuchsia-100 dark:bg-fuchsia-900/40 text-fuchsia-800 dark:text-fuchsia-300 text-sm font-semibold mb-6 shadow-sm border border-fuchsia-200 dark:border-fuchsia-800 backdrop-blur-sm"
+        >
+          <Briefcase className="w-4 h-4 animate-pulse" />
+          <span>India's Most Analytically Rigorous MBA Mocks</span>
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.2] md:leading-[1.1] mb-6 max-w-5xl tracking-tight px-2"
+        >
+          Target the <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-pink-500 dark:from-fuchsia-400 dark:to-pink-400">99.99th Percentile</span><br className="hidden md:block"/>
+          in CAT & OMETs
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed px-4"
+        >
+          Crack IIMs and XLRI with exact exam-level DILR sets, AI-driven attempt optimization algorithms, and normalized percentile predictions.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-5 relative z-10 w-full sm:w-auto px-4"
+        >
+          <Link href="#test-series" className="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white font-bold transition-all shadow-[0_0_40px_-10px_rgba(217,70,239,0.5)] flex items-center justify-center gap-2 group transform hover:-translate-y-1">
+            View Pricing <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <button className="px-8 py-4 w-full sm:w-auto rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg">
+            Take Free CAT Mock
+          </button>
+        </motion.div>
+      </section>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-              MBA Entrance <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-pink-500 dark:from-fuchsia-400 dark:to-pink-400 block mt-2">Test Series</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Crack CAT, XAT, NMAT, and SNAP with AI-driven percentile prediction, exact DILR caselets, and adaptive testing algorithms.
-            </p>
+      {/* Trust Scrolling Ticker */}
+      <section className="w-full bg-slate-900 py-4 md:py-5 overflow-hidden border-y border-slate-800 flex items-center shadow-inner relative z-10 pointer-events-none">
+        <div className="flex w-[400%] md:w-[200%] animate-[slide_25s_linear_infinite] whitespace-nowrap">
+           <div className="flex gap-8 md:gap-32 px-4 md:px-8 items-center text-fuchsia-100 font-bold text-sm md:text-xl">
+             <span className="flex items-center gap-3"><BrainCircuit className="w-6 h-6 text-pink-400" /> Adaptive GMAC Engine</span>
+             <span className="flex items-center gap-3"><PieChart className="w-6 h-6 text-pink-400" /> DILR Selection AI</span>
+             <span className="flex items-center gap-3"><Briefcase className="w-6 h-6 text-pink-400" /> XAT Decision Making</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-pink-400" /> 40,000+ Aspirants</span>
+             <span className="flex items-center gap-3"><Target className="w-6 h-6 text-pink-400" /> Normalized Percentiles</span>
+             <span className="flex items-center gap-3"><BrainCircuit className="w-6 h-6 text-pink-400" /> Adaptive GMAC Engine</span>
+             <span className="flex items-center gap-3"><PieChart className="w-6 h-6 text-pink-400" /> DILR Selection AI</span>
+             <span className="flex items-center gap-3"><Briefcase className="w-6 h-6 text-pink-400" /> XAT Decision Making</span>
+             <span className="flex items-center gap-3"><Users className="w-6 h-6 text-pink-400" /> 40,000+ Aspirants</span>
+             <span className="flex items-center gap-3"><Target className="w-6 h-6 text-pink-400" /> Normalized Percentiles</span>
+           </div>
+        </div>
+         <style dangerouslySetInnerHTML={{__html: `
+            @keyframes slide {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}} />
+      </section>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <button className="w-full sm:w-auto bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-fuchsia-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shrink-0">
-                Start Free Mock Test <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="w-full sm:w-auto bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shrink-0">
-                Explore Exams
-              </button>
-            </div>
+      {/* 2. Target Exams Grid */}
+      <section id="test-series" className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Target Your Dream B-School</h2>
+            <p className="text-slate-600 dark:text-slate-400">Specialized mocks tailored specifically to the diverse patterns of CAT and OMETs.</p>
           </div>
-          <div className="flex-1 w-full flex justify-center lg:justify-end mt-4 lg:mt-0">
-            <div className="relative w-full max-w-lg aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden group p-4 border border-fuchsia-100 dark:border-fuchsia-900/30 bg-gradient-to-br from-fuchsia-50 to-white dark:from-slate-800 dark:to-slate-900 shadow-2xl flex flex-col justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/10 to-pink-500/10 mix-blend-overlay z-0 rounded-3xl"></div>
-              <img src="/mba-banner.png" alt="MBA Exams Banner" className="w-full h-3/4 sm:h-full object-contain relative z-10 drop-shadow-2xl hover:scale-105 transition-transform duration-700 mb-8 sm:mb-0" />
-              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3 sm:p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg rounded-2xl z-20 border border-slate-200 dark:border-slate-700">
-                <div className="flex items-center gap-1.5 sm:gap-2 text-fuchsia-600 dark:text-fuchsia-400 font-bold mb-1">
-                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-current shrink-0" />
-                  <span className="text-sm sm:text-base">Target 99+ Percentile</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularExams.map((exam, i) => (
+              <Link key={i} href={exam.href} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-fuchsia-500 transition-all relative overflow-hidden block hover:shadow-lg">
+                {exam.popular && (
+                  <span className="absolute top-0 right-0 bg-fuchsia-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">HOT</span>
+                )}
+                <div className="w-12 h-12 rounded-xl bg-fuchsia-100 dark:bg-fuchsia-900/30 flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 mb-4 group-hover:scale-110 transition-transform">
+                  <exam.icon className="w-6 h-6" />
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-snug">Advanced DILR & Decision Making Analysis</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Popular MBA Exams */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-16 md:py-20 lg:py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Top Management Exams</h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg">Secure your berth in IIMs, XLRI, NMIMS, and Symbiosis.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {popularExams.map((exam, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 hover:border-fuchsia-500/30 dark:hover:border-fuchsia-400/30 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-fuchsia-50 dark:bg-fuchsia-900/20 rounded-2xl flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors mb-6 ring-4 ring-white dark:ring-[#0f172a] shadow-sm">
-                <Target className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{exam.name}</h3>
-              <div className="mb-8 empty:hidden">
-                <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-4 py-1.5 rounded-lg">{exam.tests} Mock Tests</span>
-              </div>
-              <button className="w-full mt-auto py-3.5 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-fuchsia-600 dark:text-fuchsia-400 font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-700 group-hover:border-fuchsia-500/20">
-                Start Practice
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 3. Featured Test Series Overview */}
-      <div className="bg-white dark:bg-[#0f172a] py-20 border-y border-slate-200 dark:border-slate-800 w-full relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-fuchsia-500/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 font-bold text-sm mb-4">
-              Premium B-School Target
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-              ExamBoost <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-pink-500">B-School Master</span> Series
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              From CAT’s intense DILR to XAT’s Decision Making and NMAT’s Adaptive speed tests—everything included in one master pass.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-[#020617] rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">CAT Qualifier</h3>
-              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-8 border-b border-slate-200 dark:border-slate-700 pb-4">Extensive tests solely devoted to cracking IIM levels.</p>
-              <ul className="space-y-4 mb-10 flex-1">
-                {['50+ CAT Full Length Mock Tests', 'Sectionals: 30 VARC, 30 DILR, 30 QA', 'Video solutions for difficult DILR sets', 'AI Percentile Predictor based on peers', 'Topic-wise practice for Arithmetic & Algebra'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                    <CheckCircle className="w-5 h-5 text-fuchsia-500 mt-0.5 shrink-0" />
-                    <span className="font-semibold text-[15px]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full py-4 rounded-xl font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-fuchsia-600 hover:text-fuchsia-600 dark:hover:border-fuchsia-500 dark:hover:text-fuchsia-500 transition-colors text-slate-800 dark:text-slate-200 flex items-center justify-center gap-2">
-                View Schedule <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="bg-gradient-to-br from-fuchsia-700 to-fuchsia-950 dark:from-slate-800 dark:to-slate-900 rounded-3xl lg:rounded-[2rem] p-6 md:p-8 lg:p-10 border border-fuchsia-500/20 shadow-2xl relative overflow-hidden group flex flex-col">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold text-xs py-1 px-10 rotate-45 shadow-lg flex items-center gap-1">
-                <Star className="w-3 h-3 fill-current" /> ALL-IN-ONE
-              </div>
-
-              <h3 className="text-2xl font-bold text-white mb-2">OMETS + CAT Elite</h3>
-              <p className="text-sm font-semibold text-fuchsia-100 dark:text-slate-400 mb-8 border-b border-white/10 dark:border-slate-700 pb-4">Cover Other Management Entrance Tests seamlessly.</p>
-              <ul className="space-y-4 mb-10 flex-1">
-                {['Everything in CAT Qualifier', '30 XAT Mocks with Decision Making', '20 NMAT Adaptive Pattern Mocks', '15 SNAP Speed Test Mocks', 'GDPI Prep & SOP Review sessions'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-white/90">
-                    <div className="p-0.5 rounded-full bg-white/20 mt-0.5 shrink-0">
-                      <CheckCircle className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="font-semibold text-[15px]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full py-4 rounded-xl font-bold bg-white text-fuchsia-700 dark:text-slate-900 hover:bg-slate-100 transition-colors shadow-xl flex items-center justify-center gap-2">
-                Explore Features <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Free Mock Test Section */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 w-full">
-        <div className="bg-gradient-to-br from-slate-900 to-fuchsia-950 rounded-3xl lg:rounded-[2.5rem] p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl" />
-          <div className="flex-1 relative z-10 w-full text-center lg:text-left">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-fuchsia-500/20 text-fuchsia-400 font-bold text-sm mb-4 border border-fuchsia-500/30">
-              Diagnostic Tests
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Free MBA Mock Tests</h2>
-            <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              Test where you stand in QA speed, VARC accuracy, and DILR logic selection. Attempt premium level diagnostic Mocks for free.
-            </p>
-            <div className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0">
-              {freeTests.map((t, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm gap-4">
-                  <div>
-                    <h4 className="font-bold text-white text-left">{t.name}</h4>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-fuchsia-200 mt-2 sm:mt-1">
-                      <span className="flex items-center gap-1"><FileText className="w-3 h-3 shrink-0" /> {t.q} Qs</span>
-                      <span className="flex items-center gap-1"><PlayCircle className="w-3 h-3 shrink-0" /> {t.t} Mins</span>
-                    </div>
-                  </div>
-                  <button className="bg-fuchsia-600 text-white hover:bg-fuchsia-500 px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all shrink-0">
-                    Attempt
-                  </button>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{exam.name}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 h-14">{exam.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {exam.subjects.map((sub, i) => (
+                      <span key={i} className="text-[11px] font-bold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded-full">{sub}</span>
+                    ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="w-full lg:w-1/3 flex justify-center relative z-10 hidden md:flex">
-            <div className="w-full aspect-square max-w-sm rounded-3xl lg:rounded-[2rem] bg-gradient-to-b from-fuchsia-500 to-pink-700 p-1 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="w-full h-full bg-slate-900 rounded-[1.8rem] p-6 flex flex-col">
-                <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-4">
-                  <h4 className="text-white font-bold">DILR Caselet</h4>
-                  <span className="text-fuchsia-400 font-bold">00:39:20 left</span>
+
+                <div className="flex items-center text-fuchsia-600 dark:text-fuchsia-400 text-sm font-semibold group-hover:gap-2 transition-all">
+                  View Series <ArrowRight className="w-4 h-4 ml-1" />
                 </div>
-                <p className="text-slate-300 text-sm flex-1 leading-relaxed">
-                  Four friends A, B, C, D sit around a circular table. A is not opposite to C. B is to the immediate right of A...
-                </p>
-                <div className="space-y-2 mb-4">
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-fuchsia-500 cursor-pointer transition-colors">(A) D is opposite to A</div>
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-fuchsia-500 cursor-pointer transition-colors">(B) C is opposite to B</div>
-                  <div className="w-full p-2 rounded bg-slate-800 text-slate-300 text-xs border border-slate-700 hover:border-fuchsia-500 cursor-pointer transition-colors">(C) D is to the immediate left of C</div>
-                </div>
-                <button className="w-full py-3 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl font-bold transition-colors shadow-lg">Save & Next</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 5. Complete MBA Exams List */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">All Management Exams Covered</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg pt-2">Extensive test series modules prepared for IIMs and other top tier B-schools.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-          {['CAT (Common Admission Test)', 'XAT (XLRI)', 'NMAT by GMAC', 'SNAP (Symbiosis)', 'MAT (Management Aptitude)', 'CMAT (AICTE)', 'TISSNET / TISS MAT', 'IIFT', 'MHT CET (MBA)'].map((examName, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex items-center justify-between group hover:border-fuchsia-500 dark:hover:border-fuchsia-400 hover:shadow-md transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-400 group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400 transition-colors">
-                  <Target className="w-6 h-6" />
-                </div>
-                <span className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400 transition-colors">{examName}</span>
-              </div>
-              <button className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 text-slate-400 group-hover:bg-fuchsia-600 group-hover:text-white dark:group-hover:bg-fuchsia-500 dark:group-hover:text-slate-900 transition-colors shrink-0">
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 6. Why Choose ExamBoost */}
-      <div className="bg-slate-100 dark:bg-slate-900/50 py-16 md:py-20 lg:py-24 border-y border-slate-200 dark:border-slate-800 w-full">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Why ExamBoost for MBA?</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">CAT requires strategy and exact difficulty replication, not just solving random questions.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {[
-              { icon: Target, title: 'AI Percentile Predictor', desc: 'Accurate profiling using relative ranking against 50,000+ serious test-takers simulating the normalization.' },
-              { icon: Zap, title: 'DILR Simulation', desc: 'Sets that test your constraint satisfaction and logic exactly like recent CAT papers, avoiding irrelevant puzzles.' },
-              { icon: BookOpen, title: 'XAT Decision Making', desc: 'High-quality business and ethical caselets modeled perfectly around XLRI’s distinct testing patterns.' },
-              { icon: Award, title: 'Adaptive Testing (NMAT)', desc: 'Engine built to simulate NMAT\'s adaptive difficulty increment/decrement based on your question-to-question accuracy.' },
-              { icon: CheckCircle, title: 'VARC Detailed Text', desc: 'Passages curated from Aeon, NYT, and WSJ with options so close it forces you to build critical elimination abilities.' },
-              { icon: ShieldCheck, title: 'Performance Dashboard', desc: 'Detailed insights on Time Spent / Question, accuracy across sub-topics like Algebra vs Arithmetic.' }
-            ].map((feature, idx) => (
-              <div key={idx} className="flex gap-4 p-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#0f172a] flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 shadow-sm border border-slate-200 dark:border-slate-800 shrink-0">
-                  <feature.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* 7. Student Reviews */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Top 1% Club</h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Our test series has been the key strategy tool for students converting top BlackI calls.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {reviews.map((review, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#0f172a] rounded-3xl lg:rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="flex text-amber-500 mb-4">
-                {[1, 2, 3, 4, 5].map(star => (
-                  <Star key={star} className={`w-4 h-4 ${star <= review.rating ? 'fill-current' : 'text-slate-300 dark:text-slate-700'}`} />
-                ))}
-              </div>
-              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-1 italic">"{review.text}"</p>
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <span className="font-bold text-slate-900 dark:text-white text-sm">{review.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 8. Exam Preparation Guide */}
-      <div className="bg-white dark:bg-[#0f172a] py-16 border-t border-slate-200 dark:border-slate-800 w-full overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-8">MBA Preparation Strategy</h2>
-          <div className="flex flex-wrap gap-4">
-            {[
-              'Approaching DILR: Selection is Key',
-              'QA: Arithmetic vs Algebra',
-              'XAT Decision Making Strategies',
-              'NMAT Speed Optimization',
-              'VARC: Reading Between The Lines'
-            ].map((guide, idx) => (
-              <Link key={idx} href="/blog" className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-fuchsia-600 dark:hover:text-fuchsia-400 hover:border-fuchsia-500 dark:hover:border-fuchsia-500 transition-colors block text-center flex-1 min-w-[200px]">
-                {guide}
               </Link>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 9. Call To Action */}
-      <div className="bg-fuchsia-900 dark:bg-slate-900 py-20 relative overflow-hidden w-full">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-900/40 dark:bg-fuchsia-900/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3" />
+      {/* 3. Immersive Analytics Section */}
+      <section className="py-20 md:py-32 bg-slate-900 dark:bg-[#080B14] relative overflow-hidden text-white border-y border-slate-800">
+         <div className="absolute top-0 right-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-pink-500/10 rounded-full blur-[40px] md:blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+         <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bg-fuchsia-500/10 rounded-full blur-[40px] md:blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Your Route to IIMs Begins Here</h2>
-          <p className="text-fuchsia-100 dark:text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Join the most logically rigorous and analytically precise MBA mock test series in the country.
+         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fuchsia-900/40 text-fuchsia-300 text-sm font-semibold mb-6 border border-fuchsia-800">
+                  <BarChart className="w-4 h-4" />
+                  <span>Percentile Prediction Ecosystem</span>
+               </div>
+               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                  Because CAT is a Game of <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">Selecting and Skipping.</span>
+               </h2>
+               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                  In CAT, avoiding ego-battles with tough DILR sets is more important than solving them. Our AI dashboard isolates precisely where you wasted critical time on dead-end questions.
+               </p>
+               
+               <ul className="space-y-6">
+                 {[
+                   { icon: BrainCircuit, title: 'Set Selection Analytics', desc: 'Identify if you are picking the "Trap Sets" in DILR instead of the hidden easy ones.' },
+                   { icon: Target, title: 'Normalized Percentile', desc: 'Raw score means nothing. We calculate your exact percentile against thousands of active users.' },
+                   { icon: Zap, title: 'Attempt vs Accuracy Matrix', desc: 'Visualize your sweet spot—should you attempt 15 questions with 90% accuracy, or 20 at 75%?' }
+                 ].map((fp, i) => (
+                   <li key={i} className="flex items-start gap-4">
+                     <div className="bg-fuchsia-500/20 p-3 rounded-xl mt-1"><fp.icon className="w-5 h-5 text-pink-400" /></div>
+                     <div>
+                       <h4 className="font-bold text-lg text-white mb-1">{fp.title}</h4>
+                       <p className="text-slate-400 text-sm">{fp.desc}</p>
+                     </div>
+                   </li>
+                 ))}
+               </ul>
+            </div>
+
+            <div className="flex-1 w-full max-w-lg aspect-square relative flex items-center justify-center">
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="absolute z-20 w-full md:w-[90%] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 md:p-8"
+                >
+                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center border border-fuchsia-500/30">
+                        <LayoutDashboard className="w-6 h-6 text-pink-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg mb-1">CAT 2026 Analysis</h4>
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">All-India Mock 04</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <h4 className="font-black text-pink-400 text-2xl tracking-tight">99.1%ile</h4>
+                      <p className="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1 mt-1">
+                        <Activity className="w-3 h-3" /> BLACKI Shortlist
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    {[
+                      { name: 'VARC (Verbal)', score: 98, color: 'bg-fuchsia-500' },
+                      { name: 'DILR (Logical)', score: 72, color: 'bg-rose-500' },
+                      { name: 'QA (Quant)', score: 91, color: 'bg-pink-500' },
+                    ].map((sub, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between text-sm font-bold text-slate-300 mb-2">
+                          <span>{sub.name}</span>
+                          <span>{sub.score}%ile Rank</span>
+                        </div>
+                        <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${sub.score}%` }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + i * 0.1, duration: 1, ease: "easeOut" }}
+                            className={`h-full ${sub.color} rounded-full`} 
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring" }}
+                  className="absolute z-30 top-0 left-0 bg-white/10 backdrop-blur-md rounded-full border border-white/20 px-5 py-2.5 flex items-center gap-3 -translate-y-4 -translate-x-4 md:-translate-x-12"
+                >
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+                  </div>
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Feedback: Avoid DILR Set 3</span>
+                </motion.div>
+            </div>
+         </div>
+      </section>
+
+      {/* 4. Core Offerings */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fuchsia-100 dark:bg-fuchsia-900/40 text-fuchsia-800 dark:text-fuchsia-300 text-sm font-semibold mb-6">
+            <ShieldCheck className="w-4 h-4" />
+            <span>IIM Level Calibration</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Why ExamBoost B-School Pass?</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Traditional quant and verbal isn't enough. We train you precisely on the changing Meta of MBA exams.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-            <button className="w-full sm:w-auto bg-white text-fuchsia-900 hover:bg-slate-100 dark:bg-fuchsia-600 dark:text-white dark:hover:bg-fuchsia-500 px-8 py-4 rounded-xl font-bold text-lg shadow-xl shrink-0 transition-colors">
-              Enroll in B-School Master
-            </button>
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg shrink-0 transition-colors">
-              View Demo Test
-            </button>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { icon: PieChart, title: 'Original DILR Assets', desc: 'No recycled questions. Every set is uniquely crafted to match the exact grueling ambiguity of recent CAT papers.' },
+            { icon: Compass, title: 'XAT Ethical Caselets', desc: 'Decision Making modules focused intensely on stakeholder-maximization principles used by XLRI evaluators.' },
+            { icon: BrainCircuit, title: 'Adaptive NMAT Algorithm', desc: 'Our engine reacts to your correct and incorrect clicks dynamically, altering the difficulty curve mid-mock.' },
+            { icon: TrendingUp, title: 'SNAP Speed Modifiers', desc: 'Shortened, high-intensity 60-minute burst mocks focusing exclusively on analytical grammar and speed math.' }
+          ].map((feature, idx) => (
+             <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl transition-all group hover:shadow-xl hover:shadow-fuchsia-900/10 hover:-translate-y-1">
+               <div className="w-14 h-14 bg-fuchsia-50 dark:bg-fuchsia-900/20 rounded-2xl flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 mb-6 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors">
+                 <feature.icon className="w-7 h-7" />
+               </div>
+               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h3>
+               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                 {feature.desc}
+               </p>
+             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Free Mock Tests */}
+      <section className="py-20 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-[2rem] p-8 md:p-14 shadow-2xl border border-slate-800 dark:border-slate-200 relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
+              <div className="flex-1 text-center lg:text-left">
+                <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight">Test Your Strategy</h2>
+                <p className="text-slate-300 dark:text-slate-600 text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                  Experience the interface, the unforgiving DILR difficulty, and the AI analytics with our free premium diagnostics.
+                </p>
+                <button className="bg-fuchsia-600 text-white px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto hover:bg-fuchsia-700 shadow-lg flex items-center justify-center gap-2 group mx-auto lg:mx-0">
+                  Register For Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+              <div className="flex-1 w-full flex flex-col gap-4">
+                {freeTests.map((test, idx) => (
+                  <div key={idx} className="bg-slate-800 dark:bg-slate-50 border border-slate-700 dark:border-slate-200 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:border-fuchsia-500/50 dark:hover:border-fuchsia-500/50 transition-colors">
+                    <div>
+                      <h4 className="font-bold text-slate-50 dark:text-slate-900 text-lg mb-2">{test.name}</h4>
+                      <div className="flex items-center gap-4 text-sm font-semibold text-slate-400 dark:text-slate-500">
+                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {test.q} Qs</span>
+                        <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {test.t} Mins</span>
+                      </div>
+                    </div>
+                    <button className="text-sm font-bold text-slate-900 dark:text-fuchsia-700 bg-white hover:bg-slate-100 dark:bg-white border border-transparent dark:border-slate-200 dark:hover:border-fuchsia-600 px-6 py-3 rounded-xl transition-colors flex items-center gap-2 shrink-0 shadow-sm">
+                       Attempt <PlayCircle className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* 6. Student Reviews */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">The Top 1% Club</h2>
+          <p className="text-slate-600 dark:text-slate-400">Hear from aspirants who utilized our AI metrics to convert core BLACKI calls.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reviews.map((r, i) => (
+            <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl flex flex-col gap-6 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex text-amber-500 gap-1">
+                {[...Array(r.rating)].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed flex-grow italic">
+                "{r.text}"
+              </p>
+              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <div className="w-12 h-12 bg-fuchsia-100 dark:bg-fuchsia-900/30 rounded-full flex items-center justify-center text-fuchsia-600 font-bold text-xl">
+                  {r.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white">{r.name}</h4>
+                  <p className="text-xs font-bold text-fuchsia-600 dark:text-fuchsia-400 uppercase tracking-widest">{r.exam}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7. FAQs */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-6 flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white hover:text-fuchsia-600 dark:hover:text-fuchsia-400 transition-colors"
+                >
+                  <span className="pr-4">{faq.q}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === idx ? 'bg-fuchsia-600 text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+                <AnimatePresence>
+                  {openFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                    >
+                      <p className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
