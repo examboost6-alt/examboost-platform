@@ -14,6 +14,7 @@ export default function LoginClient() {
     const [error, setError] = useState<string | null>(null);
     const [resending, setResending] = useState(false);
     const [resendMessage, setResendMessage] = useState<string | null>(null);
+    const [resendCooldownUntil, setResendCooldownUntil] = useState<number | null>(null);
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -48,6 +49,13 @@ export default function LoginClient() {
         setError(null);
         setResendMessage(null);
 
+        const now = Date.now();
+        if (resendCooldownUntil && now < resendCooldownUntil) {
+            const remainingSeconds = Math.ceil((resendCooldownUntil - now) / 1000);
+            setError(`Please wait ${remainingSeconds}s before resending again.`);
+            return;
+        }
+
         const supabase = getSupabaseClient();
         if (!supabase) {
             setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
@@ -71,6 +79,7 @@ export default function LoginClient() {
             return;
         }
 
+        setResendCooldownUntil(Date.now() + 60_000);
         setResendMessage('Confirmation email sent. Please check your inbox and spam folder.');
     };
 
@@ -193,10 +202,14 @@ export default function LoginClient() {
                             <button
                                 type="button"
                                 onClick={onResendConfirmation}
-                                disabled={resending}
+                                disabled={resending || (resendCooldownUntil ? Date.now() < resendCooldownUntil : false)}
                                 className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 py-4 rounded-xl font-bold text-lg transition-colors"
                             >
-                                {resending ? 'Sending...' : 'Resend confirmation email'}
+                                {resending
+                                    ? 'Sending...'
+                                    : resendCooldownUntil && Date.now() < resendCooldownUntil
+                                        ? 'Please wait...'
+                                        : 'Resend confirmation email'}
                             </button>
                         ) : null}
                     </form>
