@@ -17,6 +17,8 @@ npm run dev
 
 #### Frontend env vars
 - `NEXT_PUBLIC_API_BASE_URL` = your Render backend URL (example: `https://examboost-backend.onrender.com`)
+- `NEXT_PUBLIC_SUPABASE_URL` = your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` = your Supabase anon public key
 
 ---
 
