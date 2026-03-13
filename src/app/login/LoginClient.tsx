@@ -12,10 +12,13 @@ export default function LoginClient() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [resending, setResending] = useState(false);
+    const [resendMessage, setResendMessage] = useState<string | null>(null);
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
+        setResendMessage(null);
 
         const supabase = getSupabaseClient();
         if (!supabase) {
@@ -39,6 +42,36 @@ export default function LoginClient() {
 
         router.push('/');
         router.refresh();
+    };
+
+    const onResendConfirmation = async () => {
+        setError(null);
+        setResendMessage(null);
+
+        const supabase = getSupabaseClient();
+        if (!supabase) {
+            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            return;
+        }
+
+        if (!email) {
+            setError('Please enter your email first.');
+            return;
+        }
+
+        setResending(true);
+        const { error: resendError } = await supabase.auth.resend({
+            type: 'signup',
+            email,
+        });
+        setResending(false);
+
+        if (resendError) {
+            setError(resendError.message);
+            return;
+        }
+
+        setResendMessage('Confirmation email sent. Please check your inbox and spam folder.');
     };
 
     return (
@@ -108,6 +141,12 @@ export default function LoginClient() {
                             </div>
                         ) : null}
 
+                        {resendMessage ? (
+                            <div className="rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-3 font-semibold text-sm">
+                                {resendMessage}
+                            </div>
+                        ) : null}
+
                         <div className="space-y-2">
                             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
                             <input
@@ -149,6 +188,17 @@ export default function LoginClient() {
                         >
                             {loading ? 'Logging in...' : 'Login securely'} <ArrowRight className="w-5 h-5" />
                         </button>
+
+                        {error?.toLowerCase().includes('not confirmed') ? (
+                            <button
+                                type="button"
+                                onClick={onResendConfirmation}
+                                disabled={resending}
+                                className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 py-4 rounded-xl font-bold text-lg transition-colors"
+                            >
+                                {resending ? 'Sending...' : 'Resend confirmation email'}
+                            </button>
+                        ) : null}
                     </form>
 
                     <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center font-medium text-slate-600 dark:text-slate-400">
