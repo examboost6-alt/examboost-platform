@@ -21,13 +21,13 @@ export default function JeeMainGuide() {
     ];
 
     return (
-        <div className="w-full bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xl">
-            <div className="bg-primary/5 dark:bg-accent/10 border-b border-slate-200 dark:border-slate-800 p-6 md:p-10">
+        <div className="w-full bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border-b border-slate-200 dark:border-slate-800 p-6 md:p-10">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white flex items-center gap-4 mb-2">
                     JEE Main 2026 Complete Guide
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 text-lg font-medium flex items-center gap-2">
-                    <AlertCircle className="w-5 h-5 text-primary dark:text-accent" />
+                    <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     Official Information directly from National Testing Agency (NTA)
                 </p>
             </div>
@@ -43,7 +43,7 @@ export default function JeeMainGuide() {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
                                 className={`flex items-center gap-3 px-4 py-3.5 rounded-xl font-bold text-sm lg:text-base transition-all whitespace-nowrap lg:whitespace-normal text-left snap-start shrink-0 lg:shrink ${isActive
-                                    ? 'bg-primary dark:bg-accent text-white shadow-md'
+                                    ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-md'
                                     : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
                                     }`}
                             >
@@ -71,7 +71,7 @@ export default function JeeMainGuide() {
                                 <ul className="space-y-3">
                                     {['NITs (National Institutes of Technology)', 'IIITs (Indian Institutes of Information Technology)', 'GFTIs (Government Funded Technical Institutes)', 'Qualification for JEE Advanced'].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base">
-                                            <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-primary dark:bg-accent shrink-0" /> {item}
+                                            <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-blue-600 dark:bg-blue-500 shrink-0" /> {item}
                                         </li>
                                     ))}
                                 </ul>
@@ -85,7 +85,7 @@ export default function JeeMainGuide() {
                             <p className="text-slate-500 dark:text-slate-400 italic font-medium mb-4 text-sm md:text-base">* These dates are based on the official NTA schedule.</p>
 
                             <div>
-                                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2 bg-primary/10 dark:bg-accent/10 p-3 rounded-lg w-max text-primary dark:text-accent">
+                                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg w-max text-blue-600 dark:text-blue-400">
                                     <Calendar className="w-5 h-5" /> Session 1 (January Attempt)
                                 </h3>
                                 <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
@@ -99,7 +99,7 @@ export default function JeeMainGuide() {
                                         <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base">
                                             <tr className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20"><td className="p-3 md:p-4">Application Start</td><td className="p-3 md:p-4 font-bold text-slate-900 dark:text-white">31 October 2025</td></tr>
                                             <tr className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20"><td className="p-3 md:p-4">Last Date Apply</td><td className="p-3 md:p-4 font-bold text-slate-900 dark:text-white">27 November 2025</td></tr>
-                                            <tr className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20"><td className="p-3 md:p-4">Exam Date</td><td className="p-3 md:p-4 font-black text-primary dark:text-accent">21 – 30 January 2026</td></tr>
+                                            <tr className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20"><td className="p-3 md:p-4">Exam Date</td><td className="p-3 md:p-4 font-black text-blue-600 dark:text-blue-400">21 – 30 January 2026</td></tr>
                                             <tr className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20"><td className="p-3 md:p-4">Result</td><td className="p-3 md:p-4 font-bold text-slate-900 dark:text-white">12 February 2026</td></tr>
                                         </tbody>
                                     </table>
@@ -141,11 +141,11 @@ export default function JeeMainGuide() {
                                     <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-base md:text-lg">Total Metrics</h4>
                                     <div className="flex gap-4 mt-4">
                                         <div className="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm text-center">
-                                            <div className="text-2xl md:text-3xl font-black text-primary dark:text-accent">75</div>
+                                            <div className="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400">75</div>
                                             <div className="text-[10px] md:text-xs font-bold text-slate-500 uppercase mt-1">Questions</div>
                                         </div>
                                         <div className="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm text-center">
-                                            <div className="text-2xl md:text-3xl font-black text-primary dark:text-accent">300</div>
+                                            <div className="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400">300</div>
                                             <div className="text-[10px] md:text-xs font-bold text-slate-500 uppercase mt-1">Marks</div>
                                         </div>
                                     </div>
@@ -154,11 +154,11 @@ export default function JeeMainGuide() {
                                     <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-base md:text-lg">Question Types</h4>
                                     <ul className="mt-4 space-y-3">
                                         <li className="flex items-center gap-3 bg-white dark:bg-slate-900 p-3 rounded-lg font-bold text-slate-700 dark:text-slate-300 text-sm md:text-base">
-                                            <span className="w-6 h-6 rounded bg-primary/20 text-primary dark:bg-accent/20 dark:text-accent flex items-center justify-center text-xs shrink-0">1</span>
+                                            <span className="w-6 h-6 rounded bg-blue-600/20 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400 flex items-center justify-center text-xs shrink-0">1</span>
                                             Multiple Choice Questions (MCQ)
                                         </li>
                                         <li className="flex items-center gap-3 bg-white dark:bg-slate-900 p-3 rounded-lg font-bold text-slate-700 dark:text-slate-300 text-sm md:text-base">
-                                            <span className="w-6 h-6 rounded bg-primary/20 text-primary dark:bg-accent/20 dark:text-accent flex items-center justify-center text-xs shrink-0">2</span>
+                                            <span className="w-6 h-6 rounded bg-blue-600/20 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400 flex items-center justify-center text-xs shrink-0">2</span>
                                             Numerical Value Questions
                                         </li>
                                     </ul>
@@ -210,25 +210,25 @@ export default function JeeMainGuide() {
                                     <div className="bg-slate-50 dark:bg-slate-800 p-3 md:p-4 font-black text-base md:text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700">Physics (Major Chapters)</div>
                                     <div className="p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                                         <div>
-                                            <h5 className="font-bold text-primary dark:text-accent mb-2 text-sm md:text-base">Mechanics</h5>
+                                            <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-2 text-sm md:text-base">Mechanics</h5>
                                             <ul className="text-xs md:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 list-disc pl-4 font-medium">
                                                 <li>Kinematics</li><li>Laws of Motion</li><li>Work Energy Power</li><li>Rotational Motion</li><li>Gravitation</li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <h5 className="font-bold text-primary dark:text-accent mb-2 text-sm md:text-base">Heat & Thermodynamics</h5>
+                                            <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-2 text-sm md:text-base">Heat & Thermodynamics</h5>
                                             <ul className="text-xs md:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 list-disc pl-4 font-medium">
                                                 <li>Thermodynamics</li><li>Kinetic Theory of Gases</li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <h5 className="font-bold text-primary dark:text-accent mb-2 text-sm md:text-base">Electricity & Magnetism</h5>
+                                            <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-2 text-sm md:text-base">Electricity & Magnetism</h5>
                                             <ul className="text-xs md:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 list-disc pl-4 font-medium">
                                                 <li>Electrostatics</li><li>Current Electricity</li><li>Magnetism</li><li>Electromagnetic Induction</li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <h5 className="font-bold text-primary dark:text-accent mb-2 text-sm md:text-base">Modern Physics</h5>
+                                            <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-2 text-sm md:text-base">Modern Physics</h5>
                                             <ul className="text-xs md:text-sm text-slate-600 dark:text-slate-400 space-y-1.5 list-disc pl-4 font-medium">
                                                 <li>Dual Nature of Matter</li><li>Atoms and Nuclei</li><li>Semiconductor Electronics</li>
                                             </ul>
@@ -321,7 +321,7 @@ export default function JeeMainGuide() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                                 {['Aadhaar card', 'Passport size photo', 'Signature', 'Category certificate (if applicable)', 'UDID certificate (for PwD candidates)'].map((doc, i) => (
                                     <div key={i} className="bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 p-4 md:p-5 rounded-xl shadow-sm hover:border-primary/30 dark:hover:border-accent/30 transition-colors flex items-center gap-3">
-                                        <FileCheck className="w-5 h-5 md:w-6 md:h-6 text-primary dark:text-accent shrink-0" />
+                                        <FileCheck className="w-5 h-5 md:w-6 md:h-6 text-blue-600 dark:text-blue-400 shrink-0" />
                                         <span className="font-bold text-slate-700 dark:text-slate-300 text-sm md:text-base">{doc}</span>
                                     </div>
                                 ))}
