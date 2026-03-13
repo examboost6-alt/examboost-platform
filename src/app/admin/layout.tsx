@@ -25,6 +25,8 @@ import {
   Ticket,
   MessageSquare,
   BarChart,
+  Mail,
+  Briefcase,
 } from "lucide-react";
 
 const sidebarLinks = [
@@ -36,6 +38,8 @@ const sidebarLinks = [
   { href: "/admin/access", label: "Free Access", icon: Unlock },
   { href: "/admin/coupons", label: "Coupons & Offers", icon: Ticket },
   { href: "/admin/support", label: "Student Doubts", icon: MessageSquare },
+  { href: "/admin/contacts", label: "Contact Messages", icon: Mail },
+  { href: "/admin/jobs", label: "Job Applications", icon: Briefcase },
   { href: "/admin/reports", label: "Reports & Analytics", icon: BarChart },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
