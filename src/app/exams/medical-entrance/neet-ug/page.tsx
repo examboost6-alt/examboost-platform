@@ -1,308 +1,315 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-    BookOpen, CheckCircle, ArrowRight, ChevronRight,
-    Target, ShieldCheck, BarChart, Clock, Layout,
-    Calendar, Layers, Zap, Star, Award, Stethoscope
+  BookOpen, ChevronRight, Layout, ShieldCheck,
+  BarChart3, Users, Sparkles, CheckCircle2,
+  TrendingUp, CalendarDays, ArrowRight, XCircle
 } from 'lucide-react';
 import MedicalTestSeriesCards from '@/components/MedicalTestSeriesCards';
+import NeetGuide from '@/components/NeetGuide';
 
-export const metadata = {
-    title: 'NEET UG Preparation 2026 - ExamBoost',
-    description: 'Comprehensive preparation resources, full-length mock tests, complete exam information, syllabus, and NCERT-based study materials for NEET UG 2026.'
-};
+const features = [
+  { icon: Layout, title: 'NTA OMR Replica Design', desc: 'Detailed, printable mock test interfaces that help you practice bubbling OMR sheets precisely to avoid mis-bubbling panics.' },
+  { icon: ShieldCheck, title: 'Error-Free NCERT Focus', desc: 'Every Biology and Chemistry question is strictly line-by-line verified against the latest revised NCERT textbooks.' },
+  { icon: BarChart3, title: 'Micro-Analytics', desc: 'We pinpoint exact chapters and sub-topics where you are losing marks, providing targeted revision blueprints to cross the 680+ mark.' },
+  { icon: Users, title: 'Elite Competition', desc: 'Benchmark your rank and scores directly against 1,50,000+ serious medical aspirants who are your actual competition.' }
+];
 
-export default function NeetUgPage() {
-    return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 w-full">
+export default function NeetUgStudentHubPage() {
+  const [selectedMockAnswer, setSelectedMockAnswer] = useState<number | null>(null);
 
-            {/* 1. Modern Clean Hero Section */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 pt-20 md:pt-24">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 pb-12 md:pb-20 pt-4 md:pt-8">
+  const handleMockAnswer = (index: number) => {
+    if (selectedMockAnswer === null) {
+      setSelectedMockAnswer(index);
+    }
+  };
 
-                    {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-sm font-medium text-slate-500 flex-wrap mb-8">
-                        <Link href="/" className="hover:text-primary dark:hover:text-accent transition-colors">Home</Link>
-                        <ChevronRight className="w-4 h-4" />
-                        <Link href="/exams" className="hover:text-primary dark:hover:text-accent transition-colors">Exams</Link>
-                        <ChevronRight className="w-4 h-4" />
-                        <Link href="/exams/medical-entrance" className="hover:text-primary dark:hover:text-accent transition-colors">Medical</Link>
-                        <ChevronRight className="w-4 h-4" />
-                        <span className="text-slate-900 dark:text-white">NEET UG</span>
-                    </div>
+  return (
+    <div className="min-h-screen bg-white dark:bg-[#0A0A0A] w-full font-sans selection:bg-rose-200 dark:selection:bg-rose-900 overflow-x-hidden">
+      
+      {/* 1. Hero Section - Professional & Clean */}
+      <section className="relative px-4 sm:px-6 pt-[88px] md:pt-[104px] lg:pt-[120px] pb-16 md:pb-24 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start w-full">
+          {/* Breadcrumb */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 mb-6 w-full">
+            <Link href="/" className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors">Home</Link>
+            <ChevronRight className="w-4 h-4" />
+            <Link href="/exams/medical-entrance" className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors">Medical</Link>
+            <ChevronRight className="w-4 h-4" />
+            <span className="text-gray-900 dark:text-gray-100 font-semibold">NEET UG 2026</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-[1.2] mb-6 tracking-tight">
+            Score 680+ in NEET UG <br className="hidden sm:block" />
+            <span className="text-rose-600 dark:text-rose-500 mt-2 block">With India's Top Test Series</span>
+          </h1>
+          
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl leading-relaxed">
+            Conquer the ultimate medical entrance test with ExamBoost. Experience strictly NCERT-aligned content, 180-question pattern simulators, and meticulously curated biology tests to seal your seat in a Government Medical College.
+          </p>
 
-                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                        <div className="flex-1 space-y-8">
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <span className="bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 px-3 py-1 rounded-md text-sm font-bold tracking-wide uppercase">Mission MBBS 2026</span>
-                                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-md text-sm font-bold tracking-wide uppercase">Pen & Paper (OMR) mode</span>
-                                </div>
-                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.1]">
-                                    Score <span className="text-rose-600 dark:text-rose-500">680+</span> in NEET UG 2026.
-                                </h1>
-                                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-                                    Conquer the ultimate medical entrance test with ExamBoost. Experience strictly NCERT-aligned content, 180-question pattern simulators, and error-free biology tests to seal your seat in a Government Medical College.
-                                </p>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="#test-series" className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-lg transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20">
-                                    <Star className="w-5 h-5 fill-current" /> Explore Mock Tests
-                                </a>
-                                <a href="#exam-info" className="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 px-8 py-4 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
-                                    <BookOpen className="w-5 h-5" /> Exam Details & Syllabus
-                                </a>
-                            </div>
-
-                            {/* Trust badges */}
-                            <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800/80">
-                                <div className="flex -space-x-3">
-                                    {[2, 3, 4].map(i => (
-                                        <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden`}>
-                                            <img src={`https://i.pravatar.cc/100?img=${i + 30}`} alt="Student" className="w-full h-full object-cover" />
-                                        </div>
-                                    ))}
-                                    <div className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-xs font-bold text-rose-700 dark:text-rose-400">
-                                        5L+
-                                    </div>
-                                </div>
-                                <div className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                                    Trusted by <span className="font-bold text-slate-900 dark:text-white">5 Lakh+</span> <br /> Medical Aspirants
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Infographic Hero Image replacement */}
-                        <div className="flex-1 w-full max-w-lg lg:max-w-none">
-                            <div className="relative aspect-square sm:aspect-[4/3] rounded-[2rem] bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 overflow-hidden shadow-2xl flex flex-col items-center justify-center p-8">
-                                {/* Decorative background grid */}
-                                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-
-                                {/* Main floating card */}
-                                <div className="relative z-10 w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)]">
-                                    <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-500 rounded-xl flex items-center justify-center">
-                                                <Stethoscope className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <div className="text-sm font-bold text-slate-900 dark:text-white">Target Score</div>
-                                                <div className="text-xs font-medium text-slate-500">Government Medical College</div>
-                                            </div>
-                                        </div>
-                                        <div className="text-right">
-                                            <div className="text-3xl font-black text-rose-600 dark:text-rose-500">685</div>
-                                            <div className="text-xs font-bold text-slate-500">/ 720 Goal</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-4">
-                                        <div>
-                                            <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">
-                                                <span>Biology (Botany + Zoology)</span> <span>350/360</span>
-                                            </div>
-                                            <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full"><div className="bg-rose-500 w-[95%] h-full rounded-full"></div></div>
-                                        </div>
-                                        <div>
-                                            <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">
-                                                <span>Chemistry</span> <span>170/180</span>
-                                            </div>
-                                            <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full"><div className="bg-indigo-500 w-[94%] h-full rounded-full"></div></div>
-                                        </div>
-                                        <div>
-                                            <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">
-                                                <span>Physics</span> <span>165/180</span>
-                                            </div>
-                                            <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full"><div className="bg-teal-500 w-[91%] h-full rounded-full"></div></div>
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
-                                        <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> Safe Zone for Top 5000 Rank</span>
-                                    </div>
-                                </div>
-
-                                {/* small floating elements */}
-                                <div className="absolute top-12 left-6 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-2 animate-[bounce_5s_infinite]">
-                                    <Zap className="w-4 h-4 text-amber-500" /> <span className="text-xs font-bold text-slate-700 dark:text-slate-300">180 Mins</span>
-                                </div>
-                                <div className="absolute bottom-12 right-6 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-2 animate-[bounce_4s_infinite_1s]">
-                                    <BookOpen className="w-4 h-4 text-rose-500" /> <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Revised NCERT</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            {/* 2. Clear Information Cards */}
-            <div id="exam-info" className="py-20 bg-slate-50 dark:bg-slate-950">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Everything About NEET UG 2026</h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400">Mastering the largest medical entrance examination requires knowing the rules thoroughly.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                        {[
-                            { icon: Layout, title: "Exam Mode", desc: "Offline Pen and Paper based test using OMR sheets." },
-                            { icon: Target, title: "Format", desc: "180 Mandatory Multiple Choice Questions. No optional choices." },
-                            { icon: ShieldCheck, title: "Total Marks", desc: "Exam is out of 720 (+4 for correct, -1 for incorrect answers)." },
-                            { icon: Clock, title: "Duration", desc: "You have strictly 3 hours & 20 mins (200 minutes) to conclude." }
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
-                                <div className="w-14 h-14 bg-rose-50 dark:bg-rose-900/20 rounded-full flex items-center justify-center text-rose-600 dark:text-rose-400 mb-6">
-                                    <item.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{item.title}</h3>
-                                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-[250px]">{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* 3. Section Pattern Overview */}
-            <div className="py-20 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-16 items-center max-w-6xl mx-auto">
-
-                        <div className="flex-1 space-y-6 lg:max-w-xl">
-                            <span className="text-rose-600 dark:text-rose-500 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
-                                <BarChart className="w-4 h-4" /> Exam Strategy
-                            </span>
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
-                                Revised 2026 Exam Format
-                            </h2>
-                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                NTA has reverted to the pre-COVID examination pattern for NEET UG. Starting from 2025/2026, there are no longer any optional questions in the examination.
-                            </p>
-                            <ul className="space-y-4 pt-4">
-                                <li className="flex items-start gap-3">
-                                    <div className="p-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-500 mt-1 shrink-0"><CheckCircle className="w-4 h-4" /></div>
-                                    <span className="text-slate-700 dark:text-slate-300 font-medium pt-0.5"><strong className="text-slate-900 dark:text-white">180 Questions:</strong> All 180 questions provided in the exam are now strictly mandatory.</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="p-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-500 mt-1 shrink-0"><CheckCircle className="w-4 h-4" /></div>
-                                    <span className="text-slate-700 dark:text-slate-300 font-medium pt-0.5"><strong className="text-slate-900 dark:text-white">Uniform Division:</strong> Exactly 45 questions each from Physics, Chemistry, Botany, and Zoology.</span>
-                                </li>
-                            </ul>
-                            <div className="mt-8 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
-                                <p className="text-slate-700 dark:text-slate-300 text-sm font-semibold italic">
-                                    "With the removal of optional questions, maintaining accuracy across all chapters is more critical than ever, as you can no longer skip difficult questions by choice."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex-1 w-full bg-slate-50 dark:bg-slate-800/30 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800">
-                            <div className="mb-6 flex items-center justify-between">
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Official Weightage</h3>
-                            </div>
-
-                            <div className="space-y-6">
-                                {[
-                                    { sub: "Botany", total: "180 Marks", items: 45, color: "bg-green-500" },
-                                    { sub: "Zoology", total: "180 Marks", items: 45, color: "bg-emerald-600" },
-                                    { sub: "Chemistry", total: "180 Marks", items: 45, color: "bg-indigo-500" },
-                                    { sub: "Physics", total: "180 Marks", items: 45, color: "bg-teal-500" },
-                                ].map((item, idx) => (
-                                    <div key={idx} className="flex justify-between items-center group">
-                                        <div className="flex-1">
-                                            <div className="flex justify-between mb-1.5">
-                                                <span className="font-bold text-slate-900 dark:text-white">{item.sub}</span>
-                                                <span className="font-semibold text-slate-500">{item.total}</span>
-                                            </div>
-                                            <div className="flex h-3 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
-                                                <div className={`${item.color} w-full h-full group-hover:opacity-90 transition-opacity`} title={`${item.items} Questions`} />
-                                            </div>
-                                            <div className="flex justify-between text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-wider">
-                                                <span>{item.items} Mandatory Questions</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                <div className="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
-                                    <span className="font-black text-rose-600 dark:text-rose-500">Grand Total</span>
-                                    <span className="bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 font-bold px-3 py-1 rounded">720 Marks</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            {/* 4. Subject Focus Sections */}
-            <div className="py-20 bg-slate-100 dark:bg-slate-950/50">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="text-rose-600 dark:text-rose-500 font-bold tracking-wider uppercase text-sm mb-4 block">Preparation Strategy</span>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">Focus on Core Topics</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-900/30 flex items-center justify-center mb-6">
-                                <BookOpen className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Biology Supremacy</h3>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-4">
-                                Comprising exactly 50% of the entire paper (360 Marks), Biology is purely NCERT-centric. Read between the lines. Botany and Zoology requires extensive revision, not rote deciphering.
-                            </p>
-                            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-orange-500" /> Focus on Genetics & Ecology</li>
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-orange-500" /> Human Physiology weightage</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 flex items-center justify-center mb-6">
-                                <Target className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Chemistry Logic</h3>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-4">
-                                Divide your focus effectively between Organic (reactions & mechanisms), Inorganic (periodic trends & exact NCERT facts) and Physical chemistry (concept based derivations).
-                            </p>
-                            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-indigo-500" /> Name Reactions are crucial</li>
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-indigo-500" /> NCERT back exercises pattern</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <div className="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 dark:bg-teal-900/30 flex items-center justify-center mb-6">
-                                <Zap className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Physics Speed</h3>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-4">
-                                The rank decider section. Rather than deep JEE-Advanced derivations, NEET emphasizes rapid formula application, dimensional analysis, and error calculations. Focus on Mechanics and Electrodynamics.
-                            </p>
-                            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-teal-500" /> Modern Physics ensures easy marks</li>
-                                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-teal-500" /> Formula sheets daily revision</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* 5. Main Test Series Call to Action */}
-            <div id="test-series" className="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 font-bold tracking-wider uppercase text-xs mb-6 inline-block shadow-sm">Over 1,50,000 Aspirants Trust Us</span>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">Select Your Preparation Plan</h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400">
-                            High Quantity block tests matching real NTA exam interface & standards. Smashed the market price by 10% to empower your prep.
-                        </p>
-                    </div>
-
-                    <MedicalTestSeriesCards examName="NEET UG" />
-                </div>
-            </div>
-
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <Link href="#test-series" className="w-full sm:w-auto justify-center bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg py-3.5 px-8 transition-colors flex items-center gap-2 shadow-lg shadow-rose-500/25">
+              View Test Packages <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="#info-hub" className="w-full sm:w-auto justify-center text-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-lg py-3.5 px-8 transition-colors">
+              Syllabus & Details
+            </Link>
+          </div>
         </div>
-    );
+
+        {/* Info Cards Side */}
+        <div className="w-full lg:w-[450px] grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-xl shadow-sm text-left">
+              <CalendarDays className="w-6 h-6 text-rose-600 dark:text-rose-400 mb-4" />
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Target Date</div>
+              <div className="text-gray-900 dark:text-white font-bold text-lg">May 2026</div>
+          </div>
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-xl shadow-sm text-left">
+              <Layout className="w-6 h-6 text-orange-500 dark:text-orange-400 mb-4" />
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Exam Mode</div>
+              <div className="text-gray-900 dark:text-white font-bold text-lg">Pen & Paper (OMR)</div>
+          </div>
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-xl shadow-sm text-left sm:col-span-2 flex items-center gap-4">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center shrink-0">
+                <TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Government Seat Safe Score</div>
+                <div className="text-gray-900 dark:text-white font-bold text-xl">650+ / 720 Marks</div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Banner / Stats */}
+      <section className="py-10 bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:divide-x divide-gray-200 dark:divide-gray-800">
+            <div className="px-4">
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-2">150k+</div>
+              <div className="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-widest">Active Aspirants</div>
+            </div>
+            <div className="px-4">
+              <div className="text-3xl md:text-4xl font-extrabold text-rose-600 dark:text-rose-500 mb-2">100%</div>
+              <div className="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-widest">NCERT Aligned</div>
+            </div>
+            <div className="px-4">
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-2">4.8/5</div>
+              <div className="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-widest">Student Rating</div>
+            </div>
+            <div className="px-4">
+              <div className="text-3xl md:text-4xl font-extrabold text-emerald-600 dark:text-emerald-500 mb-2">AIIMS</div>
+              <div className="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-widest">Curated Content</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. ALL IN ONE GUIDE (Syllabus, Pattern, News) */}
+      <section className="py-16 bg-gray-50 dark:bg-[#111] border-b border-gray-200 dark:border-gray-800" id="info-hub">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+           <div className="mb-10 text-center">
+             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Official NTA Updates & Information</h2>
+             <p className="text-gray-600 dark:text-gray-400 text-lg">Read the exact syllabus, date sheets, and exam pattern rules without leaving this page.</p>
+           </div>
+           
+           <div className="w-full">
+             <NeetGuide />
+           </div>
+         </div>
+      </section>
+
+      {/* 3. Competitive Advantage Features Grid */}
+      <section className="py-20 bg-white dark:bg-[#0A0A0A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Why Thousands of Future Doctors Choose ExamBoost</h2>
+            <div className="w-16 h-1 bg-rose-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Stop practicing with outdated PDFs. Build speed, eliminate careless errors, and dominate the 180 questions with our targeted ecosystem.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, idx) => (
+               <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                 <div className="w-12 h-12 bg-rose-50 dark:bg-rose-900/20 rounded-lg flex items-center justify-center text-rose-600 dark:text-rose-400 mb-6">
+                   <feature.icon className="w-6 h-6" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
+                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                   {feature.desc}
+                 </p>
+               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. The Problem/Solution Matrix - Redesigned cleanly */}
+      <section className="py-24 bg-gray-50 dark:bg-[#111] border-t border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <div className="order-2 lg:order-1 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 font-bold text-sm mb-6 border border-rose-200 dark:border-rose-800 transition-all">
+                  <TrendingUp className="w-4 h-4"/> Stop Losing Easy Marks
+                </div>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-[1.15] tracking-tight">
+                  Reading the NCERT <br className="hidden md:block" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Isn't Enough.</span>
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed font-medium">
+                  Merely reading textbooks won't prepare you for the intense 200-minute marathon. You need proper simulation to avoid silly OMR mistakes and manage time effectively.
+                </p>
+                <div className="space-y-6">
+                  <div className="flex gap-4 p-5 rounded-2xl bg-white dark:bg-gray-900 border border-red-100 dark:border-red-900/30 shadow-sm transition-all hover:shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-500 shrink-0">
+                      <XCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1.5 flex items-center gap-2">The Old Way <span className="text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 uppercase tracking-wide">Random Books</span></h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Out-of-syllabus questions, zero proper time tracking, and no realistic analytics to show where you rank against the actual crowd.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 p-5 rounded-2xl bg-gradient-to-br from-rose-50 to-orange-50 dark:from-rose-900/10 dark:to-orange-900/10 border border-rose-200 dark:border-rose-800/40 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+                    <div className="w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-rose-500/30">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1.5 flex items-center gap-2 flex-wrap">The ExamBoost Way <span className="text-xs font-semibold px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300 uppercase tracking-wide">Recommended</span></h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">100% strict NCERT alignment, time-tracking analytics to fix slow subjects, and realistic mock scores that reflect actual exam results.</p>
+                    </div>
+                  </div>
+                </div>
+             </div>
+             
+             {/* Interactive Biology Question Example Container */}
+             <div className="order-1 lg:order-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative overflow-hidden group w-full max-w-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                
+                <div className="flex border-b border-gray-100 dark:border-gray-800 pb-3 mb-4 items-center justify-between">
+                   <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-rose-600 text-white rounded flex items-center justify-center font-bold text-[10px] shadow-sm">NEET</div>
+                      <div>
+                        <div className="text-xs font-bold text-gray-900 dark:text-gray-100">NEET Premium Mock 04</div>
+                        <div className="text-[10px] text-gray-500 font-medium mt-0.5">Biology • Botany Section A</div>
+                      </div>
+                   </div>
+                   <div className="flex items-center gap-2">
+                     <span className="text-[11px] font-mono font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-red-500 animate-pulse"></span>
+                        02:20:45
+                     </span>
+                   </div>
+                </div>
+
+                <div className="flex gap-5">
+                  <div className="flex-1 pb-4">
+                    <div className="flex items-start gap-2 mb-4">
+                      <span className="text-sm font-bold text-gray-900 dark:text-white mt-0.5 shrink-0">Q135.</span>
+                      <p className="text-sm font-medium text-gray-800 dark:text-gray-200 leading-relaxed">
+                        Given below are two statements relating to Biotechnology: <br/><br/>
+                        <span className="block pl-2 mb-2 italic"><strong className="font-bold not-italic">Statement I:</strong> Restriction endonucleases are also called 'molecular scissors' and they cut the DNA helix at specific sugar-phosphate backbone sites.</span>
+                        <span className="block pl-2 mb-2 italic"><strong className="font-bold not-italic">Statement II:</strong> EcoRI cuts the DNA between bases G and A only when the sequence GAATTC is present in the DNA.</span>
+                        In the light of the above statements, choose the most appropriate answer from the options given below:
+                      </p>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      {['Both Statement I and Statement II are correct', 'Both Statement I and Statement II are incorrect', 'Statement I is correct but Statement II is incorrect', 'Statement I is incorrect but Statement II is correct'].map((opt, i) => {
+                        const isSelected = selectedMockAnswer === i;
+                        const isCorrect = i === 0; // Option A is correct
+                        const showResult = selectedMockAnswer !== null;
+                        
+                        let bgClass = "hover:bg-gray-50 dark:hover:bg-gray-800/50 border-gray-100 dark:border-gray-800";
+                        let ringClass = "border-gray-300 dark:border-gray-600";
+                        let textClass = "text-gray-700 dark:text-gray-300";
+
+                        if (showResult) {
+                          if (isCorrect) {
+                            bgClass = "bg-green-50/80 dark:bg-green-900/20 border-green-200 dark:border-green-800/50";
+                            ringClass = "border-[5px] border-green-500 bg-white dark:bg-gray-900";
+                            textClass = "text-green-800 dark:text-green-300 font-semibold";
+                          } else if (isSelected && !isCorrect) {
+                            bgClass = "bg-red-50/80 dark:bg-red-900/20 border-red-200 dark:border-red-800/50";
+                            ringClass = "border-[5px] border-red-500 bg-white dark:bg-gray-900";
+                            textClass = "text-red-800 dark:text-red-300 font-semibold";
+                          }
+                        }
+
+                        return (
+                          <div 
+                            key={i}
+                            onClick={() => handleMockAnswer(i)}
+                            className={`flex gap-3 items-center p-2.5 rounded-lg border cursor-pointer transition-all ${bgClass}`}
+                          >
+                            <div className={`w-4 h-4 rounded-full border-2 shrink-0 transition-all ${ringClass}`}></div>
+                            <div className={`text-xs font-medium ${textClass}`}>{opt}</div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    
+                    <AnimatePresence>
+                      {selectedMockAnswer !== null && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                          animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
+                          className="bg-rose-50/50 dark:bg-rose-900/10 rounded-lg p-4 border border-rose-100 dark:border-gray-700 overflow-hidden"
+                        >
+                          <div className="flex gap-2 items-center mb-3">
+                             {selectedMockAnswer === 0 ? (
+                               <div className="flex items-center gap-1.5 text-green-600 font-bold text-sm bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">
+                                 <CheckCircle2 className="w-4 h-4"/> Perfect Analysis!
+                               </div>
+                             ) : (
+                               <div className="flex items-center gap-1.5 text-red-600 font-bold text-sm bg-red-100 dark:bg-red-900/30 px-2 py-1 rounded">
+                                 <div className="w-4 h-4 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px]">X</div> 
+                                 Incorrect Fact
+                               </div>
+                             )}
+                          </div>
+                          <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            <strong className="text-gray-900 dark:text-gray-100 block mb-1">Detailed Solution (NCERT Class XII Pg-195,196):</strong>
+                            <strong>Statement I is correct.</strong> Restriction enzymes belong to a larger class of enzymes called nucleases. They are referred to as molecular scissors and they cut the DNA by inspecting the length of a DNA sequence to find their specific recognition sequence. <br/>
+                            <strong>Statement II is correct.</strong> EcoRI specifically recognises the palindromic sequence GAATTC and cuts the DNA between bases G and A, leaving sticky ends.
+                            <br/><br/>
+                            <span className="text-rose-600 dark:text-rose-400 font-semibold flex items-center gap-1"><Sparkles className="w-3 h-3"/>AIIMS Topper Tip:</span> For "Statement-based" questions, always evaluate each statement completely independently in your mind first before looking at the options. This prevents option-induced confusion!
+                          </p>
+                          <Link href="#test-series" className="block w-full text-center bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-700 hover:to-orange-700 text-white font-bold py-3 rounded-md text-sm transition-all shadow-md shadow-rose-500/20 hover:shadow-rose-500/40 transform hover:-translate-y-0.5">
+                            Practice More Questions & Unlock Test Series
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Pricing / Packages Panel */}
+      <section id="test-series" className="py-24 bg-white dark:bg-[#0A0A0A] scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Premium NEET UG Packages
+            </h2>
+            <div className="w-16 h-1 bg-rose-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-600 dark:text-gray-400 mx-auto max-w-2xl text-lg">
+              Select the targeted practice package below to get instant access to the exact simulation of the medical entrance exam.
+            </p>
+          </div>
+          
+          <MedicalTestSeriesCards examName="NEET UG" />
+        </div>
+      </section>
+
+    </div>
+  );
 }
