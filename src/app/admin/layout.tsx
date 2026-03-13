@@ -20,6 +20,11 @@ import {
   Search,
   ChevronRight,
   TrendingUp,
+  FileText,
+  Unlock,
+  Ticket,
+  MessageSquare,
+  BarChart,
 } from "lucide-react";
 
 const sidebarLinks = [
@@ -27,6 +32,11 @@ const sidebarLinks = [
   { href: "/admin/users", label: "Users & Students", icon: Users },
   { href: "/admin/tests", label: "Test Series", icon: BookOpen },
   { href: "/admin/finances", label: "Finances & Sales", icon: CreditCard },
+  { href: "/admin/blogs", label: "Blogs & Content", icon: FileText },
+  { href: "/admin/access", label: "Free Access", icon: Unlock },
+  { href: "/admin/coupons", label: "Coupons & Offers", icon: Ticket },
+  { href: "/admin/support", label: "Student Doubts", icon: MessageSquare },
+  { href: "/admin/reports", label: "Reports & Analytics", icon: BarChart },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
