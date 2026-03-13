@@ -3,227 +3,285 @@
 import { motion } from "framer-motion";
 import { 
   Users, 
-  BookOpen, 
+  Activity, 
   CreditCard, 
   TrendingUp,
+  Server,
+  Zap,
+  Cpu,
+  Database,
+  Globe,
+  ShieldAlert,
+  Wifi,
+  MoreHorizontal,
   ArrowUpRight,
   ArrowDownRight,
-  MoreVertical,
-  Activity
+  MonitorPlay,
+  CheckCircle2
 } from "lucide-react";
 
-const stats = [
-  { label: "Total Students", value: "24,592", change: "+12%", trend: "up", icon: Users, color: "bg-blue-500" },
-  { label: "Active Test Series", value: "156", change: "+4%", trend: "up", icon: BookOpen, color: "bg-indigo-500" },
-  { label: "Monthly Revenue", value: "₹18.4L", change: "-2%", trend: "down", icon: CreditCard, color: "bg-emerald-500" },
-  { label: "Active Sessions", value: "1,204", change: "+18%", trend: "up", icon: Activity, color: "bg-amber-500" }
-];
+export default function EnterpriseAdminDashboard() {
+  const kpis = [
+    { label: "Total Registered Users", value: "1.24 Cr", change: "+140K this week", trend: "up", icon: Users, color: "text-blue-500", bg: "bg-blue-500/10" },
+    { label: "Daily Active Users (DAU)", value: "2.85M", change: "+12% vs last month", trend: "up", icon: Activity, color: "text-indigo-500", bg: "bg-indigo-500/10" },
+    { label: "Today's Revenue Run Rate", value: "₹42.5L", change: "-4% vs yesterday", trend: "down", icon: CreditCard, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+    { label: "Active Subscriptions", value: "845K", change: "+5K today", trend: "up", icon: TrendingUp, color: "text-purple-500", bg: "bg-purple-500/10" }
+  ];
 
-const recentEnrollments = [
-  { id: 1, name: "Rahul Sharma", email: "rahul.s@example.com", course: "JEE Main Ultimate", date: "2 mins ago", status: "Active" },
-  { id: 2, name: "Priya Patel", email: "priya.p@example.com", course: "NEET UG dropper", date: "15 mins ago", status: "Active" },
-  { id: 3, name: "Amit Kumar", email: "amit.k@example.com", course: "UPSC Prelims Master", date: "1 hour ago", status: "Pending" },
-  { id: 4, name: "Sneha Reddy", email: "sneha.r@example.com", course: "SSC CGL Tier 1", date: "3 hours ago", status: "Active" },
-  { id: 5, name: "Vikram Singh", email: "vikram.s@example.com", course: "Banking PO Mock", date: "5 hours ago", status: "Expired" },
-];
+  const telemetry = [
+    { label: "Concurrent Online", value: "84,203", icon: Wifi, status: "healthy", limit: "Capacity: 500K" },
+    { label: "Active CBT Sessions", value: "12,450", icon: MonitorPlay, status: "healthy", limit: "Node Avg Load: 42%" },
+    { label: "API Gateway Latency", value: "24ms", icon: Zap, status: "optimized", limit: "99.9% uptime" },
+    { label: "Database Operations", value: "14.2k/s", icon: Database, status: "warning", limit: "Replica Lag: 2s" },
+    { label: "Compute Cluster CPU", value: "68%", icon: Cpu, status: "healthy", limit: "Auto-scaling Active" },
+  ];
 
-export default function AdminDashboard() {
+  const systemAlerts = [
+    { type: "Critical", msg: "DDoS mitigation active on Asia-South ingress point.", time: "2 mins ago" },
+    { type: "Warning", msg: "Database read replica latency elevated (2.4s).", time: "15 mins ago" },
+    { type: "Info", msg: "Automated backup completed successfully.", time: "1 hour ago" },
+    { type: "Warning", msg: "Payment Gateway API intermittent timeouts.", time: "3 hours ago" },
+  ];
+
+  const liveActionFeed = [
+    { id: "TX-48201", user: "Rahul S. (USR-92410)", region: "Delhi NCR", action: "Purchased JEE Ultimate Mock", amount: "₹1,299", status: "Success", time: "Just now" },
+    { id: "TX-48200", user: "Priya P. (USR-40212)", region: "Maharashtra", action: "Attempted Mock Test TS-102", amount: "-", status: "Ongoing", time: "12 sec ago" },
+    { id: "TX-48199", user: "Amit K. (USR-09214)", region: "Uttar Pradesh", action: "Purchased UPSC Prelims", amount: "₹1,499", status: "Success", time: "45 sec ago" },
+    { id: "TX-48198", user: "Sneha R. (USR-82190)", region: "Karnataka", action: "Failed Authentication (3x)", amount: "-", status: "Blocked", time: "1 min ago" },
+    { id: "TX-48197", user: "Vikram S. (USR-10294)", region: "Rajasthan", action: "Purchased Foundation Batch", amount: "₹4,999", status: "Success", time: "2 mins ago" },
+  ];
+
   return (
-    <div className="flex flex-col gap-8 pb-8">
-      {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+    <div className="flex flex-col gap-6 pb-8">
+      {/* Enterprise Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 bg-white dark:bg-[#0f172a] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <div>
-          <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Dashboard Overview</h1>
-          <p className="text-slate-500 font-medium">Welcome back, Admin. Here's what's happening today.</p>
+          <div className="flex items-center gap-3 mb-1">
+            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Enterprise Command Center</h1>
+            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 rounded-md text-[10px] font-black uppercase tracking-widest border border-emerald-200 dark:border-emerald-500/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live Systems
+            </div>
+          </div>
+          <p className="text-slate-500 font-medium text-sm">Real-time telemetry, revenue analytics, and global user monitoring.</p>
         </div>
-        <div className="flex gap-3">
-          <button className="px-4 py-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-sm shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-            Download Report
+        <div className="flex gap-2">
+          <button className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-sm shadow-sm transition-colors border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+            <Server className="w-4 h-4" /> Server Management
           </button>
           <button className="px-4 py-2 bg-primary hover:bg-secondary text-white rounded-xl font-bold text-sm shadow-md transition-all shadow-primary/20">
-            Create Test Series
+            Generate Executive Report
           </button>
         </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, i) => {
-          const Icon = stat.icon;
+      {/* Main KPIs (4 Columns) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {kpis.map((kpi, i) => {
+          const Icon = kpi.icon;
           return (
             <motion.div 
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group"
+              key={kpi.label}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.05 }}
+              className="bg-white dark:bg-[#0f172a] rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 p-4 opacity-10 transform translate-x-4 -translate-y-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
-                <Icon className={`w-24 h-24 ${stat.trend === 'up' ? 'text-primary' : 'text-slate-400'}`} />
-              </div>
-              <div className="flex justify-between items-start mb-4 relative z-10">
-                <div className={`p-3 rounded-xl text-white shadow-sm ${stat.color}`}>
-                  <Icon className="w-6 h-6" />
-                </div>
-                <div className={`flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full ${
-                  stat.trend === 'up' 
-                    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' 
-                    : 'bg-rose-100 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'
-                }`}>
-                  {stat.trend === 'up' ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
-                  {stat.change}
+              <div className="flex justify-between items-start mb-2">
+                <p className="text-slate-500 font-bold text-xs uppercase tracking-wider">{kpi.label}</p>
+                <div className={`p-2 rounded-lg ${kpi.bg} ${kpi.color}`}>
+                  <Icon className="w-4 h-4" />
                 </div>
               </div>
-              <div className="relative z-10">
-                <h3 className="text-slate-500 font-semibold text-sm mb-1">{stat.label}</h3>
-                <div className="text-3xl font-black text-slate-800 dark:text-white tracking-tight">{stat.value}</div>
+              <div className="text-3xl font-black text-slate-800 dark:text-white tracking-tight mb-2">{kpi.value}</div>
+              <div className={`flex items-center gap-1 text-[11px] font-bold ${kpi.trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
+                {kpi.trend === 'up' ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                {kpi.change}
               </div>
             </motion.div>
           );
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Main Chart Area (Mock) */}
+      {/* Infrastructure Telemetry Strip */}
+      <div className="bg-slate-900 dark:bg-[#020617] rounded-xl border border-slate-800 p-1 flex flex-col lg:flex-row items-center divide-y lg:divide-y-0 lg:divide-x divide-slate-800/80 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]">
+        {telemetry.map((item, i) => {
+          const Icon = item.icon;
+          return (
+             <div key={i} className="flex-1 w-full px-5 py-3 flex items-center justify-between lg:justify-start gap-4 hover:bg-white/5 transition-colors cursor-default">
+               <div className={`p-2 rounded-lg bg-slate-800 border border-slate-700 ${item.status === 'warning' ? 'text-amber-400' : 'text-blue-400'}`}>
+                 <Icon className="w-4 h-4" />
+               </div>
+               <div>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-white font-black text-lg font-mono tracking-tight">{item.value}</span>
+                    {item.status === 'warning' && <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">{item.label}</span>
+                    <span className="text-slate-500 text-[9px] font-semibold">{item.limit}</span>
+                  </div>
+               </div>
+             </div>
+          );
+        })}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Core Analytics Chart (6 columns spanning) */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-          className="lg:col-span-2 bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6"
+          initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          className="lg:col-span-6 bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 flex flex-col"
         >
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-bold text-slate-800 dark:text-white">Revenue & Enrollments</h2>
-            <select className="bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 text-sm rounded-lg px-3 py-1.5 font-medium outline-none">
-              <option>Last 7 Days</option>
-              <option>Last 30 Days</option>
-              <option>This Year</option>
-            </select>
+            <div>
+              <h2 className="text-md font-bold text-slate-800 dark:text-white">Live Concurrent Users (24h)</h2>
+              <p className="text-xs text-slate-500 font-medium">Aggregated across all global nodes</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300"><div className="w-2 h-2 rounded-sm bg-primary" /> Web Activity</span>
+              <span className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300"><div className="w-2 h-2 rounded-sm bg-indigo-500" /> App Activity</span>
+            </div>
           </div>
-          <div className="h-[300px] w-full flex items-end gap-2 pb-6 px-4 border-b border-slate-100 dark:border-slate-800/60 relative">
-            {/* Y-axis lines mock */}
-            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none pb-6">
-              {[4, 3, 2, 1, 0].map(i => (
-                <div key={i} className="w-full h-px bg-slate-100 dark:bg-slate-800/50 flex items-center">
-                  <span className="absolute -left-2 text-[10px] text-slate-400 font-medium">{i * 25}k</span>
+          
+          <div className="flex-1 flex flex-col justify-end pt-4 pb-2 relative h-56 border-b border-slate-100 dark:border-slate-800">
+            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none pb-2">
+              {[100, 75, 50, 25, 0].map(val => (
+                <div key={val} className="w-full h-px border-t border-dashed border-slate-200 dark:border-slate-700/50 relative">
+                  <span className="absolute -left-1 -translate-y-1/2 text-[9px] text-slate-400 font-bold">{val}k</span>
                 </div>
               ))}
             </div>
-            {/* Mock Bars */}
-            {[20, 35, 45, 30, 60, 80, 50, 65, 90, 75, 55, 40].map((h, i) => (
-              <div key={i} className="flex-1 flex flex-col justify-end items-center group relative z-10 h-full">
-                <div 
-                  className="w-full max-w-[32px] bg-primary/20 dark:bg-accent/20 rounded-t-sm relative group-hover:bg-primary/40 transition-colors"
-                  style={{ height: `${h}%` }}
-                >
-                  <div 
-                    className="absolute bottom-0 w-full bg-primary dark:bg-accent rounded-t-sm"
-                    style={{ height: `${h * 0.7}%` }}
-                  />
-                </div>
-                {/* Tooltip mockup */}
-                <div className="absolute -top-10 bg-slate-800 text-white text-xs font-bold py-1 px-2 rounded hidden group-hover:block whitespace-nowrap z-20">
-                  ₹{h * 1.5}k
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-between text-xs font-semibold text-slate-400 mt-3 px-4">
-            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+            
+            {/* SVG Area Chart Mock */}
+            <svg className="w-full h-full absolute inset-0 z-10" preserveAspectRatio="none" viewBox="0 0 100 100">
+              {/* Web curve */}
+              <path d="M 0 90 Q 10 80, 20 85 T 40 60 T 60 70 T 80 40 T 100 30" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-primary dark:text-accent" />
+              <path d="M 0 90 Q 10 80, 20 85 T 40 60 T 60 70 T 80 40 T 100 30 L 100 100 L 0 100 Z" fill="currentColor" className="text-primary/10 dark:text-accent/10" />
+              
+              {/* App curve */}
+              <path d="M 0 85 Q 15 95, 30 75 T 50 50 T 70 35 T 90 20 L 100 15" fill="none" stroke="#6366f1" strokeWidth="2.5" />
+              <path d="M 0 85 Q 15 95, 30 75 T 50 50 T 70 35 T 90 20 L 100 15 L 100 100 L 0 100 Z" fill="#6366f1" opacity="0.1" />
+            </svg>
+            
+            <div className="flex justify-between w-full z-20 px-2 mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>Now</span>
+            </div>
           </div>
         </motion.div>
 
-        {/* Popular Test Series */}
+        {/* Geographic Distribution (3 columns) */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-          className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6"
+          initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+          className="lg:col-span-3 bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5"
         >
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-bold text-slate-800 dark:text-white">Top Performing</h2>
-            <button className="text-primary hover:text-secondary p-1"><MoreVertical className="w-5 h-5" /></button>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-md font-bold text-slate-800 dark:text-white flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400"/> Regional Load</h2>
           </div>
-          <div className="flex flex-col gap-5">
+          
+          <div className="flex flex-col gap-4">
             {[
-              { title: "JEE Main NTA Simulator", students: "12,400", price: "₹1,299", progress: 85 },
-              { title: "NEET UG Ultimate Mock", students: "8,950", price: "₹999", progress: 70 },
-              { title: "SSC CGL Tier 1 & 2", students: "5,210", price: "₹499", progress: 45 },
-              { title: "UPSC Prelims CSAT", students: "3,100", price: "₹1,499", progress: 30 },
-            ].map((course, i) => (
-              <div key={i} className="flex flex-col gap-2">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="font-bold text-sm text-slate-800 dark:text-white line-clamp-1">{course.title}</h4>
-                    <span className="text-xs font-medium text-slate-500">{course.students} students</span>
-                  </div>
-                  <span className="font-bold text-sm text-emerald-600 dark:text-emerald-400">{course.price}</span>
+              { region: "North India (ncr-1)", users: "1.2M", percent: 85, status: "critical" },
+              { region: "South India (blr-1)", users: "850K", percent: 65, status: "normal" },
+              { region: "West India (mum-1)", users: "540K", percent: 45, status: "normal" },
+              { region: "East India (ccu-1)", users: "210K", percent: 20, status: "normal" },
+              { region: "International Edge", users: "45K", percent: 5, status: "normal" },
+            ].map((node, i) => (
+              <div key={i} className="flex flex-col gap-1.5">
+                <div className="flex justify-between items-end">
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{node.region}</span>
+                  <span className="text-xs font-black text-slate-900 dark:text-white">{node.users}</span>
                 </div>
                 <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary" style={{ width: `${course.progress}%` }} />
+                  <div 
+                    className={`h-full rounded-full ${node.status === 'critical' ? 'bg-rose-500' : 'bg-primary'}`} 
+                    style={{ width: `${node.percent}%` }} 
+                  />
                 </div>
               </div>
             ))}
           </div>
-          <button className="w-full mt-6 py-2.5 text-sm font-bold text-primary bg-primary/5 hover:bg-primary/10 rounded-xl transition-colors">
-            View All Series
-          </button>
+        </motion.div>
+
+        {/* Live System Alerts (3 columns) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+          className="lg:col-span-3 bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col"
+        >
+          <div className="p-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0f172a]/50 flex justify-between items-center">
+            <h2 className="text-md font-bold text-slate-800 dark:text-white flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-slate-400" /> Security & Alerts
+            </h2>
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
+          </div>
+          <div className="flex-1 overflow-y-auto p-4 custom-scrollbar bg-slate-900 dark:bg-transparent">
+            <div className="flex flex-col gap-3">
+              {systemAlerts.map((alert, i) => (
+                <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-700 bg-slate-800/50 dark:border-slate-800 dark:bg-slate-800/30">
+                  <div className={`mt-0.5 w-2 h-2 rounded-full shrink-0 ${
+                    alert.type === 'Critical' ? 'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.6)]' :
+                    alert.type === 'Warning' ? 'bg-amber-500' : 'bg-blue-500'
+                  }`} />
+                  <div>
+                    <p className="text-xs font-semibold text-slate-200 dark:text-slate-300 leading-tight mb-1">{alert.msg}</p>
+                    <p className="text-[10px] font-bold text-slate-500">{alert.time}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Recent Enrollments Array */}
+      {/* Real-time Global Feed Grid */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
         className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden"
       >
-        <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-[#0f172a]">
-          <h2 className="text-lg font-bold text-slate-800 dark:text-white">Recent Enrollments</h2>
-          <button className="text-sm font-bold text-primary hover:text-secondary group flex items-center gap-1 transition-colors">
-            View All <TrendingUp className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        <div className="p-4 md:p-5 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-[#0f172a]/50">
+          <div className="flex items-center gap-3">
+            <div className="px-2 py-1 bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400 font-bold text-[10px] uppercase tracking-widest rounded flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" /> Live Feed
+            </div>
+            <h2 className="text-sm font-bold text-slate-800 dark:text-white">Global Platform Activity Stream</h2>
+          </div>
+          <button className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1">
+            View All Logs <ArrowUpRight className="w-3 h-3" />
           </button>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50/80 dark:bg-[#020617]/50 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase tracking-wider">
-                <th className="p-4 pl-6">Student</th>
-                <th className="p-4">Course / Test Series</th>
-                <th className="p-4">Enrolled</th>
-                <th className="p-4">Status</th>
-                <th className="p-4 pr-6 text-right">Action</th>
+              <tr className="bg-slate-50/80 dark:bg-[#020617]/50 border-b border-slate-200 dark:border-slate-800 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                <th className="p-3 pl-5">Request ID</th>
+                <th className="p-3">User Node</th>
+                <th className="p-3">Event Trace</th>
+                <th className="p-3">Value</th>
+                <th className="p-3">Network Status</th>
+                <th className="p-3 pr-5 text-right">Timestamp</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
-              {recentEnrollments.map((enrollment) => (
-                <tr key={enrollment.id} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors">
-                  <td className="p-4 pl-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-100 to-primary/20 dark:from-indigo-900/50 dark:to-primary/30 flex items-center justify-center font-bold text-primary text-xs shrink-0 border border-white dark:border-slate-800 shadow-sm">
-                        {enrollment.name.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{enrollment.name}</p>
-                        <p className="font-medium text-xs text-slate-500">{enrollment.email}</p>
-                      </div>
-                    </div>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 font-mono text-xs">
+              {liveActionFeed.map((log, i) => (
+                <tr key={i} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors group">
+                  <td className="p-3 pl-5 font-bold text-primary/70 dark:text-accent/70">{log.id}</td>
+                  <td className="p-3">
+                    <p className="font-bold text-slate-700 dark:text-slate-300">{log.user}</p>
+                    <p className="text-[10px] text-slate-400 font-sans">{log.region}</p>
                   </td>
-                  <td className="p-4 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                    {enrollment.course}
-                  </td>
-                  <td className="p-4 text-sm font-medium text-slate-500">
-                    {enrollment.date}
-                  </td>
-                  <td className="p-4">
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold ${
-                      enrollment.status === 'Active' 
-                        ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' 
-                        : enrollment.status === 'Pending' 
-                          ? 'bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400' 
-                          : 'bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-400'
+                  <td className="p-3 font-semibold text-slate-600 dark:text-slate-400">{log.action}</td>
+                  <td className="p-3 font-black text-emerald-600 dark:text-emerald-400">{log.amount}</td>
+                  <td className="p-3">
+                    <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-black font-sans uppercase tracking-widest ${
+                      log.status === 'Success' 
+                        ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' 
+                        : log.status === 'Ongoing'
+                          ? 'bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400'
+                          : 'bg-rose-100 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'
                     }`}>
-                      {enrollment.status}
+                      {log.status}
                     </span>
                   </td>
-                  <td className="p-4 pr-6 text-right">
-                    <button className="text-slate-400 hover:text-primary transition-colors p-1">
-                      <MoreVertical className="w-5 h-5" />
-                    </button>
-                  </td>
+                  <td className="p-3 pr-5 text-right font-semibold text-slate-400">{log.time}</td>
                 </tr>
               ))}
             </tbody>
