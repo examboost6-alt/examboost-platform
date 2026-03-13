@@ -1,6 +1,6 @@
 {
     "name": "examboost-next",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "scripts": {
         "dev": "cross-env CHOKIDAR_USEPOLLING=1 next dev -H 0.0.0.0",
