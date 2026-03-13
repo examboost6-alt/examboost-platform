@@ -3,8 +3,15 @@
 import { motion } from 'framer-motion';
 import { Youtube, Instagram, Twitter, MessageCircle, MapPin, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    if (pathname.startsWith('/admin')) {
+        return null;
+    }
+
     return (
         <footer className="bg-darkText dark:bg-slate-950 text-white pt-24 pb-12 transition-colors duration-300 relative z-10 border-t border-slate-800">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">

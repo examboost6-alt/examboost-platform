@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Search, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
@@ -145,6 +147,10 @@ export default function Navbar() {
         { label: 'About', href: '/about' },
         { label: 'Contact', href: '/contact' }
     ];
+
+    if (pathname.startsWith('/admin')) {
+        return null;
+    }
 
     return (
         <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 dark:bg-[#020617]/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm' : 'bg-transparent'}`}>
