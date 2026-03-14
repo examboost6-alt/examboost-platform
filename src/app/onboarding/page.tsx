@@ -28,14 +28,50 @@ export default function OnboardingForm() {
   }, [router]);
 
   const [formData, setFormData] = useState({
-    name: "Rahul Sharma", 
-    email: "rahul.sharma@example.com", 
-    phone: "", 
+    name: "",
+    email: "",
+    phone: "",
     dob: "",
-    state: "", 
-    targetExam: "", 
+    state: "",
+    targetExam: "",
     preparationMode: "Online Self Study",
   });
+
+  useEffect(() => {
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+
+    const deriveNameFromUser = (email: string | null, first?: string | null, last?: string | null) => {
+      const f = (first || '').trim();
+      const l = (last || '').trim();
+      const full = `${f} ${l}`.trim();
+      if (full) return full;
+
+      if (email) {
+        const local = email.split('@')[0] || '';
+        if (local) return local;
+      }
+
+      return '';
+    };
+
+    supabase.auth.getUser().then(({ data }) => {
+      const user = data.user;
+      if (!user) return;
+
+      const email = user.email || '';
+      const meta: any = user.user_metadata || {};
+      const firstName = meta.first_name ?? meta.firstName ?? '';
+      const lastName = meta.last_name ?? meta.lastName ?? '';
+      const name = deriveNameFromUser(email, firstName, lastName);
+
+      setFormData((prev) => ({
+        ...prev,
+        name: prev.name || name,
+        email: prev.email || email,
+      }));
+    });
+  }, []);
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
