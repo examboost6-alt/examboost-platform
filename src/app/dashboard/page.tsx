@@ -44,23 +44,23 @@ export default function StudentDashboard() {
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string>('');
+  const [userEmail, setUserEmail] = useState<string>('');
 
   const [studentInfo, setStudentInfo] = useState<any>({
     name: "Student", targetExam: "Not Set", progress: 0,
     stats: { testsAttempted: 0, accuracy: 0, rank: 0, timeSpent: "0h" }
   });
   const [myTestSeries, setMyTestSeries] = useState<any[]>([]);
-  const [freeTests, setFreeTests] = useState<any[]>([
-    { id: 1, title: "Daily Current Affairs Quiz", type: "Daily Quiz", time: "15 mins", questions: 15 },
-  ]);
+  const [freeTests, setFreeTests] = useState<any[]>([]);
   const [recommendedTests, setRecommendedTests] = useState<any[]>([]);
-  const [performanceData, setPerformanceData] = useState<any[]>([
-    { subject: "Quant", accuracy: 78, score: 35 },
-    { subject: "Reasoning", accuracy: 92, score: 45 },
-  ]);
+  const [performanceData, setPerformanceData] = useState<any[]>([]);
   const [testAnalysisHighlights, setTestAnalysisHighlights] = useState<any>({
-    correct: 145, wrong: 32, skipped: 23, strongTopics: ["Puzzles"], weakTopics: ["Geometry"],
+    correct: 0, wrong: 0, skipped: 0, strongTopics: [], weakTopics: [],
   });
+  const [walletPurchases, setWalletPurchases] = useState<any[]>([]);
+  const [leaderboardRows, setLeaderboardRows] = useState<any[]>([]);
+  const [lastAttempt, setLastAttempt] = useState<any | null>(null);
+  const [notifications, setNotifications] = useState<any[]>([]);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -90,45 +90,256 @@ export default function StudentDashboard() {
 
     const fetchDashboardData = async (uid: string) => {
       setLoading(true);
-      const { data: profileData } = await supabase.from('profiles').select('*').eq('id', uid).single();
+      try {
+        const { data: authUser } = await supabase.auth.getUser();
+        setUserEmail(authUser.user?.email || '');
+      } catch {
+        setUserEmail('');
+      }
+
+      const { data: profileData } = await supabase.from('profiles').select('*').eq('id', uid).maybeSingle();
       const profile = profileData as any;
       if (profile) {
-        setStudentInfo((prev: any) => ({ ...prev, name: profile.full_name || 'Student', targetExam: profile.target_exam || 'Not Set' }));
-      }
-      
-      const { data: userTestsData } = await supabase.from('user_tests').select('*').eq('user_id', uid);
-      const userTests = userTestsData as any[];
-      if (userTests && userTests.length > 0) {
         setStudentInfo((prev: any) => ({
-          ...prev, stats: { ...prev.stats, testsAttempted: userTests.length }
+          ...prev,
+          name: profile.full_name || 'Student',
+          targetExam: profile.target_exam || 'Not Set',
         }));
       }
 
-      const { data: purchasesData } = await supabase.from('purchases').select('series_id').eq('user_id', uid);
-      const purchases = purchasesData as any[];
-      let seriesIds = purchases?.map((p: any) => p.series_id) || [];
-      
+      const { data: userTestsData } = await supabase
+        .from('user_tests')
+        .select('*')
+        .eq('user_id', uid)
+        .order('created_at', { ascending: false });
+      const userTests = (userTestsData as any[]) || [];
+
+      const testsAttempted = userTests.length;
+      const avgAccuracy = (() => {
+        const rows = userTests.filter((r: any) => typeof r.accuracy === 'number');
+        if (rows.length === 0) return 0;
+        const sum = rows.reduce((acc: number, r: any) => acc + (r.accuracy || 0), 0);
+        return Math.round(sum / rows.length);
+      })();
+
+      const totalSeconds = userTests.reduce((acc: number, r: any) => acc + (Number(r.time_taken_seconds) || 0), 0);
+      const timeSpentHours = Math.round((totalSeconds / 3600) * 10) / 10;
+      const timeSpent = timeSpentHours > 0 ? `${timeSpentHours}h` : '0h';
+
+      setStudentInfo((prev: any) => ({
+        ...prev,
+        stats: {
+          ...prev.stats,
+          testsAttempted,
+          accuracy: avgAccuracy,
+          timeSpent,
+        },
+      }));
+
+      setLastAttempt(userTests[0] || null);
+
+      const { data: purchasesData } = await supabase
+        .from('purchases')
+        .select('*')
+        .eq('user_id', uid)
+        .order('created_at', { ascending: false });
+      const purchases = (purchasesData as any[]) || [];
+
+      const seriesIds = purchases.map((p: any) => p.series_id).filter(Boolean);
+      let seriesById = new Map<string, any>();
       if (seriesIds.length > 0) {
-        const { data: purchasedSeriesData } = await supabase.from('test_series').select('*').in('id', seriesIds);
-        const purchasedSeries = purchasedSeriesData as any[];
-        if (purchasedSeries) {
-          setMyTestSeries(purchasedSeries.map((s: any) => ({
-            id: s.id, name: s.title, progress: 0, totalTests: s.total_tests, attempted: 0
-          })));
+        const { data: purchasedSeriesData } = await supabase
+          .from('test_series')
+          .select('*')
+          .in('id', seriesIds);
+        const purchasedSeries = (purchasedSeriesData as any[]) || [];
+        purchasedSeries.forEach((s: any) => seriesById.set(String(s.id), s));
+
+        setMyTestSeries(
+          purchasedSeries.map((s: any) => {
+            const totalTests = Number(s.total_tests) || 0;
+            const attempted = userTests.filter((t: any) => String(t.series_id) === String(s.id)).length;
+            const progress = totalTests > 0 ? Math.round((attempted / totalTests) * 100) : 0;
+            return {
+              id: s.id,
+              name: s.title,
+              progress,
+              totalTests,
+              attempted,
+              priceInr: s.price_inr ?? null,
+              category: s.category ?? null,
+              exam: s.exam ?? null,
+            };
+          })
+        );
+      } else {
+        setMyTestSeries([]);
+      }
+
+      setWalletPurchases(
+        purchases.map((p: any) => {
+          const series = seriesById.get(String(p.series_id));
+          return {
+            id: p.id,
+            created_at: p.created_at,
+            amount: p.amount,
+            title: series?.title || 'Test Series',
+            status: p.status || null,
+          };
+        })
+      );
+
+      const { data: allSeriesData } = await supabase
+        .from('test_series')
+        .select('*')
+        .eq('is_active', true)
+        .order('created_at', { ascending: false })
+        .limit(12);
+      const allSeries = (allSeriesData as any[]) || [];
+      setRecommendedTests(
+        allSeries.map((s: any) => ({
+          id: s.id,
+          title: s.title,
+          reason: s.exam ? `${s.exam} Package` : 'Premium Package',
+          tags: [s.category || 'Trending', `₹${s.price_inr ?? 0}`],
+        }))
+      );
+
+      try {
+        const { data: freeData } = await supabase
+          .from('tests')
+          .select('*')
+          .eq('is_free', true)
+          .order('created_at', { ascending: false })
+          .limit(12);
+        const rows = (freeData as any[]) || [];
+        if (rows.length > 0) {
+          setFreeTests(
+            rows.map((t: any) => ({
+              id: t.id,
+              title: t.title || 'Free Test',
+              type: t.exam || 'Free',
+              time: t.duration_minutes ? `${t.duration_minutes} mins` : '—',
+              questions: t.total_questions ?? t.questions_count ?? 0,
+            }))
+          );
+        } else {
+          const { data: freeSeriesData } = await supabase
+            .from('test_series')
+            .select('*')
+            .eq('is_active', true)
+            .eq('price_inr', 0)
+            .order('created_at', { ascending: false })
+            .limit(12);
+          const freeSeries = (freeSeriesData as any[]) || [];
+          setFreeTests(
+            freeSeries.map((s: any) => ({
+              id: s.id,
+              title: s.title || 'Free Test Series',
+              type: s.exam || s.category || 'Free',
+              time: s.duration_minutes ? `${s.duration_minutes} mins` : '—',
+              questions: s.total_questions ?? s.total_tests ?? 0,
+            }))
+          );
+        }
+      } catch {
+        try {
+          const { data: freeSeriesData } = await supabase
+            .from('test_series')
+            .select('*')
+            .eq('is_active', true)
+            .eq('price_inr', 0)
+            .order('created_at', { ascending: false })
+            .limit(12);
+          const freeSeries = (freeSeriesData as any[]) || [];
+          setFreeTests(
+            freeSeries.map((s: any) => ({
+              id: s.id,
+              title: s.title || 'Free Test Series',
+              type: s.exam || s.category || 'Free',
+              time: s.duration_minutes ? `${s.duration_minutes} mins` : '—',
+              questions: s.total_questions ?? s.total_tests ?? 0,
+            }))
+          );
+        } catch {
+          setFreeTests([]);
         }
       }
 
-      const { data: allSeriesData } = await supabase.from('test_series').select('*').eq('is_active', true).limit(5);
-      const allSeries = allSeriesData as any[];
-      if (allSeries && allSeries.length > 0) {
-         setRecommendedTests(allSeries.map((s: any) => ({
-           id: s.id, title: s.title, reason: 'Highly Rated Package', tags: ['Trending', `₹${s.price}`]
-         })));
-      } else {
-         setRecommendedTests([
-           { id: 1, title: 'SSC CGL Pro Mocks', reason: 'Master Tier 1', tags: ['Trending', '₹499'] }
-         ]);
+      const { data: topUsersData } = await supabase
+        .from('user_tests')
+        .select('user_id, score')
+        .order('score', { ascending: false })
+        .limit(20);
+      const topRows = (topUsersData as any[]) || [];
+      const uniqueUserIds: string[] = Array.from(new Set(topRows.map((r: any) => r.user_id).filter(Boolean)));
+      let namesById = new Map<string, string>();
+      if (uniqueUserIds.length > 0) {
+        const { data: topProfiles } = await supabase
+          .from('profiles')
+          .select('id, full_name')
+          .in('id', uniqueUserIds);
+        (topProfiles as any[] | null)?.forEach((p: any) => {
+          namesById.set(String(p.id), p.full_name || 'Student');
+        });
       }
+
+      const rows = topRows.map((r: any, idx: number) => {
+        const id = String(r.user_id);
+        return {
+          rank: idx + 1,
+          user_id: id,
+          name: namesById.get(id) || 'Student',
+          score: typeof r.score === 'number' ? r.score : Number(r.score) || 0,
+          isMe: id === uid,
+        };
+      });
+      const myRank = rows.find((r: any) => r.isMe)?.rank || 0;
+      setStudentInfo((prev: any) => ({ ...prev, stats: { ...prev.stats, rank: myRank } }));
+      setLeaderboardRows(rows);
+
+      const computed = (() => {
+        const correct = userTests.reduce((acc: number, r: any) => acc + (Number(r.correct) || 0), 0);
+        const wrong = userTests.reduce((acc: number, r: any) => acc + (Number(r.wrong) || 0), 0);
+        const skipped = userTests.reduce((acc: number, r: any) => acc + (Number(r.skipped) || 0), 0);
+        return { correct, wrong, skipped };
+      })();
+      setTestAnalysisHighlights((prev: any) => ({
+        ...prev,
+        correct: computed.correct,
+        wrong: computed.wrong,
+        skipped: computed.skipped,
+      }));
+
+      try {
+        const { data: notifData } = await supabase
+          .from('notifications')
+          .select('*')
+          .eq('user_id', uid)
+          .order('created_at', { ascending: false })
+          .limit(20);
+        setNotifications((notifData as any[]) || []);
+      } catch {
+        setNotifications([]);
+      }
+
+      const bySubject = new Map<string, { attempts: number; accuracySum: number }>();
+      userTests.forEach((r: any) => {
+        const subject = String(r.subject || r.section || r.exam || 'Overall');
+        const acc = typeof r.accuracy === 'number' ? r.accuracy : Number(r.accuracy) || 0;
+        const curr = bySubject.get(subject) || { attempts: 0, accuracySum: 0 };
+        bySubject.set(subject, { attempts: curr.attempts + 1, accuracySum: curr.accuracySum + acc });
+      });
+      const perf = Array.from(bySubject.entries())
+        .map(([subject, v]) => ({
+          subject,
+          accuracy: v.attempts > 0 ? Math.round(v.accuracySum / v.attempts) : 0,
+          score: null,
+        }))
+        .filter((r) => r.subject !== 'Overall')
+        .slice(0, 6);
+      setPerformanceData(perf);
+
       setLoading(false);
     };
   }, [router]);
@@ -175,7 +386,7 @@ export default function StudentDashboard() {
           },
           prefill: {
              name: studentInfo.name,
-             email: 'student@example.com',
+             email: userEmail || 'student@example.com',
           },
           theme: { color: '#2563eb' }
        };
@@ -268,12 +479,15 @@ export default function StudentDashboard() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
             <Trophy className="w-3.5 h-3.5 text-amber-300" /> Top 5% Learner
           </div>
-          <h1 className="text-3xl md:text-4xl font-black mb-2 tracking-tight">Welcome back, {studentInfo.name} 👋</h1>
+          <h1 className="text-3xl md:text-4xl font-black mb-2 tracking-tight">Welcome back, {studentInfo.name}</h1>
           <p className="text-blue-100 dark:text-indigo-200 mb-6 font-medium text-sm md:text-base max-w-md">You're making incredible progress! Keep up the momentum to secure your top rank.</p>
           
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-            <button className="bg-white text-blue-700 px-6 py-3 rounded-xl font-black text-sm shadow-md hover:bg-neutral-50 transition-all hover:-translate-y-0.5 inline-flex items-center gap-2">
-              <PlayCircle className="w-5 h-5" /> Resume Last Test
+            <button
+              onClick={() => setActiveTab('my-tests')}
+              className="bg-white text-blue-700 px-6 py-3 rounded-xl font-black text-sm shadow-md hover:bg-neutral-50 transition-all hover:-translate-y-0.5 inline-flex items-center gap-2"
+            >
+              <PlayCircle className="w-5 h-5" /> {lastAttempt ? 'Resume Last Test' : 'Start a Test'}
             </button>
             <button className="bg-white/10 border border-white/20 hover:bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-bold text-sm transition-all inline-flex items-center gap-2">
               <Target className="w-5 h-5" /> Daily Goals
@@ -359,27 +573,36 @@ export default function StudentDashboard() {
                </button>
              </div>
              <div className="space-y-4">
-               {myTestSeries.slice(0, 2).map((ts) => (
-                 <div key={ts.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-xl hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
-                   <div className="flex justify-between items-start mb-3">
-                     <div>
-                       <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{ts.name}</h3>
-                       <span className="text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded inline-block">Pro Active</span>
-                     </div>
-                     <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors shadow-sm">
-                       Resume
-                     </button>
-                   </div>
-                   
-                   <div className="flex justify-between items-end text-sm text-slate-500 dark:text-slate-400 mb-2 font-medium">
-                     <span>{ts.attempted}/{ts.totalTests} Mocks Complete</span>
-                     <span className="font-bold text-slate-800 dark:text-slate-200">{ts.progress}%</span>
-                   </div>
-                   <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                     <div className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full" style={{ width: `${ts.progress}%` }}></div>
-                   </div>
-                 </div>
-               ))}
+              {myTestSeries.length === 0 ? (
+                <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-300 font-semibold">
+                  No purchased series yet. Explore "Recommended" to buy a test series.
+                </div>
+              ) : (
+                myTestSeries.slice(0, 2).map((ts) => (
+                  <div key={ts.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-xl hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{ts.name}</h3>
+                        <span className="text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded inline-block">Active</span>
+                      </div>
+                      <button
+                        onClick={() => setActiveTab('my-tests')}
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors shadow-sm"
+                      >
+                        Open
+                      </button>
+                    </div>
+                    
+                    <div className="flex justify-between items-end text-sm text-slate-500 dark:text-slate-400 mb-2 font-medium">
+                      <span>{ts.attempted}/{ts.totalTests} Tests Complete</span>
+                      <span className="font-bold text-slate-800 dark:text-slate-200">{ts.progress}%</span>
+                    </div>
+                    <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full" style={{ width: `${ts.progress}%` }}></div>
+                    </div>
+                  </div>
+                ))
+              )}
              </div>
            </div>
          </div>
@@ -419,7 +642,14 @@ export default function StudentDashboard() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
        <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">My Test Series</h1>
        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {myTestSeries.map((ts) => (
+          {myTestSeries.length === 0 ? (
+            <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden p-6 text-neutral-700 font-semibold">
+              No purchased test series found.
+              <div className="mt-4">
+                <button onClick={() => setActiveTab('recommended')} className="bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-4 rounded-lg font-bold transition-colors">Browse Recommended</button>
+              </div>
+            </div>
+          ) : myTestSeries.map((ts) => (
             <div key={ts.id} className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
                <div className="p-5">
                   <h3 className="font-bold text-lg mb-1">{ts.name}</h3>
@@ -430,7 +660,7 @@ export default function StudentDashboard() {
                   <p className="text-xs text-right text-neutral-600 font-medium mb-4">{ts.progress}% Completed</p>
                   
                   <div className="flex flex-col gap-2">
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors">Start Test</button>
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors">Open Series</button>
                     <div className="flex gap-2">
                       <button className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-2 rounded-lg font-medium text-sm transition-colors">Analysis</button>
                       <button className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-2 rounded-lg font-medium text-sm transition-colors">Results</button>
@@ -447,10 +677,14 @@ export default function StudentDashboard() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex items-center justify-between border-b pb-4">
         <h1 className="text-2xl font-bold text-neutral-800">Free Test Section</h1>
-        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Essential for Growth 📈</span>
+        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Practice Mode</span>
       </div>
       <div className="grid lg:grid-cols-3 gap-6">
-        {freeTests.map(test => (
+        {freeTests.length === 0 ? (
+          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm text-neutral-700 font-semibold">
+            No free tests available right now.
+          </div>
+        ) : freeTests.map(test => (
           <div key={test.id} className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex justify-between items-start mb-4">
               <span className="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-1 rounded">{test.type}</span>
@@ -499,31 +733,43 @@ export default function StudentDashboard() {
       <div className="grid md:grid-cols-2 gap-6 mt-6">
          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
            <h3 className="font-bold text-lg mb-4">Subject Wise Accuracy</h3>
-           <div className="space-y-4">
-              {performanceData.map(d => (
-                <div key={d.subject}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-neutral-700">{d.subject}</span>
-                    <span className="font-bold text-neutral-900">{d.accuracy}%</span>
+           {performanceData.length === 0 ? (
+             <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold">
+               Attempt at least one test to see subject-wise performance.
+             </div>
+           ) : (
+             <div className="space-y-4">
+                {performanceData.map(d => (
+                  <div key={d.subject}>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="font-medium text-neutral-700">{d.subject}</span>
+                      <span className="font-bold text-neutral-900">{d.accuracy}%</span>
+                    </div>
+                    <div className="w-full bg-neutral-100 rounded-full h-2">
+                      <div className={`h-2 rounded-full ${d.accuracy > 80 ? 'bg-green-500' : d.accuracy > 70 ? 'bg-blue-500' : 'bg-orange-500'}`} style={{ width: `${d.accuracy}%` }}></div>
+                    </div>
                   </div>
-                  <div className="w-full bg-neutral-100 rounded-full h-2">
-                    <div className={`h-2 rounded-full ${d.accuracy > 80 ? 'bg-green-500' : d.accuracy > 70 ? 'bg-blue-500' : 'bg-orange-500'}`} style={{ width: `${d.accuracy}%` }}></div>
-                  </div>
-                </div>
-              ))}
-           </div>
+                ))}
+             </div>
+           )}
          </div>
 
          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
             <h3 className="font-bold text-lg mb-4 text-red-600 flex items-center gap-2"><Target className="w-5 h-5"/> Weak Topics to Improve</h3>
-            <ul className="space-y-3">
-              {testAnalysisHighlights.weakTopics?.map((topic: string, i: number) => (
-                <li key={i} className="flex items-center justify-between p-3 bg-red-50 text-red-800 rounded-lg text-sm font-medium">
-                  {topic}
-                  <button className="px-3 py-1 bg-white text-red-600 rounded text-xs font-bold hover:bg-red-100">Practice</button>
-                </li>
-              ))}
-            </ul>
+            {(testAnalysisHighlights.weakTopics?.length || 0) === 0 ? (
+              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold">
+                No weak topics detected yet.
+              </div>
+            ) : (
+              <ul className="space-y-3">
+                {testAnalysisHighlights.weakTopics?.map((topic: string, i: number) => (
+                  <li key={i} className="flex items-center justify-between p-3 bg-red-50 text-red-800 rounded-lg text-sm font-medium">
+                    {topic}
+                    <button className="px-3 py-1 bg-white text-red-600 rounded text-xs font-bold hover:bg-red-100">Practice</button>
+                  </li>
+                ))}
+              </ul>
+            )}
          </div>
       </div>
     </div>
@@ -544,13 +790,9 @@ export default function StudentDashboard() {
         </div>
         
         <div className="p-0">
-          {[
-            { rank: 1, name: "Arjun Kumar", score: 99.8, trend: "up" },
-            { rank: 2, name: "Sneha Reddy", score: 98.5, trend: "up" },
-            { rank: 3, name: "Vikram Singh", score: 97.2, trend: "down" },
-            { rank: 4, name: "Pooja Sharma", score: 96.0, trend: "same" },
-            { rank: 1205, name: studentInfo.name, score: 82.4, trend: "up", isMe: true },
-          ].map((user, i) => (
+          {leaderboardRows.length === 0 ? (
+            <div className="p-6 text-neutral-700 font-semibold">Leaderboard data is not available yet.</div>
+          ) : leaderboardRows.map((user: any, i: number) => (
             <div key={i} className={`flex items-center p-4 border-b last:border-0 ${user.isMe ? 'bg-blue-50 border-blue-100' : 'hover:bg-neutral-50'}`}>
                <div className="w-12 text-center font-bold text-lg text-neutral-500">#{user.rank}</div>
                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-bold mx-4">
@@ -559,9 +801,7 @@ export default function StudentDashboard() {
                <div className="flex-1 font-semibold text-neutral-800">{user.name} {user.isMe && <span className="text-xs bg-blue-200 text-blue-800 px-2 py-0.5 rounded ml-2">You</span>}</div>
                <div className="font-bold text-neutral-800 mr-4">{user.score}</div>
                <div className="w-8 flex justify-center">
-                 {user.trend === 'up' && <TrendingUp className="w-5 h-5 text-green-500"/>}
-                 {user.trend === 'down' && <TrendingUp className="w-5 h-5 text-red-500 rotate-180"/>}
-                 {user.trend === 'same' && <div className="w-3 h-0.5 bg-neutral-400"></div>}
+                 <div className="w-3 h-0.5 bg-neutral-300"></div>
                </div>
             </div>
           ))}
@@ -600,26 +840,34 @@ export default function StudentDashboard() {
 
       <div className="bg-white rounded-xl border border-neutral-200 shadow-sm p-6 mt-6">
         <h3 className="text-lg font-bold mb-4">Topic-wise Analysis (Recent SSC CGL Test)</h3>
-        <div className="space-y-4">
-           {['Quantitative Aptitude', 'General Intelligence', 'English Language', 'General Awareness'].map(subject => (
-             <div key={subject} className="flex flex-col gap-2">
-               <div className="flex justify-between font-medium text-sm text-neutral-700">
-                 <span>{subject}</span>
-                 <span>Avg. Score: 32/50</span>
-               </div>
-               <div className="flex h-3 rounded-full overflow-hidden">
-                 <div className="bg-green-500" style={{ width: '60%' }} title="Correct"></div>
-                 <div className="bg-red-500" style={{ width: '20%' }} title="Wrong"></div>
-                 <div className="bg-neutral-300" style={{ width: '20%' }} title="Skipped"></div>
-               </div>
-             </div>
-           ))}
-        </div>
-        <div className="flex gap-4 mt-4 text-xs font-medium text-neutral-500 justify-center">
-          <span className="flex items-center gap-1"><div className="w-3 h-3 bg-green-500 rounded-sm"></div> Correct</span>
-          <span className="flex items-center gap-1"><div className="w-3 h-3 bg-red-500 rounded-sm"></div> Wrong</span>
-          <span className="flex items-center gap-1"><div className="w-3 h-3 bg-neutral-300 rounded-sm"></div> Skipped</span>
-        </div>
+        {(studentInfo.stats.testsAttempted || 0) === 0 ? (
+          <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold">
+            Attempt a test to unlock detailed analysis.
+          </div>
+        ) : (
+          <>
+            <div className="space-y-4">
+              {['Quantitative Aptitude', 'General Intelligence', 'English Language', 'General Awareness'].map(subject => (
+                <div key={subject} className="flex flex-col gap-2">
+                  <div className="flex justify-between font-medium text-sm text-neutral-700">
+                    <span>{subject}</span>
+                    <span>Summary</span>
+                  </div>
+                  <div className="flex h-3 rounded-full overflow-hidden">
+                    <div className="bg-green-500" style={{ width: '60%' }} title="Correct"></div>
+                    <div className="bg-red-500" style={{ width: '20%' }} title="Wrong"></div>
+                    <div className="bg-neutral-300" style={{ width: '20%' }} title="Skipped"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-4 mt-4 text-xs font-medium text-neutral-500 justify-center">
+              <span className="flex items-center gap-1"><div className="w-3 h-3 bg-green-500 rounded-sm"></div> Correct</span>
+              <span className="flex items-center gap-1"><div className="w-3 h-3 bg-red-500 rounded-sm"></div> Wrong</span>
+              <span className="flex items-center gap-1"><div className="w-3 h-3 bg-neutral-300 rounded-sm"></div> Skipped</span>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -712,20 +960,17 @@ export default function StudentDashboard() {
       
       <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden mt-6">
          <div className="p-4 border-b bg-neutral-50 font-bold text-neutral-700">Recent Purchases</div>
-         <div className="p-4 flex items-center justify-between border-b last:border-0 hover:bg-neutral-50">
-           <div>
-             <h4 className="font-semibold text-neutral-800">SSC CGL Tier 1 Test Series</h4>
-             <p className="text-xs text-neutral-500">12 Jan 2026</p>
+         {walletPurchases.length === 0 ? (
+           <div className="p-6 text-neutral-700 font-semibold">No purchases found.</div>
+         ) : walletPurchases.slice(0, 10).map((p: any) => (
+           <div key={p.id} className="p-4 flex items-center justify-between border-b last:border-0 hover:bg-neutral-50">
+             <div>
+               <h4 className="font-semibold text-neutral-800">{p.title}</h4>
+               <p className="text-xs text-neutral-500">{p.created_at ? new Date(p.created_at).toLocaleDateString() : ''}</p>
+             </div>
+             <span className="font-bold text-neutral-800">₹{Number(p.amount) || 0}</span>
            </div>
-           <span className="font-bold text-neutral-800">₹299</span>
-         </div>
-         <div className="p-4 flex items-center justify-between border-b last:border-0 hover:bg-neutral-50">
-           <div>
-             <h4 className="font-semibold text-neutral-800">Examboost Monthly Pass</h4>
-             <p className="text-xs text-neutral-500">01 Jan 2026</p>
-           </div>
-           <span className="font-bold text-neutral-800">₹499</span>
-         </div>
+         ))}
       </div>
     </div>
   );
@@ -734,19 +979,17 @@ export default function StudentDashboard() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-3xl">
       <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">Notifications</h1>
       <div className="space-y-4">
-        {[
-          { icon: Zap, color: "text-amber-500", bg: "bg-amber-100", title: "New SSC CGL Mock Available", desc: "Full Length Mock #15 is now live. Attempt now!", time: "2 hours ago" },
-          { icon: Calendar, color: "text-blue-500", bg: "bg-blue-100", title: "Upcoming Exam: SBI PO Prelims", desc: "Your exam is in exactly 14 days. View last-minute tips.", time: "1 day ago" },
-          { icon: Target, color: "text-green-500", bg: "bg-green-100", title: "50% Off on Engineering Package", desc: "Special festival discount applied to your account.", time: "2 days ago" },
-        ].map((notif, i) => (
-          <div key={i} className="flex gap-4 p-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${notif.bg} ${notif.color}`}>
-              <notif.icon className="w-5 h-5"/>
+        {notifications.length === 0 ? (
+          <div className="p-6 bg-white rounded-xl border border-neutral-200 shadow-sm text-neutral-700 font-semibold">No notifications.</div>
+        ) : notifications.map((n: any) => (
+          <div key={n.id || `${n.created_at}-${n.title}`} className="flex gap-4 p-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-blue-100 text-blue-600">
+              <Bell className="w-5 h-5"/>
             </div>
             <div>
-              <h4 className="font-bold text-neutral-800">{notif.title}</h4>
-              <p className="text-sm text-neutral-600 mt-0.5">{notif.desc}</p>
-              <span className="text-xs text-neutral-400 mt-2 block">{notif.time}</span>
+              <h4 className="font-bold text-neutral-800">{n.title || 'Notification'}</h4>
+              <p className="text-sm text-neutral-600 mt-0.5">{n.message || n.body || ''}</p>
+              <span className="text-xs text-neutral-400 mt-2 block">{n.created_at ? new Date(n.created_at).toLocaleString() : ''}</span>
             </div>
           </div>
         ))}
@@ -765,7 +1008,7 @@ export default function StudentDashboard() {
               {studentInfo.name.charAt(0)}
             </div>
             <h2 className="text-xl font-bold text-neutral-800">{studentInfo.name}</h2>
-            <p className="text-neutral-500 text-sm mb-4">student@examboost.com</p>
+            <p className="text-neutral-500 text-sm mb-4">{userEmail || '—'}</p>
             <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">Pro Member</span>
           </div>
 
@@ -834,7 +1077,11 @@ export default function StudentDashboard() {
           <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tighter w-full overflow-hidden whitespace-nowrap">
             ExamBoost.
           </span>
-          {isMobile && <button onClick={() => setSidebarOpen(false)}><X className="w-6 h-6 text-neutral-500"/></button>}
+          {isMobile && (
+            <button aria-label="Close sidebar" onClick={() => setSidebarOpen(false)}>
+              <X className="w-6 h-6 text-neutral-500" />
+            </button>
+          )}
         </div>
 
         <nav className="px-4 pb-6 space-y-1">
@@ -878,7 +1125,7 @@ export default function StudentDashboard() {
         {/* Top Header */}
         <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-neutral-200 px-4 md:px-8 py-4 flex items-center justify-between shadow-sm">
            <div className="flex items-center gap-4 text-neutral-800">
-             <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-neutral-100 rounded-lg transition-colors">
+             <button aria-label="Toggle sidebar" onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-neutral-100 rounded-lg transition-colors">
                <Menu className="w-6 h-6" />
              </button>
              
@@ -893,11 +1140,11 @@ export default function StudentDashboard() {
            </div>
            
            <div className="flex items-center gap-3 md:gap-4">
-             <button className="relative p-2 text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors" onClick={() => setActiveTab('notifications')}>
+             <button aria-label="Open notifications" className="relative p-2 text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors" onClick={() => setActiveTab('notifications')}>
                <Bell className="w-6 h-6" />
                <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
              </button>
-             <button className="hidden md:flex p-2 text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors">
+             <button aria-label="Open settings" className="hidden md:flex p-2 text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors">
                <Settings className="w-6 h-6" />
              </button>
              <div className="w-px h-8 bg-neutral-300 hidden md:block"></div>
@@ -906,7 +1153,7 @@ export default function StudentDashboard() {
                 className="flex items-center gap-3 hover:bg-neutral-100 p-1.5 pr-4 rounded-full transition-colors border border-transparent hover:border-neutral-200"
              >
                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-sm z-10">
-                 R
+                 {(studentInfo.name || 'S').charAt(0)}
                </div>
                <span className="font-bold text-neutral-700 hidden md:block">{studentInfo.name}</span>
              </button>
