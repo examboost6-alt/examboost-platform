@@ -483,53 +483,49 @@ export default function StudentDashboard() {
   const DashboardOverview = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-indigo-900 dark:to-slate-900 w-full rounded-3xl p-6 md:p-8 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-blue-500/20 dark:border-indigo-800">
-        
-        {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-xl"></div>
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/4 blur-xl"></div>
+      <div className="bg-slate-900 dark:bg-slate-950 w-full rounded-xl p-6 md:p-8 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
         
         <div className="relative z-10 flex-1 w-full text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-            <Trophy className="w-3.5 h-3.5 text-amber-300" /> Top 5% Learner
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-slate-700">
+            <Trophy className="w-3.5 h-3.5 text-amber-400" /> Top 5% Learner
           </div>
-          <h1 className="text-3xl md:text-4xl font-black mb-2 tracking-tight">Welcome back, {studentInfo.name}</h1>
-          <p className="text-blue-100 dark:text-indigo-200 mb-6 font-medium text-sm md:text-base max-w-md">You're making incredible progress! Keep up the momentum to secure your top rank.</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 tracking-tight">Welcome back, {studentInfo.name}</h1>
+          <p className="text-slate-300 mb-6 font-medium text-sm md:text-base max-w-md">You're making incredible progress! Keep up the momentum to secure your top rank.</p>
           
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             <button
               onClick={() => setActiveTab('my-tests')}
-              className="bg-white text-blue-700 px-6 py-3 rounded-xl font-black text-sm shadow-md hover:bg-neutral-50 transition-all hover:-translate-y-0.5 inline-flex items-center gap-2"
+              className="bg-white text-slate-900 px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-100 transition-colors inline-flex items-center gap-2"
             >
               <PlayCircle className="w-5 h-5" /> {lastAttempt ? 'Resume Last Test' : 'Start a Test'}
             </button>
-            <button className="bg-white/10 border border-white/20 hover:bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-bold text-sm transition-all inline-flex items-center gap-2">
+            <button className="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-colors inline-flex items-center gap-2">
               <Target className="w-5 h-5" /> Daily Goals
             </button>
           </div>
         </div>
 
         {/* Daily Mini Widget */}
-        <div className="relative z-10 shrink-0 bg-white/10 border border-white/20 backdrop-blur-xl p-5 rounded-2xl w-full md:w-auto flex flex-row items-center justify-center md:flex-col gap-4 min-w-[160px]">
+        <div className="relative z-10 shrink-0 bg-slate-800 border border-slate-700 p-5 rounded-xl w-full md:w-auto flex flex-row items-center justify-center md:flex-col gap-4 min-w-[160px]">
            <div className="text-center">
-             <div className="w-14 h-14 mx-auto bg-gradient-to-tr from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30 mb-2 transform hover:scale-110 transition-transform">
-                <Flame className="w-7 h-7 text-white fill-white" />
+             <div className="w-12 h-12 mx-auto bg-slate-700 rounded-full flex items-center justify-center mb-2">
+                <Flame className="w-6 h-6 text-amber-400" />
              </div>
-             <p className="font-black text-2xl tracking-tighter">14 Days</p>
-             <p className="text-xs font-bold text-blue-100 uppercase tracking-widest hidden md:block">Active Streak</p>
+             <p className="font-bold text-2xl tracking-tighter">14 Days</p>
+             <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden md:block">Active Streak</p>
            </div>
            
-           <div className="w-px h-16 bg-white/20 md:hidden block"></div>
-           <div className="h-px w-full bg-white/20 hidden md:block my-1"></div>
+           <div className="w-px h-16 bg-slate-700 md:hidden block"></div>
+           <div className="h-px w-full bg-slate-700 hidden md:block my-1"></div>
            
            <div className="text-center">
               <div className="flex items-center justify-center gap-1.5 mb-1.5 mt-1">
                  <CheckCircle className="w-4 h-4 text-emerald-400" />
-                 <span className="font-bold text-sm">2h / 3h</span>
+                 <span className="font-bold text-sm text-slate-100">2h / 3h</span>
               </div>
-              <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest leading-tight">Today's<br/>Study Goal</p>
-              <div className="w-full bg-black/20 rounded-full h-1.5 mt-2">
-                <div className="bg-emerald-400 h-1.5 rounded-full" style={{ width: `66%` }}></div>
+              <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest leading-tight">Today's<br/>Study Goal</p>
+              <div className="w-full bg-slate-900 rounded-full h-1.5 mt-2">
+                <div className="bg-emerald-500 h-1.5 rounded-full" style={{ width: `66%` }}></div>
               </div>
            </div>
         </div>
@@ -538,17 +534,17 @@ export default function StudentDashboard() {
       {/* Stats Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Tests Attempted", value: studentInfo.stats.testsAttempted, icon: FileText, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-900/20" },
-          { label: "Avg. Accuracy", value: `${studentInfo.stats.accuracy}%`, icon: Target, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-900/20" },
-          { label: "All India Rank", value: `#${studentInfo.stats.rank}`, icon: Award, color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-50 dark:bg-purple-900/20" },
-          { label: "Time Spent", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-900/20" },
+          { label: "Tests Attempted", value: studentInfo.stats.testsAttempted, icon: FileText, color: "text-slate-700" },
+          { label: "Avg. Accuracy", value: `${studentInfo.stats.accuracy}%`, icon: Target, color: "text-emerald-600" },
+          { label: "All India Rank", value: `#${studentInfo.stats.rank}`, icon: Award, color: "text-blue-600" },
+          { label: "Time Spent", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-orange-600" },
         ].map((stat, i) => (
-          <div key={i} className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group flex items-center justify-between">
+          <div key={i} className="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-1">{stat.label}</p>
-              <h3 className="text-3xl font-black text-slate-800 dark:text-white tracking-tight">{stat.value}</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-1">{stat.label}</p>
+              <h3 className="text-3xl font-bold text-slate-800 dark:text-white tracking-tight">{stat.value}</h3>
             </div>
-            <div className={`p-3 rounded-xl ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
+            <div className={`p-3 rounded-full bg-slate-50 dark:bg-slate-800 ${stat.color}`}>
               <stat.icon className="w-6 h-6" />
             </div>
           </div>
@@ -560,48 +556,48 @@ export default function StudentDashboard() {
          
          {/* Main Column */}
          <div className="lg:col-span-2 space-y-6">
-           <h2 className="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2">
-             <Zap className="w-5 h-5 text-amber-500 fill-amber-500" /> Actions Hub
+           <h2 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+             <Zap className="w-5 h-5 text-slate-500" /> Actions Hub
            </h2>
            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {quickActions.map((action, i) => (
                 <button
                   key={i}
                   onClick={action.action}
-                  className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow hover:-translate-y-1 hover:border-blue-200 dark:hover:border-blue-900/50 transition-all flex flex-col items-center justify-center text-center gap-3 group"
+                  className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-colors flex flex-col items-center justify-center text-center gap-3 group"
                 >
-                  <div className={`p-3.5 rounded-xl ${action.bg} ${action.color} group-hover:scale-110 transition-transform dark:bg-opacity-10`}>
+                  <div className={`p-3 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors`}>
                     <action.icon className="w-6 h-6" />
                   </div>
-                  <span className="font-bold text-sm text-slate-700 dark:text-slate-200 tracking-tight">{action.title}</span>
+                  <span className="font-semibold text-sm text-slate-700 dark:text-slate-200 tracking-tight">{action.title}</span>
                 </button>
               ))}
            </div>
 
            {/* My Active Test Series */}
-           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm p-6">
+           <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
              <div className="flex justify-between items-center mb-6">
-               <h2 className="text-lg font-black text-slate-800 dark:text-white">Active Test Series</h2>
-               <button onClick={() => setActiveTab("my-tests")} className="text-sm text-blue-600 dark:text-blue-400 font-bold hover:underline flex items-center gap-0.5">
+               <h2 className="text-lg font-bold text-slate-800 dark:text-white">Active Test Series</h2>
+               <button onClick={() => setActiveTab("my-tests")} className="text-sm text-blue-600 dark:text-blue-400 font-semibold hover:underline flex items-center gap-0.5">
                  View All <ChevronRight className="w-4 h-4" />
                </button>
              </div>
              <div className="space-y-4">
               {myTestSeries.length === 0 ? (
-                <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-300 font-semibold">
+                <div className="p-5 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-300 font-medium">
                   No purchased series yet. Explore "Recommended" to buy a test series.
                 </div>
               ) : (
                 myTestSeries.slice(0, 2).map((ts) => (
-                  <div key={ts.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-xl hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+                  <div key={ts.id} className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
                     <div className="flex justify-between items-start mb-3">
                       <div>
-                        <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{ts.name}</h3>
-                        <span className="text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded inline-block">Active</span>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-1">{ts.name}</h3>
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 px-2 py-0.5 rounded inline-block">Active</span>
                       </div>
                       <button
                         onClick={() => setActiveTab('my-tests')}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors shadow-sm"
+                        className="px-4 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded transition-colors"
                       >
                         Open
                       </button>
@@ -611,8 +607,8 @@ export default function StudentDashboard() {
                       <span>{ts.attempted}/{ts.totalTests} Tests Complete</span>
                       <span className="font-bold text-slate-800 dark:text-slate-200">{ts.progress}%</span>
                     </div>
-                    <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full" style={{ width: `${ts.progress}%` }}></div>
+                    <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5">
+                      <div className="bg-green-500 h-1.5 rounded-full" style={{ width: `${ts.progress}%` }}></div>
                     </div>
                   </div>
                 ))
@@ -623,24 +619,24 @@ export default function StudentDashboard() {
 
          {/* Right Sidebar Column */}
          <div className="space-y-6">
-            <h2 className="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-purple-500 fill-purple-500" /> AI Recommended
+            <h2 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-slate-500" /> Recommended for You
             </h2>
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm p-5 space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 space-y-4">
               {recommendedTests.slice(0, 3).map((test) => (
-                <div key={test.id} className="p-4 bg-slate-50 dark:bg-slate-800/40 rounded-xl relative group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors cursor-pointer border border-transparent hover:border-purple-200 dark:hover:border-purple-800">
-                  <h3 className="font-bold text-slate-800 dark:text-slate-100 pr-8 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors tracking-tight">{test.title}</h3>
+                <div key={test.id} className="p-4 bg-white dark:bg-slate-900 rounded-lg relative group transition-colors cursor-pointer border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700">
+                  <h3 className="font-semibold text-slate-800 dark:text-slate-100 pr-8 transition-colors tracking-tight">{test.title}</h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1 mb-3">{test.reason}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {test.tags?.map((tag: string, idx: number) => (
-                      <span key={idx} className="text-[10px] font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">
+                      <span key={idx} className="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded">
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <button className="absolute top-4 right-4 text-slate-300 dark:text-slate-600 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  <button className="absolute top-4 right-4 text-slate-300 dark:text-slate-600 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                     <PlayCircle className="w-6 h-6 fill-current" />
                   </button>
                 </div>
@@ -654,30 +650,33 @@ export default function StudentDashboard() {
 
   const MyTestsModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-       <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">My Test Series</h1>
+       <h1 className="text-xl md:text-2xl font-bold text-slate-800 border-b pb-4 flex items-center gap-2">
+         <BookOpen className="w-6 h-6 text-slate-500" /> My Test Series
+       </h1>
+       <p className="text-sm text-slate-500 font-medium -mt-4">Track progress for test series you have actively enrolled in or purchased.</p>
        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {myTestSeries.length === 0 ? (
-            <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden p-6 text-neutral-700 font-semibold">
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-6 text-slate-700 font-semibold col-span-full text-center">
               No purchased test series found.
               <div className="mt-4">
-                <button onClick={() => setActiveTab('recommended')} className="bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-4 rounded-lg font-bold transition-colors">Browse Recommended</button>
+                <button onClick={() => setActiveTab('recommended')} className="bg-slate-900 hover:bg-slate-800 text-white py-2.5 px-6 rounded-lg font-bold transition-colors">Browse Recommended Packs</button>
               </div>
             </div>
           ) : myTestSeries.map((ts) => (
-            <div key={ts.id} className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
+            <div key={ts.id} className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow overflow-hidden flex flex-col justify-between">
                <div className="p-5">
-                  <h3 className="font-bold text-lg mb-1">{ts.name}</h3>
-                  <p className="text-sm text-neutral-500 mb-4">{ts.totalTests} Total Tests • {ts.attempted} Attempted</p>
-                  <div className="w-full bg-neutral-100 rounded-full h-2 mb-2">
+                  <h3 className="font-bold text-lg mb-1 text-slate-800">{ts.name}</h3>
+                  <p className="text-sm text-slate-500 mb-4 font-medium">{ts.totalTests} Total Tests • {ts.attempted} Attempted</p>
+                  <div className="w-full bg-slate-100 rounded-full h-2 mb-2">
                     <div className="bg-green-500 h-2 rounded-full" style={{ width: `${ts.progress}%` }}></div>
                   </div>
-                  <p className="text-xs text-right text-neutral-600 font-medium mb-4">{ts.progress}% Completed</p>
+                  <p className="text-xs text-right text-slate-600 font-bold mb-6">{ts.progress}% Completed</p>
                   
-                  <div className="flex flex-col gap-2">
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors">Open Series</button>
+                  <div className="flex flex-col gap-3 mt-auto">
+                    <button className="w-full bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded-lg font-bold transition-colors outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2">Open Series Dashboard</button>
                     <div className="flex gap-2">
-                      <button className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-2 rounded-lg font-medium text-sm transition-colors">Analysis</button>
-                      <button className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-2 rounded-lg font-medium text-sm transition-colors">Results</button>
+                      <button className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-lg font-semibold text-sm transition-colors">Analysis</button>
+                      <button className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-lg font-semibold text-sm transition-colors">Results</button>
                     </div>
                   </div>
                </div>
@@ -689,9 +688,12 @@ export default function StudentDashboard() {
 
   const FreeTestsModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex items-center justify-between border-b pb-4">
-        <h1 className="text-2xl font-bold text-neutral-800">Free Test Section</h1>
-        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Practice Mode</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Zap className="w-6 h-6 text-slate-500"/> Free Content</h1>
+          <p className="text-sm text-slate-500 font-medium mt-1">Unlock free practice tests curated for high-performing students.</p>
+        </div>
+        <span className="bg-emerald-100/50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg text-sm font-bold w-max">Practice Mode Active</span>
       </div>
       <div className="grid lg:grid-cols-3 gap-6">
         {freeTests.length === 0 ? (
@@ -719,36 +721,40 @@ export default function StudentDashboard() {
 
   const PerformanceModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">My Performance</h1>
+      <div>
+        <h1 className="text-xl md:text-2xl font-bold text-slate-800 border-b pb-4 flex items-center gap-2"><TrendingUp className="w-6 h-6 text-slate-500"/> My Performance</h1>
+        <p className="text-sm text-slate-500 font-medium mt-2">Comprehensive analytics and metrics to measure your exam readiness.</p>
+      </div>
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center">
-          <Activity className="w-8 h-8 text-blue-500 mb-2"/>
-          <span className="text-neutral-500 text-sm font-medium">Overall Accuracy</span>
-          <span className="text-2xl font-bold">{studentInfo.stats.accuracy}%</span>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
+          <Activity className="w-8 h-8 text-slate-700 mb-2"/>
+          <span className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Accuracy</span>
+          <span className="text-2xl font-bold text-slate-800">{studentInfo.stats.accuracy}%</span>
         </div>
-        <div className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center">
-          <Award className="w-8 h-8 text-yellow-500 mb-2"/>
-          <span className="text-neutral-500 text-sm font-medium">Current Rank</span>
-          <span className="text-2xl font-bold">#{studentInfo.stats.rank}</span>
+        <div className="bg-white p-5 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
+          <Award className="w-8 h-8 text-amber-500 mb-2"/>
+          <span className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Rank</span>
+          <span className="text-2xl font-bold text-slate-800">#{studentInfo.stats.rank}</span>
         </div>
-        <div className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center">
-          <Target className="w-8 h-8 text-green-500 mb-2"/>
-          <span className="text-neutral-500 text-sm font-medium">Avg. Score</span>
-          <span className="text-2xl font-bold">124.5</span>
+        <div className="bg-white p-5 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
+          <Target className="w-8 h-8 text-emerald-500 mb-2"/>
+          <span className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Avg Score</span>
+          <span className="text-2xl font-bold text-slate-800">124.5</span>
         </div>
-        <div className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
           <Clock className="w-8 h-8 text-orange-500 mb-2"/>
-          <span className="text-neutral-500 text-sm font-medium">Avg. Time/Q</span>
-          <span className="text-2xl font-bold">42s</span>
+          <span className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Time/Q</span>
+          <span className="text-2xl font-bold text-slate-800">42s</span>
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mt-6">
-         <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-           <h3 className="font-bold text-lg mb-4">Subject Wise Accuracy</h3>
+         <div className="bg-white p-6 rounded-xl border border-slate-200">
+           <h3 className="font-bold text-lg mb-1 text-slate-800">Subject Wise Accuracy</h3>
+           <p className="text-xs text-slate-500 font-medium mb-6">Identifies your strongest and weakest academic domains.</p>
            {performanceData.length === 0 ? (
-             <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold">
+             <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-600 font-semibold">
                Attempt at least one test to see subject-wise performance.
              </div>
            ) : (
@@ -768,10 +774,11 @@ export default function StudentDashboard() {
            )}
          </div>
 
-         <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-            <h3 className="font-bold text-lg mb-4 text-red-600 flex items-center gap-2"><Target className="w-5 h-5"/> Weak Topics to Improve</h3>
+         <div className="bg-white p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-lg mb-1 text-slate-800 flex items-center gap-2"><Target className="w-5 h-5 text-red-500"/> Weak Topics to Improve</h3>
+            <p className="text-xs text-slate-500 font-medium mb-6">AI generated focus zones based on recent test mistakes.</p>
             {(testAnalysisHighlights.weakTopics?.length || 0) === 0 ? (
-              <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold">
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-600 font-semibold">
                 No weak topics detected yet.
               </div>
             ) : (
@@ -791,13 +798,16 @@ export default function StudentDashboard() {
 
   const LeaderboardModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex items-center justify-between border-b pb-4">
-        <h1 className="text-2xl font-bold text-neutral-800">Leaderboard</h1>
-        <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1"><Award className="w-4 h-4"/> Gamification Active</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Award className="w-6 h-6 text-slate-500"/> Global Leaderboard</h1>
+          <p className="text-sm text-slate-500 font-medium mt-1">Check where you stand amongst your peers in India.</p>
+        </div>
+        <span className="bg-amber-100/50 text-amber-700 border border-amber-200 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-1 w-max"><Award className="w-4 h-4"/> Gamification Active</span>
       </div>
       
-      <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
-        <div className="flex border-b bg-neutral-50">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden overflow-x-auto">
+        <div className="flex border-b bg-slate-50 min-w-[500px]">
           <button className="px-6 py-3 font-semibold text-blue-600 border-b-2 border-blue-600">Weekly Rank</button>
           <button className="px-6 py-3 font-semibold text-neutral-500 hover:text-neutral-700">All India Rank</button>
           <button className="px-6 py-3 font-semibold text-neutral-500 hover:text-neutral-700">Top Students</button>
@@ -809,7 +819,7 @@ export default function StudentDashboard() {
           ) : leaderboardRows.map((user: any, i: number) => (
             <div key={i} className={`flex items-center p-4 border-b last:border-0 ${user.isMe ? 'bg-blue-50 border-blue-100' : 'hover:bg-neutral-50'}`}>
                <div className="w-12 text-center font-bold text-lg text-neutral-500">#{user.rank}</div>
-               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-bold mx-4 overflow-hidden shrink-0">
+               <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden shrink-0">
                  {user.avatarUrl ? (
                    <img src={user.avatarUrl} alt={`${user.name || 'Student'} photo`} className="w-full h-full object-cover" />
                  ) : (
@@ -839,29 +849,29 @@ export default function StudentDashboard() {
 
   const TestAnalysisModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex items-center justify-between border-b pb-4">
-        <h1 className="text-2xl font-bold text-neutral-800">Test Analysis</h1>
-        <span className="text-sm font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Testbook's Most Powerful Feature</span>
+      <div>
+        <h1 className="text-xl md:text-2xl font-bold text-slate-800 border-b pb-4 flex items-center gap-2"><BarChart3 className="w-6 h-6 text-slate-500"/> Test Analysis</h1>
+        <p className="text-sm text-slate-500 font-medium -mt-4">In-depth statistical breakdown of your test attempts.</p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center">
-          <div className="w-24 h-24 rounded-full border-8 border-green-500 flex flex-col items-center justify-center mb-4 text-green-600">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-emerald-300 transition-colors">
+          <div className="w-20 h-20 rounded-full bg-emerald-50 flex flex-col items-center justify-center mb-4 text-emerald-600 border border-emerald-100">
             <span className="text-2xl font-bold">{testAnalysisHighlights.correct}</span>
           </div>
-          <h3 className="font-bold text-neutral-700">Correct Questions</h3>
+          <h3 className="font-bold text-slate-700">Correct</h3>
         </div>
-        <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center">
-          <div className="w-24 h-24 rounded-full border-8 border-red-500 flex flex-col items-center justify-center mb-4 text-red-600">
+        <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-red-300 transition-colors">
+          <div className="w-20 h-20 rounded-full bg-red-50 flex flex-col items-center justify-center mb-4 text-red-600 border border-red-100">
             <span className="text-2xl font-bold">{testAnalysisHighlights.wrong}</span>
           </div>
-          <h3 className="font-bold text-neutral-700">Wrong Questions</h3>
+          <h3 className="font-bold text-slate-700">Wrong</h3>
         </div>
-        <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center">
-          <div className="w-24 h-24 rounded-full border-8 border-neutral-300 flex flex-col items-center justify-center mb-4 text-neutral-500">
+        <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-slate-300 transition-colors">
+          <div className="w-20 h-20 rounded-full bg-slate-50 flex flex-col items-center justify-center mb-4 text-slate-600 border border-slate-200">
             <span className="text-2xl font-bold">{testAnalysisHighlights.skipped}</span>
           </div>
-          <h3 className="font-bold text-neutral-700">Skipped Questions</h3>
+          <h3 className="font-bold text-slate-700">Skipped</h3>
         </div>
       </div>
 
@@ -901,30 +911,29 @@ export default function StudentDashboard() {
 
   const RecommendedModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex items-center justify-between border-b pb-4">
-        <h1 className="text-2xl font-bold text-neutral-800">Buy Test Series</h1>
-        <span className="flex items-center gap-1 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
-          <Sparkles className="w-4 h-4"/> Premium Packages
-        </span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><BookOpen className="w-6 h-6 text-slate-500"/> Recommended Plans</h1>
+          <p className="text-sm text-slate-500 font-medium mt-1">AI-curated test packages based on your profile.</p>
+        </div>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendedTests.map((test, i) => (
-          <div key={test.id} className="bg-white rounded-xl border-2 border-transparent hover:border-purple-300 shadow-sm p-5 transition-all hover:-translate-y-1 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-            <h3 className="font-bold text-lg mb-2 text-neutral-800">{test.title}</h3>
-            <p className="text-sm text-neutral-600 mb-4">{test.reason}</p>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {test.tags.map((tag: string) => (
-                 <span key={tag} className="text-xs font-semibold bg-neutral-100 text-neutral-600 px-2 py-1 rounded">{tag}</span>
-              ))}
+          <div key={test.id} className="bg-white rounded-xl border border-slate-200 p-5 transition-all hover:border-slate-400 group flex flex-col">
+            <div className="bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider px-2 py-1 w-max rounded mb-3">{test.tags[0] || 'Premium'}</div>
+            <h3 className="font-bold text-lg mb-1 text-slate-800 tracking-tight leading-tight">{test.title}</h3>
+            <p className="text-sm text-slate-500 font-medium mb-6">{test.reason}</p>
+            
+            <div className="mt-auto">
+              <div className="text-2xl font-black text-slate-900 mb-4">{test.tags[1] || '₹499'}</div>
+              <button 
+                onClick={() => initiatePayment(test.id, parseInt(test.tags[1]?.replace('₹','') || '499'))} 
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Enroll Now <ChevronRight className="w-4 h-4"/>
+              </button>
             </div>
-            <button 
-              onClick={() => initiatePayment(test.id, parseInt(test.tags[1]?.replace('₹','') || '499'))} 
-              className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 rounded-lg transition-colors"
-            >
-              <Wallet className="w-4 h-4"/> Pay with Razorpay
-            </button>
           </div>
         ))}
       </div>
@@ -964,7 +973,7 @@ export default function StudentDashboard() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">Wallet & Purchases</h1>
       <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 text-white p-6 rounded-xl shadow-lg col-span-1 md:col-span-2">
+        <div className="bg-slate-900 text-white p-6 rounded-xl border border-slate-800 col-span-1 md:col-span-2">
           <h3 className="text-neutral-400 font-medium mb-1">Active Subscription</h3>
           <h2 className="text-3xl font-bold mb-4">Examboost Pro Max</h2>
           <div className="flex gap-8 border-t border-neutral-700 pt-4 mt-4">
@@ -1026,49 +1035,54 @@ export default function StudentDashboard() {
 
   const ProfileModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl">
-      <h1 className="text-2xl font-bold text-neutral-800 border-b pb-4">My Profile</h1>
+      <div className="border-b pb-4">
+        <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><User className="w-6 h-6 text-slate-500"/> My Profile</h1>
+        <p className="text-sm text-slate-500 font-medium mt-1">Manage your account and exam preferences.</p>
+      </div>
       
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="md:w-1/3 space-y-4">
-          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm flex flex-col items-center text-center">
-            <div className="w-24 h-24 bg-gradient-to-tr from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-4">
+        <div className="md:w-1/3 space-y-4 text-center md:text-left">
+          <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center relative overflow-hidden">
+            <div className="w-24 h-24 bg-slate-100 text-slate-400 border border-slate-200 rounded-full flex items-center justify-center text-4xl font-bold mb-4">
               {studentInfo.name.charAt(0)}
             </div>
-            <h2 className="text-xl font-bold text-neutral-800">{studentInfo.name}</h2>
-            <p className="text-neutral-500 text-sm mb-4">{userEmail || '—'}</p>
-            <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">Pro Member</span>
+            <h2 className="text-xl font-bold text-slate-800 tracking-tight">{studentInfo.name}</h2>
+            <p className="text-slate-500 font-medium text-sm mb-4">{userEmail || '—'}</p>
+            <span className="inline-flex bg-slate-900 border border-slate-800 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">Verified Profile</span>
           </div>
 
-          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hidden md:block">
-            <h3 className="font-bold text-neutral-800 mb-4">Features</h3>
-            <ul className="space-y-3 text-sm font-medium text-neutral-600">
-              <li className="flex items-center gap-2 text-indigo-600"><HelpCircle className="w-4 h-4"/> Doubt Solving (24/7)</li>
-              <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4"/> Discussion Forum</li>
-              <li className="flex items-center gap-2"><Globe className="w-4 h-4"/> Daily Current Affairs</li>
-              <li className="flex items-center gap-2"><Target className="w-4 h-4"/> Rank Predictor</li>
-              <li className="flex items-center gap-2"><Calendar className="w-4 h-4"/> Exam Calendar</li>
+          <div className="bg-white p-6 rounded-xl border border-slate-200 hidden md:block">
+            <h3 className="font-bold text-slate-800 mb-4 tracking-tight">Active Features</h3>
+            <ul className="space-y-3 text-sm font-semibold text-slate-600">
+              <li className="flex items-center gap-2"><HelpCircle className="w-4 h-4 text-slate-400"/> Doubt Solving (24/7)</li>
+              <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4 text-slate-400"/> Discussion Forum</li>
+              <li className="flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400"/> Daily Current Affairs</li>
+              <li className="flex items-center gap-2"><Target className="w-4 h-4 text-slate-400"/> Rank Predictor</li>
+              <li className="flex items-center gap-2"><Calendar className="w-4 h-4 text-slate-400"/> Exam Calendar</li>
             </ul>
           </div>
         </div>
         
         <div className="md:w-2/3 space-y-6">
-          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-            <h3 className="font-bold text-lg mb-4 text-neutral-800">Exam Preferences</h3>
-            <div className="space-y-4">
+          <div className="bg-white p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-lg mb-6 text-slate-800 flex items-center gap-2"><Settings className="w-5 h-5 text-slate-500"/> Preferences</h3>
+            <div className="space-y-5">
               <div>
-                <label className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Target Exam</label>
-                <div className="mt-1 font-medium text-neutral-800 bg-neutral-50 p-3 rounded border border-neutral-100">{studentInfo.targetExam}</div>
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Target Exam</label>
+                <div className="font-medium text-slate-800 bg-slate-50 border border-slate-200 px-4 py-3 rounded-lg">{studentInfo.targetExam}</div>
               </div>
-              <div>
-                <label className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Default Language</label>
-                <div className="mt-1 font-medium text-neutral-800 bg-neutral-50 p-3 rounded border border-neutral-100">English</div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Language</label>
+                  <div className="font-medium text-slate-800 bg-slate-50 border border-slate-200 px-4 py-3 rounded-lg">English</div>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">State Zone</label>
+                  <div className="font-medium text-slate-800 bg-slate-50 border border-slate-200 px-4 py-3 rounded-lg">General</div>
+                </div>
               </div>
-              <div>
-                <label className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">State Option</label>
-                <div className="mt-1 font-medium text-neutral-800 bg-neutral-50 p-3 rounded border border-neutral-100">Delhi</div>
-              </div>
-              <button className="bg-neutral-900 text-white px-6 py-2 rounded-lg font-semibold mt-4 hover:bg-neutral-800 transition-colors">
-                Edit Preferences
+              <button className="bg-white border-2 border-slate-200 text-slate-700 px-6 py-2.5 rounded-lg font-bold mt-4 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto">
+                Modify Preferences
               </button>
             </div>
           </div>
@@ -1101,8 +1115,8 @@ export default function StudentDashboard() {
         style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'translateX(0)' }}
       >
         <div className="p-6 flex items-center justify-between">
-          <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tighter w-full overflow-hidden whitespace-nowrap">
-            ExamBoost.
+          <span className="text-2xl font-bold text-slate-900 tracking-tight w-full overflow-hidden whitespace-nowrap">
+            ExamBoost
           </span>
           {isMobile && (
             <button aria-label="Close sidebar" onClick={() => setSidebarOpen(false)}>
@@ -1179,7 +1193,7 @@ export default function StudentDashboard() {
                 onClick={() => setActiveTab('profile')}
                 className="flex items-center gap-3 hover:bg-neutral-100 p-1.5 pr-4 rounded-full transition-colors border border-transparent hover:border-neutral-200"
              >
-               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-sm z-10">
+               <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm z-10">
                  {(studentInfo.name || 'S').charAt(0)}
                </div>
                <span className="font-bold text-neutral-700 hidden md:block">{studentInfo.name}</span>
