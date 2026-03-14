@@ -179,7 +179,7 @@ export default function OnboardingForm() {
                      <AlertCircle className="w-6 h-6 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                      <div>
                         <p className="font-bold text-blue-900 dark:text-blue-300">Basic details securely auto-filled</p>
-                        <p className="text-sm text-blue-700/80 dark:text-blue-400 mt-1">We've linked your logged-in Google account. Please verify your phone number to continue.</p>
+                        <p className="text-sm text-blue-700/80 dark:text-blue-400 mt-1">We’ve used your ExamBoost account details. Please verify your phone number to continue.</p>
                      </div>
                   </div>
 
