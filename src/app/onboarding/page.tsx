@@ -14,7 +14,8 @@ export default function OnboardingForm() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [photo, setPhoto] = useState<string | null>(null);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [photoPreviewUrl, setPhotoPreviewUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -74,13 +75,12 @@ export default function OnboardingForm() {
   }, []);
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setPhoto(e.target?.result as string);
-      };
-      reader.readAsDataURL(e.target.files[0]);
-    }
+    const file = e.target.files?.[0] || null;
+    if (!file) return;
+
+    setPhotoFile(file);
+    const url = URL.createObjectURL(file);
+    setPhotoPreviewUrl(url);
   };
 
   const nextStep = () => {
@@ -105,7 +105,7 @@ export default function OnboardingForm() {
 
   const handleComplete = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!photo) {
+    if (!photoFile) {
       alert("Please upload your passport size photo for ID verification.");
       return;
     }
@@ -127,6 +127,29 @@ export default function OnboardingForm() {
         return;
       }
 
+      const ext = (() => {
+        const name = photoFile.name || '';
+        const parts = name.split('.');
+        const last = (parts[parts.length - 1] || '').toLowerCase();
+        if (last === 'png' || last === 'jpg' || last === 'jpeg' || last === 'webp') return last;
+        const type = (photoFile.type || '').toLowerCase();
+        if (type.includes('png')) return 'png';
+        if (type.includes('webp')) return 'webp';
+        return 'jpg';
+      })();
+      const photoPath = `profiles/${uid}/photo.${ext}`;
+
+      const { error: uploadError } = await supabase
+        .storage
+        .from('student-photos')
+        .upload(photoPath, photoFile, { upsert: true, contentType: photoFile.type });
+
+      if (uploadError) {
+        setLoading(false);
+        alert(uploadError.message);
+        return;
+      }
+
       const updatePayload: any = {
         id: uid,
         full_name: formData.name || null,
@@ -136,6 +159,7 @@ export default function OnboardingForm() {
         target_exam: formData.targetExam || null,
         preparation_mode: formData.preparationMode || null,
         admission_completed: true,
+        photo_path: photoPath,
       };
 
       const { error: upsertError } = await supabase
@@ -295,10 +319,10 @@ export default function OnboardingForm() {
                   </div>
 
                   <div className="flex flex-col md:flex-row items-center gap-8 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <div className={`w-32 h-32 rounded-2xl shrink-0 border-4 overflow-hidden flex items-center justify-center relative group ${photo ? 'border-emerald-500 bg-black' : 'border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0f172a]'}`}>
-                      {photo ? (
+                    <div className={`w-32 h-32 rounded-2xl shrink-0 border-4 overflow-hidden flex items-center justify-center relative group ${photoPreviewUrl ? 'border-emerald-500 bg-black' : 'border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0f172a]'}`}>
+                      {photoPreviewUrl ? (
                         <>
-                          <img src={photo} alt="Student Preview" className="w-full h-full object-cover" />
+                          <img src={photoPreviewUrl} alt="Student Preview" className="w-full h-full object-cover" />
                           <div className="absolute inset-0 bg-black/50 hidden group-hover:flex items-center justify-center transition-all cursor-pointer">
                             <Camera className="w-8 h-8 text-white" />
                           </div>
@@ -307,14 +331,14 @@ export default function OnboardingForm() {
                         <User className="w-12 h-12 text-slate-300 dark:text-slate-600" />
                       )}
                       {/* Invisible file input over image for easy re-upload */}
-                      <input type="file" accept="image/*" className="absolute inset-0 opacity-0 cursor-pointer z-10" onChange={handlePhotoUpload} />
+                      <input aria-label="Upload profile photo" title="Upload profile photo" type="file" accept="image/*" className="absolute inset-0 opacity-0 cursor-pointer z-10" onChange={handlePhotoUpload} />
                     </div>
                     
                     <div className="flex-1 w-full text-center md:text-left">
                        <label className="w-full md:w-auto inline-flex flex-col items-center md:items-start p-4 hover:bg-white dark:hover:bg-[#0f172a] rounded-xl transition-colors cursor-pointer group">
-                          <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} required={!photo} />
+                          <input aria-label="Upload profile photo" title="Upload profile photo" type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} required={!photoFile} />
                           <span className="text-lg font-bold text-primary hover:text-secondary dark:text-accent flex items-center justify-center md:justify-start gap-2 mb-1">
-                             <Upload className="w-5 h-5" /> {photo ? 'Change Photo' : 'Upload Photo'}
+                             <Upload className="w-5 h-5" /> {photoPreviewUrl ? 'Change Photo' : 'Upload Photo'}
                           </span>
                           <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">JPEG or PNG format. Max size 2MB.</span>
                        </label>
