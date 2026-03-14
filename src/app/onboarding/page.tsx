@@ -92,12 +92,12 @@ export default function OnboardingForm() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-slate-950 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[url('/grid-pattern.svg')] bg-opacity-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-2xl mx-auto">
         
         {/* Header Section */}
         <div className="text-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white mb-6 shadow-xl shadow-blue-500/20 transform rotate-3 hover:rotate-0 transition-transform">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-[#0f172a] text-slate-900 dark:text-white mb-6 border border-slate-200 dark:border-slate-800">
             <GraduationCap className="w-8 h-8" />
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
