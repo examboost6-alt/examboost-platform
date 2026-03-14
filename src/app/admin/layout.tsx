@@ -27,11 +27,13 @@ import {
   BarChart,
   Mail,
   Briefcase,
+  FileCheck,
 } from "lucide-react";
 
 const sidebarLinks = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/users", label: "Users & Students", icon: Users },
+  { href: "/admin/admissions", label: "Admissions", icon: FileCheck },
   { href: "/admin/tests", label: "Test Series", icon: BookOpen },
   { href: "/admin/finances", label: "Finances & Sales", icon: CreditCard },
   { href: "/admin/blogs", label: "Blogs & Content", icon: FileText },
