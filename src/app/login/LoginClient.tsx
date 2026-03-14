@@ -29,7 +29,7 @@ export default function LoginClient() {
 
         setLoading(true);
 
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+        const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
@@ -41,7 +41,21 @@ export default function LoginClient() {
             return;
         }
 
-        router.push('/');
+        const userId = signInData.user?.id;
+        if (!userId) {
+            router.replace('/onboarding');
+            router.refresh();
+            return;
+        }
+
+        const { data: profileData } = await supabase
+            .from('profiles')
+            .select('admission_completed')
+            .eq('id', userId)
+            .maybeSingle();
+
+        const admissionCompleted = Boolean((profileData as any)?.admission_completed);
+        router.replace(admissionCompleted ? '/dashboard' : '/onboarding');
         router.refresh();
     };
 

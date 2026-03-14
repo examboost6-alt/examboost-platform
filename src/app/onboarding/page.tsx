@@ -103,22 +103,60 @@ export default function OnboardingForm() {
     setStep(prev => prev - 1);
   };
 
-  const handleComplete = (e: React.FormEvent) => {
+  const handleComplete = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!photo) {
       alert("Please upload your passport size photo for ID verification.");
       return;
     }
     
+    const supabase = getSupabaseClient();
+    if (!supabase) {
+      alert('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+      return;
+    }
+
     setLoading(true);
-    // Simulate API call to save admission details
-    setTimeout(() => {
+
+    try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const uid = sessionData.session?.user?.id;
+      if (!uid) {
+        setLoading(false);
+        router.replace('/login');
+        return;
+      }
+
+      const updatePayload: any = {
+        id: uid,
+        full_name: formData.name || null,
+        phone: formData.phone || null,
+        dob: formData.dob || null,
+        state: formData.state || null,
+        target_exam: formData.targetExam || null,
+        preparation_mode: formData.preparationMode || null,
+        admission_completed: true,
+      };
+
+      const { error: upsertError } = await supabase
+        .from('profiles')
+        .upsert(updatePayload, { onConflict: 'id' });
+
+      if (upsertError) {
+        setLoading(false);
+        alert(upsertError.message);
+        return;
+      }
+
       setLoading(false);
-      setStep(4); // Success screen
+      setStep(4);
       setTimeout(() => {
-        router.push("/dashboard");
-      }, 2000);
-    }, 1500);
+        router.push('/dashboard');
+      }, 800);
+    } catch {
+      setLoading(false);
+      alert('Something went wrong while saving your admission. Please try again.');
+    }
   };
 
   const stepVariants = {

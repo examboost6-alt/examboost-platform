@@ -70,8 +70,21 @@ export default function StudentDashboard() {
       if (!data.session) {
         router.replace('/login');
       } else {
-        setUserId(data.session.user.id);
-        fetchDashboardData(data.session.user.id);
+        const uid = data.session.user.id;
+        setUserId(uid);
+        supabase
+          .from('profiles')
+          .select('admission_completed')
+          .eq('id', uid)
+          .maybeSingle()
+          .then(({ data: profileRow }: { data: any }) => {
+            const admissionCompleted = Boolean(profileRow?.admission_completed);
+            if (!admissionCompleted) {
+              router.replace('/onboarding');
+              return;
+            }
+            fetchDashboardData(uid);
+          });
       }
     });
 

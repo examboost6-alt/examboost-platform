@@ -47,7 +47,20 @@ export default function AuthCallbackClient() {
                     return;
                 }
 
-                router.replace('/onboarding');
+                const userId = data.session.user?.id;
+                if (!userId) {
+                    router.replace('/onboarding');
+                    return;
+                }
+
+                const { data: profileData } = await supabase
+                    .from('profiles')
+                    .select('admission_completed')
+                    .eq('id', userId)
+                    .maybeSingle();
+
+                const admissionCompleted = Boolean((profileData as any)?.admission_completed);
+                router.replace(admissionCompleted ? '/dashboard' : '/onboarding');
             } catch {
                 setMessage('Something went wrong. Please try again.');
             }

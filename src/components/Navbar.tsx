@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { Sun, Moon, Search, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -17,6 +18,7 @@ export default function Navbar() {
     const [megaMenuOpen, setMegaMenuOpen] = useState(false);
     const [prepareMenuOpen, setPrepareMenuOpen] = useState(false);
     const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+    const [hasSession, setHasSession] = useState(false);
 
     const prepareMenuRef = useRef<HTMLDivElement | null>(null);
     const moreMenuRef = useRef<HTMLDivElement | null>(null);
@@ -74,6 +76,23 @@ export default function Navbar() {
         const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const supabase = getSupabaseClient();
+        if (!supabase) return;
+
+        supabase.auth.getSession().then(({ data }: { data: any }) => {
+            setHasSession(Boolean(data.session));
+        });
+
+        const { data: sub } = supabase.auth.onAuthStateChange((_event: any, session: any) => {
+            setHasSession(Boolean(session));
+        });
+
+        return () => {
+            sub?.subscription?.unsubscribe();
+        };
     }, []);
 
     useEffect(() => {
@@ -341,12 +360,18 @@ export default function Navbar() {
 
                     <div className="h-6 w-[1px] bg-slate-200 dark:bg-slate-700/80"></div>
 
-                    <Link href="/login" className="text-sm font-bold text-darkText dark:text-slate-200 hover:text-primary dark:hover:text-accent transition-colors whitespace-nowrap">Login</Link>
-                    <Link href="/signup" className="flex-shrink-0 bg-primary hover:bg-secondary text-white px-5 xl:px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
-                        <span className="relative z-10 flex items-center gap-2">
-                            Sign Up
-                        </span>
-                    </Link>
+                    {hasSession ? (
+                        <Link href="/dashboard" className="flex-shrink-0 bg-primary hover:bg-secondary text-white px-5 xl:px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <span className="relative z-10 flex items-center gap-2">Dashboard</span>
+                        </Link>
+                    ) : (
+                        <>
+                            <Link href="/login" className="text-sm font-bold text-darkText dark:text-slate-200 hover:text-primary dark:hover:text-accent transition-colors whitespace-nowrap">Login</Link>
+                            <Link href="/signup" className="flex-shrink-0 bg-primary hover:bg-secondary text-white px-5 xl:px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
+                                <span className="relative z-10 flex items-center gap-2">Sign Up</span>
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -479,8 +504,14 @@ export default function Navbar() {
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4 mt-auto mb-6 pt-4 shrink-0">
-                                    <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-500 text-darkText dark:text-white rounded-xl transition-colors text-center inline-block">Login</Link>
-                                    <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-colors text-center inline-block">Sign Up</Link>
+                                    {hasSession ? (
+                                        <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="col-span-2 py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-colors text-center inline-block">Dashboard</Link>
+                                    ) : (
+                                        <>
+                                            <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-500 text-darkText dark:text-white rounded-xl transition-colors text-center inline-block">Login</Link>
+                                            <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-colors text-center inline-block">Sign Up</Link>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
