@@ -274,22 +274,36 @@ export default function StudentDashboard() {
       const topRows = (topUsersData as any[]) || [];
       const uniqueUserIds: string[] = Array.from(new Set(topRows.map((r: any) => r.user_id).filter(Boolean)));
       let namesById = new Map<string, string>();
+      let photoById = new Map<string, string>();
       if (uniqueUserIds.length > 0) {
         const { data: topProfiles } = await supabase
           .from('profiles')
-          .select('id, full_name')
+          .select('id, full_name, photo_path')
           .in('id', uniqueUserIds);
         (topProfiles as any[] | null)?.forEach((p: any) => {
           namesById.set(String(p.id), p.full_name || 'Student');
+          if (p.photo_path) photoById.set(String(p.id), String(p.photo_path));
         });
       }
 
+      const getPublicAvatarUrl = (photoPath: string | undefined) => {
+        if (!photoPath) return null;
+        try {
+          const { data } = supabase.storage.from('student-photos').getPublicUrl(photoPath);
+          return data?.publicUrl || null;
+        } catch {
+          return null;
+        }
+      };
+
       const rows = topRows.map((r: any, idx: number) => {
         const id = String(r.user_id);
+        const avatarUrl = getPublicAvatarUrl(photoById.get(id));
         return {
           rank: idx + 1,
           user_id: id,
           name: namesById.get(id) || 'Student',
+          avatarUrl,
           score: typeof r.score === 'number' ? r.score : Number(r.score) || 0,
           isMe: id === uid,
         };
@@ -795,11 +809,24 @@ export default function StudentDashboard() {
           ) : leaderboardRows.map((user: any, i: number) => (
             <div key={i} className={`flex items-center p-4 border-b last:border-0 ${user.isMe ? 'bg-blue-50 border-blue-100' : 'hover:bg-neutral-50'}`}>
                <div className="w-12 text-center font-bold text-lg text-neutral-500">#{user.rank}</div>
-               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-bold mx-4">
-                 {user.name.charAt(0)}
+               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-bold mx-4 overflow-hidden shrink-0">
+                 {user.avatarUrl ? (
+                   <img src={user.avatarUrl} alt={`${user.name || 'Student'} photo`} className="w-full h-full object-cover" />
+                 ) : (
+                   <span>{user.name?.charAt(0) || 'S'}</span>
+                 )}
                </div>
-               <div className="flex-1 font-semibold text-neutral-800">{user.name} {user.isMe && <span className="text-xs bg-blue-200 text-blue-800 px-2 py-0.5 rounded ml-2">You</span>}</div>
-               <div className="font-bold text-neutral-800 mr-4">{user.score}</div>
+               <div className="flex-1">
+                 <div className="flex items-center justify-between">
+                   <div>
+                     <div className="font-bold text-neutral-800 flex items-center gap-2">
+                       <span>{user.name}</span>
+                       {user.isMe && <span className="text-xs bg-blue-200 text-blue-800 px-2 py-0.5 rounded ml-2">You</span>}
+                     </div>
+                   </div>
+                   <div className="font-bold text-neutral-800 mr-4">{user.score}</div>
+                 </div>
+               </div>
                <div className="w-8 flex justify-center">
                  <div className="w-3 h-0.5 bg-neutral-300"></div>
                </div>
