@@ -20,7 +20,7 @@ export default function OnboardingForm() {
     const supabase = getSupabaseClient();
     if (!supabase) return;
 
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(({ data }: { data: any }) => {
       if (!data.session) {
         router.replace('/login');
       }
@@ -55,7 +55,7 @@ export default function OnboardingForm() {
       return '';
     };
 
-    supabase.auth.getUser().then(({ data }) => {
+    supabase.auth.getUser().then(({ data }: { data: any }) => {
       const user = data.user;
       if (!user) return;
 

@@ -66,7 +66,7 @@ export default function StudentDashboard() {
     const supabase = getSupabaseClient();
     if (!supabase) return;
 
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(({ data }: { data: any }) => {
       if (!data.session) {
         router.replace('/login');
       } else {

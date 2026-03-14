@@ -22,13 +22,13 @@ export default function ResetPasswordClient() {
             return;
         }
 
-        const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+        const { data: sub } = supabase.auth.onAuthStateChange((event: string) => {
             if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
                 setReady(true);
             }
         });
 
-        supabase.auth.getSession().then(({ data }) => {
+        supabase.auth.getSession().then(({ data }: { data: any }) => {
             if (data.session) setReady(true);
         });
 

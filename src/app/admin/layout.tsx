@@ -93,9 +93,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         .from("profiles")
         .select("role")
         .eq("id", session.user.id)
-        .single();
+        .maybeSingle();
 
-      if (error || !profile || profile.role !== "admin") {
+      const role = (profile as { role?: string } | null)?.role;
+
+      if (error || !role || role !== "admin") {
         if (!cancelled) {
           router.replace("/dashboard");
         }
