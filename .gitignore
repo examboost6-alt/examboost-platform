@@ -23,3 +23,8 @@ backend/dist
 
 # local artifacts
 *.tsbuildinfo
+
+# local scratch / secrets
+run-sql.js
+supabase_schema.sql
+null_output.txt

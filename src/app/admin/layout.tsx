@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import {
   LayoutDashboard,
   Users,
@@ -52,6 +54,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
+  const router = useRouter();
+
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -67,7 +72,56 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+
+    let cancelled = false;
+
+    const checkAdmin = async () => {
+      const { data } = await supabase.auth.getSession();
+      const session = data.session;
+
+      if (!session) {
+        if (!cancelled) {
+          router.replace("/login");
+        }
+        return;
+      }
+
+      const { data: profile, error } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", session.user.id)
+        .single();
+
+      if (error || !profile || profile.role !== "admin") {
+        if (!cancelled) {
+          router.replace("/dashboard");
+        }
+        return;
+      }
+
+      if (!cancelled) setAuthChecked(true);
+    };
+
+    checkAdmin();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [router]);
+
+  const onLogout = async () => {
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+    await supabase.auth.signOut();
+    router.replace("/login");
+  };
+
   const closeMobileSidebar = () => setMobileSidebarOpen(false);
+
+  if (!authChecked) return null;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-slate-100 font-sans flex overflow-hidden">
@@ -108,7 +162,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </motion.span>
             )}
           </Link>
-          <button className="lg:hidden text-slate-500 hover:text-slate-800 dark:hover:text-white" onClick={closeMobileSidebar}>
+          <button aria-label="Close sidebar" className="lg:hidden text-slate-500 hover:text-slate-800 dark:hover:text-white" onClick={closeMobileSidebar}>
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -142,7 +196,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
 
         <div className="p-4 border-t border-slate-200 dark:border-slate-800 shrink-0">
-          <button className="flex items-center gap-3 px-3 py-3 w-full rounded-xl text-slate-600 dark:text-slate-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:text-red-400 transition-colors justify-start">
+          <button onClick={onLogout} className="flex items-center gap-3 px-3 py-3 w-full rounded-xl text-slate-600 dark:text-slate-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:text-red-400 transition-colors justify-start">
             <LogOut className="w-5 h-5 shrink-0" />
             {sidebarOpen && <span className="font-semibold text-sm">Logout</span>}
           </button>
@@ -154,7 +208,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Header */}
         <header className="h-16 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 lg:px-8 shrink-0 z-30">
           <div className="flex items-center gap-4">
-            <button 
+            <button aria-label="Toggle sidebar" 
               onClick={() => {
                 if (window.innerWidth < 1024) {
                   setMobileSidebarOpen(true);
@@ -180,13 +234,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex items-center gap-3">
             {mounted && (
               <button
+                aria-label="Toggle theme"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
             )}
-            <button className="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
+            <button aria-label="Notifications" className="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
               <Bell className="w-5 h-5" />
               <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-red-500 border-2 border-white dark:border-[#0f172a]" />
             </button>

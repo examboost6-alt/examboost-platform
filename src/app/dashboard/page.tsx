@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 import {
   LayoutDashboard,
@@ -35,58 +36,31 @@ import {
   Trophy,
 } from "lucide-react";
 
-// --- Mock Data ---
-
-const studentInfo = {
-  name: "Rahul",
-  targetExam: "SSC CGL / Banking",
-  progress: 68,
-  stats: {
-    testsAttempted: 42,
-    accuracy: 84.5,
-    rank: 1205,
-    timeSpent: "56h 20m",
-  },
-};
-
-const myTestSeries = [
-  { id: 1, name: "SSC CGL Tier 1 Mock", progress: 45, totalTests: 100, attempted: 45 },
-  { id: 2, name: "SBI PO Prelims", progress: 20, totalTests: 50, attempted: 10 },
-  { id: 3, name: "UPSC Prelims Mock", progress: 5, totalTests: 30, attempted: 2 },
-];
-
-const freeTests = [
-  { id: 1, title: "Daily Current Affairs Quiz", type: "Daily Quiz", time: "15 mins", questions: 15 },
-  { id: 2, title: "English Vocabulary Booster", type: "Subject Quiz", time: "10 mins", questions: 10 },
-  { id: 3, title: "Weekly Mega Mock (SSC)", type: "Weekly Quiz", time: "60 mins", questions: 100 },
-];
-
-const recommendedTests = [
-  { id: 1, title: "SSC CGL Full Mock Test 12", reason: "Based on your recent attempts", tags: ["AI Recommended", "High Priority"] },
-  { id: 2, title: "Reasoning Speed Practice", reason: "Improve your weak area", tags: ["Adaptive Tracking"] },
-  { id: 3, title: "Math Advanced Level", reason: "Challenge yourself", tags: ["Rank Predictor Component"] },
-];
-
-const performanceData = [
-  { subject: "Quant", accuracy: 78, score: 35 },
-  { subject: "Reasoning", accuracy: 92, score: 45 },
-  { subject: "English", accuracy: 85, score: 40 },
-  { subject: "GA", accuracy: 65, score: 25 },
-];
-
-const testAnalysisHighlights = {
-  correct: 1450,
-  wrong: 320,
-  skipped: 230,
-  strongTopics: ["Puzzles", "Reading Comprehension", "Algebra"],
-  weakTopics: ["Current Affairs (National)", "Geometry", "Data Interpretation"],
-};
-
+// --- Real Data Setup ---
 export default function StudentDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState<string>('');
+
+  const [studentInfo, setStudentInfo] = useState<any>({
+    name: "Student", targetExam: "Not Set", progress: 0,
+    stats: { testsAttempted: 0, accuracy: 0, rank: 0, timeSpent: "0h" }
+  });
+  const [myTestSeries, setMyTestSeries] = useState<any[]>([]);
+  const [freeTests, setFreeTests] = useState<any[]>([
+    { id: 1, title: "Daily Current Affairs Quiz", type: "Daily Quiz", time: "15 mins", questions: 15 },
+  ]);
+  const [recommendedTests, setRecommendedTests] = useState<any[]>([]);
+  const [performanceData, setPerformanceData] = useState<any[]>([
+    { subject: "Quant", accuracy: 78, score: 35 },
+    { subject: "Reasoning", accuracy: 92, score: 45 },
+  ]);
+  const [testAnalysisHighlights, setTestAnalysisHighlights] = useState<any>({
+    correct: 145, wrong: 32, skipped: 23, strongTopics: ["Puzzles"], weakTopics: ["Geometry"],
+  });
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -95,9 +69,111 @@ export default function StudentDashboard() {
     supabase.auth.getSession().then(({ data }) => {
       if (!data.session) {
         router.replace('/login');
+      } else {
+        setUserId(data.session.user.id);
+        fetchDashboardData(data.session.user.id);
       }
     });
+
+    const fetchDashboardData = async (uid: string) => {
+      setLoading(true);
+      const { data: profileData } = await supabase.from('profiles').select('*').eq('id', uid).single();
+      const profile = profileData as any;
+      if (profile) {
+        setStudentInfo((prev: any) => ({ ...prev, name: profile.full_name || 'Student', targetExam: profile.target_exam || 'Not Set' }));
+      }
+      
+      const { data: userTestsData } = await supabase.from('user_tests').select('*').eq('user_id', uid);
+      const userTests = userTestsData as any[];
+      if (userTests && userTests.length > 0) {
+        setStudentInfo((prev: any) => ({
+          ...prev, stats: { ...prev.stats, testsAttempted: userTests.length }
+        }));
+      }
+
+      const { data: purchasesData } = await supabase.from('purchases').select('series_id').eq('user_id', uid);
+      const purchases = purchasesData as any[];
+      let seriesIds = purchases?.map((p: any) => p.series_id) || [];
+      
+      if (seriesIds.length > 0) {
+        const { data: purchasedSeriesData } = await supabase.from('test_series').select('*').in('id', seriesIds);
+        const purchasedSeries = purchasedSeriesData as any[];
+        if (purchasedSeries) {
+          setMyTestSeries(purchasedSeries.map((s: any) => ({
+            id: s.id, name: s.title, progress: 0, totalTests: s.total_tests, attempted: 0
+          })));
+        }
+      }
+
+      const { data: allSeriesData } = await supabase.from('test_series').select('*').eq('is_active', true).limit(5);
+      const allSeries = allSeriesData as any[];
+      if (allSeries && allSeries.length > 0) {
+         setRecommendedTests(allSeries.map((s: any) => ({
+           id: s.id, title: s.title, reason: 'Highly Rated Package', tags: ['Trending', `₹${s.price}`]
+         })));
+      } else {
+         setRecommendedTests([
+           { id: 1, title: 'SSC CGL Pro Mocks', reason: 'Master Tier 1', tags: ['Trending', '₹499'] }
+         ]);
+      }
+      setLoading(false);
+    };
   }, [router]);
+
+  const initiatePayment = async (seriesId: number, amount: number) => {
+    if (!userId) {
+       alert('Please login first');
+       return;
+    }
+    try {
+       const res = await fetch('/api/razorpay/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount, seriesId })
+       });
+       const data = await res.json();
+       if (!data.success) { alert('Order creation failed'); return; }
+
+       const options = {
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'dummy_key',
+          amount: data.order.amount,
+          currency: data.order.currency,
+          name: 'ExamBoost',
+          description: 'Test Series Purchase',
+          order_id: data.order.id,
+          handler: async function (response: any) {
+             const verifyRes = await fetch('/api/razorpay/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                   razorpay_order_id: response.razorpay_order_id,
+                   razorpay_payment_id: response.razorpay_payment_id,
+                   razorpay_signature: response.razorpay_signature,
+                   userId, seriesId, amount
+                })
+             });
+             const verifyData = await verifyRes.json();
+             if (verifyData.success) {
+                alert('Payment successful! Series added to your dashboard.');
+                window.location.reload();
+             } else {
+                alert('Payment verification failed.');
+             }
+          },
+          prefill: {
+             name: studentInfo.name,
+             email: 'student@example.com',
+          },
+          theme: { color: '#2563eb' }
+       };
+
+       const rzp = new (window as any).Razorpay(options);
+       rzp.open();
+    } catch (e) {
+       console.error(e);
+       alert('Something went wrong setting up razorpay.');
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -130,7 +206,7 @@ export default function StudentDashboard() {
 
   const quickActions = [
     { title: "Start Free Test", icon: PlayCircle, color: "text-blue-600", bg: "bg-blue-100", action: () => setActiveTab("free-tests") },
-    { title: "Buy Test Series", icon: BookOpen, color: "text-purple-600", bg: "bg-purple-100", action: () => {} },
+    { title: "Buy Test Series", icon: BookOpen, color: "text-purple-600", bg: "bg-purple-100", action: () => setActiveTab("recommended") },
     { title: "Previous Tests", icon: History, color: "text-orange-600", bg: "bg-orange-100", action: () => setActiveTab("my-tests") },
     { title: "Leaderboard", icon: Award, color: "text-yellow-600", bg: "bg-yellow-100", action: () => setActiveTab("leaderboard") },
   ];
@@ -307,7 +383,7 @@ export default function StudentDashboard() {
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1 mb-3">{test.reason}</p>
                   
                   <div className="flex flex-wrap gap-2">
-                    {test.tags.map((tag, idx) => (
+                    {test.tags?.map((tag: string, idx: number) => (
                       <span key={idx} className="text-[10px] font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">
                         {tag}
                       </span>
@@ -428,7 +504,7 @@ export default function StudentDashboard() {
          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
             <h3 className="font-bold text-lg mb-4 text-red-600 flex items-center gap-2"><Target className="w-5 h-5"/> Weak Topics to Improve</h3>
             <ul className="space-y-3">
-              {testAnalysisHighlights.weakTopics.map((topic, i) => (
+              {testAnalysisHighlights.weakTopics?.map((topic: string, i: number) => (
                 <li key={i} className="flex items-center justify-between p-3 bg-red-50 text-red-800 rounded-lg text-sm font-medium">
                   {topic}
                   <button className="px-3 py-1 bg-white text-red-600 rounded text-xs font-bold hover:bg-red-100">Practice</button>
@@ -538,9 +614,9 @@ export default function StudentDashboard() {
   const RecommendedModule = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex items-center justify-between border-b pb-4">
-        <h1 className="text-2xl font-bold text-neutral-800">Recommended Tests</h1>
+        <h1 className="text-2xl font-bold text-neutral-800">Buy Test Series</h1>
         <span className="flex items-center gap-1 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
-          <Sparkles className="w-4 h-4"/> AI Recommendation Engine
+          <Sparkles className="w-4 h-4"/> Premium Packages
         </span>
       </div>
       
@@ -551,12 +627,15 @@ export default function StudentDashboard() {
             <h3 className="font-bold text-lg mb-2 text-neutral-800">{test.title}</h3>
             <p className="text-sm text-neutral-600 mb-4">{test.reason}</p>
             <div className="flex flex-wrap gap-2 mb-6">
-              {test.tags.map(tag => (
+              {test.tags.map((tag: string) => (
                  <span key={tag} className="text-xs font-semibold bg-neutral-100 text-neutral-600 px-2 py-1 rounded">{tag}</span>
               ))}
             </div>
-            <button className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 rounded-lg transition-colors">
-              <PlayCircle className="w-4 h-4"/> Start Test
+            <button 
+              onClick={() => initiatePayment(test.id, parseInt(test.tags[1]?.replace('₹','') || '499'))} 
+              className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 rounded-lg transition-colors"
+            >
+              <Wallet className="w-4 h-4"/> Pay with Razorpay
             </button>
           </div>
         ))}
@@ -717,7 +796,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans flex text-neutral-900 selection:bg-blue-200">
-      
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isMobile && sidebarOpen && (
