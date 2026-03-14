@@ -127,31 +127,7 @@ export default function OnboardingForm() {
         return;
       }
 
-      const ext = (() => {
-        const name = photoFile.name || '';
-        const parts = name.split('.');
-        const last = (parts[parts.length - 1] || '').toLowerCase();
-        if (last === 'png' || last === 'jpg' || last === 'jpeg' || last === 'webp') return last;
-        const type = (photoFile.type || '').toLowerCase();
-        if (type.includes('png')) return 'png';
-        if (type.includes('webp')) return 'webp';
-        return 'jpg';
-      })();
-      const photoPath = `profiles/${uid}/photo.${ext}`;
-
-      const { error: uploadError } = await supabase
-        .storage
-        .from('student-photos')
-        .upload(photoPath, photoFile, { upsert: true, contentType: photoFile.type });
-
-      if (uploadError) {
-        setLoading(false);
-        alert(uploadError.message);
-        return;
-      }
-
       const updatePayload: any = {
-        id: uid,
         full_name: formData.name || null,
         phone: formData.phone || null,
         dob: formData.dob || null,
@@ -159,16 +135,28 @@ export default function OnboardingForm() {
         target_exam: formData.targetExam || null,
         preparation_mode: formData.preparationMode || null,
         admission_completed: true,
-        photo_path: photoPath,
       };
 
-      const { error: upsertError } = await supabase
-        .from('profiles')
-        .upsert(updatePayload, { onConflict: 'id' });
+      const submitData = new FormData();
+      submitData.append('photoFile', photoFile);
+      submitData.append('updatePayload', JSON.stringify(updatePayload));
 
-      if (upsertError) {
+      const token = sessionData.session?.access_token;
+      if (!token) throw new Error('No access token');
+
+      const response = await fetch('/api/student/onboarding', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: submitData
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
         setLoading(false);
-        alert(upsertError.message);
+        alert(result.error || 'Failed to submit admission. Please try again.');
         return;
       }
 
