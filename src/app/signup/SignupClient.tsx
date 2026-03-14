@@ -47,10 +47,9 @@ export default function SignupClient() {
             return;
         }
 
-        setSuccess('Account created. Please check your email to confirm your account.');
-        setTimeout(() => {
-            router.push('/login');
-        }, 1200);
+        setSuccess(
+            `Account created. We've sent a verification link to ${email}. Please confirm your email to activate your account, then return here to log in.`
+        );
     };
 
     return (
@@ -86,6 +85,15 @@ export default function SignupClient() {
                             <div className="rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-3 font-semibold text-sm">
                                 {success}
                             </div>
+                        ) : null}
+
+                        {success ? (
+                            <Link
+                                href="/login"
+                                className="block w-full text-center bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 py-4 rounded-xl font-bold text-lg transition-colors"
+                            >
+                                Go to Login
+                            </Link>
                         ) : null}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
