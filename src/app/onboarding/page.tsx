@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import { 
   Camera, Upload, User, Mail, Phone, MapPin, CheckCircle2, 
   ChevronRight, AlertCircle, ChevronLeft, Calendar, BookOpen, 
@@ -14,6 +15,17 @@ export default function OnboardingForm() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [photo, setPhoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (!data.session) {
+        router.replace('/login');
+      }
+    });
+  }, [router]);
 
   const [formData, setFormData] = useState({
     name: "Rahul Sharma", 

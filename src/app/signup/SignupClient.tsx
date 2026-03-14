@@ -29,10 +29,13 @@ export default function SignupClient() {
 
         setLoading(true);
 
+        const emailRedirectTo = `${window.location.origin}/auth/callback`;
+
         const { error: signUpError } = await supabase.auth.signUp({
             email,
             password,
             options: {
+                emailRedirectTo,
                 data: {
                     first_name: firstName,
                     last_name: lastName,
