@@ -171,9 +171,9 @@ export default function LoginClient() {
                         <div className="space-y-2">
                             <div className="flex justify-between items-center">
                                 <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Password <span className="text-red-500">*</span></label>
-                                <a href="#" className="flex items-center gap-1 text-sm font-bold text-primary dark:text-accent hover:underline">
+                                <Link href="/forgot-password" className="flex items-center gap-1 text-sm font-bold text-primary dark:text-accent hover:underline">
                                     Forgot Password?
-                                </a>
+                                </Link>
                             </div>
                             <input
                                 type="password"
