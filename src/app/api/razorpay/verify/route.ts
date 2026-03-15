@@ -15,7 +15,9 @@ export async function POST(req: Request) {
         const { razorpay_order_id, razorpay_payment_id, razorpay_signature, userId, seriesId, amount } = await req.json();
 
         // Verify Signature
-        const secret = process.env.RAZORPAY_KEY_SECRET || 'dummy_secret';
+        const secret = process.env.RAZORPAY_KEY_SECRET;
+        if (!secret) return NextResponse.json({ success: false, error: 'Razorpay secret missing' }, { status: 500 });
+
         const body = razorpay_order_id + "|" + razorpay_payment_id;
         
         const expectedSignature = crypto
@@ -23,8 +25,7 @@ export async function POST(req: Request) {
             .update(body.toString())
             .digest('hex');
 
-        // Note: For development, we skip signature validation if 'dummy_secret' is used, or in test mode.
-        const isAuthentic = expectedSignature === razorpay_signature || process.env.NODE_ENV === 'development';
+        const isAuthentic = expectedSignature === razorpay_signature;
 
         if (isAuthentic) {
             // Save to database

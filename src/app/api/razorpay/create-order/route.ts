@@ -6,10 +6,13 @@ export async function POST(req: Request) {
     try {
         const { amount, currency = 'INR', receipt } = await req.json();
 
-        // Initialize Razorpay client. These env vars must be set.
+        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+            return NextResponse.json({ success: false, error: 'Razorpay keys missing from environment' }, { status: 500 });
+        }
+
         const razorpay = new Razorpay({
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'dummy_key',
-            key_secret: process.env.RAZORPAY_KEY_SECRET || 'dummy_secret',
+            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+            key_secret: process.env.RAZORPAY_KEY_SECRET,
         });
 
         // Create an order

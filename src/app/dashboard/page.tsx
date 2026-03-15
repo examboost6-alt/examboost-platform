@@ -477,8 +477,13 @@ export default function StudentDashboard() {
        const data = await res.json();
        if (!data.success) { alert('Order creation failed'); return; }
 
+       if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
+         alert("Razorpay Key is missing in environment variables. Please add NEXT_PUBLIC_RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to .env.local");
+         return;
+       }
+
        const options = {
-          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'dummy_key',
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
           amount: data.order.amount,
           currency: data.order.currency,
           name: 'ExamBoost',

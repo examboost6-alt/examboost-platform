@@ -192,6 +192,11 @@ export default function SeriesPage() {
       });
       const orderData = await orderRes.json();
 
+      if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
+        alert("Razorpay Key is missing in environment variables. Please add NEXT_PUBLIC_RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to .env.local");
+        return;
+      }
+
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: orderData.amount,
