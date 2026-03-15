@@ -62,6 +62,10 @@ export default function StudentDashboard() {
   const [lastAttempt, setLastAttempt] = useState<any | null>(null);
   const [notifications, setNotifications] = useState<any[]>([]);
 
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [editForm, setEditForm] = useState({ name: '', targetExam: '', email: '' });
+  const [editingLoading, setEditingLoading] = useState(false);
+
   useEffect(() => {
     const supabase = getSupabaseClient();
     if (!supabase) return;
@@ -474,6 +478,44 @@ export default function StudentDashboard() {
       default:
         return <DashboardOverview />;
     }
+  };
+
+  const handleEditProfileSave = async () => {
+    setEditingLoading(true);
+    const supabase = getSupabaseClient();
+    if (!supabase) {
+      setEditingLoading(false);
+      return;
+    }
+
+    let emailChanged = false;
+    if (editForm.email !== userEmail) {
+      const { error } = await supabase.auth.updateUser({ email: editForm.email });
+      if (error) {
+        alert("Error updating email: " + error.message);
+        setEditingLoading(false);
+        return;
+      }
+      emailChanged = true;
+    }
+
+    const { error: profileError } = await supabase.from('profiles').update({
+      full_name: editForm.name,
+      target_exam: editForm.targetExam,
+    }).eq('id', userId);
+
+    if (profileError) {
+      alert('Error updating profile details: ' + profileError.message);
+    } else {
+      setStudentInfo((prev: any) => ({ ...prev, name: editForm.name, targetExam: editForm.targetExam }));
+      if (emailChanged) {
+        alert('Profile updated! A verification link has been sent to your new email. Please click the link in your email inbox to confirm the change.');
+      } else {
+        alert('Profile updated successfully!');
+      }
+      setIsEditingProfile(false);
+    }
+    setEditingLoading(false);
   };
 
   // --- Sub-Components for Different Modules ---
@@ -1044,6 +1086,7 @@ export default function StudentDashboard() {
   );
 
   const ProfileModule = () => (
+    <>
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl">
       <div className="border-b pb-4">
         <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><User className="w-6 h-6 text-slate-500"/> My Profile</h1>
@@ -1095,14 +1138,69 @@ export default function StudentDashboard() {
                   <div className="font-medium text-slate-800 bg-slate-50 border border-slate-200 px-4 py-3 rounded-lg">General</div>
                 </div>
               </div>
-              <button className="bg-white border-2 border-slate-200 text-slate-700 px-6 py-2.5 rounded-lg font-bold mt-4 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto">
-                Modify Preferences
+              <button 
+                onClick={() => {
+                  setEditForm({ name: studentInfo.name, targetExam: studentInfo.targetExam, email: userEmail });
+                  setIsEditingProfile(true);
+                }}
+                className="bg-white border-2 border-slate-200 text-slate-700 px-6 py-2.5 rounded-lg font-bold mt-4 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto"
+              >
+                Edit Profile
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    {isEditingProfile && (
+      <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl w-full max-w-md shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+            <h3 className="font-bold text-lg text-slate-800">Edit Profile</h3>
+            <button onClick={() => setIsEditingProfile(false)} className="text-slate-400 hover:text-slate-600">
+              <X className="w-5 h-5"/>
+            </button>
+          </div>
+          <div className="p-6 space-y-4">
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Full Name</label>
+              <input 
+                type="text" 
+                value={editForm.name} 
+                onChange={e => setEditForm({...editForm, name: e.target.value})}
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-slate-700 font-medium"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Email (Requires Verification Link)</label>
+              <input 
+                type="email" 
+                value={editForm.email} 
+                onChange={e => setEditForm({...editForm, email: e.target.value})}
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-slate-700 font-medium"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Target Exam</label>
+              <input 
+                type="text" 
+                value={editForm.targetExam} 
+                onChange={e => setEditForm({...editForm, targetExam: e.target.value})}
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-slate-700 font-medium"
+              />
+            </div>
+          </div>
+          <div className="p-6 bg-slate-50 flex justify-end gap-3 border-t border-slate-100">
+            <button onClick={() => setIsEditingProfile(false)} className="px-5 py-2 rounded-lg font-bold text-slate-600 hover:bg-slate-200 transition-colors">Cancel</button>
+            <button onClick={handleEditProfileSave} disabled={editingLoading} className="px-5 py-2 rounded-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 transition-colors disabled:opacity-50 flex items-center gap-2">
+              {editingLoading ? 'Saving...' : 'Save Changes'}
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 
   return (
