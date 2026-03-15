@@ -1005,7 +1005,7 @@ export default function StudentDashboard() {
 
     const mockPackages = [
       // Engineering
-      { id: 'mock-eng-1', title: 'Lakshya JEE Main 2026 Test Series', tags: ['Engineering', '₹499'], exam: 'Engineering', description: 'Experience the real NTA interface with 15 Full-Syllabus and 30 Part-Syllabus premium mock tests.', features: ['15 Full-Length Mocks', '30 Part-Syllabus Tests', 'Detailed Video Solutions', 'All India Rank Prediction'] },
+      { id: 'mock-eng-1', title: 'Lakshya JEE Main 2026 Test Series', tags: ['Engineering', '₹1299'], exam: 'Engineering', description: 'Experience the real NTA interface with 15 Full-Syllabus and 30 Part-Syllabus premium mock tests.', features: ['15 Full-Length Mocks', '30 Part-Syllabus Tests', 'Detailed Video Solutions', 'All India Rank Prediction'] },
       { id: 'mock-eng-2', title: 'IIT JEE Advanced Rankers Batch', tags: ['Engineering', '₹999'], exam: 'Engineering', description: 'Curated by top IITian faculties. Handpicked toughest questions for top 500 AIR guarantee.', features: ['10 Advanced Pattern Mocks', 'Step-by-step Video Hints', 'Topper Benchmarking', 'Previous 10 Year Papers'] },
       { id: 'mock-eng-3', title: 'BITSAT Super-15 Series', tags: ['Engineering', '₹599'], exam: 'Engineering', description: 'Specifically mapped to BITSAT marking scheme. Focus on speed, LR and English.', features: ['15 Full Mocks', 'Speed Analytics', 'LR & English Module', 'Memory Based Papers'] },
       { id: 'mock-eng-4', title: 'MHT-CET / State Engineering Mastery', tags: ['Engineering', '₹499'], exam: 'Engineering', description: 'The absolute state-level engineering test pack covering local syllabus guidelines strictly.', features: ['20 State Specific Mocks', 'Board Book Alignment', 'Performance Tracking', 'Doubt Support'] },
@@ -1147,7 +1147,7 @@ export default function StudentDashboard() {
             </div>
           ) : filtered.map((test, i) => (
             <div key={test.id} className="bg-white rounded-2xl border border-slate-200/60 transition-all shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 group flex flex-col overflow-hidden">
-              <div className="relative h-44 w-full bg-slate-100 overflow-hidden cursor-pointer" onClick={() => setSelectedCourse(test)}>
+              <a href={`/series/${test.id}`} className="relative h-44 w-full bg-slate-100 overflow-hidden block">
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-slate-100 group-hover:scale-105 transition-transform duration-700"></div>
                 <img 
                   src={`https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800&sat=-50`} 
@@ -1165,25 +1165,19 @@ export default function StudentDashboard() {
                     {test.tags?.[1] || '₹499'}
                   </span>
                 </div>
-              </div>
+              </a>
 
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="font-bold text-lg mb-2 text-slate-900 tracking-tight leading-snug line-clamp-2">{test.title}</h3>
                 <p className="text-sm text-slate-500 font-medium mb-6 line-clamp-2 leading-relaxed">{test.description || test.reason}</p>
                 
-                <div className="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3">
-                  <button 
-                    onClick={() => setSelectedCourse(test)} 
-                    className="flex-1 text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 font-bold py-2.5 px-4 rounded-xl transition-all text-sm"
+                <div className="mt-auto pt-4 border-t border-slate-100 flex justify-center">
+                  <a 
+                    href={`/series/${test.id}`}
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
                   >
-                    View Details
-                  </button>
-                  <button 
-                    onClick={() => initiatePayment(test.id, parseInt((test.tags?.[1] || '').replace('₹','') || '499'))} 
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 text-sm"
-                  >
-                    Enroll <ChevronRight className="w-4 h-4"/>
-                  </button>
+                    Enroll Now <ChevronRight className="w-4 h-4"/>
+                  </a>
                 </div>
               </div>
             </div>
