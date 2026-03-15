@@ -6,7 +6,8 @@ import { useTheme } from 'next-themes';
 import { 
   Lock, FileText, CheckCircle, ChevronLeft, Award, 
   Sun, Moon, Clock, BarChart, Calendar, ShieldCheck, 
-  PlayCircle, BookOpen, AlertCircle, CheckCircle2
+  PlayCircle, BookOpen, AlertCircle, CheckCircle2,
+  ListFilter, RotateCcw, Activity, Info
 } from 'lucide-react';
 
 const MOCK_DB: any = {
@@ -38,12 +39,88 @@ export default function SeriesPage() {
     originalPrice: 2499,
     description: 'Advance your preparation with our premium mock tests designed by expert educators.',
     features: ['Full-Length Mocks', 'Detailed Solutions', 'Rank Prediction'],
-    testCount: 15
+    imageUrl: '',
+    testCount: 0
   };
 
   const [activeTab, setActiveTab] = useState('tests');
   const [isClient, setIsClient] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  const mockAnalyticsHistory = [
+    {
+      date: "Today (15 March 2026)",
+      deletesIn: "7 days",
+      testName: "Full Mock Test 01",
+      attempts: [
+        {
+          attemptNo: 3,
+          time: "08:45 PM",
+          score: 185,
+          total: 300,
+          accuracy: "82%",
+          rank: "842 / 50,000",
+          timeTaken: "175",
+          avgTimePerQ: "2.1",
+          stats: [
+            { name: "Physics", correct: 20, wrong: 2, skipped: 3, time: "55m" },
+            { name: "Chemistry", correct: 22, wrong: 1, skipped: 2, time: "40m" },
+            { name: "Mathematics", correct: 15, wrong: 5, skipped: 5, time: "80m" },
+          ]
+        },
+        {
+          attemptNo: 2,
+          time: "02:10 PM",
+          score: 160,
+          total: 300,
+          accuracy: "75%",
+          rank: "1,204 / 50,000",
+          timeTaken: "180",
+          avgTimePerQ: "2.5",
+          stats: [
+            { name: "Physics", correct: 18, wrong: 4, skipped: 3, time: "60m" },
+            { name: "Chemistry", correct: 20, wrong: 3, skipped: 2, time: "45m" },
+            { name: "Mathematics", correct: 12, wrong: 6, skipped: 7, time: "75m" },
+          ]
+        },
+        {
+          attemptNo: 1,
+          time: "09:00 AM",
+          score: 145,
+          total: 300,
+          accuracy: "68%",
+          rank: "3,500 / 50,000",
+          timeTaken: "180",
+          avgTimePerQ: "2.8",
+          stats: [
+            { name: "Physics", correct: 15, wrong: 5, skipped: 5, time: "65m" },
+            { name: "Chemistry", correct: 18, wrong: 4, skipped: 3, time: "40m" },
+            { name: "Mathematics", correct: 10, wrong: 8, skipped: 7, time: "75m" },
+          ]
+        }
+      ]
+    },
+    {
+      date: "Yesterday (14 March 2026)",
+      deletesIn: "6 days",
+      testName: "Part Syllabus Test 03",
+      attempts: [
+        {
+          attemptNo: 1,
+          time: "06:30 PM",
+          score: 85,
+          total: 100,
+          accuracy: "88%",
+          rank: "150 / 20,000",
+          timeTaken: "55",
+          avgTimePerQ: "1.8",
+          stats: [
+            { name: "Physics", correct: 22, wrong: 3, skipped: 0, time: "55m" },
+          ]
+        }
+      ]
+    }
+  ];
 
   useEffect(() => {
     setIsClient(true);
@@ -357,6 +434,150 @@ export default function SeriesPage() {
                             </div>
                         </div>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'performance' && (
+                <div className="animate-in fade-in duration-500 py-2">
+                  <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
+                    <div>
+                      <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">AI Attempt History & Analytics</h2>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Detailed history of all your attempts across {courseData.testCount} papers.</p>
+                    </div>
+                    <div className="flex items-center gap-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 px-3 py-1.5 rounded-lg text-xs font-bold border border-rose-200 dark:border-rose-500/20">
+                       <RotateCcw className="w-3.5 h-3.5" /> Auto-deletes 7 days after attempt
+                    </div>
+                  </div>
+
+                  <div className="flex bg-slate-100 dark:bg-slate-800/80 p-2 rounded-xl mb-8 items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                    <span className="text-sm font-bold text-slate-500 dark:text-slate-400 px-2 flex items-center gap-1"><ListFilter className="w-4 h-4"/> Filters:</span>
+                    <button className="bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold px-4 py-1.5 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 transition-colors">All Tests</button>
+                    <button className="bg-transparent hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-bold px-4 py-1.5 rounded-lg transition-colors">Full Mock Test 01</button>
+                    <button className="bg-transparent hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-bold px-4 py-1.5 rounded-lg transition-colors">Part Syllabus Test 03</button>
+                  </div>
+
+                  {/* Vertical Timeline */}
+                  <div className="space-y-10 relative before:absolute before:inset-0 before:ml-[34px] md:before:mx-auto md:before:translate-x-0 before:w-0.5 before:bg-gradient-to-b before:from-slate-200 before:via-slate-200 dark:before:from-slate-800 dark:before:via-slate-800 before:to-transparent">
+                    {mockAnalyticsHistory.map((dayLine, i) => (
+                      <div key={i} className="relative z-10 w-full">
+                        
+                        {/* Day Marker */}
+                        <div className="flex items-center justify-start md:justify-center mb-6 pl-4 md:pl-0 mt-[-8px]">
+                            <div className="bg-white dark:bg-[#111827] border-2 border-slate-200 dark:border-slate-700 rounded-full px-4 py-1.5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 shadow-sm z-20">
+                                <span className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2"><Calendar className="w-4 h-4 text-indigo-500" /> {dayLine.date}</span>
+                                <span className="text-xs font-bold text-slate-400 hidden sm:block">•</span>
+                                <span className="text-[10px] font-bold text-rose-500 uppercase tracking-widest bg-rose-50 dark:bg-rose-500/10 px-2 py-0.5 rounded">Deletes in {dayLine.deletesIn}</span>
+                            </div>
+                        </div>
+
+                        {/* Card Content grouped by Day and Test */}
+                        <div className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-7 shadow-xl shadow-slate-200/20 dark:shadow-none mb-6 lg:w-[94%] lg:mx-auto relative z-20">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800/80">
+                                <h3 className="text-lg md:text-xl font-black text-indigo-900 dark:text-indigo-400 flex items-center gap-2">
+                                  <FileText className="w-5 h-5 text-indigo-500 hidden sm:block"/> {dayLine.testName}
+                                </h3>
+                                <span className="text-xs text-slate-600 dark:text-slate-300 font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 w-max">{dayLine.attempts.length} Attempts this day</span>
+                            </div>
+
+                            <div className="space-y-6">
+                                {dayLine.attempts.map((attempt, k) => (
+                                    <div key={k} className="group border-2 border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/5 bg-white dark:bg-slate-900">
+                                        
+                                        {/* Attempt Header */}
+                                        <div className="bg-slate-50 dark:bg-slate-800/40 p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800/80">
+                                            <div className="flex items-center gap-3 w-full md:w-auto">
+                                                <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black text-base shrink-0 shadow-sm border border-indigo-200 dark:border-indigo-800/50">#{attempt.attemptNo}</div>
+                                                <div>
+                                                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200 block">Attempt Timestamp</span>
+                                                    <span className="text-base font-black text-slate-900 dark:text-white block mt-0.5">{attempt.time}</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="flex gap-2 sm:gap-4 flex-wrap w-full md:w-auto">
+                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
+                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Score</span>
+                                                    <span className="text-base font-black text-slate-900 dark:text-white">{attempt.score}<span className="text-xs text-slate-400">/{attempt.total}</span></span>
+                                                </div>
+                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
+                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Accuracy</span>
+                                                    <span className="text-base font-black text-emerald-600 dark:text-emerald-400">{attempt.accuracy}</span>
+                                                </div>
+                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
+                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Est. Rank</span>
+                                                    <span className="text-base font-black text-amber-600 dark:text-amber-500">{attempt.rank}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Attempt details body */}
+                                        <div className="p-5 md:p-6 bg-white dark:bg-transparent">
+                                            <div className="flex flex-col lg:flex-row gap-8">
+                                                {/* Left Panel: Time Stats */}
+                                                <div className="lg:w-1/3 shrink-0">
+                                                    <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-1.5"><Clock className="w-4 h-4 text-slate-300 dark:text-slate-500"/> Time Analysis</h5>
+                                                    <div className="grid grid-cols-2 gap-3 mb-4">
+                                                        <div className="bg-blue-50/70 dark:bg-blue-900/10 p-4 rounded-2xl border border-blue-100 dark:border-blue-900/30 flex flex-col items-center text-center justify-center">
+                                                            <div className="text-2xl font-black text-blue-700 dark:text-blue-400 mb-1 leading-none">{attempt.timeTaken}</div>
+                                                            <div className="text-[10px] font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Total Mins Spent</div>
+                                                        </div>
+                                                        <div className="bg-purple-50/70 dark:bg-purple-900/10 p-4 rounded-2xl border border-purple-100 dark:border-purple-900/30 flex flex-col items-center text-center justify-center">
+                                                            <div className="text-2xl font-black text-purple-700 dark:text-purple-400 mb-1 leading-none">{attempt.avgTimePerQ}</div>
+                                                            <div className="text-[10px] font-bold text-purple-500 dark:text-purple-600 uppercase tracking-widest">Avg Mins / Q</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Right Panel: Subject Breakdown */}
+                                                <div className="flex-1">
+                                                    <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-1.5"><Activity className="w-4 h-4 text-slate-300 dark:text-slate-500"/> Subject Wise Question Breakdown</h5>
+                                                    <div className="space-y-4 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/80">
+                                                        {attempt.stats.map((s: any, sid: number) => {
+                                                            const totalQs = s.correct + s.wrong + (s.skipped || 0);
+                                                            const corPct = (s.correct / totalQs) * 100;
+                                                            const wrngPct = (s.wrong / totalQs) * 100;
+                                                            const skipPct = ((s.skipped || 0) / totalQs) * 100;
+
+                                                            return (
+                                                                <div key={sid} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
+                                                                    <div className="flex items-center gap-2 sm:w-32 shrink-0">
+                                                                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                                                      <span className="font-bold text-slate-800 dark:text-slate-200">{s.name}</span>
+                                                                    </div>
+                                                                    <div className="flex items-center gap-4 flex-1">
+                                                                        <div className="flex-1 h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden flex shadow-inner">
+                                                                            <div style={{width: `${corPct}%`}} className="h-full bg-emerald-500"></div>
+                                                                            <div style={{width: `${wrngPct}%`}} className="h-full bg-rose-500"></div>
+                                                                            <div style={{width: `${skipPct}%`}} className="h-full bg-slate-300 dark:bg-slate-600"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="flex items-center gap-3 shrink-0 text-xs font-bold w-full sm:w-auto justify-between sm:justify-start bg-white dark:bg-slate-800 px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                                                                        <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5"/> {s.correct} <span className="text-[10px] text-slate-400">Cor</span></span>
+                                                                        <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5"/> {s.wrong} <span className="text-[10px] text-slate-400">Wrn</span></span>
+                                                                        <span className="text-indigo-600 dark:text-indigo-400 border-l border-slate-200 dark:border-slate-600 pl-3 flex items-center gap-1"><Clock className="w-3.5 h-3.5"/> {s.time}</span>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="bg-indigo-50 dark:bg-indigo-500/10 p-5 rounded-2xl flex items-start sm:items-center gap-4 border border-indigo-100 dark:border-indigo-500/20 text-indigo-800 dark:text-indigo-300 text-sm font-medium mt-8 shadow-sm">
+                      <div className="bg-indigo-100 dark:bg-indigo-500/20 p-2 rounded-full shrink-0">
+                        <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                      </div>
+                      <div className="leading-relaxed">
+                        <strong className="font-bold text-indigo-900 dark:text-indigo-200">History Storage Rules:</strong> This is a detailed preview of the attempt history. Logs of individually marked questions and second-by-second analytics are stored for 7 days post-attempt to maintain UI speed. Overall aggregate scores are stored forever.
+                      </div>
                   </div>
                 </div>
               )}
