@@ -39,7 +39,7 @@ const MOCK_DB: any = {
       'Unlimited Custom Mock Generator'
     ],
     testCount: 35,
-    imageUrl: '/vijay-jee-advance.png'
+    imageUrl: '/vijay-jee.png'
   },
   'mock-med-1': {
     title: 'ExamBoost NEET Shourya Test Series 2026',
@@ -54,7 +54,7 @@ const MOCK_DB: any = {
       'Unlimited Custom Mock Generator'
     ],
     testCount: 41,
-    imageUrl: '/Shourya-neet-Series.png'
+    imageUrl: '/shourya-neet.png'
   }
 };
 
