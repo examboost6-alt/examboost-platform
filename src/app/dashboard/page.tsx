@@ -38,6 +38,80 @@ import {
   Home,
 } from "lucide-react";
 
+const mockPackages = [
+  // Engineering
+  { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', tags: ['Engineering', '₹1299'], exam: 'Engineering', description: 'Experience the real NTA interface with 15 Premium Full-Length Mock Tests exclusively for JEE Main preparation.', features: ['15 Premium Full Mocks', 'Advanced Accuracy Analytics', 'AI Generated Chapter-wise Questions', 'Rank Prediction'], imageUrl: '/shikhar-jee.png' },
+  { id: 'mock-eng-2', title: 'Vijay IIT Advance 2026 Test Series', tags: ['Engineering', '₹1999'], exam: 'Engineering', description: '35+ Tests + Unlimited Practice. Exclusively designed for IIT JEE Advanced 2026 aspirants.', features: ['25 Full JEE Advanced Mocks', '10 Previous Year Papers', 'Unlimited Chapter Wise Tests', 'Unlimited Custom Mock Generator'], imageUrl: '/vijay-jee.png' },
+  { id: 'mock-eng-3', title: 'BITSAT Super-15 Series', tags: ['Engineering', '₹599'], exam: 'Engineering', description: 'Specifically mapped to BITSAT marking scheme. Focus on speed, LR and English.', features: ['15 Full Mocks', 'Speed Analytics', 'LR & English Module', 'Memory Based Papers'] },
+  { id: 'mock-eng-4', title: 'MHT-CET / State Engineering Mastery', tags: ['Engineering', '₹499'], exam: 'Engineering', description: 'The absolute state-level engineering test pack covering local syllabus guidelines strictly.', features: ['20 State Specific Mocks', 'Board Book Alignment', 'Performance Tracking', 'Doubt Support'] },
+  
+  // Medical
+  { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', tags: ['Medical', '₹1499'], exam: 'Medical', description: '40+ Tests + Unlimited Practice. Build your accuracy with tests perfectly simulating the NEET UG exam.', features: ['31 Full NEET Mock Tests', '10 Previous Year Papers', 'Unlimited Chapter Wise Tests', 'Unlimited Custom Mock Generator'], imageUrl: '/shourya-neet.png' },
+  { id: 'mock-med-2', title: 'NEET Conqueror: Part & Full Syllabus', tags: ['Medical', '₹799'], exam: 'Medical', description: 'Break down your prep. 40 Part-Syllabus and 15 Full-Syllabus high-yield mock tests.', features: ['15 Full Syllabus Mocks', '40 Part Syllabus Tests', 'Expert Mentorship', 'Detailed Explanations'] },
+  { id: 'mock-med-3', title: 'Nursing Target Batch (AIIMS & State)', tags: ['Medical', '₹499'], exam: 'Medical', description: 'The only test series you need for B.Sc Nursing. Complete syllabus coverage.', features: ['25 Topic Tests', 'General Knowledge Section', 'Aptitude Practice', 'Live Doubt Resolution'] },
+  { id: 'mock-med-4', title: 'Medical Premium (NEET + AIIMS GK)', tags: ['Medical', '₹699'], exam: 'Medical', description: 'Complete medical entrance package combining NEET syllabus and extra AIIMS modules.', features: ['English Proficiency Tests', 'Logic & Aptitude', '15 Full-Length Mocks', 'Past 10 Years Analysis'] },
+
+  // Banking
+  { id: 'mock-bank-1', title: 'SBI PO Champions Test Series', tags: ['Banking', '₹599'], exam: 'Banking', description: 'Includes 20 Prelims and 10 Mains Mock Tests based on latest IBPS/SBI trends.', features: ['20 Pre & 10 Mains Mocks', 'Latest Descriptive Papers', 'Banking Awareness Module', 'Interview Guide'] },
+  { id: 'mock-bank-2', title: 'IBPS Clerk Selection Pack', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Crack clerk exams with 30 Prelims mocks & highly repeated puzzle patterns.', features: ['30 Prelims Mocks', 'Speed Math Practice', 'Memory Based Papers', 'Detailed Solutions'] },
+  { id: 'mock-bank-3', title: 'RBI Grade B Officer Elite Package', tags: ['Banking', '₹899'], exam: 'Banking', description: 'Exclusive Phase 1 and Phase 2 mocks with specialized ESI & FM coverage.', features: ['ESI & FM Notes', 'Management Modules', '15 Phase 1 Mocks', 'Current Affairs Weekly Analysis'] },
+  { id: 'mock-bank-4', title: 'RRB PO/Clerk Gramin Bank Series', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Rural bank target with computer awareness and Hindi language mocks.', features: ['Computer Awareness Tests', 'Hindi Language Mocks', 'State-wise Cutoffs Tracker', 'Bilingual Papers'] },
+
+  // CUET
+  { id: 'mock-cuet-1', title: 'CUET UG Science Domain Expert', tags: ['CUET', '₹499'], exam: 'CUET', description: '20 Mocks per domain subject (Physics, Chemistry, Maths/Bio) as per NTA.', features: ['Domain Specific Practice', 'NCERT Synced', 'Computer Based Test UI', 'Detailed Answer Key'] },
+  { id: 'mock-cuet-2', title: 'CUET Commerce Top College Pack', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Target SRCC with advanced Accounts, Business Studies & Economics mocks.', features: ['Latest NTA Pattern', 'Case Study Based Questions', 'Speed Analytics', 'Video Solutions'] },
+  { id: 'mock-cuet-3', title: 'CUET Humanities & Arts Mastery', tags: ['CUET', '₹499'], exam: 'CUET', description: 'History, Geography, Pol. Science. 15 Full mocks per subject.', features: ['Timeline/Map Based Questions', 'Deep Subject Analysis', '15 Full Mocks per Subject', 'Doubt Forum'] },
+  { id: 'mock-cuet-4', title: 'CUET General Test + English/Hindi', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Crack the general test easily. 30 Mocks for GT and 20 for Language.', features: ['Daily Vocab Tests', 'Current Affairs PDFs', '30 Full General Tests', 'Grammar Modules'] },
+
+  // Law
+  { id: 'mock-law-1', title: 'CLAT NLSIU Achievers Batch', tags: ['Law', '₹899'], exam: 'Law', description: '35 Full-Length mocks matching actual CLAT rigorous reading comprehension standard.', features: ['35 Full Mock Tests', 'Legal Reasoning Deep Dive', 'Current Affairs & GK Compendium', 'Passage Based Mocks'] },
+  { id: 'mock-law-2', title: 'AILET NLU Delhi Target Series', tags: ['Law', '₹799'], exam: 'Law', description: 'Focus on higher logical complexity and speed. 20 Full length AILET mocks.', features: ['Speed & Accuracy Analytics', 'Logical Reasoning Hacks', 'English Comprehensive Tests', 'Previous Papers'] },
+  { id: 'mock-law-3', title: 'MH-CET Law (5 Years/3 Years) Pro', tags: ['Law', '₹499'], exam: 'Law', description: 'State specific legal aptitude tests for GLC Mumbai & ILS Pune.', features: ['General Legal Knowledge', 'Static GK', 'Bilingual Tests', 'Regional Focus'] },
+  { id: 'mock-law-4', title: 'LSAT India Logic & Analytics Pack', tags: ['Law', '₹999'], exam: 'Law', description: 'Pure logic and analytical breakdown tests identical to original LSAT.', features: ['Analytical Reasoning Drills', 'Critical Read & Understand', 'Exam Simulation UI', 'Personalized Feedback'] },
+
+  // MBA
+  { id: 'mock-mba-1', title: 'CAT 99 Percentile IIM Booster', tags: ['MBA', '₹1499'], exam: 'MBA', description: '30 Full-Length CAT Mocks verified by IIM Alumni. Most realistic DILR.', features: ['30 Pro Mocks', 'Detailed VARC Analysis', 'DILR Sets Variations', 'Top IIM Mentors'] },
+  { id: 'mock-mba-2', title: 'XAT XLRI Decision Making Pro', tags: ['MBA', '₹1299'], exam: 'MBA', description: 'Master XAT with 15 Mocks focusing heavily on Decision Making.', features: ['Decision Making Cases', 'Advanced GK', 'Essay Writing Practice', 'Percentile Predictor'] },
+  { id: 'mock-mba-3', title: 'NMAT/SNAP Maximize Speed Series', tags: ['MBA', '₹999'], exam: 'MBA', description: '20 Adaptive Mocks for NMAT & 15 Speed Mocks for SNAP.', features: ['Adaptive Test Simulation', 'Speed Vocab', 'Quick DI Practice', 'Sectional Timers'] },
+  { id: 'mock-mba-4', title: 'CMAT & MAH-CET JBIMS Pack', tags: ['MBA', '₹699'], exam: 'MBA', description: 'Crack secondary MBA entering exams with 25 Full-Length mocks.', features: ['Innovation & Entrepreneurship Section', 'General Awareness Updates', 'Static GK', '25 Full Mocks'] },
+
+  // Police
+  { id: 'mock-pol-1', title: 'UP Police Constable Khaki Batch', tags: ['Police', '₹499'], exam: 'Police', description: '25 Full Mock Tests with specially curated UP State GK & Hindi.', features: ['UP GK Focused', 'Hindi Grammar', 'Reasoning Mocks', '25 Full Tests'] },
+  { id: 'mock-pol-2', title: 'Delhi Police SI (CPO) Target', tags: ['Police', '₹599'], exam: 'Police', description: '20 Tier-1 and 15 Tier-2 English exclusive mocks for CPO aspirants.', features: ['Tier 1 & Tier 2 English', 'General Awareness', 'Physical Standard Guide', 'Prev Papers'] },
+  { id: 'mock-pol-3', title: 'Bihar Police Daroga Selection', tags: ['Police', '₹499'], exam: 'Police', description: 'Crack Bihar SI with 30 bilingual mocks based on recent trends.', features: ['Bihar Specific GK', 'Current Events', 'Quick Mathematics', '30 Full Tests'] },
+  { id: 'mock-pol-4', title: 'Rajasthan Police Guaranteed Prep', tags: ['Police', '₹499'], exam: 'Police', description: '20 Mocks covering deep Rajasthan History, Culture & Police Acts.', features: ['Raj GK Weightage', 'Women & Child Crime Laws', 'State Current Affairs', '20 Full Mocks'] },
+
+  // Railways
+  { id: 'mock-rail-1', title: 'RRB NTPC CBT-1 & CBT-2 Mahapack', tags: ['Railways', '₹599'], exam: 'Railways', description: '40 CBT-1 and 20 CBT-2 Mocks. Best in class General Science coverage.', features: ['60 Total Full Tests', 'General Awareness Exhaustive', 'General Science Module', 'Speed Analytics'] },
+  { id: 'mock-rail-2', title: 'RRB Group D Sure Selection', tags: ['Railways', '₹499'], exam: 'Railways', description: '50 Mock tests focused strictly on Group D level mathematics and science.', features: ['Basic Science Focus', 'Maths Short Tricks', 'Current Affairs PDFs', '50 Full Tests'] },
+  { id: 'mock-rail-3', title: 'RRB ALP Loco Pilot Tech Pack', tags: ['Railways', '₹599'], exam: 'Railways', description: 'Unique package bringing 20 Trade specific technical mocks.', features: ['Trade Specific Mocks', 'Engineering Drawing', 'Basic Electrics/Mechanics', 'CBT 1 + CBT 2'] },
+  { id: 'mock-rail-4', title: 'RRB JE Technical Mastery', tags: ['Railways', '₹699'], exam: 'Railways', description: 'Crack Railway JE with 30 CBT-1 and 15 Branch Specific CBT-2 mocks.', features: ['Civil/Mech/Electrical Domain Tests', 'Non-Tech CBT 1 Mocks', 'Exam UI Experience', 'Detailed Solutions'] },
+
+  // SSC
+  { id: 'mock-ssc-1', title: 'SSC CGL Tier 1 & 2 Officers Batch', tags: ['SSC', '₹799'], exam: 'SSC', description: '40 Tier-1 & 20 Tier-2 mocks based perfectly on TCS updated pattern.', features: ['Tier 2 New Pattern', 'Computer Knowledge Module', 'Advanced Maths Mocks', 'English Comprehension'] },
+  { id: 'mock-ssc-2', title: 'SSC CHSL 10+2 LDC Pack', tags: ['SSC', '₹599'], exam: 'SSC', description: '30 Full length CHSL mocks guaranteed to boost typing and objective score.', features: ['Speed Typing Software Link', 'Vocabulary Building', '30 Full Mocks', 'All India Ranking'] },
+  { id: 'mock-ssc-3', title: 'SSC MTS Havaldar Series', tags: ['SSC', '₹499'], exam: 'SSC', description: 'Simple, accurate and exam-oriented 50 Mocks for MTS.', features: ['Descriptive Guidance', 'General English', 'Simple Maths', '50 Exams Sets'] },
+  { id: 'mock-ssc-4', title: 'SSC GD Constable Fauzi Batch', tags: ['SSC', '₹499'], exam: 'SSC', description: '40 bilingual mocks for GD Constable focusing fully on time management.', features: ['Hindi/English optional tests', 'GS & Current Affairs', 'Elementary Math', 'State Wise Cutoff Analysis'] },
+
+  // State PSC
+  { id: 'mock-psc-1', title: 'UPPSC Prelims & Mains Adhikari', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '20 Prelims GS, 10 CSAT and 15 Mains Mock papers with expert evaluation.', features: ['UP Specific GK', 'CSAT Practice', 'Mains Answer Writing Appraisals', '20 Full Prelims Mocks'] },
+  { id: 'mock-psc-2', title: 'BPSC Prelims Success Series', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '25 Full length Bihar PCS Prelims mock with 5 Option style queries.', features: ['Bihar Economy/Geography', 'History deep dive', 'Option specific mocks', 'Previous 20 yrs papers'] },
+  { id: 'mock-psc-3', title: 'MPPSC Pre+Mains Sankalp Batch', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Includes exclusive Ethics and MP Specific GS Mock Tests.', features: ['MP GK Special', 'Information Technology', 'Ethics/Aptitude Papers', 'Interview prep'] },
+  { id: 'mock-psc-4', title: 'RPSC RAS Complete State Pack', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Deep focus on Rajasthan Economy, Geography and History. 25 Mocks.', features: ['Rajasthan Rich Culture/History', 'Public Administration', 'Detailed Solutions', 'Current Updates'] },
+
+  // Teaching
+  { id: 'mock-teach-1', title: 'CTET Paper 1 & 2 Gurukul Batch', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '30 Full Length CTET sets with top quality Pedagogy (CDP) questions.', features: ['CDP Expert Mocks', 'Maths & EVS', 'Social Science / Science Mocks', 'Language 1 & 2'] },
+  { id: 'mock-teach-2', title: 'KVS/NVS PRT TGT PGT Series', tags: ['Teaching', '₹599'], exam: 'Teaching', description: '20 Central Teaching Mocks heavily focused on Subject Domain.', features: ['Subject Specific Domain', 'Teaching Aptitude', 'Reasoning & Computer', 'Interview Prep'] },
+  { id: 'mock-teach-3', title: 'DSSSB PRT/TGT Delhi Target', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '25 Full Set mocks designed specially along DSSSB strict time limits.', features: ['Post Specific Subject Mocks', 'Part A Comprehensive', 'High Quality UI', 'Previous Years solved'] },
+  { id: 'mock-teach-4', title: 'State TETs (UPTET/REET/HTET)', tags: ['Teaching', '₹499'], exam: 'Teaching', description: 'Local TET examinations mock pack featuring 20 regional level tests.', features: ['State Specific CDP', 'Regional Languages', 'Maths Methodology', '20 Full Section Tests'] },
+
+  // UPSC Civil Services
+  { id: 'mock-upsc-1', title: 'UPSC IAS Prelims 2026 Visionary', tags: ['UPSC', '₹1999'], exam: 'UPSC', description: '35 GS Full Tests & 15 CSAT sets. Highest quality closely matching UPSC standard.', features: ['35 GS Full Tests', '15 CSAT Sets', 'Current Affairs Align', 'Economic Survey & Budget'] },
+  { id: 'mock-upsc-2', title: 'UPSC Mains Answer Writing Pro', tags: ['UPSC', '₹2999'], exam: 'UPSC', description: '20 Full Length Mains evaluations by ex-Babus and top faculties.', features: ['Expert Evaluation', 'Model Answers', 'GS I-IV Coverage', 'Essay Practice'] },
+  { id: 'mock-upsc-3', title: 'UPSC Optional Excellence Mocks', tags: ['UPSC', '₹2499'], exam: 'UPSC', description: '10 exclusive test papers for top scoring optional subjects.', features: ['Paper 1 & Paper 2', 'Previous Year mapping', 'Detailed Feedback', 'Mentor calls'] },
+  { id: 'mock-upsc-4', title: 'UPSC NCERT Build-up Foundation', tags: ['UPSC', '₹999'], exam: 'UPSC', description: 'Strengthen base with 30 Mock Tests sourced purely from Class 6-12 NCERTs.', features: ['Class 6-12 NCERT Tests', 'History & Geo focus', 'Subject-wise modules', 'Self assessment tools'] }
+];
+
 // --- Real Data Setup ---
 export default function StudentDashboard() {
   const router = useRouter();
@@ -166,11 +240,34 @@ export default function StudentDashboard() {
       const seriesIds = purchases.map((p: any) => p.series_id).filter(Boolean);
       let seriesById = new Map<string, any>();
       if (seriesIds.length > 0) {
-        const { data: purchasedSeriesData } = await supabase
-          .from('test_series')
-          .select('*')
-          .in('id', seriesIds);
-        const purchasedSeries = (purchasedSeriesData as any[]) || [];
+        let purchasedSeries: any[] = [];
+        
+        // Fetch from DB
+        const dbSeriesIds = seriesIds.filter((id: string) => !id.startsWith('mock-'));
+        if (dbSeriesIds.length > 0) {
+          const { data: purchasedSeriesData } = await supabase
+            .from('test_series')
+            .select('*')
+            .in('id', dbSeriesIds);
+          if (purchasedSeriesData) purchasedSeries = [...purchasedSeriesData];
+        }
+
+        // Merge with local mocks
+        const localMockIds = seriesIds.filter((id: string) => id.startsWith('mock-'));
+        localMockIds.forEach((id: string) => {
+          const mock = mockPackages.find(m => m.id === id);
+          if (mock) {
+            purchasedSeries.push({
+              id: mock.id,
+              title: mock.title,
+              total_tests: mock.title.includes('Shikhar') ? 15 : mock.title.includes('Vijay') ? 35 : 40, // rough heuristic or parsed
+              price_inr: parseInt(mock.tags[1].replace(/[^0-9]/g, '')) || 0,
+              category: mock.tags[0],
+              exam: mock.exam
+            });
+          }
+        });
+
         purchasedSeries.forEach((s: any) => seriesById.set(String(s.id), s));
 
         setMyTestSeries(
@@ -1004,79 +1101,6 @@ export default function StudentDashboard() {
     const [selectedExam, setSelectedExam] = useState("All");
     const [selectedCourse, setSelectedCourse] = useState<any>(null); // For detail modal
 
-    const mockPackages = [
-      // Engineering
-      { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', tags: ['Engineering', '₹1299'], exam: 'Engineering', description: 'Experience the real NTA interface with 15 Premium Full-Length Mock Tests exclusively for JEE Main preparation.', features: ['15 Premium Full Mocks', 'Advanced Accuracy Analytics', 'AI Generated Chapter-wise Questions', 'Rank Prediction'], imageUrl: '/shikhar-jee.png' },
-      { id: 'mock-eng-2', title: 'Vijay IIT Advance 2026 Test Series', tags: ['Engineering', '₹1999'], exam: 'Engineering', description: '35+ Tests + Unlimited Practice. Exclusively designed for IIT JEE Advanced 2026 aspirants.', features: ['25 Full JEE Advanced Mocks', '10 Previous Year Papers', 'Unlimited Chapter Wise Tests', 'Unlimited Custom Mock Generator'], imageUrl: '/vijay-jee.png' },
-      { id: 'mock-eng-3', title: 'BITSAT Super-15 Series', tags: ['Engineering', '₹599'], exam: 'Engineering', description: 'Specifically mapped to BITSAT marking scheme. Focus on speed, LR and English.', features: ['15 Full Mocks', 'Speed Analytics', 'LR & English Module', 'Memory Based Papers'] },
-      { id: 'mock-eng-4', title: 'MHT-CET / State Engineering Mastery', tags: ['Engineering', '₹499'], exam: 'Engineering', description: 'The absolute state-level engineering test pack covering local syllabus guidelines strictly.', features: ['20 State Specific Mocks', 'Board Book Alignment', 'Performance Tracking', 'Doubt Support'] },
-      
-      // Medical
-      { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', tags: ['Medical', '₹1499'], exam: 'Medical', description: '40+ Tests + Unlimited Practice. Build your accuracy with tests perfectly simulating the NEET UG exam.', features: ['31 Full NEET Mock Tests', '10 Previous Year Papers', 'Unlimited Chapter Wise Tests', 'Unlimited Custom Mock Generator'], imageUrl: '/shourya-neet.png' },
-      { id: 'mock-med-2', title: 'NEET Conqueror: Part & Full Syllabus', tags: ['Medical', '₹799'], exam: 'Medical', description: 'Break down your prep. 40 Part-Syllabus and 15 Full-Syllabus high-yield mock tests.', features: ['15 Full Syllabus Mocks', '40 Part Syllabus Tests', 'Expert Mentorship', 'Detailed Explanations'] },
-      { id: 'mock-med-3', title: 'Nursing Target Batch (AIIMS & State)', tags: ['Medical', '₹499'], exam: 'Medical', description: 'The only test series you need for B.Sc Nursing. Complete syllabus coverage.', features: ['25 Topic Tests', 'General Knowledge Section', 'Aptitude Practice', 'Live Doubt Resolution'] },
-      { id: 'mock-med-4', title: 'Medical Premium (NEET + AIIMS GK)', tags: ['Medical', '₹699'], exam: 'Medical', description: 'Complete medical entrance package combining NEET syllabus and extra AIIMS modules.', features: ['English Proficiency Tests', 'Logic & Aptitude', '15 Full-Length Mocks', 'Past 10 Years Analysis'] },
-
-      // Banking
-      { id: 'mock-bank-1', title: 'SBI PO Champions Test Series', tags: ['Banking', '₹599'], exam: 'Banking', description: 'Includes 20 Prelims and 10 Mains Mock Tests based on latest IBPS/SBI trends.', features: ['20 Pre & 10 Mains Mocks', 'Latest Descriptive Papers', 'Banking Awareness Module', 'Interview Guide'] },
-      { id: 'mock-bank-2', title: 'IBPS Clerk Selection Pack', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Crack clerk exams with 30 Prelims mocks & highly repeated puzzle patterns.', features: ['30 Prelims Mocks', 'Speed Math Practice', 'Memory Based Papers', 'Detailed Solutions'] },
-      { id: 'mock-bank-3', title: 'RBI Grade B Officer Elite Package', tags: ['Banking', '₹899'], exam: 'Banking', description: 'Exclusive Phase 1 and Phase 2 mocks with specialized ESI & FM coverage.', features: ['ESI & FM Notes', 'Management Modules', '15 Phase 1 Mocks', 'Current Affairs Weekly Analysis'] },
-      { id: 'mock-bank-4', title: 'RRB PO/Clerk Gramin Bank Series', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Rural bank target with computer awareness and Hindi language mocks.', features: ['Computer Awareness Tests', 'Hindi Language Mocks', 'State-wise Cutoffs Tracker', 'Bilingual Papers'] },
-
-      // CUET
-      { id: 'mock-cuet-1', title: 'CUET UG Science Domain Expert', tags: ['CUET', '₹499'], exam: 'CUET', description: '20 Mocks per domain subject (Physics, Chemistry, Maths/Bio) as per NTA.', features: ['Domain Specific Practice', 'NCERT Synced', 'Computer Based Test UI', 'Detailed Answer Key'] },
-      { id: 'mock-cuet-2', title: 'CUET Commerce Top College Pack', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Target SRCC with advanced Accounts, Business Studies & Economics mocks.', features: ['Latest NTA Pattern', 'Case Study Based Questions', 'Speed Analytics', 'Video Solutions'] },
-      { id: 'mock-cuet-3', title: 'CUET Humanities & Arts Mastery', tags: ['CUET', '₹499'], exam: 'CUET', description: 'History, Geography, Pol. Science. 15 Full mocks per subject.', features: ['Timeline/Map Based Questions', 'Deep Subject Analysis', '15 Full Mocks per Subject', 'Doubt Forum'] },
-      { id: 'mock-cuet-4', title: 'CUET General Test + English/Hindi', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Crack the general test easily. 30 Mocks for GT and 20 for Language.', features: ['Daily Vocab Tests', 'Current Affairs PDFs', '30 Full General Tests', 'Grammar Modules'] },
-
-      // Law
-      { id: 'mock-law-1', title: 'CLAT NLSIU Achievers Batch', tags: ['Law', '₹899'], exam: 'Law', description: '35 Full-Length mocks matching actual CLAT rigorous reading comprehension standard.', features: ['35 Full Mock Tests', 'Legal Reasoning Deep Dive', 'Current Affairs & GK Compendium', 'Passage Based Mocks'] },
-      { id: 'mock-law-2', title: 'AILET NLU Delhi Target Series', tags: ['Law', '₹799'], exam: 'Law', description: 'Focus on higher logical complexity and speed. 20 Full length AILET mocks.', features: ['Speed & Accuracy Analytics', 'Logical Reasoning Hacks', 'English Comprehensive Tests', 'Previous Papers'] },
-      { id: 'mock-law-3', title: 'MH-CET Law (5 Years/3 Years) Pro', tags: ['Law', '₹499'], exam: 'Law', description: 'State specific legal aptitude tests for GLC Mumbai & ILS Pune.', features: ['General Legal Knowledge', 'Static GK', 'Bilingual Tests', 'Regional Focus'] },
-      { id: 'mock-law-4', title: 'LSAT India Logic & Analytics Pack', tags: ['Law', '₹999'], exam: 'Law', description: 'Pure logic and analytical breakdown tests identical to original LSAT.', features: ['Analytical Reasoning Drills', 'Critical Read & Understand', 'Exam Simulation UI', 'Personalized Feedback'] },
-
-      // MBA
-      { id: 'mock-mba-1', title: 'CAT 99 Percentile IIM Booster', tags: ['MBA', '₹1499'], exam: 'MBA', description: '30 Full-Length CAT Mocks verified by IIM Alumni. Most realistic DILR.', features: ['30 Pro Mocks', 'Detailed VARC Analysis', 'DILR Sets Variations', 'Top IIM Mentors'] },
-      { id: 'mock-mba-2', title: 'XAT XLRI Decision Making Pro', tags: ['MBA', '₹1299'], exam: 'MBA', description: 'Master XAT with 15 Mocks focusing heavily on Decision Making.', features: ['Decision Making Cases', 'Advanced GK', 'Essay Writing Practice', 'Percentile Predictor'] },
-      { id: 'mock-mba-3', title: 'NMAT/SNAP Maximize Speed Series', tags: ['MBA', '₹999'], exam: 'MBA', description: '20 Adaptive Mocks for NMAT & 15 Speed Mocks for SNAP.', features: ['Adaptive Test Simulation', 'Speed Vocab', 'Quick DI Practice', 'Sectional Timers'] },
-      { id: 'mock-mba-4', title: 'CMAT & MAH-CET JBIMS Pack', tags: ['MBA', '₹699'], exam: 'MBA', description: 'Crack secondary MBA entering exams with 25 Full-Length mocks.', features: ['Innovation & Entrepreneurship Section', 'General Awareness Updates', 'Static GK', '25 Full Mocks'] },
-
-      // Police
-      { id: 'mock-pol-1', title: 'UP Police Constable Khaki Batch', tags: ['Police', '₹499'], exam: 'Police', description: '25 Full Mock Tests with specially curated UP State GK & Hindi.', features: ['UP GK Focused', 'Hindi Grammar', 'Reasoning Mocks', '25 Full Tests'] },
-      { id: 'mock-pol-2', title: 'Delhi Police SI (CPO) Target', tags: ['Police', '₹599'], exam: 'Police', description: '20 Tier-1 and 15 Tier-2 English exclusive mocks for CPO aspirants.', features: ['Tier 1 & Tier 2 English', 'General Awareness', 'Physical Standard Guide', 'Prev Papers'] },
-      { id: 'mock-pol-3', title: 'Bihar Police Daroga Selection', tags: ['Police', '₹499'], exam: 'Police', description: 'Crack Bihar SI with 30 bilingual mocks based on recent trends.', features: ['Bihar Specific GK', 'Current Events', 'Quick Mathematics', '30 Full Tests'] },
-      { id: 'mock-pol-4', title: 'Rajasthan Police Guaranteed Prep', tags: ['Police', '₹499'], exam: 'Police', description: '20 Mocks covering deep Rajasthan History, Culture & Police Acts.', features: ['Raj GK Weightage', 'Women & Child Crime Laws', 'State Current Affairs', '20 Full Mocks'] },
-
-      // Railways
-      { id: 'mock-rail-1', title: 'RRB NTPC CBT-1 & CBT-2 Mahapack', tags: ['Railways', '₹599'], exam: 'Railways', description: '40 CBT-1 and 20 CBT-2 Mocks. Best in class General Science coverage.', features: ['60 Total Full Tests', 'General Awareness Exhaustive', 'General Science Module', 'Speed Analytics'] },
-      { id: 'mock-rail-2', title: 'RRB Group D Sure Selection', tags: ['Railways', '₹499'], exam: 'Railways', description: '50 Mock tests focused strictly on Group D level mathematics and science.', features: ['Basic Science Focus', 'Maths Short Tricks', 'Current Affairs PDFs', '50 Full Tests'] },
-      { id: 'mock-rail-3', title: 'RRB ALP Loco Pilot Tech Pack', tags: ['Railways', '₹599'], exam: 'Railways', description: 'Unique package bringing 20 Trade specific technical mocks.', features: ['Trade Specific Mocks', 'Engineering Drawing', 'Basic Electrics/Mechanics', 'CBT 1 + CBT 2'] },
-      { id: 'mock-rail-4', title: 'RRB JE Technical Mastery', tags: ['Railways', '₹699'], exam: 'Railways', description: 'Crack Railway JE with 30 CBT-1 and 15 Branch Specific CBT-2 mocks.', features: ['Civil/Mech/Electrical Domain Tests', 'Non-Tech CBT 1 Mocks', 'Exam UI Experience', 'Detailed Solutions'] },
-
-      // SSC
-      { id: 'mock-ssc-1', title: 'SSC CGL Tier 1 & 2 Officers Batch', tags: ['SSC', '₹799'], exam: 'SSC', description: '40 Tier-1 & 20 Tier-2 mocks based perfectly on TCS updated pattern.', features: ['Tier 2 New Pattern', 'Computer Knowledge Module', 'Advanced Maths Mocks', 'English Comprehension'] },
-      { id: 'mock-ssc-2', title: 'SSC CHSL 10+2 LDC Pack', tags: ['SSC', '₹599'], exam: 'SSC', description: '30 Full length CHSL mocks guaranteed to boost typing and objective score.', features: ['Speed Typing Software Link', 'Vocabulary Building', '30 Full Mocks', 'All India Ranking'] },
-      { id: 'mock-ssc-3', title: 'SSC MTS Havaldar Series', tags: ['SSC', '₹499'], exam: 'SSC', description: 'Simple, accurate and exam-oriented 50 Mocks for MTS.', features: ['Descriptive Guidance', 'General English', 'Simple Maths', '50 Exams Sets'] },
-      { id: 'mock-ssc-4', title: 'SSC GD Constable Fauzi Batch', tags: ['SSC', '₹499'], exam: 'SSC', description: '40 bilingual mocks for GD Constable focusing fully on time management.', features: ['Hindi/English optional tests', 'GS & Current Affairs', 'Elementary Math', 'State Wise Cutoff Analysis'] },
-
-      // State PSC
-      { id: 'mock-psc-1', title: 'UPPSC Prelims & Mains Adhikari', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '20 Prelims GS, 10 CSAT and 15 Mains Mock papers with expert evaluation.', features: ['UP Specific GK', 'CSAT Practice', 'Mains Answer Writing Appraisals', '20 Full Prelims Mocks'] },
-      { id: 'mock-psc-2', title: 'BPSC Prelims Success Series', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '25 Full length Bihar PCS Prelims mock with 5 Option style queries.', features: ['Bihar Economy/Geography', 'History deep dive', 'Option specific mocks', 'Previous 20 yrs papers'] },
-      { id: 'mock-psc-3', title: 'MPPSC Pre+Mains Sankalp Batch', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Includes exclusive Ethics and MP Specific GS Mock Tests.', features: ['MP GK Special', 'Information Technology', 'Ethics/Aptitude Papers', 'Interview prep'] },
-      { id: 'mock-psc-4', title: 'RPSC RAS Complete State Pack', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Deep focus on Rajasthan Economy, Geography and History. 25 Mocks.', features: ['Rajasthan Rich Culture/History', 'Public Administration', 'Detailed Solutions', 'Current Updates'] },
-
-      // Teaching
-      { id: 'mock-teach-1', title: 'CTET Paper 1 & 2 Gurukul Batch', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '30 Full Length CTET sets with top quality Pedagogy (CDP) questions.', features: ['CDP Expert Mocks', 'Maths & EVS', 'Social Science / Science Mocks', 'Language 1 & 2'] },
-      { id: 'mock-teach-2', title: 'KVS/NVS PRT TGT PGT Series', tags: ['Teaching', '₹599'], exam: 'Teaching', description: '20 Central Teaching Mocks heavily focused on Subject Domain.', features: ['Subject Specific Domain', 'Teaching Aptitude', 'Reasoning & Computer', 'Interview Prep'] },
-      { id: 'mock-teach-3', title: 'DSSSB PRT/TGT Delhi Target', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '25 Full Set mocks designed specially along DSSSB strict time limits.', features: ['Post Specific Subject Mocks', 'Part A Comprehensive', 'High Quality UI', 'Previous Years solved'] },
-      { id: 'mock-teach-4', title: 'State TETs (UPTET/REET/HTET)', tags: ['Teaching', '₹499'], exam: 'Teaching', description: 'Local TET examinations mock pack featuring 20 regional level tests.', features: ['State Specific CDP', 'Regional Languages', 'Maths Methodology', '20 Full Section Tests'] },
-
-      // UPSC Civil Services
-      { id: 'mock-upsc-1', title: 'UPSC IAS Prelims 2026 Visionary', tags: ['UPSC', '₹1999'], exam: 'UPSC', description: '35 GS Full Tests & 15 CSAT sets. Highest quality closely matching UPSC standard.', features: ['35 GS Full Tests', '15 CSAT Sets', 'Current Affairs Align', 'Economic Survey & Budget'] },
-      { id: 'mock-upsc-2', title: 'UPSC Mains Answer Writing Pro', tags: ['UPSC', '₹2999'], exam: 'UPSC', description: '20 Full Length Mains evaluations by ex-Babus and top faculties.', features: ['Expert Evaluation', 'Model Answers', 'GS I-IV Coverage', 'Essay Practice'] },
-      { id: 'mock-upsc-3', title: 'UPSC Optional Excellence Mocks', tags: ['UPSC', '₹2499'], exam: 'UPSC', description: '10 exclusive test papers for top scoring optional subjects.', features: ['Paper 1 & Paper 2', 'Previous Year mapping', 'Detailed Feedback', 'Mentor calls'] },
-      { id: 'mock-upsc-4', title: 'UPSC NCERT Build-up Foundation', tags: ['UPSC', '₹999'], exam: 'UPSC', description: 'Strengthen base with 30 Mock Tests sourced purely from Class 6-12 NCERTs.', features: ['Class 6-12 NCERT Tests', 'History & Geo focus', 'Subject-wise modules', 'Self assessment tools'] }
-    ];
 
     const combinedData = recommendedTests.map(t => ({
       ...t, 
@@ -1175,9 +1199,9 @@ export default function StudentDashboard() {
                 <div className="mt-auto pt-4 border-t border-slate-100 flex justify-center">
                   <Link 
                     href={`/series/${test.id}`}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
+                    className={`w-full text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-sm ${myTestSeries.some(s => s.id === test.id) ? 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-600/20' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20'}`}
                   >
-                    Enroll Now <ChevronRight className="w-4 h-4"/>
+                    {myTestSeries.some(s => s.id === test.id) ? 'Open Series' : 'Enroll Now'} <ChevronRight className="w-4 h-4"/>
                   </Link>
                 </div>
               </div>
@@ -1251,15 +1275,21 @@ export default function StudentDashboard() {
                     <p className="text-xs uppercase font-bold text-slate-400 tracking-widest mb-0.5">Package Price</p>
                     <div className="text-3xl font-black text-slate-900">{selectedCourse.tags?.[1] || '₹499'}</div>
                   </div>
-                  <button 
-                    onClick={() => {
-                      initiatePayment(selectedCourse.id, parseInt((selectedCourse.tags?.[1] || '').replace('₹','') || '499'));
-                      setSelectedCourse(null);
-                    }} 
-                    className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95"
-                  >
-                    Enroll Now <ChevronRight className="w-5 h-5"/>
-                  </button>
+                  {myTestSeries.some(s => s.id === selectedCourse.id) ? (
+                    <Link href={`/series/${selectedCourse.id}`} className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95">
+                      Open Series <ChevronRight className="w-5 h-5"/>
+                    </Link>
+                  ) : (
+                    <button 
+                      onClick={() => {
+                        initiatePayment(selectedCourse.id, parseInt((selectedCourse.tags?.[1] || '').replace('₹','') || '499'));
+                        setSelectedCourse(null);
+                      }} 
+                      className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95"
+                    >
+                      Enroll Now <ChevronRight className="w-5 h-5"/>
+                    </button>
+                  )}
                 </div>
               </motion.div>
             </div>
