@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { 
   Lock, FileText, CheckCircle, ChevronLeft, Award, 
@@ -28,6 +28,7 @@ const MOCK_DB: any = {
 
 export default function SeriesPage() {
   const params = useParams();
+  const router = useRouter();
   const seriesId = params.id as string;
   const courseData = MOCK_DB[seriesId] || {
     title: 'Premium Mock Test Series',
@@ -117,12 +118,12 @@ export default function SeriesPage() {
       <header className="bg-white/90 dark:bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <a 
-              href="/dashboard" 
+            <button 
+              onClick={() => router.back()}
               className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
             >
               <ChevronLeft className="w-5 h-5" />
-            </a>
+            </button>
             <h1 className="text-lg font-bold line-clamp-1">{courseData.title}</h1>
           </div>
           
