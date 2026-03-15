@@ -40,6 +40,21 @@ const MOCK_DB: any = {
     ],
     testCount: 35,
     imageUrl: '/vijay-jee-advance.png'
+  },
+  'mock-med-1': {
+    title: 'ExamBoost NEET Shourya Test Series 2026',
+    exam: 'Medical',
+    price: 1499,
+    originalPrice: 2999,
+    description: '40+ Tests + Unlimited Practice. Build your accuracy with tests perfectly simulating the NEET UG exam.',
+    features: [
+      '31 Full NEET Mock Tests',
+      '10 Previous Year Papers',
+      'Unlimited Chapter Wise Tests',
+      'Unlimited Custom Mock Generator'
+    ],
+    testCount: 41,
+    imageUrl: '/Shourya-neet-Series.png'
   }
 };
 
