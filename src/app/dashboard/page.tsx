@@ -65,6 +65,7 @@ export default function StudentDashboard() {
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [editForm, setEditForm] = useState({ name: '', targetExam: '', email: '' });
   const [editingLoading, setEditingLoading] = useState(false);
+  const [editPhotoFile, setEditPhotoFile] = useState<File | null>(null);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -499,21 +500,53 @@ export default function StudentDashboard() {
       emailChanged = true;
     }
 
-    const { error: profileError } = await supabase.from('profiles').update({
+    let newPhotoPath = null;
+    let newAvatarUrl = studentInfo.avatarUrl;
+
+    if (editPhotoFile) {
+      const fileExt = editPhotoFile.name.split('.').pop();
+      const fileName = `${userId}-${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      
+      const { error: uploadError } = await supabase.storage
+        .from('student-photos')
+        .upload(filePath, editPhotoFile);
+
+      if (uploadError) {
+        alert("Error uploading photo: " + uploadError.message);
+        setEditingLoading(false);
+        return;
+      }
+      
+      newPhotoPath = filePath;
+      
+      try {
+        const { data } = supabase.storage.from('student-photos').getPublicUrl(filePath);
+        newAvatarUrl = data?.publicUrl || newAvatarUrl;
+      } catch {}
+    }
+
+    const updatePayload: any = {
       full_name: editForm.name,
       target_exam: editForm.targetExam,
-    }).eq('id', userId);
+    };
+    if (newPhotoPath) {
+      updatePayload.photo_path = newPhotoPath;
+    }
+
+    const { error: profileError } = await supabase.from('profiles').update(updatePayload).eq('id', userId);
 
     if (profileError) {
       alert('Error updating profile details: ' + profileError.message);
     } else {
-      setStudentInfo((prev: any) => ({ ...prev, name: editForm.name, targetExam: editForm.targetExam }));
+      setStudentInfo((prev: any) => ({ ...prev, name: editForm.name, targetExam: editForm.targetExam, avatarUrl: newAvatarUrl }));
       if (emailChanged) {
         alert('Profile updated! A verification link has been sent to your new email. Please click the link in your email inbox to confirm the change.');
       } else {
         alert('Profile updated successfully!');
       }
       setIsEditingProfile(false);
+      setEditPhotoFile(null);
     }
     setEditingLoading(false);
   };
@@ -1141,6 +1174,7 @@ export default function StudentDashboard() {
               <button 
                 onClick={() => {
                   setEditForm({ name: studentInfo.name, targetExam: studentInfo.targetExam, email: userEmail });
+                  setEditPhotoFile(null);
                   setIsEditingProfile(true);
                 }}
                 className="bg-white border-2 border-slate-200 text-slate-700 px-6 py-2.5 rounded-lg font-bold mt-4 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto"
@@ -1163,6 +1197,25 @@ export default function StudentDashboard() {
             </button>
           </div>
           <div className="p-6 space-y-4">
+            <div className="flex flex-col items-center mb-4">
+              <div className="w-20 h-20 rounded-full bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center text-slate-400 font-bold mb-3">
+                 {editPhotoFile ? (
+                   <img src={URL.createObjectURL(editPhotoFile)} alt="Preview" className="w-full h-full object-cover" />
+                 ) : studentInfo.avatarUrl ? (
+                   <img src={studentInfo.avatarUrl} alt="Current" className="w-full h-full object-cover" />
+                 ) : (
+                   studentInfo.name.charAt(0)
+                 )}
+              </div>
+              <label className="cursor-pointer text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors border border-indigo-100">
+                Change Photo
+                <input type="file" accept="image/*" className="hidden" onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setEditPhotoFile(e.target.files[0]);
+                  }
+                }} />
+              </label>
+            </div>
             <div>
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Full Name</label>
               <input 
