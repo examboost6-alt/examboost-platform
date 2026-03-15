@@ -22,7 +22,8 @@ const MOCK_DB: any = {
       'Detailed Text & Video Solutions by top educators', 
       'All India Rank (AIR) Prediction & Percentile'
     ],
-    testCount: 15
+    testCount: 15,
+    imageUrl: '/Shikhar%20JEE%20Main%202026%20Test%20Series%20image.png'
   }
 };
 
@@ -261,14 +262,19 @@ export default function SeriesPage() {
               <div className="bg-white dark:bg-[#111827] rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] border border-slate-200/80 dark:border-slate-800/80 overflow-hidden">
                 
                 {/* Image / Graphic placeholder */}
-                <div className="h-40 sm:h-48 bg-slate-100 dark:bg-slate-800 relative w-full flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-indigo-600/5 mix-blend-multiply dark:mix-blend-lighten"></div>
-                  {/* Vector-like edtech background pattern */}
-                  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '16px 16px' }}></div>
-                  <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-2xl shadow-sm rotate-3 flex items-center justify-center border border-slate-200 dark:border-slate-800 z-10 transition-transform hover:rotate-6">
-                    <PlayCircle className="w-10 h-10 text-indigo-500" />
+                {courseData.imageUrl ? (
+                  <div className="h-40 sm:h-48 bg-slate-100 dark:bg-slate-800 relative w-full flex items-center justify-center overflow-hidden">
+                    <img src={courseData.imageUrl} alt={courseData.title} className="w-full h-full object-cover" />
                   </div>
-                </div>
+                ) : (
+                  <div className="h-40 sm:h-48 bg-slate-100 dark:bg-slate-800 relative w-full flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 bg-indigo-600/5 mix-blend-multiply dark:mix-blend-lighten"></div>
+                    <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '16px 16px' }}></div>
+                    <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-2xl shadow-sm rotate-3 flex items-center justify-center border border-slate-200 dark:border-slate-800 z-10 transition-transform hover:rotate-6">
+                      <PlayCircle className="w-10 h-10 text-indigo-500" />
+                    </div>
+                  </div>
+                )}
 
                 <div className="p-6">
                   <div className="flex items-end gap-3 mb-2">
