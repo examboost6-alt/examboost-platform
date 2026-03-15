@@ -93,10 +93,10 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className="antialiased font-sans">
+            <body className="antialiased font-sans overflow-x-hidden">
                 <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
                     <Navbar />
-                    <main>{children}</main>
+                    <main className="overflow-x-hidden flex-1">{children}</main>
                     <Footer />
                 </ThemeProvider>
             </body>
