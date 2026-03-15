@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import { 
   Lock, FileText, CheckCircle, ChevronLeft, Award, 
   Sun, Moon, Clock, BarChart, Calendar, ShieldCheck, 
-  PlayCircle, BookOpen, AlertCircle
+  PlayCircle, BookOpen, AlertCircle, CheckCircle2
 } from 'lucide-react';
 
 const MOCK_DB: any = {
@@ -249,6 +249,114 @@ export default function SeriesPage() {
                         </button>
                       </div>
                     ))}
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'syllabus' && (
+                <div className="animate-in fade-in duration-500 space-y-8">
+                  <div className="flex items-center justify-between mb-2">
+                    <div>
+                      <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Full Official Syllabus</h2>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Based on the latest NTA 2026 guidelines</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 p-4 rounded-xl flex gap-3">
+                    <div className="mt-0.5"><CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" /></div>
+                    <div>
+                        <h4 className="font-bold text-emerald-900 dark:text-emerald-300">100% Updated Content</h4>
+                        <p className="text-emerald-800 dark:text-emerald-400 font-medium mt-1 text-sm">All our mock tests are mapped strictly to this exact syllabus.</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    {/* Physics */}
+                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                          <div className="w-2 h-6 bg-blue-500 rounded-full"></div> Physics
+                        </div>
+                        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div>
+                                <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Mechanics</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Kinematics</li><li>• Laws of Motion</li><li>• Work Energy Power</li><li>• Rotational Motion</li><li>• Gravitation</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Heat & Thermodynamics</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Thermodynamics</li><li>• Kinetic Theory of Gases</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Electricity & Magnetism</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Electrostatics</li><li>• Current Electricity</li><li>• Magnetism</li><li>• EMI & AC</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Modern Physics</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Dual Nature of Matter</li><li>• Atoms and Nuclei</li><li>• Semiconductors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Chemistry */}
+                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                          <div className="w-2 h-6 bg-emerald-500 rounded-full"></div> Chemistry
+                        </div>
+                        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div>
+                                <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Physical Chemistry</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Mole Concept</li><li>• Thermodynamics</li><li>• Equilibrium</li><li>• Electrochemistry</li><li>• Chemical Kinetics</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Organic Chemistry</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Hydrocarbons</li><li>• Alcohols & Ethers</li><li>• Aldehydes & Ketones</li><li>• Carboxylic Acids</li><li>• Biomolecules</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Inorganic Chemistry</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Chemical Bonding</li><li>• Coordination Compounds</li><li>• Periodic Table</li><li>• p-Block & d-Block</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Maths */}
+                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                          <div className="w-2 h-6 bg-rose-500 rounded-full"></div> Mathematics
+                        </div>
+                        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div>
+                                <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Algebra</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Complex Numbers</li><li>• Quadratic Equations</li><li>• Matrices & Determinants</li><li>• P & C</li><li>• Probability</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Calculus</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Limits & Derivates</li><li>• Indefinite Integration</li><li>• Definite Integration</li><li>• Differential Equations</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Coordinate Geometry</h5>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
+                                    <li>• Straight Lines</li><li>• Circles</li><li>• Conic Sections</li><li>• Vectors & 3D Geometry</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
               )}
