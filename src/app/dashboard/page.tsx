@@ -47,7 +47,7 @@ export default function StudentDashboard() {
   const [userEmail, setUserEmail] = useState<string>('');
 
   const [studentInfo, setStudentInfo] = useState<any>({
-    name: "Student", targetExam: "Not Set", progress: 0,
+    name: "Student", targetExam: "Not Set", progress: 0, avatarUrl: null,
     stats: { testsAttempted: 0, accuracy: 0, rank: 0, timeSpent: "0h" }
   });
   const [myTestSeries, setMyTestSeries] = useState<any[]>([]);
@@ -97,6 +97,16 @@ export default function StudentDashboard() {
         setUserEmail('');
       }
 
+      const getPublicAvatarUrl = (photoPath: string | undefined) => {
+        if (!photoPath) return null;
+        try {
+          const { data } = supabase.storage.from('student-photos').getPublicUrl(photoPath);
+          return data?.publicUrl || null;
+        } catch {
+          return null;
+        }
+      };
+
       const { data: profileData } = await supabase.from('profiles').select('*').eq('id', uid).maybeSingle();
       const profile = profileData as any;
       if (profile) {
@@ -104,6 +114,7 @@ export default function StudentDashboard() {
           ...prev,
           name: profile.full_name || 'Student',
           targetExam: profile.target_exam || 'Not Set',
+          avatarUrl: getPublicAvatarUrl(profile.photo_path),
         }));
       }
 
@@ -285,16 +296,6 @@ export default function StudentDashboard() {
           if (p.photo_path) photoById.set(String(p.id), String(p.photo_path));
         });
       }
-
-      const getPublicAvatarUrl = (photoPath: string | undefined) => {
-        if (!photoPath) return null;
-        try {
-          const { data } = supabase.storage.from('student-photos').getPublicUrl(photoPath);
-          return data?.publicUrl || null;
-        } catch {
-          return null;
-        }
-      };
 
       const rows = topRows.map((r: any, idx: number) => {
         const id = String(r.user_id);
@@ -1052,8 +1053,12 @@ export default function StudentDashboard() {
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/3 space-y-4 text-center md:text-left">
           <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center relative overflow-hidden">
-            <div className="w-24 h-24 bg-slate-100 text-slate-400 border border-slate-200 rounded-full flex items-center justify-center text-4xl font-bold mb-4">
-              {studentInfo.name.charAt(0)}
+            <div className="w-24 h-24 bg-slate-100 text-slate-400 border border-slate-200 rounded-full flex items-center justify-center text-4xl font-bold mb-4 overflow-hidden">
+              {studentInfo.avatarUrl ? (
+                <img src={studentInfo.avatarUrl} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                studentInfo.name.charAt(0)
+              )}
             </div>
             <h2 className="text-xl font-bold text-slate-800 tracking-tight">{studentInfo.name}</h2>
             <p className="text-slate-500 font-medium text-sm mb-4">{userEmail || '—'}</p>
@@ -1205,8 +1210,12 @@ export default function StudentDashboard() {
                 onClick={() => setActiveTab('profile')}
                 className="flex items-center gap-2.5 hover:bg-slate-100 p-1.5 pr-4 rounded-full transition-colors border border-transparent hover:border-slate-200"
              >
-               <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow-sm z-10">
-                 {(studentInfo.name || 'S').charAt(0)}
+               <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow-sm z-10 overflow-hidden shrink-0">
+                 {studentInfo.avatarUrl ? (
+                   <img src={studentInfo.avatarUrl} alt="Profile" className="w-full h-full object-cover" />
+                 ) : (
+                   (studentInfo.name || 'S').charAt(0)
+                 )}
                </div>
                <span className="font-semibold text-sm text-slate-700 hidden md:block">{studentInfo.name}</span>
              </button>
