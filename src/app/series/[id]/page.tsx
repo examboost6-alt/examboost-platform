@@ -191,6 +191,10 @@ export default function SeriesPage() {
         body: JSON.stringify({ amount: courseData.price, courseId: seriesId }),
       });
       const orderData = await orderRes.json();
+      if (!orderData.success) {
+        alert("Order creation failed: " + (orderData.error || "Unknown error"));
+        return;
+      }
 
       if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
         alert("Razorpay Key is missing in environment variables. Please add NEXT_PUBLIC_RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to .env.local");
@@ -199,11 +203,11 @@ export default function SeriesPage() {
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        amount: orderData.amount,
-        currency: orderData.currency,
+        amount: orderData.order.amount,
+        currency: orderData.order.currency,
         name: "ExamBoost Platform",
         description: `Purchase: ${courseData.title}`,
-        order_id: orderData.id,
+        order_id: orderData.order.id,
         handler: async function (response: any) {
           const verifyRes = await fetch('/api/razorpay/verify', {
             method: 'POST',
