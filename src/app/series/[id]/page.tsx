@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { 
@@ -249,7 +250,7 @@ export default function SeriesPage() {
   };
 
   const tests = Array.from({ length: courseData.testCount }).map((_, i) => ({
-    id: i + 1,
+    id: `${seriesId}-test-${i + 1}`,
     title: `${courseData.exam} Full Mock Test - ${i + 1}`,
     questions: 90,
     marks: 300,
@@ -395,11 +396,12 @@ export default function SeriesPage() {
                           </div>
                         </div>
                         {!test.isLocked ? (
-                          <button 
+                          <Link 
+                            href={`/test/${test.id}/instructions`}
                             className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-indigo-200 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 font-bold text-sm flex items-center justify-center gap-2 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all shrink-0"
                           >
                             <PlayCircle className="w-4 h-4" /> Start
-                          </button>
+                          </Link>
                         ) : (
                           <button 
                             onClick={initiatePayment} 
