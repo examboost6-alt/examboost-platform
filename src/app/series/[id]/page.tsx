@@ -11,7 +11,7 @@ import {
 
 const MOCK_DB: any = {
   'mock-eng-1': {
-    title: 'Lakshya JEE Main 2026 Test Series',
+    title: 'Shikhar JEE Main 2026 Test Series',
     exam: 'Engineering',
     price: 1299,
     originalPrice: 2999,
