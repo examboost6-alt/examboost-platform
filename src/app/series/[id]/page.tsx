@@ -25,6 +25,21 @@ const MOCK_DB: any = {
     ],
     testCount: 15,
     imageUrl: '/shikhar-jee.png'
+  },
+  'mock-eng-2': {
+    title: 'Vijay IIT Advance 2026 Test Series',
+    exam: 'Engineering',
+    price: 1999,
+    originalPrice: 3999,
+    description: '35+ Tests + Unlimited Practice exclusively for JEE Advanced',
+    features: [
+      '25 Full JEE Advanced Mocks',
+      '10 Previous Year Papers',
+      'Unlimited Chapter Wise Tests',
+      'Unlimited Custom Mock Generator'
+    ],
+    testCount: 35,
+    imageUrl: '/vijay-jee-advance.png'
   }
 };
 
