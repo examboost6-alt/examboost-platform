@@ -20,7 +20,7 @@ const MOCK_DB: any = {
     features: [
       '15 Full-Length Mocks strictly based on latest NTA pattern', 
       'Advanced Accuracy & Time Analytics', 
-      'Complete Attempt History & Deep Insights', 
+      'AI Auto Generated Chapter-wise Questions', 
       'All India Rank (AIR) Prediction & Percentile'
     ],
     testCount: 15,
