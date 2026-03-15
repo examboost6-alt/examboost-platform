@@ -34,6 +34,7 @@ import {
   Flame,
   CheckCircle,
   Trophy,
+  Home,
 } from "lucide-react";
 
 // --- Real Data Setup ---
@@ -1496,6 +1497,9 @@ export default function StudentDashboard() {
            </div>
            
            <div className="flex items-center gap-2.5 md:gap-4">
+             <button aria-label="Go to Home" className="relative p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-full transition-colors" onClick={() => router.push('/')}>
+               <Home className="w-5 h-5" />
+             </button>
              <button aria-label="Open notifications" className="relative p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-full transition-colors" onClick={() => setActiveTab('notifications')}>
                <Bell className="w-5 h-5" />
                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
