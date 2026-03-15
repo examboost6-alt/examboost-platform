@@ -254,7 +254,7 @@ export default function SeriesPage() {
     questions: 90,
     marks: 300,
     duration: '180 Mins',
-    isLocked: !isPurchased
+    isLocked: i === 0 ? false : !isPurchased // First mock is free
   }));
 
   if (!isClient) return null;
