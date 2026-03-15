@@ -23,7 +23,7 @@ const MOCK_DB: any = {
       'All India Rank (AIR) Prediction & Percentile'
     ],
     testCount: 15,
-    imageUrl: '/Shikhar%20JEE%20Main%202026%20Test%20Series%20image.png'
+    imageUrl: '/shikhar-jee.png'
   }
 };
 
