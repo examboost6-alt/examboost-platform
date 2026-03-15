@@ -503,54 +503,56 @@ export default function StudentDashboard() {
       emailChanged = true;
     }
 
-    let newPhotoPath = null;
     let newAvatarUrl = studentInfo.avatarUrl;
 
-    if (editPhotoFile) {
-      const fileExt = editPhotoFile.name.split('.').pop();
-      const fileName = `${userId}-${Math.random()}.${fileExt}`;
-      const filePath = `${fileName}`;
-      
-      const { error: uploadError } = await supabase.storage
-        .from('student-photos')
-        .upload(filePath, editPhotoFile);
-
-      if (uploadError) {
-        alert("Error uploading photo: " + uploadError.message);
-        setEditingLoading(false);
-        return;
-      }
-      
-      newPhotoPath = filePath;
-      
-      try {
-        const { data } = supabase.storage.from('student-photos').getPublicUrl(filePath);
-        newAvatarUrl = data?.publicUrl || newAvatarUrl;
-      } catch {}
-    }
-
     const updatePayload: any = {
+      id: userId,
       full_name: editForm.name,
       target_exam: editForm.targetExam,
     };
-    if (newPhotoPath) {
-      updatePayload.photo_path = newPhotoPath;
-    }
 
-    const { error: profileError } = await supabase.from('profiles').update(updatePayload).eq('id', userId);
+    if (editPhotoFile) {
+      const formData = new FormData();
+      formData.append('photoFile', editPhotoFile);
+      formData.append('updatePayload', JSON.stringify(updatePayload));
 
-    if (profileError) {
-      alert('Error updating profile details: ' + profileError.message);
-    } else {
-      setStudentInfo((prev: any) => ({ ...prev, name: editForm.name, targetExam: editForm.targetExam, avatarUrl: newAvatarUrl }));
-      if (emailChanged) {
-        alert('Profile updated! A verification link has been sent to your new email. Please click the link in your email inbox to confirm the change.');
-      } else {
-        alert('Profile updated successfully!');
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      
+      const res = await fetch('/api/student/update-photo', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      const resData = await res.json();
+      if (!res.ok) {
+        alert("Error updating profile and photo: " + (resData.error || 'Unknown error'));
+        setEditingLoading(false);
+        return;
       }
-      setIsEditingProfile(false);
-      setEditPhotoFile(null);
+
+      newAvatarUrl = resData.publicUrl || newAvatarUrl;
+    } else {
+      const { error: profileError } = await supabase.from('profiles').update(updatePayload).eq('id', userId);
+      if (profileError) {
+        alert('Error updating profile details: ' + profileError.message);
+        setEditingLoading(false);
+        return;
+      }
     }
+
+    setStudentInfo((prev: any) => ({ ...prev, name: editForm.name, targetExam: editForm.targetExam, avatarUrl: newAvatarUrl }));
+
+    if (emailChanged) {
+      alert('Profile updated! A verification link has been sent to your new email. Please click the link in your email inbox to confirm the change.');
+    } else {
+      alert('Profile updated successfully!');
+    }
+    setIsEditingProfile(false);
+    setEditPhotoFile(null);
     setEditingLoading(false);
   };
 
