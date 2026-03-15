@@ -1153,7 +1153,7 @@ export default function StudentDashboard() {
                 <img 
                   src={(test as any).imageUrl || `https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800&sat=-50`} 
                   alt={test.title}
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  onError={(e) => { e.currentTarget.style.opacity = '0.5'; }}
                   className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
