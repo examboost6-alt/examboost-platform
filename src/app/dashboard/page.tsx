@@ -1001,29 +1001,99 @@ export default function StudentDashboard() {
   const AllCoursesModule = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedExam, setSelectedExam] = useState("All");
+    const [selectedCourse, setSelectedCourse] = useState<any>(null); // For detail modal
 
     const mockPackages = [
-      { id: 'mock-1', title: 'JEE Main 2026 Abhyas Batch', tags: ['JEE Main', '₹499'], exam: 'JEE Main', description: 'Complete mock tests based on latest NTA pattern.' },
-      { id: 'mock-2', title: 'JEE Advanced Rank Booster', tags: ['JEE Advanced', '₹999'], exam: 'JEE Advanced', description: 'Toughest problems with step-by-step video solutions.' },
-      { id: 'mock-3', title: 'NEET UG 2026 NCERT Line-by-Line', tags: ['NEET UG', '₹599'], exam: 'NEET UG', description: 'Biology, Physics & Chemistry complete full coverage package.' },
-      { id: 'mock-4', title: 'B.Sc Nursing Entrance Target', tags: ['Nursing', '₹299'], exam: 'Nursing', description: 'Specifically designed for AIIMS & State Nursing.' },
-      { id: 'mock-5', title: 'CUET 2026 Science Stream', tags: ['CUET', '₹399'], exam: 'CUET', description: 'Domain subjects test series.' },
-      { id: 'mock-6', title: 'Bitsat Speed & Accuracy Pack', tags: ['BITSAT', '₹499'], exam: 'BITSAT', description: 'Logical reasoning and English included.' },
-      { id: 'mock-7', title: 'General SSC CGL Pre + Mains', tags: ['SSC', '₹299'], exam: 'SSC', description: 'Top rated SSC CGL prep material.' }
+      // Engineering
+      { id: 'mock-eng-1', title: 'JEE Main 2026 Core Mock Tests', tags: ['Engineering', '₹499'], exam: 'Engineering', description: '100+ Full-length tests aligned with latest NTA pattern.', features: ['100+ Tests', 'Detailed Video Solutions', 'All India Rank Prediction', 'Chapter-wise Analysis'] },
+      { id: 'mock-eng-2', title: 'JEE Advanced Rank Booster', tags: ['Engineering', '₹999'], exam: 'Engineering', description: 'Advanced level problem solving for IIT aspirants.', features: ['50 Advanced Mocks', 'Step-by-step Hints', 'Topper Benchmarking', 'Toughest Questions Compilation'] },
+      { id: 'mock-eng-3', title: 'BITSAT Speed & Accuracy Pack', tags: ['Engineering', '₹599'], exam: 'Engineering', description: 'Focus on speed with English and Logical Reasoning included.', features: ['20 Full Mocks', 'Speed Analytics', 'LR & English Sectional', 'Previous Papers'] },
+      { id: 'mock-eng-4', title: 'State Engineering Exams (MHT CET, KCET)', tags: ['Engineering', '₹399'], exam: 'Engineering', description: 'Target specific state engineering entrance exams.', features: ['State Specific Mocks', 'Local Syllabus Alignment', 'Performance Tracking', 'Doubt Support'] },
+      
+      // Medical
+      { id: 'mock-med-1', title: 'NEET UG 2026 Ultimate Mocks', tags: ['Medical', '₹599'], exam: 'Medical', description: 'NCERT line-by-line questions for ultimate NEET preparation.', features: ['150+ NCERT Based Tests', 'Biology Flashcards', 'Assertion-Reason Bank', 'National Level Percentile'] },
+      { id: 'mock-med-2', title: 'AIIMS Target Batch Tests', tags: ['Medical', '₹799'], exam: 'Medical', description: 'High difficulty tests to secure AIIMS Delhi & top medical colleges.', features: ['AIIMS specific pattern', 'Clinical reasoning questions', 'Expert Mentorship', 'Detailed Explanations'] },
+      { id: 'mock-med-3', title: 'B.Sc Nursing Entrance Target', tags: ['Medical', '₹299'], exam: 'Medical', description: 'Curated for State and Central Nursing Entrance exams.', features: ['100+ Topic Tests', 'General Knowledge Section', 'Aptitude Practice', 'Live Doubt Resolution'] },
+      { id: 'mock-med-4', title: 'JIPMER/AFMC Special Pack', tags: ['Medical', '₹499'], exam: 'Medical', description: 'Specialized focus for unique medical entrances.', features: ['English Proficiency Tests', 'Logic & Aptitude', 'Full-Length Mocks', 'Past 10 Years Analysis'] },
+
+      // Banking
+      { id: 'mock-bank-1', title: 'SBI PO Pre + Mains Test Series', tags: ['Banking', '₹399'], exam: 'Banking', description: 'Comprehensive preparation for SBI Probationary Officer.', features: ['50 Pre & 20 Mains Mocks', 'Latest Descriptive Papers', 'Banking Awareness Module', 'Interview Guide'] },
+      { id: 'mock-bank-2', title: 'IBPS Clerk Guarantee Pack', tags: ['Banking', '₹249'], exam: 'Banking', description: 'Maximize your chances with high repetition question models.', features: ['100 Sectional Tests', 'Speed Math Practice', 'Memory Based Papers', 'Detailed Solutions'] },
+      { id: 'mock-bank-3', title: 'RBI Grade B Phase I & II', tags: ['Banking', '₹899'], exam: 'Banking', description: 'Premium package for RBI Grade B Officers.', features: ['ESI & FM Notes', 'Management Modules', 'Phase 1 Speed Mocks', 'Current Affairs Weekly Analysis'] },
+      { id: 'mock-bank-4', title: 'RRB PO/Clerk Regional Batch', tags: ['Banking', '₹199'], exam: 'Banking', description: 'Specially designed for rural bank exams featuring Hindi/Computer.', features: ['Computer Awareness Tests', 'Hindi Language Mocks', 'State-wise Cutoffs Tracker', 'Bilingual Papers'] },
+
+      // CUET
+      { id: 'mock-cuet-1', title: 'CUET 2026 Science Domain', tags: ['CUET', '₹349'], exam: 'CUET', description: 'Test pack for Physics, Chemistry, Biology/Maths.', features: ['Domain Specific Practice', 'NCERT Synced', 'Computer Based Test UI', 'Detailed Answer Key'] },
+      { id: 'mock-cuet-2', title: 'CUET Commerce Stream Package', tags: ['CUET', '₹349'], exam: 'CUET', description: 'Accountancy, Business Studies & Economics Mocks.', features: ['Latest NTA Pattern', 'Case Study Based Questions', 'Speed Analytics', 'Video Solutions'] },
+      { id: 'mock-cuet-3', title: 'CUET Arts & Humanities Target', tags: ['CUET', '₹299'], exam: 'CUET', description: 'History, Geography, Political Science comprehensively covered.', features: ['Timeline/Map Based Questions', 'Deep Subject Analysis', '15 Full Mocks per Subject', 'Doubt Forum'] },
+      { id: 'mock-cuet-4', title: 'CUET General Test & Language', tags: ['CUET', '₹199'], exam: 'CUET', description: 'General Knowledge, Quantitative, Reasoning & English/Hindi.', features: ['Daily Vocab Tests', 'Current Affairs PDFs', '50 Full General Tests', 'Grammar Modules'] },
+
+      // Law
+      { id: 'mock-law-1', title: 'CLAT Ultimate Preparation Plan', tags: ['Law', '₹799'], exam: 'Law', description: 'Master National Law University Entrance with reading comprehension focus.', features: ['30 Full Mock Tests', 'Legal Reasoning Deep Dive', 'Current Affairs & GK Compendium', 'Passage Based Mocks'] },
+      { id: 'mock-law-2', title: 'AILET Rankers Pack', tags: ['Law', '₹699'], exam: 'Law', description: 'Specialized strategy for NLU Delhi entrance.', features: ['Speed & Accuracy Analytics', 'Logical Reasoning Hacks', 'English Comprehensive Tests', 'Previous Papers'] },
+      { id: 'mock-law-3', title: 'State Law/MH-CET (Law)', tags: ['Law', '₹399'], exam: 'Law', description: 'State specific legal tests for Top regional colleges.', features: ['General Legal Knowledge', 'Static GK', 'Bilingual Tests', 'Regional Focus'] },
+      { id: 'mock-law-4', title: 'LSAT India specific Pack', tags: ['Law', '₹899'], exam: 'Law', description: 'Analytical thinking and advanced logical evaluation preparation.', features: ['Analytical Reasoning Drills', 'Critical Read & Understand', 'Exam Simulation UI', 'Personalized Feedback'] },
+
+      // MBA
+      { id: 'mock-mba-1', title: 'CAT 2026 Masterclass Tests', tags: ['MBA', '₹1299'], exam: 'MBA', description: 'High-level QA, VARC, and DILR preparation.', features: ['30 Pro Mocks', 'Detailed VARC Analysis', 'DILR Sets Variations', 'Top IIM Mentors'] },
+      { id: 'mock-mba-2', title: 'XAT Elite Score Pack', tags: ['MBA', '₹899'], exam: 'MBA', description: 'Decision making and XLRI targeted tests.', features: ['Decision Making Cases', 'Advanced GK', 'Essay Writing Practice', 'Percentile Predictor'] },
+      { id: 'mock-mba-3', title: 'NMAT/SNAP Speed Series', tags: ['MBA', '₹599'], exam: 'MBA', description: 'Optimize your speed for NMAT and SNAP.', features: ['Adaptive Test Simulation', 'Speed Vocab', 'Quick DI Practice', 'Sectional Timers'] },
+      { id: 'mock-mba-4', title: 'CMAT/MAT/MAH-CET Prep', tags: ['MBA', '₹499'], exam: 'MBA', description: 'Essential mocks for secondary management entrances.', features: ['Innovation & Entrepreneurship Section', 'General Awareness Updates', 'Static GK', '100+ Topic Tests'] },
+
+      // Police
+      { id: 'mock-pol-1', title: 'UP Police Constable Target', tags: ['Police', '₹149'], exam: 'Police', description: 'UP highly anticipated exam complete test series.', features: ['UP GK Focused', 'Hindi Grammar', 'Reasoning Mocks', 'Sectional Tests'] },
+      { id: 'mock-pol-2', title: 'Delhi Police SI (CPO)', tags: ['Police', '₹199'], exam: 'Police', description: 'Central Police Organization comprehensive package.', features: ['Tier 1 & Tier 2 English', 'General Awareness', 'Physical Standard Guide', 'Prev Papers'] },
+      { id: 'mock-pol-3', title: 'Bihar Police SI & Constable', tags: ['Police', '₹149'], exam: 'Police', description: 'Bilingual mock tests with Bihar specific focus.', features: ['Bihar Specific GK', 'Current Events', 'Quick Mathematics', '100% Exam Pattern'] },
+      { id: 'mock-pol-4', title: 'Rajasthan Police (Constable/SI)', tags: ['Police', '₹149'], exam: 'Police', description: 'Complete mock tests covering Rajasthan History & Culture.', features: ['Raj GK Weightage', 'Women & Child Crime Laws', 'State Current Affairs', 'Full Mocks'] },
+
+      // Railways
+      { id: 'mock-rail-1', title: 'RRB NTPC CBT 1 & 2', tags: ['Railways', '₹199'], exam: 'Railways', description: 'Non-Technical Popular Categories ultimate mocks.', features: ['100+ Full Tests', 'General Awareness Exhaustive', 'General Science', 'Speed Analytics'] },
+      { id: 'mock-rail-2', title: 'RRB Group D Target Series', tags: ['Railways', '₹99'], exam: 'Railways', description: 'Most affordable and accurate test series for Group D.', features: ['Basic Science Focus', 'Maths Short Tricks', 'Current Affairs PDFs', 'Score Tracking'] },
+      { id: 'mock-rail-3', title: 'RRB ALP (Assistant Loco Pilot)', tags: ['Railways', '₹249'], exam: 'Railways', description: 'Includes technical trade tests specific to ALP.', features: ['Trade Specific Mocks', 'Engineering Drawing', 'Basic Electrics/Mechanics', 'CBT 1 + CBT 2'] },
+      { id: 'mock-rail-4', title: 'RRB JE Technical + Non-Tech', tags: ['Railways', '₹349'], exam: 'Railways', description: 'Junior Engineer preparation across all disciplines.', features: ['Civil/Mech/Electrical Domain Tests', 'Non-Tech CBT 1 Mocks', 'Exam UI Experience', 'Solutions'] },
+
+      // SSC
+      { id: 'mock-ssc-1', title: 'SSC CGL Tier 1 & Tier 2', tags: ['SSC', '₹299'], exam: 'SSC', description: 'Complete coverage of Combined Graduate Level.', features: ['Tier 2 New Pattern', 'Computer Knowledge', 'Advanced Maths Mocks', 'English Comprehension'] },
+      { id: 'mock-ssc-2', title: 'SSC CHSL 10+2 Ultimate', tags: ['SSC', '₹199'], exam: 'SSC', description: 'Best testing material for CHSL.', features: ['Speed Typing Software Link', 'Vocabulary Building', 'Live Mocks', 'All India Ranking'] },
+      { id: 'mock-ssc-3', title: 'SSC MTS (Multi Tasking Staff)', tags: ['SSC', '₹99'], exam: 'SSC', description: 'Focus on core basics and scoring maximum.', features: ['Descriptive Guidance', 'General English', 'Simple Maths', '100+ Chapter Tests'] },
+      { id: 'mock-ssc-4', title: 'SSC GD Constable Premium', tags: ['SSC', '₹149'], exam: 'SSC', description: 'Bilingual testing for Paramilitary Forces Aspirants.', features: ['Hindi/English optional tests', 'GS & Current Affairs', 'Elementary Math', 'State Wise Cutoff Analysis'] },
+
+      // State PSC
+      { id: 'mock-psc-1', title: 'UPPSC Prelims + Mains', tags: ['State PSC', '₹899'], exam: 'State PSC', description: 'Complete state civil services exam test series.', features: ['UP Specific GK', 'CSAT Practice', 'Mains Answer Writing Appraisals', 'Full Length Mocks'] },
+      { id: 'mock-psc-2', title: 'BPSC (Bihar Public Service)', tags: ['State PSC', '₹899'], exam: 'State PSC', description: 'Integrated package for Bihar PCS.', features: ['Bihar Economy/Geography', 'History deep dive', 'Option specific mocks', 'Previous 20 yrs papers'] },
+      { id: 'mock-psc-3', title: 'MPPSC Complete Test Series', tags: ['State PSC', '₹899'], exam: 'State PSC', description: 'Covering MP specific topics extensively.', features: ['MP GK Special', 'Information Technology', 'Ethics/Aptitude Papers', 'Interview prep'] },
+      { id: 'mock-psc-4', title: 'RPSC RAS Pre & Mains', tags: ['State PSC', '₹899'], exam: 'State PSC', description: 'Rajasthan Administrative Services detailed mocks.', features: ['Rajasthan Rich Culture/History', 'Public Administration', 'Detailed Solutions', 'Current Updates'] },
+
+      // Teaching
+      { id: 'mock-teach-1', title: 'CTET Paper 1 & Paper 2', tags: ['Teaching', '₹249'], exam: 'Teaching', description: 'Child Development and Pedagogy exhaustive practice.', features: ['CDP Expert Mocks', 'Maths & EVS', 'Social Science / Science Mocks', 'Language 1 & 2'] },
+      { id: 'mock-teach-2', title: 'KVS/NVS TGT PGT PRT', tags: ['Teaching', '₹349'], exam: 'Teaching', description: 'Kendriya Vidyalaya Target Series.', features: ['Subject Specific Domain', 'Teaching Aptitude', 'Reasoning & Computer', 'Interview Prep'] },
+      { id: 'mock-teach-3', title: 'DSSSB PRT/TGT Target Box', tags: ['Teaching', '₹299'], exam: 'Teaching', description: 'Delhi Subordinate Services Selection Board specific.', features: ['Post Specific Subject Mocks', 'Part A Comprehensive', 'High Quality UI', 'Previous Years solved'] },
+      { id: 'mock-teach-4', title: 'State TETs (UPTET/REET/HTET)', tags: ['Teaching', '₹199'], exam: 'Teaching', description: 'State specific teacher eligibility tests.', features: ['State Specific CDP', 'Regional Languages', 'Maths Methodology', 'Full Section Tests'] },
+
+      // UPSC Civil Services
+      { id: 'mock-upsc-1', title: 'UPSC IAS Prelims Target 2026', tags: ['UPSC', '₹1499'], exam: 'UPSC', description: 'General Studies and CSAT premium mocks.', features: ['35 GS Full Tests', '15 CSAT Sets', 'Current Affairs Align', 'Economic Survey & Budget'] },
+      { id: 'mock-upsc-2', title: 'UPSC Mains Answer Writing', tags: ['UPSC', '₹2999'], exam: 'UPSC', description: 'Daily and Full Length Mains evaluation.', features: ['Expert Evaluation', 'Model Answers', 'GS I-IV Coverage', 'Essay Practice'] },
+      { id: 'mock-upsc-3', title: 'UPSC Optional Subject Mocks', tags: ['UPSC', '₹1999'], exam: 'UPSC', description: 'PSIR, Geography, Sociology, History options.', features: ['Paper 1 & Paper 2', 'Previous Year mapping', 'Detailed Feedback', 'Mentor calls'] },
+      { id: 'mock-upsc-4', title: 'UPSC NCERT Build-up Pack', tags: ['UPSC', '₹499'], exam: 'UPSC', description: 'Test your foundation before advanced prep.', features: ['Class 6-12 NCERT Tests', 'History & Geo focus', 'Subject-wise modules', 'Self assessment tools'] }
     ];
 
-    const combinedData = recommendedTests.map(t => ({...t, exam: t.tags?.[0] || 'Other', description: t.reason }));
+    const combinedData = recommendedTests.map(t => ({
+      ...t, 
+      exam: t.tags?.[0] || 'Other', 
+      description: t.reason,
+      features: ['Full Length Subject Mocks', 'Detailed Performance Analysis', 'All India Benchmarking']
+    }));
     
     // Inject mocks if not present in DB to guarantee visual richness
     const merged = [...combinedData];
     mockPackages.forEach(m => {
       // Very basic collision checks
       if (!merged.find(db => db.title.toLowerCase().includes(m.exam.toLowerCase()) && db.tags?.[0] === m.exam)) {
-        merged.push({ id: m.id, title: m.title, tags: m.tags, exam: m.exam, reason: m.description, description: m.description });
+        merged.push({ id: m.id, title: m.title, tags: m.tags, exam: m.exam, reason: m.description, description: m.description, features: m.features });
       }
     });
 
-    const exams = ["All", "JEE Main", "JEE Advanced", "NEET UG", "Nursing", "CUET", "BITSAT", "SSC", "Other"];
+    const exams = ["All", "Engineering", "Medical", "Banking", "CUET", "Law", "MBA", "Police", "Railways", "SSC", "State PSC", "Teaching", "UPSC"];
 
     const filtered = merged.filter(test => {
       const matchSearch = test.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -1076,8 +1146,8 @@ export default function StudentDashboard() {
               <p className="text-slate-500 font-medium max-w-sm">We couldn't find any courses matching your search. Try adjusting your query or selected exam filter.</p>
             </div>
           ) : filtered.map((test, i) => (
-            <div key={test.id} className="bg-white rounded-2xl border border-slate-200/60 transition-all hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 group flex flex-col overflow-hidden">
-              <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
+            <div key={test.id} className="bg-white rounded-2xl border border-slate-200/60 transition-all shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 group flex flex-col overflow-hidden">
+              <div className="relative h-44 w-full bg-slate-100 overflow-hidden cursor-pointer" onClick={() => setSelectedCourse(test)}>
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-slate-100 group-hover:scale-105 transition-transform duration-700"></div>
                 <img 
                   src={`https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800&sat=-50`} 
@@ -1087,9 +1157,12 @@ export default function StudentDashboard() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
                 
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 justify-between w-full px-4 flex">
                   <span className="bg-white/95 backdrop-blur-sm text-indigo-700 text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm">
                     {test.tags?.[0] || 'Premium'}
+                  </span>
+                  <span className="bg-emerald-500 text-white text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm">
+                    {test.tags?.[1] || '₹499'}
                   </span>
                 </div>
               </div>
@@ -1098,14 +1171,16 @@ export default function StudentDashboard() {
                 <h3 className="font-bold text-lg mb-2 text-slate-900 tracking-tight leading-snug line-clamp-2">{test.title}</h3>
                 <p className="text-sm text-slate-500 font-medium mb-6 line-clamp-2 leading-relaxed">{test.description || test.reason}</p>
                 
-                <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <div>
-                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-0.5">Price</p>
-                    <div className="text-xl font-black text-slate-900">{test.tags?.[1] || '₹499'}</div>
-                  </div>
+                <div className="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3">
+                  <button 
+                    onClick={() => setSelectedCourse(test)} 
+                    className="flex-1 text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 font-bold py-2.5 px-4 rounded-xl transition-all text-sm"
+                  >
+                    View Details
+                  </button>
                   <button 
                     onClick={() => initiatePayment(test.id, parseInt((test.tags?.[1] || '').replace('₹','') || '499'))} 
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 font-bold py-2.5 px-6 rounded-xl transition-all flex items-center justify-center gap-2 active:scale-95"
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 text-sm"
                   >
                     Enroll <ChevronRight className="w-4 h-4"/>
                   </button>
@@ -1114,6 +1189,87 @@ export default function StudentDashboard() {
             </div>
           ))}
         </div>
+
+        {/* View Details Modal */}
+        <AnimatePresence>
+          {selectedCourse && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overflow-x-hidden bg-slate-900/60 backdrop-blur-sm p-4">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 flex flex-col max-h-[90vh]"
+              >
+                {/* Modal Header inside image */}
+                <div className="relative h-56 w-full bg-slate-100 overflow-hidden shrink-0">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800&sat=-50`} 
+                    alt={selectedCourse.title}
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-70" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                  
+                  <button 
+                    onClick={() => setSelectedCourse(null)} 
+                    className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full text-white transition-colors z-10"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <span className="inline-block bg-indigo-500 text-white text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm mb-3">
+                      {selectedCourse.tags?.[0] || 'Premium Series'}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tight">{selectedCourse.title}</h2>
+                  </div>
+                </div>
+
+                {/* Modal Body */}
+                <div className="p-6 md:p-8 overflow-y-auto bg-slate-50 flex-1">
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm mb-6">
+                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">About Test Series</h3>
+                    <p className="text-slate-700 font-medium leading-relaxed">{selectedCourse.description || selectedCourse.reason}</p>
+                  </div>
+
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm">
+                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">What's Included</h3>
+                    <ul className="grid sm:grid-cols-2 gap-4">
+                      {selectedCourse.features?.map((feature: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-semibold text-slate-700">{feature}</span>
+                        </li>
+                      )) || (
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-semibold text-slate-700">Everything needed to ace your exam.</span>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Modal Footer */}
+                <div className="p-6 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+                  <div className="text-center sm:text-left">
+                    <p className="text-xs uppercase font-bold text-slate-400 tracking-widest mb-0.5">Package Price</p>
+                    <div className="text-3xl font-black text-slate-900">{selectedCourse.tags?.[1] || '₹499'}</div>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      initiatePayment(selectedCourse.id, parseInt((selectedCourse.tags?.[1] || '').replace('₹','') || '499'));
+                      setSelectedCourse(null);
+                    }} 
+                    className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95"
+                  >
+                    Enroll Now <ChevronRight className="w-5 h-5"/>
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
     );
   };
