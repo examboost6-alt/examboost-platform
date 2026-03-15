@@ -16,11 +16,11 @@ const MOCK_DB: any = {
     exam: 'Engineering',
     price: 1299,
     originalPrice: 2999,
-    description: 'Experience the real NTA interface with 15 Full-Syllabus and 30 Part-Syllabus premium mock tests.',
+    description: 'Experience the real NTA interface with 15 Premium Full-Length Mock Tests exclusively for JEE Main preparation.',
     features: [
-      '15 Full-Length Mocks based on latest NTA pattern', 
-      '30 Part-Syllabus Tests for topic-wise mastery', 
-      'Detailed Text & Video Solutions by top educators', 
+      '15 Full-Length Mocks strictly based on latest NTA pattern', 
+      'Advanced Accuracy & Time Analytics', 
+      'Complete Attempt History & Deep Insights', 
       'All India Rank (AIR) Prediction & Percentile'
     ],
     testCount: 15,
