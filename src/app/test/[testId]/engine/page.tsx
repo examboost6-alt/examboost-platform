@@ -17,7 +17,7 @@ export default function NTA_JEETestEngineWrapper() {
     );
 }
 
-import { jeeSubjectsList, neetSubjectsList, jeeMockQuestions, neetMockQuestions, QuestionType } from '../mockData';
+import { jeeSubjectsList, neetSubjectsList, getJeeMockQuestions, neetMockQuestions, QuestionType } from '../mockData';
 
 
 function JEE_NTA_TestEngine() {
@@ -27,7 +27,7 @@ function JEE_NTA_TestEngine() {
     const testId = (params?.testId as string) || '';
     const isNeet = testId.includes('med');
     
-    const mockQuestions = isNeet ? neetMockQuestions : jeeMockQuestions;
+    const mockQuestions = isNeet ? neetMockQuestions : getJeeMockQuestions(testId);
     const subjectsList = isNeet ? neetSubjectsList : jeeSubjectsList;
     const examName = isNeet ? 'NEET UG' : 'JEE MAIN';
     const examPaperName = isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1';
