@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams, useParams } from 'next/navigation';
-import { 
-    CheckCircle2, 
+import {
+    CheckCircle2,
     Menu,
     X,
 } from 'lucide-react';
@@ -26,12 +26,12 @@ function JEE_NTA_TestEngine() {
     const params = useParams();
     const testId = (params?.testId as string) || '';
     const isNeet = testId.includes('med');
-    
+
     const mockQuestions = isNeet ? neetMockQuestions : getJeeMockQuestions(testId);
     const subjectsList = isNeet ? neetSubjectsList : jeeSubjectsList;
     const examName = isNeet ? 'NEET UG' : 'JEE MAIN';
     const examPaperName = isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1';
-    
+
     const defaultLang = searchParams.get('lang') === 'hindi' ? 'hindi' : 'english';
 
     const [userName, setUserName] = useState("Candidate");
@@ -40,11 +40,11 @@ function JEE_NTA_TestEngine() {
     const [timeLeft, setTimeLeft] = useState((isNeet ? 200 : 180) * 60); // 200 mins for NEET, 180 mins for JEE
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isMobilePaletteOpen, setIsMobilePaletteOpen] = useState(false);
-    
+
     // State for questions
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [questionLang, setQuestionLang] = useState<'english' | 'hindi'>(defaultLang);
-    
+
     const [responses, setResponses] = useState<Record<number, number | string>>({});
     const [status, setStatus] = useState<Record<number, string>>({
         [mockQuestions[0].id]: 'not_answered'
@@ -66,7 +66,7 @@ function JEE_NTA_TestEngine() {
                 }
                 if (data?.photo_path) {
                     const { data: publicData } = supabase.storage.from('student-photos').getPublicUrl(data.photo_path);
-                    if(publicData?.publicUrl) setAvatarUrl(publicData.publicUrl);
+                    if (publicData?.publicUrl) setAvatarUrl(publicData.publicUrl);
                 }
             }
         };
@@ -124,7 +124,7 @@ function JEE_NTA_TestEngine() {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
     };
-    
+
     const goToPrevQuestion = () => {
         if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -219,14 +219,14 @@ function JEE_NTA_TestEngine() {
             });
 
             sessionStorage.setItem('examResponses', JSON.stringify(responses));
-            
+
             // Save to LocalStorage History Log
             try {
                 const attemptId = Date.now();
                 const seriesId = testId.split('-test')[0];
                 const historyKey = `exam_history_${seriesId}`;
                 const existingHistory = JSON.parse(localStorage.getItem(historyKey) || '[]');
-                
+
                 const newAttempt = {
                     testId,
                     attemptId,
@@ -238,10 +238,10 @@ function JEE_NTA_TestEngine() {
                     isNeet,
                     responses
                 };
-                
+
                 existingHistory.push(newAttempt);
                 localStorage.setItem(historyKey, JSON.stringify(existingHistory));
-                
+
                 setIsSubmitted(true);
                 setTimeout(() => {
                     router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}`);
@@ -296,7 +296,7 @@ function JEE_NTA_TestEngine() {
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-black text-slate-900 mb-3">Test Submitted!</h1>
                     <p className="text-slate-500 text-sm sm:text-base font-medium mb-8">Your responses have been recorded successfully. Analytics are being generated.</p>
-                    
+
                     <div className="bg-slate-50 p-4 rounded-xl mb-8 flex justify-between px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700">
                         <div className="text-center">
                             <span className="block text-xl sm:text-2xl mb-1 text-emerald-600">{counts.answered + counts.answeredMarked}</span>
@@ -312,7 +312,7 @@ function JEE_NTA_TestEngine() {
                         </div>
                     </div>
 
-                    <button 
+                    <button
                         disabled
                         className="w-full bg-[#337ab7] text-white font-bold py-3.5 sm:py-4 rounded-xl shadow-lg opacity-80 text-sm sm:text-base cursor-wait"
                     >
@@ -338,7 +338,7 @@ function JEE_NTA_TestEngine() {
                     </div>
                 </div>
             </header>
-            
+
             <div className="flex flex-1 overflow-hidden relative">
                 {/* Left Panel */}
                 <div className="flex-1 flex flex-col border-r border-[#ccc] min-w-0 bg-[#f9f9f9] lg:bg-white z-10 w-full lg:w-auto">
@@ -353,15 +353,15 @@ function JEE_NTA_TestEngine() {
                         {/* Mobile right panel toggler in header */}
                         <div className="lg:hidden">
                             <button onClick={() => setIsMobilePaletteOpen(true)} className="bg-[#2B579A] p-2 text-white rounded">
-                                 <Menu className="w-5 h-5" />
+                                <Menu className="w-5 h-5" />
                             </button>
                         </div>
                     </div>
-                    
+
                     {/* Subject Tabs */}
                     <div className="bg-[#f0f0f0] flex px-2 pt-2 border-b-2 border-[#2B579A] shrink-0 overflow-x-auto hide-scrollbar">
                         {subjectsList.map(sub => (
-                            <button 
+                            <button
                                 key={sub}
                                 onClick={() => handleSubjectChange(sub)}
                                 className={`px-4 md:px-8 py-2 md:py-2.5 font-bold rounded-t-md border-t border-l border-r mr-1 whitespace-nowrap outline-none transition-colors ${activeSubject === sub ? 'bg-[#2B579A] text-white border-[#2B579A]' : 'bg-[#e0e0e0] text-[#333] border-[#ccc] hover:bg-[#d0d0d0]'}`}
@@ -376,7 +376,7 @@ function JEE_NTA_TestEngine() {
                         <div className="font-bold text-red-600 text-xs md:text-sm">Question Type : {currentQuestion.type === 'MCQ' ? 'Multiple Choice Question' : 'Numerical Value Type'}</div>
                         <div className="flex items-center gap-2">
                             <span className="text-blue-600 font-semibold text-xs md:text-sm whitespace-nowrap hidden sm:inline">View In : </span>
-                            <select 
+                            <select
                                 value={questionLang}
                                 onChange={(e) => setQuestionLang(e.target.value as 'english' | 'hindi')}
                                 className="border border-[#ccc] px-2 py-1 text-xs md:text-sm font-semibold rounded outline-none w-[100px] md:w-[120px] bg-white"
@@ -404,16 +404,16 @@ function JEE_NTA_TestEngine() {
                                 return (
                                     <label key={opt.id} className={`flex items-start gap-4 cursor-pointer p-4 rounded-md transition-colors border ${isSelected ? 'border-blue-300 bg-blue-50' : 'border-transparent hover:bg-gray-50'}`}>
                                         <div className="flex-shrink-0 pt-0.5">
-                                            <input 
-                                                type="radio" 
-                                                name={`option-${currentQuestion.id}`} 
+                                            <input
+                                                type="radio"
+                                                name={`option-${currentQuestion.id}`}
                                                 checked={isSelected}
                                                 onChange={() => handleOptionSelect(opt.id)}
-                                                className="w-5 h-5 text-[#2B579A] border-gray-400 focus:ring-[#2B579A] cursor-pointer" 
+                                                className="w-5 h-5 text-[#2B579A] border-gray-400 focus:ring-[#2B579A] cursor-pointer"
                                             />
                                         </div>
                                         <div className="flex items-start gap-3">
-                                            <span className="font-bold text-gray-700 min-w-[20px] text-base md:text-lg">{idx+1})</span>
+                                            <span className="font-bold text-gray-700 min-w-[20px] text-base md:text-lg">{idx + 1})</span>
                                             <span className="text-gray-900 font-medium text-base md:text-lg font-serif">
                                                 {questionLang === 'hindi' ? opt.textHi : opt.textEn}
                                             </span>
@@ -421,12 +421,12 @@ function JEE_NTA_TestEngine() {
                                     </label>
                                 );
                             })}
-                            
+
                             {currentQuestion.type === 'Numerical' && (
                                 <div className="mt-4">
                                     <label className="block text-gray-700 font-bold mb-2">Enter your answer:</label>
-                                    <input 
-                                        type="number" 
+                                    <input
+                                        type="number"
                                         value={(responses[currentQuestion.id] as string) || ''}
                                         onChange={(e) => handleNumericalInput(e.target.value)}
                                         className="border-2 border-gray-300 p-2 rounded-md outline-none focus:border-[#2B579A] w-full max-w-xs text-base md:text-lg"
@@ -467,11 +467,11 @@ function JEE_NTA_TestEngine() {
 
                 {/* Right Panel */}
                 <div className={`absolute lg:relative inset-y-0 right-0 z-50 w-[300px] lg:w-[320px] bg-[#e4e8eb] flex flex-col shrink-0 transform transition-transform duration-300 ${isMobilePaletteOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} shadow-2xl lg:shadow-none border-l border-[#ccc]`}>
-                    
+
                     {/* Profile Section */}
                     <div className="p-3 bg-white border-b border-[#ccc] flex flex-col shrink-0">
                         <div className="flex justify-end lg:hidden mb-1">
-                             <button onClick={() => setIsMobilePaletteOpen(false)} className="bg-gray-200 text-gray-700 p-1.5 rounded"><X className="w-4 h-4"/></button>
+                            <button onClick={() => setIsMobilePaletteOpen(false)} className="bg-gray-200 text-gray-700 p-1.5 rounded"><X className="w-4 h-4" /></button>
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="w-[85px] h-[85px] bg-white border border-[#ccc] p-0.5 shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
@@ -490,29 +490,29 @@ function JEE_NTA_TestEngine() {
 
                     {/* Status Legends */}
                     <div className="p-2 md:p-3 bg-white grid grid-cols-2 gap-x-2 gap-y-2 text-[11px] md:text-xs border-b border-[#ccc] shrink-0 font-bold text-[#555] shadow-sm">
-                       <div className="flex items-center gap-2 overflow-hidden">
-                           <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#f1f1f1] text-black border border-[#d4d4d4] rounded shadow-sm shrink-0">{counts.notVisited}</div>
-                           <span className="leading-tight truncate">Not Visited</span>
-                       </div>
-                       <div className="flex items-center gap-2 overflow-hidden">
-                           <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#e74c3c] text-white rounded-b-lg rounded-t-sm shadow-sm shrink-0">{counts.notAnswered}</div>
-                           <span className="leading-tight truncate">Not Answered</span>
-                       </div>
-                       <div className="flex items-center gap-2 overflow-hidden">
-                           <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#2ecc71] text-white rounded-t-lg rounded-b-sm shadow-sm shrink-0">{counts.answered}</div>
-                           <span className="leading-tight truncate">Answered</span>
-                       </div>
-                       <div className="flex items-center gap-2 overflow-hidden">
-                           <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#9b59b6] text-white rounded-full shadow-sm shrink-0">{counts.marked}</div>
-                           <span className="leading-tight truncate">Marked for Review</span>
-                       </div>
-                       <div className="flex items-start md:items-center gap-2 col-span-2 mt-1 bg-gray-50 p-1.5 border border-gray-100 rounded">
-                           <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#9b59b6] text-white rounded-full relative shrink-0 shadow-sm mt-0.5 md:mt-0">
-                               {counts.answeredMarked}
-                               <div className="absolute bottom-0 -right-0.5 w-[10px] h-[10px] bg-[#2ecc71] rounded-full border border-white"></div>
-                           </div>
-                           <span className="leading-tight text-[10px] md:text-[11px] pr-1">Answered & Marked for Review (will be considered for evaluation)</span>
-                       </div>
+                        <div className="flex items-center gap-2 overflow-hidden">
+                            <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#f1f1f1] text-black border border-[#d4d4d4] rounded shadow-sm shrink-0">{counts.notVisited}</div>
+                            <span className="leading-tight truncate">Not Visited</span>
+                        </div>
+                        <div className="flex items-center gap-2 overflow-hidden">
+                            <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#e74c3c] text-white rounded-b-lg rounded-t-sm shadow-sm shrink-0">{counts.notAnswered}</div>
+                            <span className="leading-tight truncate">Not Answered</span>
+                        </div>
+                        <div className="flex items-center gap-2 overflow-hidden">
+                            <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#2ecc71] text-white rounded-t-lg rounded-b-sm shadow-sm shrink-0">{counts.answered}</div>
+                            <span className="leading-tight truncate">Answered</span>
+                        </div>
+                        <div className="flex items-center gap-2 overflow-hidden">
+                            <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#9b59b6] text-white rounded-full shadow-sm shrink-0">{counts.marked}</div>
+                            <span className="leading-tight truncate">Marked for Review</span>
+                        </div>
+                        <div className="flex items-start md:items-center gap-2 col-span-2 mt-1 bg-gray-50 p-1.5 border border-gray-100 rounded">
+                            <div className="w-[28px] h-[26px] md:w-8 md:h-[28px] flex items-center justify-center font-bold bg-[#9b59b6] text-white rounded-full relative shrink-0 shadow-sm mt-0.5 md:mt-0">
+                                {counts.answeredMarked}
+                                <div className="absolute bottom-0 -right-0.5 w-[10px] h-[10px] bg-[#2ecc71] rounded-full border border-white"></div>
+                            </div>
+                            <span className="leading-tight text-[10px] md:text-[11px] pr-1">Answered & Marked for Review (will be considered for evaluation)</span>
+                        </div>
                     </div>
 
                     {/* Section Label */}
@@ -528,7 +528,7 @@ function JEE_NTA_TestEngine() {
                                 const isActive = currentQuestion.id === q.id;
                                 const shapeClass = getStatusShapeClasses(q.id);
                                 return (
-                                    <button 
+                                    <button
                                         key={q.id}
                                         onClick={() => navToQuestion(mockQuestions.findIndex(mq => mq.id === q.id))}
                                         className={`w-[42px] h-[36px] flex items-center justify-center font-bold text-sm md:text-[15px] transition-all relative mx-auto ${shapeClass} ${isActive ? 'ring-2 ring-[#000] ring-offset-2 z-10 scale-[1.05] font-black' : 'hover:brightness-95 shadow-[0_1px_2px_rgba(0,0,0,0.15)]'}`}
@@ -545,12 +545,12 @@ function JEE_NTA_TestEngine() {
 
                     {/* Submit Button */}
                     <div className="bg-[#f5f5f5] p-3 md:p-4 shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
-                         <button 
-                            onClick={handleSubmit} 
+                        <button
+                            onClick={handleSubmit}
                             className="bg-[#5cb85c] hover:bg-[#4cae4c] w-full text-white py-3 rounded font-bold text-base border border-[#4cae4c] shadow-[0_2px_4px_rgba(0,0,0,0.2)] uppercase tracking-wider transition-colors active:translate-y-px"
-                         >
+                        >
                             Submit Test
-                         </button>
+                        </button>
                     </div>
 
                 </div>
@@ -558,7 +558,7 @@ function JEE_NTA_TestEngine() {
 
             {/* Mobile Overlay */}
             {isMobilePaletteOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm"
                     onClick={() => setIsMobilePaletteOpen(false)}
                 />
