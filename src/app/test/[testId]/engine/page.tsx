@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import { 
     CheckCircle2, 
     Menu,
     X,
 } from 'lucide-react';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 
 export default function NTA_JEETestEngineWrapper() {
     return (
@@ -16,18 +17,185 @@ export default function NTA_JEETestEngineWrapper() {
     );
 }
 
-// Generate some mock questions (90 for JEE: 30 Math, 30 Physics, 30 Chem)
-const subjectsList = ['Physics', 'Chemistry', 'Mathematics'];
-const mockQuestions = Array.from({ length: 90 }).map((_, i) => {
+// Generate some mock questions (75 for JEE: 25 Math, 25 Physics, 25 Chem)
+const jeeSubjectsList = ['Physics', 'Chemistry', 'Mathematics'];
+
+type QuestionType = {
+    id: number;
+    subject: string;
+    type: 'MCQ' | 'Numerical';
+    textEn: string;
+    textHi: string;
+    options?: { id: number; textEn: string; textHi: string }[];
+    correctOption?: number;
+    correctAnswer?: string;
+};
+
+const chemistryQuestions = [
+    { type: 'MCQ', text: "The central atom in IF₅ has:", options: ["Square pyramidal shape, 1 lone pair", "Trigonal bipyramidal, 2 lone pairs", "Square pyramidal, 1 lone pair", "Octahedral, 0 lone pairs"], ans: 3 },
+    { type: 'MCQ', text: "[Co(NH₃)₅Cl]SO₄ and [Co(NH₃)₅SO₄]Cl are:", options: ["Coordination isomers", "Ionization isomers", "Geometrical isomers", "Linkage isomers"], ans: 2 },
+    { type: 'MCQ', text: "In white phosphorus, each P atom is linked with:", options: ["3 other P atoms", "4 other P atoms", "2 other P atoms", "1 other P atom"], ans: 1 },
+    { type: 'MCQ', text: "Which is anti-aromatic?", options: ["Cyclobutadiene", "Benzene", "Cyclopropenyl cation", "Annulene"], ans: 1 },
+    { type: 'MCQ', text: "For 2SO₂ + O₂ ⇌ 2SO₃, Kp/Kc =", options: ["RT^{-1/2}", "RT^{1/2}", "RT", "1"], ans: 1 },
+    { type: 'MCQ', text: "Equivalent weight of KMnO₄ in acidic medium = M/", options: ["5", "3", "1", "6"], ans: 1 },
+    { type: 'MCQ', text: "Benzene + CH₃Cl/AlCl₃ → Toluene. Next Cl₂/FeCl₃ → major product?", options: ["o/p-chlorotoluene", "m-chlorotoluene", "1,3-dichlorobenzene", "Benzyl chloride"], ans: 1 },
+    { type: 'MCQ', text: "In [Ni(CN)₄]²⁻, Ni is:", options: ["sp³, paramagnetic", "dsp², diamagnetic", "dsp², paramagnetic", "sp³, diamagnetic"], ans: 2 },
+    { type: 'MCQ', text: "For endothermic reaction, ΔH >0, ΔS>0, spontaneous at:", options: ["Low T", "High T", "All T", "No T"], ans: 2 },
+    { type: 'MCQ', text: "Bond order in NO⁺:", options: ["2.5", "3", "2", "1.5"], ans: 2 },
+    { type: 'MCQ', text: "CH₃CH₂Br + alc. KOH → major?", options: ["CH₂=CH₂", "CH₃CH₂OH", "CH₃CHO", "CH₃CH₃"], ans: 1 },
+    { type: 'MCQ', text: "Which has highest +I effect?", options: ["-NH₂", "-OH", "-CH₃", "-OR"], ans: 3 },
+    { type: 'MCQ', text: "E° cell >0 means:", options: ["Spontaneous", "Non-spontaneous", "ΔG=0", "Equilibrium"], ans: 1 },
+    { type: 'MCQ', text: "Order of acidity: HF > H₂O > NH₃ > CH₄ Reason:", options: ["Bond strength", "Electronegativity", "Size", "Resonance"], ans: 1 },
+    { type: 'MCQ', text: "α-amino acids exist as:", options: ["Zwitterions", "Cations", "Anions", "Neutral"], ans: 1 },
+    { type: 'MCQ', text: "CCP packing efficiency:", options: ["74%", "68%", "52%", "34%"], ans: 1 },
+    { type: 'MCQ', text: "For zero order, t½ ∝", options: ["[A]⁰", "[A]", "1/[A]", "1/[A]²"], ans: 1 },
+    { type: 'MCQ', text: "Lyophilic sols are:", options: ["Reversible", "Irreversible", "Coagulating", "Hydrophobic"], ans: 1 },
+    { type: 'MCQ', text: "Colour in KMnO₄ due to:", options: ["d-d transition", "Charge transfer", "f-f", "LMCT"], ans: 2 },
+    { type: 'MCQ', text: "Nylon-6,6 from:", options: ["Hexamethylenediamine + Adipic acid", "Caprolactam", "Phenol + Formaldehyde", "Styrene"], ans: 1 },
+    { type: 'Numerical', text: "6.023×10²³ molecules of N₂ occupy 11.2 L at STP. Volume of 34g NH₃ at STP?", ans: "44.8" },
+    { type: 'Numerical', text: "For 2HI ⇌ H₂ + I₂, Kc=0.02 at 500K. If [HI]₀=4M, equilibrium [H₂]?", ans: "0.4" },
+    { type: 'Numerical', text: "For Zn | Zn²⁺(0.1M) || Cu²⁺(1M) | Cu, E_cell if E°=1.1V. (RT/F=0.06)", ans: "1.14" },
+    { type: 'Numerical', text: "18g glucose in 200g water, ΔT_b=0.52K. Molal elevation constant?", ans: "0.52" },
+    { type: 'Numerical', text: "t½=10 min for first order. Time for 75% decomposition?", ans: "20" }
+];
+
+const mathQuestions = [
+    { type: 'MCQ', text: "Let R be a relation on Z defined by xRy if x² - y² is divisible by 5. The relation R is:", options: ["Reflexive only", "Symmetric only", "Transitive only", "Equivalence"], ans: 4 },
+    { type: 'MCQ', text: "If z + 1/z = 1, then the value of z²⁰²⁶ + 1/z²⁰²⁶ is:", options: ["1", "-1", "2", "-2"], ans: 2 },
+    { type: 'MCQ', text: "If A = [1 2; 0 1], then Aⁿ is equal to:", options: ["[1 2ⁿ; 0 1]", "[1 2n; 0 1]", "[n 2n; 0 n]", "[1 n²; 0 1]"], ans: 2 },
+    { type: 'MCQ', text: "If the system of equations x+y+z=6, x+2y+3z=10, x+2y+λz=μ has infinite solutions, then λ + μ is:", options: ["10", "11", "12", "13"], ans: 4 },
+    { type: 'MCQ', text: "If α, β are roots of x² - 6x - 2 = 0 and aₙ = αⁿ - βⁿ, then (a₁₀ - 2a₈) / 2a₉ is:", options: ["1", "2", "3", "4"], ans: 3 },
+    { type: 'MCQ', text: "The sum of the series 1 + (1+2)/2 + (1+2+3)/4 + ... up to infinity is:", options: ["2", "3", "4", "6"], ans: 3 },
+    { type: 'MCQ', text: "lim(x→0) [cos(sin x) - 1] / x² is:", options: ["1", "-1", "-1/2", "1/2"], ans: 3 },
+    { type: 'MCQ', text: "If f(x) = |x-1| + |x-2|, then f(x) is not differentiable at:", options: ["x=1 only", "x=2 only", "x=1 and x=2", "All x"], ans: 3 },
+    { type: 'MCQ', text: "If y = tan⁻¹((√(1+x²) - 1)/x), then dy/dx at x=0 is:", options: ["1", "1/2", "0", "Does not exist"], ans: 2 },
+    { type: 'MCQ', text: "∫ dx / (x(xⁿ+1)) is:", options: ["(1/n)ln|xⁿ+1| + C", "(1/n)ln|xⁿ/(xⁿ+1)| + C", "ln|xⁿ+1| + C", "None"], ans: 2 },
+    { type: 'MCQ', text: "∫[0 to π/2] (sin¹⁰⁰x) / (sin¹⁰⁰x + cos¹⁰⁰x) dx is:", options: ["π", "π/2", "π/4", "0"], ans: 3 },
+    { type: 'MCQ', text: "The solution of dy/dx + y/x = x² is:", options: ["xy = x³/3 + C", "xy = x⁴/4 + C", "y = x³ + C", "xy = x² + C"], ans: 2 },
+    { type: 'MCQ', text: "The distance of the point (1, 2) from the line 3x+4y+9=0 is:", options: ["2", "3", "4", "5"], ans: 3 },
+    { type: 'MCQ', text: "The number of common tangents to circles x²+y²=4 and x²+y²-6x-8y+24=0 is:", options: ["1", "2", "3", "4"], ans: 4 },
+    { type: 'MCQ', text: "The length of latus rectum of y² - 4y - 8x + 12 = 0 is:", options: ["4", "8", "12", "2"], ans: 2 },
+    { type: 'MCQ', text: "If a, b are unit vectors and |a+b| = 1, then angle between them is:", options: ["60°", "90°", "120°", "180°"], ans: 3 },
+    { type: 'MCQ', text: "The distance between parallel planes 2x-y+2z+3=0 and 4x-2y+4z-6=0 is:", options: ["1", "2", "3", "4"], ans: 2 },
+    { type: 'MCQ', text: "The variance of first 10 natural numbers is:", options: ["7.25", "8.25", "9.25", "10.25"], ans: 2 },
+    { type: 'MCQ', text: "If P(A) = 0.4, P(B) = 0.6 and A, B are independent, then P(A ∪ B) is:", options: ["1", "0.24", "0.76", "0.8"], ans: 3 },
+    { type: 'MCQ', text: "The principal value of sin⁻¹(sin 2π/3) is:", options: ["2π/3", "π/3", "-π/3", "π/6"], ans: 2 },
+    { type: 'Numerical', text: "Find the coefficient of x⁷ in the expansion of (1+x)¹⁰.", ans: "120" },
+    { type: 'Numerical', text: "Find the area bounded by y² = 4x and x=1.", ans: "2.67" },
+    { type: 'Numerical', text: "Total number of 4-digit numbers that can be formed using digits {1, 2, 3, 4} without repetition.", ans: "24" },
+    { type: 'Numerical', text: "Find the shortest distance between lines (x-1)/1 = (y-2)/1 = (z-3)/1 and (x-1)/2 = (y-2)/2 = (z-3)/2.", ans: "0" },
+    { type: 'Numerical', text: "If a = i + j + k and b = i + 2j + 3k, then find the value of |a × b|².", ans: "6" }
+];
+
+const physicsQuestions = [
+    { type: 'MCQ', text: "Photoelectric effect me stopping potential kis par depend karta hai?", options: ["Intensity", "Frequency", "Work function only", "Frequency aur work function"], ans: 4 },
+    { type: 'MCQ', text: "Ek wire ki length double aur radius half kar diya jaye, resistance kya hoga?", options: ["Same", "Double", "8 times", "16 times"], ans: 4 },
+    { type: 'MCQ', text: "Uniformly charged spherical shell ke andar electric field kya hota hai?", options: ["Zero", "Constant", "Linearly increase", "Infinite"], ans: 1 },
+    { type: 'MCQ', text: "Velocity-time graph ka slope kya deta hai?", options: ["Velocity", "Displacement", "Acceleration", "Force"], ans: 3 },
+    { type: 'MCQ', text: "Isothermal process me work done kya hota hai?", options: ["Zero", "Maximum", "Minimum", "Path par depend karta hai"], ans: 2 },
+    { type: 'MCQ', text: "Moving charge magnetic field me kya experience karta hai?", options: ["Electric force", "Magnetic force", "Gravitational force", "No force"], ans: 2 },
+    { type: 'MCQ', text: "Convex mirror me image kaisa hota hai?", options: ["Real aur inverted", "Virtual aur erect", "Real aur erect", "Virtual aur inverted"], ans: 2 },
+    { type: 'MCQ', text: "Wave speed kis par depend karta hai?", options: ["Frequency", "Amplitude", "Medium", "Time"], ans: 3 },
+    { type: 'MCQ', text: "SHM me restoring force kis par depend karta hai?", options: ["Constant", "Displacement ke proportional", "Inversely proportional", "Zero"], ans: 2 },
+    { type: 'MCQ', text: "Force ka dimension kya hai?", options: ["MLT^-2", "ML^2T^-2", "MLT^-1", "ML^2T^-3"], ans: 1 },
+    { type: 'MCQ', text: "Escape velocity kis par depend nahi karta?", options: ["Mass", "Radius", "Height", "Gravitational constant"], ans: 3 },
+    { type: 'MCQ', text: "Parallel plate capacitor me dielectric daalne par capacitance kya hota hai?", options: ["Decrease", "Increase", "Same", "Zero"], ans: 2 },
+    { type: 'MCQ', text: "Torque ka formula kya hai?", options: ["p x E", "r x F", "m x v", "F x r"], ans: 2 },
+    { type: 'MCQ', text: "Diode ka main use kya hai?", options: ["Amplification", "Rectification", "Oscillation", "Storage"], ans: 2 },
+    { type: 'MCQ', text: "Conduction me heat transfer kaise hota hai?", options: ["Mass transfer ke saath", "Without mass transfer", "Radiation se", "Convection se"], ans: 2 },
+    { type: 'MCQ', text: "EM waves me kaun transverse hota hai?", options: ["Keval Electric field", "Keval Magnetic field", "Electric aur Magnetic field dono", "Koi field nahi"], ans: 3 },
+    { type: 'MCQ', text: "Work-energy theorem kya hai?", options: ["Work = Change in momentum", "Work = Change in kinetic energy", "Work = Change in potential energy", "Work = Constant energy"], ans: 2 },
+    { type: 'MCQ', text: "Centripetal force ki direction kya hoti hai?", options: ["Center se door", "Center ki taraf", "Velocity ke parallel", "Radius ke perpendicular"], ans: 2 },
+    { type: 'MCQ', text: "Bernoulli principle kis par valid hai?", options: ["Compressible fluid", "Incompressible fluid", "Static fluid", "Non-viscous gas only"], ans: 2 },
+    { type: 'MCQ', text: "Percentage error addition me kya rule hai?", options: ["Relative errors add hote hain", "Absolute errors add hote hain", "Errors cancel hote hain", "Errors multiply hote hain"], ans: 2 },
+    { type: 'Numerical', text: "Work function = 4 eV aur photon energy = 6 eV, kinetic energy kya hogi (eV me)?", ans: "2" },
+    { type: 'Numerical', text: "2 ohm aur 3 ohm parallel me ho to equivalent resistance kya hoga?", ans: "1.2" },
+    { type: 'Numerical', text: "Acceleration = 2 m/s^2 aur time = 5 s, final velocity kya hogi?", ans: "10" },
+    { type: 'Numerical', text: "2 microfarad aur 2 microfarad series me ho to equivalent capacitance kya hoga?", ans: "1" },
+    { type: 'Numerical', text: "g = 10 m/s^2 aur height double ho jaye to new g kya hoga?", ans: "2.5" }
+];
+
+const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
     let subject = 'Physics';
-    if (i >= 30 && i < 60) subject = 'Chemistry';
-    if (i >= 60) subject = 'Mathematics';
+    if (i >= 25 && i < 50) subject = 'Chemistry';
+    if (i >= 50) subject = 'Mathematics';
+    
+    const subjectIndex = i % 25;
+    const type = subjectIndex < 20 ? 'MCQ' : 'Numerical';
+    
+    if (subject === 'Physics') {
+        const physQ = physicsQuestions[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: physQ.type as 'MCQ' | 'Numerical',
+            textEn: physQ.text,
+            textHi: physQ.text,
+            options: physQ.type === 'MCQ' && physQ.options ? physQ.options.map((opt, idx) => ({ id: idx + 1, textEn: opt, textHi: opt })) : undefined,
+            correctOption: physQ.type === 'MCQ' ? physQ.ans as number : undefined,
+            correctAnswer: physQ.type === 'Numerical' ? physQ.ans as string : undefined
+        };
+    }
+    
+    if (subject === 'Chemistry') {
+        const chemQ = chemistryQuestions[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: chemQ.type as 'MCQ' | 'Numerical',
+            textEn: chemQ.text,
+            textHi: chemQ.text,
+            options: chemQ.type === 'MCQ' && chemQ.options ? chemQ.options.map((opt, idx) => ({ id: idx + 1, textEn: opt, textHi: opt })) : undefined,
+            correctOption: chemQ.type === 'MCQ' ? chemQ.ans as number : undefined,
+            correctAnswer: chemQ.type === 'Numerical' ? chemQ.ans as string : undefined
+        };
+    }
+    
+    if (subject === 'Mathematics') {
+        const mathQ = mathQuestions[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: mathQ.type as 'MCQ' | 'Numerical',
+            textEn: mathQ.text,
+            textHi: mathQ.text,
+            options: mathQ.type === 'MCQ' && mathQ.options ? mathQ.options.map((opt, idx) => ({ id: idx + 1, textEn: opt, textHi: opt })) : undefined,
+            correctOption: mathQ.type === 'MCQ' ? mathQ.ans as number : undefined,
+            correctAnswer: mathQ.type === 'Numerical' ? mathQ.ans as string : undefined
+        };
+    }
     
     return {
         id: i + 1,
         subject: subject,
-        textEn: `This is a sample question number ${i + 1} for ${subject}. In this question, which of the following refers to the correct concept?`,
-        textHi: `यह ${subject} के लिए एक नमूना प्रश्न संख्या ${i + 1} है। इस प्रश्न में, निम्नलिखित में से कौन सही अवधारणा को संदर्भित करता है?`,
+        type: type,
+        textEn: `This is a sample ${type} question number ${i + 1} for ${subject}. In this question, which of the following refers to the correct concept?`,
+        textHi: `यह ${subject} के लिए एक नमूना ${type} प्रश्न संख्या ${i + 1} है। इस प्रश्न में, निम्नलिखित में से कौन सही अवधारणा को संदर्भित करता है?`,
+        options: type === 'MCQ' ? [
+            { id: 1, textEn: `Option 1 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 1` },
+            { id: 2, textEn: `Option 2 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 2` },
+            { id: 3, textEn: `Option 3 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 3` },
+            { id: 4, textEn: `Option 4 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 4` }
+        ] : undefined,
+        correctOption: type === 'MCQ' ? (i % 4) + 1 : undefined,
+        correctAnswer: type === 'Numerical' ? "0" : undefined
+    };
+});
+
+const neetSubjectsList = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
+
+const neetMockQuestions: QuestionType[] = Array.from({ length: 200 }).map((_, i) => {
+    let subject = 'Physics';
+    if (i >= 50 && i < 100) subject = 'Chemistry';
+    if (i >= 100 && i < 150) subject = 'Botany';
+    if (i >= 150) subject = 'Zoology';
+    
+    return {
+        id: i + 1,
+        subject: subject,
+        type: 'MCQ' as const,
+        textEn: `This is a sample MCQ question number ${i + 1} for ${subject} in NEET. In this question, which of the following refers to the correct concept?`,
+        textHi: `यह ${subject} के लिए एक नमूना MCQ प्रश्न संख्या ${i + 1} NEET है। इस प्रश्न में, निम्नलिखित में से कौन सही अवधारणा को संदर्भित करता है?`,
         options: [
             { id: 1, textEn: `Option 1 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 1` },
             { id: 2, textEn: `Option 2 for Question ${i + 1}`, textHi: `प्रश्न ${i + 1} के लिए विकल्प 2` },
@@ -41,9 +209,21 @@ const mockQuestions = Array.from({ length: 90 }).map((_, i) => {
 function JEE_NTA_TestEngine() {
     const router = useRouter();
     const searchParams = useSearchParams();
+    const params = useParams();
+    const testId = (params?.testId as string) || '';
+    const isNeet = testId.includes('med');
+    
+    const mockQuestions = isNeet ? neetMockQuestions : jeeMockQuestions;
+    const subjectsList = isNeet ? neetSubjectsList : jeeSubjectsList;
+    const examName = isNeet ? 'NEET UG' : 'JEE MAIN';
+    const examPaperName = isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1';
+    
     const defaultLang = searchParams.get('lang') === 'hindi' ? 'hindi' : 'english';
 
-    const [timeLeft, setTimeLeft] = useState(180 * 60); // 180 mins for JEE
+    const [userName, setUserName] = useState("Candidate");
+    const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+
+    const [timeLeft, setTimeLeft] = useState((isNeet ? 200 : 180) * 60); // 200 mins for NEET, 180 mins for JEE
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isMobilePaletteOpen, setIsMobilePaletteOpen] = useState(false);
     
@@ -51,13 +231,33 @@ function JEE_NTA_TestEngine() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [questionLang, setQuestionLang] = useState<'english' | 'hindi'>(defaultLang);
     
-    const [responses, setResponses] = useState<Record<number, number>>({});
+    const [responses, setResponses] = useState<Record<number, number | string>>({});
     const [status, setStatus] = useState<Record<number, string>>({
         [mockQuestions[0].id]: 'not_answered'
     });
 
     const currentQuestion = mockQuestions[currentQuestionIndex];
     const [activeSubject, setActiveSubject] = useState(currentQuestion.subject);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = getSupabaseClient();
+            if (!supabase) return;
+            const { data: authData } = await supabase.auth.getSession();
+            if (authData?.session?.user) {
+                const uid = authData.session.user.id;
+                const { data } = await supabase.from('profiles').select('full_name, photo_path').eq('id', uid).maybeSingle();
+                if (data?.full_name) {
+                    setUserName(data.full_name);
+                }
+                if (data?.photo_path) {
+                    const { data: publicData } = supabase.storage.from('student-photos').getPublicUrl(data.photo_path);
+                    if(publicData?.publicUrl) setAvatarUrl(publicData.publicUrl);
+                }
+            }
+        };
+        fetchUser();
+    }, []);
 
     useEffect(() => {
         // Sync active subject tab when question changes via Next/Back
@@ -102,6 +302,10 @@ function JEE_NTA_TestEngine() {
         setResponses(prev => ({ ...prev, [currentQuestion.id]: optId }));
     };
 
+    const handleNumericalInput = (val: string) => {
+        setResponses(prev => ({ ...prev, [currentQuestion.id]: val }));
+    };
+
     const goToNextQuestion = () => {
         if (currentQuestionIndex < mockQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -114,8 +318,13 @@ function JEE_NTA_TestEngine() {
         }
     };
 
+    const isCurrentAnswered = () => {
+        const res = responses[currentQuestion.id];
+        return res !== undefined && res !== '';
+    };
+
     const handleSaveNext = () => {
-        if (responses[currentQuestion.id] !== undefined) {
+        if (isCurrentAnswered()) {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'answered' }));
         } else {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'not_answered' }));
@@ -124,7 +333,7 @@ function JEE_NTA_TestEngine() {
     };
 
     const handleSaveMarkReview = () => {
-        if (responses[currentQuestion.id] !== undefined) {
+        if (isCurrentAnswered()) {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'answered_marked' }));
         } else {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'marked' }));
@@ -133,7 +342,7 @@ function JEE_NTA_TestEngine() {
     };
 
     const handleMarkReview = () => {
-        if (responses[currentQuestion.id] !== undefined) {
+        if (isCurrentAnswered()) {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'answered_marked' }));
         } else {
             setStatus(prev => ({ ...prev, [currentQuestion.id]: 'marked' }));
@@ -166,7 +375,40 @@ function JEE_NTA_TestEngine() {
 
     const handleSubmit = () => {
         if (confirm("Are you sure you want to submit the exam?")) {
+            let score = 0;
+            let correct = 0;
+            let incorrect = 0;
+            let unattempted = 0;
+
+            mockQuestions.forEach(q => {
+                const ans = responses[q.id];
+                if (ans !== undefined && ans !== '') {
+                    if (q.type === 'MCQ') {
+                        if (ans === q.correctOption) {
+                            score += 4;
+                            correct++;
+                        } else {
+                            score -= 1;
+                            incorrect++;
+                        }
+                    } else if (q.type === 'Numerical') {
+                        if (parseFloat(ans as string) === parseFloat(q.correctAnswer as string)) {
+                            score += 4;
+                            correct++;
+                        } else {
+                            // Section B Numerical has no negative marking for incorrect
+                            incorrect++;
+                        }
+                    }
+                } else {
+                    unattempted++;
+                }
+            });
+
             setIsSubmitted(true);
+            setTimeout(() => {
+                router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}`);
+            }, 1500);
         }
     };
 
@@ -227,10 +469,10 @@ function JEE_NTA_TestEngine() {
                     </div>
 
                     <button 
-                        onClick={() => router.push('/dashboard')}
-                        className="w-full bg-[#337ab7] hover:bg-[#286090] text-white font-bold py-3.5 sm:py-4 rounded-xl shadow-lg transition-all active:scale-95 text-sm sm:text-base"
+                        disabled
+                        className="w-full bg-[#337ab7] text-white font-bold py-3.5 sm:py-4 rounded-xl shadow-lg opacity-80 text-sm sm:text-base cursor-wait"
                     >
-                        Return to Dashboard
+                        Redirecting to Analysis...
                     </button>
                 </div>
             </div>
@@ -247,8 +489,8 @@ function JEE_NTA_TestEngine() {
                 </div>
                 <div className="flex items-center gap-4">
                     <div className="text-right leading-tight hidden md:block">
-                        <div className="text-xs text-blue-100">Candidate Name: <span className="text-yellow-300 font-bold ml-1 text-sm tracking-wide">Test Aspirant</span></div>
-                        <div className="text-xs text-blue-100 mt-0.5">Exam Name: <span className="text-yellow-300 font-bold ml-1 text-sm tracking-wide">JEE MAIN</span></div>
+                        <div className="text-xs text-blue-100">Candidate Name: <span className="text-yellow-300 font-bold ml-1 text-sm tracking-wide">{userName}</span></div>
+                        <div className="text-xs text-blue-100 mt-0.5">Exam Name: <span className="text-yellow-300 font-bold ml-1 text-sm tracking-wide">{examName}</span></div>
                     </div>
                 </div>
             </header>
@@ -257,7 +499,7 @@ function JEE_NTA_TestEngine() {
                 {/* Left Panel */}
                 <div className="flex-1 flex flex-col border-r border-[#ccc] min-w-0 bg-[#f9f9f9] lg:bg-white z-10 w-full lg:w-auto">
                     <div className="bg-[#e4e8eb] border-b border-[#ccc] flex justify-between items-center px-3 py-2 shrink-0">
-                        <div className="font-bold text-[#333] text-sm md:text-base">JEE MAIN PAPER 1</div>
+                        <div className="font-bold text-[#333] text-sm md:text-base">{examPaperName}</div>
                         <div className="flex items-center gap-2">
                             <span className="font-semibold text-[#333] hidden sm:inline">Time Left:</span>
                             <span className="bg-white px-2 md:px-3 py-0.5 border border-[#ccc] rounded">
@@ -287,7 +529,7 @@ function JEE_NTA_TestEngine() {
 
                     {/* Question Header */}
                     <div className="flex justify-between items-center px-4 py-2 border-b border-[#ccc] bg-white shrink-0">
-                        <div className="font-bold text-red-600 text-xs md:text-sm">Question Type : Multiple Choice Question</div>
+                        <div className="font-bold text-red-600 text-xs md:text-sm">Question Type : {currentQuestion.type === 'MCQ' ? 'Multiple Choice Question' : 'Numerical Value Type'}</div>
                         <div className="flex items-center gap-2">
                             <span className="text-blue-600 font-semibold text-xs md:text-sm whitespace-nowrap hidden sm:inline">View In : </span>
                             <select 
@@ -312,9 +554,8 @@ function JEE_NTA_TestEngine() {
                         <div className="mb-6 md:mb-8 text-black font-semibold text-base md:text-lg leading-relaxed select-text">
                             {questionLang === 'hindi' ? currentQuestion.textHi : currentQuestion.textEn}
                         </div>
-                        
                         <div className="space-y-4">
-                            {currentQuestion.options.map((opt, idx) => {
+                            {currentQuestion.type === 'MCQ' && currentQuestion.options?.map((opt, idx) => {
                                 const isSelected = responses[currentQuestion.id] === opt.id;
                                 return (
                                     <label key={opt.id} className={`flex items-start gap-4 cursor-pointer p-4 rounded-md transition-colors border ${isSelected ? 'border-blue-300 bg-blue-50' : 'border-transparent hover:bg-gray-50'}`}>
@@ -336,6 +577,20 @@ function JEE_NTA_TestEngine() {
                                     </label>
                                 );
                             })}
+                            
+                            {currentQuestion.type === 'Numerical' && (
+                                <div className="mt-4">
+                                    <label className="block text-gray-700 font-bold mb-2">Enter your answer:</label>
+                                    <input 
+                                        type="number" 
+                                        value={(responses[currentQuestion.id] as string) || ''}
+                                        onChange={(e) => handleNumericalInput(e.target.value)}
+                                        className="border-2 border-gray-300 p-2 rounded-md outline-none focus:border-[#2B579A] w-full max-w-xs text-base md:text-lg"
+                                        placeholder="Enter numerical value"
+                                        step="any"
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -375,12 +630,16 @@ function JEE_NTA_TestEngine() {
                              <button onClick={() => setIsMobilePaletteOpen(false)} className="bg-gray-200 text-gray-700 p-1.5 rounded"><X className="w-4 h-4"/></button>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="w-[85px] h-[85px] bg-white border border-[#ccc] p-0.5 shrink-0 overflow-hidden shadow-sm">
-                                <img src="https://ui-avatars.com/api/?name=User&background=f3f4f6&color=6b7280&size=100&font-size=0.6" alt="Profile" className="w-full h-full object-cover" />
+                            <div className="w-[85px] h-[85px] bg-white border border-[#ccc] p-0.5 shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
+                                {avatarUrl ? (
+                                    <img src={avatarUrl} alt="Profile" className="w-full h-full object-cover" />
+                                ) : (
+                                    <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=f3f4f6&color=6b7280&size=100&font-size=0.6`} alt="Profile" className="w-full h-full object-cover" />
+                                )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <span className="font-bold text-[#337ab7] text-xl block truncate leading-none mb-1">Test Aspirant</span>
-                                <span className="text-gray-500 font-semibold text-xs uppercase block">JEE MAIN</span>
+                                <span className="font-bold text-[#337ab7] text-xl block truncate leading-none mb-1">{userName}</span>
+                                <span className="text-gray-500 font-semibold text-xs uppercase block">{examName}</span>
                             </div>
                         </div>
                     </div>

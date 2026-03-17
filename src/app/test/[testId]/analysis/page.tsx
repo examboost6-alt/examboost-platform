@@ -1,0 +1,171 @@
+'use client';
+
+import React, { useEffect, useState, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X } from 'lucide-react';
+
+function AnalysisContent() {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    
+    const [stats, setStats] = useState({
+        score: 0,
+        correct: 0,
+        incorrect: 0,
+        unattempted: 0,
+        isNeet: false
+    });
+
+    const [predictedRank, setPredictedRank] = useState(0);
+
+    useEffect(() => {
+        const queryScore = parseInt(searchParams.get('score') || '0', 10);
+        const queryCorrect = parseInt(searchParams.get('correct') || '0', 10);
+        const queryIncorrect = parseInt(searchParams.get('incorrect') || '0', 10);
+        const queryUnattempted = parseInt(searchParams.get('unattempted') || '0', 10);
+        const queryIsNeet = searchParams.get('isNeet') === 'true';
+
+        setStats({
+            score: queryScore,
+            correct: queryCorrect,
+            incorrect: queryIncorrect,
+            unattempted: queryUnattempted,
+            isNeet: queryIsNeet
+        });
+
+        // Calculate Realistic Rank based on historical normalization (out of ~5 Lakh)
+        if (queryIsNeet) {
+            // Simplified logic for NEET (out of 720 approx)
+            if (queryScore >= 700) setPredictedRank(Math.floor(Math.random() * 100) + 1);
+            else if (queryScore >= 600) setPredictedRank(Math.floor(5000 + ((700 - queryScore) / 100) * 15000));
+            else if (queryScore >= 400) setPredictedRank(Math.floor(20000 + ((600 - queryScore) / 200) * 80000));
+            else if (queryScore >= 200) setPredictedRank(Math.floor(100000 + ((400 - queryScore) / 200) * 200000));
+            else setPredictedRank(Math.floor(300000 + ((200 - Math.max(0, queryScore)) / 200) * 200000));
+        } else {
+            // Realistic JEE Mains Rank out of ~500,000 for realistic validation
+            if (queryScore >= 300) setPredictedRank(1);
+            else if (queryScore >= 280) setPredictedRank(Math.floor(2 + ((300 - queryScore) / 20) * 500));
+            else if (queryScore >= 250) setPredictedRank(Math.floor(502 + ((280 - queryScore) / 30) * 4500));
+            else if (queryScore >= 200) setPredictedRank(Math.floor(5002 + ((250 - queryScore) / 50) * 10000));
+            else if (queryScore >= 160) setPredictedRank(Math.floor(15002 + ((200 - queryScore) / 40) * 25000));
+            else if (queryScore >= 120) setPredictedRank(Math.floor(40002 + ((160 - queryScore) / 40) * 40000));
+            else if (queryScore >= 80) setPredictedRank(Math.floor(80002 + ((120 - queryScore) / 40) * 80000));
+            else if (queryScore >= 40) setPredictedRank(Math.floor(160002 + ((80 - queryScore) / 40) * 150000));
+            else setPredictedRank(Math.floor(310002 + ((40 - Math.max(-75, queryScore)) / 115) * 190000));
+        }
+    }, [searchParams]);
+
+    const maxScore = stats.isNeet ? 720 : 300;
+    const accuracy = stats.correct + stats.incorrect > 0 
+                     ? Math.round((stats.correct / (stats.correct + stats.incorrect)) * 100) 
+                     : 0;
+
+    return (
+        <div className="min-h-screen bg-[#f3f4f6] font-sans pb-10">
+            {/* Header */}
+            <header className="bg-gradient-to-r from-indigo-800 to-indigo-600 text-white px-6 py-4 shadow-lg sticky top-0 z-50 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                    <button onClick={() => router.push('/dashboard')} className="p-2 bg-indigo-900/40 rounded-full hover:bg-indigo-900/60 transition">
+                        <ArrowLeft className="w-5 h-5 text-indigo-100" />
+                    </button>
+                    <div>
+                        <h1 className="text-xl font-bold tracking-wide">Test Analysis</h1>
+                        <p className="text-xs text-indigo-200">Shikhar {stats.isNeet ? 'NEET' : 'JEE Main'} 2026 Test Series</p>
+                    </div>
+                </div>
+            </header>
+
+            <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 space-y-8">
+                {/* Hero Section */}
+                <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center cursor-default">
+                    <div>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold mb-4">
+                            <CheckCircle2 className="w-4 h-4" />
+                            Successfully Completed
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-2">Performance Report</h2>
+                        <p className="text-slate-500 font-medium">Your detailed analytics and dynamically predicted AI rankings based on historical test data distributions.</p>
+                        
+                        <div className="mt-8 flex gap-4">
+                            <button onClick={() => router.push('/dashboard')} className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition-all active:scale-95 text-center">
+                                Back to Dashboard
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 h-full">
+                        {/* Score Card */}
+                        <div className="flex-1 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-3xl p-6 text-white shadow-lg shadow-indigo-500/30 flex flex-col justify-center items-center relative overflow-hidden transition-transform hover:scale-[1.02]">
+                            <div className="absolute top-0 right-0 p-4 opacity-20">
+                                <Target className="w-24 h-24" />
+                            </div>
+                            <span className="text-indigo-100 font-bold tracking-wider mb-2 z-10">TOTAL SCORE</span>
+                            <div className="flex items-baseline gap-1 z-10">
+                                <span className={stats.score < 0 ? 'text-5xl font-black text-red-100' : 'text-6xl font-black'}>{stats.score}</span>
+                                <span className="text-xl font-semibold opacity-70">/{maxScore}</span>
+                            </div>
+                        </div>
+
+                        {/* Rank Card */}
+                        <div className="flex-1 bg-gradient-to-br from-amber-400 to-amber-600 rounded-3xl p-6 text-white shadow-lg shadow-amber-500/30 flex flex-col justify-center items-center relative overflow-hidden transition-transform hover:scale-[1.02]">
+                            <div className="absolute top-0 right-0 p-4 opacity-20">
+                                <Medal className="w-24 h-24" />
+                            </div>
+                            <span className="text-amber-100 font-bold tracking-wider mb-2 z-10 relative text-center">PREDICTED AIR<br/><span className="text-[10px] leading-tight font-medium opacity-80">(Out of 5 Lakhs)</span></span>
+                            <div className="flex items-center gap-2 z-10">
+                                <span className="text-4xl lg:text-4xl xl:text-5xl font-black tracking-tight drop-shadow-sm">
+                                    {predictedRank > 0 ? `#${predictedRank.toLocaleString()}` : '-'}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Stats Grid */}
+                <h3 className="text-xl font-bold text-slate-800 ml-2">Attempt Summary</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3">
+                            <CheckCircle2 className="w-6 h-6" />
+                        </div>
+                        <span className="text-3xl font-black text-slate-800 mb-1">{stats.correct}</span>
+                        <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Correct</span>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-3">
+                            <X className="w-6 h-6" />
+                        </div>
+                        <span className="text-3xl font-black text-slate-800 mb-1">{stats.incorrect}</span>
+                        <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Incorrect</span>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div className="w-12 h-12 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center mb-3">
+                            <Clock className="w-6 h-6" />
+                        </div>
+                        <span className="text-3xl font-black text-slate-800 mb-1">{stats.unattempted}</span>
+                        <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Skipped</span>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-3">
+                            <Activity className="w-6 h-6" />
+                        </div>
+                        <span className="text-3xl font-black text-slate-800 mb-1">{accuracy}%</span>
+                        <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Accuracy</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
+}
+
+export default function ExamAnalysis() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center text-slate-600 font-bold">Loading Analysis...</div>}>
+            <AnalysisContent />
+        </Suspense>
+    );
+}
+
