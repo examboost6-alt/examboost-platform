@@ -1,11 +1,6 @@
-export const mock8: any = {
-    testId: 8,
-    title: "Mock Test 8",
-    description: "Hard Level JEE Main 2026 Predictor Exam",
-    duration: 180,
-    totalMarks: 300,
-    questions: {
-      physics: [
+import { QuestionType } from '../mockData';
+
+const physicsQuestions_8: any[] = [
     {
         "type": "MCQ",
         "textEn": "Two infinite sheets of charge density +σ and -σ are inclined at 45°. The electric field between them is:",
@@ -516,8 +511,8 @@ export const mock8: any = {
         "textHi": "A, B, C इनपुट वाले NAND-OR लॉजिक सर्किट में। यदि A=1, B=0, C=1 हो तो आउटपुट ज्ञात करें।",
         "ans": "1"
     }
-],
-      chemistry: [
+];
+const chemistryQuestions_8: any[] = [
     {
         "type": "MCQ",
         "textEn": "For reaction A -> B, rate constant doubles when temp increases from 300K to 310K. Activation energy Ea is roughly:",
@@ -1028,8 +1023,8 @@ export const mock8: any = {
         "textHi": "यदि AgCl का Ksp 10⁻¹⁰ है, तो 0.1 M NaCl विलयन में इसकी विलेयता (mol/L में) ज्ञात करें।",
         "ans": "1e-9"
     }
-],
-      maths: [
+];
+const mathQuestions_8: any[] = [
     {
         "type": "MCQ",
         "textEn": "If f(x) is a cubic polynomial such that f(1)=1, f(2)=2, f(3)=3 and f'(1)=0, find f(4).",
@@ -1540,6 +1535,68 @@ export const mock8: any = {
         "textHi": "दी गई रेखाओं के बीच की न्यूनतम दूरी d है। 1/d² ज्ञात करें। (यदि रेखाएं प्रतिच्छेद करती हैं, 0 लिखें)",
         "ans": "0"
     }
-]
+];
+
+export const mock8Questions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
+    let subject = 'Physics';
+    if (i >= 25 && i < 50) subject = 'Chemistry';
+    if (i >= 50) subject = 'Mathematics';
+    
+    const subjectIndex = i % 25;
+    const type = subjectIndex < 20 ? 'MCQ' : 'Numerical';
+    
+    if (subject === 'Physics') {
+        const physQ: any = physicsQuestions_8[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: physQ.type as 'MCQ' | 'Numerical',
+            textEn: physQ.textEn || physQ.text || `[Mock 8] Physics Question ${subjectIndex + 1}`,
+            textHi: physQ.textHi || physQ.text || `[Mock 8] Physics Question ${subjectIndex + 1} (Hi)`,
+            options: physQ.type === 'MCQ' && physQ.options ? physQ.options.map((opt: any, idx: number) => ({ 
+                id: idx + 1, 
+                textEn: typeof opt === 'string' ? opt : opt.en || `Mock 8 Option ${idx + 1}`, 
+                textHi: typeof opt === 'string' ? opt : opt.hi || `Mock 8 Option ${idx + 1} (Hi)` 
+            })) : undefined,
+            correctOption: physQ.type === 'MCQ' ? physQ.ans as number : undefined,
+            correctAnswer: physQ.type === 'Numerical' ? physQ.ans as string : undefined
+        };
     }
-};
+    
+    if (subject === 'Chemistry') {
+        const chemQ: any = chemistryQuestions_8[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: chemQ.type as 'MCQ' | 'Numerical',
+            textEn: chemQ.textEn || chemQ.text || `[Mock 8] Chemistry Question ${subjectIndex + 1}`,
+            textHi: chemQ.textHi || chemQ.text || `[Mock 8] Chemistry Question ${subjectIndex + 1} (Hi)`,
+            options: chemQ.type === 'MCQ' && chemQ.options ? chemQ.options.map((opt: any, idx: number) => ({ 
+                id: idx + 1, 
+                textEn: typeof opt === 'string' ? opt : opt.en || `Mock 8 Option ${idx + 1}`, 
+                textHi: typeof opt === 'string' ? opt : opt.hi || `Mock 8 Option ${idx + 1} (Hi)` 
+            })) : undefined,
+            correctOption: chemQ.type === 'MCQ' ? chemQ.ans as number : undefined,
+            correctAnswer: chemQ.type === 'Numerical' ? chemQ.ans as string : undefined
+        };
+    }
+    
+    if (subject === 'Mathematics') {
+        const mathQ: any = mathQuestions_8[subjectIndex];
+        return {
+            id: i + 1,
+            subject: subject,
+            type: mathQ.type as 'MCQ' | 'Numerical',
+            textEn: mathQ.textEn || mathQ.text || `[Mock 8] Math Question ${subjectIndex + 1}`,
+            textHi: mathQ.textHi || mathQ.text || `[Mock 8] Math Question ${subjectIndex + 1} (Hi)`,
+            options: mathQ.type === 'MCQ' && mathQ.options ? mathQ.options.map((opt: any, idx: number) => ({ 
+                id: idx + 1, 
+                textEn: typeof opt === 'string' ? opt : opt.en || `Mock 8 Option ${idx + 1}`, 
+                textHi: typeof opt === 'string' ? opt : opt.hi || `Mock 8 Option ${idx + 1} (Hi)` 
+            })) : undefined,
+            correctOption: mathQ.type === 'MCQ' ? mathQ.ans as number : undefined,
+            correctAnswer: mathQ.type === 'Numerical' ? mathQ.ans as string : undefined
+        };
+    }
+    return {} as any;
+});
