@@ -32,7 +32,7 @@ const popularExams = [
     tests: 45,
     pattern: 'NTA Pattern',
     subjects: ['Physics', 'Chemistry', 'Mathematics'],
-    href: '/exams/engineering-entrance/jee/jee-main',
+    href: '/series/mock-eng-1',
     icon: Target,
     popular: true
   },

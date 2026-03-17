@@ -47,7 +47,7 @@ export default function JeePage() {
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">Subcategories for JEE</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
-            <Link href="/exams/engineering-entrance/jee/jee-main" className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <Link href="/series/mock-eng-1" className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-primary/10 dark:bg-accent/10 rounded-lg text-primary dark:text-accent">
                   <Award className="w-6 h-6" />
