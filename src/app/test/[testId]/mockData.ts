@@ -68,31 +68,31 @@ const mathQuestions = [
 ];
 
 const physicsQuestions = [
-    { type: 'MCQ', text: "Photoelectric effect me stopping potential kis par depend karta hai?", options: ["Intensity", "Frequency", "Work function only", "Frequency aur work function"], ans: 4 },
-    { type: 'MCQ', text: "Ek wire ki length double aur radius half kar diya jaye, resistance kya hoga?", options: ["Same", "Double", "8 times", "16 times"], ans: 4 },
-    { type: 'MCQ', text: "Uniformly charged spherical shell ke andar electric field kya hota hai?", options: ["Zero", "Constant", "Linearly increase", "Infinite"], ans: 1 },
-    { type: 'MCQ', text: "Velocity-time graph ka slope kya deta hai?", options: ["Velocity", "Displacement", "Acceleration", "Force"], ans: 3 },
-    { type: 'MCQ', text: "Isothermal process me work done kya hota hai?", options: ["Zero", "Maximum", "Minimum", "Path par depend karta hai"], ans: 2 },
-    { type: 'MCQ', text: "Moving charge magnetic field me kya experience karta hai?", options: ["Electric force", "Magnetic force", "Gravitational force", "No force"], ans: 2 },
-    { type: 'MCQ', text: "Convex mirror me image kaisa hota hai?", options: ["Real aur inverted", "Virtual aur erect", "Real aur erect", "Virtual aur inverted"], ans: 2 },
-    { type: 'MCQ', text: "Wave speed kis par depend karta hai?", options: ["Frequency", "Amplitude", "Medium", "Time"], ans: 3 },
-    { type: 'MCQ', text: "SHM me restoring force kis par depend karta hai?", options: ["Constant", "Displacement ke proportional", "Inversely proportional", "Zero"], ans: 2 },
-    { type: 'MCQ', text: "Force ka dimension kya hai?", options: ["MLT^-2", "ML^2T^-2", "MLT^-1", "ML^2T^-3"], ans: 1 },
-    { type: 'MCQ', text: "Escape velocity kis par depend nahi karta?", options: ["Mass", "Radius", "Height", "Gravitational constant"], ans: 3 },
-    { type: 'MCQ', text: "Parallel plate capacitor me dielectric daalne par capacitance kya hota hai?", options: ["Decrease", "Increase", "Same", "Zero"], ans: 2 },
-    { type: 'MCQ', text: "Torque ka formula kya hai?", options: ["p x E", "r x F", "m x v", "F x r"], ans: 2 },
-    { type: 'MCQ', text: "Diode ka main use kya hai?", options: ["Amplification", "Rectification", "Oscillation", "Storage"], ans: 2 },
-    { type: 'MCQ', text: "Conduction me heat transfer kaise hota hai?", options: ["Mass transfer ke saath", "Without mass transfer", "Radiation se", "Convection se"], ans: 2 },
-    { type: 'MCQ', text: "EM waves me kaun transverse hota hai?", options: ["Keval Electric field", "Keval Magnetic field", "Electric aur Magnetic field dono", "Koi field nahi"], ans: 3 },
-    { type: 'MCQ', text: "Work-energy theorem kya hai?", options: ["Work = Change in momentum", "Work = Change in kinetic energy", "Work = Change in potential energy", "Work = Constant energy"], ans: 2 },
-    { type: 'MCQ', text: "Centripetal force ki direction kya hoti hai?", options: ["Center se door", "Center ki taraf", "Velocity ke parallel", "Radius ke perpendicular"], ans: 2 },
-    { type: 'MCQ', text: "Bernoulli principle kis par valid hai?", options: ["Compressible fluid", "Incompressible fluid", "Static fluid", "Non-viscous gas only"], ans: 2 },
-    { type: 'MCQ', text: "Percentage error addition me kya rule hai?", options: ["Relative errors add hote hain", "Absolute errors add hote hain", "Errors cancel hote hain", "Errors multiply hote hain"], ans: 2 },
-    { type: 'Numerical', text: "Work function = 4 eV aur photon energy = 6 eV, kinetic energy kya hogi (eV me)?", ans: "2" },
-    { type: 'Numerical', text: "2 ohm aur 3 ohm parallel me ho to equivalent resistance kya hoga?", ans: "1.2" },
-    { type: 'Numerical', text: "Acceleration = 2 m/s^2 aur time = 5 s, final velocity kya hogi?", ans: "10" },
-    { type: 'Numerical', text: "2 microfarad aur 2 microfarad series me ho to equivalent capacitance kya hoga?", ans: "1" },
-    { type: 'Numerical', text: "g = 10 m/s^2 aur height double ho jaye to new g kya hoga?", ans: "2.5" }
+    { type: 'MCQ', textEn: "On what does the stopping potential in the photoelectric effect depend?", textHi: "प्रकाश वैद्युत प्रभाव में निरोधी विभव किस पर निर्भर करता है?", options: [{en: "Intensity", hi: "तीव्रता"}, {en: "Frequency", hi: "आवृत्ति"}, {en: "Work function only", hi: "केवल कार्य फलन"}, {en: "Frequency and work function", hi: "आवृत्ति और कार्य फलन"}], ans: 4 },
+    { type: 'MCQ', textEn: "If the length of a wire is doubled and its radius is halved, what will be its new resistance?", textHi: "यदि एक तार की लंबाई दोगुनी और त्रिज्या आधी कर दी जाए, तो उसका नया प्रतिरोध क्या होगा?", options: [{en: "Same", hi: "समान रहेगा"}, {en: "Double", hi: "दोगुना होगा"}, {en: "8 times", hi: "8 गुना होगा"}, {en: "16 times", hi: "16 गुना होगा"}], ans: 4 },
+    { type: 'MCQ', textEn: "What is the electric field inside a uniformly charged spherical shell?", textHi: "एकसमान रूप से आवेशित गोलीय कोश के अंदर विद्युत क्षेत्र क्या होता है?", options: [{en: "Zero", hi: "शून्य"}, {en: "Constant", hi: "नियतांक"}, {en: "Linearly increasing", hi: "रैखिक रूप से बढ़ता हुआ"}, {en: "Infinite", hi: "अनंत"}], ans: 1 },
+    { type: 'MCQ', textEn: "What does the slope of a velocity-time graph represent?", textHi: "वेग-समय ग्राफ का ढलान क्या दर्शाता है?", options: [{en: "Velocity", hi: "वेग"}, {en: "Displacement", hi: "विस्थापन"}, {en: "Acceleration", hi: "त्वरण"}, {en: "Force", hi: "बल"}], ans: 3 },
+    { type: 'MCQ', textEn: "What is the work done in an isothermal process?", textHi: "समतापीय प्रक्रिया में किया गया कार्य क्या होता है?", options: [{en: "Zero", hi: "शून्य"}, {en: "Maximum", hi: "अधिकतम"}, {en: "Minimum", hi: "न्यूनतम"}, {en: "Depends on path", hi: "पथ पर निर्भर करता है"}], ans: 2 },
+    { type: 'MCQ', textEn: "What does a moving charge experience in a magnetic field?", textHi: "एक गतिमान आवेश चुंबकीय क्षेत्र में क्या अनुभव करता है?", options: [{en: "Electric force", hi: "विद्युत बल"}, {en: "Magnetic force", hi: "चुंबकीय बल"}, {en: "Gravitational force", hi: "गुरुत्वाकर्षण बल"}, {en: "No force", hi: "कोई बल नहीं"}], ans: 2 },
+    { type: 'MCQ', textEn: "How is the image formed in a convex mirror?", textHi: "उत्तल दर्पण में प्रतिबिंब कैसा होता है?", options: [{en: "Real and inverted", hi: "वास्तविक और उल्टा"}, {en: "Virtual and erect", hi: "आभासी और सीधा"}, {en: "Real and erect", hi: "वास्तविक और सीधा"}, {en: "Virtual and inverted", hi: "आभासी और उल्टा"}], ans: 2 },
+    { type: 'MCQ', textEn: "On what does the wave speed depend?", textHi: "तरंग की गति किस पर निर्भर करती है?", options: [{en: "Frequency", hi: "आवृत्ति"}, {en: "Amplitude", hi: "आयाम"}, {en: "Medium", hi: "माध्यम"}, {en: "Time", hi: "समय"}], ans: 3 },
+    { type: 'MCQ', textEn: "In SHM, on what does the restoring force depend?", textHi: "सरल आवर्त गति (SHM) में प्रत्यानयन बल किस पर निर्भर करता है?", options: [{en: "Constant", hi: "नियतांक"}, {en: "Proportional to displacement", hi: "विस्थापन के अनुक्रमानुपाती"}, {en: "Inversely proportional", hi: "व्युत्क्रमानुपाती"}, {en: "Zero", hi: "शून्य"}], ans: 2 },
+    { type: 'MCQ', textEn: "What is the dimensional formula of force?", textHi: "बल का विमीय सूत्र क्या है?", options: [{en: "MLT^-2", hi: "MLT^-2"}, {en: "ML^2T^-2", hi: "ML^2T^-2"}, {en: "MLT^-1", hi: "MLT^-1"}, {en: "ML^2T^-3", hi: "ML^2T^-3"}], ans: 1 },
+    { type: 'MCQ', textEn: "Upon which of the following does escape velocity NOT depend?", textHi: "पलायन वेग किस पर निर्भर नहीं करता है?", options: [{en: "Mass of planet", hi: "ग्रह का द्रव्यमान"}, {en: "Radius of planet", hi: "ग्रह की त्रिज्या"}, {en: "Mass of object", hi: "वस्तु का द्रव्यमान"}, {en: "Gravitational constant", hi: "गुरुत्वाकर्षण नियतांक"}], ans: 3 },
+    { type: 'MCQ', textEn: "What happens to the capacitance when a dielectric is inserted in a parallel plate capacitor?", textHi: "समांतर पट्टिका संधारित्र में परावैद्युत डालने पर धारिता क्या होती है?", options: [{en: "Decreases", hi: "घटती है"}, {en: "Increases", hi: "बढ़ती है"}, {en: "Remains same", hi: "समान रहती है"}, {en: "Becomes zero", hi: "शून्य हो जाती है"}], ans: 2 },
+    { type: 'MCQ', textEn: "What is the formula for Torque?", textHi: "बल आघूर्ण (Torque) का सूत्र क्या है?", options: [{en: "p x E", hi: "p x E"}, {en: "r x F", hi: "r x F"}, {en: "m x v", hi: "m x v"}, {en: "F x r", hi: "F x r"}], ans: 2 },
+    { type: 'MCQ', textEn: "What is the primary use of a P-N junction diode?", textHi: "डायोड का मुख्य उपयोग क्या है?", options: [{en: "Amplification", hi: "प्रवर्धन"}, {en: "Rectification", hi: "दिष्टकरण"}, {en: "Oscillation", hi: "दोलन"}, {en: "Storage", hi: "भंडारण"}], ans: 2 },
+    { type: 'MCQ', textEn: "How does heat transfer occur during conduction?", textHi: "चालन (Conduction) में ऊष्मा का स्थानांतरण कैसे होता है?", options: [{en: "With mass transfer", hi: "द्रव्यमान स्थानांतरण के साथ"}, {en: "Without mass transfer", hi: "द्रव्यमान स्थानांतरण के बिना"}, {en: "By radiation", hi: "विकिरण द्वारा"}, {en: "By convection", hi: "संवहन द्वारा"}], ans: 2 },
+    { type: 'MCQ', textEn: "Which field is transverse in Electromagnetic waves?", textHi: "विद्युत चुम्बकीय तरंगों में कौन सा क्षेत्र अनुप्रस्थ होता है?", options: [{en: "Only Electric field", hi: "केवल विद्युत क्षेत्र"}, {en: "Only Magnetic field", hi: "केवल चुंबकीय क्षेत्र"}, {en: "Both Electric and Magnetic", hi: "विद्युत और चुंबकीय दोनों"}, {en: "None", hi: "कोई नहीं"}], ans: 3 },
+    { type: 'MCQ', textEn: "What does the Work-Energy theorem state?", textHi: "कार्य-ऊर्जा प्रमेय क्या है?", options: [{en: "Work = Change in momentum", hi: "कार्य = संवेग में परिवर्तन"}, {en: "Work = Change in kinetic energy", hi: "कार्य = गतिज ऊर्जा में परिवर्तन"}, {en: "Work = Change in potential energy", hi: "कार्य = स्थितिज ऊर्जा में परिवर्तन"}, {en: "Work = Constant energy", hi: "कार्य = नियत ऊर्जा"}], ans: 2 },
+    { type: 'MCQ', textEn: "What is the direction of centripetal force?", textHi: "अभिकेंद्र बल की दिशा क्या होती है?", options: [{en: "Away from center", hi: "केंद्र से दूर"}, {en: "Towards the center", hi: "केंद्र की ओर"}, {en: "Parallel to velocity", hi: "वेग के समानांतर"}, {en: "Perpendicular to radius", hi: "त्रिज्या के लंबवत"}], ans: 2 },
+    { type: 'MCQ', textEn: "For which type of fluid is Bernoulli's principle valid?", textHi: "बर्नौली का सिद्धांत किस प्रकार के द्रव के लिए मान्य है?", options: [{en: "Compressible fluid", hi: "संपीड्य द्रव"}, {en: "Incompressible and non-viscous fluid", hi: "असंपीड्य और अश्यान द्रव"}, {en: "Static fluid", hi: "स्थिर द्रव"}, {en: "Viscous fluid only", hi: "केवल श्यान द्रव"}], ans: 2 },
+    { type: 'MCQ', textEn: "What is the rule for percentage error in addition?", textHi: "योग में प्रतिशत त्रुटि का नियम क्या है?", options: [{en: "Relative errors are added", hi: "सापेक्ष त्रुटियाँ जुड़ती हैं"}, {en: "Absolute errors are added", hi: "निरपेक्ष त्रुटियाँ जुड़ती हैं"}, {en: "Errors cancel each other", hi: "त्रुटियाँ एक दूसरे को रद्द करती हैं"}, {en: "Errors are multiplied", hi: "त्रुटियों का गुणा होता है"}], ans: 2 },
+    { type: 'Numerical', textEn: "If the work function is 4 eV and photon energy is 6 eV, what will be the kinetic energy (in eV)?", textHi: "यदि कार्य फलन 4 eV और फोटॉन की ऊर्जा 6 eV है, तो गतिज ऊर्जा (eV में) क्या होगी?", ans: "2" },
+    { type: 'Numerical', textEn: "If a 2 ohm and a 3 ohm resistor are in parallel, what is the equivalent resistance?", textHi: "यदि 2 ओम और 3 ओम के प्रतिरोधक समानांतर क्रम में हों, तो तुल्य प्रतिरोध क्या होगा?", ans: "1.2" },
+    { type: 'Numerical', textEn: "If acceleration is 2 m/s^2 and time is 5 s (starting from rest), what is the final velocity?", textHi: "यदि त्वरण 2 m/s^2 है और समय 5 s है (विराम से शुरू), तो अंतिम वेग क्या होगा?", ans: "10" },
+    { type: 'Numerical', textEn: "If a 2 microfarad and another 2 microfarad capacitor are in series, what is the equivalent capacitance?", textHi: "यदि 2 माइक्रोफैराड और दूसरा 2 माइक्रोफैराड संधारित्र श्रेणीक्रम में हों, तो तुल्य धारिता क्या होगी?", ans: "1" },
+    { type: 'Numerical', textEn: "If g = 10 m/s^2 at the surface, what will be the value of g at a height equal to the radius of the earth? (in m/s^2)", textHi: "यदि पृथ्वी की सतह पर g = 10 m/s^2 है, तो पृथ्वी की त्रिज्या के बराबर ऊंचाई पर g का मान क्या होगा? (m/s^2 में)", ans: "2.5" }
 ];
 
 export const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
@@ -109,9 +109,13 @@ export const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((
             id: i + 1,
             subject: subject,
             type: physQ.type as 'MCQ' | 'Numerical',
-            textEn: physQ.text,
-            textHi: physQ.text,
-            options: physQ.type === 'MCQ' && physQ.options ? physQ.options.map((opt, idx) => ({ id: idx + 1, textEn: opt, textHi: opt })) : undefined,
+            textEn: physQ.textEn,
+            textHi: physQ.textHi,
+            options: physQ.type === 'MCQ' && physQ.options ? physQ.options.map((opt, idx) => ({ 
+                id: idx + 1, 
+                textEn: opt.en, 
+                textHi: opt.hi 
+            })) : undefined,
             correctOption: physQ.type === 'MCQ' ? physQ.ans as number : undefined,
             correctAnswer: physQ.type === 'Numerical' ? physQ.ans as string : undefined
         };
