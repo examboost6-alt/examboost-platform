@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X } from 'lucide-react';
+import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X, Globe, AlertCircle } from 'lucide-react';
+import { jeeMockQuestions, neetMockQuestions, QuestionType } from '../engine/page';
 
 function AnalysisContent() {
     const searchParams = useSearchParams();
@@ -17,6 +18,9 @@ function AnalysisContent() {
     });
 
     const [predictedRank, setPredictedRank] = useState(0);
+    const [responses, setResponses] = useState<Record<number, number | string>>({});
+    const [questions, setQuestions] = useState<QuestionType[]>([]);
+    const [language, setLanguage] = useState<'english' | 'hindi'>('english');
 
     useEffect(() => {
         const queryScore = parseInt(searchParams.get('score') || '0', 10);
@@ -32,6 +36,12 @@ function AnalysisContent() {
             unattempted: queryUnattempted,
             isNeet: queryIsNeet
         });
+
+        const storedResponses = sessionStorage.getItem('examResponses');
+        if (storedResponses) {
+            try { setResponses(JSON.parse(storedResponses)); } catch (e) {}
+        }
+        setQuestions(queryIsNeet ? neetMockQuestions : jeeMockQuestions);
 
         // Calculate Realistic Rank based on historical normalization (out of ~5 Lakh)
         if (queryIsNeet) {
@@ -156,6 +166,98 @@ function AnalysisContent() {
                         <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Accuracy</span>
                     </div>
                 </div>
+
+                {/* Detailed Analysis Section */}
+                <div className="mt-12 space-y-6">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <h3 className="text-2xl font-black text-slate-800">Question Breakdown</h3>
+                        <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl shadow-sm border border-slate-200">
+                            <Globe className="w-4 h-4 text-indigo-500" />
+                            <select 
+                                value={language}
+                                onChange={(e) => setLanguage(e.target.value as 'english' | 'hindi')}
+                                className="bg-transparent border-none outline-none text-sm font-bold text-slate-700 cursor-pointer"
+                            >
+                                <option value="english">English</option>
+                                <option value="hindi">Hindi (हिंदी)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="space-y-4">
+                        {questions.map((q, idx) => {
+                            const userAns = responses[q.id];
+                            const isAttempted = userAns !== undefined && userAns !== '';
+                            let isCorrect = false;
+                            
+                            if (q.type === 'MCQ') {
+                                isCorrect = userAns === q.correctOption;
+                            } else {
+                                isCorrect = parseFloat(userAns as string) === parseFloat(q.correctAnswer as string);
+                            }
+
+                            // Find text for MCQ options
+                            const userOptionObj = q.type === 'MCQ' && isAttempted ? q.options?.find(o => o.id === userAns) : null;
+                            const correctOptionObj = q.type === 'MCQ' ? q.options?.find(o => o.id === q.correctOption) : null;
+
+                            const getStatusBadge = () => {
+                                if (!isAttempted) return <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide"><AlertCircle className="w-3.5 h-3.5"/> Skipped</span>;
+                                if (isCorrect) return <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-wide"><CheckCircle2 className="w-3.5 h-3.5"/> Correct</span>;
+                                return <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wide"><X className="w-3.5 h-3.5"/> Incorrect</span>;
+                            };
+
+                            return (
+                                <div key={q.id} className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200 flex flex-col gap-4">
+                                    <div className="flex justify-between items-start gap-4 border-b border-slate-100 pb-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-700 font-black flex items-center justify-center shrink-0">
+                                                {q.id}
+                                            </div>
+                                            <div className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-xs font-bold tracking-wider">
+                                                {q.subject.toUpperCase()} • {q.type}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            {getStatusBadge()}
+                                        </div>
+                                    </div>
+
+                                    <div className="text-slate-800 font-semibold text-sm sm:text-base leading-relaxed">
+                                        {language === 'hindi' ? q.textHi : q.textEn}
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 bg-slate-50 rounded-xl p-4">
+                                        <div>
+                                            <div className="text-xs font-bold text-slate-400 mb-1 uppercase tracking-wider">Your Answer</div>
+                                            {isAttempted ? (
+                                                <div className={`font-medium ${isCorrect ? 'text-emerald-600' : 'text-red-500'}`}>
+                                                    {q.type === 'MCQ' ? (
+                                                        language === 'hindi' ? userOptionObj?.textHi : userOptionObj?.textEn
+                                                    ) : (
+                                                        <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 shadow-sm">{userAns}</span>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <div className="text-slate-400 font-medium italic">Unanswered</div>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <div className="text-xs font-bold text-slate-400 mb-1 uppercase tracking-wider">Correct Answer</div>
+                                            <div className="font-medium text-emerald-600">
+                                                {q.type === 'MCQ' ? (
+                                                    language === 'hindi' ? correctOptionObj?.textHi : correctOptionObj?.textEn
+                                                ) : (
+                                                    <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 shadow-sm">{q.correctAnswer}</span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
             </main>
         </div>
     );

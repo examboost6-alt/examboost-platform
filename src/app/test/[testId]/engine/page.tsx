@@ -18,9 +18,9 @@ export default function NTA_JEETestEngineWrapper() {
 }
 
 // Generate some mock questions (75 for JEE: 25 Math, 25 Physics, 25 Chem)
-const jeeSubjectsList = ['Physics', 'Chemistry', 'Mathematics'];
+export const jeeSubjectsList = ['Physics', 'Chemistry', 'Mathematics'];
 
-type QuestionType = {
+export type QuestionType = {
     id: number;
     subject: string;
     type: 'MCQ' | 'Numerical';
@@ -115,7 +115,7 @@ const physicsQuestions = [
     { type: 'Numerical', text: "g = 10 m/s^2 aur height double ho jaye to new g kya hoga?", ans: "2.5" }
 ];
 
-const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
+export const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
     let subject = 'Physics';
     if (i >= 25 && i < 50) subject = 'Chemistry';
     if (i >= 50) subject = 'Mathematics';
@@ -182,9 +182,9 @@ const jeeMockQuestions: QuestionType[] = Array.from({ length: 75 }).map((_, i) =
     };
 });
 
-const neetSubjectsList = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
+export const neetSubjectsList = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
 
-const neetMockQuestions: QuestionType[] = Array.from({ length: 200 }).map((_, i) => {
+export const neetMockQuestions: QuestionType[] = Array.from({ length: 200 }).map((_, i) => {
     let subject = 'Physics';
     if (i >= 50 && i < 100) subject = 'Chemistry';
     if (i >= 100 && i < 150) subject = 'Botany';
@@ -405,6 +405,7 @@ function JEE_NTA_TestEngine() {
                 }
             });
 
+            sessionStorage.setItem('examResponses', JSON.stringify(responses));
             setIsSubmitted(true);
             setTimeout(() => {
                 router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}`);
