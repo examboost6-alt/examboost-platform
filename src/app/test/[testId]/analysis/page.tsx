@@ -1,13 +1,15 @@
 'use client';
 
 import React, { useEffect, useState, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter, useParams } from 'next/navigation';
 import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X, Globe, AlertCircle } from 'lucide-react';
 import { jeeMockQuestions, neetMockQuestions, QuestionType } from '../mockData';
 
 function AnalysisContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    const params = useParams();
+    const testId = (params?.testId as string) || '';
     
     const [stats, setStats] = useState({
         score: 0,
@@ -23,47 +25,74 @@ function AnalysisContent() {
     const [language, setLanguage] = useState<'english' | 'hindi'>('english');
 
     useEffect(() => {
-        const queryScore = parseInt(searchParams.get('score') || '0', 10);
-        const queryCorrect = parseInt(searchParams.get('correct') || '0', 10);
-        const queryIncorrect = parseInt(searchParams.get('incorrect') || '0', 10);
-        const queryUnattempted = parseInt(searchParams.get('unattempted') || '0', 10);
-        const queryIsNeet = searchParams.get('isNeet') === 'true';
+        const queryAttemptId = searchParams.get('attemptId');
+        let useFallback = true;
+        
+        let loadedScore = parseInt(searchParams.get('score') || '0', 10);
+        let loadedCorrect = parseInt(searchParams.get('correct') || '0', 10);
+        let loadedIncorrect = parseInt(searchParams.get('incorrect') || '0', 10);
+        let loadedUnattempted = parseInt(searchParams.get('unattempted') || '0', 10);
+        let loadedIsNeet = searchParams.get('isNeet') === 'true';
+        let loadedResponses: Record<number, number | string> = {};
+
+        if (queryAttemptId && testId) {
+            try {
+                const seriesId = testId.split('-test')[0];
+                const historyStr = localStorage.getItem(`exam_history_${seriesId}`);
+                if (historyStr) {
+                    const existingHistory = JSON.parse(historyStr);
+                    const foundAttempt = existingHistory.find((a: any) => a.attemptId.toString() === queryAttemptId);
+                    if (foundAttempt) {
+                        loadedScore = foundAttempt.score;
+                        loadedCorrect = foundAttempt.correct;
+                        loadedIncorrect = foundAttempt.incorrect;
+                        loadedUnattempted = foundAttempt.unattempted;
+                        loadedIsNeet = foundAttempt.isNeet;
+                        loadedResponses = foundAttempt.responses || {};
+                        useFallback = false;
+                    }
+                }
+            } catch (e) { console.error("Could not load from history"); }
+        }
+
+        if (useFallback) {
+            const storedResponses = sessionStorage.getItem('examResponses');
+            if (storedResponses) {
+                try { loadedResponses = JSON.parse(storedResponses); } catch (e) {}
+            }
+        }
 
         setStats({
-            score: queryScore,
-            correct: queryCorrect,
-            incorrect: queryIncorrect,
-            unattempted: queryUnattempted,
-            isNeet: queryIsNeet
+            score: loadedScore,
+            correct: loadedCorrect,
+            incorrect: loadedIncorrect,
+            unattempted: loadedUnattempted,
+            isNeet: loadedIsNeet
         });
-
-        const storedResponses = sessionStorage.getItem('examResponses');
-        if (storedResponses) {
-            try { setResponses(JSON.parse(storedResponses)); } catch (e) {}
-        }
-        setQuestions(queryIsNeet ? neetMockQuestions : jeeMockQuestions);
+        setResponses(loadedResponses);
+        setQuestions(loadedIsNeet ? neetMockQuestions : jeeMockQuestions);
 
         // Calculate Realistic Rank based on historical normalization (out of ~5 Lakh)
-        if (queryIsNeet) {
+        if (loadedIsNeet) {
             // Simplified logic for NEET (out of 720 approx)
-            if (queryScore >= 700) setPredictedRank(Math.floor(Math.random() * 100) + 1);
-            else if (queryScore >= 600) setPredictedRank(Math.floor(5000 + ((700 - queryScore) / 100) * 15000));
-            else if (queryScore >= 400) setPredictedRank(Math.floor(20000 + ((600 - queryScore) / 200) * 80000));
-            else if (queryScore >= 200) setPredictedRank(Math.floor(100000 + ((400 - queryScore) / 200) * 200000));
-            else setPredictedRank(Math.floor(300000 + ((200 - Math.max(0, queryScore)) / 200) * 200000));
+            if (loadedScore >= 700) setPredictedRank(Math.floor(Math.random() * 100) + 1);
+            else if (loadedScore >= 600) setPredictedRank(Math.floor(5000 + ((700 - loadedScore) / 100) * 15000));
+            else if (loadedScore >= 400) setPredictedRank(Math.floor(20000 + ((600 - loadedScore) / 200) * 80000));
+            else if (loadedScore >= 200) setPredictedRank(Math.floor(100000 + ((400 - loadedScore) / 200) * 200000));
+            else setPredictedRank(Math.floor(300000 + ((200 - Math.max(0, loadedScore)) / 200) * 200000));
         } else {
             // Realistic JEE Mains Rank out of ~500,000 for realistic validation
-            if (queryScore >= 300) setPredictedRank(1);
-            else if (queryScore >= 280) setPredictedRank(Math.floor(2 + ((300 - queryScore) / 20) * 500));
-            else if (queryScore >= 250) setPredictedRank(Math.floor(502 + ((280 - queryScore) / 30) * 4500));
-            else if (queryScore >= 200) setPredictedRank(Math.floor(5002 + ((250 - queryScore) / 50) * 10000));
-            else if (queryScore >= 160) setPredictedRank(Math.floor(15002 + ((200 - queryScore) / 40) * 25000));
-            else if (queryScore >= 120) setPredictedRank(Math.floor(40002 + ((160 - queryScore) / 40) * 40000));
-            else if (queryScore >= 80) setPredictedRank(Math.floor(80002 + ((120 - queryScore) / 40) * 80000));
-            else if (queryScore >= 40) setPredictedRank(Math.floor(160002 + ((80 - queryScore) / 40) * 150000));
-            else setPredictedRank(Math.floor(310002 + ((40 - Math.max(-75, queryScore)) / 115) * 190000));
+            if (loadedScore >= 300) setPredictedRank(1);
+            else if (loadedScore >= 280) setPredictedRank(Math.floor(2 + ((300 - loadedScore) / 20) * 500));
+            else if (loadedScore >= 250) setPredictedRank(Math.floor(502 + ((280 - loadedScore) / 30) * 4500));
+            else if (loadedScore >= 200) setPredictedRank(Math.floor(5002 + ((250 - loadedScore) / 50) * 10000));
+            else if (loadedScore >= 160) setPredictedRank(Math.floor(15002 + ((200 - loadedScore) / 40) * 25000));
+            else if (loadedScore >= 120) setPredictedRank(Math.floor(40002 + ((160 - loadedScore) / 40) * 40000));
+            else if (loadedScore >= 80) setPredictedRank(Math.floor(80002 + ((120 - loadedScore) / 40) * 80000));
+            else if (loadedScore >= 40) setPredictedRank(Math.floor(160002 + ((80 - loadedScore) / 40) * 150000));
+            else setPredictedRank(Math.floor(310002 + ((40 - Math.max(-75, loadedScore)) / 115) * 190000));
         }
-    }, [searchParams]);
+    }, [searchParams, testId]);
 
     const maxScore = stats.isNeet ? 720 : 300;
     const accuracy = stats.correct + stats.incorrect > 0 

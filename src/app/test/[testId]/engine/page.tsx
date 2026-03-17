@@ -219,10 +219,40 @@ function JEE_NTA_TestEngine() {
             });
 
             sessionStorage.setItem('examResponses', JSON.stringify(responses));
-            setIsSubmitted(true);
-            setTimeout(() => {
-                router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}`);
-            }, 1500);
+            
+            // Save to LocalStorage History Log
+            try {
+                const attemptId = Date.now();
+                const seriesId = testId.split('-test')[0];
+                const historyKey = `exam_history_${seriesId}`;
+                const existingHistory = JSON.parse(localStorage.getItem(historyKey) || '[]');
+                
+                const newAttempt = {
+                    testId,
+                    attemptId,
+                    date: new Date(attemptId).toISOString(),
+                    score,
+                    correct,
+                    incorrect,
+                    unattempted,
+                    isNeet,
+                    responses
+                };
+                
+                existingHistory.push(newAttempt);
+                localStorage.setItem(historyKey, JSON.stringify(existingHistory));
+                
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}`);
+                }, 1500);
+            } catch (e) {
+                console.error("Could not save history", e);
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}`);
+                }, 1500);
+            }
         }
     };
 

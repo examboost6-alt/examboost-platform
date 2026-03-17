@@ -79,80 +79,79 @@ export default function SeriesPage() {
   const [isClient, setIsClient] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const mockAnalyticsHistory = [
-    {
-      date: "Today (15 March 2026)",
-      deletesIn: "7 days",
-      testName: "Full Mock Test 01",
-      attempts: [
-        {
-          attemptNo: 3,
-          time: "08:45 PM",
-          score: 185,
-          total: 300,
-          accuracy: "82%",
-          rank: "842 / 50,000",
-          timeTaken: "175",
-          avgTimePerQ: "2.1",
-          stats: [
-            { name: "Physics", correct: 20, wrong: 2, skipped: 3, time: "55m" },
-            { name: "Chemistry", correct: 22, wrong: 1, skipped: 2, time: "40m" },
-            { name: "Mathematics", correct: 15, wrong: 5, skipped: 5, time: "80m" },
-          ]
-        },
-        {
-          attemptNo: 2,
-          time: "02:10 PM",
-          score: 160,
-          total: 300,
-          accuracy: "75%",
-          rank: "1,204 / 50,000",
-          timeTaken: "180",
-          avgTimePerQ: "2.5",
-          stats: [
-            { name: "Physics", correct: 18, wrong: 4, skipped: 3, time: "60m" },
-            { name: "Chemistry", correct: 20, wrong: 3, skipped: 2, time: "45m" },
-            { name: "Mathematics", correct: 12, wrong: 6, skipped: 7, time: "75m" },
-          ]
-        },
-        {
-          attemptNo: 1,
-          time: "09:00 AM",
-          score: 145,
-          total: 300,
-          accuracy: "68%",
-          rank: "3,500 / 50,000",
-          timeTaken: "180",
-          avgTimePerQ: "2.8",
-          stats: [
-            { name: "Physics", correct: 15, wrong: 5, skipped: 5, time: "65m" },
-            { name: "Chemistry", correct: 18, wrong: 4, skipped: 3, time: "40m" },
-            { name: "Mathematics", correct: 10, wrong: 8, skipped: 7, time: "75m" },
-          ]
-        }
-      ]
-    },
-    {
-      date: "Yesterday (14 March 2026)",
-      deletesIn: "6 days",
-      testName: "Part Syllabus Test 03",
-      attempts: [
-        {
-          attemptNo: 1,
-          time: "06:30 PM",
-          score: 85,
-          total: 100,
-          accuracy: "88%",
-          rank: "150 / 20,000",
-          timeTaken: "55",
-          avgTimePerQ: "1.8",
-          stats: [
-            { name: "Physics", correct: 22, wrong: 3, skipped: 0, time: "55m" },
-          ]
-        }
-      ]
+  const [historyData, setHistoryData] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (!isClient) return;
+    try {
+        const historyKey = `exam_history_${seriesId}`;
+        const localHist = JSON.parse(localStorage.getItem(historyKey) || '[]');
+        localHist.sort((a: any, b: any) => b.attemptId - a.attemptId);
+
+        const grouped: Record<string, any> = {};
+
+        localHist.forEach((attempt: any) => {
+            const d = new Date(attempt.attemptId);
+            const dateStr = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            
+            const now = new Date();
+            const diffTime = Math.abs(now.getTime() - d.getTime());
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            let displayDate = dateStr;
+            if (diffDays === 0 && now.getDate() === d.getDate()) displayDate = `Today (${dateStr})`;
+            else if (diffDays === 1 || (diffDays === 0 && now.getDate() !== d.getDate())) displayDate = `Yesterday (${dateStr})`;
+
+            const deletesIn = Math.max(0, 7 - diffDays);
+            const groupKey = `${displayDate}___${attempt.testId}`;
+            
+            if (!grouped[groupKey]) {
+                const testParts = attempt.testId.split('-test');
+                const testNo = testParts.length > 1 ? testParts[1].replace('-', '') : 'Unknown';
+                const testTitleRaw = `Full Mock Test ${testNo}`;
+                
+                grouped[groupKey] = {
+                    date: displayDate,
+                    deletesIn: `${deletesIn} days`,
+                    testName: testTitleRaw,
+                    testId: attempt.testId,
+                    attempts: []
+                };
+            }
+            
+            const totalQs = attempt.correct + attempt.incorrect + attempt.unattempted;
+            const acc = attempt.correct + attempt.incorrect > 0 ? Math.round((attempt.correct / (attempt.correct + attempt.incorrect)) * 100) : 0;
+            
+            grouped[groupKey].attempts.push({
+                rawAttemptId: attempt.attemptId,
+                testId: attempt.testId,
+                attemptNo: 0,
+                time: d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                score: attempt.score,
+                total: attempt.isNeet ? 720 : 300,
+                accuracy: `${acc}%`,
+                rank: "View Analytics",
+                timeTaken: "-", 
+                avgTimePerQ: "-", 
+                stats: [
+                   { name: "Total Exam", correct: attempt.correct, wrong: attempt.incorrect, skipped: attempt.unattempted, time: "-" }
+                ]
+            });
+        });
+        
+        let formattedHistory = Object.values(grouped);
+        formattedHistory = formattedHistory.map((group: any) => {
+            group.attempts.forEach((att: any, idx: number) => {
+                att.attemptNo = group.attempts.length - idx;
+            });
+            return group;
+        });
+        
+        setHistoryData(formattedHistory);
+    } catch(e) {
+        console.error("Could not load history", e);
     }
-  ];
+  }, [seriesId, isClient]);
 
   const [isPurchased, setIsPurchased] = useState(false);
   const [userId, setUserId] = useState<string|null>(null);
@@ -342,8 +341,8 @@ export default function SeriesPage() {
               {[
                 { id: 'tests', label: 'Mock Tests', icon: FileText },
                 { id: 'syllabus', label: 'Syllabus', icon: Calendar },
-                { id: 'performance', label: 'Analytics', icon: BarChart },
-                { id: 'pyp', label: 'Previous Years', icon: History },
+                { id: 'performance', label: 'History', icon: History },
+                { id: 'pyp', label: 'Previous Years', icon: CheckCircle2 },
                 { id: 'aiqb', label: 'AI Chapter Tests', icon: Sparkles },
               ].map((tab) => (
                 <button
@@ -545,7 +544,7 @@ export default function SeriesPage() {
 
                   {/* Vertical Timeline */}
                   <div className="space-y-10 relative before:absolute before:inset-0 before:ml-[34px] md:before:mx-auto md:before:translate-x-0 before:w-0.5 before:bg-gradient-to-b before:from-slate-200 before:via-slate-200 dark:before:from-slate-800 dark:before:via-slate-800 before:to-transparent">
-                    {mockAnalyticsHistory.map((dayLine, i) => (
+                    {historyData.length > 0 ? historyData.map((dayLine, i) => (
                       <div key={i} className="relative z-10 w-full">
                         
                         {/* Day Marker */}
@@ -567,33 +566,35 @@ export default function SeriesPage() {
                             </div>
 
                             <div className="space-y-6">
-                                {dayLine.attempts.map((attempt, k) => (
+                                {dayLine.attempts.map((attempt: any, k: number) => (
                                     <div key={k} className="group border-2 border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/5 bg-white dark:bg-slate-900">
                                         
                                         {/* Attempt Header */}
                                         <div className="bg-slate-50 dark:bg-slate-800/40 p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800/80">
-                                            <div className="flex items-center gap-3 w-full md:w-auto">
-                                                <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black text-base shrink-0 shadow-sm border border-indigo-200 dark:border-indigo-800/50">#{attempt.attemptNo}</div>
-                                                <div>
-                                                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200 block">Attempt Timestamp</span>
-                                                    <span className="text-base font-black text-slate-900 dark:text-white block mt-0.5">{attempt.time}</span>
+                                                <div className="flex items-center gap-3 w-full md:w-auto">
+                                                    <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black text-base shrink-0 shadow-sm border border-indigo-200 dark:border-indigo-800/50">#{attempt.attemptNo}</div>
+                                                    <div>
+                                                        <span className="text-sm font-bold text-slate-800 dark:text-slate-200 block">Attempt Timestamp</span>
+                                                        <span className="text-base font-black text-slate-900 dark:text-white block mt-0.5">{attempt.time}</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div className="flex gap-2 sm:gap-4 flex-wrap w-full md:w-auto mt-2 md:mt-0 items-center">
+                                                    <button onClick={() => router.push(`/test/${attempt.testId}/analysis?score=${attempt.score}&isNeet=${courseData.exam === 'Medical'}&attemptId=${attempt.rawAttemptId}`)} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-sm flex items-center gap-2 shadow-sm transition-colors w-full md:w-auto justify-center">
+                                                        <BarChart className="w-4 h-4"/> View Full Analytics
+                                                    </button>
                                                 </div>
                                             </div>
                                             
-                                            <div className="flex gap-2 sm:gap-4 flex-wrap w-full md:w-auto">
-                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
-                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Score</span>
-                                                    <span className="text-base font-black text-slate-900 dark:text-white">{attempt.score}<span className="text-xs text-slate-400">/{attempt.total}</span></span>
-                                                </div>
-                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
-                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Accuracy</span>
-                                                    <span className="text-base font-black text-emerald-600 dark:text-emerald-400">{attempt.accuracy}</span>
-                                                </div>
-                                                <div className="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col shadow-sm flex-1 md:flex-none">
-                                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Est. Rank</span>
-                                                    <span className="text-base font-black text-amber-600 dark:text-amber-500">{attempt.rank}</span>
-                                                </div>
-                                            </div>
+                                            <div className="bg-white dark:bg-slate-900 px-4 py-3 border-b flex flex-wrap gap-4 border-slate-100 dark:border-slate-800/80">
+                                                    <div className="flex flex-col">
+                                                        <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Score</span>
+                                                        <span className="text-base font-black text-slate-900 dark:text-white">{attempt.score}<span className="text-xs text-slate-400">/{attempt.total}</span></span>
+                                                    </div>
+                                                    <div className="flex flex-col">
+                                                        <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-0.5">Accuracy</span>
+                                                        <span className="text-base font-black text-emerald-600 dark:text-emerald-400">{attempt.accuracy}</span>
+                                                    </div>
                                         </div>
 
                                         {/* Attempt details body */}
@@ -640,7 +641,6 @@ export default function SeriesPage() {
                                                                     <div className="flex items-center gap-3 shrink-0 text-xs font-bold w-full sm:w-auto justify-between sm:justify-start bg-white dark:bg-slate-800 px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
                                                                         <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5"/> {s.correct} <span className="text-[10px] text-slate-400">Cor</span></span>
                                                                         <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5"/> {s.wrong} <span className="text-[10px] text-slate-400">Wrn</span></span>
-                                                                        <span className="text-indigo-600 dark:text-indigo-400 border-l border-slate-200 dark:border-slate-600 pl-3 flex items-center gap-1"><Clock className="w-3.5 h-3.5"/> {s.time}</span>
                                                                     </div>
                                                                 </div>
                                                             );
@@ -654,7 +654,13 @@ export default function SeriesPage() {
                             </div>
                         </div>
                       </div>
-                    ))}
+                    )) : (
+                        <div className="text-center py-10 bg-white dark:bg-[#111827] rounded-3xl border border-slate-200 dark:border-slate-800">
+                            <History className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-4" />
+                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">No attempts found</h3>
+                            <p className="text-slate-500 dark:text-slate-400 mt-2">You haven't attempted any mock tests in this series yet.</p>
+                        </div>
+                    )}
                   </div>
 
                   <div className="bg-indigo-50 dark:bg-indigo-500/10 p-5 rounded-2xl flex items-start sm:items-center gap-4 border border-indigo-100 dark:border-indigo-500/20 text-indigo-800 dark:text-indigo-300 text-sm font-medium mt-8 shadow-sm">
