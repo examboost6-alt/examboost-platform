@@ -102,8 +102,7 @@ function JEE_NTA_TestEngine() {
             }
             return prev;
         });
-        setQuestionLang(defaultLang);
-    }, [currentQuestionIndex, defaultLang, currentQuestion.id]);
+    }, [currentQuestionIndex, currentQuestion.id]);
 
     const formatTime = (seconds: number) => {
         const h = Math.floor(seconds / 3600);
