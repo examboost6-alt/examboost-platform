@@ -3,7 +3,7 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X, Globe, AlertCircle } from 'lucide-react';
-import { jeeMockQuestions, neetMockQuestions, QuestionType } from '../engine/page';
+import { jeeMockQuestions, neetMockQuestions, QuestionType } from '../mockData';
 
 function AnalysisContent() {
     const searchParams = useSearchParams();
