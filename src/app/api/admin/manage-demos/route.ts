@@ -74,7 +74,12 @@ export async function DELETE(req: Request) {
        return NextResponse.json({ success: false, error: 'userId required' });
      }
 
-     // Supabase auth.admin.deleteUser deletes the user from auth and CASCADE deletes profiles (if linked)
+     // Delete associated records first (in case ON DELETE CASCADE is missing)
+     await supabaseAdmin.from('purchases').delete().eq('user_id', userId);
+     await supabaseAdmin.from('user_tests').delete().eq('user_id', userId);
+     await supabaseAdmin.from('profiles').delete().eq('id', userId);
+
+     // Supabase auth.admin.deleteUser deletes the user from auth
      const { error } = await supabaseAdmin.auth.admin.deleteUser(userId);
      if (error) {
        return NextResponse.json({ success: false, error: error.message });
