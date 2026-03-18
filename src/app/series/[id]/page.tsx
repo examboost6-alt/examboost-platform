@@ -794,14 +794,14 @@ export default function SeriesPage() {
 
                 <div className="p-6">
                   <div className="flex items-end gap-3 mb-2">
-                    <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">₹{courseData.price}</h2>
+                    <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">FREE</h2>
                     <span className="text-lg font-bold text-slate-400 dark:text-slate-500 line-through mb-0.5">₹{courseData.originalPrice}</span>
                     <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded ml-auto mb-1 border border-emerald-100 dark:border-emerald-500/20">
-                      {discountPercent}% OFF
+                      100% OFF
                     </span>
                   </div>
                   <p className="text-sm font-semibold text-rose-500 dark:text-rose-400 mb-6 flex items-center gap-1.5">
-                    <AlertCircle className="w-4 h-4" /> Limited time offer
+                    <AlertCircle className="w-4 h-4" /> Limited time free access
                   </p>
 
                   {isPurchased ? (
@@ -812,10 +812,13 @@ export default function SeriesPage() {
                     </button>
                   ) : (
                     <button 
-                      onClick={initiatePayment} 
+                      onClick={() => {
+                        alert("Please login first to access the free test series.");
+                        router.push('/login');
+                      }} 
                       className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 px-6 rounded-xl shadow-md transition-all active:scale-[0.98] mb-4"
                     >
-                      Buy Now
+                      Login to Access Free
                     </button>
                   )}
 
