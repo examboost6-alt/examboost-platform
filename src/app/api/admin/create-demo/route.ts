@@ -45,7 +45,8 @@ export async function POST(req: Request) {
       email_confirm: true,
       user_metadata: {
         first_name: name || 'Demo',
-        last_name: 'User'
+        last_name: 'User',
+        is_demo: true
       }
     });
 
