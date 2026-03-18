@@ -70,15 +70,16 @@ export async function POST(req: Request) {
         user_id: userId,
         series_id: seriesId,
         amount: 0,
-        status: 'completed',
-        razorpay_order_id: `demo_order_${Math.random().toString(36).substring(7)}`,
-        razorpay_payment_id: `demo_pay_${Math.random().toString(36).substring(7)}`
+        status: 'success',
+        order_id: `demo_order_${Math.random().toString(36).substring(7)}`,
+        payment_id: `demo_pay_${Math.random().toString(36).substring(7)}`
       }));
 
       const { error: purchaseError } = await supabaseAdmin.from('purchases').insert(purchasesToInsert);
       
       if (purchaseError) {
         console.error('Error granting access:', purchaseError);
+        return NextResponse.json({ success: false, error: purchaseError.message });
       }
     }
 
