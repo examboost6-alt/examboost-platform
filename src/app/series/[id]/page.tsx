@@ -250,9 +250,9 @@ export default function SeriesPage() {
   const tests = Array.from({ length: courseData.testCount }).map((_, i) => ({
     id: `${seriesId}-test-${i + 1}`,
     title: `${courseData.exam} Full Mock Test - ${i + 1}`,
-    questions: 90,
-    marks: 300,
-    duration: '180 Mins',
+    questions: courseData.exam === 'Medical' ? 200 : courseData.exam === 'Engineering' ? 75 : 100,
+    marks: courseData.exam === 'Medical' ? 720 : courseData.exam === 'Engineering' ? 300 : 100,
+    duration: courseData.exam === 'Medical' ? '200 Mins' : '180 Mins',
     isLocked: i === 0 ? false : !isPurchased // First mock is free
   }));
 
