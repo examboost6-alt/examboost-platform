@@ -55,7 +55,7 @@ export async function GET() {
       email: u.email,
       name: u.user_metadata?.first_name || 'Demo User',
       createdAt: u.created_at,
-      hasFreeAccess: !!hasAccessMap[u.id]
+      hasFreeAccess: u.user_metadata?.is_demo === true || !!hasAccessMap[u.id]
     }));
 
     return NextResponse.json({ success: true, users: formattedUsers });

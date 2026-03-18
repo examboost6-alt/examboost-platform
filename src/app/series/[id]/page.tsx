@@ -164,6 +164,12 @@ export default function SeriesPage() {
       const { data: auth } = await supabase.auth.getSession();
       if (auth.session) {
         setUserId(auth.session.user.id);
+        
+        if (auth.session.user.user_metadata?.is_demo === true) {
+          setIsPurchased(true);
+          return;
+        }
+
         const { data } = await supabase.from('purchases').select('*').eq('user_id', auth.session.user.id).eq('series_id', seriesId).in('status', ['success', 'completed']);
         if (data && data.length > 0) {
           setIsPurchased(true);

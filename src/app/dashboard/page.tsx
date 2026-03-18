@@ -171,9 +171,11 @@ export default function StudentDashboard() {
 
     const fetchDashboardData = async (uid: string) => {
       setLoading(true);
+      let isDemo = false;
       try {
         const { data: authUser } = await supabase.auth.getUser();
         setUserEmail(authUser.user?.email || '');
+        isDemo = authUser.user?.user_metadata?.is_demo === true;
       } catch {
         setUserEmail('');
       }
@@ -238,6 +240,17 @@ export default function StudentDashboard() {
       const purchases = (purchasesData as any[]) || [];
 
       const seriesIds = purchases.map((p: any) => p.series_id).filter(Boolean);
+      if (isDemo) {
+        mockPackages.forEach((m) => {
+          if (!seriesIds.includes(m.id)) seriesIds.push(m.id);
+        });
+        const { data: allActiveSeries } = await supabase.from('test_series').select('id').eq('is_active', true);
+        if (allActiveSeries) {
+          allActiveSeries.forEach((s: any) => {
+            if (!seriesIds.includes(s.id)) seriesIds.push(s.id);
+          });
+        }
+      }
       let seriesById = new Map<string, any>();
       if (seriesIds.length > 0) {
         let purchasedSeries: any[] = [];
