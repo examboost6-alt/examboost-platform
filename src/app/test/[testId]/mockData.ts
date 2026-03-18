@@ -29,22 +29,26 @@ import { mock14Questions } from './data/mock14';
 import { mock15Questions } from './data/mock15';
 
 export const getJeeMockQuestions = (testId: string): QuestionType[] => {
-    switch (testId) {
-        case 'test-1': return mock1Questions;
-        case 'test-2': return mock2Questions;
-        case 'test-3': return mock3Questions;
-        case 'test-4': return mock4Questions;
-        case 'test-5': return mock5Questions;
-        case 'test-6': return mock6Questions;
-        case 'test-7': return mock7Questions;
-        case 'test-8': return mock8Questions;
-        case 'test-9': return mock9Questions;
-        case 'test-10': return mock10Questions;
-        case 'test-11': return mock11Questions;
-        case 'test-12': return mock12Questions;
-        case 'test-13': return mock13Questions;
-        case 'test-14': return mock14Questions;
-        case 'test-15': return mock15Questions;
+    // Extract the test number from the testId, handling both 'test-1' and 'mock-eng-1-test-1' formats
+    const match = testId.match(/test-(\d+)/);
+    const testNum = match ? parseInt(match[1]) : 1;
+
+    switch (testNum) {
+        case 1: return mock1Questions;
+        case 2: return mock2Questions;
+        case 3: return mock3Questions;
+        case 4: return mock4Questions;
+        case 5: return mock5Questions;
+        case 6: return mock6Questions;
+        case 7: return mock7Questions;
+        case 8: return mock8Questions;
+        case 9: return mock9Questions;
+        case 10: return mock10Questions;
+        case 11: return mock11Questions;
+        case 12: return mock12Questions;
+        case 13: return mock13Questions;
+        case 14: return mock14Questions;
+        case 15: return mock15Questions;
         default: return mock1Questions;
     }
 };

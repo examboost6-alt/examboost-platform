@@ -865,7 +865,7 @@ export default function StudentDashboard() {
                   <p className="text-xs text-right text-slate-600 font-bold mb-6">{ts.progress}% Completed</p>
                   
                   <div className="flex flex-col gap-3 mt-auto">
-                    <button className="w-full bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded-lg font-bold transition-colors outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2">Open Series Dashboard</button>
+                    <Link href={`/series/${ts.id}`} className="block w-full bg-slate-900 hover:bg-slate-800 text-white py-2.5 text-center mt-2 rounded-lg font-bold transition-colors outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2">Open Series Dashboard</Link>
                     <div className="flex gap-2">
                       <button className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-lg font-semibold text-sm transition-colors">Analysis</button>
                       <button className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-lg font-semibold text-sm transition-colors">Results</button>
