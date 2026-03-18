@@ -1,87 +1,1540 @@
 import { QuestionType } from '../mockData';
 
 const physicsQuestions_10: any[] = [
-    { type: 'MCQ', textEn: "On what does the stopping potential in the photoelectric effect depend?", textHi: "αñ¬αÑìαñ░αñòαñ╛αñ╢ αñ╡αÑêαñªαÑìαñ»αÑüαññ αñ¬αÑìαñ░αñ¡αñ╛αñ╡ αñ«αÑçαñé αñ¿αñ┐αñ░αÑïαñºαÑÇ αñ╡αñ┐αñ¡αñ╡ αñòαñ┐αñ╕ αñ¬αñ░ αñ¿αñ┐αñ░αÑìαñ¡αñ░ αñòαñ░αññαñ╛ αñ╣αÑê?", options: [{en: "Intensity", hi: "αññαÑÇαñ╡αÑìαñ░αññαñ╛"}, {en: "Frequency", hi: "αñåαñ╡αÑâαññαÑìαññαñ┐"}, {en: "Work function only", hi: "αñòαÑçαñ╡αñ▓ αñòαñ╛αñ░αÑìαñ» αñ½αñ▓αñ¿"}, {en: "Frequency and work function", hi: "αñåαñ╡αÑâαññαÑìαññαñ┐ αñöαñ░ αñòαñ╛αñ░αÑìαñ» αñ½αñ▓αñ¿"}], ans: 4 },
-    { type: 'MCQ', textEn: "If the length of a wire is doubled and its radius is halved, what will be its new resistance?", textHi: "αñ»αñªαñ┐ αñÅαñò αññαñ╛αñ░ αñòαÑÇ αñ▓αñéαñ¼αñ╛αñê αñªαÑïαñùαÑüαñ¿αÑÇ αñöαñ░ αññαÑìαñ░αñ┐αñ£αÑìαñ»αñ╛ αñåαñºαÑÇ αñòαñ░ αñªαÑÇ αñ£αñ╛αñÅ, αññαÑï αñëαñ╕αñòαñ╛ αñ¿αñ»αñ╛ αñ¬αÑìαñ░αññαñ┐αñ░αÑïαñº αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαñ╛?", options: [{en: "Same", hi: "αñ╕αñ«αñ╛αñ¿ αñ░αñ╣αÑçαñùαñ╛"}, {en: "Double", hi: "αñªαÑïαñùαÑüαñ¿αñ╛ αñ╣αÑïαñùαñ╛"}, {en: "8 times", hi: "8 αñùαÑüαñ¿αñ╛ αñ╣αÑïαñùαñ╛"}, {en: "16 times", hi: "16 αñùαÑüαñ¿αñ╛ αñ╣αÑïαñùαñ╛"}], ans: 4 },
-    { type: 'MCQ', textEn: "What is the electric field inside a uniformly charged spherical shell?", textHi: "αñÅαñòαñ╕αñ«αñ╛αñ¿ αñ░αÑéαñ¬ αñ╕αÑç αñåαñ╡αÑçαñ╢αñ┐αññ αñùαÑïαñ▓αÑÇαñ» αñòαÑïαñ╢ αñòαÑç αñàαñéαñªαñ░ αñ╡αñ┐αñªαÑìαñ»αÑüαññ αñòαÑìαñ╖αÑçαññαÑìαñ░ αñòαÑìαñ»αñ╛ αñ╣αÑïαññαñ╛ αñ╣αÑê?", options: [{en: "Zero", hi: "αñ╢αÑéαñ¿αÑìαñ»"}, {en: "Constant", hi: "αñ¿αñ┐αñ»αññαñ╛αñéαñò"}, {en: "Linearly increasing", hi: "αñ░αÑêαñûαñ┐αñò αñ░αÑéαñ¬ αñ╕αÑç αñ¼αñóαñ╝αññαñ╛ αñ╣αÑüαñå"}, {en: "Infinite", hi: "αñàαñ¿αñéαññ"}], ans: 1 },
-    { type: 'MCQ', textEn: "What does the slope of a velocity-time graph represent?", textHi: "αñ╡αÑçαñù-αñ╕αñ«αñ» αñùαÑìαñ░αñ╛αñ½ αñòαñ╛ αñóαñ▓αñ╛αñ¿ αñòαÑìαñ»αñ╛ αñªαñ░αÑìαñ╢αñ╛αññαñ╛ αñ╣αÑê?", options: [{en: "Velocity", hi: "αñ╡αÑçαñù"}, {en: "Displacement", hi: "αñ╡αñ┐αñ╕αÑìαñÑαñ╛αñ¬αñ¿"}, {en: "Acceleration", hi: "αññαÑìαñ╡αñ░αñú"}, {en: "Force", hi: "αñ¼αñ▓"}], ans: 3 },
-    { type: 'MCQ', textEn: "What is the work done in an isothermal process?", textHi: "αñ╕αñ«αññαñ╛αñ¬αÑÇαñ» αñ¬αÑìαñ░αñòαÑìαñ░αñ┐αñ»αñ╛ αñ«αÑçαñé αñòαñ┐αñ»αñ╛ αñùαñ»αñ╛ αñòαñ╛αñ░αÑìαñ» αñòαÑìαñ»αñ╛ αñ╣αÑïαññαñ╛ αñ╣αÑê?", options: [{en: "Zero", hi: "αñ╢αÑéαñ¿αÑìαñ»"}, {en: "Maximum", hi: "αñàαñºαñ┐αñòαññαñ«"}, {en: "Minimum", hi: "αñ¿αÑìαñ»αÑéαñ¿αññαñ«"}, {en: "Depends on path", hi: "αñ¬αñÑ αñ¬αñ░ αñ¿αñ┐αñ░αÑìαñ¡αñ░ αñòαñ░αññαñ╛ αñ╣αÑê"}], ans: 2 },
-    { type: 'MCQ', textEn: "What does a moving charge experience in a magnetic field?", textHi: "αñÅαñò αñùαññαñ┐αñ«αñ╛αñ¿ αñåαñ╡αÑçαñ╢ αñÜαÑüαñéαñ¼αñòαÑÇαñ» αñòαÑìαñ╖αÑçαññαÑìαñ░ αñ«αÑçαñé αñòαÑìαñ»αñ╛ αñàαñ¿αÑüαñ¡αñ╡ αñòαñ░αññαñ╛ αñ╣αÑê?", options: [{en: "Electric force", hi: "αñ╡αñ┐αñªαÑìαñ»αÑüαññ αñ¼αñ▓"}, {en: "Magnetic force", hi: "αñÜαÑüαñéαñ¼αñòαÑÇαñ» αñ¼αñ▓"}, {en: "Gravitational force", hi: "αñùαÑüαñ░αÑüαññαÑìαñ╡αñ╛αñòαñ░αÑìαñ╖αñú αñ¼αñ▓"}, {en: "No force", hi: "αñòαÑïαñê αñ¼αñ▓ αñ¿αñ╣αÑÇαñé"}], ans: 2 },
-    { type: 'MCQ', textEn: "How is the image formed in a convex mirror?", textHi: "αñëαññαÑìαññαñ▓ αñªαñ░αÑìαñ¬αñú αñ«αÑçαñé αñ¬αÑìαñ░αññαñ┐αñ¼αñ┐αñéαñ¼ αñòαÑêαñ╕αñ╛ αñ╣αÑïαññαñ╛ αñ╣αÑê?", options: [{en: "Real and inverted", hi: "αñ╡αñ╛αñ╕αÑìαññαñ╡αñ┐αñò αñöαñ░ αñëαñ▓αÑìαñƒαñ╛"}, {en: "Virtual and erect", hi: "αñåαñ¡αñ╛αñ╕αÑÇ αñöαñ░ αñ╕αÑÇαñºαñ╛"}, {en: "Real and erect", hi: "αñ╡αñ╛αñ╕αÑìαññαñ╡αñ┐αñò αñöαñ░ αñ╕αÑÇαñºαñ╛"}, {en: "Virtual and inverted", hi: "αñåαñ¡αñ╛αñ╕αÑÇ αñöαñ░ αñëαñ▓αÑìαñƒαñ╛"}], ans: 2 },
-    { type: 'MCQ', textEn: "On what does the wave speed depend?", textHi: "αññαñ░αñéαñù αñòαÑÇ αñùαññαñ┐ αñòαñ┐αñ╕ αñ¬αñ░ αñ¿αñ┐αñ░αÑìαñ¡αñ░ αñòαñ░αññαÑÇ αñ╣αÑê?", options: [{en: "Frequency", hi: "αñåαñ╡αÑâαññαÑìαññαñ┐"}, {en: "Amplitude", hi: "αñåαñ»αñ╛αñ«"}, {en: "Medium", hi: "αñ«αñ╛αñºαÑìαñ»αñ«"}, {en: "Time", hi: "αñ╕αñ«αñ»"}], ans: 3 },
-    { type: 'MCQ', textEn: "In SHM, on what does the restoring force depend?", textHi: "αñ╕αñ░αñ▓ αñåαñ╡αñ░αÑìαññ αñùαññαñ┐ (SHM) αñ«αÑçαñé αñ¬αÑìαñ░αññαÑìαñ»αñ╛αñ¿αñ»αñ¿ αñ¼αñ▓ αñòαñ┐αñ╕ αñ¬αñ░ αñ¿αñ┐αñ░αÑìαñ¡αñ░ αñòαñ░αññαñ╛ αñ╣αÑê?", options: [{en: "Constant", hi: "αñ¿αñ┐αñ»αññαñ╛αñéαñò"}, {en: "Proportional to displacement", hi: "αñ╡αñ┐αñ╕αÑìαñÑαñ╛αñ¬αñ¿ αñòαÑç αñàαñ¿αÑüαñòαÑìαñ░αñ«αñ╛αñ¿αÑüαñ¬αñ╛αññαÑÇ"}, {en: "Inversely proportional", hi: "αñ╡αÑìαñ»αÑüαññαÑìαñòαÑìαñ░αñ«αñ╛αñ¿αÑüαñ¬αñ╛αññαÑÇ"}, {en: "Zero", hi: "αñ╢αÑéαñ¿αÑìαñ»"}], ans: 2 },
-    { type: 'MCQ', textEn: "What is the dimensional formula of force?", textHi: "αñ¼αñ▓ αñòαñ╛ αñ╡αñ┐αñ«αÑÇαñ» αñ╕αÑéαññαÑìαñ░ αñòαÑìαñ»αñ╛ αñ╣αÑê?", options: [{en: "MLT^-2", hi: "MLT^-2"}, {en: "ML^2T^-2", hi: "ML^2T^-2"}, {en: "MLT^-1", hi: "MLT^-1"}, {en: "ML^2T^-3", hi: "ML^2T^-3"}], ans: 1 },
-    { type: 'MCQ', textEn: "Upon which of the following does escape velocity NOT depend?", textHi: "αñ¬αñ▓αñ╛αñ»αñ¿ αñ╡αÑçαñù αñòαñ┐αñ╕ αñ¬αñ░ αñ¿αñ┐αñ░αÑìαñ¡αñ░ αñ¿αñ╣αÑÇαñé αñòαñ░αññαñ╛ αñ╣αÑê?", options: [{en: "Mass of planet", hi: "αñùαÑìαñ░αñ╣ αñòαñ╛ αñªαÑìαñ░αñ╡αÑìαñ»αñ«αñ╛αñ¿"}, {en: "Radius of planet", hi: "αñùαÑìαñ░αñ╣ αñòαÑÇ αññαÑìαñ░αñ┐αñ£αÑìαñ»αñ╛"}, {en: "Mass of object", hi: "αñ╡αñ╕αÑìαññαÑü αñòαñ╛ αñªαÑìαñ░αñ╡αÑìαñ»αñ«αñ╛αñ¿"}, {en: "Gravitational constant", hi: "αñùαÑüαñ░αÑüαññαÑìαñ╡αñ╛αñòαñ░αÑìαñ╖αñú αñ¿αñ┐αñ»αññαñ╛αñéαñò"}], ans: 3 },
-    { type: 'MCQ', textEn: "What happens to the capacitance when a dielectric is inserted in a parallel plate capacitor?", textHi: "αñ╕αñ«αñ╛αñéαññαñ░ αñ¬αñƒαÑìαñƒαñ┐αñòαñ╛ αñ╕αñéαñºαñ╛αñ░αñ┐αññαÑìαñ░ αñ«αÑçαñé αñ¬αñ░αñ╛αñ╡αÑêαñªαÑìαñ»αÑüαññ αñíαñ╛αñ▓αñ¿αÑç αñ¬αñ░ αñºαñ╛αñ░αñ┐αññαñ╛ αñòαÑìαñ»αñ╛ αñ╣αÑïαññαÑÇ αñ╣αÑê?", options: [{en: "Decreases", hi: "αñÿαñƒαññαÑÇ αñ╣αÑê"}, {en: "Increases", hi: "αñ¼αñóαñ╝αññαÑÇ αñ╣αÑê"}, {en: "Remains same", hi: "αñ╕αñ«αñ╛αñ¿ αñ░αñ╣αññαÑÇ αñ╣αÑê"}, {en: "Becomes zero", hi: "αñ╢αÑéαñ¿αÑìαñ» αñ╣αÑï αñ£αñ╛αññαÑÇ αñ╣αÑê"}], ans: 2 },
-    { type: 'MCQ', textEn: "What is the formula for Torque?", textHi: "αñ¼αñ▓ αñåαñÿαÑéαñ░αÑìαñú (Torque) αñòαñ╛ αñ╕αÑéαññαÑìαñ░ αñòαÑìαñ»αñ╛ αñ╣αÑê?", options: [{en: "p x E", hi: "p x E"}, {en: "r x F", hi: "r x F"}, {en: "m x v", hi: "m x v"}, {en: "F x r", hi: "F x r"}], ans: 2 },
-    { type: 'MCQ', textEn: "What is the primary use of a P-N junction diode?", textHi: "αñíαñ╛αñ»αÑïαñí αñòαñ╛ αñ«αÑüαñûαÑìαñ» αñëαñ¬αñ»αÑïαñù αñòαÑìαñ»αñ╛ αñ╣αÑê?", options: [{en: "Amplification", hi: "αñ¬αÑìαñ░αñ╡αñ░αÑìαñºαñ¿"}, {en: "Rectification", hi: "αñªαñ┐αñ╖αÑìαñƒαñòαñ░αñú"}, {en: "Oscillation", hi: "αñªαÑïαñ▓αñ¿"}, {en: "Storage", hi: "αñ¡αñéαñíαñ╛αñ░αñú"}], ans: 2 },
-    { type: 'MCQ', textEn: "How does heat transfer occur during conduction?", textHi: "αñÜαñ╛αñ▓αñ¿ (Conduction) αñ«αÑçαñé αñèαñ╖αÑìαñ«αñ╛ αñòαñ╛ αñ╕αÑìαñÑαñ╛αñ¿αñ╛αñéαññαñ░αñú αñòαÑêαñ╕αÑç αñ╣αÑïαññαñ╛ αñ╣αÑê?", options: [{en: "With mass transfer", hi: "αñªαÑìαñ░αñ╡αÑìαñ»αñ«αñ╛αñ¿ αñ╕αÑìαñÑαñ╛αñ¿αñ╛αñéαññαñ░αñú αñòαÑç αñ╕αñ╛αñÑ"}, {en: "Without mass transfer", hi: "αñªαÑìαñ░αñ╡αÑìαñ»αñ«αñ╛αñ¿ αñ╕αÑìαñÑαñ╛αñ¿αñ╛αñéαññαñ░αñú αñòαÑç αñ¼αñ┐αñ¿αñ╛"}, {en: "By radiation", hi: "αñ╡αñ┐αñòαñ┐αñ░αñú αñªαÑìαñ╡αñ╛αñ░αñ╛"}, {en: "By convection", hi: "αñ╕αñéαñ╡αñ╣αñ¿ αñªαÑìαñ╡αñ╛αñ░αñ╛"}], ans: 2 },
-    { type: 'MCQ', textEn: "Which field is transverse in Electromagnetic waves?", textHi: "αñ╡αñ┐αñªαÑìαñ»αÑüαññ αñÜαÑüαñ«αÑìαñ¼αñòαÑÇαñ» αññαñ░αñéαñùαÑïαñé αñ«αÑçαñé αñòαÑîαñ¿ αñ╕αñ╛ αñòαÑìαñ╖αÑçαññαÑìαñ░ αñàαñ¿αÑüαñ¬αÑìαñ░αñ╕αÑìαñÑ αñ╣αÑïαññαñ╛ αñ╣αÑê?", options: [{en: "Only Electric field", hi: "αñòαÑçαñ╡αñ▓ αñ╡αñ┐αñªαÑìαñ»αÑüαññ αñòαÑìαñ╖αÑçαññαÑìαñ░"}, {en: "Only Magnetic field", hi: "αñòαÑçαñ╡αñ▓ αñÜαÑüαñéαñ¼αñòαÑÇαñ» αñòαÑìαñ╖αÑçαññαÑìαñ░"}, {en: "Both Electric and Magnetic", hi: "αñ╡αñ┐αñªαÑìαñ»αÑüαññ αñöαñ░ αñÜαÑüαñéαñ¼αñòαÑÇαñ» αñªαÑïαñ¿αÑïαñé"}, {en: "None", hi: "αñòαÑïαñê αñ¿αñ╣αÑÇαñé"}], ans: 3 },
-    { type: 'MCQ', textEn: "What does the Work-Energy theorem state?", textHi: "αñòαñ╛αñ░αÑìαñ»-αñèαñ░αÑìαñ£αñ╛ αñ¬αÑìαñ░αñ«αÑçαñ» αñòαÑìαñ»αñ╛ αñ╣αÑê?", options: [{en: "Work = Change in momentum", hi: "αñòαñ╛αñ░αÑìαñ» = αñ╕αñéαñ╡αÑçαñù αñ«αÑçαñé αñ¬αñ░αñ┐αñ╡αñ░αÑìαññαñ¿"}, {en: "Work = Change in kinetic energy", hi: "αñòαñ╛αñ░αÑìαñ» = αñùαññαñ┐αñ£ αñèαñ░αÑìαñ£αñ╛ αñ«αÑçαñé αñ¬αñ░αñ┐αñ╡αñ░αÑìαññαñ¿"}, {en: "Work = Change in potential energy", hi: "αñòαñ╛αñ░αÑìαñ» = αñ╕αÑìαñÑαñ┐αññαñ┐αñ£ αñèαñ░αÑìαñ£αñ╛ αñ«αÑçαñé αñ¬αñ░αñ┐αñ╡αñ░αÑìαññαñ¿"}, {en: "Work = Constant energy", hi: "αñòαñ╛αñ░αÑìαñ» = αñ¿αñ┐αñ»αññ αñèαñ░αÑìαñ£αñ╛"}], ans: 2 },
-    { type: 'MCQ', textEn: "What is the direction of centripetal force?", textHi: "αñàαñ¡αñ┐αñòαÑçαñéαñªαÑìαñ░ αñ¼αñ▓ αñòαÑÇ αñªαñ┐αñ╢αñ╛ αñòαÑìαñ»αñ╛ αñ╣αÑïαññαÑÇ αñ╣αÑê?", options: [{en: "Away from center", hi: "αñòαÑçαñéαñªαÑìαñ░ αñ╕αÑç αñªαÑéαñ░"}, {en: "Towards the center", hi: "αñòαÑçαñéαñªαÑìαñ░ αñòαÑÇ αñôαñ░"}, {en: "Parallel to velocity", hi: "αñ╡αÑçαñù αñòαÑç αñ╕αñ«αñ╛αñ¿αñ╛αñéαññαñ░"}, {en: "Perpendicular to radius", hi: "αññαÑìαñ░αñ┐αñ£αÑìαñ»αñ╛ αñòαÑç αñ▓αñéαñ¼αñ╡αññ"}], ans: 2 },
-    { type: 'MCQ', textEn: "For which type of fluid is Bernoulli's principle valid?", textHi: "αñ¼αñ░αÑìαñ¿αÑîαñ▓αÑÇ αñòαñ╛ αñ╕αñ┐αñªαÑìαñºαñ╛αñéαññ αñòαñ┐αñ╕ αñ¬αÑìαñ░αñòαñ╛αñ░ αñòαÑç αñªαÑìαñ░αñ╡ αñòαÑç αñ▓αñ┐αñÅ αñ«αñ╛αñ¿αÑìαñ» αñ╣αÑê?", options: [{en: "Compressible fluid", hi: "αñ╕αñéαñ¬αÑÇαñíαÑìαñ» αñªαÑìαñ░αñ╡"}, {en: "Incompressible and non-viscous fluid", hi: "αñàαñ╕αñéαñ¬αÑÇαñíαÑìαñ» αñöαñ░ αñàαñ╢αÑìαñ»αñ╛αñ¿ αñªαÑìαñ░αñ╡"}, {en: "Static fluid", hi: "αñ╕αÑìαñÑαñ┐αñ░ αñªαÑìαñ░αñ╡"}, {en: "Viscous fluid only", hi: "αñòαÑçαñ╡αñ▓ αñ╢αÑìαñ»αñ╛αñ¿ αñªαÑìαñ░αñ╡"}], ans: 2 },
-    { type: 'MCQ', textEn: "What is the rule for percentage error in addition?", textHi: "αñ»αÑïαñù αñ«αÑçαñé αñ¬αÑìαñ░αññαñ┐αñ╢αññ αññαÑìαñ░αÑüαñƒαñ┐ αñòαñ╛ αñ¿αñ┐αñ»αñ« αñòαÑìαñ»αñ╛ αñ╣αÑê?", options: [{en: "Relative errors are added", hi: "αñ╕αñ╛αñ¬αÑçαñòαÑìαñ╖ αññαÑìαñ░αÑüαñƒαñ┐αñ»αñ╛αñü αñ£αÑüαñíαñ╝αññαÑÇ αñ╣αÑêαñé"}, {en: "Absolute errors are added", hi: "αñ¿αñ┐αñ░αñ¬αÑçαñòαÑìαñ╖ αññαÑìαñ░αÑüαñƒαñ┐αñ»αñ╛αñü αñ£αÑüαñíαñ╝αññαÑÇ αñ╣αÑêαñé"}, {en: "Errors cancel each other", hi: "αññαÑìαñ░αÑüαñƒαñ┐αñ»αñ╛αñü αñÅαñò αñªαÑéαñ╕αñ░αÑç αñòαÑï αñ░αñªαÑìαñª αñòαñ░αññαÑÇ αñ╣αÑêαñé"}, {en: "Errors are multiplied", hi: "αññαÑìαñ░αÑüαñƒαñ┐αñ»αÑïαñé αñòαñ╛ αñùαÑüαñúαñ╛ αñ╣αÑïαññαñ╛ αñ╣αÑê"}], ans: 2 },
-    { type: 'Numerical', textEn: "If the work function is 4 eV and photon energy is 6 eV, what will be the kinetic energy (in eV)?", textHi: "αñ»αñªαñ┐ αñòαñ╛αñ░αÑìαñ» αñ½αñ▓αñ¿ 4 eV αñöαñ░ αñ½αÑïαñƒαÑëαñ¿ αñòαÑÇ αñèαñ░αÑìαñ£αñ╛ 6 eV αñ╣αÑê, αññαÑï αñùαññαñ┐αñ£ αñèαñ░αÑìαñ£αñ╛ (eV αñ«αÑçαñé) αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαÑÇ?", ans: "2" },
-    { type: 'Numerical', textEn: "If a 2 ohm and a 3 ohm resistor are in parallel, what is the equivalent resistance?", textHi: "αñ»αñªαñ┐ 2 αñôαñ« αñöαñ░ 3 αñôαñ« αñòαÑç αñ¬αÑìαñ░αññαñ┐αñ░αÑïαñºαñò αñ╕αñ«αñ╛αñ¿αñ╛αñéαññαñ░ αñòαÑìαñ░αñ« αñ«αÑçαñé αñ╣αÑïαñé, αññαÑï αññαÑüαñ▓αÑìαñ» αñ¬αÑìαñ░αññαñ┐αñ░αÑïαñº αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαñ╛?", ans: "1.2" },
-    { type: 'Numerical', textEn: "If acceleration is 2 m/s^2 and time is 5 s (starting from rest), what is the final velocity?", textHi: "αñ»αñªαñ┐ αññαÑìαñ╡αñ░αñú 2 m/s^2 αñ╣αÑê αñöαñ░ αñ╕αñ«αñ» 5 s αñ╣αÑê (αñ╡αñ┐αñ░αñ╛αñ« αñ╕αÑç αñ╢αÑüαñ░αÑé), αññαÑï αñàαñéαññαñ┐αñ« αñ╡αÑçαñù αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαñ╛?", ans: "10" },
-    { type: 'Numerical', textEn: "If a 2 microfarad and another 2 microfarad capacitor are in series, what is the equivalent capacitance?", textHi: "αñ»αñªαñ┐ 2 αñ«αñ╛αñçαñòαÑìαñ░αÑïαñ½αÑêαñ░αñ╛αñí αñöαñ░ αñªαÑéαñ╕αñ░αñ╛ 2 αñ«αñ╛αñçαñòαÑìαñ░αÑïαñ½αÑêαñ░αñ╛αñí αñ╕αñéαñºαñ╛αñ░αñ┐αññαÑìαñ░ αñ╢αÑìαñ░αÑçαñúαÑÇαñòαÑìαñ░αñ« αñ«αÑçαñé αñ╣αÑïαñé, αññαÑï αññαÑüαñ▓αÑìαñ» αñºαñ╛αñ░αñ┐αññαñ╛ αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαÑÇ?", ans: "1" },
-    { type: 'Numerical', textEn: "If g = 10 m/s^2 at the surface, what will be the value of g at a height equal to the radius of the earth? (in m/s^2)", textHi: "αñ»αñªαñ┐ αñ¬αÑâαñÑαÑìαñ╡αÑÇ αñòαÑÇ αñ╕αññαñ╣ αñ¬αñ░ g = 10 m/s^2 αñ╣αÑê, αññαÑï αñ¬αÑâαñÑαÑìαñ╡αÑÇ αñòαÑÇ αññαÑìαñ░αñ┐αñ£αÑìαñ»αñ╛ αñòαÑç αñ¼αñ░αñ╛αñ¼αñ░ αñèαñéαñÜαñ╛αñê αñ¬αñ░ g αñòαñ╛ αñ«αñ╛αñ¿ αñòαÑìαñ»αñ╛ αñ╣αÑïαñùαñ╛? (m/s^2 αñ«αÑçαñé)", ans: "2.5" }
+    {
+        "type": "MCQ",
+        "textEn": "A uniformly charged ring (radius R) has charge Q. Electric field at center if half ring removed:",
+        "textHi": "एक समान रूप से आवेशित वलय (त्रिज्या R) पर आवेश Q है। यदि आधा वलय हटा दिया जाए, तो केंद्र पर विद्युत क्षेत्र होगा:",
+        "options": [
+            {
+                "en": "kQ/R²",
+                "hi": "kQ/R²"
+            },
+            {
+                "en": "kQ/2R²",
+                "hi": "kQ/2R²"
+            },
+            {
+                "en": "kQ/πR²",
+                "hi": "kQ/πR²"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Two dielectrics k₁ and k₂ fill equal area of capacitor. Equivalent k:",
+        "textHi": "दो परावैद्युत (dielectrics) k₁ और k₂ संधारित्र के समान क्षेत्रफल को भरते हैं। समतुल्य k (Equivalent k) क्या है?",
+        "options": [
+            {
+                "en": "(k₁+k₂)/2",
+                "hi": "(k₁+k₂)/2"
+            },
+            {
+                "en": "2k₁k₂/(k₁+k₂)",
+                "hi": "2k₁k₂/(k₁+k₂)"
+            },
+            {
+                "en": "k₁+k₂",
+                "hi": "k₁+k₂"
+            },
+            {
+                "en": "k₁k₂",
+                "hi": "k₁k₂"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Resistance R ∝ T. Power at constant V when T doubles:",
+        "textHi": "प्रतिरोध R ∝ T. जब T दोगुना हो जाता है तो नियत V पर शक्ति (Power) पर क्या प्रभाव पड़ेगा?",
+        "options": [
+            {
+                "en": "Doubles",
+                "hi": "Doubles"
+            },
+            {
+                "en": "Halves",
+                "hi": "Halves"
+            },
+            {
+                "en": "Same",
+                "hi": "Same"
+            },
+            {
+                "en": "Quadruples",
+                "hi": "Quadruples"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Charge enters magnetic field at angle θ. Radius depends on:",
+        "textHi": "आवेश चुंबकीय क्षेत्र में θ कोण पर प्रवेश करता है। त्रिज्या किस पर निर्भर करती है?",
+        "options": [
+            {
+                "en": "sinθ",
+                "hi": "sinθ"
+            },
+            {
+                "en": "cosθ",
+                "hi": "cosθ"
+            },
+            {
+                "en": "tanθ",
+                "hi": "tanθ"
+            },
+            {
+                "en": "Independent",
+                "hi": "Independent"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Flux increases linearly → induced current:",
+        "textHi": "फ्लक्स (Flux) रैखिक रूप से बढ़ता है → प्रेरित धारा (induced current) क्या होगी?",
+        "options": [
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            },
+            {
+                "en": "Constant",
+                "hi": "Constant"
+            },
+            {
+                "en": "Increasing",
+                "hi": "Increasing"
+            },
+            {
+                "en": "Decreasing",
+                "hi": "Decreasing"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "In LCR at resonance, impedance is:",
+        "textHi": "अनुनाद (resonance) पर LCR परिपथ में, प्रतिबाधा (impedance) होती है:",
+        "options": [
+            {
+                "en": "R",
+                "hi": "R"
+            },
+            {
+                "en": "XL",
+                "hi": "XL"
+            },
+            {
+                "en": "XC",
+                "hi": "XC"
+            },
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If intensity doubles, stopping potential:",
+        "textHi": "प्रकाश वैद्युत प्रभाव में यदि तीव्रता दोगुनी हो जाए, तो निरोधी विभव (stopping potential):",
+        "options": [
+            {
+                "en": "Doubles",
+                "hi": "Doubles"
+            },
+            {
+                "en": "Halves",
+                "hi": "Halves"
+            },
+            {
+                "en": "Same",
+                "hi": "Same"
+            },
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "de Broglie wavelength λ ∝ ?",
+        "textHi": "डी-ब्रोग्ली तरंगदैर्ध्य λ किसके अनुक्रमानुपाती है?",
+        "options": [
+            {
+                "en": "v",
+                "hi": "v"
+            },
+            {
+                "en": "1/v",
+                "hi": "1/v"
+            },
+            {
+                "en": "v²",
+                "hi": "v²"
+            },
+            {
+                "en": "Constant",
+                "hi": "Constant"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "At mean position in SHM:",
+        "textHi": "SHM (सरल आवर्त गति) की माध्य स्थिति में:",
+        "options": [
+            {
+                "en": "KE max",
+                "hi": "KE max"
+            },
+            {
+                "en": "PE max",
+                "hi": "PE max"
+            },
+            {
+                "en": "Both zero",
+                "hi": "Both zero"
+            },
+            {
+                "en": "Both max",
+                "hi": "Both max"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Acceleration down incline for a rolling body ∝",
+        "textHi": "एक नत समतल से लुढ़कते पिंड का त्वरण किसके अनुक्रमानुपाती होता है?",
+        "options": [
+            {
+                "en": "sinθ",
+                "hi": "sinθ"
+            },
+            {
+                "en": "cosθ",
+                "hi": "cosθ"
+            },
+            {
+                "en": "tanθ",
+                "hi": "tanθ"
+            },
+            {
+                "en": "Constant",
+                "hi": "Constant"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Total energy of satellite:",
+        "textHi": "उपग्रह की कुल ऊर्जा (Total energy) होती है:",
+        "options": [
+            {
+                "en": "−GMm/2r",
+                "hi": "−GMm/2r"
+            },
+            {
+                "en": "−GMm/r",
+                "hi": "−GMm/r"
+            },
+            {
+                "en": "GMm/r",
+                "hi": "GMm/r"
+            },
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Path difference λ/2 → intensity:",
+        "textHi": "पथांतर λ/2 होने पर व्यतिकरण प्रतिरूप की तीव्रता (intensity) होगी:",
+        "options": [
+            {
+                "en": "Max",
+                "hi": "Max"
+            },
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            },
+            {
+                "en": "Half",
+                "hi": "Half"
+            },
+            {
+                "en": "Random",
+                "hi": "Random"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Object at 2f from a convex lens → image at:",
+        "textHi": "उत्तल लेंस से 2f दूरी पर रखी वस्तु का प्रतिबिंब (image) कहाँ बनेगा?",
+        "options": [
+            {
+                "en": "f",
+                "hi": "f"
+            },
+            {
+                "en": "2f",
+                "hi": "2f"
+            },
+            {
+                "en": "∞",
+                "hi": "∞"
+            },
+            {
+                "en": "f/2",
+                "hi": "f/2"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Isobaric work = ",
+        "textHi": "समदाबी (Isobaric) प्रक्रिया में किया गया कार्य होता है:",
+        "options": [
+            {
+                "en": "PdV",
+                "hi": "PdV"
+            },
+            {
+                "en": "PΔV",
+                "hi": "PΔV"
+            },
+            {
+                "en": "VΔP",
+                "hi": "VΔP"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Heat lost = heat gained is based on:",
+        "textHi": "ऊष्मा हानि = ऊष्मा लाभ किस सिद्धांत पर आधारित है?",
+        "options": [
+            {
+                "en": "Conservation of energy",
+                "hi": "Conservation of energy"
+            },
+            {
+                "en": "Newton's law",
+                "hi": "Newton's law"
+            },
+            {
+                "en": "Entropy",
+                "hi": "Entropy"
+            },
+            {
+                "en": "None",
+                "hi": "None"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Drift velocity ∝",
+        "textHi": "अपवाह वेग (Drift velocity) किसके अनुक्रमानुपाती है?",
+        "options": [
+            {
+                "en": "E",
+                "hi": "E"
+            },
+            {
+                "en": "1/E",
+                "hi": "1/E"
+            },
+            {
+                "en": "E²",
+                "hi": "E²"
+            },
+            {
+                "en": "Constant",
+                "hi": "Constant"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Dimension of energy:",
+        "textHi": "ऊर्जा की (Energy) विमा (dimension) है:",
+        "options": [
+            {
+                "en": "ML²T⁻²",
+                "hi": "ML²T⁻²"
+            },
+            {
+                "en": "MLT⁻²",
+                "hi": "MLT⁻²"
+            },
+            {
+                "en": "ML²T⁻¹",
+                "hi": "ML²T⁻¹"
+            },
+            {
+                "en": "MLT⁻¹",
+                "hi": "MLT⁻¹"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Two bodies approaching each other with v1 and v2 → relative velocity:",
+        "textHi": "विपरीत दिशा से एक दूसरे की ओर आते हुए दो पिंड (वेग v1 और v2) → उनका सापेक्ष वेग (relative velocity):",
+        "options": [
+            {
+                "en": "v1−v2",
+                "hi": "v1−v2"
+            },
+            {
+                "en": "v1+v2",
+                "hi": "v1+v2"
+            },
+            {
+                "en": "v1/v2",
+                "hi": "v1/v2"
+            },
+            {
+                "en": "Zero",
+                "hi": "Zero"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Power =",
+        "textHi": "शक्ति (Power) =",
+        "options": [
+            {
+                "en": "Fv",
+                "hi": "Fv"
+            },
+            {
+                "en": "F/v",
+                "hi": "F/v"
+            },
+            {
+                "en": "v/F",
+                "hi": "v/F"
+            },
+            {
+                "en": "None",
+                "hi": "None"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "In elastic collision:",
+        "textHi": "प्रत्यास्थ टक्कर (elastic collision) में:",
+        "options": [
+            {
+                "en": "Only Momentum is conserved",
+                "hi": "Only Momentum is conserved"
+            },
+            {
+                "en": "Only KE is conserved",
+                "hi": "Only KE is conserved"
+            },
+            {
+                "en": "Both Momentum & KE conserved",
+                "hi": "Both Momentum & KE conserved"
+            },
+            {
+                "en": "None is conserved",
+                "hi": "None is conserved"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Charge 2C at 1m → electric field field? (k=9×10⁹)",
+        "textHi": "1m की दूरी पर 2C के आवेश द्वारा उत्पन्न विद्युत क्षेत्र (Field) ज्ञात करें। (k=9×10⁹)",
+        "ans": "1.8e10"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "10Ω resistor, 2A current → power dissipated?",
+        "textHi": "10Ω प्रतिरोध से 2A की विद्युत धारा प्रवाहित होती है → व्यय हुई शक्ति (Power in Watts) क्या होगी?",
+        "ans": "40"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Velocity of wave is 300 m/s, frequency is 50Hz → Wavelength λ (in meters)?",
+        "textHi": "तरंग का वेग 300 m/s और आवृत्ति 50Hz है → तरंगदैर्ध्य λ (मीटर में) क्या होगी?",
+        "ans": "6"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Wavelength λ=620nm → energy (in eV) [Given: E=1240/λ in eV]",
+        "textHi": "तरंगदैर्ध्य λ=620nm → फोटॉन की ऊर्जा (eV में) ज्ञात करें।",
+        "ans": "2"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Torque is 10Nm, Moment of inertia I=2 → Angular acceleration α?",
+        "textHi": "बलाघूर्ण (Torque) 10Nm है, जड़त्व आघूर्ण (I) 2 है → कोणीय त्वरण α का मान है:",
+        "ans": "5"
+    }
 ];
-
 const chemistryQuestions_10: any[] = [
-    { type: 'MCQ', text: "The central atom in IFΓéà has:", options: ["Square pyramidal shape, 1 lone pair", "Trigonal bipyramidal, 2 lone pairs", "Square pyramidal, 1 lone pair", "Octahedral, 0 lone pairs"], ans: 3 },
-    { type: 'MCQ', text: "[Co(NHΓéâ)ΓéàCl]SOΓéä and [Co(NHΓéâ)ΓéàSOΓéä]Cl are:", options: ["Coordination isomers", "Ionization isomers", "Geometrical isomers", "Linkage isomers"], ans: 2 },
-    { type: 'MCQ', text: "In white phosphorus, each P atom is linked with:", options: ["3 other P atoms", "4 other P atoms", "2 other P atoms", "1 other P atom"], ans: 1 },
-    { type: 'MCQ', text: "Which is anti-aromatic?", options: ["Cyclobutadiene", "Benzene", "Cyclopropenyl cation", "Annulene"], ans: 1 },
-    { type: 'MCQ', text: "For 2SOΓéé + OΓéé Γçî 2SOΓéâ, Kp/Kc =", options: ["RT^{-1/2}", "RT^{1/2}", "RT", "1"], ans: 1 },
-    { type: 'MCQ', text: "Equivalent weight of KMnOΓéä in acidic medium = M/", options: ["5", "3", "1", "6"], ans: 1 },
-    { type: 'MCQ', text: "Benzene + CHΓéâCl/AlClΓéâ ΓåÆ Toluene. Next ClΓéé/FeClΓéâ ΓåÆ major product?", options: ["o/p-chlorotoluene", "m-chlorotoluene", "1,3-dichlorobenzene", "Benzyl chloride"], ans: 1 },
-    { type: 'MCQ', text: "In [Ni(CN)Γéä]┬▓Γü╗, Ni is:", options: ["sp┬│, paramagnetic", "dsp┬▓, diamagnetic", "dsp┬▓, paramagnetic", "sp┬│, diamagnetic"], ans: 2 },
-    { type: 'MCQ', text: "For endothermic reaction, ╬öH >0, ╬öS>0, spontaneous at:", options: ["Low T", "High T", "All T", "No T"], ans: 2 },
-    { type: 'MCQ', text: "Bond order in NOΓü║:", options: ["2.5", "3", "2", "1.5"], ans: 2 },
-    { type: 'MCQ', text: "CHΓéâCHΓééBr + alc. KOH ΓåÆ major?", options: ["CHΓéé=CHΓéé", "CHΓéâCHΓééOH", "CHΓéâCHO", "CHΓéâCHΓéâ"], ans: 1 },
-    { type: 'MCQ', text: "Which has highest +I effect?", options: ["-NHΓéé", "-OH", "-CHΓéâ", "-OR"], ans: 3 },
-    { type: 'MCQ', text: "E┬░ cell >0 means:", options: ["Spontaneous", "Non-spontaneous", "╬öG=0", "Equilibrium"], ans: 1 },
-    { type: 'MCQ', text: "Order of acidity: HF > HΓééO > NHΓéâ > CHΓéä Reason:", options: ["Bond strength", "Electronegativity", "Size", "Resonance"], ans: 1 },
-    { type: 'MCQ', text: "╬▒-amino acids exist as:", options: ["Zwitterions", "Cations", "Anions", "Neutral"], ans: 1 },
-    { type: 'MCQ', text: "CCP packing efficiency:", options: ["74%", "68%", "52%", "34%"], ans: 1 },
-    { type: 'MCQ', text: "For zero order, t┬╜ Γê¥", options: ["[A]Γü░", "[A]", "1/[A]", "1/[A]┬▓"], ans: 1 },
-    { type: 'MCQ', text: "Lyophilic sols are:", options: ["Reversible", "Irreversible", "Coagulating", "Hydrophobic"], ans: 1 },
-    { type: 'MCQ', text: "Colour in KMnOΓéä due to:", options: ["d-d transition", "Charge transfer", "f-f", "LMCT"], ans: 2 },
-    { type: 'MCQ', text: "Nylon-6,6 from:", options: ["Hexamethylenediamine + Adipic acid", "Caprolactam", "Phenol + Formaldehyde", "Styrene"], ans: 1 },
-    { type: 'Numerical', text: "6.023├ù10┬▓┬│ molecules of NΓéé occupy 11.2 L at STP. Volume of 34g NHΓéâ at STP?", ans: "44.8" },
-    { type: 'Numerical', text: "For 2HI Γçî HΓéé + IΓéé, Kc=0.02 at 500K. If [HI]ΓéÇ=4M, equilibrium [HΓéé]?", ans: "0.4" },
-    { type: 'Numerical', text: "For Zn | Zn┬▓Γü║(0.1M) || Cu┬▓Γü║(1M) | Cu, E_cell if E┬░=1.1V. (RT/F=0.06)", ans: "1.14" },
-    { type: 'Numerical', text: "18g glucose in 200g water, ╬öT_b=0.52K. Molal elevation constant?", ans: "0.52" },
-    { type: 'Numerical', text: "t┬╜=10 min for first order. Time for 75% decomposition?", ans: "20" }
+    {
+        "type": "MCQ",
+        "textEn": "For hydrogen-like species, ratio of energies of n=3 level for He⁺ and Li²⁺ is:",
+        "textHi": "हाइड्रोजन जैसी प्रजातियों के लिए, He⁺ और Li²⁺ के लिए n=3 स्तर की ऊर्जाओं का अनुपात है:",
+        "options": [
+            {
+                "en": "1:4",
+                "hi": "1:4"
+            },
+            {
+                "en": "4:9",
+                "hi": "4:9"
+            },
+            {
+                "en": "9:16",
+                "hi": "9:16"
+            },
+            {
+                "en": "1:1",
+                "hi": "1:1"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Correct order of electron affinity:",
+        "textHi": "इलेक्ट्रॉन बंधुता (electron affinity) का सही क्रम है:",
+        "options": [
+            {
+                "en": "Cl > F > Br > I",
+                "hi": "Cl > F > Br > I"
+            },
+            {
+                "en": "F > Cl > Br > I",
+                "hi": "F > Cl > Br > I"
+            },
+            {
+                "en": "Cl > Br > F > I",
+                "hi": "Cl > Br > F > I"
+            },
+            {
+                "en": "Br > Cl > F > I",
+                "hi": "Br > Cl > F > I"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Hybridization of central atom in IF₇ is:",
+        "textHi": "IF₇ में केंद्रीय परमाणु का संकरण (hybridization) क्या है?",
+        "options": [
+            {
+                "en": "sp³d³",
+                "hi": "sp³d³"
+            },
+            {
+                "en": "sp³d²",
+                "hi": "sp³d²"
+            },
+            {
+                "en": "d³sp³",
+                "hi": "d³sp³"
+            },
+            {
+                "en": "sp³",
+                "hi": "sp³"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "For a reaction ΔH < 0 and ΔS < 0, process is spontaneous when:",
+        "textHi": "एक प्रतिक्रिया के लिए जहाँ ΔH < 0 और ΔS < 0 है, प्रक्रिया स्वचालित (spontaneous) कब होती है?",
+        "options": [
+            {
+                "en": "T is high",
+                "hi": "T is high"
+            },
+            {
+                "en": "T is low",
+                "hi": "T is low"
+            },
+            {
+                "en": "independent of T",
+                "hi": "independent of T"
+            },
+            {
+                "en": "never",
+                "hi": "never"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "For reaction Δn = −2, relation between Kp and Kc is:",
+        "textHi": "यदि किसी प्रतिक्रिया में Δn = −2 है, तो Kp और Kc के बीच का संबंध है:",
+        "options": [
+            {
+                "en": "Kp = Kc(RT)²",
+                "hi": "Kp = Kc(RT)²"
+            },
+            {
+                "en": "Kp = Kc/(RT)²",
+                "hi": "Kp = Kc/(RT)²"
+            },
+            {
+                "en": "Kp = KcRT",
+                "hi": "Kp = KcRT"
+            },
+            {
+                "en": "Kp = Kc",
+                "hi": "Kp = Kc"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "At equilibrium, cell potential (E_cell) becomes:",
+        "textHi": "साम्यावस्था (equilibrium) में, सेल विभव (cell potential) हो जाता है:",
+        "options": [
+            {
+                "en": "1V",
+                "hi": "1V"
+            },
+            {
+                "en": "E°",
+                "hi": "E°"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            },
+            {
+                "en": "infinite",
+                "hi": "infinite"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Van’t Hoff factor for complete dissociation of Al₂(SO₄)₃ is:",
+        "textHi": "Al₂(SO₄)₃ के पूर्ण वियोजन (complete dissociation) के लिए वांट हॉफ गुणांक है:",
+        "options": [
+            {
+                "en": "3",
+                "hi": "3"
+            },
+            {
+                "en": "4",
+                "hi": "4"
+            },
+            {
+                "en": "5",
+                "hi": "5"
+            },
+            {
+                "en": "6",
+                "hi": "6"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "For first order reaction, slope of ln[A] vs t graph is:",
+        "textHi": "प्रथम कोटि की अभिक्रिया के लिए, ln[A] बनाम t ग्राफ की ढाल (slope) है:",
+        "options": [
+            {
+                "en": "k",
+                "hi": "k"
+            },
+            {
+                "en": "−k",
+                "hi": "−k"
+            },
+            {
+                "en": "1/k",
+                "hi": "1/k"
+            },
+            {
+                "en": "−1/k",
+                "hi": "−1/k"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Langmuir adsorption is valid for:",
+        "textHi": "लैंगमुइर (Langmuir) अधिशोषण किसके लिए मान्य है?",
+        "options": [
+            {
+                "en": "Multilayer",
+                "hi": "Multilayer"
+            },
+            {
+                "en": "Monolayer",
+                "hi": "Monolayer"
+            },
+            {
+                "en": "Solution",
+                "hi": "Solution"
+            },
+            {
+                "en": "Bulk",
+                "hi": "Bulk"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "d⁵ high spin octahedral CFSE =",
+        "textHi": "d⁵ उच्च चक्रण अष्टफलकीय संकुल की CFSE क्या है?",
+        "options": [
+            {
+                "en": "0",
+                "hi": "0"
+            },
+            {
+                "en": "−0.4Δ₀",
+                "hi": "−0.4Δ₀"
+            },
+            {
+                "en": "−0.6Δ₀",
+                "hi": "−0.6Δ₀"
+            },
+            {
+                "en": "−1.0Δ₀",
+                "hi": "−1.0Δ₀"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Most stable oxidation state of Tl (Inert Pair Effect) is:",
+        "textHi": "अक्रिय युग्म प्रभाव (Inert Pair Effect) के कारण Tl की सबसे स्थिर ऑक्सीकरण अवस्था है:",
+        "options": [
+            {
+                "en": "+1",
+                "hi": "+1"
+            },
+            {
+                "en": "+3",
+                "hi": "+3"
+            },
+            {
+                "en": "+2",
+                "hi": "+2"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Color in transition metals is primarily due to:",
+        "textHi": "संक्रमण धातुओं में रंग मुख्य रूप से किसके कारण होता है?",
+        "options": [
+            {
+                "en": "s-s transition",
+                "hi": "s-s transition"
+            },
+            {
+                "en": "d-d transition",
+                "hi": "d-d transition"
+            },
+            {
+                "en": "p-p transition",
+                "hi": "p-p transition"
+            },
+            {
+                "en": "none",
+                "hi": "none"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Carbocation stability order:",
+        "textHi": "कार्बोकैटायन के स्थायित्व (stability) का सही क्रम है:",
+        "options": [
+            {
+                "en": "1° > 2° > 3°",
+                "hi": "1° > 2° > 3°"
+            },
+            {
+                "en": "3° > 2° > 1°",
+                "hi": "3° > 2° > 1°"
+            },
+            {
+                "en": "2° > 3° > 1°",
+                "hi": "2° > 3° > 1°"
+            },
+            {
+                "en": "Same",
+                "hi": "Same"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Strongest −I (Inductive effect) group among the following is:",
+        "textHi": "निम्नलिखित में से सबसे मजबूत −I (प्रेरणिक प्रभाव) समूह कौन सा है?",
+        "options": [
+            {
+                "en": "−NO₂",
+                "hi": "−NO₂"
+            },
+            {
+                "en": "−Cl",
+                "hi": "−Cl"
+            },
+            {
+                "en": "−OH",
+                "hi": "−OH"
+            },
+            {
+                "en": "−CH₃",
+                "hi": "−CH₃"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Cyclopentadienyl anion is:",
+        "textHi": "साइक्लोपेंटाडाइनिल (Cyclopentadienyl) आयन है:",
+        "options": [
+            {
+                "en": "Antiaromatic",
+                "hi": "Antiaromatic"
+            },
+            {
+                "en": "Aromatic",
+                "hi": "Aromatic"
+            },
+            {
+                "en": "Non-aromatic",
+                "hi": "Non-aromatic"
+            },
+            {
+                "en": "Unstable",
+                "hi": "Unstable"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "SN2 reaction is:",
+        "textHi": "SN2 अभिक्रिया कितने चरणों में होती है?",
+        "options": [
+            {
+                "en": "Two step",
+                "hi": "Two step"
+            },
+            {
+                "en": "One step",
+                "hi": "One step"
+            },
+            {
+                "en": "Radical",
+                "hi": "Radical"
+            },
+            {
+                "en": "None",
+                "hi": "None"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Lucas test is fastest for:",
+        "textHi": "लुकास (Lucas) परीक्षण किसके लिए सबसे तेज होता है?",
+        "options": [
+            {
+                "en": "1° alcohol",
+                "hi": "1° alcohol"
+            },
+            {
+                "en": "2° alcohol",
+                "hi": "2° alcohol"
+            },
+            {
+                "en": "3° alcohol",
+                "hi": "3° alcohol"
+            },
+            {
+                "en": "All same",
+                "hi": "All same"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Tollens' reagent with an aldehyde gives:",
+        "textHi": "एल्डिहाइड के साथ टॉलेन्स (Tollens') अभिकर्मक क्या देता है?",
+        "options": [
+            {
+                "en": "Silver mirror",
+                "hi": "Silver mirror"
+            },
+            {
+                "en": "Gas bubble",
+                "hi": "Gas bubble"
+            },
+            {
+                "en": "Precipitate",
+                "hi": "Precipitate"
+            },
+            {
+                "en": "No reaction",
+                "hi": "No reaction"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Basicity order of methyl amines in aqueous solution:",
+        "textHi": "जलीय विलयन में मिथाइल एमीन्स की क्षारीयता (Basicity) का क्रम है:",
+        "options": [
+            {
+                "en": "1° > 2° > 3°",
+                "hi": "1° > 2° > 3°"
+            },
+            {
+                "en": "2° > 1° > 3°",
+                "hi": "2° > 1° > 3°"
+            },
+            {
+                "en": "3° > 2° > 1°",
+                "hi": "3° > 2° > 1°"
+            },
+            {
+                "en": "Same",
+                "hi": "Same"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "A peptide bond is theoretically a type of:",
+        "textHi": "पेप्टाइड आबंध सैद्धांतिक रूप से किस प्रकार का आबंध है?",
+        "options": [
+            {
+                "en": "Ester",
+                "hi": "Ester"
+            },
+            {
+                "en": "Amide",
+                "hi": "Amide"
+            },
+            {
+                "en": "Ether",
+                "hi": "Ether"
+            },
+            {
+                "en": "Ionic",
+                "hi": "Ionic"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Maximum number of electrons in the n=4 shell is:",
+        "textHi": "मुख्य कोश n=4 में इलेक्ट्रॉनों की अधिकतम संख्या क्या है?",
+        "ans": "32"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "If E°cell = 1.1V and n = 2, the value of standard Gibbs free energy change ΔG° (approx in kJ) is:",
+        "textHi": "यदि E°cell = 1.1V और n = 2 है, तो ΔG° का मान (लगभग kJ में) है: [Faraday = 96500 C/mol]",
+        "ans": "-212"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "If rate constant (k) for a first-order reaction is 0.693 min⁻¹, its half-life (t₁/₂) is:",
+        "textHi": "यदि प्रथम कोटि की अभिक्रिया का दर नियतांक (k) 0.693 min⁻¹ है, तो इसकी अर्द्ध-आयु (t₁/₂) क्या है?",
+        "ans": "1"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "For 0.1 M NaCl solution, what is the effective concentration of particles (assuming 100% dissociation)?",
+        "textHi": "0.1 M NaCl विलयन के लिए, कणों की प्रभावी सांद्रता (100% वियोजन मानते हुए) क्या है?",
+        "ans": "0.2"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "The Degree of Unsaturation or Double Bond Equivalent (DBE) for Benzene (C₆H₆) is:",
+        "textHi": "बेंजीन (C₆H₆) के लिए असंतृप्ति की डिग्री (DBE) क्या है?",
+        "ans": "4"
+    }
 ];
-
 const mathQuestions_10: any[] = [
-    { type: 'MCQ', textEn: "Let R be a relation on Z defined by xRy if x┬▓ - y┬▓ is divisible by 5. The relation R is:", textHi: "αñ«αñ╛αñ¿ αñ▓αÑÇαñ£αñ┐αñÅ αñòαñ┐ Z αñ¬αñ░ αñÅαñò αñ╕αñéαñ¼αñéαñº R αñçαñ╕ αñ¬αÑìαñ░αñòαñ╛αñ░ αñ¬αñ░αñ┐αñ¡αñ╛αñ╖αñ┐αññ αñ╣αÑê: xRy αñ»αñªαñ┐ x┬▓ - y┬▓, 5 αñ╕αÑç αñ╡αñ┐αñ¡αñ╛αñ£αÑìαñ» αñ╣αÑêαÑñ αñ╕αñéαñ¼αñéαñº R αñ╣αÑê:", options: [{en: "Reflexive only", hi: "αñòαÑçαñ╡αñ▓ αñ╕αÑìαñ╡αññαÑüαñ▓αÑìαñ»"}, {en: "Symmetric only", hi: "αñòαÑçαñ╡αñ▓ αñ╕αñ«αñ«αñ┐αññ"}, {en: "Transitive only", hi: "αñòαÑçαñ╡αñ▓ αñ╕αñéαñòαÑìαñ░αñ╛αñ«αñò"}, {en: "Equivalence", hi: "αññαÑüαñ▓αÑìαñ»αññαñ╛ αñ╕αñéαñ¼αñéαñº"}], ans: 4 },
-    { type: 'MCQ', textEn: "If z + 1/z = 1, then the value of z┬▓Γü░┬▓Γü╢ + 1/z┬▓Γü░┬▓Γü╢ is:", textHi: "αñ»αñªαñ┐ z + 1/z = 1, αññαÑï z┬▓Γü░┬▓Γü╢ + 1/z┬▓Γü░┬▓Γü╢ αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "-1", hi: "-1"}, {en: "2", hi: "2"}, {en: "-2", hi: "-2"}], ans: 2 },
-    { type: 'MCQ', textEn: "If A = [1 2; 0 1], then AΓü┐ is equal to:", textHi: "αñ»αñªαñ┐ A = [1 2; 0 1], αññαÑï AΓü┐ αñòαñ┐αñ╕αñòαÑç αñ¼αñ░αñ╛αñ¼αñ░ αñ╣αÑê?", options: [{en: "[1 2Γü┐; 0 1]", hi: "[1 2Γü┐; 0 1]"}, {en: "[1 2n; 0 1]", hi: "[1 2n; 0 1]"}, {en: "[n 2n; 0 n]", hi: "[n 2n; 0 n]"}, {en: "[1 n┬▓; 0 1]", hi: "[1 n┬▓; 0 1]"}], ans: 2 },
-    { type: 'MCQ', textEn: "If the system of equations x+y+z=6, x+2y+3z=10, x+2y+╬╗z=╬╝ has infinite solutions, then ╬╗ + ╬╝ is:", textHi: "αñ»αñªαñ┐ αñ╕αñ«αÑÇαñòαñ░αñú αñ¬αÑìαñ░αñúαñ╛αñ▓αÑÇ x+y+z=6, x+2y+3z=10, x+2y+╬╗z=╬╝ αñòαÑç αñàαñ¿αñéαññ αñ╣αñ▓ αñ╣αÑêαñé, αññαÑï ╬╗ + ╬╝ αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "10", hi: "10"}, {en: "11", hi: "11"}, {en: "12", hi: "12"}, {en: "13", hi: "13"}], ans: 4 },
-    { type: 'MCQ', textEn: "If ╬▒, ╬▓ are roots of x┬▓ - 6x - 2 = 0 and aΓéÖ = ╬▒Γü┐ - ╬▓Γü┐, then (aΓéüΓéÇ - 2aΓéê) / 2aΓéë is:", textHi: "αñ»αñªαñ┐ ╬▒, ╬▓ αñ╕αñ«αÑÇαñòαñ░αñú x┬▓ - 6x - 2 = 0 αñòαÑç αñ«αÑéαñ▓ αñ╣αÑêαñé αñöαñ░ aΓéÖ = ╬▒Γü┐ - ╬▓Γü┐, αññαÑï (aΓéüΓéÇ - 2aΓéê) / 2aΓéë αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "2", hi: "2"}, {en: "3", hi: "3"}, {en: "4", hi: "4"}], ans: 3 },
-    { type: 'MCQ', textEn: "The sum of the series 1 + (1+2)/2 + (1+2+3)/4 + ... up to infinity is:", textHi: "αñ╢αÑìαñ░αÑçαñúαÑÇ 1 + (1+2)/2 + (1+2+3)/4 + ... αñòαñ╛ αñàαñ¿αñéαññ αññαñò αñ»αÑïαñù αñ╣αÑê:", options: [{en: "2", hi: "2"}, {en: "3", hi: "3"}, {en: "4", hi: "4"}, {en: "6", hi: "6"}], ans: 3 },
-    { type: 'MCQ', textEn: "lim(xΓåÆ0) [cos(sin x) - 1] / x┬▓ is:", textHi: "lim(xΓåÆ0) [cos(sin x) - 1] / x┬▓ αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "-1", hi: "-1"}, {en: "-1/2", hi: "-1/2"}, {en: "1/2", hi: "1/2"}], ans: 3 },
-    { type: 'MCQ', textEn: "If f(x) = |x-1| + |x-2|, then f(x) is not differentiable at:", textHi: "αñ»αñªαñ┐ f(x) = |x-1| + |x-2|, αññαÑï f(x) αñòαñ╣αñ╛αñü αñàαñ╡αñòαñ▓αñ¿αÑÇαñ» αñ¿αñ╣αÑÇαñé αñ╣αÑê?", options: [{en: "x=1 only", hi: "αñòαÑçαñ╡αñ▓ x=1 αñ¬αñ░"}, {en: "x=2 only", hi: "αñòαÑçαñ╡αñ▓ x=2 αñ¬αñ░"}, {en: "x=1 and x=2", hi: "x=1 αñöαñ░ x=2 αñ¬αñ░"}, {en: "All x", hi: "αñ╕αñ¡αÑÇ x αñ¬αñ░"}], ans: 3 },
-    { type: 'MCQ', textEn: "If y = tanΓü╗┬╣((ΓêÜ(1+x┬▓) - 1)/x), then dy/dx at x=0 is:", textHi: "αñ»αñªαñ┐ y = tanΓü╗┬╣((ΓêÜ(1+x┬▓) - 1)/x), αññαÑï x=0 αñ¬αñ░ dy/dx αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "1/2", hi: "1/2"}, {en: "0", hi: "0"}, {en: "Does not exist", hi: "αñ╡αñ┐αñªαÑìαñ»αñ«αñ╛αñ¿ αñ¿αñ╣αÑÇαñé αñ╣αÑê"}], ans: 2 },
-    { type: 'MCQ', textEn: "Γê½ dx / (x(xΓü┐+1)) is:", textHi: "Γê½ dx / (x(xΓü┐+1)) αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "(1/n)ln|xΓü┐+1| + C", hi: "(1/n)ln|xΓü┐+1| + C"}, {en: "(1/n)ln|xΓü┐/(xΓü┐+1)| + C", hi: "(1/n)ln|xΓü┐/(xΓü┐+1)| + C"}, {en: "ln|xΓü┐+1| + C", hi: "ln|xΓü┐+1| + C"}, {en: "None", hi: "αñòαÑïαñê αñ¿αñ╣αÑÇαñé"}], ans: 2 },
-    { type: 'MCQ', textEn: "Γê½[0 to ╧Ç/2] (sin┬╣Γü░Γü░x) / (sin┬╣Γü░Γü░x + cos┬╣Γü░Γü░x) dx is:", textHi: "Γê½[0 αñ╕αÑç ╧Ç/2] (sin┬╣Γü░Γü░x) / (sin┬╣Γü░Γü░x + cos┬╣Γü░Γü░x) dx αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "╧Ç", hi: "╧Ç"}, {en: "╧Ç/2", hi: "╧Ç/2"}, {en: "╧Ç/4", hi: "╧Ç/4"}, {en: "0", hi: "0"}], ans: 3 },
-    { type: 'MCQ', textEn: "The solution of dy/dx + y/x = x┬▓ is:", textHi: "αñàαñ╡αñòαñ▓ αñ╕αñ«αÑÇαñòαñ░αñú dy/dx + y/x = x┬▓ αñòαñ╛ αñ╣αñ▓ αñ╣αÑê:", options: [{en: "xy = x┬│/3 + C", hi: "xy = x┬│/3 + C"}, {en: "xy = xΓü┤/4 + C", hi: "xy = xΓü┤/4 + C"}, {en: "y = x┬│ + C", hi: "y = x┬│ + C"}, {en: "xy = x┬▓ + C", hi: "xy = x┬▓ + C"}], ans: 2 },
-    { type: 'MCQ', textEn: "The distance of the point (1, 2) from the line 3x+4y+9=0 is:", textHi: "αñ¼αñ┐αñéαñªαÑü (1, 2) αñòαÑÇ αñ░αÑçαñûαñ╛ 3x+4y+9=0 αñ╕αÑç αñªαÑéαñ░αÑÇ αñ╣αÑê:", options: [{en: "2", hi: "2"}, {en: "3", hi: "3"}, {en: "4", hi: "4"}, {en: "5", hi: "5"}], ans: 3 },
-    { type: 'MCQ', textEn: "The number of common tangents to circles x┬▓+y┬▓=4 and x┬▓+y┬▓-6x-8y+24=0 is:", textHi: "αñ╡αÑâαññαÑìαññαÑïαñé x┬▓+y┬▓=4 αñöαñ░ x┬▓+y┬▓-6x-8y+24=0 αñòαÑÇ αñëαñ¡αñ»αñ¿αñ┐αñ╖αÑìαñá αñ╕αÑìαñ¬αñ░αÑìαñ╢ αñ░αÑçαñûαñ╛αñôαñé αñòαÑÇ αñ╕αñéαñûαÑìαñ»αñ╛ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "2", hi: "2"}, {en: "3", hi: "3"}, {en: "4", hi: "4"}], ans: 4 },
-    { type: 'MCQ', textEn: "The length of latus rectum of y┬▓ - 4y - 8x + 12 = 0 is:", textHi: "αñ¬αñ░αñ╡αñ▓αñ» y┬▓ - 4y - 8x + 12 = 0 αñòαÑç αñ¿αñ╛αñ¡αñ┐αñ▓αñéαñ¼ (latus rectum) αñòαÑÇ αñ▓αñéαñ¼αñ╛αñê αñ╣αÑê:", options: [{en: "4", hi: "4"}, {en: "8", hi: "8"}, {en: "12", hi: "12"}, {en: "2", hi: "2"}], ans: 2 },
-    { type: 'MCQ', textEn: "If a, b are unit vectors and |a+b| = 1, then angle between them is:", textHi: "αñ»αñªαñ┐ a, b αñçαñòαñ╛αñê αñ╕αñªαñ┐αñ╢ αñ╣αÑêαñé αñöαñ░ |a+b| = 1, αññαÑï αñëαñ¿αñòαÑç αñ¼αÑÇαñÜ αñòαñ╛ αñòαÑïαñú αñ╣αÑê:", options: [{en: "60┬░", hi: "60┬░"}, {en: "90┬░", hi: "90┬░"}, {en: "120┬░", hi: "120┬░"}, {en: "180┬░", hi: "180┬░"}], ans: 3 },
-    { type: 'MCQ', textEn: "The distance between parallel planes 2x-y+2z+3=0 and 4x-2y+4z-6=0 is:", textHi: "αñ╕αñ«αñ╛αñ¿αñ╛αñéαññαñ░ αññαñ▓αÑïαñé 2x-y+2z+3=0 αñöαñ░ 4x-2y+4z-6=0 αñòαÑç αñ¼αÑÇαñÜ αñòαÑÇ αñªαÑéαñ░αÑÇ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "2", hi: "2"}, {en: "3", hi: "3"}, {en: "4", hi: "4"}], ans: 2 },
-    { type: 'MCQ', textEn: "The variance of first 10 natural numbers is:", textHi: "αñ¬αÑìαñ░αñÑαñ« 10 αñ¬αÑìαñ░αñ╛αñòαÑâαññαñ┐αñò αñ╕αñéαñûαÑìαñ»αñ╛αñôαñé αñòαñ╛ αñ¬αÑìαñ░αñ╕αñ░αñú (variance) αñ╣αÑê:", options: [{en: "7.25", hi: "7.25"}, {en: "8.25", hi: "8.25"}, {en: "9.25", hi: "9.25"}, {en: "10.25", hi: "10.25"}], ans: 2 },
-    { type: 'MCQ', textEn: "If P(A) = 0.4, P(B) = 0.6 and A, B are independent, then P(A Γê¬ B) is:", textHi: "αñ»αñªαñ┐ P(A) = 0.4, P(B) = 0.6 αñöαñ░ A, B αñ╕αÑìαñ╡αññαñéαññαÑìαñ░ αñÿαñƒαñ¿αñ╛αñÅαñé αñ╣αÑêαñé, αññαÑï P(A Γê¬ B) αñòαñ╛ αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "1", hi: "1"}, {en: "0.24", hi: "0.24"}, {en: "0.76", hi: "0.76"}, {en: "0.8", hi: "0.8"}], ans: 3 },
-    { type: 'MCQ', textEn: "The principal value of sinΓü╗┬╣(sin 2╧Ç/3) is:", textHi: "sinΓü╗┬╣(sin 2╧Ç/3) αñòαñ╛ αñ«αÑüαñûαÑìαñ» αñ«αñ╛αñ¿ αñ╣αÑê:", options: [{en: "2╧Ç/3", hi: "2╧Ç/3"}, {en: "╧Ç/3", hi: "╧Ç/3"}, {en: "-╧Ç/3", hi: "-╧Ç/3"}, {en: "╧Ç/6", hi: "╧Ç/6"}], ans: 2 },
-    { type: 'Numerical', textEn: "Find the coefficient of xΓü╖ in the expansion of (1+x)┬╣Γü░.", textHi: "(1+x)┬╣Γü░ αñòαÑç αñ¬αÑìαñ░αñ╕αñ╛αñ░ αñ«αÑçαñé xΓü╖ αñòαñ╛ αñùαÑüαñúαñ╛αñéαñò αñ£αÑìαñ₧αñ╛αññ αñòαÑÇαñ£αñ┐αñÅαÑñ", ans: "120" },
-    { type: 'Numerical', textEn: "Find the area bounded by y┬▓ = 4x and x=1.", textHi: "αñ╡αñòαÑìαñ░ y┬▓ = 4x αñöαñ░ αñ░αÑçαñûαñ╛ x=1 αñªαÑìαñ╡αñ╛αñ░αñ╛ αñÿαñ┐αñ░αÑç αñòαÑìαñ╖αÑçαññαÑìαñ░ αñòαñ╛ αñòαÑìαñ╖αÑçαññαÑìαñ░αñ½αñ▓ αñ£αÑìαñ₧αñ╛αññ αñòαÑÇαñ£αñ┐αñÅαÑñ", ans: "2.67" },
-    { type: 'Numerical', textEn: "Total number of 4-digit numbers that can be formed using digits {1, 2, 3, 4} without repetition.", textHi: "αñàαñéαñòαÑïαñé {1, 2, 3, 4} αñòαñ╛ αñëαñ¬αñ»αÑïαñù αñòαñ░αñòαÑç αñ¼αñ┐αñ¿αñ╛ αñ¬αÑüαñ¿αñ░αñ╛αñ╡αÑâαññαÑìαññαñ┐ αñòαÑç αñ¼αñ¿αñ╛αñê αñ£αñ╛ αñ╕αñòαñ¿αÑç αñ╡αñ╛αñ▓αÑÇ 4-αñàαñéαñòαÑÇαñ» αñ╕αñéαñûαÑìαñ»αñ╛αñôαñé αñòαÑÇ αñòαÑüαñ▓ αñ╕αñéαñûαÑìαñ»αñ╛ αñ╣αÑê:", ans: "24" },
-    { type: 'Numerical', textEn: "Find the shortest distance between lines (x-1)/1 = (y-2)/1 = (z-3)/1 and (x-1)/2 = (y-2)/2 = (z-3)/2.", textHi: "αñ░αÑçαñûαñ╛αñôαñé (x-1)/1 = (y-2)/1 = (z-3)/1 αñöαñ░ (x-1)/2 = (y-2)/2 = (z-3)/2 αñòαÑç αñ¼αÑÇαñÜ αñòαÑÇ αñ¿αÑìαñ»αÑéαñ¿αññαñ« αñªαÑéαñ░αÑÇ αñ£αÑìαñ₧αñ╛αññ αñòαÑÇαñ£αñ┐αñÅαÑñ", ans: "0" },
-    { type: 'Numerical', textEn: "If a = i + j + k and b = i + 2j + 3k, then find the value of |a ├ù b|┬▓.", textHi: "αñ»αñªαñ┐ a = i + j + k αñöαñ░ b = i + 2j + 3k αñ╣αÑê, αññαÑï |a ├ù b|┬▓ αñòαñ╛ αñ«αñ╛αñ¿ αñ£αÑìαñ₧αñ╛αññ αñòαÑÇαñ£αñ┐αñÅαÑñ", ans: "6" }
+    {
+        "type": "MCQ",
+        "textEn": "If f(x) + f(1−x) = 1 and f(2) = 3, then f(−1) is:",
+        "textHi": "यदि f(x) + f(1−x) = 1 और f(2) = 3 है, तो f(−1) का मान है:",
+        "options": [
+            {
+                "en": "−2",
+                "hi": "−2"
+            },
+            {
+                "en": "3",
+                "hi": "3"
+            },
+            {
+                "en": "−3",
+                "hi": "−3"
+            },
+            {
+                "en": "2",
+                "hi": "2"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "lim (x→0) [(e^x − e^(−x) − 2x) / x³] evaluates to:",
+        "textHi": "सीमा lim (x→0) [(eˣ − e⁻ˣ − 2x) / x³] का मान है:",
+        "options": [
+            {
+                "en": "0",
+                "hi": "0"
+            },
+            {
+                "en": "1/3",
+                "hi": "1/3"
+            },
+            {
+                "en": "2/3",
+                "hi": "2/3"
+            },
+            {
+                "en": "1",
+                "hi": "1"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Number of points of discontinuity of f(x) = |x²−1| / (x−1) is:",
+        "textHi": "फलन f(x) = |x²−1| / (x−1) के असतत होने वाले (discontinuity) बिंदुओं की संख्या है:",
+        "options": [
+            {
+                "en": "0",
+                "hi": "0"
+            },
+            {
+                "en": "1",
+                "hi": "1"
+            },
+            {
+                "en": "2",
+                "hi": "2"
+            },
+            {
+                "en": "infinite",
+                "hi": "infinite"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If x=t² and y=t³, then dy/dx at t=1 is:",
+        "textHi": "यदि x=t² और y=t³ है, तो t=1 पर dy/dx क्या होगा?",
+        "options": [
+            {
+                "en": "3/2",
+                "hi": "3/2"
+            },
+            {
+                "en": "2/3",
+                "hi": "2/3"
+            },
+            {
+                "en": "1",
+                "hi": "1"
+            },
+            {
+                "en": "3",
+                "hi": "3"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Number of local extrema of f(x) = x⁴ − 4x³ + 6x² is:",
+        "textHi": "फलन f(x) = x⁴ − 4x³ + 6x² के स्थानीय चरम (local extrema) बिंदुओं की संख्या है:",
+        "options": [
+            {
+                "en": "1",
+                "hi": "1"
+            },
+            {
+                "en": "2",
+                "hi": "2"
+            },
+            {
+                "en": "3",
+                "hi": "3"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Definite integral ∫₀^π sin³x dx equals:",
+        "textHi": "निश्चित समाकलन ∫₀^π sin³x dx का मान है:",
+        "options": [
+            {
+                "en": "2/3",
+                "hi": "2/3"
+            },
+            {
+                "en": "4/3",
+                "hi": "4/3"
+            },
+            {
+                "en": "1",
+                "hi": "1"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The Area bounded between y=x² and y=2x is:",
+        "textHi": "y=x² और y=2x के बीच घिरे क्षेत्र का क्षेत्रफल है:",
+        "options": [
+            {
+                "en": "1/3",
+                "hi": "1/3"
+            },
+            {
+                "en": "2/3",
+                "hi": "2/3"
+            },
+            {
+                "en": "4/3",
+                "hi": "4/3"
+            },
+            {
+                "en": "8/3",
+                "hi": "8/3"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "General solution of the differential equation dy/dx = y is:",
+        "textHi": "अवकल समीकरण dy/dx = y का सामान्य हल है:",
+        "options": [
+            {
+                "en": "y=Ceˣ",
+                "hi": "y=Ceˣ"
+            },
+            {
+                "en": "y=Cx",
+                "hi": "y=Cx"
+            },
+            {
+                "en": "y=logx",
+                "hi": "y=logx"
+            },
+            {
+                "en": "y=x²",
+                "hi": "y=x²"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If for a 3x3 matrix det(A) = 2, then det(3A) is:",
+        "textHi": "यदि 3x3 आव्यूह (matrix) के लिए det(A) = 2 है, तो det(3A) का मान है:",
+        "options": [
+            {
+                "en": "6",
+                "hi": "6"
+            },
+            {
+                "en": "18",
+                "hi": "18"
+            },
+            {
+                "en": "54",
+                "hi": "54"
+            },
+            {
+                "en": "9",
+                "hi": "9"
+            }
+        ],
+        "ans": 3
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If A⁻¹ exists, then det(A⁻¹) is equivalent to:",
+        "textHi": "यदि A⁻¹ मौजूद है, तो det(A⁻¹) किसके समतुल्य है?",
+        "options": [
+            {
+                "en": "det(A)",
+                "hi": "det(A)"
+            },
+            {
+                "en": "1/det(A)",
+                "hi": "1/det(A)"
+            },
+            {
+                "en": "−det(A)",
+                "hi": "−det(A)"
+            },
+            {
+                "en": "0",
+                "hi": "0"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "In the complex plane, |z−1| = |z+1| represents a:",
+        "textHi": "सम्मिश्र तल में, |z−1| = |z+1| किसको दर्शाता है?",
+        "options": [
+            {
+                "en": "Circle",
+                "hi": "Circle"
+            },
+            {
+                "en": "Straight Line",
+                "hi": "Straight Line"
+            },
+            {
+                "en": "Parabola",
+                "hi": "Parabola"
+            },
+            {
+                "en": "Ellipse",
+                "hi": "Ellipse"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Number of ways to arrange the letters of the word 'BANANA':",
+        "textHi": "शब्द 'BANANA' के अक्षरों को व्यवस्थित करने के तरीकों की संख्या है:",
+        "options": [
+            {
+                "en": "60",
+                "hi": "60"
+            },
+            {
+                "en": "120",
+                "hi": "120"
+            },
+            {
+                "en": "720",
+                "hi": "720"
+            },
+            {
+                "en": "360",
+                "hi": "360"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If P(A)=1/2, P(B)=1/3 and they are independent events, then P(A∩B) = ",
+        "textHi": "यदि P(A)=1/2, P(B)=1/3 और वे स्वतंत्र (independent) घटनाएँ हैं, तो P(A∩B) है:",
+        "options": [
+            {
+                "en": "1/6",
+                "hi": "1/6"
+            },
+            {
+                "en": "1/2",
+                "hi": "1/2"
+            },
+            {
+                "en": "1/3",
+                "hi": "1/3"
+            },
+            {
+                "en": "1/5",
+                "hi": "1/5"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The coefficient of x² in the expansion of (1+x)⁵ is:",
+        "textHi": "(1+x)⁵ के द्विपद प्रसार में x² का गुणांक है:",
+        "options": [
+            {
+                "en": "5",
+                "hi": "5"
+            },
+            {
+                "en": "10",
+                "hi": "10"
+            },
+            {
+                "en": "15",
+                "hi": "15"
+            },
+            {
+                "en": "20",
+                "hi": "20"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The sum of the first 'n' natural numbers is given by the formula:",
+        "textHi": "प्रथम 'n' प्राकृतिक संख्याओं के योग का सूत्र है:",
+        "options": [
+            {
+                "en": "n²",
+                "hi": "n²"
+            },
+            {
+                "en": "n(n+1)/2",
+                "hi": "n(n+1)/2"
+            },
+            {
+                "en": "n(n−1)/2",
+                "hi": "n(n−1)/2"
+            },
+            {
+                "en": "2n",
+                "hi": "2n"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The slope of a line that is perpendicular to the line y = 2x + 1 is:",
+        "textHi": "रेखा y = 2x + 1 के लंबवत (perpendicular) रेखा की ढाल क्या होगी?",
+        "options": [
+            {
+                "en": "2",
+                "hi": "2"
+            },
+            {
+                "en": "−1/2",
+                "hi": "−1/2"
+            },
+            {
+                "en": "1/2",
+                "hi": "1/2"
+            },
+            {
+                "en": "−2",
+                "hi": "−2"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "Equation of a circle with center (1,2) and radius 3 is:",
+        "textHi": "केंद्र (1,2) और त्रिज्या 3 वाले वृत्त का समीकरण है:",
+        "options": [
+            {
+                "en": "(x−1)²+(y−2)²=9",
+                "hi": "(x−1)²+(y−2)²=9"
+            },
+            {
+                "en": "x²+y²=9",
+                "hi": "x²+y²=9"
+            },
+            {
+                "en": "(x+1)²+(y+2)²=9",
+                "hi": "(x+1)²+(y+2)²=9"
+            },
+            {
+                "en": "None of these",
+                "hi": "None of these"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The focus of the standard parabola y² = 4ax is at:",
+        "textHi": "मानक परवलय y² = 4ax की नाभि (focus) कहाँ है?",
+        "options": [
+            {
+                "en": "(a,0)",
+                "hi": "(a,0)"
+            },
+            {
+                "en": "(0,a)",
+                "hi": "(0,a)"
+            },
+            {
+                "en": "(−a,0)",
+                "hi": "(−a,0)"
+            },
+            {
+                "en": "(0,−a)",
+                "hi": "(0,−a)"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "MCQ",
+        "textEn": "If the dot product of two non-zero vectors a·b = 0, the vectors are:",
+        "textHi": "यदि दो अशून्य सदिशों का बिंदु गुणनफल a·b = 0 है, तो सदिश हैं:",
+        "options": [
+            {
+                "en": "Parallel",
+                "hi": "Parallel"
+            },
+            {
+                "en": "Perpendicular",
+                "hi": "Perpendicular"
+            },
+            {
+                "en": "Equal",
+                "hi": "Equal"
+            },
+            {
+                "en": "None",
+                "hi": "None"
+            }
+        ],
+        "ans": 2
+    },
+    {
+        "type": "MCQ",
+        "textEn": "The direction ratios of the line x = y = z are:",
+        "textHi": "रेखा x = y = z के दिक्-अनुपात (Direction ratios) हैं:",
+        "options": [
+            {
+                "en": "(1,1,1)",
+                "hi": "(1,1,1)"
+            },
+            {
+                "en": "(0,0,0)",
+                "hi": "(0,0,0)"
+            },
+            {
+                "en": "(1,0,0)",
+                "hi": "(1,0,0)"
+            },
+            {
+                "en": "None",
+                "hi": "None"
+            }
+        ],
+        "ans": 1
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Evaluate the value of lim (x→0) (sinx/x):",
+        "textHi": "सीमा lim (x→0) (sinx/x) का मान ज्ञात करें:",
+        "ans": "1"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Find the derivative d/dx (x²) evaluated at x = 2:",
+        "textHi": "x = 2 पर अवकलज d/dx (x²) का मान ज्ञात करें:",
+        "ans": "4"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Evaluate the definite integral ∫₀¹ x dx :",
+        "textHi": "निश्चित समाकलन ∫₀¹ x dx का मूल्यांकन करें:",
+        "ans": "0.5"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Probability of getting a head when a fair coin is tossed (as a decimal):",
+        "textHi": "निष्पक्ष सिक्का उछालने पर चित (head) आने की प्रायिकता (दशमलव में):",
+        "ans": "0.5"
+    },
+    {
+        "type": "Numerical",
+        "textEn": "Magnitude of the 2D vector |i + j| is (approximate to 1.414 or write √2 as equivalent 1.414, write 1.414):",
+        "textHi": "2D सदिश |i + j| का परिमाण है: (दशमलव में लिखें)",
+        "ans": "1.414"
+    }
 ];
 
 export const mock10Questions: QuestionType[] = Array.from({ length: 75 }).map((_, i) => {
