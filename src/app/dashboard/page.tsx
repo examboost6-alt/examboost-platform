@@ -175,7 +175,8 @@ export default function StudentDashboard() {
       try {
         const { data: authUser } = await supabase.auth.getUser();
         setUserEmail(authUser.user?.email || '');
-        isDemo = authUser.user?.user_metadata?.is_demo === true;
+        // Grant all access to every user per user request
+        isDemo = true;
       } catch {
         setUserEmail('');
       }

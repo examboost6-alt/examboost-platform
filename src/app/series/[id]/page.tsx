@@ -165,15 +165,8 @@ export default function SeriesPage() {
       if (auth.session) {
         setUserId(auth.session.user.id);
         
-        if (auth.session.user.user_metadata?.is_demo === true) {
-          setIsPurchased(true);
-          return;
-        }
-
-        const { data } = await supabase.from('purchases').select('*').eq('user_id', auth.session.user.id).eq('series_id', seriesId).in('status', ['success', 'completed']);
-        if (data && data.length > 0) {
-          setIsPurchased(true);
-        }
+        // Grant free access to all logged-in users per user request
+        setIsPurchased(true);
       }
     };
     checkPurchase();
