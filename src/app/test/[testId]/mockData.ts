@@ -30,6 +30,7 @@ import { neetMock15Questions } from './data/neetMock15';
 import { neetIntensiveMock1Questions } from './data/neetIntensiveMock1';
 import { neetIntensiveMock2Questions } from './data/neetIntensiveMock2';
 import { neetIntensiveMock3Questions } from './data/neetIntensiveMock3';
+import { neetIntensiveMock4Questions } from './data/neetIntensiveMock4';
 
 import { mock1Questions } from './data/mock1';
 import { mock2Questions } from './data/mock2';
@@ -95,6 +96,7 @@ const neetFallbackGen = Array.from({ length: 180 }).map((_, i) => {
 });
 
 export const getNeetMockQuestions = (testId: string): QuestionType[] => {
+    if (testId.includes('test-intensive-4')) return neetIntensiveMock4Questions;
     if (testId.includes('test-intensive-3')) return neetIntensiveMock3Questions;
     if (testId.includes('test-intensive-2')) return neetIntensiveMock2Questions;
     if (testId.includes('test-intensive-1')) return neetIntensiveMock1Questions;
