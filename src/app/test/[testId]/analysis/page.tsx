@@ -3,7 +3,7 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter, useParams } from 'next/navigation';
 import { Target, Clock, Activity, ArrowLeft, Medal, CheckCircle2, X, Globe, AlertCircle } from 'lucide-react';
-import { getJeeMockQuestions, neetMockQuestions, QuestionType } from '../mockData';
+import { getJeeMockQuestions, getNeetMockQuestions, QuestionType } from '../mockData';
 
 function AnalysisContent() {
     const searchParams = useSearchParams();
@@ -70,7 +70,7 @@ function AnalysisContent() {
             isNeet: loadedIsNeet
         });
         setResponses(loadedResponses);
-        setQuestions(loadedIsNeet ? neetMockQuestions : getJeeMockQuestions(testId));
+        setQuestions(loadedIsNeet ? getNeetMockQuestions(testId) : getJeeMockQuestions(testId));
 
         // Calculate Realistic Rank based on historical normalization (out of ~5 Lakh)
         if (loadedIsNeet) {

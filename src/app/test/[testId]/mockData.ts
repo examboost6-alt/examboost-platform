@@ -12,6 +12,8 @@ export type QuestionType = {
     correctAnswer?: string;
 };
 
+import { neetMock1Questions } from './data/neetMock1';
+
 import { mock1Questions } from './data/mock1';
 import { mock2Questions } from './data/mock2';
 import { mock3Questions } from './data/mock3';
@@ -53,7 +55,7 @@ export const getJeeMockQuestions = (testId: string): QuestionType[] => {
     }
 };
 
-export const neetMockQuestions: QuestionType[] = Array.from({ length: 180 }).map((_, i) => {
+const neetFallbackGen = Array.from({ length: 180 }).map((_, i) => {
     let subject = 'Physics';
     if (i >= 45 && i < 90) subject = 'Chemistry';
     if (i >= 90 && i < 135) subject = 'Botany';
@@ -74,3 +76,8 @@ export const neetMockQuestions: QuestionType[] = Array.from({ length: 180 }).map
         correctOption: (i % 4) + 1
     };
 });
+
+export const getNeetMockQuestions = (testId: string): QuestionType[] => {
+    if (testId.includes('test-1')) return neetMock1Questions;
+    return neetFallbackGen;
+};
