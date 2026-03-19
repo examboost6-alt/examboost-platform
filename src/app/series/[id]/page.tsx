@@ -48,14 +48,14 @@ const MOCK_DB: any = {
     exam: 'Medical',
     price: 1499,
     originalPrice: 2999,
-    description: '40+ Tests + Unlimited Practice. Build your accuracy with tests perfectly simulating the NEET UG exam.',
+    description: '25 Premium Tests + AI Practice. Build your accuracy with tests simulating the latest NEET UG exam pattern.',
     features: [
-      '31 Full NEET Mock Tests',
-      '10 Previous Year Papers',
-      'Unlimited Chapter Wise Tests',
+      '15 Full NEET Mock Tests',
+      '5 Previous Year Papers',
+      '5 Intensive Tests',
       'Unlimited Custom Mock Generator'
     ],
-    testCount: 41,
+    testCount: 25,
     imageUrl: '/shourya-neet.png'
   }
 };
@@ -247,14 +247,29 @@ export default function SeriesPage() {
     }
   };
 
-  const tests = Array.from({ length: courseData.testCount }).map((_, i) => ({
-    id: `${seriesId}-test-${i + 1}`,
-    title: `${courseData.exam} Full Mock Test - ${i + 1}`,
-    questions: courseData.exam === 'Medical' ? 200 : courseData.exam === 'Engineering' ? 75 : 100,
-    marks: courseData.exam === 'Medical' ? 720 : courseData.exam === 'Engineering' ? 300 : 100,
-    duration: courseData.exam === 'Medical' ? '200 Mins' : '180 Mins',
-    isLocked: i === 0 ? false : !isPurchased // First mock is free
-  }));
+  const tests = Array.from({ length: courseData.testCount }).map((_, i) => {
+    let testTitle = `${courseData.exam} Full Mock Test - ${i + 1}`;
+    
+    // Custom naming for NEET Shourya Series
+    if (seriesId === 'mock-med-1') {
+      if (i < 15) {
+        testTitle = `NEET Full Length Mock Test - ${i + 1}`;
+      } else if (i < 20) {
+        testTitle = `NEET Previous Year Paper - ${i - 15 + 1}`;
+      } else {
+        testTitle = `NEET Intensive Mock Test - ${i - 20 + 1}`;
+      }
+    }
+
+    return {
+      id: `${seriesId}-test-${i + 1}`,
+      title: testTitle,
+      questions: courseData.exam === 'Medical' ? 180 : courseData.exam === 'Engineering' ? 75 : 100,
+      marks: courseData.exam === 'Medical' ? 720 : courseData.exam === 'Engineering' ? 300 : 100,
+      duration: courseData.exam === 'Medical' ? '180 Mins' : '180 Mins',
+      isLocked: i === 0 ? false : !isPurchased // First mock is free
+    };
+  });
 
   if (!isClient) return null;
 

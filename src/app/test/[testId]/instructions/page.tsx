@@ -10,7 +10,7 @@ export default function TestInstructions({ params }: { params: { testId: string 
     const [agree, setAgree] = useState(false);
 
     const isNeet = params.testId.includes('med');
-    const duration = isNeet ? 200 : 180;
+    const duration = 180; // Both Neet and JEE are 3 hours
     const examFormat = isNeet ? 'NEET UG' : 'JEE Main';
 
     const handleProceed = () => {

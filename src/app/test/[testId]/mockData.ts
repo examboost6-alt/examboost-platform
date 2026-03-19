@@ -53,11 +53,11 @@ export const getJeeMockQuestions = (testId: string): QuestionType[] => {
     }
 };
 
-export const neetMockQuestions: QuestionType[] = Array.from({ length: 200 }).map((_, i) => {
+export const neetMockQuestions: QuestionType[] = Array.from({ length: 180 }).map((_, i) => {
     let subject = 'Physics';
-    if (i >= 50 && i < 100) subject = 'Chemistry';
-    if (i >= 100 && i < 150) subject = 'Botany';
-    if (i >= 150) subject = 'Zoology';
+    if (i >= 45 && i < 90) subject = 'Chemistry';
+    if (i >= 90 && i < 135) subject = 'Botany';
+    if (i >= 135) subject = 'Zoology';
     
     return {
         id: i + 1,

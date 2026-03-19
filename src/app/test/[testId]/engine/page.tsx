@@ -37,7 +37,7 @@ function JEE_NTA_TestEngine() {
     const [userName, setUserName] = useState("Candidate");
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
-    const [timeLeft, setTimeLeft] = useState((isNeet ? 200 : 180) * 60); // 200 mins for NEET, 180 mins for JEE
+    const [timeLeft, setTimeLeft] = useState(180 * 60); // 180 mins for NEET and JEE
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isMobilePaletteOpen, setIsMobilePaletteOpen] = useState(false);
 
