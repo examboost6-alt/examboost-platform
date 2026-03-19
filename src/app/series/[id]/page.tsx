@@ -48,14 +48,14 @@ const MOCK_DB: any = {
     exam: 'Medical',
     price: 1499,
     originalPrice: 2999,
-    description: '25 Premium Tests + AI Practice. Build your accuracy with tests simulating the latest NEET UG exam pattern.',
+    description: '20 Premium Tests + AI Practice. Build your accuracy with tests simulating the latest NEET UG exam pattern.',
     features: [
       '15 Full NEET Mock Tests',
-      '5 Previous Year Papers',
       '5 Intensive Tests',
+      '10 Official Previous Year Papers',
       'Unlimited Custom Mock Generator'
     ],
-    testCount: 25,
+    testCount: 20,
     imageUrl: '/shourya-neet.png'
   }
 };
@@ -254,10 +254,8 @@ export default function SeriesPage() {
     if (seriesId === 'mock-med-1') {
       if (i < 15) {
         testTitle = `NEET Full Length Mock Test - ${i + 1}`;
-      } else if (i < 20) {
-        testTitle = `NEET Previous Year Paper - ${i - 15 + 1}`;
       } else {
-        testTitle = `NEET Intensive Mock Test - ${i - 20 + 1}`;
+        testTitle = `NEET Intensive Mock Test - ${i - 15 + 1}`;
       }
     }
 
