@@ -17,6 +17,7 @@ import { neetMock2Questions } from './data/neetMock2';
 import { neetMock3Questions } from './data/neetMock3';
 import { neetMock4Questions } from './data/neetMock4';
 import { neetMock5Questions } from './data/neetMock5';
+import { neetMock6Questions } from './data/neetMock6';
 
 import { mock1Questions } from './data/mock1';
 import { mock2Questions } from './data/mock2';
@@ -87,5 +88,6 @@ export const getNeetMockQuestions = (testId: string): QuestionType[] => {
     if (testId.includes('test-3')) return neetMock3Questions;
     if (testId.includes('test-4')) return neetMock4Questions;
     if (testId.includes('test-5')) return neetMock5Questions;
+    if (testId.includes('test-6')) return neetMock6Questions;
     return neetFallbackGen;
 };
