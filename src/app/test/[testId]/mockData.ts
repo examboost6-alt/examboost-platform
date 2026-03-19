@@ -24,6 +24,7 @@ import { neetMock9Questions } from './data/neetMock9';
 import { neetMock10Questions } from './data/neetMock10';
 import { neetMock11Questions } from './data/neetMock11';
 import { neetMock12Questions } from './data/neetMock12';
+import { neetMock13Questions } from './data/neetMock13';
 
 import { mock1Questions } from './data/mock1';
 import { mock2Questions } from './data/mock2';
@@ -89,6 +90,7 @@ const neetFallbackGen = Array.from({ length: 180 }).map((_, i) => {
 });
 
 export const getNeetMockQuestions = (testId: string): QuestionType[] => {
+    if (testId.includes('test-13')) return neetMock13Questions;
     if (testId.includes('test-12')) return neetMock12Questions;
     if (testId.includes('test-11')) return neetMock11Questions;
     if (testId.includes('test-10')) return neetMock10Questions;
