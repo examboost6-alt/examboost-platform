@@ -14,6 +14,7 @@ export type QuestionType = {
 
 import { neetMock1Questions } from './data/neetMock1';
 import { neetMock2Questions } from './data/neetMock2';
+import { neetMock3Questions } from './data/neetMock3';
 
 import { mock1Questions } from './data/mock1';
 import { mock2Questions } from './data/mock2';
@@ -81,5 +82,6 @@ const neetFallbackGen = Array.from({ length: 180 }).map((_, i) => {
 export const getNeetMockQuestions = (testId: string): QuestionType[] => {
     if (testId.includes('test-1')) return neetMock1Questions;
     if (testId.includes('test-2')) return neetMock2Questions;
+    if (testId.includes('test-3')) return neetMock3Questions;
     return neetFallbackGen;
 };
