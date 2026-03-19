@@ -111,10 +111,25 @@ export default function Navbar() {
 
     useEffect(() => {
         if (!mounted) return;
-        document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-        return () => {
+        // Lock body scroll on mobile
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+            // Also prevent touchmove to avoid scroll bleed
+            const preventTouchMove = (e: TouchEvent) => {
+                const target = e.target as HTMLElement;
+                // Allow scrolling inside the menu itself
+                if (!target.closest('.custom-scrollbar') && e.cancelable) {
+                    e.preventDefault();
+                }
+            };
+            document.addEventListener('touchmove', preventTouchMove, { passive: false });
+            return () => {
+                document.body.style.overflow = '';
+                document.removeEventListener('touchmove', preventTouchMove);
+            };
+        } else {
             document.body.style.overflow = '';
-        };
+        }
     }, [mobileMenuOpen, mounted]);
 
     useEffect(() => {
@@ -404,10 +419,10 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="fixed inset-0 z-[60] lg:hidden bg-white dark:bg-[#020617] flex flex-col h-screen w-screen overflow-hidden"
+                            className="fixed inset-0 z-[60] lg:hidden bg-white dark:bg-[#020617] flex flex-col overflow-hidden"
                         >
                             {/* Mobile Menu Header */}
-                            <div className="flex items-center justify-between px-4 h-16 shrink-0 border-b border-slate-100 dark:border-slate-800">
+                            <div className="flex items-center justify-between px-4 h-16 md:h-20 shrink-0 border-b border-slate-100 dark:border-slate-800">
                                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 group">
                                     <div className="w-20 sm:w-24 h-6 flex items-center justify-start relative">
                                         <img src="/logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain object-left relative z-10 scale-[1.35] origin-left dark:hidden" />
@@ -503,13 +518,13 @@ export default function Navbar() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-2 gap-4 mt-auto mb-6 pt-4 shrink-0">
+                                <div className="grid grid-cols-2 gap-4 mt-auto mb-8 sm:mb-6 pt-4 pb-4 md:pb-6 shrink-0 border-t border-transparent dark:border-slate-800">
                                     {hasSession ? (
-                                        <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="col-span-2 py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-colors text-center inline-block">Dashboard</Link>
+                                        <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="col-span-2 py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-all text-center flex items-center justify-center transform active:scale-[0.98]">Dashboard</Link>
                                     ) : (
                                         <>
-                                            <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-500 text-darkText dark:text-white rounded-xl transition-colors text-center inline-block">Login</Link>
-                                            <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-colors text-center inline-block">Sign Up</Link>
+                                            <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-500 text-darkText dark:text-white rounded-xl transition-all text-center flex items-center justify-center transform active:scale-[0.98]">Login</Link>
+                                            <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="py-3.5 font-bold bg-primary hover:bg-secondary text-white rounded-xl shadow-md transition-all text-center flex items-center justify-center transform active:scale-[0.98]">Sign Up</Link>
                                         </>
                                     )}
                                 </div>
