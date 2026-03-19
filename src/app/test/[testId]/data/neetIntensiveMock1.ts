@@ -6,7 +6,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "x = t³ – 6t² + 9t → acceleration at t=2s:",
-    "textHi": " (Hindi translated via AI) \nx = t³ – 6t² + 9t → acceleration at t=2s:",
+    "textHi": "x = t³ – 6t² + 9t → t=2s पर त्वरण:",
     "options": [
       {
         "id": 1,
@@ -36,7 +36,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If F = kx³, potential energy ∝",
-    "textHi": " (Hindi translated via AI) \nIf F = kx³, potential energy ∝",
+    "textHi": "यदि F = kx³, स्थितिज ऊर्जा ∝",
     "options": [
       {
         "id": 1,
@@ -66,12 +66,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A body loses 50% KE → momentum becomes:",
-    "textHi": " (Hindi translated via AI) \nA body loses 50% KE → momentum becomes:",
+    "textHi": "एक वस्तु 50% KE खो देती है → संवेग बन जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "same",
-        "textHi": "same"
+        "textHi": "वही"
       },
       {
         "id": 2,
@@ -96,27 +96,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Angular momentum conserved when:",
-    "textHi": " (Hindi translated via AI) \nAngular momentum conserved when:",
+    "textHi": "कोणीय संवेग तब संरक्षित होता है जब:",
     "options": [
       {
         "id": 1,
         "textEn": "torque = 0",
-        "textHi": "torque = 0"
+        "textHi": "टॉर्क = 0"
       },
       {
         "id": 2,
         "textEn": "force = 0",
-        "textHi": "force = 0"
+        "textHi": "बल = 0"
       },
       {
         "id": 3,
         "textEn": "velocity = 0",
-        "textHi": "velocity = 0"
+        "textHi": "वेग = 0"
       },
       {
         "id": 4,
         "textEn": "energy = 0",
-        "textHi": "energy = 0"
+        "textHi": "ऊर्जा = 0"
       }
     ],
     "correctOption": 1
@@ -126,7 +126,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Escape velocity ratio (Earth : Moon):",
-    "textHi": " (Hindi translated via AI) \nEscape velocity ratio (Earth : Moon):",
+    "textHi": "पलायन वेग अनुपात (पृथ्वी : चंद्रमा):",
     "options": [
       {
         "id": 1,
@@ -136,7 +136,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "√(gR ratio)",
-        "textHi": "√(gR ratio)"
+        "textHi": "√(जीआर अनुपात)"
       },
       {
         "id": 3,
@@ -146,7 +146,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -156,27 +156,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "I of ring about diameter:",
-    "textHi": " (Hindi translated via AI) \nI of ring about diameter:",
+    "textHi": "व्यास के बारे में अंगूठी का I:",
     "options": [
       {
         "id": 1,
         "textEn": "MR²",
-        "textHi": "MR²"
+        "textHi": "एमआर²"
       },
       {
         "id": 2,
         "textEn": "MR²/2",
-        "textHi": "MR²/2"
+        "textHi": "एमआर²/2"
       },
       {
         "id": 3,
         "textEn": "MR²/4",
-        "textHi": "MR²/4"
+        "textHi": "एमआर²/4"
       },
       {
         "id": 4,
         "textEn": "MR²/3",
-        "textHi": "MR²/3"
+        "textHi": "एमआर²/3"
       }
     ],
     "correctOption": 2
@@ -186,7 +186,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "SHM phase difference between KE & PE:",
-    "textHi": " (Hindi translated via AI) \nSHM phase difference between KE & PE:",
+    "textHi": "केई और पीई के बीच एसएचएम चरण अंतर:",
     "options": [
       {
         "id": 1,
@@ -216,7 +216,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Wave speed v = √(T/μ) → doubling μ gives:",
-    "textHi": " (Hindi translated via AI) \nWave speed v = √(T/μ) → doubling μ gives:",
+    "textHi": "तरंग गति v = √(T/μ) → दोगुना μ देता है:",
     "options": [
       {
         "id": 1,
@@ -246,7 +246,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Intensity ratio (A₁:A₂ = 1:2) →",
-    "textHi": " (Hindi translated via AI) \nIntensity ratio (A₁:A₂ = 1:2) →",
+    "textHi": "तीव्रता अनुपात (A₁:A₂ = 1:2) →",
     "options": [
       {
         "id": 1,
@@ -276,7 +276,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "In isothermal expansion:",
-    "textHi": " (Hindi translated via AI) \nIn isothermal expansion:",
+    "textHi": "इज़ोटेर्माल विस्तार में:",
     "options": [
       {
         "id": 1,
@@ -291,12 +291,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "W=0",
-        "textHi": "W=0"
+        "textHi": "डब्ल्यू=0"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -306,27 +306,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Electric field inside conductor:",
-    "textHi": " (Hindi translated via AI) \nElectric field inside conductor:",
+    "textHi": "कंडक्टर के अंदर विद्युत क्षेत्र:",
     "options": [
       {
         "id": 1,
         "textEn": "max",
-        "textHi": "max"
+        "textHi": "अधिकतम"
       },
       {
         "id": 2,
         "textEn": "zero",
-        "textHi": "zero"
+        "textHi": "शून्य"
       },
       {
         "id": 3,
         "textEn": "constant",
-        "textHi": "constant"
+        "textHi": "स्थिर"
       },
       {
         "id": 4,
         "textEn": "variable",
-        "textHi": "variable"
+        "textHi": "चर"
       }
     ],
     "correctOption": 2
@@ -336,27 +336,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Potential difference depends on:",
-    "textHi": " (Hindi translated via AI) \nPotential difference depends on:",
+    "textHi": "संभावित अंतर इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "path",
-        "textHi": "path"
+        "textHi": "पथ"
       },
       {
         "id": 2,
         "textEn": "endpoints",
-        "textHi": "endpoints"
+        "textHi": "अंतिमबिंदुओं"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -366,7 +366,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Capacitor energy ∝",
-    "textHi": " (Hindi translated via AI) \nCapacitor energy ∝",
+    "textHi": "संधारित्र ऊर्जा ∝",
     "options": [
       {
         "id": 1,
@@ -396,27 +396,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Drift velocity ∝",
-    "textHi": " (Hindi translated via AI) \nDrift velocity ∝",
+    "textHi": "बहाव वेग ∝",
     "options": [
       {
         "id": 1,
         "textEn": "field",
-        "textHi": "field"
+        "textHi": "मैदान"
       },
       {
         "id": 2,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 3,
         "textEn": "pressure",
-        "textHi": "pressure"
+        "textHi": "दबाव"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -426,7 +426,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Power dissipated ∝",
-    "textHi": " (Hindi translated via AI) \nPower dissipated ∝",
+    "textHi": "शक्ति नष्ट हो गई ∝",
     "options": [
       {
         "id": 1,
@@ -456,7 +456,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Magnetic force F = qvB sinθ max at:",
-    "textHi": " (Hindi translated via AI) \nMagnetic force F = qvB sinθ max at:",
+    "textHi": "चुंबकीय बल F = qvB synθ अधिकतम:",
     "options": [
       {
         "id": 1,
@@ -486,7 +486,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Magnetic field due to wire ∝",
-    "textHi": " (Hindi translated via AI) \nMagnetic field due to wire ∝",
+    "textHi": "तार के कारण चुंबकीय क्षेत्र ∝",
     "options": [
       {
         "id": 1,
@@ -496,7 +496,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "1/r",
-        "textHi": "1/r"
+        "textHi": "1/आर"
       },
       {
         "id": 3,
@@ -506,7 +506,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -516,27 +516,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Induced emf ∝",
-    "textHi": " (Hindi translated via AI) \nInduced emf ∝",
+    "textHi": "प्रेरित ईएमएफ ∝",
     "options": [
       {
         "id": 1,
         "textEn": "flux",
-        "textHi": "flux"
+        "textHi": "फ्लक्स"
       },
       {
         "id": 2,
         "textEn": "rate of flux change",
-        "textHi": "rate of flux change"
+        "textHi": "प्रवाह परिवर्तन की दर"
       },
       {
         "id": 3,
         "textEn": "current",
-        "textHi": "current"
+        "textHi": "मौजूदा"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -546,27 +546,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "AC power factor = 1 when:",
-    "textHi": " (Hindi translated via AI) \nAC power factor = 1 when:",
+    "textHi": "एसी पावर फैक्टर = 1 जब:",
     "options": [
       {
         "id": 1,
         "textEn": "pure L",
-        "textHi": "pure L"
+        "textHi": "शुद्ध एल"
       },
       {
         "id": 2,
         "textEn": "pure C",
-        "textHi": "pure C"
+        "textHi": "शुद्ध सी"
       },
       {
         "id": 3,
         "textEn": "pure R",
-        "textHi": "pure R"
+        "textHi": "शुद्ध आर"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -576,27 +576,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Transformer efficiency max when:",
-    "textHi": " (Hindi translated via AI) \nTransformer efficiency max when:",
+    "textHi": "ट्रांसफार्मर दक्षता अधिकतम कब:",
     "options": [
       {
         "id": 1,
         "textEn": "copper loss = iron loss",
-        "textHi": "copper loss = iron loss"
+        "textHi": "तांबे की हानि = लोहे की हानि"
       },
       {
         "id": 2,
         "textEn": "only copper",
-        "textHi": "only copper"
+        "textHi": "केवल तांबा"
       },
       {
         "id": 3,
         "textEn": "only iron",
-        "textHi": "only iron"
+        "textHi": "केवल लोहा"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -606,27 +606,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Critical angle increases with:",
-    "textHi": " (Hindi translated via AI) \nCritical angle increases with:",
+    "textHi": "क्रांतिक कोण बढ़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "refractive index",
-        "textHi": "refractive index"
+        "textHi": "अपवर्तनांक"
       },
       {
         "id": 2,
         "textEn": "decreases",
-        "textHi": "decreases"
+        "textHi": "कम हो जाती है"
       },
       {
         "id": 3,
         "textEn": "same",
-        "textHi": "same"
+        "textHi": "वही"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -636,7 +636,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Fringe width ∝",
-    "textHi": " (Hindi translated via AI) \nFringe width ∝",
+    "textHi": "फ्रिंज चौड़ाई ∝",
     "options": [
       {
         "id": 1,
@@ -646,7 +646,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "1/d",
-        "textHi": "1/d"
+        "textHi": "1/द"
       },
       {
         "id": 3,
@@ -656,7 +656,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -666,27 +666,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Photoelectric KE depends on:",
-    "textHi": " (Hindi translated via AI) \nPhotoelectric KE depends on:",
+    "textHi": "फोटोइलेक्ट्रिक KE इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "intensity",
-        "textHi": "intensity"
+        "textHi": "तीव्रता"
       },
       {
         "id": 2,
         "textEn": "frequency",
-        "textHi": "frequency"
+        "textHi": "आवृत्ति"
       },
       {
         "id": 3,
         "textEn": "work function",
-        "textHi": "work function"
+        "textHi": "कार्य समारोह"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -696,27 +696,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Stopping potential independent of:",
-    "textHi": " (Hindi translated via AI) \nStopping potential independent of:",
+    "textHi": "इससे स्वतंत्र संभावित रोक:",
     "options": [
       {
         "id": 1,
         "textEn": "freq",
-        "textHi": "freq"
+        "textHi": "फ्रीक"
       },
       {
         "id": 2,
         "textEn": "intensity",
-        "textHi": "intensity"
+        "textHi": "तीव्रता"
       },
       {
         "id": 3,
         "textEn": "metal",
-        "textHi": "metal"
+        "textHi": "धातु"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -726,7 +726,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Bohr orbit radius ∝",
-    "textHi": " (Hindi translated via AI) \nBohr orbit radius ∝",
+    "textHi": "बोह्र कक्षा त्रिज्या ∝",
     "options": [
       {
         "id": 1,
@@ -741,12 +741,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "1/n",
-        "textHi": "1/n"
+        "textHi": "1/एन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -756,7 +756,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "de Broglie λ = h/p → p↑ gives:",
-    "textHi": " (Hindi translated via AI) \nde Broglie λ = h/p → p↑ gives:",
+    "textHi": "डी ब्रोगली λ = h/p → p↑ देता है:",
     "options": [
       {
         "id": 1,
@@ -771,12 +771,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "same",
-        "textHi": "same"
+        "textHi": "वही"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -786,7 +786,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Uncertainty principle →",
-    "textHi": " (Hindi translated via AI) \nUncertainty principle →",
+    "textHi": "अनिश्चितता सिद्धांत →",
     "options": [
       {
         "id": 1,
@@ -796,17 +796,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "≥ h/4π",
-        "textHi": "≥ h/4π"
+        "textHi": "≥ एच/4π"
       },
       {
         "id": 3,
         "textEn": "= h",
-        "textHi": "= h"
+        "textHi": "= एच"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -816,7 +816,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Binding energy curve peak:",
-    "textHi": " (Hindi translated via AI) \nBinding energy curve peak:",
+    "textHi": "बाइंडिंग ऊर्जा वक्र शिखर:",
     "options": [
       {
         "id": 1,
@@ -846,27 +846,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Half-life T independent of:",
-    "textHi": " (Hindi translated via AI) \nHalf-life T independent of:",
+    "textHi": "अर्ध-जीवन T इससे स्वतंत्र:",
     "options": [
       {
         "id": 1,
         "textEn": "initial atoms",
-        "textHi": "initial atoms"
+        "textHi": "प्रारंभिक परमाणु"
       },
       {
         "id": 2,
         "textEn": "time",
-        "textHi": "time"
+        "textHi": "समय"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -876,27 +876,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Intrinsic semiconductor:",
-    "textHi": " (Hindi translated via AI) \nIntrinsic semiconductor:",
+    "textHi": "आंतरिक अर्धचालक:",
     "options": [
       {
         "id": 1,
         "textEn": "pure",
-        "textHi": "pure"
+        "textHi": "शुद्ध"
       },
       {
         "id": 2,
         "textEn": "doped",
-        "textHi": "doped"
+        "textHi": "डाल दिया गया"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -906,27 +906,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "p-n junction barrier due to:",
-    "textHi": " (Hindi translated via AI) \np-n junction barrier due to:",
+    "textHi": "पी-एन जंक्शन बाधा के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "diffusion",
-        "textHi": "diffusion"
+        "textHi": "प्रसार"
       },
       {
         "id": 2,
         "textEn": "drift",
-        "textHi": "drift"
+        "textHi": "अभिप्राय"
       },
       {
         "id": 3,
         "textEn": "recombination",
-        "textHi": "recombination"
+        "textHi": "पुनर्संयोजन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -936,27 +936,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Forward bias increases:",
-    "textHi": " (Hindi translated via AI) \nForward bias increases:",
+    "textHi": "अग्रेषित पूर्वाग्रह बढ़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "barrier",
-        "textHi": "barrier"
+        "textHi": "रुकावट"
       },
       {
         "id": 2,
         "textEn": "current",
-        "textHi": "current"
+        "textHi": "मौजूदा"
       },
       {
         "id": 3,
         "textEn": "resistance",
-        "textHi": "resistance"
+        "textHi": "प्रतिरोध"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -966,27 +966,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Zener breakdown at:",
-    "textHi": " (Hindi translated via AI) \nZener breakdown at:",
+    "textHi": "जेनर ब्रेकडाउन:",
     "options": [
       {
         "id": 1,
         "textEn": "low voltage",
-        "textHi": "low voltage"
+        "textHi": "कम वोल्टेज"
       },
       {
         "id": 2,
         "textEn": "high voltage",
-        "textHi": "high voltage"
+        "textHi": "उच्च वोल्टेज"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -996,27 +996,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "OR gate output 0 when:",
-    "textHi": " (Hindi translated via AI) \nOR gate output 0 when:",
+    "textHi": "या गेट आउटपुट 0 जब:",
     "options": [
       {
         "id": 1,
         "textEn": "both 1",
-        "textHi": "both 1"
+        "textHi": "दोनों 1"
       },
       {
         "id": 2,
         "textEn": "both 0",
-        "textHi": "both 0"
+        "textHi": "दोनों 0"
       },
       {
         "id": 3,
         "textEn": "one 1",
-        "textHi": "one 1"
+        "textHi": "एक 1"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1026,7 +1026,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Torque = r×F → max when:",
-    "textHi": " (Hindi translated via AI) \nTorque = r×F → max when:",
+    "textHi": "टॉर्क = r×F → अधिकतम जब:",
     "options": [
       {
         "id": 1,
@@ -1046,7 +1046,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1056,27 +1056,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Angular momentum L = Iω",
-    "textHi": " (Hindi translated via AI) \nAngular momentum L = Iω",
+    "textHi": "कोणीय संवेग L = Iω",
     "options": [
       {
         "id": 1,
         "textEn": "scalar",
-        "textHi": "scalar"
+        "textHi": "अदिश"
       },
       {
         "id": 2,
         "textEn": "vector",
-        "textHi": "vector"
+        "textHi": "वेक्टर"
       },
       {
         "id": 3,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       },
       {
         "id": 4,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       }
     ],
     "correctOption": 2
@@ -1086,27 +1086,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Power factor improved using:",
-    "textHi": " (Hindi translated via AI) \nPower factor improved using:",
+    "textHi": "पावर फैक्टर का उपयोग करके सुधार किया गया:",
     "options": [
       {
         "id": 1,
         "textEn": "capacitor",
-        "textHi": "capacitor"
+        "textHi": "संधारित्र"
       },
       {
         "id": 2,
         "textEn": "inductor",
-        "textHi": "inductor"
+        "textHi": "प्रारंभ करनेवाला"
       },
       {
         "id": 3,
         "textEn": "resistor",
-        "textHi": "resistor"
+        "textHi": "अवरोध"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1116,27 +1116,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Magnetic flux unit:",
-    "textHi": " (Hindi translated via AI) \nMagnetic flux unit:",
+    "textHi": "चुंबकीय प्रवाह इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "Tesla",
-        "textHi": "Tesla"
+        "textHi": "टेस्ला"
       },
       {
         "id": 2,
         "textEn": "Weber",
-        "textHi": "Weber"
+        "textHi": "वेबर"
       },
       {
         "id": 3,
         "textEn": "Henry",
-        "textHi": "Henry"
+        "textHi": "हेनरी"
       },
       {
         "id": 4,
         "textEn": "Volt",
-        "textHi": "Volt"
+        "textHi": "वाल्ट"
       }
     ],
     "correctOption": 2
@@ -1146,7 +1146,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Convex lens focal length:",
-    "textHi": " (Hindi translated via AI) \nConvex lens focal length:",
+    "textHi": "उत्तल लेंस की फोकल लंबाई:",
     "options": [
       {
         "id": 1,
@@ -1156,17 +1156,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "–ve",
-        "textHi": "–ve"
+        "textHi": "-ve"
       },
       {
         "id": 3,
         "textEn": "zero",
-        "textHi": "zero"
+        "textHi": "शून्य"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1176,27 +1176,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Real image always:",
-    "textHi": " (Hindi translated via AI) \nReal image always:",
+    "textHi": "वास्तविक छवि हमेशा:",
     "options": [
       {
         "id": 1,
         "textEn": "erect",
-        "textHi": "erect"
+        "textHi": "खड़ा करना"
       },
       {
         "id": 2,
         "textEn": "inverted",
-        "textHi": "inverted"
+        "textHi": "उल्टे"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1206,27 +1206,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "YDSE intensity max when:",
-    "textHi": " (Hindi translated via AI) \nYDSE intensity max when:",
+    "textHi": "YDSE तीव्रता अधिकतम कब:",
     "options": [
       {
         "id": 1,
         "textEn": "constructive",
-        "textHi": "constructive"
+        "textHi": "रचनात्मक"
       },
       {
         "id": 2,
         "textEn": "destructive",
-        "textHi": "destructive"
+        "textHi": "विनाशकारी"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1236,12 +1236,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Photon energy ∝",
-    "textHi": " (Hindi translated via AI) \nPhoton energy ∝",
+    "textHi": "फोटॉन ऊर्जा ∝",
     "options": [
       {
         "id": 1,
         "textEn": "freq",
-        "textHi": "freq"
+        "textHi": "फ्रीक"
       },
       {
         "id": 2,
@@ -1251,12 +1251,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "mass",
-        "textHi": "mass"
+        "textHi": "द्रव्यमान"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1266,27 +1266,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Work function low →",
-    "textHi": " (Hindi translated via AI) \nWork function low →",
+    "textHi": "कार्य फ़ंक्शन कम →",
     "options": [
       {
         "id": 1,
         "textEn": "easy emission",
-        "textHi": "easy emission"
+        "textHi": "आसान उत्सर्जन"
       },
       {
         "id": 2,
         "textEn": "difficult",
-        "textHi": "difficult"
+        "textHi": "कठिन"
       },
       {
         "id": 3,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       },
       {
         "id": 4,
         "textEn": "zero",
-        "textHi": "zero"
+        "textHi": "शून्य"
       }
     ],
     "correctOption": 1
@@ -1296,27 +1296,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Compton effect shows:",
-    "textHi": " (Hindi translated via AI) \nCompton effect shows:",
+    "textHi": "कॉम्पटन प्रभाव दिखाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "wave nature",
-        "textHi": "wave nature"
+        "textHi": "लहर प्रकृति"
       },
       {
         "id": 2,
         "textEn": "particle nature",
-        "textHi": "particle nature"
+        "textHi": "कण प्रकृति"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1326,27 +1326,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Dual nature valid for:",
-    "textHi": " (Hindi translated via AI) \nDual nature valid for:",
+    "textHi": "दोहरी प्रकृति इसके लिए मान्य है:",
     "options": [
       {
         "id": 1,
         "textEn": "electron",
-        "textHi": "electron"
+        "textHi": "इलेक्ट्रॉन"
       },
       {
         "id": 2,
         "textEn": "photon",
-        "textHi": "photon"
+        "textHi": "फोटोन"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -1356,12 +1356,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Degree of ionization (α) ∝",
-    "textHi": " (Hindi translated via AI) \nDegree of ionization (α) ∝",
+    "textHi": "आयनीकरण की डिग्री (α) ∝",
     "options": [
       {
         "id": 1,
         "textEn": "conc",
-        "textHi": "conc"
+        "textHi": "सान्द्र"
       },
       {
         "id": 2,
@@ -1371,12 +1371,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "conc²",
-        "textHi": "conc²"
+        "textHi": "संक्षिप्त"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1386,7 +1386,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "pH of 10⁻³ M HCl =",
-    "textHi": " (Hindi translated via AI) \npH of 10⁻³ M HCl =",
+    "textHi": "10⁻³ एम एचसीएल का पीएच =",
     "options": [
       {
         "id": 1,
@@ -1416,7 +1416,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Oxidation number of Cr in K₂Cr₂O₇:",
-    "textHi": " (Hindi translated via AI) \nOxidation number of Cr in K₂Cr₂O₇:",
+    "textHi": "K₂Cr₂O₇ में Cr की ऑक्सीकरण संख्या:",
     "options": [
       {
         "id": 1,
@@ -1446,7 +1446,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Hybridization of SF₄:",
-    "textHi": " (Hindi translated via AI) \nHybridization of SF₄:",
+    "textHi": "SF₄ का संकरण:",
     "options": [
       {
         "id": 1,
@@ -1476,7 +1476,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Bond order of O₂⁻:",
-    "textHi": " (Hindi translated via AI) \nBond order of O₂⁻:",
+    "textHi": "O₂⁻ का बांड ऑर्डर:",
     "options": [
       {
         "id": 1,
@@ -1506,27 +1506,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Van der Waals constant ‘a’ represents:",
-    "textHi": " (Hindi translated via AI) \nVan der Waals constant ‘a’ represents:",
+    "textHi": "वैन डेर वाल्स स्थिरांक 'ए' दर्शाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "volume",
-        "textHi": "volume"
+        "textHi": "आयतन"
       },
       {
         "id": 2,
         "textEn": "attraction",
-        "textHi": "attraction"
+        "textHi": "आकर्षण"
       },
       {
         "id": 3,
         "textEn": "repulsion",
-        "textHi": "repulsion"
+        "textHi": "घृणा"
       },
       {
         "id": 4,
         "textEn": "pressure",
-        "textHi": "pressure"
+        "textHi": "दबाव"
       }
     ],
     "correctOption": 2
@@ -1536,27 +1536,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "ΔH = ΔU + ΔnRT → applies to:",
-    "textHi": " (Hindi translated via AI) \nΔH = ΔU + ΔnRT → applies to:",
+    "textHi": "ΔH = ΔU + ΔnRT → इन पर लागू होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "solids",
-        "textHi": "solids"
+        "textHi": "एसएनएफ"
       },
       {
         "id": 2,
         "textEn": "gases",
-        "textHi": "gases"
+        "textHi": "गैसों"
       },
       {
         "id": 3,
         "textEn": "liquids",
-        "textHi": "liquids"
+        "textHi": "तरल पदार्थ"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1571,22 +1571,22 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 1,
         "textEn": "spontaneous",
-        "textHi": "spontaneous"
+        "textHi": "अविरल"
       },
       {
         "id": 2,
         "textEn": "equilibrium",
-        "textHi": "equilibrium"
+        "textHi": "संतुलन"
       },
       {
         "id": 3,
         "textEn": "non-spontaneous",
-        "textHi": "non-spontaneous"
+        "textHi": "गैर सहज"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1596,27 +1596,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Order ≠ molecularity when:",
-    "textHi": " (Hindi translated via AI) \nOrder ≠ molecularity when:",
+    "textHi": "क्रम ≠ आणविकता जब:",
     "options": [
       {
         "id": 1,
         "textEn": "elementary",
-        "textHi": "elementary"
+        "textHi": "प्राथमिक"
       },
       {
         "id": 2,
         "textEn": "complex",
-        "textHi": "complex"
+        "textHi": "जटिल"
       },
       {
         "id": 3,
         "textEn": "reversible",
-        "textHi": "reversible"
+        "textHi": "प्रतिवर्ती"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1626,17 +1626,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Catalyst changes:",
-    "textHi": " (Hindi translated via AI) \nCatalyst changes:",
+    "textHi": "उत्प्रेरक परिवर्तन:",
     "options": [
       {
         "id": 1,
         "textEn": "rate",
-        "textHi": "rate"
+        "textHi": "दर"
       },
       {
         "id": 2,
         "textEn": "equilibrium",
-        "textHi": "equilibrium"
+        "textHi": "संतुलन"
       },
       {
         "id": 3,
@@ -1656,27 +1656,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Nernst equation valid for:",
-    "textHi": " (Hindi translated via AI) \nNernst equation valid for:",
+    "textHi": "नर्नस्ट समीकरण इसके लिए मान्य है:",
     "options": [
       {
         "id": 1,
         "textEn": "standard",
-        "textHi": "standard"
+        "textHi": "मानक"
       },
       {
         "id": 2,
         "textEn": "non-standard",
-        "textHi": "non-standard"
+        "textHi": "अमानक"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1686,27 +1686,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Molar conductivity at ∞ dilution:",
-    "textHi": " (Hindi translated via AI) \nMolar conductivity at ∞ dilution:",
+    "textHi": "∞ तनुकरण पर मोलर चालकता:",
     "options": [
       {
         "id": 1,
         "textEn": "minimum",
-        "textHi": "minimum"
+        "textHi": "न्यूनतम"
       },
       {
         "id": 2,
         "textEn": "maximum",
-        "textHi": "maximum"
+        "textHi": "अधिकतम"
       },
       {
         "id": 3,
         "textEn": "zero",
-        "textHi": "zero"
+        "textHi": "शून्य"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1716,27 +1716,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Atomic radius trend:",
-    "textHi": " (Hindi translated via AI) \nAtomic radius trend:",
+    "textHi": "परमाणु त्रिज्या प्रवृत्ति:",
     "options": [
       {
         "id": 1,
         "textEn": "increases across",
-        "textHi": "increases across"
+        "textHi": "पार बढ़ जाता है"
       },
       {
         "id": 2,
         "textEn": "decreases across",
-        "textHi": "decreases across"
+        "textHi": "भर में घट जाती है"
       },
       {
         "id": 3,
         "textEn": "constant",
-        "textHi": "constant"
+        "textHi": "स्थिर"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1746,7 +1746,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Electron affinity most negative:",
-    "textHi": " (Hindi translated via AI) \nElectron affinity most negative:",
+    "textHi": "इलेक्ट्रॉन बन्धुता सर्वाधिक ऋणात्मक:",
     "options": [
       {
         "id": 1,
@@ -1776,27 +1776,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "IE anomaly in:",
-    "textHi": " (Hindi translated via AI) \nIE anomaly in:",
+    "textHi": "IE विसंगति:",
     "options": [
       {
         "id": 1,
         "textEn": "N > O",
-        "textHi": "N > O"
+        "textHi": "एन > ओ"
       },
       {
         "id": 2,
         "textEn": "O > N",
-        "textHi": "O > N"
+        "textHi": "ओ > एन"
       },
       {
         "id": 3,
         "textEn": "same",
-        "textHi": "same"
+        "textHi": "वही"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1806,7 +1806,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "FCC packing efficiency:",
-    "textHi": " (Hindi translated via AI) \nFCC packing efficiency:",
+    "textHi": "एफसीसी पैकिंग दक्षता:",
     "options": [
       {
         "id": 1,
@@ -1836,27 +1836,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "SN1 rate increases with:",
-    "textHi": " (Hindi translated via AI) \nSN1 rate increases with:",
+    "textHi": "SN1 दर इसके साथ बढ़ती है:",
     "options": [
       {
         "id": 1,
         "textEn": "nucleophile",
-        "textHi": "nucleophile"
+        "textHi": "न्यूक्लियोफाइल"
       },
       {
         "id": 2,
         "textEn": "substrate stability",
-        "textHi": "substrate stability"
+        "textHi": "सब्सट्रेट स्थिरता"
       },
       {
         "id": 3,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1866,27 +1866,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "SN2 favoured by:",
-    "textHi": " (Hindi translated via AI) \nSN2 favoured by:",
+    "textHi": "SN2 का समर्थन किया गया:",
     "options": [
       {
         "id": 1,
         "textEn": "bulky substrate",
-        "textHi": "bulky substrate"
+        "textHi": "भारी सब्सट्रेट"
       },
       {
         "id": 2,
         "textEn": "strong nucleophile",
-        "textHi": "strong nucleophile"
+        "textHi": "मजबूत न्यूक्लियोफाइल"
       },
       {
         "id": 3,
         "textEn": "weak nucleophile",
-        "textHi": "weak nucleophile"
+        "textHi": "कमजोर न्यूक्लियोफाइल"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1896,27 +1896,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Carbocation rearrangement occurs in:",
-    "textHi": " (Hindi translated via AI) \nCarbocation rearrangement occurs in:",
+    "textHi": "कार्बोकेशन पुनर्व्यवस्था इसमें होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "SN2",
-        "textHi": "SN2"
+        "textHi": "एसएन2"
       },
       {
         "id": 2,
         "textEn": "SN1",
-        "textHi": "SN1"
+        "textHi": "एसएन1"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1926,27 +1926,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Benzene stability due to:",
-    "textHi": " (Hindi translated via AI) \nBenzene stability due to:",
+    "textHi": "बेंजीन स्थिरता के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "conjugation",
-        "textHi": "conjugation"
+        "textHi": "विकार"
       },
       {
         "id": 2,
         "textEn": "resonance",
-        "textHi": "resonance"
+        "textHi": "गूंज"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -1956,27 +1956,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Friedel-Crafts fails with:",
-    "textHi": " (Hindi translated via AI) \nFriedel-Crafts fails with:",
+    "textHi": "फ़्रीडेल-क्राफ्ट्स इसमें विफल रहता है:",
     "options": [
       {
         "id": 1,
         "textEn": "alkyl halide",
-        "textHi": "alkyl halide"
+        "textHi": "एल्काइल हैलाइड"
       },
       {
         "id": 2,
         "textEn": "deactivated ring",
-        "textHi": "deactivated ring"
+        "textHi": "निष्क्रिय अंगूठी"
       },
       {
         "id": 3,
         "textEn": "catalyst",
-        "textHi": "catalyst"
+        "textHi": "उत्प्रेरक"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -1986,27 +1986,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Aldehyde oxidizes to:",
-    "textHi": " (Hindi translated via AI) \nAldehyde oxidizes to:",
+    "textHi": "एल्डिहाइड ऑक्सीकरण करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "alcohol",
-        "textHi": "alcohol"
+        "textHi": "शराब"
       },
       {
         "id": 2,
         "textEn": "acid",
-        "textHi": "acid"
+        "textHi": "अम्ल"
       },
       {
         "id": 3,
         "textEn": "ketone",
-        "textHi": "ketone"
+        "textHi": "कीटोन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2016,27 +2016,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Ketone does not give:",
-    "textHi": " (Hindi translated via AI) \nKetone does not give:",
+    "textHi": "केटोन नहीं देता:",
     "options": [
       {
         "id": 1,
         "textEn": "oxidation",
-        "textHi": "oxidation"
+        "textHi": "ऑक्सीकरण"
       },
       {
         "id": 2,
         "textEn": "reduction",
-        "textHi": "reduction"
+        "textHi": "कमी"
       },
       {
         "id": 3,
         "textEn": "addition",
-        "textHi": "addition"
+        "textHi": "जोड़ना"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2046,27 +2046,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Optical activity requires:",
-    "textHi": " (Hindi translated via AI) \nOptical activity requires:",
+    "textHi": "ऑप्टिकल गतिविधि के लिए आवश्यक है:",
     "options": [
       {
         "id": 1,
         "textEn": "symmetry",
-        "textHi": "symmetry"
+        "textHi": "समरूपता"
       },
       {
         "id": 2,
         "textEn": "asymmetry",
-        "textHi": "asymmetry"
+        "textHi": "विषमता"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2076,7 +2076,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Aromaticity rule:",
-    "textHi": " (Hindi translated via AI) \nAromaticity rule:",
+    "textHi": "सुगंध नियम:",
     "options": [
       {
         "id": 1,
@@ -2086,7 +2086,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "4n+2",
-        "textHi": "4n+2"
+        "textHi": "4एन+2"
       },
       {
         "id": 3,
@@ -2096,7 +2096,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2106,27 +2106,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Reduction involves:",
-    "textHi": " (Hindi translated via AI) \nReduction involves:",
+    "textHi": "कमी में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "gain e⁻",
-        "textHi": "gain e⁻"
+        "textHi": "ई⁻ प्राप्त करें"
       },
       {
         "id": 2,
         "textEn": "gain O",
-        "textHi": "gain O"
+        "textHi": "ओ प्राप्त करें"
       },
       {
         "id": 3,
         "textEn": "loss H",
-        "textHi": "loss H"
+        "textHi": "हानि एच"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2136,27 +2136,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "K depends on:",
-    "textHi": " (Hindi translated via AI) \nK depends on:",
+    "textHi": "K इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 2,
         "textEn": "pressure",
-        "textHi": "pressure"
+        "textHi": "दबाव"
       },
       {
         "id": 3,
         "textEn": "catalyst",
-        "textHi": "catalyst"
+        "textHi": "उत्प्रेरक"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2166,27 +2166,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Strong acid →",
-    "textHi": " (Hindi translated via AI) \nStrong acid →",
+    "textHi": "प्रबल अम्ल →",
     "options": [
       {
         "id": 1,
         "textEn": "low pKa",
-        "textHi": "low pKa"
+        "textHi": "कम पीकेए"
       },
       {
         "id": 2,
         "textEn": "high pKa",
-        "textHi": "high pKa"
+        "textHi": "उच्च पीकेए"
       },
       {
         "id": 3,
         "textEn": "neutral",
-        "textHi": "neutral"
+        "textHi": "तटस्थ"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2196,12 +2196,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Buffer solution resists:",
-    "textHi": " (Hindi translated via AI) \nBuffer solution resists:",
+    "textHi": "बफ़र समाधान प्रतिरोध करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 2,
@@ -2211,12 +2211,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "volume",
-        "textHi": "volume"
+        "textHi": "आयतन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2226,27 +2226,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Boiling point elevation depends on:",
-    "textHi": " (Hindi translated via AI) \nBoiling point elevation depends on:",
+    "textHi": "क्वथनांक उन्नयन इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "solute nature",
-        "textHi": "solute nature"
+        "textHi": "विलेय प्रकृति"
       },
       {
         "id": 2,
         "textEn": "number",
-        "textHi": "number"
+        "textHi": "संख्या"
       },
       {
         "id": 3,
         "textEn": "solvent",
-        "textHi": "solvent"
+        "textHi": "विलायक"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2256,27 +2256,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "i < 1 indicates:",
-    "textHi": " (Hindi translated via AI) \ni < 1 indicates:",
+    "textHi": "i <1 इंगित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "dissociation",
-        "textHi": "dissociation"
+        "textHi": "पृथक्करण"
       },
       {
         "id": 2,
         "textEn": "association",
-        "textHi": "association"
+        "textHi": "संगठन"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2286,27 +2286,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Osmotic pressure = CRT → depends on:",
-    "textHi": " (Hindi translated via AI) \nOsmotic pressure = CRT → depends on:",
+    "textHi": "आसमाटिक दबाव = CRT → इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 2,
         "textEn": "conc",
-        "textHi": "conc"
+        "textHi": "सान्द्र"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -2316,17 +2316,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Spontaneity:",
-    "textHi": " (Hindi translated via AI) \nSpontaneity:",
+    "textHi": "सहजता:",
     "options": [
       {
         "id": 1,
         "textEn": "ΔG>0",
-        "textHi": "ΔG>0"
+        "textHi": "Δजी>0"
       },
       {
         "id": 2,
         "textEn": "ΔG<0",
-        "textHi": "ΔG<0"
+        "textHi": "Δजी<0"
       },
       {
         "id": 3,
@@ -2336,7 +2336,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2346,27 +2346,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Lanthanide contraction due to:",
-    "textHi": " (Hindi translated via AI) \nLanthanide contraction due to:",
+    "textHi": "लैंथेनाइड संकुचन के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "shielding",
-        "textHi": "shielding"
+        "textHi": "परिरक्षण"
       },
       {
         "id": 2,
         "textEn": "poor shielding",
-        "textHi": "poor shielding"
+        "textHi": "ख़राब परिरक्षण"
       },
       {
         "id": 3,
         "textEn": "repulsion",
-        "textHi": "repulsion"
+        "textHi": "घृणा"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2376,27 +2376,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Strong ligand causes:",
-    "textHi": " (Hindi translated via AI) \nStrong ligand causes:",
+    "textHi": "मजबूत लिगेंड कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "high spin",
-        "textHi": "high spin"
+        "textHi": "उच्च स्पिन"
       },
       {
         "id": 2,
         "textEn": "low spin",
-        "textHi": "low spin"
+        "textHi": "कम स्पिन"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2406,12 +2406,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Weak field ligand example:",
-    "textHi": " (Hindi translated via AI) \nWeak field ligand example:",
+    "textHi": "कमजोर क्षेत्र लिगैंड उदाहरण:",
     "options": [
       {
         "id": 1,
         "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textHi": "सीएन⁻"
       },
       {
         "id": 2,
@@ -2426,7 +2426,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -2436,12 +2436,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Most basic in water:",
-    "textHi": " (Hindi translated via AI) \nMost basic in water:",
+    "textHi": "पानी में सबसे बुनियादी:",
     "options": [
       {
         "id": 1,
         "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textHi": "एनएच₃"
       },
       {
         "id": 2,
@@ -2451,12 +2451,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "NH₂⁻",
-        "textHi": "NH₂⁻"
+        "textHi": "एनएच₂⁻"
       },
       {
         "id": 4,
         "textEn": "aniline",
-        "textHi": "aniline"
+        "textHi": "रंगों का रासायनिक आधार"
       }
     ],
     "correctOption": 2
@@ -2466,27 +2466,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Addition polymer example:",
-    "textHi": " (Hindi translated via AI) \nAddition polymer example:",
+    "textHi": "अतिरिक्त बहुलक उदाहरण:",
     "options": [
       {
         "id": 1,
         "textEn": "nylon",
-        "textHi": "nylon"
+        "textHi": "नायलॉन"
       },
       {
         "id": 2,
         "textEn": "PVC",
-        "textHi": "PVC"
+        "textHi": "पीवीसी"
       },
       {
         "id": 3,
         "textEn": "bakelite",
-        "textHi": "bakelite"
+        "textHi": "एक प्रकार का प्लास्टिक"
       },
       {
         "id": 4,
         "textEn": "protein",
-        "textHi": "protein"
+        "textHi": "प्रोटीन"
       }
     ],
     "correctOption": 2
@@ -2496,27 +2496,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Protein tertiary structure stabilized by:",
-    "textHi": " (Hindi translated via AI) \nProtein tertiary structure stabilized by:",
+    "textHi": "प्रोटीन तृतीयक संरचना किसके द्वारा स्थिर होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "H-bond",
-        "textHi": "H-bond"
+        "textHi": "एच-बंधन"
       },
       {
         "id": 2,
         "textEn": "ionic",
-        "textHi": "ionic"
+        "textHi": "ईओण का"
       },
       {
         "id": 3,
         "textEn": "disulfide",
-        "textHi": "disulfide"
+        "textHi": "डाइसल्फ़ाइड"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -2526,27 +2526,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "DNA base pairing:",
-    "textHi": " (Hindi translated via AI) \nDNA base pairing:",
+    "textHi": "डीएनए बेस पेयरिंग:",
     "options": [
       {
         "id": 1,
         "textEn": "A–T",
-        "textHi": "A–T"
+        "textHi": "पर"
       },
       {
         "id": 2,
         "textEn": "G–C",
-        "textHi": "G–C"
+        "textHi": "जी-सी"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -2556,27 +2556,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Vitamin D is:",
-    "textHi": " (Hindi translated via AI) \nVitamin D is:",
+    "textHi": "विटामिन डी है:",
     "options": [
       {
         "id": 1,
         "textEn": "water soluble",
-        "textHi": "water soluble"
+        "textHi": "पानी में घुलनशील"
       },
       {
         "id": 2,
         "textEn": "fat soluble",
-        "textHi": "fat soluble"
+        "textHi": "वसा में घुलनशील"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2586,27 +2586,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Enzyme denatures at:",
-    "textHi": " (Hindi translated via AI) \nEnzyme denatures at:",
+    "textHi": "एन्जाइम विकृतीकरण करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "high temp",
-        "textHi": "high temp"
+        "textHi": "उच्च तापमान"
       },
       {
         "id": 2,
         "textEn": "low temp",
-        "textHi": "low temp"
+        "textHi": "कम तापमान"
       },
       {
         "id": 3,
         "textEn": "neutral",
-        "textHi": "neutral"
+        "textHi": "तटस्थ"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2616,27 +2616,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Green chemistry →",
-    "textHi": " (Hindi translated via AI) \nGreen chemistry →",
+    "textHi": "हरित रसायन →",
     "options": [
       {
         "id": 1,
         "textEn": "pollution reduction",
-        "textHi": "pollution reduction"
+        "textHi": "प्रदूषण में कमी"
       },
       {
         "id": 2,
         "textEn": "increase",
-        "textHi": "increase"
+        "textHi": "बढ़ोतरी"
       },
       {
         "id": 3,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       },
       {
         "id": 4,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       }
     ],
     "correctOption": 1
@@ -2646,27 +2646,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Raoult law deviation:",
-    "textHi": " (Hindi translated via AI) \nRaoult law deviation:",
+    "textHi": "राउल्ट नियम विचलन:",
     "options": [
       {
         "id": 1,
         "textEn": "ideal",
-        "textHi": "ideal"
+        "textHi": "आदर्श"
       },
       {
         "id": 2,
         "textEn": "non-ideal",
-        "textHi": "non-ideal"
+        "textHi": "गैर आदर्श"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2676,27 +2676,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Colligative properties depend on:",
-    "textHi": " (Hindi translated via AI) \nColligative properties depend on:",
+    "textHi": "सहयोगात्मक गुण इस पर निर्भर करते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "nature",
-        "textHi": "nature"
+        "textHi": "प्रकृति"
       },
       {
         "id": 2,
         "textEn": "number",
-        "textHi": "number"
+        "textHi": "संख्या"
       },
       {
         "id": 3,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2706,27 +2706,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Accessory pigments include:",
-    "textHi": " (Hindi translated via AI) \nAccessory pigments include:",
+    "textHi": "सहायक रंगद्रव्य में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "chlorophyll a",
-        "textHi": "chlorophyll a"
+        "textHi": "क्लोरोफिल ए"
       },
       {
         "id": 2,
         "textEn": "chlorophyll b",
-        "textHi": "chlorophyll b"
+        "textHi": "क्लोरोफिल बी"
       },
       {
         "id": 3,
         "textEn": "carotenoids",
-        "textHi": "carotenoids"
+        "textHi": "कैरोटीनॉयड"
       },
       {
         "id": 4,
         "textEn": "both B & C",
-        "textHi": "both B & C"
+        "textHi": "बी और सी दोनों"
       }
     ],
     "correctOption": 4
@@ -2736,27 +2736,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Hill reaction occurs in:",
-    "textHi": " (Hindi translated via AI) \nHill reaction occurs in:",
+    "textHi": "हिल प्रतिक्रिया होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "stroma",
-        "textHi": "stroma"
+        "textHi": "स्ट्रोमा"
       },
       {
         "id": 2,
         "textEn": "thylakoid",
-        "textHi": "thylakoid"
+        "textHi": "थायलाकोइड"
       },
       {
         "id": 3,
         "textEn": "mitochondria",
-        "textHi": "mitochondria"
+        "textHi": "माइटोकॉन्ड्रिया"
       },
       {
         "id": 4,
         "textEn": "cytoplasm",
-        "textHi": "cytoplasm"
+        "textHi": "कोशिका द्रव्य"
       }
     ],
     "correctOption": 2
@@ -2766,7 +2766,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Photolysis of water produces:",
-    "textHi": " (Hindi translated via AI) \nPhotolysis of water produces:",
+    "textHi": "जल का फोटोलिसिस उत्पन्न करता है:",
     "options": [
       {
         "id": 1,
@@ -2776,17 +2776,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "electrons",
-        "textHi": "electrons"
+        "textHi": "इलेक्ट्रॉनों"
       },
       {
         "id": 3,
         "textEn": "protons",
-        "textHi": "protons"
+        "textHi": "प्रोटान"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -2796,27 +2796,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "C₄ plants first stable product:",
-    "textHi": " (Hindi translated via AI) \nC₄ plants first stable product:",
+    "textHi": "C₄ संयंत्र पहला स्थिर उत्पाद:",
     "options": [
       {
         "id": 1,
         "textEn": "3-PGA",
-        "textHi": "3-PGA"
+        "textHi": "3-पीजीए"
       },
       {
         "id": 2,
         "textEn": "OAA",
-        "textHi": "OAA"
+        "textHi": "ओएए"
       },
       {
         "id": 3,
         "textEn": "RuBP",
-        "textHi": "RuBP"
+        "textHi": "आरयूबीपी"
       },
       {
         "id": 4,
         "textEn": "glucose",
-        "textHi": "glucose"
+        "textHi": "ग्लूकोज"
       }
     ],
     "correctOption": 2
@@ -2826,27 +2826,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Water potential decreases with:",
-    "textHi": " (Hindi translated via AI) \nWater potential decreases with:",
+    "textHi": "जल क्षमता घट जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "solute ↑",
-        "textHi": "solute ↑"
+        "textHi": "विलेय ↑"
       },
       {
         "id": 2,
         "textEn": "pressure ↑",
-        "textHi": "pressure ↑"
+        "textHi": "दबाव ↑"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2856,27 +2856,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Root pressure develops mostly during:",
-    "textHi": " (Hindi translated via AI) \nRoot pressure develops mostly during:",
+    "textHi": "जड़ दबाव अधिकतर इस दौरान विकसित होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "night",
-        "textHi": "night"
+        "textHi": "रात"
       },
       {
         "id": 2,
         "textEn": "day",
-        "textHi": "day"
+        "textHi": "दिन"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2886,27 +2886,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Transpiration pull is generated in:",
-    "textHi": " (Hindi translated via AI) \nTranspiration pull is generated in:",
+    "textHi": "वाष्पोत्सर्जन खिंचाव उत्पन्न होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "xylem",
-        "textHi": "xylem"
+        "textHi": "जाइलम"
       },
       {
         "id": 2,
         "textEn": "phloem",
-        "textHi": "phloem"
+        "textHi": "फ्लाएम"
       },
       {
         "id": 3,
         "textEn": "cortex",
-        "textHi": "cortex"
+        "textHi": "कॉर्टेक्स"
       },
       {
         "id": 4,
         "textEn": "epidermis",
-        "textHi": "epidermis"
+        "textHi": "एपिडर्मिस"
       }
     ],
     "correctOption": 1
@@ -2916,27 +2916,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Pressure flow hypothesis explains:",
-    "textHi": " (Hindi translated via AI) \nPressure flow hypothesis explains:",
+    "textHi": "दबाव प्रवाह परिकल्पना बताती है:",
     "options": [
       {
         "id": 1,
         "textEn": "xylem transport",
-        "textHi": "xylem transport"
+        "textHi": "जाइलम परिवहन"
       },
       {
         "id": 2,
         "textEn": "phloem transport",
-        "textHi": "phloem transport"
+        "textHi": "फ्लोएम परिवहन"
       },
       {
         "id": 3,
         "textEn": "respiration",
-        "textHi": "respiration"
+        "textHi": "श्वसन"
       },
       {
         "id": 4,
         "textEn": "photosynthesis",
-        "textHi": "photosynthesis"
+        "textHi": "प्रकाश संश्लेषण"
       }
     ],
     "correctOption": 2
@@ -2946,27 +2946,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Auxin effect includes:",
-    "textHi": " (Hindi translated via AI) \nAuxin effect includes:",
+    "textHi": "ऑक्सिन प्रभाव में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "apical dominance",
-        "textHi": "apical dominance"
+        "textHi": "शिखर प्रभुत्व"
       },
       {
         "id": 2,
         "textEn": "dormancy",
-        "textHi": "dormancy"
+        "textHi": "निद्रा"
       },
       {
         "id": 3,
         "textEn": "senescence",
-        "textHi": "senescence"
+        "textHi": "बुढ़ापा"
       },
       {
         "id": 4,
         "textEn": "abscission",
-        "textHi": "abscission"
+        "textHi": "विच्छेदन"
       }
     ],
     "correctOption": 1
@@ -2976,27 +2976,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Gibberellins promote:",
-    "textHi": " (Hindi translated via AI) \nGibberellins promote:",
+    "textHi": "गिबरेलिन्स प्रचारित करते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "seed germination",
-        "textHi": "seed germination"
+        "textHi": "बीज अंकुरण"
       },
       {
         "id": 2,
         "textEn": "bolting",
-        "textHi": "bolting"
+        "textHi": "पेंच"
       },
       {
         "id": 3,
         "textEn": "fruit growth",
-        "textHi": "fruit growth"
+        "textHi": "फल वृद्धि"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -3006,27 +3006,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Cytokinins delay:",
-    "textHi": " (Hindi translated via AI) \nCytokinins delay:",
+    "textHi": "साइटोकाइनिन विलंब:",
     "options": [
       {
         "id": 1,
         "textEn": "senescence",
-        "textHi": "senescence"
+        "textHi": "बुढ़ापा"
       },
       {
         "id": 2,
         "textEn": "dormancy",
-        "textHi": "dormancy"
+        "textHi": "निद्रा"
       },
       {
         "id": 3,
         "textEn": "abscission",
-        "textHi": "abscission"
+        "textHi": "विच्छेदन"
       },
       {
         "id": 4,
         "textEn": "bolting",
-        "textHi": "bolting"
+        "textHi": "पेंच"
       }
     ],
     "correctOption": 1
@@ -3036,27 +3036,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Ethylene promotes:",
-    "textHi": " (Hindi translated via AI) \nEthylene promotes:",
+    "textHi": "एथिलीन बढ़ावा देता है:",
     "options": [
       {
         "id": 1,
         "textEn": "ripening",
-        "textHi": "ripening"
+        "textHi": "पकने वाला"
       },
       {
         "id": 2,
         "textEn": "leaf fall",
-        "textHi": "leaf fall"
+        "textHi": "पत्ती गिरना"
       },
       {
         "id": 3,
         "textEn": "flowering",
-        "textHi": "flowering"
+        "textHi": "कुसुमित"
       },
       {
         "id": 4,
         "textEn": "dormancy",
-        "textHi": "dormancy"
+        "textHi": "निद्रा"
       }
     ],
     "correctOption": 1
@@ -3066,27 +3066,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "ABA mainly:",
-    "textHi": " (Hindi translated via AI) \nABA mainly:",
+    "textHi": "एबीए मुख्य रूप से:",
     "options": [
       {
         "id": 1,
         "textEn": "induces dormancy",
-        "textHi": "induces dormancy"
+        "textHi": "प्रसुप्ति उत्पन्न करता है"
       },
       {
         "id": 2,
         "textEn": "promotes growth",
-        "textHi": "promotes growth"
+        "textHi": "विकास को बढ़ावा देता है"
       },
       {
         "id": 3,
         "textEn": "stimulates division",
-        "textHi": "stimulates division"
+        "textHi": "विभाजन को उत्तेजित करता है"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -3096,27 +3096,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Mendel’s law of independent assortment applies to:",
-    "textHi": " (Hindi translated via AI) \nMendel’s law of independent assortment applies to:",
+    "textHi": "मेंडल का स्वतंत्र वर्गीकरण का नियम लागू होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "monohybrid",
-        "textHi": "monohybrid"
+        "textHi": "मोनोहाइब्रिड"
       },
       {
         "id": 2,
         "textEn": "dihybrid",
-        "textHi": "dihybrid"
+        "textHi": "द्विसंकर"
       },
       {
         "id": 3,
         "textEn": "trihybrid",
-        "textHi": "trihybrid"
+        "textHi": "त्रिसंकर"
       },
       {
         "id": 4,
         "textEn": "polygenic",
-        "textHi": "polygenic"
+        "textHi": "पॉलीजेनिक"
       }
     ],
     "correctOption": 2
@@ -3126,7 +3126,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Incomplete dominance ratio:",
-    "textHi": " (Hindi translated via AI) \nIncomplete dominance ratio:",
+    "textHi": "अपूर्ण प्रभुत्व अनुपात:",
     "options": [
       {
         "id": 1,
@@ -3156,27 +3156,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Crossing over occurs during:",
-    "textHi": " (Hindi translated via AI) \nCrossing over occurs during:",
+    "textHi": "क्रॉसिंग ओवर इस दौरान होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "prophase I",
-        "textHi": "prophase I"
+        "textHi": "प्रोफ़ेज़ I"
       },
       {
         "id": 2,
         "textEn": "metaphase I",
-        "textHi": "metaphase I"
+        "textHi": "मेटाफ़ेज़ I"
       },
       {
         "id": 3,
         "textEn": "anaphase I",
-        "textHi": "anaphase I"
+        "textHi": "पश्च चरण I"
       },
       {
         "id": 4,
         "textEn": "telophase I",
-        "textHi": "telophase I"
+        "textHi": "टेलोफ़ेज़ I"
       }
     ],
     "correctOption": 1
@@ -3186,27 +3186,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "DNA ligase joins:",
-    "textHi": " (Hindi translated via AI) \nDNA ligase joins:",
+    "textHi": "डीएनए लिगेज जुड़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Okazaki fragments",
-        "textHi": "Okazaki fragments"
+        "textHi": "ओकाज़ाकी टुकड़े"
       },
       {
         "id": 2,
         "textEn": "nucleotides",
-        "textHi": "nucleotides"
+        "textHi": "न्यूक्लियोटाइड"
       },
       {
         "id": 3,
         "textEn": "strands",
-        "textHi": "strands"
+        "textHi": "किस्में"
       },
       {
         "id": 4,
         "textEn": "both A & C",
-        "textHi": "both A & C"
+        "textHi": "ए और सी दोनों"
       }
     ],
     "correctOption": 4
@@ -3216,27 +3216,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Replication is:",
-    "textHi": " (Hindi translated via AI) \nReplication is:",
+    "textHi": "प्रतिकृति है:",
     "options": [
       {
         "id": 1,
         "textEn": "conservative",
-        "textHi": "conservative"
+        "textHi": "रूढ़िवादी"
       },
       {
         "id": 2,
         "textEn": "semi-conservative",
-        "textHi": "semi-conservative"
+        "textHi": "अर्द्ध रूढ़िवादी"
       },
       {
         "id": 3,
         "textEn": "dispersive",
-        "textHi": "dispersive"
+        "textHi": "फैलानेवाला"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3246,27 +3246,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "mRNA codon corresponds to:",
-    "textHi": " (Hindi translated via AI) \nmRNA codon corresponds to:",
+    "textHi": "एमआरएनए कोडन इससे मेल खाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA codon",
-        "textHi": "DNA codon"
+        "textHi": "डीएनए कोडन"
       },
       {
         "id": 2,
         "textEn": "tRNA anticodon",
-        "textHi": "tRNA anticodon"
+        "textHi": "टीआरएनए एंटिकोडन"
       },
       {
         "id": 3,
         "textEn": "amino acid",
-        "textHi": "amino acid"
+        "textHi": "एमिनो एसिड"
       },
       {
         "id": 4,
         "textEn": "both B & C",
-        "textHi": "both B & C"
+        "textHi": "बी और सी दोनों"
       }
     ],
     "correctOption": 4
@@ -3276,22 +3276,22 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Translation occurs at:",
-    "textHi": " (Hindi translated via AI) \nTranslation occurs at:",
+    "textHi": "अनुवाद यहां होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "nucleus",
-        "textHi": "nucleus"
+        "textHi": "नाभिक"
       },
       {
         "id": 2,
         "textEn": "ribosome",
-        "textHi": "ribosome"
+        "textHi": "राइबोसोम"
       },
       {
         "id": 3,
         "textEn": "mitochondria",
-        "textHi": "mitochondria"
+        "textHi": "माइटोकॉन्ड्रिया"
       },
       {
         "id": 4,
@@ -3306,27 +3306,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Operon regulation is mainly at:",
-    "textHi": " (Hindi translated via AI) \nOperon regulation is mainly at:",
+    "textHi": "ऑपेरॉन विनियमन मुख्य रूप से है:",
     "options": [
       {
         "id": 1,
         "textEn": "transcription",
-        "textHi": "transcription"
+        "textHi": "TRANSCRIPTION"
       },
       {
         "id": 2,
         "textEn": "translation",
-        "textHi": "translation"
+        "textHi": "अनुवाद"
       },
       {
         "id": 3,
         "textEn": "replication",
-        "textHi": "replication"
+        "textHi": "प्रतिकृति"
       },
       {
         "id": 4,
         "textEn": "post-translation",
-        "textHi": "post-translation"
+        "textHi": "बाद अनुवाद"
       }
     ],
     "correctOption": 1
@@ -3336,27 +3336,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Plastids include:",
-    "textHi": " (Hindi translated via AI) \nPlastids include:",
+    "textHi": "प्लास्टिड्स में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "chloroplast",
-        "textHi": "chloroplast"
+        "textHi": "क्लोरोप्लास्ट"
       },
       {
         "id": 2,
         "textEn": "chromoplast",
-        "textHi": "chromoplast"
+        "textHi": "क्रोमोप्लास्ट"
       },
       {
         "id": 3,
         "textEn": "leucoplast",
-        "textHi": "leucoplast"
+        "textHi": "ल्यूकोप्लास्ट"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -3366,27 +3366,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Mitochondrial DNA is:",
-    "textHi": " (Hindi translated via AI) \nMitochondrial DNA is:",
+    "textHi": "माइटोकॉन्ड्रियल डीएनए है:",
     "options": [
       {
         "id": 1,
         "textEn": "linear",
-        "textHi": "linear"
+        "textHi": "रेखीय"
       },
       {
         "id": 2,
         "textEn": "circular",
-        "textHi": "circular"
+        "textHi": "परिपत्र"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3396,27 +3396,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Cambium contributes to:",
-    "textHi": " (Hindi translated via AI) \nCambium contributes to:",
+    "textHi": "कैम्बियम इसमें योगदान देता है:",
     "options": [
       {
         "id": 1,
         "textEn": "primary growth",
-        "textHi": "primary growth"
+        "textHi": "प्राथमिक विकास"
       },
       {
         "id": 2,
         "textEn": "secondary growth",
-        "textHi": "secondary growth"
+        "textHi": "द्वितीयक वृद्धि"
       },
       {
         "id": 3,
         "textEn": "elongation",
-        "textHi": "elongation"
+        "textHi": "बढ़ाव"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3426,27 +3426,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Monocot stem vascular bundles:",
-    "textHi": " (Hindi translated via AI) \nMonocot stem vascular bundles:",
+    "textHi": "मोनोकॉट स्टेम संवहनी बंडल:",
     "options": [
       {
         "id": 1,
         "textEn": "open",
-        "textHi": "open"
+        "textHi": "खुला"
       },
       {
         "id": 2,
         "textEn": "closed",
-        "textHi": "closed"
+        "textHi": "बंद किया हुआ"
       },
       {
         "id": 3,
         "textEn": "ring",
-        "textHi": "ring"
+        "textHi": "अँगूठी"
       },
       {
         "id": 4,
         "textEn": "scattered",
-        "textHi": "scattered"
+        "textHi": "बिखरा हुआ"
       }
     ],
     "correctOption": 2
@@ -3456,27 +3456,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Dicot root xylem:",
-    "textHi": " (Hindi translated via AI) \nDicot root xylem:",
+    "textHi": "द्विबीजपत्री जड़ जाइलम:",
     "options": [
       {
         "id": 1,
         "textEn": "ring",
-        "textHi": "ring"
+        "textHi": "अँगूठी"
       },
       {
         "id": 2,
         "textEn": "star",
-        "textHi": "star"
+        "textHi": "तारा"
       },
       {
         "id": 3,
         "textEn": "scattered",
-        "textHi": "scattered"
+        "textHi": "बिखरा हुआ"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3486,27 +3486,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Bryophytes need water for:",
-    "textHi": " (Hindi translated via AI) \nBryophytes need water for:",
+    "textHi": "ब्रायोफाइट्स को पानी की आवश्यकता होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "nutrition",
-        "textHi": "nutrition"
+        "textHi": "पोषण"
       },
       {
         "id": 2,
         "textEn": "reproduction",
-        "textHi": "reproduction"
+        "textHi": "प्रजनन"
       },
       {
         "id": 3,
         "textEn": "respiration",
-        "textHi": "respiration"
+        "textHi": "श्वसन"
       },
       {
         "id": 4,
         "textEn": "both B & C",
-        "textHi": "both B & C"
+        "textHi": "बी और सी दोनों"
       }
     ],
     "correctOption": 2
@@ -3516,27 +3516,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Pteridophytes dominant:",
-    "textHi": " (Hindi translated via AI) \nPteridophytes dominant:",
+    "textHi": "टेरिडोफाइट्स प्रमुख:",
     "options": [
       {
         "id": 1,
         "textEn": "gametophyte",
-        "textHi": "gametophyte"
+        "textHi": "गैमेटोफाइट"
       },
       {
         "id": 2,
         "textEn": "sporophyte",
-        "textHi": "sporophyte"
+        "textHi": "स्पोरोफाइट"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3546,27 +3546,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Gymnosperms lack:",
-    "textHi": " (Hindi translated via AI) \nGymnosperms lack:",
+    "textHi": "जिम्नोस्पर्म में कमी होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "seeds",
-        "textHi": "seeds"
+        "textHi": "बीज"
       },
       {
         "id": 2,
         "textEn": "flowers",
-        "textHi": "flowers"
+        "textHi": "फूल"
       },
       {
         "id": 3,
         "textEn": "xylem",
-        "textHi": "xylem"
+        "textHi": "जाइलम"
       },
       {
         "id": 4,
         "textEn": "phloem",
-        "textHi": "phloem"
+        "textHi": "फ्लाएम"
       }
     ],
     "correctOption": 2
@@ -3576,27 +3576,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Angiosperm double fertilization forms:",
-    "textHi": " (Hindi translated via AI) \nAngiosperm double fertilization forms:",
+    "textHi": "एंजियोस्पर्म दोहरा निषेचन रूप:",
     "options": [
       {
         "id": 1,
         "textEn": "zygote + endosperm",
-        "textHi": "zygote + endosperm"
+        "textHi": "युग्मनज + भ्रूणपोष"
       },
       {
         "id": 2,
         "textEn": "embryo only",
-        "textHi": "embryo only"
+        "textHi": "केवल भ्रूण"
       },
       {
         "id": 3,
         "textEn": "endosperm only",
-        "textHi": "endosperm only"
+        "textHi": "केवल भ्रूणपोष"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -3606,27 +3606,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Endosperm provides:",
-    "textHi": " (Hindi translated via AI) \nEndosperm provides:",
+    "textHi": "भ्रूणपोष प्रदान करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "protection",
-        "textHi": "protection"
+        "textHi": "सुरक्षा"
       },
       {
         "id": 2,
         "textEn": "nutrition",
-        "textHi": "nutrition"
+        "textHi": "पोषण"
       },
       {
         "id": 3,
         "textEn": "transport",
-        "textHi": "transport"
+        "textHi": "परिवहन"
       },
       {
         "id": 4,
         "textEn": "both A & B",
-        "textHi": "both A & B"
+        "textHi": "ए और बी दोनों"
       }
     ],
     "correctOption": 2
@@ -3636,27 +3636,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Pollen germination site:",
-    "textHi": " (Hindi translated via AI) \nPollen germination site:",
+    "textHi": "पराग अंकुरण स्थल:",
     "options": [
       {
         "id": 1,
         "textEn": "stigma",
-        "textHi": "stigma"
+        "textHi": "कलंक"
       },
       {
         "id": 2,
         "textEn": "ovary",
-        "textHi": "ovary"
+        "textHi": "अंडाशय"
       },
       {
         "id": 3,
         "textEn": "ovule",
-        "textHi": "ovule"
+        "textHi": "बीजांड"
       },
       {
         "id": 4,
         "textEn": "style",
-        "textHi": "style"
+        "textHi": "शैली"
       }
     ],
     "correctOption": 1
@@ -3666,7 +3666,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Nitrogen fixation converts:",
-    "textHi": " (Hindi translated via AI) \nNitrogen fixation converts:",
+    "textHi": "नाइट्रोजन स्थिरीकरण परिवर्तित करता है:",
     "options": [
       {
         "id": 1,
@@ -3686,7 +3686,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -3696,27 +3696,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Ammonification carried out by:",
-    "textHi": " (Hindi translated via AI) \nAmmonification carried out by:",
+    "textHi": "अम्मोनीकरण किसके द्वारा किया गया:",
     "options": [
       {
         "id": 1,
         "textEn": "bacteria",
-        "textHi": "bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 2,
         "textEn": "fungi",
-        "textHi": "fungi"
+        "textHi": "कवक"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -3726,27 +3726,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Lichens survive in:",
-    "textHi": " (Hindi translated via AI) \nLichens survive in:",
+    "textHi": "लाइकेन जीवित रहते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "extreme conditions",
-        "textHi": "extreme conditions"
+        "textHi": "चरम स्थितियाँ"
       },
       {
         "id": 2,
         "textEn": "polluted areas",
-        "textHi": "polluted areas"
+        "textHi": "प्रदूषित क्षेत्र"
       },
       {
         "id": 3,
         "textEn": "water",
-        "textHi": "water"
+        "textHi": "पानी"
       },
       {
         "id": 4,
         "textEn": "both A & B",
-        "textHi": "both A & B"
+        "textHi": "ए और बी दोनों"
       }
     ],
     "correctOption": 4
@@ -3756,27 +3756,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Primary succession begins with:",
-    "textHi": " (Hindi translated via AI) \nPrimary succession begins with:",
+    "textHi": "प्राथमिक उत्तराधिकार शुरू होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "soil",
-        "textHi": "soil"
+        "textHi": "मिट्टी"
       },
       {
         "id": 2,
         "textEn": "rock",
-        "textHi": "rock"
+        "textHi": "चट्टान"
       },
       {
         "id": 3,
         "textEn": "water",
-        "textHi": "water"
+        "textHi": "पानी"
       },
       {
         "id": 4,
         "textEn": "plant debris",
-        "textHi": "plant debris"
+        "textHi": "पौधे का मलबा"
       }
     ],
     "correctOption": 2
@@ -3786,27 +3786,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Secondary succession faster because:",
-    "textHi": " (Hindi translated via AI) \nSecondary succession faster because:",
+    "textHi": "द्वितीयक अनुक्रमण तीव्र गति से होता है क्योंकि:",
     "options": [
       {
         "id": 1,
         "textEn": "soil present",
-        "textHi": "soil present"
+        "textHi": "मिट्टी मौजूद"
       },
       {
         "id": 2,
         "textEn": "seeds present",
-        "textHi": "seeds present"
+        "textHi": "बीज मौजूद"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -3816,27 +3816,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Food chain starts from:",
-    "textHi": " (Hindi translated via AI) \nFood chain starts from:",
+    "textHi": "खाद्य श्रृंखला प्रारंभ होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "producer",
-        "textHi": "producer"
+        "textHi": "निर्माता"
       },
       {
         "id": 2,
         "textEn": "consumer",
-        "textHi": "consumer"
+        "textHi": "उपभोक्ता"
       },
       {
         "id": 3,
         "textEn": "decomposer",
-        "textHi": "decomposer"
+        "textHi": "डीकंपोजर"
       },
       {
         "id": 4,
         "textEn": "omnivore",
-        "textHi": "omnivore"
+        "textHi": "सर्वाहारी"
       }
     ],
     "correctOption": 1
@@ -3846,7 +3846,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Energy transfer efficiency:",
-    "textHi": " (Hindi translated via AI) \nEnergy transfer efficiency:",
+    "textHi": "ऊर्जा स्थानांतरण दक्षता:",
     "options": [
       {
         "id": 1,
@@ -3876,27 +3876,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Biodiversity in natural habitat:",
-    "textHi": " (Hindi translated via AI) \nBiodiversity in natural habitat:",
+    "textHi": "प्राकृतिक आवास में जैव विविधता:",
     "options": [
       {
         "id": 1,
         "textEn": "ex-situ",
-        "textHi": "ex-situ"
+        "textHi": "पूर्व सीटू"
       },
       {
         "id": 2,
         "textEn": "in-situ",
-        "textHi": "in-situ"
+        "textHi": "बगल में"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3906,27 +3906,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Endangered species:",
-    "textHi": " (Hindi translated via AI) \nEndangered species:",
+    "textHi": "लुप्तप्राय प्रजातियां:",
     "options": [
       {
         "id": 1,
         "textEn": "extinct",
-        "textHi": "extinct"
+        "textHi": "विलुप्त"
       },
       {
         "id": 2,
         "textEn": "at risk",
-        "textHi": "at risk"
+        "textHi": "ख़तरे में"
       },
       {
         "id": 3,
         "textEn": "safe",
-        "textHi": "safe"
+        "textHi": "सुरक्षित"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3936,7 +3936,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Ozone layer protects against:",
-    "textHi": " (Hindi translated via AI) \nOzone layer protects against:",
+    "textHi": "ओजोन परत किससे रक्षा करती है:",
     "options": [
       {
         "id": 1,
@@ -3951,12 +3951,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "visible",
-        "textHi": "visible"
+        "textHi": "दृश्यमान"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 1
@@ -3966,7 +3966,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Greenhouse gases include:",
-    "textHi": " (Hindi translated via AI) \nGreenhouse gases include:",
+    "textHi": "ग्रीनहाउस गैसों में शामिल हैं:",
     "options": [
       {
         "id": 1,
@@ -3976,17 +3976,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "CH₄",
-        "textHi": "CH₄"
+        "textHi": "सीएच₄"
       },
       {
         "id": 3,
         "textEn": "N₂O",
-        "textHi": "N₂O"
+        "textHi": "नहीं"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -3996,27 +3996,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Sustainable development ensures:",
-    "textHi": " (Hindi translated via AI) \nSustainable development ensures:",
+    "textHi": "सतत विकास सुनिश्चित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "present use only",
-        "textHi": "present use only"
+        "textHi": "केवल वर्तमान उपयोग"
       },
       {
         "id": 2,
         "textEn": "future safe use",
-        "textHi": "future safe use"
+        "textHi": "भविष्य में सुरक्षित उपयोग"
       },
       {
         "id": 3,
         "textEn": "no use",
-        "textHi": "no use"
+        "textHi": "कोई उपयोग नहीं"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4026,27 +4026,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Ecological niche =",
-    "textHi": " (Hindi translated via AI) \nEcological niche =",
+    "textHi": "पारिस्थितिक आला =",
     "options": [
       {
         "id": 1,
         "textEn": "habitat",
-        "textHi": "habitat"
+        "textHi": "प्राकृतिक वास"
       },
       {
         "id": 2,
         "textEn": "role",
-        "textHi": "role"
+        "textHi": "भूमिका"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4056,27 +4056,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "SA node is called:",
-    "textHi": " (Hindi translated via AI) \nSA node is called:",
+    "textHi": "SA नोड को कहा जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "pacemaker",
-        "textHi": "pacemaker"
+        "textHi": "पेसमेकर"
       },
       {
         "id": 2,
         "textEn": "regulator",
-        "textHi": "regulator"
+        "textHi": "नियामक"
       },
       {
         "id": 3,
         "textEn": "stimulator",
-        "textHi": "stimulator"
+        "textHi": "उत्तेजक औधधि"
       },
       {
         "id": 4,
         "textEn": "conductor",
-        "textHi": "conductor"
+        "textHi": "कंडक्टर"
       }
     ],
     "correctOption": 1
@@ -4086,27 +4086,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cardiac output =",
-    "textHi": " (Hindi translated via AI) \nCardiac output =",
+    "textHi": "कार्डियक आउटपुट =",
     "options": [
       {
         "id": 1,
         "textEn": "HR × SV",
-        "textHi": "HR × SV"
+        "textHi": "एचआर × एसवी"
       },
       {
         "id": 2,
         "textEn": "BP × HR",
-        "textHi": "BP × HR"
+        "textHi": "बीपी × एचआर"
       },
       {
         "id": 3,
         "textEn": "SV × BP",
-        "textHi": "SV × BP"
+        "textHi": "एसवी × बीपी"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4116,7 +4116,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Bohr effect → O₂ release increases when:",
-    "textHi": " (Hindi translated via AI) \nBohr effect → O₂ release increases when:",
+    "textHi": "बोह्र प्रभाव → O₂ रिलीज़ बढ़ जाती है जब:",
     "options": [
       {
         "id": 1,
@@ -4126,17 +4126,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "pH ↓",
-        "textHi": "pH ↓"
+        "textHi": "पीएच ↓"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4146,27 +4146,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "RBC lifespan:",
-    "textHi": " (Hindi translated via AI) \nRBC lifespan:",
+    "textHi": "आरबीसी जीवनकाल:",
     "options": [
       {
         "id": 1,
         "textEn": "60 days",
-        "textHi": "60 days"
+        "textHi": "60 दिन"
       },
       {
         "id": 2,
         "textEn": "90 days",
-        "textHi": "90 days"
+        "textHi": "90 दिन"
       },
       {
         "id": 3,
         "textEn": "120 days",
-        "textHi": "120 days"
+        "textHi": "120 दिन"
       },
       {
         "id": 4,
         "textEn": "150 days",
-        "textHi": "150 days"
+        "textHi": "150 दिन"
       }
     ],
     "correctOption": 3
@@ -4176,27 +4176,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Heparin function:",
-    "textHi": " (Hindi translated via AI) \nHeparin function:",
+    "textHi": "हेपरिन कार्य:",
     "options": [
       {
         "id": 1,
         "textEn": "prevents clotting",
-        "textHi": "prevents clotting"
+        "textHi": "थक्का जमने से रोकता है"
       },
       {
         "id": 2,
         "textEn": "aids transport",
-        "textHi": "aids transport"
+        "textHi": "परिवहन में सहायता करता है"
       },
       {
         "id": 3,
         "textEn": "immunity",
-        "textHi": "immunity"
+        "textHi": "रोग प्रतिरोधक क्षमता"
       },
       {
         "id": 4,
         "textEn": "respiration",
-        "textHi": "respiration"
+        "textHi": "श्वसन"
       }
     ],
     "correctOption": 1
@@ -4206,27 +4206,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Kidney functional unit:",
-    "textHi": " (Hindi translated via AI) \nKidney functional unit:",
+    "textHi": "किडनी कार्यात्मक इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "nephron",
-        "textHi": "nephron"
+        "textHi": "नेफ्रॉन"
       },
       {
         "id": 2,
         "textEn": "alveoli",
-        "textHi": "alveoli"
+        "textHi": "एल्वियोली"
       },
       {
         "id": 3,
         "textEn": "neuron",
-        "textHi": "neuron"
+        "textHi": "न्यूरॉन"
       },
       {
         "id": 4,
         "textEn": "villi",
-        "textHi": "villi"
+        "textHi": "विल्ली"
       }
     ],
     "correctOption": 1
@@ -4236,27 +4236,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Counter-current mechanism in:",
-    "textHi": " (Hindi translated via AI) \nCounter-current mechanism in:",
+    "textHi": "प्रति-धारा तंत्र में:",
     "options": [
       {
         "id": 1,
         "textEn": "PCT",
-        "textHi": "PCT"
+        "textHi": "पीसीटी"
       },
       {
         "id": 2,
         "textEn": "DCT",
-        "textHi": "DCT"
+        "textHi": "डीसीटी"
       },
       {
         "id": 3,
         "textEn": "Loop of Henle",
-        "textHi": "Loop of Henle"
+        "textHi": "हेनले का फंदा"
       },
       {
         "id": 4,
         "textEn": "Bowman’s capsule",
-        "textHi": "Bowman’s capsule"
+        "textHi": "बोमन का कैप्सूल"
       }
     ],
     "correctOption": 3
@@ -4266,27 +4266,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "ADH effect:",
-    "textHi": " (Hindi translated via AI) \nADH effect:",
+    "textHi": "एडीएच प्रभाव:",
     "options": [
       {
         "id": 1,
         "textEn": "↑ urine",
-        "textHi": "↑ urine"
+        "textHi": "↑ मूत्र"
       },
       {
         "id": 2,
         "textEn": "↑ water reabsorption",
-        "textHi": "↑ water reabsorption"
+        "textHi": "↑ जल पुनर्अवशोषण"
       },
       {
         "id": 3,
         "textEn": "↑ filtration",
-        "textHi": "↑ filtration"
+        "textHi": "↑ निस्पंदन"
       },
       {
         "id": 4,
         "textEn": "↑ secretion",
-        "textHi": "↑ secretion"
+        "textHi": "↑ स्राव"
       }
     ],
     "correctOption": 2
@@ -4296,12 +4296,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Insulin lowers:",
-    "textHi": " (Hindi translated via AI) \nInsulin lowers:",
+    "textHi": "इंसुलिन कम करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "glucose",
-        "textHi": "glucose"
+        "textHi": "ग्लूकोज"
       },
       {
         "id": 2,
@@ -4311,7 +4311,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 4,
@@ -4326,12 +4326,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Glucagon ↑:",
-    "textHi": " (Hindi translated via AI) \nGlucagon ↑:",
+    "textHi": "ग्लूकागन ↑:",
     "options": [
       {
         "id": 1,
         "textEn": "glucose",
-        "textHi": "glucose"
+        "textHi": "ग्लूकोज"
       },
       {
         "id": 2,
@@ -4341,7 +4341,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "temp",
-        "textHi": "temp"
+        "textHi": "अस्थायी"
       },
       {
         "id": 4,
@@ -4356,27 +4356,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Thyroid hormone deficiency →",
-    "textHi": " (Hindi translated via AI) \nThyroid hormone deficiency →",
+    "textHi": "थायराइड हार्मोन की कमी →",
     "options": [
       {
         "id": 1,
         "textEn": "hyperthyroid",
-        "textHi": "hyperthyroid"
+        "textHi": "अतिगलग्रंथि"
       },
       {
         "id": 2,
         "textEn": "hypothyroid",
-        "textHi": "hypothyroid"
+        "textHi": "Hypothyroid"
       },
       {
         "id": 3,
         "textEn": "diabetes",
-        "textHi": "diabetes"
+        "textHi": "मधुमेह"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4386,27 +4386,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Hormone action mediated by:",
-    "textHi": " (Hindi translated via AI) \nHormone action mediated by:",
+    "textHi": "हार्मोन क्रिया की मध्यस्थता:",
     "options": [
       {
         "id": 1,
         "textEn": "receptors",
-        "textHi": "receptors"
+        "textHi": "रिसेप्टर्स"
       },
       {
         "id": 2,
         "textEn": "enzymes",
-        "textHi": "enzymes"
+        "textHi": "एंजाइमों"
       },
       {
         "id": 3,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 4,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       }
     ],
     "correctOption": 1
@@ -4416,27 +4416,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cerebrum controls:",
-    "textHi": " (Hindi translated via AI) \nCerebrum controls:",
+    "textHi": "सेरेब्रम नियंत्रण:",
     "options": [
       {
         "id": 1,
         "textEn": "thinking",
-        "textHi": "thinking"
+        "textHi": "सोच"
       },
       {
         "id": 2,
         "textEn": "reflex",
-        "textHi": "reflex"
+        "textHi": "पलटा"
       },
       {
         "id": 3,
         "textEn": "breathing",
-        "textHi": "breathing"
+        "textHi": "साँस लेने"
       },
       {
         "id": 4,
         "textEn": "heartbeat",
-        "textHi": "heartbeat"
+        "textHi": "दिल की धड़कन"
       }
     ],
     "correctOption": 1
@@ -4446,27 +4446,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Reflex arc center:",
-    "textHi": " (Hindi translated via AI) \nReflex arc center:",
+    "textHi": "प्रतिवर्ती चाप केंद्र:",
     "options": [
       {
         "id": 1,
         "textEn": "brain",
-        "textHi": "brain"
+        "textHi": "दिमाग"
       },
       {
         "id": 2,
         "textEn": "spinal cord",
-        "textHi": "spinal cord"
+        "textHi": "मेरुदंड"
       },
       {
         "id": 3,
         "textEn": "cerebellum",
-        "textHi": "cerebellum"
+        "textHi": "सेरिबैलम"
       },
       {
         "id": 4,
         "textEn": "medulla",
-        "textHi": "medulla"
+        "textHi": "मज्जा"
       }
     ],
     "correctOption": 2
@@ -4476,12 +4476,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Resting potential due to:",
-    "textHi": " (Hindi translated via AI) \nResting potential due to:",
+    "textHi": "आराम की संभावना के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "Na⁺",
-        "textHi": "Na⁺"
+        "textHi": "ना⁺"
       },
       {
         "id": 2,
@@ -4496,7 +4496,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textHi": "सीएल⁻"
       }
     ],
     "correctOption": 2
@@ -4506,12 +4506,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Muscle contraction requires:",
-    "textHi": " (Hindi translated via AI) \nMuscle contraction requires:",
+    "textHi": "मांसपेशियों में संकुचन की आवश्यकता होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "ATP",
-        "textHi": "ATP"
+        "textHi": "एटीपी"
       },
       {
         "id": 2,
@@ -4521,12 +4521,12 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4536,17 +4536,17 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Myosin interacts with:",
-    "textHi": " (Hindi translated via AI) \nMyosin interacts with:",
+    "textHi": "मायोसिन इसके साथ परस्पर क्रिया करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "actin",
-        "textHi": "actin"
+        "textHi": "एक्टिन"
       },
       {
         "id": 2,
         "textEn": "ATP",
-        "textHi": "ATP"
+        "textHi": "एटीपी"
       },
       {
         "id": 3,
@@ -4556,7 +4556,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4566,27 +4566,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Male gamete:",
-    "textHi": " (Hindi translated via AI) \nMale gamete:",
+    "textHi": "नर युग्मक:",
     "options": [
       {
         "id": 1,
         "textEn": "ovum",
-        "textHi": "ovum"
+        "textHi": "डिंब"
       },
       {
         "id": 2,
         "textEn": "sperm",
-        "textHi": "sperm"
+        "textHi": "शुक्राणु"
       },
       {
         "id": 3,
         "textEn": "zygote",
-        "textHi": "zygote"
+        "textHi": "युग्मनज"
       },
       {
         "id": 4,
         "textEn": "embryo",
-        "textHi": "embryo"
+        "textHi": "भ्रूण"
       }
     ],
     "correctOption": 2
@@ -4596,27 +4596,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Seminal vesicle secretion:",
-    "textHi": " (Hindi translated via AI) \nSeminal vesicle secretion:",
+    "textHi": "वीर्य पुटिका स्राव:",
     "options": [
       {
         "id": 1,
         "textEn": "fructose",
-        "textHi": "fructose"
+        "textHi": "फ्रुक्टोज"
       },
       {
         "id": 2,
         "textEn": "enzyme",
-        "textHi": "enzyme"
+        "textHi": "एंजाइम"
       },
       {
         "id": 3,
         "textEn": "hormone",
-        "textHi": "hormone"
+        "textHi": "हार्मोन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4626,7 +4626,7 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Ovulation occurs on day:",
-    "textHi": " (Hindi translated via AI) \nOvulation occurs on day:",
+    "textHi": "ओव्यूलेशन किस दिन होता है:",
     "options": [
       {
         "id": 1,
@@ -4656,27 +4656,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Fertilization produces:",
-    "textHi": " (Hindi translated via AI) \nFertilization produces:",
+    "textHi": "निषेचन उत्पन्न करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "embryo",
-        "textHi": "embryo"
+        "textHi": "भ्रूण"
       },
       {
         "id": 2,
         "textEn": "zygote",
-        "textHi": "zygote"
+        "textHi": "युग्मनज"
       },
       {
         "id": 3,
         "textEn": "fetus",
-        "textHi": "fetus"
+        "textHi": "भ्रूण"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4686,27 +4686,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Placenta functions:",
-    "textHi": " (Hindi translated via AI) \nPlacenta functions:",
+    "textHi": "प्लेसेंटा कार्य:",
     "options": [
       {
         "id": 1,
         "textEn": "nutrition",
-        "textHi": "nutrition"
+        "textHi": "पोषण"
       },
       {
         "id": 2,
         "textEn": "respiration",
-        "textHi": "respiration"
+        "textHi": "श्वसन"
       },
       {
         "id": 3,
         "textEn": "excretion",
-        "textHi": "excretion"
+        "textHi": "मलत्याग"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -4716,27 +4716,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Gastrulation forms:",
-    "textHi": " (Hindi translated via AI) \nGastrulation forms:",
+    "textHi": "गैस्ट्रुलेशन फॉर्म:",
     "options": [
       {
         "id": 1,
         "textEn": "blastula",
-        "textHi": "blastula"
+        "textHi": "ब्लासटुला"
       },
       {
         "id": 2,
         "textEn": "germ layers",
-        "textHi": "germ layers"
+        "textHi": "कीटाणुओं की परतें"
       },
       {
         "id": 3,
         "textEn": "zygote",
-        "textHi": "zygote"
+        "textHi": "युग्मनज"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4746,27 +4746,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "DNA replication enzyme:",
-    "textHi": " (Hindi translated via AI) \nDNA replication enzyme:",
+    "textHi": "डीएनए प्रतिकृति एंजाइम:",
     "options": [
       {
         "id": 1,
         "textEn": "ligase",
-        "textHi": "ligase"
+        "textHi": "लिगेज"
       },
       {
         "id": 2,
         "textEn": "helicase",
-        "textHi": "helicase"
+        "textHi": "हेलीकॉप्टर"
       },
       {
         "id": 3,
         "textEn": "polymerase",
-        "textHi": "polymerase"
+        "textHi": "पोलीमर्स"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -4776,27 +4776,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Okazaki fragments present on:",
-    "textHi": " (Hindi translated via AI) \nOkazaki fragments present on:",
+    "textHi": "ओकाज़ाकी के टुकड़े यहां मौजूद हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "leading strand",
-        "textHi": "leading strand"
+        "textHi": "अग्रणी किनारा"
       },
       {
         "id": 2,
         "textEn": "lagging strand",
-        "textHi": "lagging strand"
+        "textHi": "लैगिंग स्ट्रैंड"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4806,27 +4806,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Stop codon:",
-    "textHi": " (Hindi translated via AI) \nStop codon:",
+    "textHi": "कोडन बंद करो:",
     "options": [
       {
         "id": 1,
         "textEn": "AUG",
-        "textHi": "AUG"
+        "textHi": "अगस्त"
       },
       {
         "id": 2,
         "textEn": "UAA",
-        "textHi": "UAA"
+        "textHi": "यूएए"
       },
       {
         "id": 3,
         "textEn": "UGG",
-        "textHi": "UGG"
+        "textHi": "Ugg"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4836,27 +4836,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Missense mutation changes:",
-    "textHi": " (Hindi translated via AI) \nMissense mutation changes:",
+    "textHi": "मिसेन्स उत्परिवर्तन परिवर्तन:",
     "options": [
       {
         "id": 1,
         "textEn": "codon",
-        "textHi": "codon"
+        "textHi": "कोडोन"
       },
       {
         "id": 2,
         "textEn": "amino acid",
-        "textHi": "amino acid"
+        "textHi": "एमिनो एसिड"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4866,27 +4866,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Evolution driven by:",
-    "textHi": " (Hindi translated via AI) \nEvolution driven by:",
+    "textHi": "विकास किसके द्वारा संचालित:",
     "options": [
       {
         "id": 1,
         "textEn": "mutation",
-        "textHi": "mutation"
+        "textHi": "उत्परिवर्तन"
       },
       {
         "id": 2,
         "textEn": "selection",
-        "textHi": "selection"
+        "textHi": "चयन"
       },
       {
         "id": 3,
         "textEn": "genetic drift",
-        "textHi": "genetic drift"
+        "textHi": "आनुवंशिक बहाव"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -4896,27 +4896,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Vestigial organs indicate:",
-    "textHi": " (Hindi translated via AI) \nVestigial organs indicate:",
+    "textHi": "अवशेषी अंग संकेत देते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "adaptation",
-        "textHi": "adaptation"
+        "textHi": "अनुकूलन"
       },
       {
         "id": 2,
         "textEn": "evolution",
-        "textHi": "evolution"
+        "textHi": "विकास"
       },
       {
         "id": 3,
         "textEn": "mutation",
-        "textHi": "mutation"
+        "textHi": "उत्परिवर्तन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4926,27 +4926,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Gene flow occurs via:",
-    "textHi": " (Hindi translated via AI) \nGene flow occurs via:",
+    "textHi": "जीन प्रवाह इसके माध्यम से होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "migration",
-        "textHi": "migration"
+        "textHi": "प्रवास"
       },
       {
         "id": 2,
         "textEn": "mutation",
-        "textHi": "mutation"
+        "textHi": "उत्परिवर्तन"
       },
       {
         "id": 3,
         "textEn": "drift",
-        "textHi": "drift"
+        "textHi": "अभिप्राय"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4956,27 +4956,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "HIV attacks:",
-    "textHi": " (Hindi translated via AI) \nHIV attacks:",
+    "textHi": "एचआईवी हमले:",
     "options": [
       {
         "id": 1,
         "textEn": "RBC",
-        "textHi": "RBC"
+        "textHi": "आरबीसी"
       },
       {
         "id": 2,
         "textEn": "WBC",
-        "textHi": "WBC"
+        "textHi": "डब्ल्यूबीसी"
       },
       {
         "id": 3,
         "textEn": "platelets",
-        "textHi": "platelets"
+        "textHi": "प्लेटलेट्स"
       },
       {
         "id": 4,
         "textEn": "plasma",
-        "textHi": "plasma"
+        "textHi": "प्लाज्मा"
       }
     ],
     "correctOption": 2
@@ -4986,27 +4986,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "T-cells function:",
-    "textHi": " (Hindi translated via AI) \nT-cells function:",
+    "textHi": "टी-कोशिकाएँ कार्य:",
     "options": [
       {
         "id": 1,
         "textEn": "antibody production",
-        "textHi": "antibody production"
+        "textHi": "एंटीबॉडी उत्पादन"
       },
       {
         "id": 2,
         "textEn": "cell-mediated immunity",
-        "textHi": "cell-mediated immunity"
+        "textHi": "कोशिका-मध्यस्थ प्रतिरक्षा"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5016,27 +5016,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Primary immune response:",
-    "textHi": " (Hindi translated via AI) \nPrimary immune response:",
+    "textHi": "प्राथमिक प्रतिरक्षा प्रतिक्रिया:",
     "options": [
       {
         "id": 1,
         "textEn": "fast",
-        "textHi": "fast"
+        "textHi": "तेज़"
       },
       {
         "id": 2,
         "textEn": "slow",
-        "textHi": "slow"
+        "textHi": "धीमा"
       },
       {
         "id": 3,
         "textEn": "strong",
-        "textHi": "strong"
+        "textHi": "मज़बूत"
       },
       {
         "id": 4,
         "textEn": "weak",
-        "textHi": "weak"
+        "textHi": "कमज़ोर"
       }
     ],
     "correctOption": 2
@@ -5046,27 +5046,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Active immunity:",
-    "textHi": " (Hindi translated via AI) \nActive immunity:",
+    "textHi": "सक्रिय प्रतिरक्षा:",
     "options": [
       {
         "id": 1,
         "textEn": "antibody injection",
-        "textHi": "antibody injection"
+        "textHi": "एंटीबॉडी इंजेक्शन"
       },
       {
         "id": 2,
         "textEn": "vaccination",
-        "textHi": "vaccination"
+        "textHi": "टीकाकरण"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5076,27 +5076,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Biogas formation via:",
-    "textHi": " (Hindi translated via AI) \nBiogas formation via:",
+    "textHi": "बायोगैस निर्माण के माध्यम से:",
     "options": [
       {
         "id": 1,
         "textEn": "bacteria",
-        "textHi": "bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 2,
         "textEn": "fungi",
-        "textHi": "fungi"
+        "textHi": "कवक"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -5106,27 +5106,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Antibiotics ineffective against:",
-    "textHi": " (Hindi translated via AI) \nAntibiotics ineffective against:",
+    "textHi": "एंटीबायोटिक्स इनके विरुद्ध अप्रभावी:",
     "options": [
       {
         "id": 1,
         "textEn": "bacteria",
-        "textHi": "bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 2,
         "textEn": "virus",
-        "textHi": "virus"
+        "textHi": "वायरस"
       },
       {
         "id": 3,
         "textEn": "fungi",
-        "textHi": "fungi"
+        "textHi": "कवक"
       },
       {
         "id": 4,
         "textEn": "all",
-        "textHi": "all"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 2
@@ -5136,27 +5136,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "PCR amplifies:",
-    "textHi": " (Hindi translated via AI) \nPCR amplifies:",
+    "textHi": "पीसीआर बढ़ाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "protein",
-        "textHi": "protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 2,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 3,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 4,
         "textEn": "enzyme",
-        "textHi": "enzyme"
+        "textHi": "एंजाइम"
       }
     ],
     "correctOption": 2
@@ -5166,27 +5166,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Restriction enzyme acts on:",
-    "textHi": " (Hindi translated via AI) \nRestriction enzyme acts on:",
+    "textHi": "प्रतिबंध एंजाइम कार्य करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 2,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 3,
         "textEn": "protein",
-        "textHi": "protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 4,
         "textEn": "lipid",
-        "textHi": "lipid"
+        "textHi": "लिपिड"
       }
     ],
     "correctOption": 1
@@ -5196,27 +5196,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cloning vector example:",
-    "textHi": " (Hindi translated via AI) \nCloning vector example:",
+    "textHi": "क्लोनिंग वेक्टर उदाहरण:",
     "options": [
       {
         "id": 1,
         "textEn": "plasmid",
-        "textHi": "plasmid"
+        "textHi": "प्लाज्मिड"
       },
       {
         "id": 2,
         "textEn": "enzyme",
-        "textHi": "enzyme"
+        "textHi": "एंजाइम"
       },
       {
         "id": 3,
         "textEn": "hormone",
-        "textHi": "hormone"
+        "textHi": "हार्मोन"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -5226,27 +5226,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Tropical regions biodiversity:",
-    "textHi": " (Hindi translated via AI) \nTropical regions biodiversity:",
+    "textHi": "उष्णकटिबंधीय क्षेत्र जैव विविधता:",
     "options": [
       {
         "id": 1,
         "textEn": "low",
-        "textHi": "low"
+        "textHi": "कम"
       },
       {
         "id": 2,
         "textEn": "high",
-        "textHi": "high"
+        "textHi": "उच्च"
       },
       {
         "id": 3,
         "textEn": "medium",
-        "textHi": "medium"
+        "textHi": "मध्यम"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5256,27 +5256,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Species richness decreases toward:",
-    "textHi": " (Hindi translated via AI) \nSpecies richness decreases toward:",
+    "textHi": "प्रजातियों की समृद्धि कम हो जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "equator",
-        "textHi": "equator"
+        "textHi": "भूमध्य रेखा"
       },
       {
         "id": 2,
         "textEn": "poles",
-        "textHi": "poles"
+        "textHi": "डंडे"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5286,27 +5286,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Ecological niche =",
-    "textHi": " (Hindi translated via AI) \nEcological niche =",
+    "textHi": "पारिस्थितिक आला =",
     "options": [
       {
         "id": 1,
         "textEn": "habitat",
-        "textHi": "habitat"
+        "textHi": "प्राकृतिक वास"
       },
       {
         "id": 2,
         "textEn": "role",
-        "textHi": "role"
+        "textHi": "भूमिका"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -5316,27 +5316,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Red Data Book lists:",
-    "textHi": " (Hindi translated via AI) \nRed Data Book lists:",
+    "textHi": "रेड डेटा बुक सूचियाँ:",
     "options": [
       {
         "id": 1,
         "textEn": "extinct",
-        "textHi": "extinct"
+        "textHi": "विलुप्त"
       },
       {
         "id": 2,
         "textEn": "endangered",
-        "textHi": "endangered"
+        "textHi": "संकटग्रस्त"
       },
       {
         "id": 3,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5346,27 +5346,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Biomagnification highest in:",
-    "textHi": " (Hindi translated via AI) \nBiomagnification highest in:",
+    "textHi": "जैव आवर्धन उच्चतम:",
     "options": [
       {
         "id": 1,
         "textEn": "producer",
-        "textHi": "producer"
+        "textHi": "निर्माता"
       },
       {
         "id": 2,
         "textEn": "herbivore",
-        "textHi": "herbivore"
+        "textHi": "शाकाहारी"
       },
       {
         "id": 3,
         "textEn": "top carnivore",
-        "textHi": "top carnivore"
+        "textHi": "शीर्ष मांसाहारी"
       },
       {
         "id": 4,
         "textEn": "decomposer",
-        "textHi": "decomposer"
+        "textHi": "डीकंपोजर"
       }
     ],
     "correctOption": 3
@@ -5376,27 +5376,27 @@ export const neetIntensiveMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Sustainable use ensures:",
-    "textHi": " (Hindi translated via AI) \nSustainable use ensures:",
+    "textHi": "सतत उपयोग सुनिश्चित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "future resources",
-        "textHi": "future resources"
+        "textHi": "भविष्य के संसाधन"
       },
       {
         "id": 2,
         "textEn": "present only",
-        "textHi": "present only"
+        "textHi": "केवल वर्तमान"
       },
       {
         "id": 3,
         "textEn": "none",
-        "textHi": "none"
+        "textHi": "कोई नहीं"
       },
       {
         "id": 4,
         "textEn": "both",
-        "textHi": "both"
+        "textHi": "दोनों"
       }
     ],
     "correctOption": 1
