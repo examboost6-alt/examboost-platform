@@ -353,7 +353,6 @@ export default function SeriesPage() {
               {[
                 { id: 'tests', label: 'Mock Tests', icon: FileText },
                 { id: 'syllabus', label: 'Syllabus', icon: Calendar },
-                { id: 'performance', label: 'History', icon: History },
                 { id: 'pyp', label: 'Previous Years', icon: CheckCircle2 },
                 { id: 'aiqb', label: 'AI Chapter Tests', icon: Sparkles },
               ].map((tab) => (
