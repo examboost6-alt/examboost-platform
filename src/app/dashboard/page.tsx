@@ -124,7 +124,7 @@ export default function StudentDashboard() {
 
   const [studentInfo, setStudentInfo] = useState<any>({
     name: "Student", targetExam: "Not Set", progress: 0, avatarUrl: null,
-    stats: { testsAttempted: 0, accuracy: 0, rank: "N/A", timeSpent: "0h", dayStreak: 0 }
+    stats: { testsAttempted: 0, accuracy: 0, rank: "N/A", timeSpent: "0h", dayStreak: 0, todayTimeSpentHours: 0 }
   });
   const [myTestSeries, setMyTestSeries] = useState<any[]>([]);
   const [freeTests, setFreeTests] = useState<any[]>([]);
@@ -242,6 +242,17 @@ export default function StudentDashboard() {
         }
       }
 
+      // Today score Calculation
+      const todayTotalSeconds = userTests
+         .filter((t: any) => {
+             const d = new Date(t.created_at);
+             d.setHours(0,0,0,0);
+             return d.getTime() === today.getTime();
+         })
+         .reduce((acc: number, r: any) => acc + (Number(r.time_taken_seconds) || 0), 0);
+      
+      const todayTimeSpentHours = Math.round((todayTotalSeconds / 3600) * 10) / 10;
+
       setStudentInfo((prev: any) => ({
         ...prev,
         stats: {
@@ -251,6 +262,7 @@ export default function StudentDashboard() {
           rank: lastRank,
           timeSpent,
           dayStreak: streak,
+          todayTimeSpentHours,
         },
       }));
 
@@ -777,12 +789,23 @@ export default function StudentDashboard() {
           
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <button
-              onClick={() => setActiveTab('my-tests')}
+              onClick={() => {
+                if (lastAttempt && lastAttempt.series_id) {
+                   router.push(`/series/${lastAttempt.series_id}`);
+                } else if (myTestSeries.length > 0) {
+                   router.push(`/series/${myTestSeries[0].id}`);
+                } else {
+                   setActiveTab('courses');
+                }
+              }}
               className="bg-white text-slate-900 px-7 py-3 rounded-xl font-bold text-sm hover:bg-slate-100 transition-colors inline-flex items-center gap-2 shadow-sm"
             >
               <PlayCircle className="w-5 h-5" /> {lastAttempt ? 'Resume Last Test' : 'Start a Test'}
             </button>
-            <button className="bg-slate-800/80 backdrop-blur-md border border-slate-700 hover:bg-slate-700 text-white px-7 py-3 rounded-xl font-bold text-sm transition-colors inline-flex items-center gap-2">
+            <button 
+              onClick={() => setActiveTab('performance')}
+              className="bg-slate-800/80 backdrop-blur-md border border-slate-700 hover:bg-slate-700 text-white px-7 py-3 rounded-xl font-bold text-sm transition-colors inline-flex items-center gap-2"
+            >
               <Target className="w-5 h-5" /> Daily Goals
             </button>
           </div>
@@ -803,12 +826,12 @@ export default function StudentDashboard() {
            
            <div className="text-center w-full">
               <div className="flex items-center justify-center gap-1.5 mb-2 mt-1">
-                 <CheckCircle className="w-4 h-4 text-emerald-400" />
-                 <span className="font-bold text-sm text-white">2h / 3h</span>
+                 <CheckCircle className={`w-4 h-4 ${studentInfo.stats.todayTimeSpentHours >= 3 ? 'text-emerald-400' : 'text-slate-500'}`} />
+                 <span className="font-bold text-sm text-white">{studentInfo.stats.todayTimeSpentHours}h / 3h</span>
               </div>
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Today's Goal</p>
               <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
-                <div className="bg-emerald-400 h-1.5 rounded-full" style={{ width: `66%` }}></div>
+                <div className="bg-emerald-400 h-1.5 rounded-full transition-all duration-1000" style={{ width: `${Math.min((studentInfo.stats.todayTimeSpentHours / 3) * 100, 100)}%` }}></div>
               </div>
            </div>
         </div>
