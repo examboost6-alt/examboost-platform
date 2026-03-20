@@ -39,6 +39,7 @@ import {
   ChevronUp,
   ChevronDown,
 } from "lucide-react";
+import { generateMockLeaderboardData } from "@/lib/mockLeaderboard";
 
 const mockPackages = [
   // Engineering
@@ -1330,77 +1331,72 @@ export default function StudentDashboard() {
     // 2. Fetch User Best Score
     const highestAttempt = allUserTests.length > 0 ? [...allUserTests].sort((a,b) => (b.score||0) - (a.score||0))[0] : null;
     let userBestScore = highestAttempt?.score || 0;
-    userBestScore = Math.min(userBestScore, maxScoreTarget); // cap
+    userBestScore = Math.min(userBestScore, maxScoreTarget);
 
-    // 3. Mathematical Probability Engine for All India Rank
-    // Using exponential distribution to model realistic test competition densities per mark
-    let calculatedRank = 1;
-    if (userBestScore < maxScoreTarget - 2) {
-       // Model: higher drop in ranks at middle scores
-       const dropRatio = Math.max(1, Math.pow((maxScoreTarget - userBestScore)/maxScoreTarget, 2.5) * 525000);
-       calculatedRank = Math.floor(dropRatio) + Math.floor((studentInfo.name?.length || 5) * 7);
-    }
-    
     // Mark as unranked if no tests
     const isUnranked = allUserTests.length === 0;
 
-    // 4. Generate Mocks Seamlessly centering the User Rank
-    const mockNames = ['Aarav Singh', 'Sanya Kapoor', 'Rahul Verma', 'Neha Gupta', 'Rohan Sharma', 'Priya Patel', 'Karan Raj', 'Ananya Desai', 'Vikram Singh', 'Riya Jain', 'Arjun Das', 'Ridhi Sharma', 'Nitin Reddy', 'Simran Kaur'];
-    
-    // Default unranked anchor to ~500k to show scale of competition 
-    const anchorRank = isUnranked ? 541235 : calculatedRank;
-    // Shift window so user is roughly in middle of a 10-person list
-    let startRank = Math.max(1, anchorRank - 4);
+    // 3. Generate huge massive 10,000 global leaderboard
+    const baseMockBoard: any[] = generateMockLeaderboardData(maxScoreTarget, 10000);
 
-    let listRows: any[] = [];
-    const windowSize = 10;
-    
-    for (let i = 0; i < windowSize; i++) {
-        const curRank = startRank + i;
-        if (curRank === anchorRank) {
-            listRows.push({
-                rank: curRank, 
-                name: studentInfo.name || 'You', 
-                score: userBestScore, 
-                avatarUrl: studentInfo.avatarUrl || null, 
-                isMe: true,
-                isUnranked: isUnranked
-            });
-        } else {
-            // Predict a realistic strict-monotonic score surrounding the user's score
-            const rankDiff = anchorRank - curRank; // Positive if above user, negative if below
-            let simScore = userBestScore;
-            
-            if (isUnranked) {
-                // If user has 0 and is unranked at 500k, simulate tiny random scores for people slightly above them
-                simScore = rankDiff > 0 ? Math.floor(Math.random() * 5) + 1 : 0;
-            } else {
-                // Simulate points difference based on rank difference
-                // Dense competition: 1 point difference might cover 5 ranks, so score diff is rankDiff / 5 + noise
-                const expectedScoreDiff = Math.floor(rankDiff * (isNeet ? 0.3 : 0.8)) + (Math.random() > 0.5 ? 1 : 0);
-                simScore = userBestScore + expectedScoreDiff;
-                simScore = Math.min(maxScoreTarget, Math.max(0, simScore)); 
+    // 4. Inject Real User into correct sorted position
+    let myRank = -1;
+    if (isUnranked) {
+        myRank = Math.floor(baseMockBoard.length * 0.95); // Extremely low rank
+        baseMockBoard.splice(myRank, 0, {
+            id: 'real-user',
+            name: studentInfo.name || 'You',
+            score: 0,
+            avatarUrl: studentInfo.avatarUrl || null,
+            isMe: true,
+            isUnranked: true,
+            rank: myRank + 1
+        });
+    } else {
+        // Binary search or simply find the first opponent who scored less and insert there
+        for (let i = 0; i < baseMockBoard.length; i++) {
+            if (baseMockBoard[i].score <= userBestScore) {
+                myRank = i;
+                baseMockBoard.splice(i, 0, {
+                    id: 'real-user',
+                    name: studentInfo.name || 'You',
+                    score: userBestScore,
+                    avatarUrl: studentInfo.avatarUrl || null,
+                    isMe: true,
+                    isUnranked: false,
+                    rank: 0 // Will reassign sequentially below
+                });
+                break;
             }
-            
-            const randMockIndex = (curRank * 17 + 13) % mockNames.length;
-            listRows.push({
-                rank: curRank,
-                name: mockNames[randMockIndex],
-                score: simScore,
-                avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[randMockIndex]}&background=random`,
-                isMe: false
-            });
         }
     }
 
-    // Mathematical guarantee that the generated scores are strictly non-increasing to maintain Leaderboard UI integrity
-    listRows.sort((a,b) => b.score - a.score);
-    // Re-assign ranks securely ensuring user stays precisely at accurate math
-    listRows.forEach((row, idx) => {
-        row.rank = startRank + idx;
-        // Minor edge case safeguard if user drifts via sort equal-ties
-        if (row.isMe) calculatedRank = row.rank; 
-    });
+    // Fix shifted ranks mathematically
+    for (let i = 0; i < baseMockBoard.length; i++) {
+        baseMockBoard[i].rank = i + 1;
+    }
+
+    // Determine viewport slice
+    // Show Top 3. Then separator. Then User + neighbors
+    let listRows = [];
+    // Only slice top 3
+    listRows.push(...baseMockBoard.slice(0, 3));
+    
+    if (myRank > 4) {
+        listRows.push({ isSeparator: true });
+        
+        // Push local slice
+        const startCut = Math.max(3, myRank - 2);
+        const endCut = Math.min(baseMockBoard.length, startCut + 5);
+        
+        listRows.push(...baseMockBoard.slice(startCut, endCut));
+        
+        if (endCut < baseMockBoard.length - 1) {
+            listRows.push({ isSeparator: true, key: 'bottom-sep' });
+        }
+    } else if (myRank >= 3 && myRank <= 4) {
+        listRows.push(...baseMockBoard.slice(3, myRank + 3));
+    }
 
     return (
       <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
