@@ -1344,31 +1344,63 @@ export default function StudentDashboard() {
     // Mark as unranked if no tests
     const isUnranked = allUserTests.length === 0;
 
-    // 4. Generate Top 3 & Proxy Users dynamically
-    const mockNames = ['Aarav Singh', 'Sanya Kapoor', 'Rahul Verma', 'Neha Gupta', 'Rohan Sharma', 'Priya Patel'];
-    const topScoreBuffer = maxScoreTarget > 500 ? 5 : 2;
+    // 4. Generate Mocks Seamlessly centering the User Rank
+    const mockNames = ['Aarav Singh', 'Sanya Kapoor', 'Rahul Verma', 'Neha Gupta', 'Rohan Sharma', 'Priya Patel', 'Karan Raj', 'Ananya Desai', 'Vikram Singh', 'Riya Jain', 'Arjun Das', 'Ridhi Sharma', 'Nitin Reddy', 'Simran Kaur'];
     
-    let listRows: any[] = [
-      { rank: 1, name: mockNames[0], score: maxScoreTarget, avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[0]}&background=random`, isMe: false },
-      { rank: 2, name: mockNames[1], score: maxScoreTarget - topScoreBuffer, avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[1]}&background=random`, isMe: false },
-      { rank: 3, name: mockNames[2], score: maxScoreTarget - Math.floor(topScoreBuffer * 2.5), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[2]}&background=random`, isMe: false }
-    ];
+    // Default unranked anchor to ~500k to show scale of competition 
+    const anchorRank = isUnranked ? 541235 : calculatedRank;
+    // Shift window so user is roughly in middle of a 10-person list
+    let startRank = Math.max(1, anchorRank - 4);
 
-    if (isUnranked) {
-       listRows.push({ isSeparator: true });
-       listRows.push({ rank: 541238, name: mockNames[3], score: Math.round(maxScoreTarget * 0.12), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[3]}&background=random`, isMe: false });
-       listRows.push({ rank: 541239, name: mockNames[4], score: Math.round(maxScoreTarget * 0.11), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[4]}&background=random`, isMe: false });
-       listRows.push({ rank: '-', name: studentInfo.name || 'You', score: 0, avatarUrl: studentInfo.avatarUrl || null, isMe: true, isUnranked: true });
-    } else if (calculatedRank <= 3) {
-      listRows[calculatedRank - 1] = { rank: calculatedRank, name: studentInfo.name || 'You', score: userBestScore, avatarUrl: studentInfo.avatarUrl || null, isMe: true };
-    } else {
-       listRows.push({ isSeparator: true });
-       if (calculatedRank > 4) {
-          listRows.push({ rank: calculatedRank - 1, name: mockNames[3], score: userBestScore + Math.floor(allUserTests.length % 3) + 1, avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[3]}&background=random`, isMe: false });
-       }
-       listRows.push({ rank: calculatedRank, name: studentInfo.name || 'You', score: userBestScore, avatarUrl: studentInfo.avatarUrl || null, isMe: true });
-       listRows.push({ rank: calculatedRank + 1, name: mockNames[4], score: Math.max(0, userBestScore - Math.floor(allUserTests.length % 2) - 1), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[4]}&background=random`, isMe: false });
+    let listRows: any[] = [];
+    const windowSize = 10;
+    
+    for (let i = 0; i < windowSize; i++) {
+        const curRank = startRank + i;
+        if (curRank === anchorRank) {
+            listRows.push({
+                rank: curRank, 
+                name: studentInfo.name || 'You', 
+                score: userBestScore, 
+                avatarUrl: studentInfo.avatarUrl || null, 
+                isMe: true,
+                isUnranked: isUnranked
+            });
+        } else {
+            // Predict a realistic strict-monotonic score surrounding the user's score
+            const rankDiff = anchorRank - curRank; // Positive if above user, negative if below
+            let simScore = userBestScore;
+            
+            if (isUnranked) {
+                // If user has 0 and is unranked at 500k, simulate tiny random scores for people slightly above them
+                simScore = rankDiff > 0 ? Math.floor(Math.random() * 5) + 1 : 0;
+            } else {
+                // Simulate points difference based on rank difference
+                // Dense competition: 1 point difference might cover 5 ranks, so score diff is rankDiff / 5 + noise
+                const expectedScoreDiff = Math.floor(rankDiff * (isNeet ? 0.3 : 0.8)) + (Math.random() > 0.5 ? 1 : 0);
+                simScore = userBestScore + expectedScoreDiff;
+                simScore = Math.min(maxScoreTarget, Math.max(0, simScore)); 
+            }
+            
+            const randMockIndex = (curRank * 17 + 13) % mockNames.length;
+            listRows.push({
+                rank: curRank,
+                name: mockNames[randMockIndex],
+                score: simScore,
+                avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[randMockIndex]}&background=random`,
+                isMe: false
+            });
+        }
     }
+
+    // Mathematical guarantee that the generated scores are strictly non-increasing to maintain Leaderboard UI integrity
+    listRows.sort((a,b) => b.score - a.score);
+    // Re-assign ranks securely ensuring user stays precisely at accurate math
+    listRows.forEach((row, idx) => {
+        row.rank = startRank + idx;
+        // Minor edge case safeguard if user drifts via sort equal-ties
+        if (row.isMe) calculatedRank = row.rank; 
+    });
 
     return (
       <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -1388,17 +1420,7 @@ export default function StudentDashboard() {
           </div>
           
           <div className="p-0">
-            {listRows.map((user: any, i: number) => {
-              if (user.isSeparator) {
-                 return (
-                   <div key={`sep-${i}`} className="flex justify-center items-center py-4 bg-slate-50/50">
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                   </div>
-                 );
-              }
-              return (
+            {listRows.map((user: any) => (
                 <div key={user.rank} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
                   {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
                   <div className="w-16 text-center shrink-0">
@@ -1427,8 +1449,7 @@ export default function StudentDashboard() {
                     </div>
                   </div>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </div>
