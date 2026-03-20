@@ -124,7 +124,7 @@ export default function StudentDashboard() {
 
   const [studentInfo, setStudentInfo] = useState<any>({
     name: "Student", targetExam: "Not Set", progress: 0, avatarUrl: null,
-    stats: { testsAttempted: 0, accuracy: 0, rank: 0, timeSpent: "0h" }
+    stats: { testsAttempted: 0, accuracy: 0, rank: "N/A", timeSpent: "0h", dayStreak: 0 }
   });
   const [myTestSeries, setMyTestSeries] = useState<any[]>([]);
   const [freeTests, setFreeTests] = useState<any[]>([]);
@@ -210,24 +210,47 @@ export default function StudentDashboard() {
       const userTests = (userTestsData as any[]) || [];
 
       const testsAttempted = userTests.length;
-      const avgAccuracy = (() => {
-        const rows = userTests.filter((r: any) => typeof r.accuracy === 'number');
-        if (rows.length === 0) return 0;
-        const sum = rows.reduce((acc: number, r: any) => acc + (r.accuracy || 0), 0);
-        return Math.round(sum / rows.length);
-      })();
+      
+      const lastTest = userTests.length > 0 ? userTests[0] : null;
+      const lastAccuracy = lastTest && typeof lastTest.accuracy === 'number' ? Math.round(lastTest.accuracy) : 0;
+      const lastRank = lastTest && lastTest.rank ? lastTest.rank : 'N/A';
 
       const totalSeconds = userTests.reduce((acc: number, r: any) => acc + (Number(r.time_taken_seconds) || 0), 0);
       const timeSpentHours = Math.round((totalSeconds / 3600) * 10) / 10;
       const timeSpent = timeSpentHours > 0 ? `${timeSpentHours}h` : '0h';
+
+      // Streak Calculation
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const uniqueDays = Array.from(new Set(userTests.map((t: any) => {
+        const d = new Date(t.created_at);
+        d.setHours(0,0,0,0);
+        return d.getTime();
+      }))).sort((a: number, b: number) => b - a);
+
+      let streak = 0;
+      let checkDate = today.getTime();
+      if (uniqueDays.length > 0 && uniqueDays[0] !== checkDate) {
+        checkDate -= 86400000;
+      }
+      for (let i = 0; i < uniqueDays.length; i++) {
+        if (uniqueDays[i] === checkDate) {
+          streak++;
+          checkDate -= 86400000;
+        } else if (uniqueDays[i] < checkDate) {
+          break;
+        }
+      }
 
       setStudentInfo((prev: any) => ({
         ...prev,
         stats: {
           ...prev.stats,
           testsAttempted,
-          accuracy: avgAccuracy,
+          accuracy: lastAccuracy,
+          rank: lastRank,
           timeSpent,
+          dayStreak: streak,
         },
       }));
 
@@ -730,7 +753,7 @@ export default function StudentDashboard() {
              <div className="w-14 h-14 mx-auto bg-slate-800/80 rounded-full flex items-center justify-center mb-3 border border-slate-700">
                 <Flame className="w-7 h-7 text-amber-400" />
              </div>
-             <p className="font-black text-3xl tracking-tighter">14</p>
+             <p className="font-black text-3xl tracking-tighter">{studentInfo.stats.dayStreak || 0}</p>
              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest hidden md:block mt-1">Day Streak</p>
            </div>
            
