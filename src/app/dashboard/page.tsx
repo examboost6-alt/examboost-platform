@@ -1644,8 +1644,8 @@ export default function StudentDashboard() {
       <motion.aside
         initial={false}
         animate={{ width: sidebarOpen ? "17rem" : "0rem" }}
-        className={`fixed lg:sticky top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
-        style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'translateX(0)' }}
+        className={`fixed lg:sticky top-0 self-start left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
+        style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'none' }}
       >
         <div className="p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
           <span className="text-2xl font-black text-slate-800 tracking-tight w-full flex items-center gap-2 overflow-hidden whitespace-nowrap">
