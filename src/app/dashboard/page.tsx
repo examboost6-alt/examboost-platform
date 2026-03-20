@@ -557,7 +557,7 @@ export default function StudentDashboard() {
       title: "Main Menu",
       items: [
         { id: "overview", label: "Dashboard", icon: LayoutDashboard },
-        { id: "courses", label: "Explore Courses", icon: Sparkles },
+        { id: "courses", label: "Buy Test Series", icon: Sparkles },
       ]
     },
     {
@@ -588,7 +588,7 @@ export default function StudentDashboard() {
 
   const quickActions = [
     { title: "Start Free Test", icon: PlayCircle, color: "text-blue-600", bg: "bg-blue-100", action: () => setActiveTab("free-tests") },
-    { title: "Buy Test Series", icon: BookOpen, color: "text-purple-600", bg: "bg-purple-100", action: () => setActiveTab("recommended") },
+    { title: "Buy Test Series", icon: BookOpen, color: "text-purple-600", bg: "bg-purple-100", action: () => setActiveTab("courses") },
     { title: "Previous Tests", icon: History, color: "text-orange-600", bg: "bg-orange-100", action: () => setActiveTab("my-tests") },
     { title: "Leaderboard", icon: Award, color: "text-yellow-600", bg: "bg-yellow-100", action: () => setActiveTab("leaderboard") },
   ];
