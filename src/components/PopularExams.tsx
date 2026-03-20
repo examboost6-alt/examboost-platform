@@ -5,10 +5,10 @@ import { MdPlayArrow, MdPeopleOutline, MdTrendingUp } from 'react-icons/md';
 import Link from 'next/link';
 
 const popularExams = [
-    { title: "SSC CGL", subtitle: "Tier 1 & 2", enrolled: "5.2L", tags: ["New Pattern", "Live"], color: "bg-blue-500", img: "https://images.unsplash.com/photo-1554415707-6e8cfc93f0b4?q=80&w=600&auto=format&fit=crop", link: "/exams/ssc-exams/ssc-cgl" },
-    { title: "UPSC CSE", subtitle: "Prelims 2026", enrolled: "4.1L", tags: ["CSAT", "GS Paper I"], color: "bg-emerald-600", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop", link: "/exams/upsc-civil-services" },
-    { title: "JEE Main", subtitle: "2026 Preparation", enrolled: "2.8L", tags: ["NTA Interface", "PYQs"], color: "bg-orange-500", img: "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=600&auto=format&fit=crop", link: "/exams/engineering-entrance/jee/jee-main" },
-    { title: "NEET UG", subtitle: "Medical Entrance", enrolled: "3.5L", tags: ["NCERT Based", "Biology"], color: "bg-rose-500", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600&auto=format&fit=crop", link: "/exams/medical-entrance/neet-ug" },
+    { title: "SSC CGL", subtitle: "Tier 1 & 2", enrolled: "5.2L", tags: ["New Pattern", "Live"], color: "bg-blue-500", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop", link: "/exams/ssc-exams/ssc-cgl" },
+    { title: "UPSC CSE", subtitle: "Prelims 2026", enrolled: "4.1L", tags: ["CSAT", "GS Paper I"], color: "bg-emerald-600", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", link: "/exams/upsc-civil-services" },
+    { title: "JEE Main", subtitle: "2026 Preparation", enrolled: "2.8L", tags: ["NTA Interface", "PYQs"], color: "bg-orange-500", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop", link: "/exams/engineering-entrance/jee/jee-main" },
+    { title: "NEET UG", subtitle: "Medical Entrance", enrolled: "3.5L", tags: ["NCERT Based", "Biology"], color: "bg-rose-500", img: "https://images.unsplash.com/photo-1584982751601-97d883f510f4?q=80&w=600&auto=format&fit=crop", link: "/exams/medical-entrance/neet-ug" },
 ];
 
 export default function PopularExams() {
