@@ -552,18 +552,38 @@ export default function StudentDashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const menuItems = [
-    { id: "overview", label: "Dashboard",icon: LayoutDashboard },
-    { id: "my-tests", label: "My Test Series", icon: BookOpen },
-    { id: "free-tests", label: "Free Tests", icon: Zap },
-    { id: "performance", label: "My Performance", icon: TrendingUp },
-    { id: "leaderboard", label: "Leaderboard", icon: Award },
-    { id: "analysis", label: "Test Analysis", icon: BarChart3 },
-    { id: "courses", label: "Explore Courses", icon: Sparkles },
-    { id: "wallet", label: "Wallet & Purchases", icon: Wallet },
-    { id: "notifications", label: "Notifications", icon: Bell },
-    { id: "profile", label: "Profile", icon: User },
-    { id: "settings", label: "Settings", icon: Settings },
+  const menuGroups = [
+    {
+      title: "Main Menu",
+      items: [
+        { id: "overview", label: "Dashboard", icon: LayoutDashboard },
+        { id: "courses", label: "Explore Courses", icon: Sparkles },
+      ]
+    },
+    {
+      title: "Learning & Tests",
+      items: [
+        { id: "my-tests", label: "My Test Series", icon: BookOpen },
+        { id: "free-tests", label: "Free Tests", icon: Zap },
+        { id: "analysis", label: "Test Analysis", icon: BarChart3 },
+      ]
+    },
+    {
+      title: "Performance",
+      items: [
+        { id: "performance", label: "My Performance", icon: TrendingUp },
+        { id: "leaderboard", label: "Leaderboard", icon: Award },
+      ]
+    },
+    {
+      title: "Settings",
+      items: [
+        { id: "wallet", label: "Wallet & Purchases", icon: Wallet },
+        { id: "notifications", label: "Notifications", icon: Bell },
+        { id: "profile", label: "Profile", icon: User },
+        { id: "settings", label: "Settings", icon: Settings },
+      ]
+    }
   ];
 
   const quickActions = [
@@ -1642,36 +1662,28 @@ export default function StudentDashboard() {
         </div>
 
         <nav className="px-4 pb-8 space-y-1">
-          <p className="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3 mt-2 whitespace-nowrap overflow-hidden">Main Menu</p>
-          {menuItems.slice(0, 7).map((item) => (
-            <button
-              key={item.id}
-              onClick={() => { setActiveTab(item.id); if(isMobile) setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl font-medium transition-all tooltip-trigger overflow-hidden whitespace-nowrap ${
-                activeTab === item.id 
-                  ? "bg-indigo-50/80 text-indigo-700" 
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-              }`}
-            >
-              <item.icon className={`w-[20px] h-[20px] shrink-0 ${activeTab === item.id ? "text-indigo-600" : "text-slate-400"}`} />
-              <span className="text-sm">{item.label}</span>
-            </button>
-          ))}
-
-          <p className="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3 mt-8 whitespace-nowrap overflow-hidden">Settings</p>
-          {menuItems.slice(7).map((item) => (
-            <button
-              key={item.id}
-              onClick={() => { setActiveTab(item.id); if(isMobile) setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl font-medium transition-all overflow-hidden whitespace-nowrap ${
-                activeTab === item.id 
-                  ? "bg-indigo-50/80 text-indigo-700" 
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-              }`}
-            >
-              <item.icon className={`w-[20px] h-[20px] shrink-0 ${activeTab === item.id ? "text-indigo-600" : "text-slate-400"}`} />
-              <span className="text-sm">{item.label}</span>
-            </button>
+          {menuGroups.map((group, groupIdx) => (
+            <div key={groupIdx} className={groupIdx > 0 ? "pt-4" : ""}>
+              <p className="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3 mt-2 whitespace-nowrap overflow-hidden">
+                {group.title}
+              </p>
+              <div className="space-y-1">
+                {group.items.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => { setActiveTab(item.id); if(isMobile) setSidebarOpen(false); }}
+                    className={`w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl font-medium transition-all tooltip-trigger overflow-hidden whitespace-nowrap ${
+                      activeTab === item.id 
+                        ? "bg-indigo-50/80 text-indigo-700 font-bold" 
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                    }`}
+                  >
+                    <item.icon className={`w-[20px] h-[20px] shrink-0 ${activeTab === item.id ? "text-indigo-600" : "text-slate-400"}`} />
+                    <span className={`text-sm tracking-tight ${activeTab === item.id ? 'font-bold' : ''}`}>{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
       </motion.aside>
