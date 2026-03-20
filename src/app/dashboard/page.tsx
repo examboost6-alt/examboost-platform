@@ -1644,7 +1644,7 @@ export default function StudentDashboard() {
       <motion.aside
         initial={false}
         animate={{ width: sidebarOpen ? "17rem" : "0rem" }}
-        className={`fixed lg:sticky top-0 self-start left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
+        className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
         style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'none' }}
       >
         <div className="p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
@@ -1689,7 +1689,7 @@ export default function StudentDashboard() {
       </motion.aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col min-h-screen overflow-x-hidden w-full lg:max-w-[calc(100vw-17rem)] transition-all duration-300 pt-0">
+      <main className={`flex-1 flex flex-col min-h-screen overflow-x-hidden w-full transition-all duration-300 pt-0 ${!isMobile && sidebarOpen ? 'pl-[17rem]' : ''}`}>
         
         {/* Top Header */}
         <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 px-4 md:px-8 py-3.5 flex items-center justify-between supports-[backdrop-filter]:bg-white/50">
