@@ -5,10 +5,10 @@ import { MdPlayArrow, MdPeopleOutline, MdTrendingUp } from 'react-icons/md';
 import Link from 'next/link';
 
 const popularExams = [
-    { title: "SSC CGL", subtitle: "Tier 1 & 2", enrolled: "5.2L", tags: ["New Pattern", "Live"], color: "bg-blue-500", img: "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?q=80&w=600&auto=format&fit=crop", link: "/exams/ssc-exams/ssc-cgl" },
-    { title: "UPSC CSE", subtitle: "Prelims 2026", enrolled: "4.1L", tags: ["CSAT", "GS Paper I"], color: "bg-emerald-600", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", link: "/exams/upsc-civil-services" },
-    { title: "JEE Main", subtitle: "2026 Preparation", enrolled: "2.8L", tags: ["NTA Interface", "PYQs"], color: "bg-orange-500", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop", link: "/exams/engineering-entrance/jee/jee-main" },
-    { title: "NEET UG", subtitle: "Medical Entrance", enrolled: "3.5L", tags: ["NCERT Based", "Biology"], color: "bg-rose-500", img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop", link: "/exams/medical-entrance/neet-ug" },
+    { title: "SSC CGL", subtitle: "Tier 1 & 2", enrolled: "5.2L", tags: ["New Pattern", "Live"], color: "bg-blue-500", img: "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?q=80&w=600&auto=format&fit=crop", link: "/series/mock-ssc-1" },
+    { title: "UPSC CSE", subtitle: "Prelims 2026", enrolled: "4.1L", tags: ["CSAT", "GS Paper I"], color: "bg-emerald-600", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", link: "/series/mock-upsc-1" },
+    { title: "JEE Main", subtitle: "2026 Preparation", enrolled: "2.8L", tags: ["NTA Interface", "PYQs"], color: "bg-orange-500", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop", link: "/series/mock-eng-1" },
+    { title: "NEET UG", subtitle: "Medical Entrance", enrolled: "3.5L", tags: ["NCERT Based", "Biology"], color: "bg-rose-500", img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop", link: "/series/mock-med-1" },
 ];
 
 export default function PopularExams() {
