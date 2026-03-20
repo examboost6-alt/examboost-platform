@@ -1337,10 +1337,12 @@ export default function StudentDashboard() {
     let calculatedRank = 1;
     if (userBestScore < maxScoreTarget - 2) {
        // Model: higher drop in ranks at middle scores
-       const dropRatio = Math.max(1, Math.pow((maxScoreTarget - userBestScore)/maxScoreTarget, 2.5) * 125000);
-       calculatedRank = Math.floor(dropRatio) + Math.floor(studentInfo.name.length * 7);
+       const dropRatio = Math.max(1, Math.pow((maxScoreTarget - userBestScore)/maxScoreTarget, 2.5) * 525000);
+       calculatedRank = Math.floor(dropRatio) + Math.floor((studentInfo.name?.length || 5) * 7);
     }
-    if (allUserTests.length === 0) calculatedRank = 0; // Not ranked yet
+    
+    // Mark as unranked if no tests
+    const isUnranked = allUserTests.length === 0;
 
     // 4. Generate Top 3 & Proxy Users dynamically
     const mockNames = ['Aarav Singh', 'Sanya Kapoor', 'Rahul Verma', 'Neha Gupta', 'Rohan Sharma', 'Priya Patel'];
@@ -1352,8 +1354,11 @@ export default function StudentDashboard() {
       { rank: 3, name: mockNames[2], score: maxScoreTarget - Math.floor(topScoreBuffer * 2.5), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[2]}&background=random`, isMe: false }
     ];
 
-    if (calculatedRank === 0) {
-       // Unranked display base only
+    if (isUnranked) {
+       listRows.push({ isSeparator: true });
+       listRows.push({ rank: 541238, name: mockNames[3], score: Math.round(maxScoreTarget * 0.12), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[3]}&background=random`, isMe: false });
+       listRows.push({ rank: 541239, name: mockNames[4], score: Math.round(maxScoreTarget * 0.11), avatarUrl: `https://ui-avatars.com/api/?name=${mockNames[4]}&background=random`, isMe: false });
+       listRows.push({ rank: '-', name: studentInfo.name || 'You', score: 0, avatarUrl: studentInfo.avatarUrl || null, isMe: true, isUnranked: true });
     } else if (calculatedRank <= 3) {
       listRows[calculatedRank - 1] = { rank: calculatedRank, name: studentInfo.name || 'You', score: userBestScore, avatarUrl: studentInfo.avatarUrl || null, isMe: true };
     } else {
@@ -1383,49 +1388,47 @@ export default function StudentDashboard() {
           </div>
           
           <div className="p-0">
-            {calculatedRank === 0 ? (
-              <div className="p-10 text-center text-neutral-500 font-semibold bg-slate-50">Attempt at least one full mock test to unlock your All India Rank on the Leaderboard.</div>
-            ) : (
-              listRows.map((user: any, i: number) => {
-                if (user.isSeparator) {
-                   return (
-                     <div key={`sep-${i}`} className="flex justify-center items-center py-4 bg-slate-50/50">
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
-                     </div>
-                   );
-                }
-                return (
-                  <div key={user.rank} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
-                    {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
-                    <div className="w-16 text-center">
-                      <span className={`font-black text-lg ${user.rank === 1 ? 'text-amber-500' : user.rank === 2 ? 'text-slate-400' : user.rank === 3 ? 'text-amber-700' : 'text-slate-500'}`}>
-                         #{user.rank}
-                      </span>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden border border-slate-200 shadow-sm shrink-0">
-                      {user.avatarUrl ? (
-                        <img src={user.avatarUrl} alt={`${user.name} photo`} className="w-full h-full object-cover" />
-                      ) : (
-                        <span>{user.name?.charAt(0) || 'S'}</span>
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className={`font-bold flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-neutral-800'}`}>
-                            <span>{user.name}</span>
-                            {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
-                          </div>
+            {listRows.map((user: any, i: number) => {
+              if (user.isSeparator) {
+                 return (
+                   <div key={`sep-${i}`} className="flex justify-center items-center py-4 bg-slate-50/50">
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mx-1"></div>
+                   </div>
+                 );
+              }
+              return (
+                <div key={user.rank} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
+                  {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
+                  <div className="w-16 text-center shrink-0">
+                    <span className={`font-black text-lg ${user.rank === 1 ? 'text-amber-500' : user.rank === 2 ? 'text-slate-400' : user.rank === 3 ? 'text-amber-700' : 'text-slate-500'}`}>
+                       {typeof user.rank === 'number' ? `#${user.rank.toLocaleString()}` : user.rank}
+                    </span>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                    {user.avatarUrl ? (
+                      <img src={user.avatarUrl} alt={`${user.name} photo`} className="w-full h-full object-cover" />
+                    ) : (
+                      <span>{user.name?.charAt(0) || 'S'}</span>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className={`font-bold flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-neutral-800'}`}>
+                          <span>{user.name}</span>
+                          {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
+                          {user.isUnranked && <span className="text-[10px] uppercase font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded border border-amber-200">Unranked</span>}
                         </div>
-                        <div className="font-black text-slate-800 mr-4 tracking-tight">{user.score} <span className="text-xs text-slate-400 font-bold ml-0.5">PTS</span></div>
+                        {user.isUnranked && <span className="text-xs text-indigo-600 cursor-pointer font-bold mt-0.5 block hover:underline" onClick={() => setActiveTab('courses')}>Take a mock to unlock</span>}
                       </div>
+                      <div className="font-black text-slate-800 mr-4 tracking-tight">{user.score} <span className="text-xs text-slate-400 font-bold ml-0.5">PTS</span></div>
                     </div>
                   </div>
-                );
-              })
-            )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
