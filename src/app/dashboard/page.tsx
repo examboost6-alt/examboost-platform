@@ -348,8 +348,36 @@ export default function StudentDashboard() {
         .order('created_at', { ascending: false })
         .limit(100);
       const allSeries = (allSeriesData as any[]) || [];
+      let dbAndMockSeries = [...allSeries];
+      
+      // Combine with local mock packages
+      mockPackages.forEach(mock => {
+        if (!dbAndMockSeries.find(s => String(s.id) === String(mock.id))) {
+          dbAndMockSeries.push({
+            id: mock.id,
+            title: mock.title,
+            exam: mock.exam,
+            category: mock.tags[0],
+            price_inr: parseInt(mock.tags[1].replace(/[^0-9]/g, '')) || 0,
+            imageUrl: mock.imageUrl
+          });
+        }
+      });
+
+      const userTargetExam = profile?.target_exam?.toLowerCase() || '';
+
+      if (userTargetExam) {
+        const exactMatches = dbAndMockSeries.filter((a) => 
+          (a.exam?.toLowerCase() === userTargetExam) || 
+          (a.category?.toLowerCase() === userTargetExam)
+        );
+        if (exactMatches.length > 0) {
+          dbAndMockSeries = exactMatches;
+        }
+      }
+
       setRecommendedTests(
-        allSeries.map((s: any) => ({
+        dbAndMockSeries.map((s: any) => ({
           id: s.id,
           title: s.title,
           reason: s.exam ? `${s.exam} Package` : 'Premium Package',
@@ -609,10 +637,23 @@ export default function StudentDashboard() {
     }
   ];
 
+  const handlePYPClick = () => {
+    const userTargetExam = studentInfo.targetExam?.toLowerCase() || '';
+    const pPurchased = myTestSeries.find((s: any) => s.exam?.toLowerCase() === userTargetExam || s.category?.toLowerCase() === userTargetExam);
+    
+    if (pPurchased) {
+      router.push(`/series/${pPurchased.id}`); 
+    } else if (myTestSeries.length > 0) {
+      router.push(`/series/${myTestSeries[0].id}`);
+    } else {
+      setActiveTab("courses");
+    }
+  };
+
   const quickActions = [
     { title: "Start Free Test", icon: PlayCircle, color: "text-blue-600", bg: "bg-blue-100", action: () => setActiveTab("free-tests") },
     { title: "Buy Test Series", icon: BookOpen, color: "text-purple-600", bg: "bg-purple-100", action: () => setActiveTab("courses") },
-    { title: "Previous Tests", icon: History, color: "text-orange-600", bg: "bg-orange-100", action: () => setActiveTab("my-tests") },
+    { title: "Previous Year Papers", icon: History, color: "text-orange-600", bg: "bg-orange-100", action: handlePYPClick },
     { title: "Leaderboard", icon: Award, color: "text-yellow-600", bg: "bg-yellow-100", action: () => setActiveTab("leaderboard") },
   ];
 
@@ -828,9 +869,23 @@ export default function StudentDashboard() {
              </div>
              <div className="space-y-4">
               {myTestSeries.length === 0 ? (
-                <div className="p-6 text-center rounded-2xl bg-[#F8F9FA] border border-slate-200/60 text-sm text-slate-500 font-medium">
-                  No purchased series yet. Explore components to enroll.
-                </div>
+                 <div className="p-8 text-center rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm flex flex-col items-center justify-center gap-4">
+                   <div className="w-14 h-14 bg-white rounded-full shadow-sm flex items-center justify-center">
+                     <Sparkles className="w-7 h-7 text-indigo-500" />
+                   </div>
+                   <div>
+                     <h3 className="font-black text-indigo-900 text-lg mb-1">Boost Your Score Today</h3>
+                     <p className="text-sm text-indigo-700/80 font-medium max-w-sm mx-auto mb-5">
+                       Get access to 3500+ premium mock tests, previous year papers, and AI analytics to crush your {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'Target'} exam.
+                     </p>
+                     <button
+                        onClick={() => setActiveTab('courses')}
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-[0_8px_16px_-6px_rgba(79,70,229,0.4)] hover:shadow-[0_12px_20px_-6px_rgba(79,70,229,0.5)] hover:-translate-y-0.5 transition-all text-sm inline-flex items-center gap-2"
+                     >
+                        Explore Recommended Series <ChevronRight className="w-4 h-4" />
+                     </button>
+                   </div>
+                 </div>
               ) : (
                 myTestSeries.slice(0, 2).map((ts) => (
                   <div key={ts.id} className="p-5 bg-white border border-slate-200/60 rounded-2xl hover:border-slate-300 hover:shadow-sm transition-all group">
@@ -840,7 +895,7 @@ export default function StudentDashboard() {
                         <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-md inline-block">Active</span>
                       </div>
                       <button
-                        onClick={() => setActiveTab('my-tests')}
+                        onClick={() => router.push(`/series/${ts.id}`)}
                         className="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-colors"
                       >
                         Open Series
