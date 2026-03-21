@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { Sun, Moon, Search, Menu, X, ChevronDown } from 'lucide-react';
+import { Sun, Moon, Search, Menu, X, ChevronDown, Home, BookOpen, Layers, Newspaper, Info, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
@@ -446,76 +446,120 @@ export default function Navbar() {
                                     <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                                     <input type="text" placeholder="Search exams..." className="w-full pl-12 pr-4 py-3.5 bg-slate-100 dark:bg-slate-800/80 border border-transparent focus:border-slate-300 dark:focus:border-slate-700 rounded-2xl outline-none text-sm text-darkText dark:text-white shadow-inner" />
                                 </div>
-                                <div className="flex flex-col gap-2 overflow-y-auto px-2 -mx-2 custom-scrollbar">
-                                    <Link
-                                        href="/"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="py-3 px-5 font-bold text-darkText dark:text-slate-200 hover:bg-slate-900/[0.04] hover:text-primary dark:hover:bg-white/5 dark:hover:text-accent rounded-xl transition-colors"
-                                    >
-                                        Home
-                                    </Link>
-
-                                    <div className="pt-1">
-                                        <button
-                                            onClick={() => setMobileExamsOpen(!mobileExamsOpen)}
-                                            className="w-full flex items-center justify-between py-3 px-5 font-bold text-darkText dark:text-slate-200 hover:bg-slate-900/[0.04] hover:text-primary dark:hover:bg-white/5 dark:hover:text-accent rounded-xl transition-colors outline-none"
+                                <div className="flex flex-col gap-4 overflow-y-auto px-1 -mx-1 custom-scrollbar pb-6">
+                                    {/* Main Navigation Group */}
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-2 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] dark:shadow-none flex flex-col">
+                                        <Link
+                                            href="/"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 py-3.5 px-4 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 dark:hover:text-accent rounded-xl transition-colors"
                                         >
-                                            <span>All Exams</span>
-                                            <ChevronDown className={`w-4 h-4 transition-transform ${mobileExamsOpen ? 'rotate-180 text-primary dark:text-accent' : 'text-slate-400'}`} />
-                                        </button>
+                                            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                                                <Home className="w-4 h-4" />
+                                            </div>
+                                            Home
+                                        </Link>
 
-                                        <AnimatePresence>
-                                            {mobileExamsOpen && (
-                                                <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    className="overflow-hidden"
-                                                >
-                                                    <div className="px-5 py-2 flex flex-col gap-1">
-                                                        <Link
-                                                            href="/exams"
-                                                            onClick={() => setMobileMenuOpen(false)}
-                                                            className="py-2.5 px-4 font-bold text-sm text-primary dark:text-accent bg-primary/5 dark:bg-accent/10 rounded-xl transition-colors"
-                                                        >
-                                                            View All Exams & Test Series
-                                                        </Link>
-                                                        {categories.map((cat) => (
-                                                            <Link
-                                                                key={cat.name}
-                                                                href={cat.href}
-                                                                onClick={() => setMobileMenuOpen(false)}
-                                                                className="py-3 px-4 font-semibold text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
-                                                            >
-                                                                {cat.name}
-                                                            </Link>
-                                                        ))}
+                                        <div className="w-auto h-[1px] bg-slate-100 dark:bg-slate-800/50 mx-4"></div>
+
+                                        <div className="relative">
+                                            <button
+                                                onClick={() => setMobileExamsOpen(!mobileExamsOpen)}
+                                                className={`w-full flex items-center justify-between py-3.5 px-4 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors outline-none ${mobileExamsOpen ? 'bg-slate-50 dark:bg-slate-800 text-primary dark:text-accent' : 'text-slate-700 dark:text-slate-200'}`}
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <div className="flex items-center justify-center w-9 h-9 rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
+                                                        <Layers className="w-4 h-4" />
                                                     </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                                    All Exams
+                                                </div>
+                                                <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileExamsOpen ? 'rotate-180 text-primary dark:text-accent' : 'text-slate-400'}`} />
+                                            </button>
+
+                                            <AnimatePresence>
+                                                {mobileExamsOpen && (
+                                                    <motion.div
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: 'auto', opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        className="overflow-hidden"
+                                                    >
+                                                        <div className="p-3 my-1 mx-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex flex-col gap-1 border border-slate-100 dark:border-slate-800">
+                                                            <Link
+                                                                href="/exams"
+                                                                onClick={() => setMobileMenuOpen(false)}
+                                                                className="py-3 px-3.5 font-bold text-sm text-primary dark:text-accent bg-white dark:bg-slate-800 shadow-sm rounded-lg transition-colors border border-primary/10 flex items-center gap-2.5 mb-2"
+                                                            >
+                                                                <BookOpen className="w-4 h-4" />
+                                                                View All Exams
+                                                            </Link>
+                                                            <div className="grid grid-cols-1 gap-1">
+                                                                {categories.map((cat) => (
+                                                                    <Link
+                                                                        key={cat.name}
+                                                                        href={cat.href}
+                                                                        onClick={() => setMobileMenuOpen(false)}
+                                                                        className="py-2.5 px-3.5 font-semibold text-sm text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm rounded-lg transition-all flex items-center gap-3"
+                                                                    >
+                                                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                                                                        {cat.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+
+                                        <div className="w-auto h-[1px] bg-slate-100 dark:bg-slate-800/50 mx-4"></div>
+
+                                        <Link
+                                            href="/foundation"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 py-3.5 px-4 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 dark:hover:text-accent rounded-xl transition-colors"
+                                        >
+                                            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
+                                                <BookOpen className="w-4 h-4" />
+                                            </div>
+                                            Foundation
+                                        </Link>
                                     </div>
 
-                                    <Link
-                                        href="/foundation"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="py-3 px-5 font-bold text-darkText dark:text-slate-200 hover:bg-slate-900/[0.04] hover:text-primary dark:hover:bg-white/5 dark:hover:text-accent rounded-xl transition-colors"
-                                    >
-                                        Foundation
-                                    </Link>
-
-                                    <div className="pt-2">
-                                        <div className="px-5 text-xs font-black tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">More</div>
-                                        {moreLinks.map((l) => (
-                                            <Link
-                                                key={l.label}
-                                                href={l.href}
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                className="py-3 px-5 font-bold text-darkText dark:text-slate-200 hover:bg-slate-900/[0.04] hover:text-primary dark:hover:bg-white/5 dark:hover:text-accent rounded-xl transition-colors block"
-                                            >
-                                                {l.label}
-                                            </Link>
-                                        ))}
+                                    {/* More Links Group */}
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-2 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] dark:shadow-none flex flex-col">
+                                        <div className="px-4 pt-3 pb-2 text-[10px] font-black tracking-widest uppercase text-slate-400 dark:text-slate-500">More Resources</div>
+                                        
+                                        <Link
+                                            href="/blog"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 py-3 px-4 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 rounded-xl transition-colors"
+                                        >
+                                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400">
+                                                <Newspaper className="w-4 h-4" />
+                                            </div>
+                                            Blog
+                                        </Link>
+                                        <Link
+                                            href="/about"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 py-3 px-4 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 rounded-xl transition-colors"
+                                        >
+                                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 dark:bg-cyan-500/10 dark:text-cyan-400">
+                                                <Info className="w-4 h-4" />
+                                            </div>
+                                            About
+                                        </Link>
+                                        <Link
+                                            href="/contact"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 py-3 px-4 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 rounded-xl transition-colors"
+                                        >
+                                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-50 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400">
+                                                <Phone className="w-4 h-4" />
+                                            </div>
+                                            Contact
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4 mt-auto mb-8 sm:mb-6 pt-4 pb-4 md:pb-6 shrink-0 border-t border-transparent dark:border-slate-800">
