@@ -39,81 +39,8 @@ import {
   ChevronUp,
   ChevronDown,
 } from "lucide-react";
-import { generateMockLeaderboardData } from "@/lib/mockLeaderboard";
 
-const mockPackages = [
-  // Engineering
-  { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', tags: ['Engineering', '₹1299'], exam: 'Engineering', description: 'Experience the real NTA interface with 15 Premium Full-Length Mock Tests exclusively for JEE Main preparation.', features: ['15 Premium Full Mocks', 'Advanced Accuracy Analytics', 'AI Generated Chapter-wise Questions', 'Rank Prediction'], imageUrl: '/shikhar-jee.png' },
-  { id: 'mock-eng-2', title: 'Vijay IIT Advance 2026 Test Series', tags: ['Engineering', '₹1999'], exam: 'Engineering', description: '35+ Tests + Unlimited Practice. Exclusively designed for IIT JEE Advanced 2026 aspirants.', features: ['25 Full JEE Advanced Mocks', '10 Previous Year Papers', 'Unlimited Chapter Wise Tests', 'Unlimited Custom Mock Generator'], imageUrl: '/vijay-jee.png' },
-  { id: 'mock-eng-3', title: 'BITSAT Super-15 Series', tags: ['Engineering', '₹599'], exam: 'Engineering', description: 'Specifically mapped to BITSAT marking scheme. Focus on speed, LR and English.', features: ['15 Full Mocks', 'Speed Analytics', 'LR & English Module', 'Memory Based Papers'] },
-  { id: 'mock-eng-4', title: 'MHT-CET / State Engineering Mastery', tags: ['Engineering', '₹499'], exam: 'Engineering', description: 'The absolute state-level engineering test pack covering local syllabus guidelines strictly.', features: ['20 State Specific Mocks', 'Board Book Alignment', 'Performance Tracking', 'Doubt Support'] },
-  
-  // Medical
-  { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', tags: ['Medical', '₹1499'], exam: 'Medical', description: '20 Premium Tests + AI Practice. Build your accuracy with tests simulating the latest NEET UG exam pattern.', features: ['15 Full NEET Mock Tests', '5 Intensive Tests', '10 Official Previous Year Papers', 'Unlimited Custom Mock Generator'], imageUrl: '/shourya-neet.png' },
-  { id: 'mock-med-2', title: 'NEET Conqueror: Part & Full Syllabus', tags: ['Medical', '₹799'], exam: 'Medical', description: 'Break down your prep. 40 Part-Syllabus and 15 Full-Syllabus high-yield mock tests.', features: ['15 Full Syllabus Mocks', '40 Part Syllabus Tests', 'Expert Mentorship', 'Detailed Explanations'] },
-  { id: 'mock-med-3', title: 'Nursing Target Batch (AIIMS & State)', tags: ['Medical', '₹499'], exam: 'Medical', description: 'The only test series you need for B.Sc Nursing. Complete syllabus coverage.', features: ['25 Topic Tests', 'General Knowledge Section', 'Aptitude Practice', 'Live Doubt Resolution'] },
-  { id: 'mock-med-4', title: 'Medical Premium (NEET + AIIMS GK)', tags: ['Medical', '₹699'], exam: 'Medical', description: 'Complete medical entrance package combining NEET syllabus and extra AIIMS modules.', features: ['English Proficiency Tests', 'Logic & Aptitude', '15 Full-Length Mocks', 'Past 10 Years Analysis'] },
-
-  // Banking
-  { id: 'mock-bank-1', title: 'SBI PO Champions Test Series', tags: ['Banking', '₹599'], exam: 'Banking', description: 'Includes 20 Prelims and 10 Mains Mock Tests based on latest IBPS/SBI trends.', features: ['20 Pre & 10 Mains Mocks', 'Latest Descriptive Papers', 'Banking Awareness Module', 'Interview Guide'] },
-  { id: 'mock-bank-2', title: 'IBPS Clerk Selection Pack', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Crack clerk exams with 30 Prelims mocks & highly repeated puzzle patterns.', features: ['30 Prelims Mocks', 'Speed Math Practice', 'Memory Based Papers', 'Detailed Solutions'] },
-  { id: 'mock-bank-3', title: 'RBI Grade B Officer Elite Package', tags: ['Banking', '₹899'], exam: 'Banking', description: 'Exclusive Phase 1 and Phase 2 mocks with specialized ESI & FM coverage.', features: ['ESI & FM Notes', 'Management Modules', '15 Phase 1 Mocks', 'Current Affairs Weekly Analysis'] },
-  { id: 'mock-bank-4', title: 'RRB PO/Clerk Gramin Bank Series', tags: ['Banking', '₹499'], exam: 'Banking', description: 'Rural bank target with computer awareness and Hindi language mocks.', features: ['Computer Awareness Tests', 'Hindi Language Mocks', 'State-wise Cutoffs Tracker', 'Bilingual Papers'] },
-
-  // CUET
-  { id: 'mock-cuet-1', title: 'CUET UG Science Domain Expert', tags: ['CUET', '₹499'], exam: 'CUET', description: '20 Mocks per domain subject (Physics, Chemistry, Maths/Bio) as per NTA.', features: ['Domain Specific Practice', 'NCERT Synced', 'Computer Based Test UI', 'Detailed Answer Key'] },
-  { id: 'mock-cuet-2', title: 'CUET Commerce Top College Pack', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Target SRCC with advanced Accounts, Business Studies & Economics mocks.', features: ['Latest NTA Pattern', 'Case Study Based Questions', 'Speed Analytics', 'Video Solutions'] },
-  { id: 'mock-cuet-3', title: 'CUET Humanities & Arts Mastery', tags: ['CUET', '₹499'], exam: 'CUET', description: 'History, Geography, Pol. Science. 15 Full mocks per subject.', features: ['Timeline/Map Based Questions', 'Deep Subject Analysis', '15 Full Mocks per Subject', 'Doubt Forum'] },
-  { id: 'mock-cuet-4', title: 'CUET General Test + English/Hindi', tags: ['CUET', '₹499'], exam: 'CUET', description: 'Crack the general test easily. 30 Mocks for GT and 20 for Language.', features: ['Daily Vocab Tests', 'Current Affairs PDFs', '30 Full General Tests', 'Grammar Modules'] },
-
-  // Law
-  { id: 'mock-law-1', title: 'CLAT NLSIU Achievers Batch', tags: ['Law', '₹899'], exam: 'Law', description: '35 Full-Length mocks matching actual CLAT rigorous reading comprehension standard.', features: ['35 Full Mock Tests', 'Legal Reasoning Deep Dive', 'Current Affairs & GK Compendium', 'Passage Based Mocks'] },
-  { id: 'mock-law-2', title: 'AILET NLU Delhi Target Series', tags: ['Law', '₹799'], exam: 'Law', description: 'Focus on higher logical complexity and speed. 20 Full length AILET mocks.', features: ['Speed & Accuracy Analytics', 'Logical Reasoning Hacks', 'English Comprehensive Tests', 'Previous Papers'] },
-  { id: 'mock-law-3', title: 'MH-CET Law (5 Years/3 Years) Pro', tags: ['Law', '₹499'], exam: 'Law', description: 'State specific legal aptitude tests for GLC Mumbai & ILS Pune.', features: ['General Legal Knowledge', 'Static GK', 'Bilingual Tests', 'Regional Focus'] },
-  { id: 'mock-law-4', title: 'LSAT India Logic & Analytics Pack', tags: ['Law', '₹999'], exam: 'Law', description: 'Pure logic and analytical breakdown tests identical to original LSAT.', features: ['Analytical Reasoning Drills', 'Critical Read & Understand', 'Exam Simulation UI', 'Personalized Feedback'] },
-
-  // MBA
-  { id: 'mock-mba-1', title: 'CAT 99 Percentile IIM Booster', tags: ['MBA', '₹1499'], exam: 'MBA', description: '30 Full-Length CAT Mocks verified by IIM Alumni. Most realistic DILR.', features: ['30 Pro Mocks', 'Detailed VARC Analysis', 'DILR Sets Variations', 'Top IIM Mentors'] },
-  { id: 'mock-mba-2', title: 'XAT XLRI Decision Making Pro', tags: ['MBA', '₹1299'], exam: 'MBA', description: 'Master XAT with 15 Mocks focusing heavily on Decision Making.', features: ['Decision Making Cases', 'Advanced GK', 'Essay Writing Practice', 'Percentile Predictor'] },
-  { id: 'mock-mba-3', title: 'NMAT/SNAP Maximize Speed Series', tags: ['MBA', '₹999'], exam: 'MBA', description: '20 Adaptive Mocks for NMAT & 15 Speed Mocks for SNAP.', features: ['Adaptive Test Simulation', 'Speed Vocab', 'Quick DI Practice', 'Sectional Timers'] },
-  { id: 'mock-mba-4', title: 'CMAT & MAH-CET JBIMS Pack', tags: ['MBA', '₹699'], exam: 'MBA', description: 'Crack secondary MBA entering exams with 25 Full-Length mocks.', features: ['Innovation & Entrepreneurship Section', 'General Awareness Updates', 'Static GK', '25 Full Mocks'] },
-
-  // Police
-  { id: 'mock-pol-1', title: 'UP Police Constable Khaki Batch', tags: ['Police', '₹499'], exam: 'Police', description: '25 Full Mock Tests with specially curated UP State GK & Hindi.', features: ['UP GK Focused', 'Hindi Grammar', 'Reasoning Mocks', '25 Full Tests'] },
-  { id: 'mock-pol-2', title: 'Delhi Police SI (CPO) Target', tags: ['Police', '₹599'], exam: 'Police', description: '20 Tier-1 and 15 Tier-2 English exclusive mocks for CPO aspirants.', features: ['Tier 1 & Tier 2 English', 'General Awareness', 'Physical Standard Guide', 'Prev Papers'] },
-  { id: 'mock-pol-3', title: 'Bihar Police Daroga Selection', tags: ['Police', '₹499'], exam: 'Police', description: 'Crack Bihar SI with 30 bilingual mocks based on recent trends.', features: ['Bihar Specific GK', 'Current Events', 'Quick Mathematics', '30 Full Tests'] },
-  { id: 'mock-pol-4', title: 'Rajasthan Police Guaranteed Prep', tags: ['Police', '₹499'], exam: 'Police', description: '20 Mocks covering deep Rajasthan History, Culture & Police Acts.', features: ['Raj GK Weightage', 'Women & Child Crime Laws', 'State Current Affairs', '20 Full Mocks'] },
-
-  // Railways
-  { id: 'mock-rail-1', title: 'RRB NTPC CBT-1 & CBT-2 Mahapack', tags: ['Railways', '₹599'], exam: 'Railways', description: '40 CBT-1 and 20 CBT-2 Mocks. Best in class General Science coverage.', features: ['60 Total Full Tests', 'General Awareness Exhaustive', 'General Science Module', 'Speed Analytics'] },
-  { id: 'mock-rail-2', title: 'RRB Group D Sure Selection', tags: ['Railways', '₹499'], exam: 'Railways', description: '50 Mock tests focused strictly on Group D level mathematics and science.', features: ['Basic Science Focus', 'Maths Short Tricks', 'Current Affairs PDFs', '50 Full Tests'] },
-  { id: 'mock-rail-3', title: 'RRB ALP Loco Pilot Tech Pack', tags: ['Railways', '₹599'], exam: 'Railways', description: 'Unique package bringing 20 Trade specific technical mocks.', features: ['Trade Specific Mocks', 'Engineering Drawing', 'Basic Electrics/Mechanics', 'CBT 1 + CBT 2'] },
-  { id: 'mock-rail-4', title: 'RRB JE Technical Mastery', tags: ['Railways', '₹699'], exam: 'Railways', description: 'Crack Railway JE with 30 CBT-1 and 15 Branch Specific CBT-2 mocks.', features: ['Civil/Mech/Electrical Domain Tests', 'Non-Tech CBT 1 Mocks', 'Exam UI Experience', 'Detailed Solutions'] },
-
-  // SSC
-  { id: 'mock-ssc-1', title: 'SSC CGL Tier 1 & 2 Officers Batch', tags: ['SSC', '₹799'], exam: 'SSC', description: '40 Tier-1 & 20 Tier-2 mocks based perfectly on TCS updated pattern.', features: ['Tier 2 New Pattern', 'Computer Knowledge Module', 'Advanced Maths Mocks', 'English Comprehension'] },
-  { id: 'mock-ssc-2', title: 'SSC CHSL 10+2 LDC Pack', tags: ['SSC', '₹599'], exam: 'SSC', description: '30 Full length CHSL mocks guaranteed to boost typing and objective score.', features: ['Speed Typing Software Link', 'Vocabulary Building', '30 Full Mocks', 'All India Ranking'] },
-  { id: 'mock-ssc-3', title: 'SSC MTS Havaldar Series', tags: ['SSC', '₹499'], exam: 'SSC', description: 'Simple, accurate and exam-oriented 50 Mocks for MTS.', features: ['Descriptive Guidance', 'General English', 'Simple Maths', '50 Exams Sets'] },
-  { id: 'mock-ssc-4', title: 'SSC GD Constable Fauzi Batch', tags: ['SSC', '₹499'], exam: 'SSC', description: '40 bilingual mocks for GD Constable focusing fully on time management.', features: ['Hindi/English optional tests', 'GS & Current Affairs', 'Elementary Math', 'State Wise Cutoff Analysis'] },
-
-  // State PSC
-  { id: 'mock-psc-1', title: 'UPPSC Prelims & Mains Adhikari', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '20 Prelims GS, 10 CSAT and 15 Mains Mock papers with expert evaluation.', features: ['UP Specific GK', 'CSAT Practice', 'Mains Answer Writing Appraisals', '20 Full Prelims Mocks'] },
-  { id: 'mock-psc-2', title: 'BPSC Prelims Success Series', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: '25 Full length Bihar PCS Prelims mock with 5 Option style queries.', features: ['Bihar Economy/Geography', 'History deep dive', 'Option specific mocks', 'Previous 20 yrs papers'] },
-  { id: 'mock-psc-3', title: 'MPPSC Pre+Mains Sankalp Batch', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Includes exclusive Ethics and MP Specific GS Mock Tests.', features: ['MP GK Special', 'Information Technology', 'Ethics/Aptitude Papers', 'Interview prep'] },
-  { id: 'mock-psc-4', title: 'RPSC RAS Complete State Pack', tags: ['State PSC', '₹1299'], exam: 'State PSC', description: 'Deep focus on Rajasthan Economy, Geography and History. 25 Mocks.', features: ['Rajasthan Rich Culture/History', 'Public Administration', 'Detailed Solutions', 'Current Updates'] },
-
-  // Teaching
-  { id: 'mock-teach-1', title: 'CTET Paper 1 & 2 Gurukul Batch', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '30 Full Length CTET sets with top quality Pedagogy (CDP) questions.', features: ['CDP Expert Mocks', 'Maths & EVS', 'Social Science / Science Mocks', 'Language 1 & 2'] },
-  { id: 'mock-teach-2', title: 'KVS/NVS PRT TGT PGT Series', tags: ['Teaching', '₹599'], exam: 'Teaching', description: '20 Central Teaching Mocks heavily focused on Subject Domain.', features: ['Subject Specific Domain', 'Teaching Aptitude', 'Reasoning & Computer', 'Interview Prep'] },
-  { id: 'mock-teach-3', title: 'DSSSB PRT/TGT Delhi Target', tags: ['Teaching', '₹499'], exam: 'Teaching', description: '25 Full Set mocks designed specially along DSSSB strict time limits.', features: ['Post Specific Subject Mocks', 'Part A Comprehensive', 'High Quality UI', 'Previous Years solved'] },
-  { id: 'mock-teach-4', title: 'State TETs (UPTET/REET/HTET)', tags: ['Teaching', '₹499'], exam: 'Teaching', description: 'Local TET examinations mock pack featuring 20 regional level tests.', features: ['State Specific CDP', 'Regional Languages', 'Maths Methodology', '20 Full Section Tests'] },
-
-  // UPSC Civil Services
-  { id: 'mock-upsc-1', title: 'UPSC IAS Prelims 2026 Visionary', tags: ['UPSC', '₹1999'], exam: 'UPSC', description: '35 GS Full Tests & 15 CSAT sets. Highest quality closely matching UPSC standard.', features: ['35 GS Full Tests', '15 CSAT Sets', 'Current Affairs Align', 'Economic Survey & Budget'] },
-  { id: 'mock-upsc-2', title: 'UPSC Mains Answer Writing Pro', tags: ['UPSC', '₹2999'], exam: 'UPSC', description: '20 Full Length Mains evaluations by ex-Babus and top faculties.', features: ['Expert Evaluation', 'Model Answers', 'GS I-IV Coverage', 'Essay Practice'] },
-  { id: 'mock-upsc-3', title: 'UPSC Optional Excellence Mocks', tags: ['UPSC', '₹2499'], exam: 'UPSC', description: '10 exclusive test papers for top scoring optional subjects.', features: ['Paper 1 & Paper 2', 'Previous Year mapping', 'Detailed Feedback', 'Mentor calls'] },
-  { id: 'mock-upsc-4', title: 'UPSC NCERT Build-up Foundation', tags: ['UPSC', '₹999'], exam: 'UPSC', description: 'Strengthen base with 30 Mock Tests sourced purely from Class 6-12 NCERTs.', features: ['Class 6-12 NCERT Tests', 'History & Geo focus', 'Subject-wise modules', 'Self assessment tools'] }
-];
+const mockPackages: any[] = [];
 
 // --- Real Data Setup ---
 export default function StudentDashboard() {
@@ -175,12 +102,9 @@ export default function StudentDashboard() {
 
     const fetchDashboardData = async (uid: string) => {
       setLoading(true);
-      let isDemo = false;
       try {
         const { data: authUser } = await supabase.auth.getUser();
         setUserEmail(authUser.user?.email || '');
-        // Grant all access to every user per user request
-        isDemo = true;
       } catch {
         setUserEmail('');
       }
@@ -218,7 +142,6 @@ export default function StudentDashboard() {
       
       const lastTest = userTests.length > 0 ? userTests[0] : null;
       const lastAccuracy = lastTest && typeof lastTest.accuracy === 'number' ? Math.round(lastTest.accuracy) : 0;
-      const lastRank = lastTest && lastTest.rank ? lastTest.rank : 'N/A';
 
       const totalSeconds = userTests.reduce((acc: number, r: any) => acc + (Number(r.time_taken_seconds) || 0), 0);
       const timeSpentHours = Math.round((totalSeconds / 3600) * 10) / 10;
@@ -264,7 +187,7 @@ export default function StudentDashboard() {
           ...prev.stats,
           testsAttempted,
           accuracy: lastAccuracy,
-          rank: lastRank,
+          rank: prev.stats.rank || 'N/A',
           timeSpent,
           dayStreak: streak,
           todayTimeSpentHours,
@@ -281,23 +204,12 @@ export default function StudentDashboard() {
       const purchases = (purchasesData as any[]) || [];
 
       const seriesIds = purchases.map((p: any) => p.series_id).filter(Boolean);
-      if (isDemo) {
-        mockPackages.forEach((m) => {
-          if (!seriesIds.includes(m.id)) seriesIds.push(m.id);
-        });
-        const { data: allActiveSeries } = await supabase.from('test_series').select('id').eq('is_active', true);
-        if (allActiveSeries) {
-          allActiveSeries.forEach((s: any) => {
-            if (!seriesIds.includes(s.id)) seriesIds.push(s.id);
-          });
-        }
-      }
       let seriesById = new Map<string, any>();
       if (seriesIds.length > 0) {
         let purchasedSeries: any[] = [];
         
         // Fetch from DB
-        const dbSeriesIds = seriesIds.filter((id: string) => !id.startsWith('mock-'));
+        const dbSeriesIds = seriesIds;
         if (dbSeriesIds.length > 0) {
           const { data: purchasedSeriesData } = await supabase
             .from('test_series')
@@ -305,22 +217,6 @@ export default function StudentDashboard() {
             .in('id', dbSeriesIds);
           if (purchasedSeriesData) purchasedSeries = [...purchasedSeriesData];
         }
-
-        // Merge with local mocks
-        const localMockIds = seriesIds.filter((id: string) => id.startsWith('mock-'));
-        localMockIds.forEach((id: string) => {
-          const mock = mockPackages.find(m => m.id === id);
-          if (mock) {
-            purchasedSeries.push({
-              id: mock.id,
-              title: mock.title,
-              total_tests: mock.title.includes('Shikhar') ? 15 : mock.title.includes('Vijay') ? 35 : 40, // rough heuristic or parsed
-              price_inr: parseInt(mock.tags[1].replace(/[^0-9]/g, '')) || 0,
-              category: mock.tags[0],
-              exam: mock.exam
-            });
-          }
-        });
 
         purchasedSeries.forEach((s: any) => seriesById.set(String(s.id), s));
 
@@ -365,36 +261,22 @@ export default function StudentDashboard() {
         .order('created_at', { ascending: false })
         .limit(100);
       const allSeries = (allSeriesData as any[]) || [];
-      let dbAndMockSeries = [...allSeries];
-      
-      // Combine with local mock packages
-      mockPackages.forEach(mock => {
-        if (!dbAndMockSeries.find(s => String(s.id) === String(mock.id))) {
-          dbAndMockSeries.push({
-            id: mock.id,
-            title: mock.title,
-            exam: mock.exam,
-            category: mock.tags[0],
-            price_inr: parseInt(mock.tags[1].replace(/[^0-9]/g, '')) || 0,
-            imageUrl: mock.imageUrl
-          });
-        }
-      });
+      let filteredSeries = [...allSeries];
 
       const userTargetExam = profile?.target_exam?.toLowerCase() || '';
 
       if (userTargetExam) {
-        const exactMatches = dbAndMockSeries.filter((a) => 
+        const exactMatches = filteredSeries.filter((a) => 
           (a.exam?.toLowerCase() === userTargetExam) || 
           (a.category?.toLowerCase() === userTargetExam)
         );
         if (exactMatches.length > 0) {
-          dbAndMockSeries = exactMatches;
+          filteredSeries = exactMatches;
         }
       }
 
       setRecommendedTests(
-        dbAndMockSeries.map((s: any) => ({
+        filteredSeries.map((s: any) => ({
           id: s.id,
           title: s.title,
           reason: s.exam ? `${s.exam} Package` : 'Premium Package',
@@ -592,7 +474,7 @@ export default function StudentDashboard() {
           },
           prefill: {
              name: studentInfo.name,
-             email: userEmail || 'student@example.com',
+             email: userEmail,
           },
           theme: { color: '#2563eb' }
        };
@@ -787,7 +669,7 @@ export default function StudentDashboard() {
 
         <div className="relative z-10 flex-1 w-full text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-5 border border-white/10 text-slate-200 shadow-sm">
-            <Trophy className="w-4 h-4 text-amber-400" /> Top 5% Learner
+            <Trophy className="w-4 h-4 text-amber-400" /> {studentInfo.stats.rank && studentInfo.stats.rank !== 'N/A' ? `AIR #${studentInfo.stats.rank}` : 'Rank Locked'}
           </div>
           <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight">Welcome back, {studentInfo.name.split(' ')[0]}!</h1>
           <p className="text-slate-400 mb-8 font-medium text-sm md:text-base max-w-lg leading-relaxed">You're making incredible progress. Keep up the momentum to secure your top rank in upcoming exams.</p>
@@ -902,13 +784,13 @@ export default function StudentDashboard() {
                      <Sparkles className="w-7 h-7 text-indigo-500" />
                    </div>
                    <div>
-                     <h3 className="font-black text-indigo-900 text-lg mb-1">Boost Your Score Today</h3>
+                     <h3 className="font-black text-indigo-900 text-lg mb-1">Get Started with Test Series</h3>
                      <p className="text-sm text-indigo-700/80 font-medium max-w-sm mx-auto mb-5">
-                       Get access to 3500+ premium mock tests, previous year papers, and AI analytics to crush your {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'Target'} exam.
+                       Explore available test series and start practicing for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'your'} exam.
                      </p>
                      <button
                         onClick={() => setActiveTab('courses')}
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-[0_8px_16px_-6px_rgba(79,70,229,0.4)] hover:shadow-[0_12px_20px_-6px_rgba(79,70,229,0.5)] hover:-translate-y-0.5 transition-all text-sm inline-flex items-center gap-2"
+                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md shadow-indigo-600/20"
                      >
                         Explore Recommended Series <ChevronRight className="w-4 h-4" />
                      </button>
@@ -1287,28 +1169,23 @@ export default function StudentDashboard() {
                {/* Render up to 15 last tests as bars */}
                {(() => {
                   const testsToChart = [...allUserTests].reverse().slice(-15);
-                  if (testsToChart.length < 5) {
-                     // Add some synthetic padding for visual weight if too few tests
-                     while(testsToChart.length < 5) {
-                        testsToChart.unshift({ dummy: true, accuracy: 20 + Math.random() * 20 });
-                     }
-                  }
+                  if (testsToChart.length === 0) return null;
                   return testsToChart.map((t, idx) => {
                      const acc = t.accuracy || 20;
                      return (
                        <div key={idx} className="flex-1 flex flex-col justify-end items-center group relative h-full">
                          {/* Tooltip */}
                          <div className="absolute -top-10 opacity-0 group-hover:opacity-100 bg-slate-800 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg transition-opacity whitespace-nowrap z-20 pointer-events-none">
-                           {t.dummy ? 'Placeholder' : `${Math.round(acc)}% Acc`}
-                         </div>
-                         <div 
-                           className={`w-full max-w-[40px] rounded-t-sm transition-all duration-700 ease-out 
-                           ${t.dummy ? 'bg-slate-200' : acc > 75 ? 'bg-emerald-400' : acc > 50 ? 'bg-indigo-400' : 'bg-amber-400'}`} 
-                           style={{ height: `${acc}%` }}
-                         ></div>
-                       </div>
-                     );
-                  });
+                           {`${Math.round(acc)}% Acc`}
+                          </div>
+                          <div 
+                            className={`w-full max-w-[40px] rounded-t-sm transition-all duration-700 ease-out 
+                           ${acc > 75 ? 'bg-emerald-400' : acc > 50 ? 'bg-indigo-400' : 'bg-amber-400'}`} 
+                            style={{ height: `${acc}%` }}
+                          ></div>
+                        </div>
+                      );
+                   });
                })()}
              </div>
            )}
@@ -1321,136 +1198,56 @@ export default function StudentDashboard() {
     );
   };
 
-  const LeaderboardModule = () => {
-    // 1. Max Score Setup
-    const testExam = studentInfo.targetExam?.toLowerCase() || '';
-    const isNeet = testExam.includes('neet') || testExam.includes('medical');
-    const isSsc = testExam.includes('ssc');
-    const maxScoreTarget = isNeet ? 720 : isSsc ? 200 : 300;
-    
-    // 2. Fetch User Best Score
-    const highestAttempt = allUserTests.length > 0 ? [...allUserTests].sort((a,b) => (b.score||0) - (a.score||0))[0] : null;
-    let userBestScore = highestAttempt?.score || 0;
-    userBestScore = Math.min(userBestScore, maxScoreTarget);
-
-    // Mark as unranked if no tests
-    const isUnranked = allUserTests.length === 0;
-
-    // 3. Generate huge massive 10,000 global leaderboard
-    const baseMockBoard: any[] = generateMockLeaderboardData(maxScoreTarget, 10000);
-
-    // 4. Inject Real User into correct sorted position
-    let myRank = -1;
-    if (isUnranked) {
-        myRank = Math.floor(baseMockBoard.length * 0.95); // Extremely low rank
-        baseMockBoard.splice(myRank, 0, {
-            id: 'real-user',
-            name: studentInfo.name || 'You',
-            score: 0,
-            avatarUrl: studentInfo.avatarUrl || null,
-            isMe: true,
-            isUnranked: true,
-            rank: myRank + 1
-        });
-    } else {
-        // Binary search or simply find the first opponent who scored less and insert there
-        for (let i = 0; i < baseMockBoard.length; i++) {
-            if (baseMockBoard[i].score <= userBestScore) {
-                myRank = i;
-                baseMockBoard.splice(i, 0, {
-                    id: 'real-user',
-                    name: studentInfo.name || 'You',
-                    score: userBestScore,
-                    avatarUrl: studentInfo.avatarUrl || null,
-                    isMe: true,
-                    isUnranked: false,
-                    rank: 0 // Will reassign sequentially below
-                });
-                break;
-            }
-        }
-    }
-
-    // Fix shifted ranks mathematically
-    for (let i = 0; i < baseMockBoard.length; i++) {
-        baseMockBoard[i].rank = i + 1;
-    }
-
-    // Determine viewport slice
-    // Show Top 3. Then separator. Then User + neighbors
-    let listRows = [];
-    // Only slice top 3
-    listRows.push(...baseMockBoard.slice(0, 3));
-    
-    if (myRank > 4) {
-        listRows.push({ isSeparator: true });
-        
-        // Push local slice
-        const startCut = Math.max(3, myRank - 2);
-        const endCut = Math.min(baseMockBoard.length, startCut + 5);
-        
-        listRows.push(...baseMockBoard.slice(startCut, endCut));
-        
-        if (endCut < baseMockBoard.length - 1) {
-            listRows.push({ isSeparator: true, key: 'bottom-sep' });
-        }
-    } else if (myRank >= 3 && myRank <= 4) {
-        listRows.push(...baseMockBoard.slice(3, myRank + 3));
-    }
-
-    return (
-      <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Award className="w-6 h-6 text-slate-500"/> Global Leaderboard</h1>
-            <p className="text-sm text-slate-500 font-medium mt-1">Check where you stand amongst your peers in India based on your best performance.</p>
-          </div>
-          <span className="bg-amber-100/50 text-amber-700 border border-amber-200 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-1 w-max"><Award className="w-4 h-4"/> Live AIR Active</span>
+  const LeaderboardModule = () => (
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Award className="w-6 h-6 text-slate-500"/> Global Leaderboard</h1>
+          <p className="text-sm text-slate-500 font-medium mt-1">Live ranks based on test attempts in the app.</p>
         </div>
-        
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden overflow-x-auto shadow-sm">
-          <div className="flex border-b bg-slate-50 min-w-[500px]">
-            <button className="px-6 py-3 font-semibold text-blue-600 border-b-2 border-blue-600">All India Rank (AIR)</button>
-            <button className="px-6 py-3 font-semibold text-neutral-500 hover:text-neutral-700">Weekly Top</button>
-            <button className="px-6 py-3 font-semibold text-neutral-500 hover:text-neutral-700">Subject Wise</button>
-          </div>
-          
-          <div className="p-0">
-            {listRows.map((user: any) => (
-                <div key={user.rank} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
-                  {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
-                  <div className="w-16 text-center shrink-0">
-                    <span className={`font-black text-lg ${user.rank === 1 ? 'text-amber-500' : user.rank === 2 ? 'text-slate-400' : user.rank === 3 ? 'text-amber-700' : 'text-slate-500'}`}>
-                       {typeof user.rank === 'number' ? `#${user.rank.toLocaleString()}` : user.rank}
-                    </span>
+        <span className="bg-amber-100/50 text-amber-700 border border-amber-200 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-1 w-max"><Award className="w-4 h-4"/> Live</span>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden overflow-x-auto shadow-sm">
+        <div className="flex border-b bg-slate-50 min-w-[500px]">
+          <button className="px-6 py-3 font-semibold text-blue-600 border-b-2 border-blue-600">All India Rank (AIR)</button>
+        </div>
+
+        <div className="p-0">
+          {leaderboardRows.length === 0 ? (
+            <div className="p-6 text-slate-700 font-semibold">
+              Leaderboard will appear once students start attempting tests.
+            </div>
+          ) : leaderboardRows.map((user: any) => (
+            <div key={user.user_id} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
+              {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
+              <div className="w-16 text-center shrink-0">
+                <span className={`font-black text-lg ${user.rank === 1 ? 'text-amber-500' : user.rank === 2 ? 'text-slate-400' : user.rank === 3 ? 'text-amber-700' : 'text-slate-500'}`}>
+                  #{Number(user.rank || 0).toLocaleString()}
+                </span>
+              </div>
+              <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt={`${user.name || 'Student'} photo`} className="w-full h-full object-cover" />
+                ) : (
+                  <span>{user.name?.charAt(0) || 'S'}</span>
+                )}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <div className={`font-bold flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-neutral-800'}`}>
+                    <span>{user.name}</span>
+                    {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden border border-slate-200 shadow-sm shrink-0">
-                    {user.avatarUrl ? (
-                      <img src={user.avatarUrl} alt={`${user.name} photo`} className="w-full h-full object-cover" />
-                    ) : (
-                      <span>{user.name?.charAt(0) || 'S'}</span>
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className={`font-bold flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-neutral-800'}`}>
-                          <span>{user.name}</span>
-                          {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
-                          {user.isUnranked && <span className="text-[10px] uppercase font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded border border-amber-200">Unranked</span>}
-                        </div>
-                        {user.isUnranked && <span className="text-xs text-indigo-600 cursor-pointer font-bold mt-0.5 block hover:underline" onClick={() => setActiveTab('courses')}>Take a mock to unlock</span>}
-                      </div>
-                      <div className="font-black text-slate-800 mr-4 tracking-tight">{user.score} <span className="text-xs text-slate-400 font-bold ml-0.5">PTS</span></div>
-                    </div>
-                  </div>
+                  <div className="font-black text-slate-800 mr-4 tracking-tight">{user.score} <span className="text-xs text-slate-400 font-bold ml-0.5">PTS</span></div>
                 </div>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   const TestAnalysisModule = () => {
     const [selectedTestId, setSelectedTestId] = useState<string>(allUserTests[0]?.id || '');
@@ -1539,33 +1336,21 @@ export default function StudentDashboard() {
             <>
               <div className="space-y-6">
                 {subjects.map((subject, idx) => {
-                  // Generate deterministic pseudo-random distribution based on test ID mapping subject to simulate real insights
-                  const charCode = (activeTest?.id?.charCodeAt(idx % 10) || 45) + idx * 5;
-                  const sectionTotal = 100;
-                  const acc = typeof activeTest?.accuracy === 'number' ? activeTest.accuracy : 50;
-                  const secCorrect = Math.min(100, Math.max(0, acc + (charCode % 20 - 10)));
-                  const secWrong = Math.min(100 - secCorrect, (charCode % 15));
-                  const secSkipped = 100 - secCorrect - secWrong;
-
                   return (
                     <div key={subject} className="flex flex-col gap-2">
                       <div className="flex justify-between font-bold text-sm text-neutral-700">
                         <span>{subject}</span>
-                        <span className="text-xs text-slate-400 font-medium">Accuracy: {secCorrect}%</span>
+                        <span className="text-xs text-slate-400 font-medium">Topic stats not available</span>
                       </div>
                       <div className="flex h-3 rounded-full overflow-hidden">
-                        <div className="bg-emerald-500" style={{ width: `${secCorrect}%` }} title="Correct"></div>
-                        <div className="bg-red-500" style={{ width: `${secWrong}%` }} title="Wrong"></div>
-                        <div className="bg-slate-200" style={{ width: `${secSkipped}%` }} title="Skipped"></div>
+                        <div className="bg-slate-200" style={{ width: `100%` }} title="Not available"></div>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex gap-6 mt-8 text-xs font-bold text-neutral-500 justify-center">
-                <span className="flex items-center gap-1.5"><div className="w-3 h-3 bg-emerald-500 rounded-full"></div> Correct</span>
-                <span className="flex items-center gap-1.5"><div className="w-3 h-3 bg-red-500 rounded-full"></div> Wrong</span>
-                <span className="flex items-center gap-1.5"><div className="w-3 h-3 bg-slate-200 rounded-full"></div> Skipped</span>
+              <div className="mt-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-700 font-semibold text-center">
+                Topic-wise breakup needs per-section/per-topic analytics data. We can enable this once you store subject-wise results in Supabase.
               </div>
             </>
           )}
@@ -1587,14 +1372,7 @@ export default function StudentDashboard() {
       features: ['Full Length Subject Mocks', 'Detailed Performance Analysis', 'All India Benchmarking']
     }));
     
-    // Inject mocks if not present in DB to guarantee visual richness
     const merged = [...combinedData];
-    mockPackages.forEach(m => {
-      // Very basic collision checks
-      if (!merged.find(db => db.title.toLowerCase().includes(m.exam.toLowerCase()) && db.tags?.[0] === m.exam)) {
-        merged.push({ id: m.id, title: m.title, tags: m.tags, exam: m.exam, reason: m.description, description: m.description, features: m.features, imageUrl: (m as any).imageUrl });
-      }
-    });
 
     const exams = ["All", "Engineering", "Medical", "Banking", "CUET", "Law", "MBA", "Police", "Railways", "SSC", "State PSC", "Teaching", "UPSC"];
 
