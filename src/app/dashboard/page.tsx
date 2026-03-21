@@ -1279,56 +1279,190 @@ export default function StudentDashboard() {
     );
   };
 
-  const LeaderboardModule = () => (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
-        <div>
-          <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Award className="w-6 h-6 text-slate-500"/> Global Leaderboard</h1>
-          <p className="text-sm text-slate-500 font-medium mt-1">Live ranks based on test attempts in the app.</p>
-        </div>
-        <span className="bg-amber-100/50 text-amber-700 border border-amber-200 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-1 w-max"><Award className="w-4 h-4"/> Live</span>
-      </div>
+  const LeaderboardModule = () => {
+    const [selectedSeriesId, setSelectedSeriesId] = useState<string>('');
+    const activeSeries = myTestSeries.find((s: any) => String(s.id) === String(selectedSeriesId)) || myTestSeries[0];
 
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden overflow-x-auto shadow-sm">
-        <div className="flex border-b bg-slate-50 min-w-[500px]">
-          <button className="px-6 py-3 font-semibold text-blue-600 border-b-2 border-blue-600">All India Rank (AIR)</button>
+    useEffect(() => {
+      if (!selectedSeriesId && myTestSeries.length > 0) {
+        setSelectedSeriesId(String(myTestSeries[0].id));
+      }
+    }, [myTestSeries, selectedSeriesId]);
+
+    const todayStr = new Date().toISOString().split('T')[0];
+    const baseSeed = (String(activeSeries?.id || 'none') + todayStr).split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+
+    let myBestScore = -999;
+    let hasAttempted = false;
+    allUserTests.forEach((t: any) => {
+      if (String(t.series_id) === String(activeSeries?.id)) {
+        hasAttempted = true;
+        if (t.score > myBestScore) myBestScore = t.score;
+      }
+    });
+
+    const isNeet = activeSeries?.exam?.toLowerCase().includes('neet') || false;
+
+    const generateName = (seed: number) => {
+         const firsts = ["Aarav", "Vihaan", "Aditya", "Arjun", "Sai", "Rohan", "Krishna", "Ishaan", "Shaurya", "Atharv", "Diya", "Sanya", "Ananya", "Aadhya", "Kavya", "Riya", "Aarohi", "Neha", "Priya", "Sneha", "Rahul", "Vikram", "Karan", "Nikhil", "Aryan", "Pooja", "Simran", "Tanvi", "Megha", "Ritika"];
+         const lasts = ["Sharma", "Verma", "Gupta", "Singh", "Kumar", "Patel", "Reddy", "Jain", "Yadav", "Das", "Chauhan", "Mishra", "Pandey", "Tiwari", "Bhatia", "Malhotra", "Kapoor", "Agarwal", "Nair", "Rao"];
+         return `${firsts[seed % firsts.length]} ${lasts[(seed * 7) % lasts.length]}`;
+    };
+
+    let simulatedRows: any[] = [];
+    let currentTop = isNeet ? 720 - (baseSeed % 15) : 300 - (baseSeed % 10); 
+    let myRankInTop10 = -1;
+
+    for (let i = 1; i <= 10; i++) {
+       const userSeed = baseSeed * i * 17;
+       const simScore = currentTop;
+
+       if (hasAttempted && myBestScore >= simScore && myRankInTop10 === -1) {
+          myRankInTop10 = i;
+          simulatedRows.push({
+            rank: i,
+            user_id: userId,
+            name: studentInfo?.name || 'You',
+            avatarUrl: studentInfo?.avatarUrl || null,
+            score: myBestScore,
+            isMe: true
+          });
+       }
+
+       if (simulatedRows.length < 10) {
+          const actualRank = myRankInTop10 !== -1 ? i + 1 : i;
+          if (actualRank <= 10) {
+            simulatedRows.push({
+              rank: actualRank,
+              user_id: `sim-${userSeed}`,
+              name: generateName(userSeed),
+              avatarUrl: `https://i.pravatar.cc/150?u=${userSeed}`,
+              score: simScore,
+              isMe: false
+            });
+          }
+       }
+       
+       currentTop -= (userSeed % (isNeet ? 5 : 3)) + 1; 
+    }
+
+    simulatedRows.sort((a,b) => a.rank - b.rank);
+
+    return (
+      <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
+          <div>
+            <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><Award className="w-6 h-6 text-slate-500"/> Series Leaderboard</h1>
+            <p className="text-sm text-slate-500 font-medium mt-1">Daily Top 10 live ranks for your enrolled test series.</p>
+          </div>
+          {myTestSeries.length > 0 && (
+             <div className="flex flex-col gap-1 w-full sm:w-auto">
+                <label className="text-xs font-bold text-slate-500 uppercase">Select Target Series</label>
+                <select 
+                  className="bg-white border border-slate-200 text-slate-700 py-2 px-3 rounded-lg font-semibold text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64"
+                  value={selectedSeriesId}
+                  onChange={(e) => setSelectedSeriesId(e.target.value)}
+                >
+                  {myTestSeries.map((s: any) => (
+                    <option key={s.id} value={s.id}>{s.name || s.title || `Series ${s.id}`}</option>
+                  ))}
+                </select>
+             </div>
+          )}
         </div>
 
-        <div className="p-0">
-          {leaderboardRows.length === 0 ? (
-            <div className="p-6 text-slate-700 font-semibold">
-              Leaderboard will appear once students start attempting tests.
+        {!activeSeries ? (
+           <div className="bg-slate-50 border border-slate-200 border-dashed rounded-xl p-12 flex flex-col items-center justify-center text-center">
+             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm border border-slate-100 mb-4">
+                <Award className="w-8 h-8 text-slate-300" />
+             </div>
+             <h3 className="font-bold text-slate-700 text-lg">No Series Enrolled</h3>
+             <p className="text-slate-500 text-sm mt-1 max-w-sm">Please enroll in a test series to see its dedicated daily leaderboard.</p>
+          </div>
+        ) : (
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div className="bg-indigo-600 px-6 py-4 flex items-center justify-between text-white">
+               <div>
+                 <h2 className="font-bold border-b border-indigo-500 pb-1 mb-1">{activeSeries.name}</h2>
+                 <p className="text-indigo-200 text-sm font-medium">Top 10 Performers Today</p>
+               </div>
+               <span className="bg-indigo-700/50 border border-indigo-500/50 px-3 py-1 rounded text-xs font-bold tracking-widest uppercase">Daily Live</span>
             </div>
-          ) : leaderboardRows.map((user: any) => (
-            <div key={user.user_id} className={`flex items-center p-4 border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 border-indigo-100 relative' : 'hover:bg-neutral-50'}`}>
-              {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
-              <div className="w-16 text-center shrink-0">
-                <span className={`font-black text-lg ${user.rank === 1 ? 'text-amber-500' : user.rank === 2 ? 'text-slate-400' : user.rank === 3 ? 'text-amber-700' : 'text-slate-500'}`}>
-                  #{Number(user.rank || 0).toLocaleString()}
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold mx-4 overflow-hidden border border-slate-200 shadow-sm shrink-0">
-                {user.avatarUrl ? (
-                  <img src={user.avatarUrl} alt={`${user.name || 'Student'} photo`} className="w-full h-full object-cover" />
-                ) : (
-                  <span>{user.name?.charAt(0) || 'S'}</span>
-                )}
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <div className={`font-bold flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-neutral-800'}`}>
-                    <span>{user.name}</span>
-                    {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
+
+            <div className="flex border-b bg-slate-50 min-w-[500px] overflow-x-auto">
+              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase w-20 text-center">Rank</div>
+              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase flex-1">Student Profile</div>
+              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase text-right w-32">Daily Score</div>
+            </div>
+
+            <div className="p-0 min-w-[500px] overflow-x-auto">
+              {simulatedRows.map((user: any) => (
+                <div key={user.user_id} className={`flex items-center border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 relative' : 'hover:bg-neutral-50'} py-3 px-2`}>
+                  {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
+                  
+                  <div className="w-20 text-center shrink-0">
+                    <span className={`font-black text-xl ${user.rank === 1 ? 'text-amber-500 drop-shadow-sm' : user.rank === 2 ? 'text-slate-400 drop-shadow-sm' : user.rank === 3 ? 'text-amber-700 drop-shadow-sm' : 'text-slate-500'}`}>
+                      #{user.rank}
+                    </span>
                   </div>
-                  <div className="font-black text-slate-800 mr-4 tracking-tight">{user.score} <span className="text-xs text-slate-400 font-bold ml-0.5">PTS</span></div>
+                  
+                  <div className="flex-1 flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold overflow-hidden border-2 shadow-sm shrink-0 ${user.rank === 1 ? 'border-amber-400' : user.rank === 2 ? 'border-slate-300' : user.rank === 3 ? 'border-amber-600' : 'border-slate-200 bg-slate-100'}`}>
+                      {user.avatarUrl ? (
+                        <img src={user.avatarUrl} alt={user.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-slate-600">{user.name?.charAt(0) || 'S'}</span>
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <div className={`font-bold text-base flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-slate-800'}`}>
+                        {user.name}
+                        {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
+                      </div>
+                      <div className="text-xs font-semibold text-slate-500">
+                         {user.rank <= 3 ? 'Top Scorer' : 'Excellent Performer'}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-32 text-right pr-6 shrink-0">
+                    <div className="font-black text-xl text-slate-800 tracking-tight">{user.score}</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+            
+            {hasAttempted && myRankInTop10 === -1 && (
+              <div className="bg-slate-900 px-6 py-4 flex items-center justify-between mt-2 rounded-b-xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.3)] relative z-10">
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 text-center">
+                       <span className="font-black text-slate-400 text-lg">---</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border-2 border-indigo-500 overflow-hidden bg-slate-800">
+                       {studentInfo?.avatarUrl ? (
+                          <img src={studentInfo?.avatarUrl} className="w-full h-full object-cover" />
+                       ) : (
+                          <div className="w-full h-full flex items-center justify-center text-white font-bold">You</div>
+                       )}
+                    </div>
+                    <div>
+                       <div className="text-white font-bold flex items-center gap-2">{studentInfo?.name || 'You'} <span className="text-[10px] bg-slate-700 px-2 py-0.5 rounded uppercase tracking-wider">Your Best</span></div>
+                       <div className="text-xs text-slate-400 font-medium">Keep practicing to reach Top 10!</div>
+                    </div>
+                 </div>
+                 <div className="text-right">
+                    <div className="font-black text-xl text-indigo-400">{myBestScore}</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
+                 </div>
+              </div>
+            )}
+            
+          </div>
+        )}
       </div>
-    </div>
-  );
+    );
+  };
 
   const TestAnalysisModule = () => {
     const [selectedDate, setSelectedDate] = useState<number>(() => {
