@@ -382,41 +382,82 @@ export default function StudentDashboard() {
         }
       }
 
-      const { data: topUsersData } = await supabase
-        .from('user_tests')
-        .select('user_id, score')
-        .order('score', { ascending: false })
-        .limit(20);
-      const topRows = (topUsersData as any[]) || [];
-      const uniqueUserIds: string[] = Array.from(new Set(topRows.map((r: any) => r.user_id).filter(Boolean)));
-      let namesById = new Map<string, string>();
-      let photoById = new Map<string, string>();
-      if (uniqueUserIds.length > 0) {
-        const { data: topProfiles } = await supabase
-          .from('profiles')
-          .select('id, full_name, photo_path')
-          .in('id', uniqueUserIds);
-        (topProfiles as any[] | null)?.forEach((p: any) => {
-          namesById.set(String(p.id), p.full_name || 'Student');
-          if (p.photo_path) photoById.set(String(p.id), String(p.photo_path));
-        });
+      let myBestScore = -999;
+      let hasAttempted = false;
+      let myBestTestIsNeet = false;
+      userTests.forEach((t: any) => {
+        hasAttempted = true;
+        if (t.score > myBestScore) {
+           myBestScore = t.score;
+           myBestTestIsNeet = t.exam?.toLowerCase()?.includes('neet') || false;
+        }
+      });
+
+      let simulatedRank = 0;
+      if (hasAttempted) {
+        if (myBestTestIsNeet) {
+            if (myBestScore >= 700) simulatedRank = Math.floor(Math.random() * 100) + 1;
+            else if (myBestScore >= 600) simulatedRank = Math.floor(5000 + ((700 - myBestScore) / 100) * 15000);
+            else if (myBestScore >= 400) simulatedRank = Math.floor(20000 + ((600 - myBestScore) / 200) * 80000);
+            else if (myBestScore >= 200) simulatedRank = Math.floor(100000 + ((400 - myBestScore) / 200) * 200000);
+            else simulatedRank = Math.floor(300000 + ((200 - Math.max(0, myBestScore)) / 200) * 200000);
+        } else {
+            if (myBestScore >= 300) simulatedRank = 1;
+            else if (myBestScore >= 280) simulatedRank = Math.floor(2 + ((300 - myBestScore) / 20) * 500);
+            else if (myBestScore >= 250) simulatedRank = Math.floor(502 + ((280 - myBestScore) / 30) * 4500);
+            else if (myBestScore >= 200) simulatedRank = Math.floor(5002 + ((250 - myBestScore) / 50) * 10000);
+            else if (myBestScore >= 160) simulatedRank = Math.floor(15002 + ((200 - myBestScore) / 40) * 25000);
+            else if (myBestScore >= 120) simulatedRank = Math.floor(40002 + ((160 - myBestScore) / 40) * 40000);
+            else if (myBestScore >= 80) simulatedRank = Math.floor(80002 + ((120 - myBestScore) / 40) * 80000);
+            else if (myBestScore >= 40) simulatedRank = Math.floor(160002 + ((80 - myBestScore) / 40) * 150000);
+            else simulatedRank = Math.floor(310002 + ((40 - Math.max(-75, myBestScore)) / 115) * 190000);
+        }
       }
 
-      const rows = topRows.map((r: any, idx: number) => {
-        const id = String(r.user_id);
-        const avatarUrl = getPublicAvatarUrl(photoById.get(id));
-        return {
-          rank: idx + 1,
-          user_id: id,
-          name: namesById.get(id) || 'Student',
-          avatarUrl,
-          score: typeof r.score === 'number' ? r.score : Number(r.score) || 0,
-          isMe: id === uid,
-        };
-      });
-      const myRank = rows.find((r: any) => r.isMe)?.rank || 0;
-      setStudentInfo((prev: any) => ({ ...prev, stats: { ...prev.stats, rank: myRank } }));
-      setLeaderboardRows(rows);
+      setStudentInfo((prev: any) => ({ ...prev, stats: { ...prev.stats, rank: hasAttempted ? simulatedRank : 'N/A' } }));
+
+      const generateName = (seed: number) => {
+         const firsts = ["Aarav", "Vihaan", "Aditya", "Arjun", "Sai", "Rohan", "Krishna", "Ishaan", "Shaurya", "Atharv", "Diya", "Sanya", "Ananya", "Aadhya", "Kavya", "Riya", "Aarohi", "Neha", "Priya", "Sneha", "Rahul", "Vikram", "Karan", "Nikhil", "Aryan", "Pooja", "Simran", "Tanvi", "Megha", "Ritika"];
+         const lasts = ["Sharma", "Verma", "Gupta", "Singh", "Kumar", "Patel", "Reddy", "Jain", "Yadav", "Das", "Chauhan", "Mishra", "Pandey", "Tiwari", "Bhatia", "Malhotra", "Kapoor", "Agarwal", "Nair", "Rao"];
+         return `${firsts[seed % firsts.length]} ${lasts[(seed * 7) % lasts.length]}`;
+      };
+
+      let rowsList: any[] = [];
+      let currentTopScore = myBestTestIsNeet ? 720 : 300;
+      
+      for (let i = 1; i <= 50; i++) {
+         if (hasAttempted && simulatedRank === i) {
+            rowsList.push({ rank: i, user_id: uid, name: profile?.full_name || 'You', avatarUrl: getPublicAvatarUrl(profile?.photo_path), score: myBestScore, isMe: true });
+            currentTopScore = myBestScore - Math.floor(Math.random() * (myBestTestIsNeet ? 6 : 2));
+         } else {
+            rowsList.push({ rank: i, user_id: `sim-${i}`, name: generateName(i * 13), avatarUrl: null, score: currentTopScore, isMe: false });
+            currentTopScore -= Math.floor(Math.random() * (myBestTestIsNeet ? 6 : 2));
+         }
+      }
+
+      if (hasAttempted && simulatedRank > 50) {
+         let startRank = Math.max(51, simulatedRank - 25);
+         let localScore = myBestScore + Math.floor(Math.random() * 15) + 10;
+         if (localScore > currentTopScore) localScore = currentTopScore - 1;
+
+         for(let i = startRank; i < startRank + 50; i++) {
+            if (i === simulatedRank) {
+               rowsList.push({ rank: i, user_id: uid, name: profile?.full_name || 'You', avatarUrl: getPublicAvatarUrl(profile?.photo_path), score: myBestScore, isMe: true });
+               localScore = myBestScore - 1;
+            } else {
+               rowsList.push({ rank: i, user_id: `sim-around-${i}`, name: generateName(i * 17), avatarUrl: null, score: localScore, isMe: false });
+               localScore -= Math.floor(Math.random() * 3);
+               if (localScore < -75) localScore = -75;
+            }
+         }
+      } else {
+        for(let i = 51; i <= 100; i++) {
+            rowsList.push({ rank: i, user_id: `sim-${i}`, name: generateName(i * 13), avatarUrl: null, score: currentTopScore, isMe: false });
+            currentTopScore -= Math.floor(Math.random() * (myBestTestIsNeet ? 6 : 2));
+        }
+      }
+
+      setLeaderboardRows(rowsList);
 
       const computed = (() => {
         const correct = userTests.reduce((acc: number, r: any) => acc + (Number(r.correct) || 0), 0);
@@ -552,7 +593,7 @@ export default function StudentDashboard() {
       items: [
         { id: "my-tests", label: "My Test Series", icon: BookOpen },
         { id: "free-tests", label: "Free Tests", icon: Zap },
-        { id: "analysis", label: "Test Analysis", icon: BarChart3 },
+        { id: "analysis", label: "Attempt History", icon: History },
       ]
     },
     {
@@ -1287,110 +1328,117 @@ export default function StudentDashboard() {
   );
 
   const TestAnalysisModule = () => {
-    const [selectedTestId, setSelectedTestId] = useState<string>(allUserTests[0]?.id || '');
-    const activeTest = allUserTests.find(t => String(t.id) === String(selectedTestId)) || allUserTests[0];
+    const [selectedDate, setSelectedDate] = useState<number>(() => {
+      const d = new Date();
+      d.setHours(0,0,0,0);
+      return d.getTime();
+    });
 
-    const seriesData = myTestSeries.find((s: any) => String(s.id) === String(activeTest?.series_id));
-    const testExam = seriesData?.exam?.toLowerCase() || studentInfo.targetExam?.toLowerCase() || '';
+    const last7Days = Array.from({length: 7}).map((_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      d.setHours(0,0,0,0);
+      return d;
+    }).reverse();
 
-    let subjects = ['Quantitative Aptitude', 'General Intelligence', 'English Language', 'General Awareness'];
-    if (testExam.includes('neet') || testExam.includes('medical')) {
-      subjects = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
-    } else if (testExam.includes('jee') || testExam.includes('engineering')) {
-      subjects = ['Physics', 'Chemistry', 'Mathematics'];
-    }
-
-    const totalQs = 100;
-    let correct = 0, wrong = 0, skipped = 0;
-    if (activeTest) {
-      if (typeof activeTest.correct_answers === 'number') {
-        correct = activeTest.correct_answers;
-        wrong = activeTest.incorrect_answers || 0;
-        skipped = activeTest.unattempted || 0;
-      } else {
-        correct = Math.round(((activeTest.accuracy || 0) / 100) * totalQs);
-        wrong = Math.round(((100 - (activeTest.accuracy || 0)) / 100) * totalQs * 0.7);
-        skipped = Math.max(0, totalQs - correct - wrong);
-      }
-    }
+    const testsByDay = allUserTests.filter((t: any) => {
+      const td = new Date(t.created_at);
+      td.setHours(0,0,0,0);
+      return td.getTime() === selectedDate;
+    });
 
     return (
       <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-4 gap-4">
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><BarChart3 className="w-6 h-6 text-slate-500"/> Test Analysis</h1>
-            <p className="text-sm text-slate-500 font-medium">In-depth statistical breakdown of your past test attempts.</p>
-          </div>
-          {allUserTests.length > 0 && (
-             <div className="flex flex-col gap-1 w-full sm:w-auto">
-                <label className="text-xs font-bold text-slate-500 uppercase">Select Target Mock Attempt</label>
-                <select 
-                  className="bg-white border border-slate-200 text-slate-700 py-2 px-3 rounded-lg font-semibold text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64"
-                  value={selectedTestId}
-                  onChange={(e) => setSelectedTestId(e.target.value)}
-                >
-                  {allUserTests.map((t, idx) => (
-                    <option key={t.id} value={t.id}>
-                       {new Date(t.created_at).toLocaleDateString()} - {t.test_id || `Attempt ${allUserTests.length - idx}`}
-                    </option>
-                  ))}
-                </select>
-             </div>
-          )}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-emerald-300 transition-colors">
-            <div className="w-20 h-20 rounded-full bg-emerald-50 flex flex-col items-center justify-center mb-4 text-emerald-600 border border-emerald-100">
-              <span className="text-2xl font-black">{correct}</span>
-            </div>
-            <h3 className="font-bold text-slate-700">Correct Answers</h3>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-red-300 transition-colors">
-            <div className="w-20 h-20 rounded-full bg-red-50 flex flex-col items-center justify-center mb-4 text-red-600 border border-red-100">
-              <span className="text-2xl font-black">{wrong}</span>
-            </div>
-            <h3 className="font-bold text-slate-700">Incorrect</h3>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center hover:border-slate-300 transition-colors">
-            <div className="w-20 h-20 rounded-full bg-slate-50 flex flex-col items-center justify-center mb-4 text-slate-600 border border-slate-200">
-              <span className="text-2xl font-black">{skipped}</span>
-            </div>
-            <h3 className="font-bold text-slate-700">Skipped</h3>
+            <h1 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2"><History className="w-6 h-6 text-slate-500"/> Attempt History</h1>
+            <p className="text-sm text-slate-500 font-medium mt-1">Review your recent test performances and analyze your progress over the last 7 days.</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl border border-neutral-200 shadow-sm p-6 mt-6">
-          <div className="flex items-center justify-between mb-6">
-             <h3 className="text-lg font-bold">Topic-wise Breakup {activeTest ? `(${seriesData?.name || activeTest.test_id || 'Mock Test'})` : ''}</h3>
-             {activeTest && <span className="text-sm font-bold text-indigo-600">Score: {activeTest.score} pts</span>}
-          </div>
-          {(studentInfo.stats.testsAttempted || 0) === 0 ? (
-            <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 font-semibold text-center py-10">
-              Attempt a test to unlock detailed interactive analysis and graphs.
-            </div>
-          ) : (
-            <>
-              <div className="space-y-6">
-                {subjects.map((subject, idx) => {
-                  return (
-                    <div key={subject} className="flex flex-col gap-2">
-                      <div className="flex justify-between font-bold text-sm text-neutral-700">
-                        <span>{subject}</span>
-                        <span className="text-xs text-slate-400 font-medium">Topic stats not available</span>
-                      </div>
-                      <div className="flex h-3 rounded-full overflow-hidden">
-                        <div className="bg-slate-200" style={{ width: `100%` }} title="Not available"></div>
-                      </div>
+        <div className="bg-white rounded-xl border border-slate-200 p-2 flex overflow-x-auto gap-2 shadow-sm shrink-0">
+           {last7Days.map(d => {
+              const isSelected = d.getTime() === selectedDate;
+              const hasTest = allUserTests.some((t: any) => { const td = new Date(t.created_at); td.setHours(0,0,0,0); return td.getTime() === d.getTime(); });
+              return (
+                 <button 
+                   key={d.getTime()}
+                   onClick={() => setSelectedDate(d.getTime())}
+                   className={`flex-1 min-w-[60px] flex flex-col items-center py-3 rounded-lg border transition-all ${isSelected ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-200' : 'bg-transparent border-transparent hover:bg-slate-50 text-slate-600'}`}
+                 >
+                   <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-indigo-200' : 'text-slate-400'}`}>{d.toLocaleDateString('en-US', { weekday: 'short'})}</span>
+                   <span className="text-xl font-black mt-1 mb-1">{d.getDate()}</span>
+                   <span className={`w-1.5 h-1.5 rounded-full ${hasTest ? (isSelected ? 'bg-white' : 'bg-indigo-500') : 'bg-transparent'}`}></span>
+                 </button>
+              );
+           })}
+        </div>
+
+        <div className="space-y-4 mt-6">
+           {testsByDay.length === 0 ? (
+              <div className="bg-slate-50 border border-slate-200 border-dashed rounded-xl p-12 flex flex-col items-center justify-center text-center">
+                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm border border-slate-100 mb-4">
+                    <History className="w-8 h-8 text-slate-300" />
+                 </div>
+                 <h3 className="font-bold text-slate-700 text-lg">No attempts on this day</h3>
+                 <p className="text-slate-500 text-sm mt-1 max-w-sm">You haven't taken any tests on this specific date. Try selecting another day with the dot indicator.</p>
+              </div>
+           ) : (
+             testsByDay.map((t: any) => {
+                let isNeet = t.exam?.toLowerCase()?.includes('neet') || false;
+                if (!isNeet && String(t.test_id).includes('med')) isNeet = true;
+                
+                const correct = Number(t.correct) || 0;
+                const wrong = Number(t.wrong) || 0;
+                const skipped = Number(t.skipped) || 0;
+                const score = Number(t.score) || 0;
+                const acc = t.accuracy || 0;
+
+                const attemptIdParams = typeof t.id === 'number' ? `attemptDbId=${t.id}` : `attemptId=${t.id}`;
+                const analysisLink = `/test/${t.test_id || 'mock-eng-1-test-1'}/analysis?score=${score}&correct=${correct}&incorrect=${wrong}&unattempted=${skipped}&isNeet=${isNeet}&${attemptIdParams}`;
+
+                return (
+                 <div key={t.id} onClick={() => router.push(analysisLink)} className="group bg-white rounded-xl border border-slate-200 hover:border-indigo-300 shadow-sm hover:shadow-md transition-all p-5 flex flex-col md:flex-row gap-5 items-start md:items-center cursor-pointer">
+                    <div className="flex-1 w-full">
+                       <div className="flex items-center gap-2 mb-2">
+                         <span className="bg-slate-100 text-slate-600 text-[10px] uppercase font-black px-2 py-0.5 rounded tracking-widest">{t.exam || 'MOCK'}</span>
+                         <span className="text-xs font-bold text-slate-400">{new Date(t.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                       </div>
+                       <h3 className="font-bold text-lg text-slate-800 line-clamp-1">{t.test_id || 'Premium Full Syllabus Mock Test'}</h3>
+                       <div className="flex flex-wrap gap-4 mt-3">
+                         <div className="flex items-center gap-1.5">
+                           <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                           <span className="text-sm font-semibold text-slate-600">{correct} <span className="text-slate-400 font-normal">Correct</span></span>
+                         </div>
+                         <div className="flex items-center gap-1.5">
+                           <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                           <span className="text-sm font-semibold text-slate-600">{wrong} <span className="text-slate-400 font-normal">Wrong</span></span>
+                         </div>
+                         <div className="flex items-center gap-1.5">
+                           <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                           <span className="text-sm font-semibold text-slate-600">{skipped} <span className="text-slate-400 font-normal">Skipped</span></span>
+                         </div>
+                       </div>
                     </div>
-                  );
-                })}
-              </div>
-              <div className="mt-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-700 font-semibold text-center">
-                Topic-wise breakup needs per-section/per-topic analytics data. We can enable this once you store subject-wise results in Supabase.
-              </div>
-            </>
-          )}
+                    
+                    <div className="flex items-center justify-between w-full md:w-auto gap-6 bg-slate-50 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none">
+                       <div className="flex flex-col items-center md:items-end">
+                          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Score</span>
+                          <span className="text-2xl font-black text-indigo-600">{score}</span>
+                       </div>
+                       <div className="flex flex-col items-center md:items-end">
+                          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Accuracy</span>
+                          <span className="text-2xl font-black text-slate-700">{Math.round(acc)}%</span>
+                       </div>
+                       
+                       <div className="bg-slate-100 text-slate-600 p-3 rounded-full shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                          <ChevronRight className="w-5 h-5"/>
+                       </div>
+                    </div>
+                 </div>
+                );
+             })
+           )}
         </div>
       </div>
     );
