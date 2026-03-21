@@ -6,6 +6,7 @@ import {
     CheckCircle2,
     Menu,
     X,
+    AlertTriangle,
 } from 'lucide-react';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 
@@ -40,6 +41,7 @@ function JEE_NTA_TestEngine() {
     const [timeLeft, setTimeLeft] = useState(180 * 60); // 180 mins for NEET and JEE
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isMobilePaletteOpen, setIsMobilePaletteOpen] = useState(false);
+    const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
     // State for questions
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -86,7 +88,7 @@ function JEE_NTA_TestEngine() {
             setTimeLeft((prev) => {
                 if (prev <= 1) {
                     clearInterval(interval);
-                    handleSubmit();
+                    handleFinalSubmit();
                     return 0;
                 }
                 return prev - 1;
@@ -186,14 +188,18 @@ function JEE_NTA_TestEngine() {
         }
     };
 
-    const handleSubmit = () => {
-        if (confirm("Are you sure you want to submit the exam?")) {
-            let score = 0;
-            let correct = 0;
-            let incorrect = 0;
-            let unattempted = 0;
+    const handleInitiateSubmit = () => {
+        setIsConfirmModalOpen(true);
+    };
 
-            mockQuestions.forEach(q => {
+    const handleFinalSubmit = () => {
+        setIsConfirmModalOpen(false);
+        let score = 0;
+        let correct = 0;
+        let incorrect = 0;
+        let unattempted = 0;
+
+        mockQuestions.forEach(q => {
                 const ans = responses[q.id];
                 if (ans !== undefined && ans !== '') {
                     if (q.type === 'MCQ') {
@@ -253,7 +259,6 @@ function JEE_NTA_TestEngine() {
                     router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}`);
                 }, 1500);
             }
-        }
     };
 
     const getStatusCounts = () => {
@@ -342,18 +347,21 @@ function JEE_NTA_TestEngine() {
             <div className="flex flex-1 overflow-hidden relative">
                 {/* Left Panel */}
                 <div className="flex-1 flex flex-col border-r border-[#ccc] min-w-0 bg-[#f9f9f9] lg:bg-white z-10 w-full lg:w-auto">
-                    <div className="bg-[#e4e8eb] border-b border-[#ccc] flex justify-between items-center px-3 py-2 shrink-0">
-                        <div className="font-bold text-[#333] text-sm md:text-base">{examPaperName}</div>
-                        <div className="flex items-center gap-2">
+                    <div className="bg-[#e4e8eb] border-b border-[#ccc] flex items-center justify-between px-2 sm:px-3 py-2 shrink-0 gap-2">
+                        <div className="font-bold text-[#333] text-[11px] sm:text-sm md:text-base truncate min-w-[50px] flex-1">{examPaperName}</div>
+                        <div className="flex items-center gap-1 sm:gap-2 shrink-0 justify-center">
                             <span className="font-semibold text-[#333] hidden sm:inline">Time Left:</span>
-                            <span className="bg-white px-2 md:px-3 py-0.5 border border-[#ccc] rounded">
-                                <span className="font-bold text-lg md:text-xl text-[#2B579A] tabular-nums tracking-widest">{formatTime(timeLeft)}</span>
+                            <span className="bg-white px-1.5 md:px-3 py-0.5 border border-[#ccc] rounded shadow-sm">
+                                <span className="font-bold text-sm sm:text-base md:text-xl text-[#2B579A] tabular-nums tracking-widest">{formatTime(timeLeft)}</span>
                             </span>
                         </div>
-                        {/* Mobile right panel toggler in header */}
-                        <div className="lg:hidden">
-                            <button onClick={() => setIsMobilePaletteOpen(true)} className="bg-[#2B579A] p-2 text-white rounded">
-                                <Menu className="w-5 h-5" />
+                        {/* Mobile right panel toggler and submit button */}
+                        <div className="lg:hidden flex items-center gap-1.5 shrink-0 justify-end flex-1">
+                            <button onClick={handleInitiateSubmit} className="bg-[#5cb85c] active:bg-[#4cae4c] text-white px-2.5 py-1.5 rounded font-bold text-[10px] sm:text-[11px] uppercase shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+                                Submit
+                            </button>
+                            <button onClick={() => setIsMobilePaletteOpen(true)} className="bg-[#2B579A] p-1.5 text-white rounded shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+                                <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                         </div>
                     </div>
@@ -546,7 +554,7 @@ function JEE_NTA_TestEngine() {
                     {/* Submit Button */}
                     <div className="bg-[#f5f5f5] p-3 md:p-4 shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
                         <button
-                            onClick={handleSubmit}
+                            onClick={handleInitiateSubmit}
                             className="bg-[#5cb85c] hover:bg-[#4cae4c] w-full text-white py-3 rounded font-bold text-base border border-[#4cae4c] shadow-[0_2px_4px_rgba(0,0,0,0.2)] uppercase tracking-wider transition-colors active:translate-y-px"
                         >
                             Submit Test
@@ -562,6 +570,65 @@ function JEE_NTA_TestEngine() {
                     className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm"
                     onClick={() => setIsMobilePaletteOpen(false)}
                 />
+            )}
+
+            {/* Custom Confirm Modal */}
+            {isConfirmModalOpen && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onClick={() => setIsConfirmModalOpen(false)}></div>
+                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all p-6 border border-slate-100 animate-in fade-in zoom-in duration-200">
+                        <div className="absolute top-4 right-4">
+                            <button onClick={() => setIsConfirmModalOpen(false)} className="text-slate-400 hover:text-slate-600 transition-colors bg-slate-100 hover:bg-slate-200 p-1 rounded-full">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+                        <div className="flex items-center justify-center w-16 h-16 mx-auto bg-amber-100 rounded-full mb-5 shadow-inner">
+                            <AlertTriangle className="w-8 h-8 text-amber-500" />
+                        </div>
+                        <h3 className="text-2xl font-black text-center text-slate-900 mb-2">Submit Exam Attempt?</h3>
+                        <p className="text-slate-500 text-center text-sm mb-6 px-2">
+                            You are about to submit your exam. Please review your attempt summary below before final submission.
+                        </p>
+                        
+                        <div className="bg-slate-50 rounded-xl p-4 mb-6 border border-slate-200 shadow-sm">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="text-center">
+                                    <div className="text-2xl font-bold text-emerald-600 mb-1">{counts.answered + counts.answeredMarked}</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Attempted</div>
+                                </div>
+                                <div className="text-center border-l border-slate-200">
+                                    <div className="text-2xl font-bold text-red-500 mb-1">{counts.notAnswered + counts.notVisited}</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Unattempted</div>
+                                </div>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
+                                <div className="text-center">
+                                    <div className="text-xl font-bold text-[#9b59b6] mb-1">{counts.marked}</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Marked Check</div>
+                                </div>
+                                <div className="text-center border-l border-slate-200">
+                                    <div className="text-xl font-bold text-amber-600 mb-1">{formatTime(timeLeft)}</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Time Left</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setIsConfirmModalOpen(false)}
+                                className="flex-1 bg-white text-slate-700 font-bold py-3.5 px-4 border-2 border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-[0.98]"
+                            >
+                                Resume Test
+                            </button>
+                            <button
+                                onClick={handleFinalSubmit}
+                                className="flex-1 bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl hover:bg-emerald-600 transition-all active:scale-[0.98] shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.23)] hover:-translate-y-0.5"
+                            >
+                                Yes, Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
             )}
 
             <style jsx global>{`
