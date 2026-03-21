@@ -477,21 +477,21 @@ function JEE_NTA_TestEngine() {
                 <div className={`absolute lg:relative inset-y-0 right-0 z-50 w-[300px] lg:w-[320px] bg-[#e4e8eb] flex flex-col shrink-0 transform transition-transform duration-300 ${isMobilePaletteOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} shadow-2xl lg:shadow-none border-l border-[#ccc]`}>
 
                     {/* Profile Section */}
-                    <div className="p-3 bg-white border-b border-[#ccc] flex flex-col shrink-0">
-                        <div className="flex justify-end lg:hidden mb-1">
-                            <button onClick={() => setIsMobilePaletteOpen(false)} className="bg-gray-200 text-gray-700 p-1.5 rounded"><X className="w-4 h-4" /></button>
+                    <div className="p-3 lg:p-4 bg-white border-b border-[#ccc] flex flex-col shrink-0 relative">
+                        <div className="absolute top-2.5 right-2.5 lg:hidden z-10">
+                            <button onClick={() => setIsMobilePaletteOpen(false)} className="bg-gray-100/80 hover:bg-gray-200 text-gray-700 p-1.5 rounded-md border border-gray-200 shadow-sm backdrop-blur-sm transition-all"><X className="w-4 h-4" /></button>
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className="w-[85px] h-[85px] bg-white border border-[#ccc] p-0.5 shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
+                        <div className="flex items-center gap-3 lg:gap-4 mt-2 lg:mt-0">
+                            <div className="w-[70px] h-[70px] lg:w-[85px] lg:h-[85px] bg-white border border-[#ccc] p-0.5 shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
                                 {avatarUrl ? (
                                     <img src={avatarUrl} alt="Profile" className="w-full h-full object-cover" />
                                 ) : (
                                     <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=f3f4f6&color=6b7280&size=100&font-size=0.6`} alt="Profile" className="w-full h-full object-cover" />
                                 )}
                             </div>
-                            <div className="flex-1 min-w-0">
-                                <span className="font-bold text-[#337ab7] text-xl block truncate leading-none mb-1">{userName}</span>
-                                <span className="text-gray-500 font-semibold text-xs uppercase block">{examName}</span>
+                            <div className="flex-1 min-w-0 pr-6 lg:pr-0">
+                                <span className="font-bold text-[#337ab7] text-lg lg:text-xl block truncate leading-tight mb-0.5 lg:mb-1">{userName}</span>
+                                <span className="text-gray-500 font-bold text-[10px] lg:text-xs uppercase block tracking-wide">{examName}</span>
                             </div>
                         </div>
                     </div>
