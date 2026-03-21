@@ -436,24 +436,27 @@ export default function StudentDashboard() {
       }
 
       if (hasAttempted && simulatedRank > 50) {
-         let startRank = Math.max(51, simulatedRank - 25);
-         let localScore = myBestScore + Math.floor(Math.random() * 15) + 10;
+         let startRank = Math.max(51, simulatedRank - 500);
+         let localScore = myBestScore + Math.floor(Math.random() * 10) + 20;
          if (localScore > currentTopScore) localScore = currentTopScore - 1;
 
-         for(let i = startRank; i < startRank + 50; i++) {
+         for(let i = startRank; i < startRank + 1000; i++) {
             if (i === simulatedRank) {
                rowsList.push({ rank: i, user_id: uid, name: profile?.full_name || 'You', avatarUrl: getPublicAvatarUrl(profile?.photo_path), score: myBestScore, isMe: true });
-               localScore = myBestScore - 1;
+               localScore = myBestScore;
             } else {
+               if (localScore > -75 && Math.random() > 0.6) {
+                 localScore -= 1; 
+               }
                rowsList.push({ rank: i, user_id: `sim-around-${i}`, name: generateName(i * 17), avatarUrl: null, score: localScore, isMe: false });
-               localScore -= Math.floor(Math.random() * 3);
-               if (localScore < -75) localScore = -75;
             }
          }
       } else {
-        for(let i = 51; i <= 100; i++) {
+        for(let i = 51; i <= 1050; i++) {
+            if (currentTopScore > -75 && Math.random() > 0.6) {
+               currentTopScore -= 1;
+            }
             rowsList.push({ rank: i, user_id: `sim-${i}`, name: generateName(i * 13), avatarUrl: null, score: currentTopScore, isMe: false });
-            currentTopScore -= Math.floor(Math.random() * (myBestTestIsNeet ? 6 : 2));
         }
       }
 
