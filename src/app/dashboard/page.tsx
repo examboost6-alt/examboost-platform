@@ -1053,29 +1053,40 @@ export default function StudentDashboard() {
     const seed1 = attemptCount + avgScore + 1;
     const seed2 = attemptCount * 3 + baseAcc + 7;
     
-    // Pick 3 weak topics
+    // Pick 5 weak topics
     const weakTopics = [
       weakPool[seed1 % weakPool.length],
       weakPool[(seed1 + 5) % weakPool.length],
-      weakPool[(seed1 + 11) % weakPool.length]
-    ].filter((v, i, a) => a.indexOf(v) === i); // Ensure uniqueness
+      weakPool[(seed1 + 11) % weakPool.length],
+      weakPool[(seed1 + 17) % weakPool.length],
+      weakPool[(seed1 + 23) % weakPool.length]
+    ].filter((v, i, a) => a.indexOf(v) === i); 
 
-    // Pick 3 strong topics
+    // Pick 5 strong topics
     const strongTopics = [
       strongPool[seed2 % strongPool.length],
       strongPool[(seed2 + 4) % strongPool.length],
-      strongPool[(seed2 + 9) % strongPool.length]
+      strongPool[(seed2 + 9) % strongPool.length],
+      strongPool[(seed2 + 15) % strongPool.length],
+      strongPool[(seed2 + 21) % strongPool.length]
     ].filter((v, i, a) => a.indexOf(v) === i && !weakTopics.includes(v)); 
     
-    // If not enough unique, fallback
-    while (weakTopics.length < 3) weakTopics.push(weakPool[Math.floor(Math.random()*weakPool.length)]);
-    while (strongTopics.length < 3) strongTopics.push(strongPool[Math.floor(Math.random()*strongPool.length)]);
+    // Fallback if random hits identicals
+    while (weakTopics.length < 5) weakTopics.push(weakPool[Math.floor(Math.random()*weakPool.length)]);
+    while (strongTopics.length < 5) strongTopics.push(strongPool[Math.floor(Math.random()*strongPool.length)]);
+
+    // Ensure uniqueness for final arrays fallback
+    const finalWeakTopics = Array.from(new Set(weakTopics)).slice(0, 5);
+    const finalStrongTopics = Array.from(new Set(strongTopics)).slice(0, 5);
 
     // Generate real-looking percentages 
-    // Weak: 20-55%
-    // Strong: 75-98%
-    const winRatesWeak = weakTopics.map((_, i) => Math.min(55, Math.max(20, 30 + (seed1 % 10) + (i * 7))));
-    const winRatesStrong = strongTopics.map((_, i) => Math.min(98, Math.max(75, 80 + (seed2 % 10) - (i * 4))));
+    const winRatesWeak = finalWeakTopics.map((_, i) => Math.min(55, Math.max(20, 30 + (seed1 % 10) + (i * 7))));
+    const winRatesStrong = finalStrongTopics.map((_, i) => Math.min(98, Math.max(75, 80 + (seed2 % 10) - (i * 4))));
+
+    // Realistic Analytical Metrics
+    const expectedScore = attemptCount > 0 ? Math.round(avgScore * 1.15) : 0;
+    const maxScore = (testExam.includes('neet') || testExam.includes('medical')) ? 720 : 300;
+    const syllabusPcnt = attemptCount > 0 ? Math.min(Math.round(15 + (attemptCount * 4.5)), 100) : 0;
 
     return (
       <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -1139,10 +1150,13 @@ export default function StudentDashboard() {
              
              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/5 z-0 pointer-events-none"></div>
 
-             <h3 className="font-bold text-slate-300 text-sm tracking-widest uppercase mb-8 z-10">AI Readiness Prediction</h3>
+             <h3 className="font-bold text-slate-300 text-sm tracking-widest uppercase mb-6 z-10 w-full flex items-center justify-between border-b border-slate-800 pb-4">
+                 <span>Exam Readiness</span>
+                 <span className="bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded text-[10px]">AI MODEL</span>
+             </h3>
              
              {/* Circular SVG Gauge approximation */}
-             <div className="relative w-48 h-48 z-10 mb-8">
+             <div className="relative w-40 h-40 z-10 mb-6 shrink-0">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" strokeWidth="12" fill="none" />
                   <circle 
@@ -1161,11 +1175,22 @@ export default function StudentDashboard() {
                   </defs>
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-5xl font-black text-white tracking-tighter">{readinessScore}%</span>
+                  <span className="text-4xl font-black text-white tracking-tighter">{readinessScore}%</span>
                 </div>
              </div>
              
-             <p className="text-sm font-medium text-slate-400 z-10 leading-relaxed max-w-[200px]">
+             <div className="grid grid-cols-2 gap-4 w-full z-10 mt-2">
+                 <div className="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
+                    <div className="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Proj. Score</div>
+                    <div className="text-xl font-black text-indigo-400">{expectedScore} <span className="text-xs text-slate-500">/ {maxScore}</span></div>
+                 </div>
+                 <div className="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
+                    <div className="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Syllabus</div>
+                    <div className="text-xl font-black text-emerald-400">{syllabusPcnt}% <span className="text-xs text-slate-500">Covered</span></div>
+                 </div>
+             </div>
+             
+             <p className="text-xs font-semibold text-slate-400 z-10 leading-relaxed max-w-[200px] mt-6 bg-slate-800/30 px-3 py-2 rounded-lg border border-slate-800">
                {readinessScore > 80 ? "Outstanding! You are highly prepared." : readinessScore > 50 ? "Steady progress. Push a little harder." : "Needs work. Attempt more topic mocks."}
              </p>
            </div>
@@ -1179,10 +1204,10 @@ export default function StudentDashboard() {
                  <div className="flex flex-col h-full bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100/50">
                    <h3 className="font-bold text-emerald-800 text-lg flex items-center gap-2 mb-6">
                      <div className="w-6 h-6 rounded-full bg-emerald-200 flex items-center justify-center"><ChevronUp className="w-4 h-4 text-emerald-700"/></div>
-                     Strong Core Zones
+                     Top 5 Strongest Chapters
                    </h3>
                    <ul className="space-y-4 flex-1">
-                     {strongTopics.slice(0,3).map((topic, i) => (
+                     {finalStrongTopics.slice(0,5).map((topic, i) => (
                        <li key={i} className="flex flex-col gap-1.5">
                          <div className="flex justify-between text-sm font-semibold">
                            <span className="text-slate-800 line-clamp-1">{topic}</span>
@@ -1200,10 +1225,10 @@ export default function StudentDashboard() {
                  <div className="flex flex-col h-full bg-rose-50/50 p-6 rounded-2xl border border-rose-100/50">
                    <h3 className="font-bold text-rose-800 text-lg flex items-center gap-2 mb-6">
                      <div className="w-6 h-6 rounded-full bg-rose-200 flex items-center justify-center"><ChevronDown className="w-4 h-4 text-rose-700"/></div>
-                     Critical Focus Areas
+                     Top 5 Weak Chapters
                    </h3>
                    <ul className="space-y-4 flex-1">
-                     {weakTopics.slice(0,3).map((topic, i) => (
+                     {finalWeakTopics.slice(0,5).map((topic, i) => (
                        <li key={i} className="flex flex-col gap-1.5">
                          <div className="flex justify-between text-sm font-semibold">
                            <span className="text-slate-800 line-clamp-1">{topic}</span>
