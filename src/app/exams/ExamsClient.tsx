@@ -21,11 +21,11 @@ const categories = [
 ];
 
 const topExams = [
-    { name: "SSC CGL 2024", date: "Sep 2024", applicants: "30L+", tag: "Trending" },
-    { name: "JEE Main 2025", date: "Jan 2025", applicants: "12L+", tag: "Latest" },
-    { name: "NEET UG 2025", date: "May 2025", applicants: "24L+", tag: "Popular" },
-    { name: "UPSC Prelims", date: "May 2025", applicants: "14L+", tag: "Tough" },
-    { name: "IBPS PO", date: "Oct 2024", applicants: "8L+", tag: "New" }
+    { name: "SSC CGL 2024", date: "Sep 2024", applicants: "30L+", tag: "Trending", href: "/exams/ssc-exams" },
+    { name: "JEE Main 2025", date: "Jan 2025", applicants: "12L+", tag: "Latest", href: "/exams/engineering-entrance" },
+    { name: "NEET UG 2025", date: "May 2025", applicants: "24L+", tag: "Popular", href: "/exams/medical-entrance" },
+    { name: "UPSC Prelims", date: "May 2025", applicants: "14L+", tag: "Tough", href: "/exams/upsc-civil-services" },
+    { name: "IBPS PO", date: "Oct 2024", applicants: "8L+", tag: "New", href: "/exams/banking" }
 ];
 
 export default function ExamsClient() {
@@ -141,15 +141,15 @@ export default function ExamsClient() {
                         </div>
                         <div className="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 gap-4 snap-x hide-scrollbar">
                             {topExams.map((exam, i) => (
-                                <div key={i} className="min-w-[280px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 snap-start hover:border-primary/50 cursor-pointer shadow-sm hover:shadow-lg transition-all group">
+                                <Link key={i} href={exam.href} className="flex flex-col min-w-[280px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 snap-start hover:border-primary/50 cursor-pointer shadow-sm hover:shadow-lg transition-all group">
                                     <div className="flex justify-between items-start mb-4">
                                         <span className="text-xs font-bold px-2 py-1 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">{exam.tag}</span>
                                         <span className="text-xs font-bold text-slate-400">{exam.date}</span>
                                     </div>
                                     <h3 className="text-xl font-black text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">{exam.name}</h3>
                                     <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-6">{exam.applicants} Students Competing</p>
-                                    <div className="w-full text-center text-sm font-bold text-primary dark:text-accent group-hover:underline">Explore Test Series &rarr;</div>
-                                </div>
+                                    <div className="w-full text-center mt-auto text-sm font-bold text-primary dark:text-accent group-hover:underline">Explore Test Series &rarr;</div>
+                                </Link>
                             ))}
                         </div>
                     </div>
