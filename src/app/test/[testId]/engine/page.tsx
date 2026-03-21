@@ -242,6 +242,7 @@ function JEE_NTA_TestEngine() {
                     incorrect,
                     unattempted,
                     isNeet,
+                    timeTakenSeconds: (180 * 60) - timeLeft,
                     responses
                 };
 
@@ -250,7 +251,7 @@ function JEE_NTA_TestEngine() {
 
                 setIsSubmitted(true);
                 setTimeout(() => {
-                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}`);
+                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}&timeTaken=${(180 * 60) - timeLeft}`);
                 }, 1500);
             } catch (e) {
                 console.error("Could not save history", e);

@@ -135,7 +135,42 @@ export default function StudentDashboard() {
         .select('*')
         .eq('user_id', uid)
         .order('created_at', { ascending: false });
-      const userTests = (userTestsData as any[]) || [];
+      const userTestsDb = (userTestsData as any[]) || [];
+      
+      let localMockTests: any[] = [];
+      try {
+        const seriesIds = ['mock-eng-1', 'mock-eng-2', 'mock-med-1'];
+        seriesIds.forEach(sId => {
+          const hist = JSON.parse(localStorage.getItem(`exam_history_${sId}`) || '[]');
+          hist.forEach((h: any) => {
+             localMockTests.push({
+               id: h.attemptId,
+               created_at: h.date,
+               time_taken_seconds: h.timeTakenSeconds || (90 * 60), 
+               correct: h.correct,
+               wrong: h.incorrect,
+               skipped: h.unattempted,
+               score: h.score,
+               accuracy: h.correct + h.incorrect > 0 ? (h.correct / (h.correct + h.incorrect)) * 100 : 0,
+               series_id: sId,
+               test_id: h.testId,
+               subject: h.isNeet ? 'NEET' : 'JEE MAIN',
+               exam: h.isNeet ? 'NEET' : 'JEE MAIN'
+             });
+          });
+        });
+      } catch (e) {}
+
+      const dbMapped = userTestsDb.map((dbT: any) => ({
+        ...dbT,
+        time_taken_seconds: dbT.time_spent_seconds ?? dbT.time_taken_seconds ?? 0,
+        correct: dbT.correct_qs ?? dbT.correct ?? 0,
+        wrong: dbT.wrong_qs ?? dbT.wrong ?? 0,
+        skipped: dbT.skipped_qs ?? dbT.skipped ?? 0,
+      }));
+
+      const userTests = [...dbMapped, ...localMockTests].sort((a,b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      
       setAllUserTests(userTests);
 
       const testsAttempted = userTests.length;
@@ -205,41 +240,42 @@ export default function StudentDashboard() {
 
       const seriesIds = purchases.map((p: any) => p.series_id).filter(Boolean);
       let seriesById = new Map<string, any>();
+      
+      const mockSeriesForLists = [
+        { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', total_tests: 15, category: 'Engineering', exam: 'JEE Main', price_inr: 1299 },
+        { id: 'mock-eng-2', title: 'Vijay IIT Advance 2026 Test Series', total_tests: 35, category: 'Engineering', exam: 'JEE Advanced', price_inr: 1999 },
+        { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', total_tests: 20, category: 'Medical', exam: 'NEET', price_inr: 1499 }
+      ];
+
+      let purchasedSeries: any[] = [...mockSeriesForLists];
+      
       if (seriesIds.length > 0) {
-        let purchasedSeries: any[] = [];
-        
-        // Fetch from DB
-        const dbSeriesIds = seriesIds;
-        if (dbSeriesIds.length > 0) {
-          const { data: purchasedSeriesData } = await supabase
-            .from('test_series')
-            .select('*')
-            .in('id', dbSeriesIds);
-          if (purchasedSeriesData) purchasedSeries = [...purchasedSeriesData];
-        }
-
-        purchasedSeries.forEach((s: any) => seriesById.set(String(s.id), s));
-
-        setMyTestSeries(
-          purchasedSeries.map((s: any) => {
-            const totalTests = Number(s.total_tests) || 0;
-            const attempted = userTests.filter((t: any) => String(t.series_id) === String(s.id)).length;
-            const progress = totalTests > 0 ? Math.round((attempted / totalTests) * 100) : 0;
-            return {
-              id: s.id,
-              name: s.title,
-              progress,
-              totalTests,
-              attempted,
-              priceInr: s.price_inr ?? null,
-              category: s.category ?? null,
-              exam: s.exam ?? null,
-            };
-          })
-        );
-      } else {
-        setMyTestSeries([]);
+        const { data: purchasedSeriesData } = await supabase
+          .from('test_series')
+          .select('*')
+          .in('id', seriesIds);
+        if (purchasedSeriesData) purchasedSeries = [...purchasedSeries, ...purchasedSeriesData];
       }
+
+      purchasedSeries.forEach((s: any) => seriesById.set(String(s.id), s));
+
+      setMyTestSeries(
+        purchasedSeries.map((s: any) => {
+          const totalTests = Number(s.total_tests) || 0;
+          const attempted = userTests.filter((t: any) => String(t.series_id) === String(s.id)).length;
+          const progress = totalTests > 0 ? Math.round((attempted / totalTests) * 100) : 0;
+          return {
+            id: s.id,
+            name: s.title,
+            progress,
+            totalTests,
+            attempted,
+            priceInr: s.price_inr ?? null,
+            category: s.category ?? null,
+            exam: s.exam ?? null,
+          };
+        })
+      );
 
       setWalletPurchases(
         purchases.map((p: any) => {
@@ -261,7 +297,8 @@ export default function StudentDashboard() {
         .order('created_at', { ascending: false })
         .limit(100);
       const allSeries = (allSeriesData as any[]) || [];
-      let filteredSeries = [...allSeries];
+      
+      let filteredSeries = [...mockSeriesForLists, ...allSeries];
 
       const userTargetExam = profile?.target_exam?.toLowerCase() || '';
 
