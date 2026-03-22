@@ -157,6 +157,7 @@ export default function SeriesPage() {
   const [isPurchased, setIsPurchased] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -184,8 +185,7 @@ export default function SeriesPage() {
 
   const initiatePayment = async () => {
     if (!userId) {
-      alert("Please login first to enroll.");
-      router.push('/login');
+      setShowLoginModal(true);
       return;
     }
     setIsCheckoutLoading(true);
@@ -296,6 +296,7 @@ export default function SeriesPage() {
   const discountPercent = Math.round(((courseData.originalPrice - courseData.price) / courseData.originalPrice) * 100);
 
   return (
+    <>
     <div className="min-h-screen bg-[#f4f7fe] dark:bg-[#0b1120] font-sans text-slate-900 dark:text-slate-100 selection:bg-indigo-500/30">
       {/* Script for Razorpay */}
       <script src="https://checkout.razorpay.com/v1/checkout.js" async />
@@ -929,5 +930,31 @@ export default function SeriesPage() {
       </div>
 
     </div>
+
+    {showLoginModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+            <div className="absolute inset-0 cursor-pointer" onClick={() => setShowLoginModal(false)}></div>
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden relative z-10 animate-in zoom-in-95 duration-200">
+                <div className="p-8 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6 border border-indigo-100 dark:border-indigo-500/20">
+                        <Lock className="w-8 h-8 shrink-0" />
+                    </div>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Login Required</h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
+                        You need to be signed in to purchase this Test Series and unlock your potential. Secure your access now!
+                    </p>
+                    <div className="flex flex-col w-full gap-3">
+                       <button onClick={() => router.push('/login')} className="w-full py-3.5 rounded-xl font-bold bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shadow-md shadow-indigo-600/20 flex justify-center items-center gap-2">
+                           Proceed to Login
+                       </button>
+                       <button onClick={() => setShowLoginModal(false)} className="w-full py-3.5 rounded-xl font-bold text-slate-500 hover:text-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                           Cancel
+                       </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      )}
+    </>
   );
 }
