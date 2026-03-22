@@ -840,7 +840,7 @@ export default function StudentDashboard() {
           <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight">Welcome back, {studentInfo.name.split(' ')[0]}!</h1>
           <p className="text-slate-400 mb-8 font-medium text-sm md:text-base max-w-lg leading-relaxed">You're making incredible progress. Keep up the momentum to secure your top rank in upcoming exams.</p>
           
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
             <button
               onClick={() => {
                 if (lastAttempt && lastAttempt.series_id) {
@@ -898,13 +898,13 @@ export default function StudentDashboard() {
           { label: "All India Rank", value: `#${studentInfo.stats.rank}`, icon: Award, color: "text-amber-600", bg: "bg-amber-50" },
           { label: "Time Spent", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-rose-600", bg: "bg-rose-50" },
         ].map((stat, i) => (
-          <div key={i} className="bg-white rounded-3xl p-6 border border-slate-200/60 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
-            <div>
-              <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-2">{stat.label}</p>
-              <h3 className="text-3xl font-black text-slate-900 tracking-tight">{stat.value}</h3>
+          <div key={i} className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-slate-200/60 shadow-sm flex items-start md:items-center justify-between hover:shadow-md transition-shadow flex-col md:flex-row gap-3 md:gap-4 overflow-hidden">
+            <div className="min-w-0">
+              <p className="text-[10px] md:text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1 md:mb-2 truncate">{stat.label}</p>
+              <h3 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight truncate">{stat.value}</h3>
             </div>
-            <div className={`p-4 rounded-2xl ${stat.bg} ${stat.color}`}>
-              <stat.icon className="w-7 h-7" />
+            <div className={`p-3 md:p-4 rounded-xl md:rounded-2xl shrink-0 ${stat.bg} ${stat.color} absolute md:relative right-4 top-4 md:right-auto md:top-auto`}>
+              <stat.icon className="w-5 h-5 md:w-7 md:h-7" />
             </div>
           </div>
         ))}
@@ -919,17 +919,17 @@ export default function StudentDashboard() {
              <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
                <Zap className="w-5 h-5 text-indigo-500" /> Actions Hub
              </h2>
-             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
                 {quickActions.map((action, i) => (
                   <button
                     key={i}
                     onClick={action.action}
-                    className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-4 group"
+                    className="bg-white p-3 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-2 md:gap-4 group"
                   >
-                    <div className={`p-3.5 rounded-2xl bg-slate-50 text-slate-500 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors`}>
-                      <action.icon className="w-6 h-6" />
+                    <div className={`p-2.5 md:p-3.5 rounded-xl md:rounded-2xl bg-slate-50 text-slate-500 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors`}>
+                      <action.icon className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <span className="font-bold text-xs text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors">{action.title}</span>
+                    <span className="font-bold text-[10px] md:text-xs text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors leading-tight">{action.title}</span>
                   </button>
                 ))}
              </div>
@@ -945,13 +945,13 @@ export default function StudentDashboard() {
              </div>
              <div className="space-y-4">
               {myTestSeries.length === 0 ? (
-                 <div className="p-8 text-center rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm flex flex-col items-center justify-center gap-4">
-                   <div className="w-14 h-14 bg-white rounded-full shadow-sm flex items-center justify-center">
-                     <Sparkles className="w-7 h-7 text-indigo-500" />
+                 <div className="p-6 md:p-8 text-center rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm flex flex-col items-center justify-center gap-3 md:gap-4">
+                   <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-sm flex items-center justify-center">
+                     <Sparkles className="w-6 h-6 md:w-7 md:h-7 text-indigo-500" />
                    </div>
                    <div>
-                     <h3 className="font-black text-indigo-900 text-lg mb-1">Get Started with Test Series</h3>
-                     <p className="text-sm text-indigo-700/80 font-medium max-w-sm mx-auto mb-5">
+                     <h3 className="font-black text-indigo-900 text-base md:text-lg mb-1">Get Started with Test Series</h3>
+                     <p className="text-xs md:text-sm text-indigo-700/80 font-medium max-w-full md:max-w-sm mx-auto mb-4 md:mb-5 px-2 md:px-0 leading-relaxed">
                        Explore available test series and start practicing for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'your'} exam.
                      </p>
                      <button
@@ -1241,39 +1241,39 @@ export default function StudentDashboard() {
         
         {/* Top High-level KPI Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+          <div className="bg-white p-4 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
             <div className="absolute -right-4 -top-4 w-16 h-16 bg-blue-50 rounded-full group-hover:scale-150 transition-transform duration-500 z-0"></div>
             <div className="relative z-10">
-              <Activity className="w-6 h-6 text-blue-500 mb-3"/>
-              <span className="text-slate-400 text-xs font-black uppercase tracking-widest mb-1 block">Global Acc.</span>
-              <span className="text-3xl font-black text-slate-800 tracking-tighter">{baseAcc}%</span>
+              <Activity className="w-5 h-5 md:w-6 md:h-6 text-blue-500 mb-2 md:mb-3"/>
+              <span className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 block truncate">Global Acc.</span>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 tracking-tighter truncate">{baseAcc}%</span>
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-amber-200 transition-colors">
+          <div className="bg-white p-4 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-amber-200 transition-colors">
             <div className="absolute -right-4 -top-4 w-16 h-16 bg-amber-50 rounded-full group-hover:scale-150 transition-transform duration-500 z-0"></div>
             <div className="relative z-10">
-              <Award className="w-6 h-6 text-amber-500 mb-3"/>
-              <span className="text-slate-400 text-xs font-black uppercase tracking-widest mb-1 block">Best Rank</span>
-              <span className="text-3xl font-black text-slate-800 tracking-tighter">{computedBestRank !== 'N/A' ? `#${computedBestRank}` : 'N/A'}</span>
+              <Award className="w-5 h-5 md:w-6 md:h-6 text-amber-500 mb-2 md:mb-3"/>
+              <span className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 block truncate">Best Rank</span>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 tracking-tighter truncate">{computedBestRank !== 'N/A' ? `#${computedBestRank}` : 'N/A'}</span>
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-emerald-200 transition-colors">
+          <div className="bg-white p-4 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-emerald-200 transition-colors">
             <div className="absolute -right-4 -top-4 w-16 h-16 bg-emerald-50 rounded-full group-hover:scale-150 transition-transform duration-500 z-0"></div>
             <div className="relative z-10">
-              <Target className="w-6 h-6 text-emerald-500 mb-3"/>
-              <span className="text-slate-400 text-xs font-black uppercase tracking-widest mb-1 block">Avg Score</span>
-              <span className="text-3xl font-black text-slate-800 tracking-tighter">{avgScore} <span className="text-lg text-slate-400 font-bold">pts</span></span>
+              <Target className="w-5 h-5 md:w-6 md:h-6 text-emerald-500 mb-2 md:mb-3"/>
+              <span className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 block truncate">Avg Score</span>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 tracking-tighter truncate">{avgScore} <span className="text-xs md:text-lg text-slate-400 font-bold whitespace-nowrap">pts</span></span>
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-colors">
+          <div className="bg-white p-4 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-colors">
             <div className="absolute -right-4 -top-4 w-16 h-16 bg-rose-50 rounded-full group-hover:scale-150 transition-transform duration-500 z-0"></div>
             <div className="relative z-10">
-              <Clock className="w-6 h-6 text-rose-500 mb-3"/>
-              <span className="text-slate-400 text-xs font-black uppercase tracking-widest mb-1 block">Pace / Question</span>
-              <span className="text-3xl font-black text-slate-800 tracking-tighter">{avgTimePerQ} <span className="text-lg text-slate-400 font-bold">sec</span></span>
+              <Clock className="w-5 h-5 md:w-6 md:h-6 text-rose-500 mb-2 md:mb-3"/>
+              <span className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 block truncate">Pace / Qns</span>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 tracking-tighter truncate">{avgTimePerQ} <span className="text-xs md:text-lg text-slate-400 font-bold whitespace-nowrap">sec</span></span>
             </div>
           </div>
         </div>
@@ -1550,71 +1550,75 @@ export default function StudentDashboard() {
                <span className="bg-indigo-700/50 border border-indigo-500/50 px-3 py-1 rounded text-xs font-bold tracking-widest uppercase">Daily Live</span>
             </div>
 
-            <div className="flex border-b bg-slate-50 min-w-[500px] overflow-x-auto">
-              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase w-20 text-center">Rank</div>
-              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase flex-1">Student Profile</div>
-              <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase text-right w-32">Daily Score</div>
-            </div>
-
-            <div className="p-0 min-w-[500px] overflow-x-auto">
-              {simulatedRows.map((user: any) => (
-                <div key={user.user_id} className={`flex items-center border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 relative' : 'hover:bg-neutral-50'} py-3 px-2`}>
-                  {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
-                  
-                  <div className="w-20 text-center shrink-0">
-                    <span className={`font-black text-xl ${user.rank === 1 ? 'text-amber-500 drop-shadow-sm' : user.rank === 2 ? 'text-slate-400 drop-shadow-sm' : user.rank === 3 ? 'text-amber-700 drop-shadow-sm' : 'text-slate-500'}`}>
-                      #{user.rank}
-                    </span>
-                  </div>
-                  
-                  <div className="flex-1 flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold overflow-hidden border-2 shadow-sm shrink-0 ${user.rank === 1 ? 'border-amber-400' : user.rank === 2 ? 'border-slate-300' : user.rank === 3 ? 'border-amber-600' : 'border-slate-200 bg-slate-100'}`}>
-                      {user.avatarUrl ? (
-                        <img src={user.avatarUrl} alt={user.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="text-slate-600">{user.name?.charAt(0) || 'S'}</span>
-                      )}
-                    </div>
-                    <div className="flex flex-col">
-                      <div className={`font-bold text-base flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-slate-800'}`}>
-                        {user.name}
-                        {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
-                      </div>
-                      <div className="text-xs font-semibold text-slate-500">
-                         {user.rank <= 3 ? 'Top Scorer' : 'Excellent Performer'}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-32 text-right pr-6 shrink-0">
-                    <div className="font-black text-xl text-slate-800 tracking-tight">{user.score}</div>
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
-                  </div>
+            <div className="overflow-x-auto w-full">
+              <div className="min-w-[500px] flex flex-col">
+                <div className="flex border-b bg-slate-50">
+                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase w-20 text-center">Rank</div>
+                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase flex-1">Student Profile</div>
+                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase text-right w-32">Daily Score</div>
                 </div>
-              ))}
+
+                <div className="p-0 flex flex-col">
+                  {simulatedRows.map((user: any) => (
+                    <div key={user.user_id} className={`flex items-center border-b last:border-0 transition-colors ${user.isMe ? 'bg-indigo-50/50 relative' : 'hover:bg-neutral-50'} py-3 px-2`}>
+                      {user.isMe && <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>}
+                      
+                      <div className="w-20 text-center shrink-0">
+                        <span className={`font-black text-xl ${user.rank === 1 ? 'text-amber-500 drop-shadow-sm' : user.rank === 2 ? 'text-slate-400 drop-shadow-sm' : user.rank === 3 ? 'text-amber-700 drop-shadow-sm' : 'text-slate-500'}`}>
+                          #{user.rank}
+                        </span>
+                      </div>
+                      
+                      <div className="flex-1 flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold overflow-hidden border-2 shadow-sm shrink-0 ${user.rank === 1 ? 'border-amber-400' : user.rank === 2 ? 'border-slate-300' : user.rank === 3 ? 'border-amber-600' : 'border-slate-200 bg-slate-100'}`}>
+                          {user.avatarUrl ? (
+                            <img src={user.avatarUrl} alt={user.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <span className="text-slate-600">{user.name?.charAt(0) || 'S'}</span>
+                          )}
+                        </div>
+                        <div className="flex flex-col">
+                          <div className={`font-bold text-base flex items-center gap-2 ${user.isMe ? 'text-indigo-900' : 'text-slate-800'}`}>
+                            {user.name}
+                            {user.isMe && <span className="text-[10px] uppercase font-black bg-indigo-600 text-white px-2 py-0.5 rounded shadow-sm">You</span>}
+                          </div>
+                          <div className="text-xs font-semibold text-slate-500">
+                             {user.rank <= 3 ? 'Top Scorer' : 'Excellent Performer'}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="w-32 text-right pr-6 shrink-0">
+                        <div className="font-black text-xl text-slate-800 tracking-tight">{user.score}</div>
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             
             {hasAttempted && myRankInTop10 === -1 && (
-              <div className="bg-slate-900 px-6 py-4 flex items-center justify-between mt-2 rounded-b-xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.3)] relative z-10">
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 text-center">
-                       <span className="font-black text-slate-400 text-lg">---</span>
+              <div className="bg-slate-900 px-4 md:px-6 py-4 flex flex-row items-center justify-between mt-2 rounded-b-xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.3)] relative z-10 gap-2">
+                 <div className="flex items-center gap-2 md:gap-4 min-w-0">
+                    <div className="w-8 md:w-10 text-center shrink-0">
+                       <span className="font-black text-slate-400 text-base md:text-lg">---</span>
                     </div>
-                    <div className="w-10 h-10 rounded-full border-2 border-indigo-500 overflow-hidden bg-slate-800">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-indigo-500 overflow-hidden bg-slate-800 shrink-0">
                        {studentInfo?.avatarUrl ? (
                           <img src={studentInfo?.avatarUrl} className="w-full h-full object-cover" />
                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-white font-bold">You</div>
+                          <div className="w-full h-full flex items-center justify-center text-white font-bold text-xs md:text-base">You</div>
                        )}
                     </div>
-                    <div>
-                       <div className="text-white font-bold flex items-center gap-2">{studentInfo?.name || 'You'} <span className="text-[10px] bg-slate-700 px-2 py-0.5 rounded uppercase tracking-wider">Your Best</span></div>
-                       <div className="text-xs text-slate-400 font-medium">Keep practicing to reach Top 10!</div>
+                    <div className="min-w-0">
+                       <div className="text-white font-bold flex items-center gap-2 truncate text-sm md:text-base">{studentInfo?.name || 'You'} <span className="hidden sm:inline-block text-[10px] bg-slate-700 px-2 py-0.5 rounded uppercase tracking-wider">Your Best</span></div>
+                       <div className="text-[10px] md:text-xs text-slate-400 font-medium truncate">Keep practicing to reach Top 10!</div>
                     </div>
                  </div>
-                 <div className="text-right">
-                    <div className="font-black text-xl text-indigo-400">{myBestScore}</div>
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
+                 <div className="text-right shrink-0">
+                    <div className="font-black text-lg md:text-xl text-indigo-400">{myBestScore}</div>
+                    <div className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Points</div>
                  </div>
               </div>
             )}
