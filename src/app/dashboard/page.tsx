@@ -242,9 +242,9 @@ export default function StudentDashboard() {
       let seriesById = new Map<string, any>();
       
       const mockSeriesForLists = [
-        { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', total_tests: 15, category: 'Engineering', exam: 'JEE Main', price_inr: 1299 },
+        { id: 'mock-eng-1', title: 'Shikhar JEE Main 2026 Test Series', total_tests: 15, category: 'Engineering', exam: 'JEE Main', price_inr: 1399 },
         { id: 'mock-eng-2', title: 'Vijay IIT Advance 2026 Test Series', total_tests: 35, category: 'Engineering', exam: 'JEE Advanced', price_inr: 1999 },
-        { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', total_tests: 20, category: 'Medical', exam: 'NEET', price_inr: 1499 }
+        { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', total_tests: 20, category: 'Medical', exam: 'NEET', price_inr: 2999 }
       ];
 
       let purchasedSeries: any[] = [...mockSeriesForLists];
