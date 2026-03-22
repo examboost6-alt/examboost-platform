@@ -447,15 +447,21 @@ export default function SeriesPage() {
                             </div>
                           </div>
                           {!test.isLocked ? (
-                            <Link
-                              href={`/test/${test.id}/instructions`}
+                            <button
+                              onClick={() => {
+                                if (!userId) {
+                                  setShowLoginModal(true);
+                                } else {
+                                  router.push(`/test/${test.id}/instructions`);
+                                }
+                              }}
                               className={`w-full sm:w-auto px-5 py-2.5 rounded-xl border font-bold text-sm flex items-center justify-center gap-2 transition-all shrink-0 ${isIntensive
                                   ? 'bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 shadow-md shadow-orange-500/20 text-white border-transparent'
                                   : 'border-indigo-200 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30'
                                 }`}
                             >
                               <PlayCircle className="w-4 h-4" /> Start
-                            </Link>
+                            </button>
                           ) : (
                             <button
                               onClick={initiatePayment}
