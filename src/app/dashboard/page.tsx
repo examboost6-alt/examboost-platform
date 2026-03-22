@@ -828,7 +828,7 @@ export default function StudentDashboard() {
   const DashboardOverview = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Welcome Banner */}
-      <div className="bg-slate-900 w-full rounded-3xl p-8 md:p-10 text-white relative flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl shadow-slate-900/10 overflow-hidden">
+      <div className="bg-slate-900 w-full rounded-3xl p-5 sm:p-6 md:p-10 text-white relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 border border-slate-800 shadow-xl shadow-slate-900/10 overflow-hidden">
         
         {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -838,7 +838,7 @@ export default function StudentDashboard() {
             <Trophy className="w-4 h-4 text-amber-400" /> {studentInfo.stats.rank && studentInfo.stats.rank !== 'N/A' ? `AIR #${studentInfo.stats.rank}` : 'Rank Locked'}
           </div>
           <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight">Welcome back, {studentInfo.name.split(' ')[0]}!</h1>
-          <p className="text-slate-400 mb-8 font-medium text-sm md:text-base max-w-lg leading-relaxed">You're making incredible progress. Keep up the momentum to secure your top rank in upcoming exams.</p>
+          <p className="text-slate-400 mb-6 md:mb-8 font-medium text-sm md:text-base max-w-lg leading-relaxed">You're making incredible progress. Keep up the momentum to secure your top rank in upcoming exams.</p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start w-full">
             <button
@@ -898,7 +898,7 @@ export default function StudentDashboard() {
           { label: "All India Rank", value: `#${studentInfo.stats.rank}`, icon: Award, color: "text-amber-600", bg: "bg-amber-50" },
           { label: "Time Spent", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-rose-600", bg: "bg-rose-50" },
         ].map((stat, i) => (
-          <div key={i} className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-slate-200/60 shadow-sm flex items-start md:items-center justify-between hover:shadow-md transition-shadow flex-col md:flex-row gap-3 md:gap-4 overflow-hidden">
+          <div key={i} className="relative bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-slate-200/60 shadow-sm flex items-start md:items-center justify-between hover:shadow-md transition-shadow flex-col md:flex-row gap-3 md:gap-4 overflow-hidden">
             <div className="min-w-0">
               <p className="text-[10px] md:text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1 md:mb-2 truncate">{stat.label}</p>
               <h3 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight truncate">{stat.value}</h3>
@@ -916,15 +916,15 @@ export default function StudentDashboard() {
          {/* Main Column */}
          <div className="lg:col-span-2 space-y-6 md:space-y-8">
            <div>
-             <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
-               <Zap className="w-5 h-5 text-indigo-500" /> Actions Hub
-             </h2>
-             <div className="flex overflow-x-auto sm:grid sm:grid-cols-4 gap-3 md:gap-4 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 scrollbar-hide snap-x">
+            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
+              <Zap className="w-5 h-5 text-indigo-500" /> Actions Hub
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
                 {quickActions.map((action, i) => (
                   <button
                     key={i}
                     onClick={action.action}
-                    className="bg-white p-4 md:p-5 min-w-[130px] sm:min-w-0 rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-3 group snap-start shrink-0"
+                    className="bg-white p-3.5 sm:p-4 md:p-5 w-full rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-2.5 sm:gap-3 group"
                   >
                     <div className={`p-3 md:p-3.5 rounded-xl md:rounded-2xl bg-slate-50 text-slate-500 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors`}>
                       <action.icon className="w-6 h-6" />
@@ -932,8 +932,8 @@ export default function StudentDashboard() {
                     <span className="font-bold text-[10px] md:text-xs text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors leading-tight px-1">{action.title}</span>
                   </button>
                 ))}
-             </div>
-           </div>
+            </div>
+          </div>
 
            {/* My Active Test Series */}
            <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 shadow-sm p-5 md:p-8">
@@ -993,16 +993,16 @@ export default function StudentDashboard() {
          </div>
 
          {/* Right Sidebar Column */}
-         <div className="space-y-6 md:space-y-8">
+           <div className="space-y-6 md:space-y-8">
             <div>
               <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
                 <Sparkles className="w-5 h-5 text-indigo-500" /> Featured Courses
               </h2>
-              <div className="bg-white rounded-3xl border border-slate-200/60 shadow-sm p-6 space-y-5">
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/60 shadow-sm p-5 sm:p-6 space-y-4 sm:space-y-5">
                 {recommendedTests.slice(0, 4).map((test) => (
                   <div key={test.id} onClick={() => setActiveTab('courses')} className="group cursor-pointer">
                     <div className="flex gap-4 items-center">
-                      <div className="w-16 h-16 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0 overflow-hidden relative">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0 overflow-hidden relative">
                          <img src={`https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=400&sat=-100`} alt="" className="w-full h-full object-cover opacity-80 mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1034,7 +1034,7 @@ export default function StudentDashboard() {
          <BookOpen className="w-6 h-6 text-slate-500" /> My Test Series
        </h1>
        <p className="text-sm text-slate-500 font-medium -mt-4">Track progress for test series you have actively enrolled in or purchased.</p>
-       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {myTestSeries.length === 0 ? (
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-6 text-slate-700 font-semibold col-span-full text-center">
               No purchased test series found.
@@ -1044,7 +1044,7 @@ export default function StudentDashboard() {
             </div>
           ) : myTestSeries.map((ts) => (
             <div key={ts.id} className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow overflow-hidden flex flex-col justify-between">
-               <div className="p-5">
+               <div className="p-4 sm:p-5">
                   <h3 className="font-bold text-lg mb-1 text-slate-800">{ts.name}</h3>
                   <p className="text-sm text-slate-500 mb-4 font-medium">{ts.totalTests} Total Tests • {ts.attempted} Attempted</p>
                   <div className="w-full bg-slate-100 rounded-full h-2 mb-2">
@@ -1075,13 +1075,13 @@ export default function StudentDashboard() {
         </div>
         <span className="bg-emerald-100/50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg text-sm font-bold w-max">Practice Mode Active</span>
       </div>
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {freeTests.length === 0 ? (
           <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm text-neutral-700 font-semibold">
             No free tests available right now.
           </div>
         ) : freeTests.map(test => (
-          <div key={test.id} className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+          <div key={test.id} className="bg-white p-4 sm:p-5 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex justify-between items-start mb-4">
               <span className="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-1 rounded">{test.type}</span>
               <div className="flex items-center text-neutral-500 text-sm gap-1">
@@ -1279,10 +1279,10 @@ export default function StudentDashboard() {
         </div>
 
         {/* Middle Complex Section */}
-        <div className="grid lg:grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
            
            {/* Ultimate Exam Readiness Dial */}
-           <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
+           <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
              
              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/5 z-0 pointer-events-none"></div>
 
@@ -1332,12 +1332,12 @@ export default function StudentDashboard() {
            </div>
 
            {/* Strengths & Weaknesses Split */}
-           <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-200/60 shadow-sm p-6 md:p-8 flex flex-col justify-between">
+           <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-200/60 shadow-sm p-5 sm:p-6 md:p-8 flex flex-col justify-between">
               
-              <div className="grid md:grid-cols-2 gap-8 h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 h-full">
                  
                  {/* Strong Zones */}
-                 <div className="flex flex-col h-full bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100/50">
+                 <div className="flex flex-col h-full bg-emerald-50/50 p-5 sm:p-6 rounded-2xl border border-emerald-100/50">
                    <h3 className="font-bold text-emerald-800 text-lg flex items-center gap-2 mb-6">
                      <div className="w-6 h-6 rounded-full bg-emerald-200 flex items-center justify-center"><ChevronUp className="w-4 h-4 text-emerald-700"/></div>
                      Top 5 Strongest Chapters
@@ -1358,7 +1358,7 @@ export default function StudentDashboard() {
                  </div>
 
                  {/* Weak Zones */}
-                 <div className="flex flex-col h-full bg-rose-50/50 p-6 rounded-2xl border border-rose-100/50">
+                 <div className="flex flex-col h-full bg-rose-50/50 p-5 sm:p-6 rounded-2xl border border-rose-100/50">
                    <h3 className="font-bold text-rose-800 text-lg flex items-center gap-2 mb-6">
                      <div className="w-6 h-6 rounded-full bg-rose-200 flex items-center justify-center"><ChevronDown className="w-4 h-4 text-rose-700"/></div>
                      Top 5 Weak Chapters
@@ -1550,12 +1550,12 @@ export default function StudentDashboard() {
                <span className="bg-indigo-700/50 border border-indigo-500/50 px-3 py-1 rounded text-xs font-bold tracking-widest uppercase">Daily Live</span>
             </div>
 
-            <div className="overflow-x-auto w-full">
-              <div className="min-w-[500px] flex flex-col">
+            <div className="overflow-x-auto w-full -mx-3 px-3 sm:mx-0 sm:px-0 scrollbar-hide">
+              <div className="min-w-[420px] sm:min-w-[500px] flex flex-col">
                 <div className="flex border-b bg-slate-50">
                   <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase w-20 text-center">Rank</div>
-                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase flex-1">Student Profile</div>
-                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase text-right w-32">Daily Score</div>
+                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase flex-1">Student</div>
+                  <div className="px-6 py-3 font-semibold text-slate-500 text-xs tracking-widest uppercase w-24 text-right">Score</div>
                 </div>
 
                 <div className="p-0 flex flex-col">
@@ -1658,7 +1658,7 @@ export default function StudentDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl border border-slate-200 p-2 flex overflow-x-auto gap-2 shadow-sm shrink-0">
+        <div className="bg-white rounded-xl border border-slate-200 p-2 flex overflow-x-auto gap-2 shadow-sm shrink-0 scrollbar-hide">
            {last7Days.map(d => {
               const isSelected = d.getTime() === selectedDate;
               const hasTest = allUserTests.some((t: any) => { const td = new Date(t.created_at); td.setHours(0,0,0,0); return td.getTime() === d.getTime(); });
@@ -2378,7 +2378,7 @@ export default function StudentDashboard() {
         className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto overflow-x-hidden no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
         style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'none' }}
       >
-        <div className="p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
+        <div className="p-4 sm:p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
           <span className="text-2xl font-black text-slate-800 tracking-tight w-full flex items-center gap-2 overflow-hidden whitespace-nowrap">
             <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center rotate-3">
               <span className="text-white text-lg font-bold -rotate-3">E</span>
@@ -2423,7 +2423,7 @@ export default function StudentDashboard() {
       <main className={`flex-1 flex flex-col min-h-screen overflow-x-hidden w-full transition-all duration-300 pt-0 ${!isMobile && sidebarOpen ? 'pl-[17rem]' : ''}`}>
         
         {/* Top Header */}
-        <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 px-4 md:px-8 py-3.5 flex items-center justify-between supports-[backdrop-filter]:bg-white/50">
+        <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 px-3 sm:px-4 md:px-8 py-3.5 flex items-center justify-between supports-[backdrop-filter]:bg-white/50">
            <div className="flex items-center gap-4 text-slate-800">
              <button aria-label="Toggle sidebar" onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
                <Menu className="w-5 h-5 text-slate-600" />
@@ -2468,7 +2468,7 @@ export default function StudentDashboard() {
         </header>
 
         {/* Dynamic Inner Content */}
-        <div className="p-4 md:p-8 flex-1 w-full max-w-7xl mx-auto">
+        <div className="px-3 py-4 sm:px-4 md:p-8 flex-1 w-full max-w-7xl mx-auto">
           {renderContent()}
         </div>
       </main>
