@@ -2350,11 +2350,10 @@ export default function StudentDashboard() {
         )}
       </AnimatePresence>
 
-      {/* Sidebar Navigation */}
       <motion.aside
         initial={false}
-        animate={{ width: sidebarOpen ? "17rem" : "0rem" }}
-        className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
+        animate={{ width: sidebarOpen || isMobile ? "17rem" : "0rem" }}
+        className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto overflow-x-hidden no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
         style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'none' }}
       >
         <div className="p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
