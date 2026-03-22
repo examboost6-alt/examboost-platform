@@ -47,8 +47,14 @@ const mockPackages: any[] = [];
 export default function StudentDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("overview");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    return window.innerWidth >= 1024;
+  });
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 1024;
+  });
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
@@ -141,12 +147,19 @@ export default function StudentDashboard() {
         }));
       }
 
-      const { data: userTestsData } = await supabase
-        .from('user_tests')
-        .select('*')
-        .eq('user_id', uid)
-        .order('created_at', { ascending: false });
-      const userTestsDb = (userTestsData as any[]) || [];
+      let userTestsDb: any[] = [];
+      {
+        const { data, error } = await supabase
+          .from('user_tests')
+          .select('*')
+          .eq('user_id', uid)
+          .order('created_at', { ascending: false });
+        if (!error) {
+          userTestsDb = (data as any[]) || [];
+        } else {
+          userTestsDb = [];
+        }
+      }
       
       let localMockTests: any[] = [];
       try {
@@ -486,16 +499,18 @@ export default function StudentDashboard() {
         skipped: computed.skipped,
       }));
 
-      try {
-        const { data: notifData } = await supabase
+      {
+        const { data: notifData, error } = await supabase
           .from('notifications')
           .select('*')
           .eq('user_id', uid)
           .order('created_at', { ascending: false })
           .limit(20);
-        setNotifications((notifData as any[]) || []);
-      } catch {
-        setNotifications([]);
+        if (!error) {
+          setNotifications((notifData as any[]) || []);
+        } else {
+          setNotifications([]);
+        }
       }
 
       const bySubject = new Map<string, { attempts: number; accuracySum: number }>();
