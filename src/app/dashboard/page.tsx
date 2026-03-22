@@ -73,6 +73,7 @@ export default function StudentDashboard() {
   const [editForm, setEditForm] = useState({ name: '', targetExam: '', email: '' });
   const [editingLoading, setEditingLoading] = useState(false);
   const [editPhotoFile, setEditPhotoFile] = useState<File | null>(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -2127,7 +2128,7 @@ export default function StudentDashboard() {
                 <p className="text-xs text-slate-500 font-medium mt-0.5">Permanently delete your account and data.</p>
               </div>
               <button 
-                onClick={() => alert("Please contact support to delete your account.")}
+                onClick={() => setShowDeleteModal(true)}
                 className="bg-red-50 border text-sm border-red-200 text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-red-100 transition-colors"
               >
                 Delete
@@ -2136,6 +2137,42 @@ export default function StudentDashboard() {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {showDeleteModal && (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }} 
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+          >
+              <div className="absolute inset-0 cursor-pointer" onClick={() => setShowDeleteModal(false)}></div>
+              <motion.div 
+                 initial={{ scale: 0.95, opacity: 0 }} 
+                 animate={{ scale: 1, opacity: 1 }} 
+                 exit={{ scale: 0.95, opacity: 0 }} 
+                 className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden relative z-10"
+              >
+                  <div className="p-6">
+                      <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4 mx-auto border border-red-100">
+                          <svg className="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Delete Account</h3>
+                      <p className="text-slate-500 text-sm text-center mb-6 leading-relaxed">
+                          Your account and all associated test data will be permanently erased. To confirm and execute this action, please contact our support team.
+                      </p>
+                      <div className="flex gap-3">
+                         <button onClick={() => setShowDeleteModal(false)} className="flex-1 py-2.5 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm">Cancel</button>
+                         <a href="mailto:support@examboost.in?subject=Account Deletion Request" onClick={() => setShowDeleteModal(false)} className="flex-1 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md shadow-red-600/20 flex justify-center items-center gap-2 text-sm border border-transparent hover:border-red-500">Contact Support</a>
+                      </div>
+                  </div>
+              </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 
