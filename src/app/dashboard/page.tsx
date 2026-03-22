@@ -915,92 +915,98 @@ export default function StudentDashboard() {
       <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mt-4">
          
          {/* Main Column */}
-         <div className="lg:col-span-2 space-y-6 md:space-y-8 min-w-0">
+         {/* Main Column */}
+         <div className="lg:col-span-2 space-y-6 md:space-y-8 min-w-0 w-full">
            
-           {/* Actions Hub */}
-           <div>
+           {/* Actions Hub (Redesigned as vertical list on mobile) */}
+           <div className="w-full min-w-0">
             <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
-              <Zap className="w-5 h-5 text-indigo-500" /> Actions Hub
+              <Zap className="w-5 h-5 text-indigo-500 shrink-0" /> Actions Hub
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 w-full">
                 {quickActions.map((action, i) => (
                   <button
                     key={i}
                     onClick={action.action}
-                    className="bg-white p-3 sm:p-5 rounded-2xl sm:rounded-[20px] border border-slate-200/60 shadow-sm hover:border-indigo-300 hover:shadow-md hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-2.5 sm:gap-3 group active:scale-95 min-w-0"
+                    className="w-full bg-white p-4 sm:p-5 rounded-2xl sm:rounded-[20px] border border-slate-200/60 shadow-sm hover:border-indigo-300 hover:shadow-md hover:-translate-y-1 transition-all flex items-center text-left gap-4 group active:scale-95 shrink-0 relative overflow-hidden"
                   >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:text-white group-hover:bg-indigo-600 shadow-sm transition-all duration-300 shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white shadow-sm transition-all duration-300 relative z-10">
                       <action.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="font-bold text-[10px] sm:text-xs text-slate-700 uppercase tracking-widest sm:tracking-wide group-hover:text-indigo-700 transition-colors leading-tight px-0.5 sm:px-1 w-full truncate sm:whitespace-normal sm:text-balance">
-                       {action.title}
-                    </span>
+                    <div className="flex-1 min-w-0 pr-2 relative z-10">
+                      <span className="block font-bold text-xs sm:text-sm text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors truncate w-full">
+                         {action.title}
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-indigo-500 transition-colors flex-shrink-0 relative z-10" />
                   </button>
                 ))}
             </div>
            </div>
 
-           {/* My Active Test Series */}
-           <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 shadow-sm p-4 sm:p-6 md:p-8 mt-6">
+           {/* My Active Test Series (Redesigned completely) */}
+           <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 shadow-sm p-4 sm:p-6 md:p-8 mt-6 w-full min-w-0">
              <div className="flex justify-between items-center mb-5 sm:mb-6">
                <h2 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                 <BookOpen className="w-5 h-5 text-indigo-500" /> Active Series
+                 <BookOpen className="w-5 h-5 text-indigo-500 shrink-0" /> Active Series
                </h2>
-               <button onClick={() => setActiveTab("my-tests")} className="text-xs sm:text-sm text-indigo-600 font-bold hover:text-indigo-700 flex items-center gap-0.5 transition-colors px-3 py-1.5 rounded-full bg-indigo-50 hover:bg-indigo-100 shrink-0">
-                 View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-0.5" />
+               <button onClick={() => setActiveTab("my-tests")} className="text-xs sm:text-sm text-indigo-600 font-bold hover:text-indigo-700 flex items-center gap-1 transition-colors px-3 py-1.5 rounded-full bg-indigo-50 hover:bg-indigo-100 shrink-0">
+                 View All <span className="hidden sm:inline">Series</span> <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                </button>
              </div>
              
-             <div className="space-y-4">
+             <div className="space-y-4 sm:space-y-5 w-full">
               {myTestSeries.length === 0 ? (
-                 <div className="p-6 md:p-8 text-center rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col items-center justify-center gap-4">
-                   <div className="w-14 h-14 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center">
+                 <div className="p-6 md:p-8 text-center rounded-2xl lg:rounded-3xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-4 w-full">
+                   <div className="w-14 h-14 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center">
                      <Sparkles className="w-6 h-6 text-indigo-500" />
                    </div>
                    <div className="w-full">
-                     <h3 className="font-bold text-slate-900 text-base sm:text-lg mb-1 tracking-tight">Level Up Your Prep</h3>
+                     <h3 className="font-extrabold text-slate-900 text-lg sm:text-xl mb-1 tracking-tight">Your Journey Awaits</h3>
                      <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-[280px] sm:max-w-sm mx-auto mb-6 leading-relaxed">
-                       Start your preparation by enrolling in a premium test series tailored for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'your upcoming'} exam.
+                       Start your preparation journey right now by selecting a premium test series made for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'you'}.
                      </p>
                      <button
                         onClick={() => setActiveTab('courses')}
-                        className="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-sm flex items-center justify-center gap-2 w-full sm:w-auto mx-auto active:scale-95 text-sm"
+                        className="px-6 py-3.5 sm:py-4 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md flex items-center justify-center gap-2 w-full sm:w-auto mx-auto active:scale-95 text-sm sm:text-base"
                      >
-                        Explore Series <ChevronRight className="w-4 h-4" />
+                        Explore Recommended Series <ChevronRight className="w-4 h-4" />
                      </button>
                    </div>
                  </div>
               ) : (
                 myTestSeries.slice(0, 2).map((ts) => (
-                  <div key={ts.id} className="p-4 sm:p-5 bg-white border border-slate-200/80 rounded-2xl hover:border-indigo-300 hover:shadow-[0_4px_20px_-4px_rgba(79,70,229,0.1)] transition-all group cursor-pointer relative flex flex-col">
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl"></div>
-
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-3 relative z-10 w-full min-w-0">
-                      <div className="flex-1 min-w-0 pr-0 sm:pr-2">
-                        <div className="flex items-center gap-2 mb-2">
-                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                           <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">Active</span>
-                        </div>
-                        <h3 className="font-bold text-slate-900 text-base sm:text-lg leading-snug group-hover:text-indigo-700 transition-colors line-clamp-2">{ts.name}</h3>
-                      </div>
-                      <button
-                        onClick={() => router.push(`/series/${ts.id}`)}
-                        className="w-full sm:w-auto px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-colors shrink-0 flex items-center justify-center gap-1.5 active:scale-95 mt-2 sm:mt-0"
-                      >
-                         Continue <ChevronRight className="w-3 h-3" />
-                      </button>
-                    </div>
+                  <div key={ts.id} className="p-4 sm:p-6 bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 transition-all group cursor-pointer w-full relative overflow-hidden">
+                    {/* Background decoration */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     
-                    <div className="relative z-10 pt-1 w-full bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-100">
-                      <div className="flex justify-between items-end text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest font-bold mb-2.5">
-                        <span><strong className="text-slate-700">{ts.attempted}</strong>/{ts.totalTests} Completed</span>
-                        <span className="text-indigo-600 font-extrabold">{ts.progress}%</span>
-                      </div>
-                      <div className="w-full bg-slate-200/70 rounded-full h-1.5 overflow-hidden shadow-inner flex shrink-0">
-                        <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000 ease-out relative" style={{ width: `${ts.progress}%` }}>
-                           <div className="absolute inset-0 bg-white/20 w-full h-full -skew-x-12 animate-[shimmer_2s_infinite]"></div>
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-2 mb-3">
+                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600">Active Course</span>
                         </div>
-                      </div>
+
+                        <h3 className="font-extrabold text-slate-900 text-base sm:text-xl mb-4 leading-snug group-hover:text-indigo-700 transition-colors w-full block">{ts.name}</h3>
+                        
+                        <div className="w-full bg-slate-50 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-100 mb-4">
+                          <div className="flex justify-between items-end text-xs sm:text-sm text-slate-500 font-semibold mb-2.5">
+                            <span><strong className="text-slate-800">{ts.attempted}</strong> of {ts.totalTests} completed</span>
+                            <span className="text-indigo-600 font-black text-sm">{ts.progress}%</span>
+                          </div>
+                          <div className="w-full bg-slate-200/70 rounded-full h-2 overflow-hidden shadow-inner flex shrink-0">
+                            <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000 ease-out relative" style={{ width: `${ts.progress}%` }}>
+                               <div className="absolute inset-0 bg-white/20 w-full h-full -skew-x-12 animate-[shimmer_2s_infinite]"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                         <button
+                            onClick={() => router.push(`/series/${ts.id}`)}
+                            className="w-full px-4 py-3 sm:py-3.5 bg-slate-900 group-hover:bg-indigo-600 text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl transition-all shadow-sm active:scale-95 text-center flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-indigo-500/20"
+                          >
+                             Resume Prep Journey <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                          </button>
                     </div>
                   </div>
                 ))
@@ -2489,7 +2495,7 @@ export default function StudentDashboard() {
         </header>
 
         {/* Dynamic Inner Content */}
-        <main className="flex-1 overflow-y-auto bg-[#F8F9FA] p-3 sm:p-4 md:p-8 relative">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-[#F8F9FA] p-3 sm:p-4 md:p-8 relative">
            <div className="max-w-7xl mx-auto w-full">
              {renderContent()}
            </div>
