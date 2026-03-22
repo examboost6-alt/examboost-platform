@@ -89,6 +89,30 @@ export default function OnboardingForm() {
         alert("Please enter your Phone number and Date of Birth.");
         return;
       }
+      
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!phoneRegex.test(formData.phone)) {
+        alert("Please enter a valid 10-digit Indian phone number.");
+        return;
+      }
+
+      const dobDate = new Date(formData.dob);
+      const today = new Date();
+      if (isNaN(dobDate.getTime())) {
+        alert("Please enter a valid Date of Birth.");
+        return;
+      }
+      
+      let age = today.getFullYear() - dobDate.getFullYear();
+      const m = today.getMonth() - dobDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
+          age--;
+      }
+
+      if (age < 10 || age > 35) {
+        alert("Please enter a realistic Date of Birth. You must be between 10 and 35 years old to register.");
+        return;
+      }
     }
     if (step === 2) {
       if (!formData.state || !formData.targetExam) {
@@ -249,12 +273,18 @@ export default function OnboardingForm() {
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Phone className="w-4 h-4" /> <span className="text-red-500">*</span> Phone Number</label>
                       <div className="relative">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold border-r border-slate-200 dark:border-slate-700 pr-3">+91</span>
-                        <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="98765 43210" className="w-full bg-white dark:bg-[#020617] border-2 border-slate-200 dark:border-slate-800 focus:border-blue-600 dark:focus:border-blue-500 rounded-xl pl-16 pr-4 py-3.5 text-slate-900 dark:text-white font-bold outline-none transition-all" />
+                        <input type="tel" maxLength={10} value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})} placeholder="98765 43210" className="w-full bg-white dark:bg-[#020617] border-2 border-slate-200 dark:border-slate-800 focus:border-blue-600 dark:focus:border-blue-500 rounded-xl pl-16 pr-4 py-3.5 text-slate-900 dark:text-white font-bold outline-none transition-all" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Calendar className="w-4 h-4" /> <span className="text-red-500">*</span> Date of Birth</label>
-                      <input type="date" value={formData.dob} onChange={(e) => setFormData({...formData, dob: e.target.value})} className="w-full bg-white dark:bg-[#020617] border-2 border-slate-200 dark:border-slate-800 focus:border-blue-600 dark:focus:border-blue-500 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white font-bold outline-none transition-all dark:[color-scheme:dark]" />
+                      <input 
+                        type="date" 
+                        max={new Date(new Date().setFullYear(new Date().getFullYear() - 10)).toISOString().split('T')[0]}
+                        min={new Date(new Date().setFullYear(new Date().getFullYear() - 35)).toISOString().split('T')[0]}
+                        value={formData.dob} 
+                        onChange={(e) => setFormData({...formData, dob: e.target.value})} 
+                        className="w-full bg-white dark:bg-[#020617] border-2 border-slate-200 dark:border-slate-800 focus:border-blue-600 dark:focus:border-blue-500 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white font-bold outline-none transition-all dark:[color-scheme:dark]" />
                     </div>
                   </div>
                 </motion.div>
