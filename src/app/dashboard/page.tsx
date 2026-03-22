@@ -250,7 +250,7 @@ export default function StudentDashboard() {
         { id: 'mock-med-1', title: 'ExamBoost NEET Shourya Test Series 2026', total_tests: 20, category: 'Medical', exam: 'NEET', price_inr: 2999 }
       ];
 
-      let purchasedSeries: any[] = [...mockSeriesForLists];
+      let purchasedSeries: any[] = mockSeriesForLists.filter(s => seriesIds.includes(s.id));
       
       if (seriesIds.length > 0) {
         const { data: purchasedSeriesData } = await supabase
