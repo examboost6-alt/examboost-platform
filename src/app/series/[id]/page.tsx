@@ -156,6 +156,7 @@ export default function SeriesPage() {
 
   const [isPurchased, setIsPurchased] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -187,9 +188,11 @@ export default function SeriesPage() {
       router.push('/login');
       return;
     }
+    setIsCheckoutLoading(true);
     try {
       if (!(window as any).Razorpay) {
         alert("Payment gateway failed to load. Please check your connection.");
+        setIsCheckoutLoading(false);
         return;
       }
 
@@ -201,11 +204,13 @@ export default function SeriesPage() {
       const orderData = await orderRes.json();
       if (!orderData.success) {
         alert("Order creation failed: " + (orderData.error || "Unknown error"));
+        setIsCheckoutLoading(false);
         return;
       }
 
       if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
-        alert("Razorpay Key is missing in environment variables. Please add NEXT_PUBLIC_RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to .env.local");
+        alert("Razorpay Key is missing in environment variables.");
+        setIsCheckoutLoading(false);
         return;
       }
 
@@ -230,29 +235,37 @@ export default function SeriesPage() {
             })
           });
           const verifyData = await verifyRes.json();
-          if (verifyData.success) {
-            alert(`Payment Successful! Your tests are now unlocked.`);
-            setIsPurchased(true);
-          } else {
-            alert(`Payment verification failed: ${verifyData.error}`);
+            if (verifyData.success) {
+              alert(`Payment Successful! Your tests are now unlocked.`);
+              setIsPurchased(true);
+            } else {
+              alert(`Payment verification failed: ${verifyData.error}`);
+            }
+            setIsCheckoutLoading(false);
+          },
+          prefill: {
+            name: "Student Name",
+            email: "student@example.com",
+            contact: "9999999999",
+          },
+          theme: { color: "#4f46e5" },
+          modal: {
+            ondismiss: function() {
+              setIsCheckoutLoading(false);
+            }
           }
-        },
-        prefill: {
-          name: "Student Name",
-          email: "student@example.com",
-          contact: "9999999999",
-        },
-        theme: { color: "#4f46e5" },
-      };
+        };
 
       const rzp1 = new (window as any).Razorpay(options);
       rzp1.on('payment.failed', function (response: any) {
         alert('Payment Failed. Reason: ' + response.error.description);
+        setIsCheckoutLoading(false);
       });
       rzp1.open();
     } catch (error) {
       console.error("Payment Error:", error);
       alert("Something went wrong during payment initiation.");
+      setIsCheckoutLoading(false);
     }
   };
 
@@ -856,9 +869,17 @@ export default function SeriesPage() {
                   ) : (
                     <button
                       onClick={initiatePayment}
-                      className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 px-6 rounded-xl shadow-md transition-all active:scale-[0.98] mb-4"
+                      disabled={isCheckoutLoading}
+                      className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 px-6 rounded-xl shadow-md transition-all active:scale-[0.98] mb-4 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Buy Now
+                      {isCheckoutLoading ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          Processing...
+                        </>
+                      ) : (
+                        "Buy Now"
+                      )}
                     </button>
                   )}
 

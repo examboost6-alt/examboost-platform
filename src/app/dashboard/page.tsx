@@ -76,6 +76,7 @@ export default function StudentDashboard() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
   const [deletedSuccess, setDeletedSuccess] = useState(false);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState<string | number | null>(null);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -511,11 +512,12 @@ export default function StudentDashboard() {
     };
   }, [router]);
 
-  const initiatePayment = async (seriesId: number, amount: number) => {
+  const initiatePayment = async (seriesId: string | number, amount: number) => {
     if (!userId) {
        alert('Please login first');
        return;
     }
+    setIsCheckoutLoading(seriesId);
     try {
        const res = await fetch('/api/razorpay/create-order', {
           method: 'POST',
@@ -523,10 +525,11 @@ export default function StudentDashboard() {
           body: JSON.stringify({ amount, seriesId })
        });
        const data = await res.json();
-       if (!data.success) { alert('Order creation failed'); return; }
+       if (!data.success) { alert('Order creation failed'); setIsCheckoutLoading(null); return; }
 
        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
-         alert("Razorpay Key is missing in environment variables. Please add NEXT_PUBLIC_RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to .env.local");
+         alert("Razorpay Key is missing in environment variables.");
+         setIsCheckoutLoading(null);
          return;
        }
 
@@ -555,19 +558,30 @@ export default function StudentDashboard() {
              } else {
                 alert('Payment verification failed.');
              }
+             setIsCheckoutLoading(null);
           },
           prefill: {
              name: studentInfo.name,
              email: userEmail,
           },
-          theme: { color: '#2563eb' }
+          theme: { color: '#2563eb' },
+          modal: {
+             ondismiss: function() {
+                setIsCheckoutLoading(null);
+             }
+          }
        };
 
        const rzp = new (window as any).Razorpay(options);
+       rzp.on('payment.failed', function(response: any) {
+             alert('Payment Failed.');
+             setIsCheckoutLoading(null);
+       });
        rzp.open();
     } catch (e) {
        console.error(e);
        alert('Something went wrong setting up razorpay.');
+       setIsCheckoutLoading(null);
     }
   };
 
@@ -1876,11 +1890,18 @@ export default function StudentDashboard() {
                     <button 
                       onClick={() => {
                         initiatePayment(selectedCourse.id, parseInt((selectedCourse.tags?.[1] || '').replace('₹','') || '499'));
-                        setSelectedCourse(null);
                       }} 
-                      className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95"
+                      disabled={isCheckoutLoading === selectedCourse.id}
+                      className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30 font-bold py-3.5 px-10 rounded-xl transition-all flex items-center justify-center gap-2 text-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Enroll Now <ChevronRight className="w-5 h-5"/>
+                      {isCheckoutLoading === selectedCourse.id ? (
+                        <>
+                           <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                           Processing...
+                        </>
+                      ) : (
+                        <>Enroll Now <ChevronRight className="w-5 h-5"/></>
+                      )}
                     </button>
                   )}
                 </div>
