@@ -918,137 +918,148 @@ export default function StudentDashboard() {
          {/* Main Column */}
          <div className="lg:col-span-2 space-y-6 md:space-y-8 min-w-0 w-full">
            
-           {/* Actions Hub (Redesigned as vertical list on mobile) */}
+           {/* Actions Hub (App Style Large Cards) */}
            <div className="w-full min-w-0">
-            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
-              <Zap className="w-5 h-5 text-indigo-500 shrink-0" /> Actions Hub
+            <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 tracking-tight">
+              <Zap className="w-6 h-6 text-indigo-500 shrink-0" /> Quick Actions
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 xl:gap-5 w-full">
                 {quickActions.map((action, i) => (
                   <button
                     key={i}
                     onClick={action.action}
-                    className="w-full bg-white p-4 sm:p-5 rounded-2xl sm:rounded-[20px] border border-slate-200/60 shadow-sm hover:border-indigo-300 hover:shadow-md hover:-translate-y-1 transition-all flex items-center text-left gap-4 group active:scale-95 shrink-0 relative overflow-hidden"
+                    className="relative group w-full bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/50 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left gap-4 active:scale-95 overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white shadow-sm transition-all duration-300 relative z-10">
-                      <action.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    {/* Glossy gradient background for hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    
+                    {/* Icon */}
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white shadow-sm transition-colors duration-300 relative z-10 shrink-0">
+                      <action.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
-                    <div className="flex-1 min-w-0 pr-2 relative z-10">
-                      <span className="block font-bold text-xs sm:text-sm text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors truncate w-full">
+
+                    {/* Text */}
+                    <div className="w-full relative z-10 flex flex-col items-center sm:items-start">
+                      <span className="block font-bold text-sm text-slate-800 tracking-tight group-hover:text-indigo-700 transition-colors w-full line-clamp-2 leading-tight">
                          {action.title}
                       </span>
+                      <div className="w-6 h-1 mt-3 rounded-full bg-slate-100 group-hover:bg-indigo-500 transition-colors duration-300"></div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-indigo-500 transition-colors flex-shrink-0 relative z-10" />
+
+                    {/* Subtle Top-Right Arrow purely for modern flair */}
+                    <ChevronRight className="absolute top-5 right-5 w-5 h-5 text-slate-300 group-hover:text-indigo-500 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 hidden sm:block" />
                   </button>
                 ))}
             </div>
            </div>
 
-           {/* My Active Test Series (Redesigned completely) */}
-           <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 shadow-sm p-4 sm:p-6 md:p-8 mt-6 w-full min-w-0">
-             <div className="flex justify-between items-center mb-5 sm:mb-6">
-               <h2 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                 <BookOpen className="w-5 h-5 text-indigo-500 shrink-0" /> Active Series
-               </h2>
-               <button onClick={() => setActiveTab("my-tests")} className="text-xs sm:text-sm text-indigo-600 font-bold hover:text-indigo-700 flex items-center gap-1 transition-colors px-3 py-1.5 rounded-full bg-indigo-50 hover:bg-indigo-100 shrink-0">
-                 View All <span className="hidden sm:inline">Series</span> <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+           {/* Active Test Series (Premium Tracker) */}
+           <div className="bg-white rounded-[32px] border border-slate-200/50 shadow-sm p-6 sm:p-8 mt-8 w-full min-w-0 relative overflow-hidden">
+             {/* Decorative Background blur */}
+             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-[80px] -z-0 pointer-events-none"></div>
+             <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-50 rounded-full blur-[60px] -z-0 pointer-events-none"></div>
+
+             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-8 relative z-10 gap-4">
+               <div>
+                 <div className="flex items-center gap-2.5 mb-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse"></span>
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">Currently Learning</span>
+                 </div>
+                 <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Active Test Series</h2>
+               </div>
+               <button onClick={() => setActiveTab("my-tests")} className="shrink-0 text-xs sm:text-sm text-indigo-700 font-bold hover:text-indigo-800 flex items-center justify-center gap-1.5 transition-all px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 active:scale-95 shadow-sm w-full sm:w-auto">
+                 View Portfolio <ChevronRight className="w-4 h-4 translate-y-[0.5px]" />
                </button>
              </div>
              
-             <div className="space-y-4 sm:space-y-5 w-full">
+             <div className="space-y-5 sm:space-y-6 w-full relative z-10">
               {myTestSeries.length === 0 ? (
-                 <div className="p-6 md:p-8 text-center rounded-2xl lg:rounded-3xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-4 w-full">
-                   <div className="w-14 h-14 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center">
-                     <Sparkles className="w-6 h-6 text-indigo-500" />
+                 <div className="py-10 text-center rounded-[24px] bg-slate-50/80 border border-dashed border-slate-200 flex flex-col items-center justify-center gap-5 w-full backdrop-blur-sm">
+                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center rotate-3 hover:rotate-6 transition-transform duration-500">
+                     <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-400" />
                    </div>
-                   <div className="w-full">
-                     <h3 className="font-extrabold text-slate-900 text-lg sm:text-xl mb-1 tracking-tight">Your Journey Awaits</h3>
-                     <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-[280px] sm:max-w-sm mx-auto mb-6 leading-relaxed">
-                       Start your preparation journey right now by selecting a premium test series made for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'you'}.
+                   <div className="w-full max-w-md mx-auto px-4">
+                     <h3 className="font-black text-slate-800 text-lg sm:text-2xl mb-2 tracking-tight">Start Your Journey Today</h3>
+                     <p className="text-xs sm:text-sm text-slate-500 font-medium mb-6 sm:mb-8 leading-relaxed">
+                       Don't fall behind. Enroll in a premium test series and unlock high-yield structured mocks natively.
                      </p>
                      <button
                         onClick={() => setActiveTab('courses')}
-                        className="px-6 py-3.5 sm:py-4 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md flex items-center justify-center gap-2 w-full sm:w-auto mx-auto active:scale-95 text-sm sm:text-base"
+                        className="px-6 py-3.5 sm:px-8 sm:py-4 bg-indigo-600 hover:bg-indigo-700 transition-all font-bold rounded-xl sm:rounded-2xl text-white shadow-[0_8px_20px_-6px_rgba(79,70,229,0.4)] hover:shadow-[0_8px_25px_-4px_rgba(79,70,229,0.5)] hover:-translate-y-0.5 w-full sm:w-auto active:scale-95 text-sm sm:text-base flex items-center justify-center gap-2 mx-auto"
                      >
-                        Explore Recommended Series <ChevronRight className="w-4 h-4" />
+                        Explore Recommended Programs <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                      </button>
                    </div>
                  </div>
               ) : (
-                myTestSeries.slice(0, 2).map((ts) => (
-                  <div key={ts.id} className="p-4 sm:p-6 bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 transition-all group cursor-pointer w-full relative overflow-hidden">
-                    {/* Background decoration */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6">
+                {myTestSeries.slice(0, 4).map((ts) => (
+                  <div key={ts.id} className="p-5 sm:p-6 bg-white border border-slate-200/60 rounded-[24px] shadow-sm hover:border-indigo-300 hover:shadow-[0_8px_30px_-6px_rgba(79,70,229,0.12)] transition-all duration-300 group cursor-pointer w-full flex flex-col h-full hover:-translate-y-1">
                     
-                    <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-3">
-                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600">Active Course</span>
+                    <div className="flex flex-col gap-1 mb-6 flex-1">
+                        <h3 className="font-black text-slate-800 text-lg sm:text-xl leading-snug group-hover:text-indigo-600 transition-colors break-words line-clamp-2">{ts.name}</h3>
+                        <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">{ts.totalTests} Premium Tests</p>
+                    </div>
+                    
+                    <div className="w-full mt-auto">
+                      <div className="flex justify-between items-end text-xs sm:text-sm text-slate-600 font-bold mb-3">
+                        <span><span className="text-slate-900 text-sm sm:text-base">{ts.attempted}</span> completed</span>
+                        <span className="text-indigo-600 font-black text-base sm:text-lg bg-indigo-50 px-2 py-0.5 rounded-lg">{ts.progress}%</span>
+                      </div>
+                      <div className="w-full bg-slate-100 rounded-full h-2 sm:h-2.5 overflow-hidden flex shrink-0 mb-6">
+                        <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-1000 ease-out relative" style={{ width: `${ts.progress}%` }}>
+                           <div className="absolute inset-0 bg-white/20 w-full h-full -skew-x-12 animate-[shimmer_2s_infinite]"></div>
                         </div>
+                      </div>
 
-                        <h3 className="font-extrabold text-slate-900 text-base sm:text-xl mb-4 leading-snug group-hover:text-indigo-700 transition-colors w-full block">{ts.name}</h3>
-                        
-                        <div className="w-full bg-slate-50 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-100 mb-4">
-                          <div className="flex justify-between items-end text-xs sm:text-sm text-slate-500 font-semibold mb-2.5">
-                            <span><strong className="text-slate-800">{ts.attempted}</strong> of {ts.totalTests} completed</span>
-                            <span className="text-indigo-600 font-black text-sm">{ts.progress}%</span>
-                          </div>
-                          <div className="w-full bg-slate-200/70 rounded-full h-2 overflow-hidden shadow-inner flex shrink-0">
-                            <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000 ease-out relative" style={{ width: `${ts.progress}%` }}>
-                               <div className="absolute inset-0 bg-white/20 w-full h-full -skew-x-12 animate-[shimmer_2s_infinite]"></div>
-                            </div>
-                          </div>
-                        </div>
-
-                         <button
-                            onClick={() => router.push(`/series/${ts.id}`)}
-                            className="w-full px-4 py-3 sm:py-3.5 bg-slate-900 group-hover:bg-indigo-600 text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl transition-all shadow-sm active:scale-95 text-center flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-indigo-500/20"
-                          >
-                             Resume Prep Journey <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                          </button>
+                      <button
+                        onClick={() => router.push(`/series/${ts.id}`)}
+                        className="w-full px-5 py-3 sm:py-3.5 bg-slate-50 border border-slate-200 text-slate-800 group-hover:bg-indigo-600 group-hover:border-indigo-600 group-hover:text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl transition-all shadow-sm active:scale-95 text-center flex items-center justify-center gap-2 duration-300"
+                      >
+                         Resume Preparations <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+                      </button>
                     </div>
                   </div>
-                ))
+                ))}
+                </div>
               )}
              </div>
            </div>
          </div>
 
          {/* Right Sidebar Column */}
-           <div className="space-y-6 md:space-y-8">
-            <div>
-              <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
-                <Sparkles className="w-5 h-5 text-indigo-500" /> Featured Courses
-              </h2>
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/60 shadow-sm p-5 sm:p-6 space-y-4 sm:space-y-5">
-                {recommendedTests.slice(0, 4).map((test) => (
-                  <div key={test.id} onClick={() => setActiveTab('courses')} className="group cursor-pointer">
-                    <div className="flex gap-4 items-center">
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0 overflow-hidden relative">
-                         <img src={`https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=400&sat=-100`} alt="" className="w-full h-full object-cover opacity-80 mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors tracking-tight truncate mb-1">{test.title}</h3>
-                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{test.tags[1] || 'Premium'}</div>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-colors flex-shrink-0">
-                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
-                      </div>
+         <div className="space-y-6 md:space-y-8">
+          <div>
+            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
+              <Sparkles className="w-5 h-5 text-indigo-500 shrink-0" /> Featured Courses
+            </h2>
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/60 shadow-sm p-4 sm:p-5 md:p-6 space-y-4 sm:space-y-5">
+              {recommendedTests.slice(0, 4).map((test) => (
+                <div key={test.id} onClick={() => setActiveTab('courses')} className="group cursor-pointer relative overflow-hidden">
+                  <div className="flex gap-3 sm:gap-4 items-center">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0 overflow-hidden relative">
+                       <img src={`https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=400&sat=-100`} alt="" className="w-full h-full object-cover opacity-80 mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     </div>
-                    <div className="h-px w-full bg-slate-100 mt-5 last:hidden"></div>
+                    <div className="flex-1 min-w-0 pr-1">
+                      <h3 className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-indigo-600 transition-colors tracking-tight truncate mb-1">{test.title}</h3>
+                      <div className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest">{test.tags[1] || 'Premium'}</div>
+                    </div>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-colors flex-shrink-0">
+                      <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-slate-400 group-hover:text-white transition-colors" />
+                    </div>
                   </div>
-                ))}
-                
-                <button onClick={() => setActiveTab('courses')} className="w-full text-center py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold text-sm rounded-xl transition-colors border border-slate-200">
-                  Browse All Courses
-                </button>
-              </div>
+                  <div className="h-px w-full bg-slate-100 mt-4 sm:mt-5 group-last:hidden"></div>
+                </div>
+              ))}
+              
+              <button onClick={() => setActiveTab('courses')} className="w-full text-center py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition-colors border border-slate-200">
+                Browse All Courses
+              </button>
             </div>
+          </div>
+          </div>
          </div>
-
       </div>
-    </div>
   );
 
   const MyTestsModule = () => (
