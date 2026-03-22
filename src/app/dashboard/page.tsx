@@ -38,6 +38,7 @@ import {
   Home,
   ChevronUp,
   ChevronDown,
+  Lock,
 } from "lucide-react";
 
 const mockPackages: any[] = [];
@@ -77,6 +78,12 @@ export default function StudentDashboard() {
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
   const [deletedSuccess, setDeletedSuccess] = useState(false);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState<string | number | null>(null);
+
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordLoading, setPasswordLoading] = useState(false);
+
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -511,6 +518,31 @@ export default function StudentDashboard() {
       setLoading(false);
     };
   }, [router]);
+
+  const handleChangePassword = async () => {
+    if (newPassword.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match. Please verify and try again.");
+      return;
+    }
+    setPasswordLoading(true);
+    const supabase = getSupabaseClient();
+    if (!supabase) { setPasswordLoading(false); return; }
+    
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    setPasswordLoading(false);
+    if (error) {
+      alert("Failed to update password: " + error.message);
+    } else {
+      alert("Password successfully updated! It is now secure.");
+      setShowPasswordModal(false);
+      setNewPassword("");
+      setConfirmPassword("");
+    }
+  };
 
   const initiatePayment = async (seriesId: string | number, amount: number) => {
     if (!userId) {
@@ -2175,7 +2207,7 @@ export default function StudentDashboard() {
                 <p className="text-xs text-slate-500 font-medium mt-0.5">Update your account password regularly.</p>
               </div>
               <button 
-                onClick={() => alert("Change password feature will send a reset link to your email.")}
+                onClick={() => setShowPasswordModal(true)}
                 className="bg-white border text-sm border-slate-200 text-slate-700 px-4 py-2 rounded-lg font-bold hover:bg-slate-50 transition-colors"
               >
                 Update
@@ -2248,11 +2280,58 @@ export default function StudentDashboard() {
         )}
       </AnimatePresence>
 
+      <AnimatePresence>
+        {showPasswordModal && (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }} 
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+          >
+              <div className="absolute inset-0 cursor-pointer" onClick={() => !passwordLoading && setShowPasswordModal(false)}></div>
+              <motion.div 
+                 initial={{ scale: 0.95, opacity: 0 }} 
+                 animate={{ scale: 1, opacity: 1 }} 
+                 exit={{ scale: 0.95, opacity: 0 }} 
+                 className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden relative z-10"
+              >
+                  <div className="p-6">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4 mx-auto border border-blue-100">
+                          <Lock className="w-6 h-6 shrink-0" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Change Password</h3>
+                      <p className="text-slate-500 text-sm text-center mb-6 leading-relaxed">
+                          Secure your account by updating your password.
+                      </p>
+                      
+                      <div className="space-y-4 mb-6">
+                        <div>
+                           <label className="text-xs font-bold text-slate-500 mb-1 block">New Password</label>
+                           <input type="password" value={newPassword} onChange={(e)=>setNewPassword(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-blue-500 font-medium transition-all" placeholder="Enter new password" />
+                        </div>
+                        <div>
+                           <label className="text-xs font-bold text-slate-500 mb-1 block">Confirm Password</label>
+                           <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-blue-500 font-medium transition-all" placeholder="Confirm new password" />
+                        </div>
+                      </div>
+
+                      <div className="flex gap-3">
+                         <button onClick={() => setShowPasswordModal(false)} disabled={passwordLoading} className="flex-1 py-3 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm disabled:opacity-50">Cancel</button>
+                         <button onClick={handleChangePassword} disabled={passwordLoading} className="flex-1 py-3 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 flex justify-center items-center gap-2 text-sm border border-transparent disabled:opacity-50">
+                            {passwordLoading ? "Updating..." : "Update Password"}
+                         </button>
+                      </div>
+                  </div>
+              </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] font-sans flex text-slate-900 selection:bg-blue-200">
+    <div className="min-h-screen bg-[#F8F9FA] font-sans flex text-slate-900 selection:bg-blue-200 overflow-x-hidden w-full max-w-[100vw]">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
