@@ -1766,7 +1766,29 @@ export default function StudentDashboard() {
     const filtered = merged.filter(test => {
       const matchSearch = test.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           (test.description || '').toLowerCase().includes(searchQuery.toLowerCase());
-      const matchExam = selectedExam === "All" || test.exam === selectedExam || test.tags?.includes(selectedExam);
+      
+      let matchExam = selectedExam === "All" || test.exam === selectedExam || test.tags?.includes(selectedExam);
+      
+      if (!matchExam && selectedExam !== "All") {
+        const titleAndTags = (test.title + " " + (test.tags || []).join(" ") + " " + (test.category || "")).toLowerCase();
+        const examMap: Record<string, string[]> = {
+          "Engineering": ["jee", "btech", "engineering", "bitsat", "viteeee"],
+          "Medical": ["neet", "aiims", "medical", "mbbs", "bds"],
+          "Banking": ["sbi", "ibps", "rbi", "bank", "po", "clerk"],
+          "SSC": ["ssc", "cgl", "chsl", "mts", "cpo", "gd"],
+          "UPSC": ["upsc", "ias", "ips", "civil services", "nda", "cds"],
+          "Teaching": ["ctet", "tet", "b.ed", "kvs", "nvs", "dsssb"],
+          "Railways": ["rrb", "railway", "ntpc", "group d", "alp"],
+          "Police": ["police", "constable", "si", "inspector"],
+          "Law": ["clat", "ailet", "lsat", "llb", "law"],
+          "MBA": ["cat", "xat", "mat", "cmat", "snap", "mba"],
+          "State PSC": ["psc", "uppsc", "mppsc", "bpsc", "rpsc", "jpsc"],
+          "CUET": ["cuet", "cucet"]
+        };
+        const keywords = examMap[selectedExam] || [selectedExam.toLowerCase()];
+        matchExam = keywords.some(kw => titleAndTags.includes(kw));
+      }
+
       return matchSearch && matchExam;
     });
 
