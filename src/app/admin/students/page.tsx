@@ -88,13 +88,24 @@ export default function AdminStudentsPage() {
     });
   }, [rows, query]);
 
+  const [selectedStudentEmail, setSelectedStudentEmail] = useState<string | null>(null);
+  const [allSeries, setAllSeries] = useState<{id: string, title: string, exam: string}[]>([]);
+  const [ownedSeries, setOwnedSeries] = useState<string[]>([]);
+  const [loadingDetails, setLoadingDetails] = useState(false);
+  const [grantingSeriesId, setGrantingSeriesId] = useState("");
+  const [grantLoading, setGrantLoading] = useState(false);
+
   useEffect(() => {
     const run = async () => {
       setSignedPhotoUrl(null);
+      setSelectedStudentEmail(null);
+      setOwnedSeries([]);
+      setGrantingSeriesId("");
+      
       if (!selectedId) return;
 
       const row = rows.find((r) => r.id === selectedId);
-      if (!row?.photo_path) return;
+      if (!row) return;
 
       const supabase = getSupabaseClient();
       if (!supabase) return;
@@ -103,30 +114,73 @@ export default function AdminStudentsPage() {
       const token = sess.session?.access_token;
       if (!token) return;
 
-      setPhotoLoading(true);
+      setLoadingDetails(true);
+
       try {
-        const resp = await fetch("/api/admin/student-photo", {
+        // Fetch detailed info (email, purchases, series)
+        const detailsResp = await fetch("/api/admin/student-details", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ studentId: row.id }),
         });
+        const detailsJson = await detailsResp.json();
+        
+        if (detailsResp.ok && detailsJson.success) {
+           setSelectedStudentEmail(detailsJson.email);
+           setAllSeries(detailsJson.allSeries || []);
+           setOwnedSeries(detailsJson.ownedSeriesIds || []);
+        }
 
-        const json = await resp.json();
-        if (resp.ok && json?.signedUrl) {
-          setSignedPhotoUrl(json.signedUrl);
-        } else {
-          setSignedPhotoUrl(null);
+        // Fetch photo if available
+        if (row.photo_path) {
+          setPhotoLoading(true);
+          const photoResp = await fetch("/api/admin/student-photo", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ studentId: row.id }),
+          });
+
+          const photoJson = await photoResp.json();
+          if (photoResp.ok && photoJson?.signedUrl) {
+            setSignedPhotoUrl(photoJson.signedUrl);
+          } else {
+            setSignedPhotoUrl(null);
+          }
+          setPhotoLoading(false);
         }
       } finally {
-        setPhotoLoading(false);
+        setLoadingDetails(false);
       }
     };
 
     run();
   }, [selectedId, rows]);
+
+  const handleGrantAccess = async () => {
+    if (!selectedId || !grantingSeriesId) return;
+    setGrantLoading(true);
+    try {
+      const res = await fetch('/api/admin/grant-access', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({ studentId: selectedId, seriesId: grantingSeriesId })
+      });
+      const data = await res.json();
+      if (data.success) {
+         setOwnedSeries(prev => [...prev, grantingSeriesId]);
+         alert('Free access granted successfully!');
+      } else {
+         alert('Error granting access: ' + data.error);
+      }
+    } catch (e: any) {
+      alert('Error: ' + e.message);
+    } finally {
+      setGrantLoading(false);
+    }
+  };
 
   const copy = async (text: string) => {
     try {
@@ -351,9 +405,55 @@ export default function AdminStudentsPage() {
                   </div>
                 </div>
 
-                <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 rounded-2xl p-4 text-sm font-semibold text-amber-800 dark:text-amber-400 flex items-start gap-3">
-                  <Mail className="w-5 h-5 mt-0.5" />
-                  Email is not stored in profiles by default. If you need email in admin panel, we can copy it from auth.users using a server admin endpoint.
+                <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5">
+                  <div className="flex items-center gap-2 text-sm font-black text-slate-900 dark:text-white mb-2">
+                    <Mail className="w-4 h-4 text-slate-400" /> Account Email
+                  </div>
+                  {loadingDetails ? (
+                    <div className="text-sm font-semibold text-slate-500 animate-pulse">Fetching from auth...</div>
+                  ) : (
+                    <div className="font-bold text-slate-800 dark:text-slate-200">{selectedStudentEmail || "Not available"}</div>
+                  )}
+                </div>
+
+                <div className="bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30 rounded-2xl p-5 relative overflow-hidden">
+                   <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 blur-2xl rounded-full pointer-events-none"></div>
+                   
+                   <h3 className="text-sm font-black text-indigo-900 dark:text-indigo-100 mb-1 relative z-10 flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-indigo-500" /> Grant Premium Access
+                   </h3>
+                   <p className="text-xs font-semibold text-indigo-700/70 dark:text-indigo-300/70 mb-4 relative z-10">
+                      Give this user complimentary access to any premium test series.
+                   </p>
+
+                   {loadingDetails ? (
+                      <div className="h-10 bg-indigo-100/50 dark:bg-indigo-800/20 rounded-xl animate-pulse mb-3"></div>
+                   ) : (
+                     <div className="space-y-3 relative z-10">
+                        <select 
+                          value={grantingSeriesId}
+                          onChange={(e) => setGrantingSeriesId(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0f172a] border border-indigo-200 dark:border-indigo-800 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus:border-indigo-500 transition-colors shadow-sm appearance-none cursor-pointer"
+                        >
+                           <option value="" disabled>-- Select a Series to Grant --</option>
+                           {allSeries.map(s => {
+                             const isOwned = ownedSeries.includes(s.id);
+                             return (
+                               <option key={s.id} value={s.id} disabled={isOwned}>
+                                 {s.title} {isOwned ? '(Already Owned)' : ''}
+                               </option>
+                             );
+                           })}
+                        </select>
+                        <button 
+                          onClick={handleGrantAccess}
+                          disabled={!grantingSeriesId || grantLoading}
+                          className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:hover:bg-indigo-600 transition-colors text-white font-bold text-sm flex items-center justify-center gap-2 rounded-xl shadow-md active:scale-95"
+                        >
+                           {grantLoading ? "Processing granting..." : "Grant Free Access"}
+                        </button>
+                     </div>
+                   )}
                 </div>
               </div>
             </motion.div>
