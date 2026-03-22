@@ -7,8 +7,28 @@ import { getSupabaseClient } from "@/lib/supabaseClient";
 import { 
   Camera, Upload, User, Mail, Phone, MapPin, CheckCircle2, 
   ChevronRight, AlertCircle, ChevronLeft, Calendar, BookOpen, 
-  GraduationCap, FileText, ShieldCheck, Check
+  GraduationCap, FileText, ShieldCheck, Check, X
 } from "lucide-react";
+
+const ALL_INDIAN_STATES = [
+  "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", 
+  "Chandigarh", "Chhattisgarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Goa", 
+  "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", 
+  "Kerala", "Ladakh", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", 
+  "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", 
+  "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+];
+
+const TARGET_EXAMS = [
+  "JEE Main & Advanced", 
+  "NEET UG", 
+  "CUET (UG & PG)", 
+  "NDA & NA", 
+  "UPSC CSE", 
+  "SSC CGL & CHSL", 
+  "Banking PO & Clerk", 
+  "State PSC & Defensive Exams"
+];
 
 export default function OnboardingForm() {
   const router = useRouter();
@@ -16,7 +36,13 @@ export default function OnboardingForm() {
   const [loading, setLoading] = useState(false);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreviewUrl, setPhotoPreviewUrl] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
+  const showError = (msg: string) => {
+    setErrorMessage(msg);
+    setTimeout(() => setErrorMessage(""), 4500);
+  };
+  
   useEffect(() => {
     const supabase = getSupabaseClient();
     if (!supabase) return;
@@ -84,22 +110,23 @@ export default function OnboardingForm() {
   };
 
   const nextStep = () => {
+    setErrorMessage(""); // clear previous
     if (step === 1) {
       if (!formData.phone || !formData.dob) {
-        alert("Please enter your Phone number and Date of Birth.");
+        showError("Please enter your Phone number and Date of Birth.");
         return;
       }
       
       const phoneRegex = /^[6-9]\d{9}$/;
       if (!phoneRegex.test(formData.phone)) {
-        alert("Please enter a valid 10-digit Indian phone number.");
+        showError("Please enter a valid 10-digit Indian phone number.");
         return;
       }
 
       const dobDate = new Date(formData.dob);
       const today = new Date();
       if (isNaN(dobDate.getTime())) {
-        alert("Please enter a valid Date of Birth.");
+        showError("Please enter a valid Date of Birth.");
         return;
       }
       
@@ -110,13 +137,13 @@ export default function OnboardingForm() {
       }
 
       if (age < 10 || age > 35) {
-        alert("Please enter a realistic Date of Birth. You must be between 10 and 35 years old to register.");
+        showError("Please enter a realistic Date of Birth. Target candidates are usually between 10 and 35 years old.");
         return;
       }
     }
     if (step === 2) {
       if (!formData.state || !formData.targetExam) {
-        alert("Please select your State and Target Exam.");
+        showError("Please accurately select your Residing State and Target Exam.");
         return;
       }
     }
@@ -130,13 +157,13 @@ export default function OnboardingForm() {
   const handleComplete = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!photoFile) {
-      alert("Please upload your passport size photo for ID verification.");
+      showError("Please upload your passport size photo for ID verification.");
       return;
     }
     
     const supabase = getSupabaseClient();
     if (!supabase) {
-      alert('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+      showError('System architecture error. Authentication configuration is missing.');
       return;
     }
 
@@ -180,7 +207,7 @@ export default function OnboardingForm() {
 
       if (!response.ok) {
         setLoading(false);
-        alert(result.error || 'Failed to submit admission. Please try again.');
+        showError(result.error || 'Failed to submit admission details. Server rejected the payload.');
         return;
       }
 
@@ -191,7 +218,7 @@ export default function OnboardingForm() {
       }, 800);
     } catch {
       setLoading(false);
-      alert('Something went wrong while saving your admission. Please try again.');
+      showError('A generic connection error occurred while saving your admission securely. Please try again.');
     }
   };
 
@@ -202,8 +229,27 @@ export default function OnboardingForm() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-2xl mx-auto">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
+      <AnimatePresence>
+        {errorMessage && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20, scale: 0.95 }} 
+            animate={{ opacity: 1, y: 0, scale: 1 }} 
+            exit={{ opacity: 0, y: -20, scale: 0.95 }} 
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] max-w-sm w-full bg-red-50 dark:bg-[#3f0f14] border border-red-200 dark:border-red-900/50 shadow-2xl p-4 rounded-2xl flex items-start gap-3"
+          >
+             <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+             <div className="flex-1">
+               <h4 className="text-red-900 dark:text-red-200 font-bold text-sm">Action Required</h4>
+               <p className="text-red-700 dark:text-red-300 text-sm mt-0.5">{errorMessage}</p>
+             </div>
+             <button onClick={() => setErrorMessage("")} className="shrink-0 p-1 hover:bg-red-100 dark:hover:bg-red-900/80 rounded-full transition-colors text-red-500">
+               <X className="w-4 h-4" />
+             </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div className="w-full max-w-2xl mx-auto z-10">
         
         {/* Header Section */}
         <div className="text-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -296,12 +342,9 @@ export default function OnboardingForm() {
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><MapPin className="w-4 h-4" /> <span className="text-red-500">*</span> Current State / Residence</label>
                     <select value={formData.state} onChange={(e) => setFormData({...formData, state: e.target.value})} className="w-full bg-white dark:bg-[#020617] border-2 border-slate-200 dark:border-slate-800 focus:border-blue-600 dark:focus:border-blue-500 rounded-xl px-4 py-4 text-slate-900 dark:text-white font-bold outline-none transition-all appearance-none cursor-pointer">
                       <option value="" disabled>Select your state</option>
-                      <option value="dl">Delhi</option>
-                      <option value="mh">Maharashtra</option>
-                      <option value="up">Uttar Pradesh</option>
-                      <option value="hr">Haryana</option>
-                      <option value="rj">Rajasthan</option>
-                      <option value="ka">Karnataka</option>
+                      {ALL_INDIAN_STATES.map((st) => (
+                        <option key={st} value={st}>{st}</option>
+                      ))}
                     </select>
                   </div>
 
@@ -309,19 +352,21 @@ export default function OnboardingForm() {
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       <BookOpen className="w-4 h-4" /> <span className="text-red-500">*</span> Target Exam Category
                     </label>
-                    <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                      {['SSC CGL & CHSL', 'UPSC CSE', 'Banking PO & Clerk', 'JEE / NEET', 'State PSC', 'Railways (RRB)'].map((exam) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {TARGET_EXAMS.map((exam) => (
                         <div 
                           key={exam}
                           onClick={() => setFormData({...formData, targetExam: exam})}
-                          className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                          className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all flex items-center shadow-sm ${
                             formData.targetExam === exam 
-                              ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300' 
-                              : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 hover:border-blue-300'
+                              ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 ring-2 ring-blue-600/20' 
+                              : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md'
                           }`}
                         >
-                          {formData.targetExam === exam && <CheckCircle2 className="absolute top-3 right-3 w-5 h-5 text-blue-600 dark:text-blue-400" />}
-                          <h3 className="font-bold text-sm md:text-base pr-8">{exam}</h3>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 mr-3 border ${formData.targetExam === exam ? 'bg-blue-600 border-blue-600 text-white' : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                             {formData.targetExam === exam && <Check className="w-4 h-4" strokeWidth={3} />}
+                          </div>
+                          <h3 className="font-bold text-sm leading-snug">{exam}</h3>
                         </div>
                       ))}
                     </div>
