@@ -919,24 +919,24 @@ export default function StudentDashboard() {
              <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
                <Zap className="w-5 h-5 text-indigo-500" /> Actions Hub
              </h2>
-             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+             <div className="flex overflow-x-auto sm:grid sm:grid-cols-4 gap-3 md:gap-4 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 scrollbar-hide snap-x">
                 {quickActions.map((action, i) => (
                   <button
                     key={i}
                     onClick={action.action}
-                    className="bg-white p-3 md:p-5 rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-2 md:gap-4 group"
+                    className="bg-white p-4 md:p-5 min-w-[130px] sm:min-w-0 rounded-2xl border border-slate-200/60 shadow-sm hover:border-slate-300 hover:-translate-y-1 transition-all flex flex-col items-center justify-center text-center gap-3 group snap-start shrink-0"
                   >
-                    <div className={`p-2.5 md:p-3.5 rounded-xl md:rounded-2xl bg-slate-50 text-slate-500 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors`}>
-                      <action.icon className="w-5 h-5 md:w-6 md:h-6" />
+                    <div className={`p-3 md:p-3.5 rounded-xl md:rounded-2xl bg-slate-50 text-slate-500 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors`}>
+                      <action.icon className="w-6 h-6" />
                     </div>
-                    <span className="font-bold text-[10px] md:text-xs text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors leading-tight">{action.title}</span>
+                    <span className="font-bold text-[10px] md:text-xs text-slate-700 uppercase tracking-wide group-hover:text-indigo-700 transition-colors leading-tight px-1">{action.title}</span>
                   </button>
                 ))}
              </div>
            </div>
 
            {/* My Active Test Series */}
-           <div className="bg-white rounded-3xl border border-slate-200/60 shadow-sm p-6 md:p-8">
+           <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 shadow-sm p-5 md:p-8">
              <div className="flex justify-between items-center mb-6">
                <h2 className="text-lg font-bold text-slate-900 tracking-tight">Active Test Series</h2>
                <button onClick={() => setActiveTab("my-tests")} className="text-sm text-indigo-600 font-bold hover:text-indigo-700 flex items-center gap-0.5 transition-colors">
@@ -945,18 +945,18 @@ export default function StudentDashboard() {
              </div>
              <div className="space-y-4">
               {myTestSeries.length === 0 ? (
-                 <div className="p-6 md:p-8 text-center rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm flex flex-col items-center justify-center gap-3 md:gap-4">
+                 <div className="p-5 md:p-8 text-center rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm flex flex-col items-center justify-center gap-4">
                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-sm flex items-center justify-center">
                      <Sparkles className="w-6 h-6 md:w-7 md:h-7 text-indigo-500" />
                    </div>
-                   <div>
-                     <h3 className="font-black text-indigo-900 text-base md:text-lg mb-1">Get Started with Test Series</h3>
-                     <p className="text-xs md:text-sm text-indigo-700/80 font-medium max-w-full md:max-w-sm mx-auto mb-4 md:mb-5 px-2 md:px-0 leading-relaxed">
+                   <div className="w-full">
+                     <h3 className="font-black text-indigo-900 text-base md:text-lg mb-1.5">Get Started with Test Series</h3>
+                     <p className="text-xs md:text-sm text-indigo-700/80 font-medium max-w-full md:max-w-sm mx-auto mb-5 md:mb-6 leading-relaxed">
                        Explore available test series and start practicing for {studentInfo.targetExam !== 'Not Set' ? studentInfo.targetExam : 'your'} exam.
                      </p>
                      <button
                         onClick={() => setActiveTab('courses')}
-                        className="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2 w-full sm:w-auto"
+                        className="px-5 py-3.5 md:px-6 md:py-3.5 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2 w-full sm:w-auto mx-auto"
                      >
                         Explore Recommended Series <ChevronRight className="w-4 h-4" />
                      </button>
@@ -964,7 +964,7 @@ export default function StudentDashboard() {
                  </div>
               ) : (
                 myTestSeries.slice(0, 2).map((ts) => (
-                  <div key={ts.id} className="p-5 bg-white border border-slate-200/60 rounded-2xl hover:border-slate-300 hover:shadow-sm transition-all group">
+                  <div key={ts.id} className="p-4 md:p-5 bg-white border border-slate-200/60 rounded-2xl hover:border-slate-300 hover:shadow-sm transition-all group">
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="font-bold text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">{ts.name}</h3>
