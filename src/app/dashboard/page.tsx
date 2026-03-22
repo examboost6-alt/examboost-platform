@@ -47,14 +47,8 @@ const mockPackages: any[] = [];
 export default function StudentDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("overview");
-  const [sidebarOpen, setSidebarOpen] = useState(() => {
-    if (typeof window === 'undefined') return true;
-    return window.innerWidth >= 1024;
-  });
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.innerWidth < 1024;
-  });
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
@@ -153,7 +147,7 @@ export default function StudentDashboard() {
           .from('user_tests')
           .select('*')
           .eq('user_id', uid)
-          .order('created_at', { ascending: false });
+          .order('completed_at', { ascending: false });
         if (!error) {
           userTestsDb = (data as any[]) || [];
         } else {
@@ -187,6 +181,7 @@ export default function StudentDashboard() {
 
       const dbMapped = userTestsDb.map((dbT: any) => ({
         ...dbT,
+        created_at: dbT.completed_at || dbT.created_at || new Date().toISOString(),
         time_taken_seconds: dbT.time_spent_seconds ?? dbT.time_taken_seconds ?? 0,
         correct: dbT.correct_qs ?? dbT.correct ?? 0,
         wrong: dbT.wrong_qs ?? dbT.wrong ?? 0,
@@ -500,17 +495,8 @@ export default function StudentDashboard() {
       }));
 
       {
-        const { data: notifData, error } = await supabase
-          .from('notifications')
-          .select('*')
-          .eq('user_id', uid)
-          .order('created_at', { ascending: false })
-          .limit(20);
-        if (!error) {
-          setNotifications((notifData as any[]) || []);
-        } else {
-          setNotifications([]);
-        }
+        // Notifications table does not exist
+        setNotifications([]);
       }
 
       const bySubject = new Map<string, { attempts: number; accuracySum: number }>();

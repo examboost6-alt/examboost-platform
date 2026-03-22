@@ -146,7 +146,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         initial={false}
         animate={{ 
           width: sidebarOpen ? 260 : 80,
-          x: mobileSidebarOpen ? 0 : (typeof window !== 'undefined' && window.innerWidth < 1024 ? -260 : 0)
+          x: mobileSidebarOpen ? 0 : (!sidebarOpen && typeof window !== 'undefined' && window.innerWidth < 1024 ? -260 : 0)
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={`fixed lg:relative z-50 h-full bg-white dark:bg-[#0f172a] border-r border-slate-200 dark:border-slate-800 shadow-sm flex flex-col shrink-0 ${!mobileSidebarOpen ? 'max-lg:-translate-x-full' : ''}`}
