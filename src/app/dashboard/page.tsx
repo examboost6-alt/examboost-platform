@@ -74,6 +74,7 @@ export default function StudentDashboard() {
   const [editingLoading, setEditingLoading] = useState(false);
   const [editPhotoFile, setEditPhotoFile] = useState<File | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isDeletingAccount, setIsDeletingAccount] = useState(false);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -737,6 +738,40 @@ export default function StudentDashboard() {
     setIsEditingProfile(false);
     setEditPhotoFile(null);
     setEditingLoading(false);
+  };
+
+  const handleDeleteAccount = async () => {
+    setIsDeletingAccount(true);
+    try {
+      const supabase = getSupabaseClient();
+      if (!supabase) return;
+      const { data } = await supabase.auth.getSession();
+      const token = data?.session?.access_token;
+
+      if (!token) {
+        alert("Authentication error. Please login again to delete.");
+        setIsDeletingAccount(false);
+        return;
+      }
+
+      const res = await fetch('/api/student/delete-account', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const resData = await res.json();
+      
+      if (resData.success) {
+        await supabase.auth.signOut();
+        alert("Your account & all associated data have been permanently deleted.");
+        router.replace('/');
+      } else {
+        alert("Failed to delete account: " + resData.error);
+        setIsDeletingAccount(false);
+      }
+    } catch (e) {
+      alert("Error deleting account.");
+      setIsDeletingAccount(false);
+    }
   };
 
   // --- Sub-Components for Different Modules ---
@@ -2161,11 +2196,13 @@ export default function StudentDashboard() {
                       </div>
                       <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Delete Account</h3>
                       <p className="text-slate-500 text-sm text-center mb-6 leading-relaxed">
-                          Your account and all associated test data will be permanently erased. To confirm and execute this action, please contact our support team.
+                          Your account and all associated test data will be permanently erased. To confirm and execute this action, please click confirm below.
                       </p>
                       <div className="flex gap-3">
-                         <button onClick={() => setShowDeleteModal(false)} className="flex-1 py-2.5 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm">Cancel</button>
-                         <a href="mailto:support@examboost.in?subject=Account Deletion Request" onClick={() => setShowDeleteModal(false)} className="flex-1 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md shadow-red-600/20 flex justify-center items-center gap-2 text-sm border border-transparent hover:border-red-500">Contact Support</a>
+                         <button onClick={() => setShowDeleteModal(false)} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm disabled:opacity-50">Cancel</button>
+                         <button onClick={handleDeleteAccount} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md shadow-red-600/20 flex justify-center items-center gap-2 text-sm border border-transparent hover:border-red-500 disabled:opacity-50">
+                            {isDeletingAccount ? "Deleting..." : "Confirm Delete"}
+                         </button>
                       </div>
                   </div>
               </motion.div>
