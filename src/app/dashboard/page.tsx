@@ -840,7 +840,7 @@ export default function StudentDashboard() {
           <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight">Welcome back, {studentInfo.name.split(' ')[0]}!</h1>
           <p className="text-slate-400 mb-8 font-medium text-sm md:text-base max-w-lg leading-relaxed">You're making incredible progress. Keep up the momentum to secure your top rank in upcoming exams.</p>
           
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start w-full">
             <button
               onClick={() => {
                 if (lastAttempt && lastAttempt.series_id) {
@@ -851,13 +851,13 @@ export default function StudentDashboard() {
                    setActiveTab('courses');
                 }
               }}
-              className="bg-white text-slate-900 px-7 py-3 rounded-xl font-bold text-sm hover:bg-slate-100 transition-colors inline-flex items-center gap-2 shadow-sm"
+              className="bg-white text-slate-900 px-7 py-3.5 md:py-3 rounded-xl font-bold text-sm hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto"
             >
               <PlayCircle className="w-5 h-5" /> {lastAttempt ? 'Resume Last Test' : 'Start a Test'}
             </button>
             <button 
               onClick={() => setActiveTab('performance')}
-              className="bg-slate-800/80 backdrop-blur-md border border-slate-700 hover:bg-slate-700 text-white px-7 py-3 rounded-xl font-bold text-sm transition-colors inline-flex items-center gap-2"
+              className="bg-slate-800/80 backdrop-blur-md border border-slate-700 hover:bg-slate-700 text-white px-7 py-3.5 md:py-3 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <Target className="w-5 h-5" /> Daily Goals
             </button>
@@ -956,7 +956,7 @@ export default function StudentDashboard() {
                      </p>
                      <button
                         onClick={() => setActiveTab('courses')}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md shadow-indigo-600/20"
+                        className="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 transition-colors font-bold rounded-xl text-white shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2 w-full sm:w-auto"
                      >
                         Explore Recommended Series <ChevronRight className="w-4 h-4" />
                      </button>
