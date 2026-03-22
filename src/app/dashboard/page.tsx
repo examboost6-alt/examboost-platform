@@ -75,6 +75,7 @@ export default function StudentDashboard() {
   const [editPhotoFile, setEditPhotoFile] = useState<File | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
+  const [deletedSuccess, setDeletedSuccess] = useState(false);
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -762,8 +763,10 @@ export default function StudentDashboard() {
       
       if (resData.success) {
         await supabase.auth.signOut();
-        alert("Your account & all associated data have been permanently deleted.");
-        router.replace('/');
+        setDeletedSuccess(true);
+        setTimeout(() => {
+          router.replace('/');
+        }, 2000);
       } else {
         alert("Failed to delete account: " + resData.error);
         setIsDeletingAccount(false);
@@ -2181,30 +2184,44 @@ export default function StudentDashboard() {
             exit={{ opacity: 0 }} 
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
           >
-              <div className="absolute inset-0 cursor-pointer" onClick={() => setShowDeleteModal(false)}></div>
+              <div className="absolute inset-0 cursor-pointer" onClick={() => !isDeletingAccount && !deletedSuccess && setShowDeleteModal(false)}></div>
               <motion.div 
                  initial={{ scale: 0.95, opacity: 0 }} 
                  animate={{ scale: 1, opacity: 1 }} 
                  exit={{ scale: 0.95, opacity: 0 }} 
                  className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden relative z-10"
               >
-                  <div className="p-6">
-                      <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4 mx-auto border border-red-100">
-                          <svg className="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Delete Account</h3>
-                      <p className="text-slate-500 text-sm text-center mb-6 leading-relaxed">
-                          Your account and all associated test data will be permanently erased. To confirm and execute this action, please click confirm below.
-                      </p>
-                      <div className="flex gap-3">
-                         <button onClick={() => setShowDeleteModal(false)} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm disabled:opacity-50">Cancel</button>
-                         <button onClick={handleDeleteAccount} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md shadow-red-600/20 flex justify-center items-center gap-2 text-sm border border-transparent hover:border-red-500 disabled:opacity-50">
-                            {isDeletingAccount ? "Deleting..." : "Confirm Delete"}
-                         </button>
-                      </div>
-                  </div>
+                 {deletedSuccess ? (
+                    <div className="p-8 flex flex-col items-center justify-center text-center">
+                       <motion.div 
+                          initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", bounce: 0.5 }}
+                          className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 border border-emerald-200"
+                        >
+                           <CheckCircle className="w-8 h-8 shrink-0" />
+                       </motion.div>
+                       <h3 className="text-xl font-bold text-slate-900 mb-2">Account Deleted</h3>
+                       <p className="text-slate-500 text-sm leading-relaxed mb-1">Your data has been wiped.</p>
+                       <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Redirecting...</p>
+                    </div>
+                 ) : (
+                    <div className="p-6">
+                        <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4 mx-auto border border-red-100">
+                            <svg className="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Delete Account</h3>
+                        <p className="text-slate-500 text-sm text-center mb-6 leading-relaxed">
+                            Your account and all associated test data will be permanently erased. To confirm and execute this action, please click confirm below.
+                        </p>
+                        <div className="flex gap-3">
+                           <button onClick={() => setShowDeleteModal(false)} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 text-sm shadow-sm disabled:opacity-50">Cancel</button>
+                           <button onClick={handleDeleteAccount} disabled={isDeletingAccount} className="flex-1 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md shadow-red-600/20 flex justify-center items-center gap-2 text-sm border border-transparent hover:border-red-500 disabled:opacity-50">
+                              {isDeletingAccount ? "Deleting..." : "Confirm Delete"}
+                           </button>
+                        </div>
+                    </div>
+                 )}
               </motion.div>
           </motion.div>
         )}
