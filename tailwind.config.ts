@@ -33,6 +33,7 @@ const config: Config = {
             animation: {
                 "slide-up": "slideUp 0.8s ease-out forwards",
                 "marquee": "marquee 25s linear infinite",
+                "shimmer": "shimmer 2s infinite",
             },
             keyframes: {
                 slideUp: {
@@ -42,6 +43,10 @@ const config: Config = {
                 marquee: {
                     "0%": { transform: "translateX(0%)" },
                     "100%": { transform: "translateX(-50%)" },
+                },
+                shimmer: {
+                    "0%": { transform: "translateX(-150%)" },
+                    "100%": { transform: "translateX(150%)" },
                 },
             },
         },
