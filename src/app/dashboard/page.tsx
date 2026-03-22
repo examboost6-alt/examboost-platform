@@ -2358,7 +2358,7 @@ export default function StudentDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] font-sans flex text-slate-900 selection:bg-blue-200 overflow-x-hidden w-full max-w-[100vw]">
+    <div className="min-h-screen bg-[#F8F9FA] font-sans flex text-slate-900 selection:bg-blue-200 overflow-hidden w-full max-w-[100vw]">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
@@ -2373,27 +2373,31 @@ export default function StudentDashboard() {
         )}
       </AnimatePresence>
 
+      {/* Sidebar */}
       <motion.aside
         initial={false}
-        animate={{ width: sidebarOpen || isMobile ? "17rem" : "0rem" }}
-        className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 overflow-y-auto overflow-x-hidden no-scrollbar lg:transition-all lg:duration-300 ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
-        style={{ transform: (isMobile && !sidebarOpen) ? 'translateX(-100%)' : 'none' }}
+        animate={{ 
+           width: sidebarOpen || isMobile ? 272 : 0,
+           x: isMobile && !sidebarOpen ? -272 : 0 
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className={`fixed lg:relative top-0 left-0 h-screen z-50 bg-white border-r border-slate-200/60 flex flex-col shrink-0 overflow-y-auto overflow-x-hidden no-scrollbar ${!sidebarOpen && !isMobile ? 'border-r-0' : ''}`}
       >
-        <div className="p-4 sm:p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10">
+        <div className="p-4 sm:p-6 flex items-center justify-between sticky top-0 bg-white/90 backdrop-blur-md z-10 shrink-0">
           <span className="text-2xl font-black text-slate-800 tracking-tight w-full flex items-center gap-2 overflow-hidden whitespace-nowrap">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center rotate-3">
+            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center rotate-3 shrink-0">
               <span className="text-white text-lg font-bold -rotate-3">E</span>
             </div>
             ExamBoost
           </span>
           {isMobile && (
-            <button aria-label="Close sidebar" onClick={() => setSidebarOpen(false)} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
+            <button aria-label="Close sidebar" onClick={() => setSidebarOpen(false)} className="p-2 hover:bg-slate-100 rounded-full transition-colors shrink-0">
               <X className="w-5 h-5 text-slate-500" />
             </button>
           )}
         </div>
 
-        <nav className="px-4 pb-8 space-y-1">
+        <nav className="px-4 pb-8 space-y-1 flex-1 overflow-y-auto no-scrollbar">
           {menuGroups.map((group, groupIdx) => (
             <div key={groupIdx} className={groupIdx > 0 ? "pt-4" : ""}>
               <p className="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3 mt-2 whitespace-nowrap overflow-hidden">
@@ -2421,12 +2425,12 @@ export default function StudentDashboard() {
       </motion.aside>
 
       {/* Main Content Area */}
-      <main className={`flex-1 flex flex-col min-h-screen overflow-x-hidden w-full transition-all duration-300 pt-0 ${!isMobile && sidebarOpen ? 'pl-[17rem]' : ''}`}>
+      <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden relative">
         
         {/* Top Header */}
-        <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 px-3 sm:px-4 md:px-8 py-3.5 flex items-center justify-between supports-[backdrop-filter]:bg-white/50">
+        <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 px-3 sm:px-4 md:px-8 py-3.5 flex items-center justify-between supports-[backdrop-filter]:bg-white/50 shrink-0">
            <div className="flex items-center gap-4 text-slate-800">
-             <button aria-label="Toggle sidebar" onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
+             <button aria-label="Toggle sidebar" onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-slate-100 rounded-full transition-colors shrink-0">
                <Menu className="w-5 h-5 text-slate-600" />
              </button>
              
@@ -2440,16 +2444,16 @@ export default function StudentDashboard() {
              </div>
            </div>
            
-           <div className="flex items-center gap-2.5 md:gap-4">
+           <div className="flex items-center gap-2.5 md:gap-4 shrink-0">
              <button aria-label="Go to Home" className="relative p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-full transition-colors" onClick={() => router.push('/')}>
-               <Home className="w-5 h-5" />
+               <Home className="w-5 h-5 shrink-0" />
              </button>
              <button aria-label="Open notifications" className="relative p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-full transition-colors" onClick={() => setActiveTab('notifications')}>
-               <Bell className="w-5 h-5" />
+               <Bell className="w-5 h-5 shrink-0" />
                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
              </button>
              <button aria-label="Open settings" className="hidden md:flex p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-full transition-colors" onClick={() => setActiveTab('settings')}>
-               <Settings className="w-5 h-5" />
+               <Settings className="w-5 h-5 shrink-0" />
              </button>
              <div className="w-px h-6 bg-slate-200 hidden md:block mx-1"></div>
              <button 
@@ -2469,10 +2473,12 @@ export default function StudentDashboard() {
         </header>
 
         {/* Dynamic Inner Content */}
-        <div className="px-3 py-4 sm:px-4 md:p-8 flex-1 w-full max-w-7xl mx-auto">
-          {renderContent()}
-        </div>
-      </main>
+        <main className="flex-1 overflow-y-auto bg-[#F8F9FA] p-3 sm:p-4 md:p-8 relative">
+           <div className="max-w-7xl mx-auto w-full">
+             {renderContent()}
+           </div>
+        </main>
+      </div>
 
     </div>
   );
