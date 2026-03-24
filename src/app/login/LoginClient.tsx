@@ -117,18 +117,6 @@ export default function LoginClient() {
                         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26Z" />
                     </motion.svg>
 
-                    {/* Floating Glassmorphism Badge */}
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 6 }}
-                        transition={{ delay: 0.5, type: "spring", stiffness: 150 }}
-                        className="absolute right-[8%] top-[25%] hidden lg:flex w-36 h-auto bg-white/70 dark:bg-slate-800/60 backdrop-blur-md border border-white/40 dark:border-slate-700/50 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:shadow-none flex-col items-center justify-center p-5 z-20"
-                    >
-                        <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center mb-3 shadow-inner">
-                            <ShieldCheck className="w-6 h-6 text-[#F97316] dark:text-orange-400" />
-                        </div>
-                        <span className="font-bold text-slate-800 dark:text-white text-sm text-center leading-tight">100%<br/>Secure</span>
-                    </motion.div>
 
                     <div className="relative z-10 flex flex-col h-full justify-between">
                         <div className="flex justify-start pt-4">
