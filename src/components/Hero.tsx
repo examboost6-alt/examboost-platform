@@ -131,7 +131,7 @@ export default function Hero() {
                     </div>
 
                     {/* RIGHT COLUMN: Huge Cutout Image & Floating Elements */}
-                    <div className="w-full lg:w-[45%] relative mt-16 lg:mt-0 flex justify-center lg:justify-end h-full min-h-[500px]">
+                    <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center lg:justify-end items-end lg:min-h-[500px]">
                         
                         {/* Hand-drawn black curly arrow - moved z-index and position */}
                         <motion.svg 
