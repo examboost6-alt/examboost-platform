@@ -109,7 +109,7 @@ export default function SignupClient() {
                                     required
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
-                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 dark:focus:border-orange-400 dark:focus:ring-orange-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -119,7 +119,7 @@ export default function SignupClient() {
                                     placeholder="Doe"
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
-                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 dark:focus:border-orange-400 dark:focus:ring-orange-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                                 />
                             </div>
                         </div>
@@ -150,16 +150,16 @@ export default function SignupClient() {
                         </div>
 
                         <div className="flex items-start gap-3 py-2">
-                            <input type="checkbox" id="terms" required className="w-5 h-5 mt-0.5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 dark:bg-slate-900 dark:border-slate-700 shrink-0" />
+                            <input type="checkbox" id="terms" required className="w-5 h-5 mt-0.5 rounded border-slate-300 text-orange-600 focus:ring-orange-500 dark:bg-slate-900 dark:border-slate-700 shrink-0" />
                             <label htmlFor="terms" className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none cursor-pointer">
-                                I agree to the <Link href="#" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Terms of Service</Link> and <Link href="#" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Privacy Policy</Link>.
+                                I agree to the <Link href="#" className="font-bold text-orange-600 dark:text-orange-400 hover:underline">Terms of Service</Link> and <Link href="#" className="font-bold text-orange-600 dark:text-orange-400 hover:underline">Privacy Policy</Link>.
                             </label>
                         </div>
 
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(5,150,105,0.3)] hover:shadow-[0_8px_25px_rgba(5,150,105,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                            className="w-full bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_8px_25px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
                         >
                             {loading ? 'Creating account...' : 'Create Free Account'} <ArrowRight className="w-5 h-5" />
                         </button>
@@ -167,7 +167,7 @@ export default function SignupClient() {
 
                     <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-center font-medium text-slate-600 dark:text-slate-400">
                         Already have an account?{' '}
-                        <Link href="/login" className="text-emerald-600 dark:text-emerald-400 hover:underline font-bold">
+                        <Link href="/login" className="text-orange-600 dark:text-orange-400 hover:underline font-bold">
                             Login instead
                         </Link>
                     </div>
@@ -175,16 +175,16 @@ export default function SignupClient() {
 
                 <div className="hidden md:flex flex-col justify-between w-1/2 bg-white dark:bg-[#060D1A] border-l border-slate-200 dark:border-slate-800/80 p-12 relative overflow-hidden order-1 md:order-2">
                     {/* Modern Radial Gradients (Replaces old grid) */}
-                    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/60 via-teal-50/20 to-transparent dark:from-emerald-900/20 dark:via-[#060D1A] dark:to-[#060D1A] z-0"></div>
+                    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/60 via-orange-50/20 to-transparent dark:from-[#F97316]/20 dark:via-[#060D1A] dark:to-[#060D1A] z-0"></div>
                     <div className="absolute bottom-0 left-[-20%] w-[100%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-100/50 to-transparent dark:from-blue-900/20 z-0"></div>
                     
                     {/* Abstract Flowing Shapes */}
-                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-emerald-50 dark:text-emerald-900/10 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-orange-50 dark:text-orange-900/10 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
                         <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
                     </svg>
 
                     {/* Floating Decorative Elements */}
-                    <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-emerald-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
+                    <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-orange-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41Z" />
                     </motion.svg>
                     <motion.svg animate={{ y: [0, -20, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[35%] right-[10%] w-8 h-8 text-blue-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
@@ -198,8 +198,8 @@ export default function SignupClient() {
                         transition={{ delay: 0.5, type: "spring", stiffness: 150 }}
                         className="absolute right-[8%] top-[25%] hidden lg:flex w-36 h-auto bg-white/70 dark:bg-slate-800/60 backdrop-blur-md border border-white/40 dark:border-slate-700/50 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:shadow-none flex-col items-center justify-center p-5 z-20"
                     >
-                        <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center mb-3 shadow-inner">
-                            <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">99%</span>
+                        <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center mb-3 shadow-inner">
+                            <span className="text-xl font-black text-[#F97316] dark:text-orange-400">99%</span>
                         </div>
                         <span className="font-bold text-slate-800 dark:text-white text-sm text-center leading-tight">Success<br/>Rate</span>
                     </motion.div>
@@ -220,7 +220,7 @@ export default function SignupClient() {
                                 className="text-[2.2rem] lg:text-[2.75rem] font-black font-serif text-slate-900 dark:text-white leading-[1.15] mb-6 tracking-tight"
                             >
                                 Join 50 Lakh+ Students <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 inline-block mt-2">Cracking Exams Daily.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-blue-600 dark:from-orange-400 dark:to-blue-400 inline-block mt-2">Cracking Exams Daily.</span>
                             </motion.h2>
 
                             <motion.p 
@@ -245,7 +245,7 @@ export default function SignupClient() {
                                         key={i} 
                                         className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors border border-transparent hover:border-slate-200/50 dark:hover:border-slate-700/50"
                                     >
-                                        <div className="w-12 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-sm mt-0.5">
+                                        <div className="w-12 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-[#F97316] dark:text-orange-400 shrink-0 shadow-sm mt-0.5">
                                             {feature.icon}
                                         </div>
                                         <div>
