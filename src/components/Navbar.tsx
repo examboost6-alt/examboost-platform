@@ -187,6 +187,7 @@ export default function Navbar() {
     }
 
     return (
+        <>
         <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 dark:bg-[#020617]/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm' : 'bg-transparent'}`}>
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 h-16 md:h-20 lg:h-24 flex items-center justify-between lg:justify-start relative z-10">
@@ -401,9 +402,10 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
+        </header>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
+        {/* Mobile Menu */}
+        <AnimatePresence>
                 {mobileMenuOpen && (
                     <>
                         <motion.div
@@ -411,7 +413,7 @@ export default function Navbar() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="fixed inset-0 bg-slate-950/20 dark:bg-black/40 lg:hidden"
+                            className="fixed inset-0 z-[55] bg-slate-950/20 dark:bg-black/40 lg:hidden"
                             onClick={() => setMobileMenuOpen(false)}
                         />
                         <motion.div
@@ -577,6 +579,6 @@ export default function Navbar() {
                     </>
                 )}
             </AnimatePresence>
-        </header>
+        </>
     );
 }
