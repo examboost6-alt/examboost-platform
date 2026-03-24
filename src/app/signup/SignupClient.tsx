@@ -174,9 +174,11 @@ export default function SignupClient() {
                 </div>
 
                 <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-50 dark:bg-[#060c21] border-l border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden order-1 md:order-2">
-                    {/* Abstract Flowing Shapes */}
-                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-orange-50 dark:text-orange-900/20 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                        <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
+                    {/* Circle Line Background Decoration */}
+                    <svg className="absolute top-[-20%] right-[-20%] w-[120%] h-[120%] text-orange-600/5 dark:text-orange-400/5 pointer-events-none z-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="200" r="180" stroke="currentColor" strokeWidth="2" />
+                        <circle cx="200" cy="200" r="120" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
+                        <circle cx="200" cy="200" r="60" stroke="currentColor" strokeWidth="1" />
                     </svg>
                     {/* Floating Decorative Elements */}
                     <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-orange-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
@@ -186,18 +188,7 @@ export default function SignupClient() {
                         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26Z" />
                     </motion.svg>
 
-                    {/* Floating Glassmorphism Badge */}
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 6 }}
-                        transition={{ delay: 0.5, type: "spring", stiffness: 150 }}
-                        className="absolute right-[8%] top-[25%] hidden lg:flex w-36 h-auto bg-white/70 dark:bg-slate-800/60 backdrop-blur-md border border-white/40 dark:border-slate-700/50 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:shadow-none flex-col items-center justify-center p-5 z-20"
-                    >
-                        <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center mb-3 shadow-inner">
-                            <span className="text-xl font-black text-[#F97316] dark:text-orange-400">99%</span>
-                        </div>
-                        <span className="font-bold text-slate-800 dark:text-white text-sm text-center leading-tight">Success<br/>Rate</span>
-                    </motion.div>
+
 
                     <div className="relative z-10 flex flex-col h-full justify-between">
                         <div className="flex justify-end pt-4">

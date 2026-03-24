@@ -102,11 +102,12 @@ export default function LoginClient() {
         <div className="min-h-screen bg-slate-50 dark:bg-[#020617] flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans">
             <div className="w-full max-w-6xl bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col md:flex-row mb-10 mt-16 md:mt-24">
                 <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-50 dark:bg-[#060c21] border-r border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-10 z-0"></div>
 
-                    {/* Abstract Flowing Shapes */}
-                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-orange-50 dark:text-orange-900/20 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                        <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
+                    {/* Circle Line Background Decoration */}
+                    <svg className="absolute top-[-20%] right-[-20%] w-[120%] h-[120%] text-orange-600/5 dark:text-orange-400/5 pointer-events-none z-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="200" r="180" stroke="currentColor" strokeWidth="2" />
+                        <circle cx="200" cy="200" r="120" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
+                        <circle cx="200" cy="200" r="60" stroke="currentColor" strokeWidth="1" />
                     </svg>
 
                     {/* Floating Decorative Elements */}
