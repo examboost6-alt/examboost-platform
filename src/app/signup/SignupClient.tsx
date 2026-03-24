@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Sparkles, Trophy, Users, ArrowRight, ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
+import { motion } from 'framer-motion';
 
 export default function SignupClient() {
     const router = useRouter();
@@ -64,7 +65,7 @@ export default function SignupClient() {
                         <img src="/white-logo.png" alt="ExamBoost Logo" className="h-8 object-contain hidden dark:block" />
                     </Link>
 
-                    <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-primary dark:hover:text-accent transition-colors mb-8 group w-fit">
+                    <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-8 group w-fit">
                         <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
                     </Link>
 
@@ -108,7 +109,7 @@ export default function SignupClient() {
                                     required
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
-                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-accent rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -118,7 +119,7 @@ export default function SignupClient() {
                                     placeholder="Doe"
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
-                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-accent rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                    className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                                 />
                             </div>
                         </div>
@@ -131,7 +132,7 @@ export default function SignupClient() {
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-accent rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                             />
                         </div>
 
@@ -143,22 +144,22 @@ export default function SignupClient() {
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-accent rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                className="w-full px-5 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
                             />
                             <p className="text-xs text-slate-500 mt-1 font-medium">Must be at least 8 characters long.</p>
                         </div>
 
                         <div className="flex items-start gap-3 py-2">
-                            <input type="checkbox" id="terms" required className="w-5 h-5 mt-0.5 rounded border-slate-300 text-primary focus:ring-primary dark:bg-slate-900 dark:border-slate-700 shrink-0" />
+                            <input type="checkbox" id="terms" required className="w-5 h-5 mt-0.5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 dark:bg-slate-900 dark:border-slate-700 shrink-0" />
                             <label htmlFor="terms" className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none cursor-pointer">
-                                I agree to the <Link href="#" className="font-bold text-primary dark:text-accent hover:underline">Terms of Service</Link> and <Link href="#" className="font-bold text-primary dark:text-accent hover:underline">Privacy Policy</Link>.
+                                I agree to the <Link href="#" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Terms of Service</Link> and <Link href="#" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Privacy Policy</Link>.
                             </label>
                         </div>
 
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 py-4 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2"
+                            className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(5,150,105,0.3)] hover:shadow-[0_8px_25px_rgba(5,150,105,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
                         >
                             {loading ? 'Creating account...' : 'Create Free Account'} <ArrowRight className="w-5 h-5" />
                         </button>
@@ -166,48 +167,92 @@ export default function SignupClient() {
 
                     <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-center font-medium text-slate-600 dark:text-slate-400">
                         Already have an account?{' '}
-                        <Link href="/login" className="text-primary dark:text-accent hover:underline font-bold">
+                        <Link href="/login" className="text-emerald-600 dark:text-emerald-400 hover:underline font-bold">
                             Login instead
                         </Link>
                     </div>
                 </div>
 
-                <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-100 dark:bg-[#060c21] border-l border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden order-1 md:order-2">
-                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-10 z-0"></div>
+                <div className="hidden md:flex flex-col justify-between w-1/2 bg-white dark:bg-[#060D1A] border-l border-slate-200 dark:border-slate-800/80 p-12 relative overflow-hidden order-1 md:order-2">
+                    {/* Modern Radial Gradients (Replaces old grid) */}
+                    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/60 via-teal-50/20 to-transparent dark:from-emerald-900/20 dark:via-[#060D1A] dark:to-[#060D1A] z-0"></div>
+                    <div className="absolute bottom-0 left-[-20%] w-[100%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-100/50 to-transparent dark:from-blue-900/20 z-0"></div>
+                    
+                    {/* Abstract Flowing Shapes */}
+                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-emerald-50 dark:text-emerald-900/10 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                        <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
+                    </svg>
 
-                    <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex justify-end">
-                            <Link href="/" className="inline-block mb-12 hover:opacity-80 transition-opacity">
-                                <img src="/logo.png" alt="ExamBoost Logo" className="h-8 object-contain dark:hidden" />
-                                <img src="/white-logo.png" alt="ExamBoost Logo" className="h-8 object-contain hidden dark:block" />
+                    {/* Floating Decorative Elements */}
+                    <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-emerald-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41Z" />
+                    </motion.svg>
+                    <motion.svg animate={{ y: [0, -20, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[35%] right-[10%] w-8 h-8 text-blue-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26Z" />
+                    </motion.svg>
+
+                    {/* Floating Glassmorphism Badge */}
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 6 }}
+                        transition={{ delay: 0.5, type: "spring", stiffness: 150 }}
+                        className="absolute right-[8%] top-[25%] hidden lg:flex w-36 h-auto bg-white/70 dark:bg-slate-800/60 backdrop-blur-md border border-white/40 dark:border-slate-700/50 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:shadow-none flex-col items-center justify-center p-5 z-20"
+                    >
+                        <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center mb-3 shadow-inner">
+                            <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">99%</span>
+                        </div>
+                        <span className="font-bold text-slate-800 dark:text-white text-sm text-center leading-tight">Success<br/>Rate</span>
+                    </motion.div>
+
+                    <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div className="flex justify-end pt-4">
+                            <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
+                                <img src="/logo.png" alt="ExamBoost Logo" className="h-[26px] object-contain dark:hidden" />
+                                <img src="/white-logo.png" alt="ExamBoost Logo" className="h-[26px] object-contain hidden dark:block" />
                             </Link>
                         </div>
 
-                        <div className="mt-auto">
-                            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white leading-tight mb-6">
+                        <div className="mt-auto pb-4">
+                            <motion.h2 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="text-[2.2rem] lg:text-[2.75rem] font-black font-serif text-slate-900 dark:text-white leading-[1.15] mb-6 tracking-tight"
+                            >
                                 Join 50 Lakh+ Students <br />
-                                <span className="text-emerald-600 dark:text-emerald-400">Cracking Exams Daily.</span>
-                            </h2>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 inline-block mt-2">Cracking Exams Daily.</span>
+                            </motion.h2>
 
-                            <p className="text-slate-600 dark:text-slate-400 font-medium text-lg mb-10 max-w-sm">
-                                Get access to India's most comprehensive test series platform and start improving your scores today.
-                            </p>
+                            <motion.p 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="text-slate-600 dark:text-slate-400 font-medium text-lg leading-relaxed mb-10 max-w-[90%]"
+                            >
+                                Get absolute access to India's most powerful test series platform. Your dream rank is just a registration away.
+                            </motion.p>
 
                             <div className="space-y-6">
                                 {[
-                                    { icon: <Sparkles className="w-6 h-6" />, title: 'Free Mock Tests', desc: 'Get 1-2 free tests for every major exam.' },
-                                    { icon: <Trophy className="w-6 h-6" />, title: 'All India Rank', desc: 'Compete with lakhs of serious aspirants.' },
-                                    { icon: <Users className="w-6 h-6" />, title: 'Expert Community', desc: 'Interact with toppers and expert faculties.' },
+                                    { icon: <Sparkles className="w-5 h-5" />, title: 'Premium Free Mocks', desc: 'Experience full length mocks for your target exams 100% free.' },
+                                    { icon: <Trophy className="w-5 h-5" />, title: 'Real Time AIR', desc: 'Know exactly where you stand among lakhs of actual aspirants.' },
+                                    { icon: <Users className="w-5 h-5" />, title: 'Expert Community', desc: 'Direct interaction with top percentile scorers and elite faculty.' },
                                 ].map((feature, i) => (
-                                    <div key={i} className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-sm">
+                                    <motion.div 
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.4 + (i * 0.1) }}
+                                        key={i} 
+                                        className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors border border-transparent hover:border-slate-200/50 dark:hover:border-slate-700/50"
+                                    >
+                                        <div className="w-12 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-sm mt-0.5">
                                             {feature.icon}
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{feature.title}</h3>
-                                            <p className="text-slate-600 dark:text-slate-400 font-medium text-sm">{feature.desc}</p>
+                                            <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-1.5">{feature.title}</h3>
+                                            <p className="text-slate-600 dark:text-slate-400 font-medium text-[15px] leading-snug">{feature.desc}</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
