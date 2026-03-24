@@ -174,10 +174,10 @@ export default function SignupClient() {
                 </div>
 
                 <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-50 dark:bg-[#060c21] border-l border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden order-1 md:order-2">
-                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-10 z-0"></div>
-                    
                     {/* Abstract Flowing Shapes */}
-
+                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-orange-50 dark:text-orange-900/20 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                        <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
+                    </svg>
                     {/* Floating Decorative Elements */}
                     <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-orange-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41Z" />
