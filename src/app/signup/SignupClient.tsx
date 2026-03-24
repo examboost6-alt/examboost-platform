@@ -173,15 +173,10 @@ export default function SignupClient() {
                     </div>
                 </div>
 
-                <div className="hidden md:flex flex-col justify-between w-1/2 bg-white dark:bg-[#060D1A] border-l border-slate-200 dark:border-slate-800/80 p-12 relative overflow-hidden order-1 md:order-2">
-                    {/* Modern Radial Gradients (Replaces old grid) */}
-                    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/60 via-orange-50/20 to-transparent dark:from-[#F97316]/20 dark:via-[#060D1A] dark:to-[#060D1A] z-0"></div>
-                    <div className="absolute bottom-0 left-[-20%] w-[100%] h-[100%] bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-100/50 to-transparent dark:from-blue-900/20 z-0"></div>
+                <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-50 dark:bg-[#060c21] border-l border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden order-1 md:order-2">
+                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-10 z-0"></div>
                     
                     {/* Abstract Flowing Shapes */}
-                    <svg className="absolute left-[-10%] top-[20%] w-[120%] h-[120%] text-orange-50 dark:text-orange-900/10 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                        <path fill="none" stroke="currentColor" strokeWidth="120" strokeLinecap="round" d="M -100,500 C 300,200 400,800 1100,400" />
-                    </svg>
 
                     {/* Floating Decorative Elements */}
                     <motion.svg animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-[10%] left-[80%] w-10 h-10 text-orange-400 opacity-60 z-10" viewBox="0 0 24 24" fill="currentColor">
@@ -220,7 +215,7 @@ export default function SignupClient() {
                                 className="text-[2.2rem] lg:text-[2.75rem] font-black font-serif text-slate-900 dark:text-white leading-[1.15] mb-6 tracking-tight"
                             >
                                 Join 50 Lakh+ Students <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-blue-600 dark:from-orange-400 dark:to-blue-400 inline-block mt-2">Cracking Exams Daily.</span>
+                                <span className="text-[#F97316] dark:text-orange-400 inline-block mt-2">Cracking Exams Daily.</span>
                             </motion.h2>
 
                             <motion.p 
