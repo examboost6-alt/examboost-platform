@@ -38,27 +38,56 @@ export default function ExamsClient() {
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] pt-20 w-full flex flex-col font-sans selection:bg-primary/30">
-            {/* Header Section with Search */}
-            <header className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white dark:bg-[#0B1120] border-b border-slate-200 dark:border-slate-800/80">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/10 dark:bg-primary/20 blur-[140px] rounded-full pointer-events-none" />
-                
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center max-w-4xl">
+            {/* Header Section with Premium Hero styling */}
+            <header className="relative pt-24 pb-16 lg:pt-32 lg:pb-28 overflow-hidden bg-white dark:bg-[#060D1A] border-b border-slate-200 dark:border-slate-800/80">
+                {/* Hero-like Grid Background */}
+                <div 
+                    className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
+                    style={{ 
+                        backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
+                        backgroundSize: '40px 40px' 
+                    }}
+                />
+
+                {/* Soft Flowing Light Blue/Orange Background Shapes */}
+                <svg className="absolute top-[0%] right-[0%] w-[100%] h-[120%] text-orange-50 dark:text-[#F97316]/5 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                    <path fill="none" stroke="currentColor" strokeWidth="180" strokeLinecap="round" d="M-200,800 C150,800 350,100 600,200 C850,300 800,900 1200,800" />
+                </svg>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-orange-100/50 dark:bg-[#F97316]/10 blur-[140px] rounded-full pointer-events-none z-0" />
+
+                {/* Orange Floating Stars */}
+                <svg className="absolute top-[20%] right-[20%] w-6 h-6 text-[#F97316]/60 animate-[pulse-slow_3s_ease-in-out_infinite] z-0 hidden md:block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" /></svg>
+                <svg className="absolute bottom-[20%] left-[10%] w-4 h-4 text-[#F97316]/40 animate-[pulse-slow_4s_ease-in-out_infinite] delay-700 z-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" /></svg>
+                <svg className="absolute top-[40%] left-[20%] w-5 h-5 text-[#F97316]/50 animate-[pulse-slow_5s_ease-in-out_infinite] delay-300 z-0 hidden lg:block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" /></svg>
+
+                <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center max-w-4xl pt-8">
                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm font-bold tracking-widest uppercase text-slate-700 dark:text-slate-300 mb-6 shadow-sm"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-orange-50 dark:bg-[#F97316]/10 border border-orange-200 dark:border-[#F97316]/20 text-sm font-bold tracking-widest uppercase text-[#F97316] mb-8 shadow-sm"
                     >
-                        <Target className="w-4 h-4 text-rose-500" /> Goal Oriented Preparation
+                        <Target className="w-4 h-4" /> Goal Oriented Preparation
                     </motion.div>
                     
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]"
+                        className="text-4xl md:text-5xl lg:text-[4.5rem] font-serif font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.05]"
                     >
-                        Master Your <span className="text-primary">Dream Exam</span>
+                        Master Your <br className="hidden md:block"/>
+                        <span className="text-[#F97316] relative">
+                            Dream Exam
+                            {/* Hand-drawn underline */}
+                            <svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-4 text-orange-300 dark:text-orange-500/50 pointer-events-none" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <motion.path 
+                                    initial={{ pathLength: 0 }}
+                                    animate={{ pathLength: 1 }}
+                                    transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                                    fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" d="M5,15 Q50,5 95,15" 
+                                />
+                            </svg>
+                        </span>
                     </motion.h1>
                     
                     <motion.p 
@@ -70,7 +99,7 @@ export default function ExamsClient() {
                         Join 50M+ students. Search your exam below to get instant access to previous papers, mock tests, and AI-driven analytics.
                     </motion.p>
 
-                    {/* Giant Search Bar */}
+                    {/* Giant Premium Search Bar */}
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -78,29 +107,32 @@ export default function ExamsClient() {
                         className="max-w-2xl mx-auto relative group"
                     >
                         <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                            <Search className="w-7 h-7 text-slate-400 group-focus-within:text-primary transition-colors" />
+                            <Search className="w-7 h-7 text-slate-400 group-focus-within:text-[#F97316] transition-colors" />
                         </div>
                         <input
                             type="text"
-                            placeholder="e.g., 'JEE Main', 'SSC CGL', 'UPSC'..."
+                            placeholder="Search 'JEE', 'SSC CGL', 'UPSC'..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 rounded-full py-5 pl-16 pr-6 text-lg md:text-xl font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all shadow-xl shadow-slate-200/50 dark:shadow-none"
+                            className="w-full bg-white dark:bg-slate-900 border-[3px] border-slate-100 dark:border-slate-800 rounded-full py-5 pl-16 pr-24 text-lg md:text-xl font-bold text-slate-900 dark:text-white placeholder:text-slate-400 placeholder:font-medium focus:outline-none focus:border-[#F97316] focus:ring-4 focus:ring-[#F97316]/10 transition-all shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:shadow-none"
                         />
                         {searchQuery && (
                             <button 
                                 onClick={() => setSearchQuery("")}
-                                className="absolute inset-y-0 right-6 flex items-center text-slate-400 hover:text-slate-600 font-bold"
+                                className="absolute inset-y-0 right-6 flex items-center text-slate-400 hover:text-slate-600 font-bold px-2"
                             >
                                 Clear
                             </button>
                         )}
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#F97316] text-white p-3 rounded-full hidden sm:flex items-center justify-center shadow-lg transform scale-90 group-focus-within:scale-100 transition-transform">
+                            <ArrowRight className="w-5 h-5" />
+                        </div>
                     </motion.div>
                 </div>
             </header>
 
             {/* Platform Stats Block */}
-            <div className="bg-white dark:bg-slate-800/40 border-b border-slate-200 dark:border-slate-800 py-8 hidden md:block">
+            <div className="bg-white dark:bg-[#060D1A]/50 border-b border-slate-200 dark:border-slate-800 py-8 hidden md:block">
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="flex items-center justify-center gap-12 lg:gap-24">
                         <div className="flex items-center gap-4">
@@ -130,37 +162,39 @@ export default function ExamsClient() {
                 </div>
             </div>
 
-            <main className="flex-1 container mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-20">
+            <main className="flex-1 container mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
                 
                 {/* Popular / Trending Block (only show if no search filter) */}
                 {!searchQuery && (
-                    <div className="mb-20">
-                        <div className="flex items-center gap-2 mb-8">
-                            <Zap className="w-6 h-6 text-amber-500 fill-amber-500" />
-                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Trending Exams Right Now</h2>
+                    <div className="mb-24">
+                        <div className="flex items-center gap-3 mb-8">
+                            <Zap className="w-8 h-8 text-amber-500 fill-amber-500" />
+                            <h2 className="text-3xl font-serif font-black text-slate-900 dark:text-white tracking-tight">Trending Exams Right Now</h2>
                         </div>
-                        <div className="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 gap-4 snap-x hide-scrollbar">
+                        <div className="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 gap-6 snap-x hide-scrollbar">
                             {topExams.map((exam, i) => (
-                                <Link key={i} href={exam.href} className="flex flex-col min-w-[280px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 snap-start hover:border-primary/50 cursor-pointer shadow-sm hover:shadow-lg transition-all group">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <span className="text-xs font-bold px-2 py-1 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">{exam.tag}</span>
-                                        <span className="text-xs font-bold text-slate-400">{exam.date}</span>
+                                <Link key={i} href={exam.href} className="flex flex-col min-w-[300px] bg-white dark:bg-slate-800 border-[1.5px] border-slate-100 dark:border-slate-700/80 rounded-[2rem] p-8 snap-start hover:border-[#F97316]/50 cursor-pointer shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <span className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-300 group-hover:bg-orange-50 group-hover:text-[#F97316] transition-colors">{exam.tag}</span>
+                                        <span className="text-sm font-bold text-slate-400 bg-slate-50 dark:bg-slate-900 px-3 py-1 rounded-lg">{exam.date}</span>
                                     </div>
-                                    <h3 className="text-xl font-black text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">{exam.name}</h3>
-                                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-6">{exam.applicants} Students Competing</p>
-                                    <div className="w-full text-center mt-auto text-sm font-bold text-primary dark:text-accent group-hover:underline">Explore Test Series &rarr;</div>
+                                    <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2 group-hover:text-[#F97316] transition-colors">{exam.name}</h3>
+                                    <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-8 flex items-center gap-2">
+                                        <Users className="w-4 h-4" /> {exam.applicants} Students Competing
+                                    </p>
+                                    <div className="w-full text-center mt-auto text-sm font-black text-[#F97316] dark:text-orange-400 group-hover:translate-x-1 flex justify-end items-center transition-transform">Explore Test Series &rarr;</div>
                                 </Link>
                             ))}
                         </div>
                     </div>
                 )}
 
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-black text-slate-900 dark:text-white tracking-tight">
                             {searchQuery ? `Search Results for "${searchQuery}"` : "All Exam Categories"}
                         </h2>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium mt-1">
+                        <p className="text-slate-500 dark:text-slate-400 font-medium text-lg mt-3 font-sans">
                             {searchQuery ? `Found ${filteredCategories.length} matching categories.` : "Select from 50+ central and state level examinations."}
                         </p>
                     </div>
@@ -186,19 +220,19 @@ export default function ExamsClient() {
                                 >
                                     <Link 
                                         href={cat.href} 
-                                        className="h-full group relative bg-white dark:bg-slate-800/50 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-700/80 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                                        className="h-full group relative bg-white dark:bg-[#0F172A] rounded-[2rem] p-6 md:p-8 border border-slate-100 dark:border-slate-700/80 hover:border-[#F97316]/40 dark:hover:border-[#F97316]/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
                                     >
                                         {cat.popular && (
-                                            <div className="absolute top-0 right-6 -translate-y-1/2 bg-amber-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                                            <div className="absolute top-0 right-6 -translate-y-1/2 bg-[#F97316] text-white text-[10px] sm:text-[11px] tracking-widest font-black uppercase px-4 py-1.5 rounded-full shadow-md shadow-[#F97316]/30 flex items-center gap-1">
                                                 <Zap className="w-3 h-3 fill-white" /> POPULAR
                                             </div>
                                         )}
 
-                                        <div className={`w-16 h-16 ${cat.bg} rounded-2xl flex items-center justify-center ${cat.color} group-hover:scale-110 transition-transform duration-300 mb-6 shadow-sm`}>
+                                        <div className={`w-16 h-16 ${cat.bg} rounded-2xl flex items-center justify-center ${cat.color} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 mb-6 shadow-sm`}>
                                             <cat.icon className="w-8 h-8" />
                                         </div>
                                         
-                                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                                        <h3 className="text-xl sm:text-2xl font-black font-serif text-slate-900 dark:text-white mb-3 group-hover:text-[#F97316] transition-colors leading-tight">
                                             {cat.name}
                                         </h3>
                                         
@@ -206,7 +240,7 @@ export default function ExamsClient() {
                                             {cat.desc}
                                         </p>
                                         
-                                        <div className="mt-auto flex items-center gap-2 text-primary dark:text-accent font-bold text-sm bg-primary/5 dark:bg-primary/10 w-fit px-4 py-2 rounded-xl group-hover:bg-primary group-hover:text-white dark:group-hover:bg-accent dark:group-hover:text-slate-900 transition-colors">
+                                        <div className="mt-auto flex items-center gap-2 text-[#F97316] dark:text-orange-400 font-bold text-sm bg-orange-50 dark:bg-[#F97316]/10 w-fit px-5 py-2.5 rounded-xl group-hover:bg-[#F97316] group-hover:text-white transition-colors">
                                             View Exams <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </div>
                                     </Link>
@@ -217,21 +251,21 @@ export default function ExamsClient() {
                 )}
 
                 {/* Additional Feature Section to enrich the page */}
-                <div className="mt-24 bg-primary text-white rounded-[2.5rem] p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden shadow-2xl shadow-primary/20">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 blur-[80px] rounded-full pointer-events-none" />
+                <div className="mt-28 bg-[#F97316] text-white rounded-[2.5rem] p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden shadow-2xl shadow-[#F97316]/20">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 blur-[100px] rounded-full pointer-events-none" />
+                    <div className="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-red-500/20 blur-[80px] rounded-full pointer-events-none" />
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none mix-blend-overlay"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
-                        <h3 className="text-3xl md:text-5xl font-black mb-6 leading-tight">Didn't find your exam?</h3>
-                        <p className="text-primary-foreground/90 text-lg md:text-xl font-medium">
-                            We are constantly adding new exam categories. Register now to get notified when we launch mock tests for your specific exam.
+                        <h3 className="text-4xl md:text-5xl font-serif font-black mb-6 leading-tight">Didn't find your exam?</h3>
+                        <p className="text-orange-50/90 text-lg md:text-xl font-medium leading-relaxed">
+                            We are constantly adding new exam categories. Register now to get notified when we launch mock tests for your specific targeted exam.
                         </p>
                     </div>
                     
-                    <div className="relative z-10 shrink-0">
-                        <Link href="/register" className="bg-white text-primary hover:bg-slate-50 font-extrabold px-8 py-4 rounded-xl shadow-xl transition-all flex items-center gap-2 text-lg hover:-translate-y-1">
-                            Register Now <ChevronRight className="w-6 h-6" />
+                    <div className="relative z-10 shrink-0 mt-4 md:mt-0">
+                        <Link href="/register" className="bg-white text-slate-900 hover:bg-slate-50 font-black px-10 py-5 rounded-2xl shadow-xl transition-all flex items-center gap-3 text-lg hover:-translate-y-1 group">
+                            Register Now <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>

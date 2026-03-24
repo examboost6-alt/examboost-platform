@@ -1,7 +1,6 @@
 import Hero from '@/components/Hero';
 import Banners from '@/components/Banners';
 import Categories from '@/components/Categories';
-import PopularExams from '@/components/PopularExams';
 import Features from '@/components/Features';
 import DashboardPreview from '@/components/DashboardPreview';
 import FreeTests from '@/components/FreeTests';
@@ -10,20 +9,21 @@ import Testimonials from '@/components/Testimonials';
 import AppPromo from '@/components/AppPromo';
 import BlogSection from '@/components/BlogSection';
 import TrustIndicators from '@/components/TrustIndicators';
+import TestSeriesSection from '@/components/TestSeriesSection';
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-transparent font-sans selection:bg-primary/30 relative overflow-hidden flex flex-col">
+        <div className="min-h-screen bg-[#FAFBFF] dark:bg-transparent font-sans selection:bg-primary/30 relative overflow-hidden flex flex-col">
             <Hero />
             <TrustIndicators />
-            <Banners />
+            <Testimonials />
             <Categories />
-            <PopularExams />
+            <TestSeriesSection />
             <Features />
             <DashboardPreview />
             <FreeTests />
             <Pricing />
-            <Testimonials />
+            <Banners />
             <AppPromo />
             <BlogSection />
         </div>

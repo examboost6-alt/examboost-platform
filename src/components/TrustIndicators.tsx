@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { MdOutlineGroups, MdOutlineDescription, MdOutlineSupportAgent, MdOutlineSecurity } from 'react-icons/md';
+import { MdOutlineGroups, MdOutlineDescription, MdOutlineSupportAgent, MdOutlineVerifiedUser } from 'react-icons/md';
 
 const stats = [
-    { icon: <MdOutlineGroups className="w-8 h-8" />, count: "10 Lakh+", label: "Happy Students" },
+    { icon: <MdOutlineGroups className="w-8 h-8" />, count: "1 Lakh+", label: "Active Aspirants" },
+    { icon: <MdOutlineVerifiedUser className="w-8 h-8" />, count: "10,000+", label: "Govt. Selections" },
+    { icon: <MdOutlineSupportAgent className="w-8 h-8" />, count: "95%", label: "Success Rate" },
     { icon: <MdOutlineDescription className="w-8 h-8" />, count: "50 Million+", label: "Tests Attempted" },
-    { icon: <MdOutlineSupportAgent className="w-8 h-8" />, count: "24/7", label: "Mentor Support" },
-    { icon: <MdOutlineSecurity className="w-8 h-8" />, count: "100%", label: "Secure Platform" },
 ];
 
 export default function TrustIndicators() {

@@ -6,9 +6,18 @@ import Link from 'next/link';
 
 export default function DashboardPreview() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-200 dark:border-slate-800">
-            {/* Background embellishments */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+        <section className="py-24 bg-white dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-100 dark:border-slate-800/80">
+            {/* Hero-like Grid Background */}
+            <div 
+                className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
+                style={{ 
+                    backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
+                    backgroundSize: '40px 40px' 
+                }}
+            />
+            {/* Soft Flowing Shapes */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-50 to-transparent dark:from-[#F97316]/5 pointer-events-none z-0" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-50 to-transparent dark:from-blue-900/10 pointer-events-none z-0" />
             
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 
@@ -19,9 +28,9 @@ export default function DashboardPreview() {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 text-sm font-bold tracking-widest uppercase text-slate-700 dark:text-slate-300 mb-6"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-[#F97316]/10 shadow-sm border border-orange-200 dark:border-[#F97316]/20 text-sm font-bold tracking-widest uppercase text-[#F97316] mb-6"
                         >
-                            <MdTimeline className="w-5 h-5 text-primary" /> AI-Powered Analytics
+                            <MdTimeline className="w-5 h-5 text-[#F97316]" /> AI-Powered Analytics
                         </motion.div>
 
                         <motion.h2
@@ -29,9 +38,9 @@ export default function DashboardPreview() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6"
+                            className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-black text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6"
                         >
-                            Decode Performance with <span className="text-primary">Forensic Precision</span>
+                            Decode Performance with <br/><span className="text-[#F97316]">Forensic Precision</span>
                         </motion.h2>
 
                         <motion.p
@@ -73,7 +82,7 @@ export default function DashboardPreview() {
                             <motion.div 
                                 animate={{ x: [0, 20, 0] }}
                                 transition={{ repeat: Infinity, duration: 10, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70"
+                                className="absolute bottom-0 left-0 w-64 h-64 bg-[#F97316]/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70"
                             />
                             {/* Graphic representing data/charts */}
                             <div className="absolute inset-0 flex items-center justify-center z-10 p-8">
@@ -85,7 +94,7 @@ export default function DashboardPreview() {
                                                 initial={{ height: 0 }}
                                                 whileInView={{ height: `${h}%` }}
                                                 transition={{ duration: 1, delay: i * 0.1 }}
-                                                className={`flex-1 rounded-t-md ${i === 3 ? 'bg-primary' : 'bg-slate-200 dark:bg-slate-700'}`}
+                                                className={`flex-1 rounded-t-md ${i === 3 ? 'bg-[#F97316]' : 'bg-slate-200 dark:bg-slate-700'}`}
                                             />
                                         ))}
                                     </div>
@@ -94,7 +103,7 @@ export default function DashboardPreview() {
                                             <div className="h-3 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-full" />
                                             <div className="h-3 w-1/2 bg-slate-200 dark:bg-slate-700 rounded-full" />
                                         </div>
-                                        <div className="w-12 h-12 rounded-full border-4 border-primary border-r-transparent animate-spin" />
+                                        <div className="w-12 h-12 rounded-full border-4 border-[#F97316] border-r-transparent animate-spin" />
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +122,7 @@ export default function DashboardPreview() {
                     {/* Header controls mockup */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-10 gap-4">
                         <div className="flex items-center gap-3 sm:gap-4">
-                            <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg sm:text-xl border border-primary/20">
+                            <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316] font-bold text-lg sm:text-xl border border-[#F97316]/20">
                                 RA
                             </div>
                             <div>
@@ -156,7 +165,7 @@ export default function DashboardPreview() {
                         {/* Sectional Breakdown */}
                         <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 sm:p-6 md:p-8 border border-slate-200 dark:border-slate-700/50">
                             <h4 className="font-extrabold text-slate-900 dark:text-white text-base sm:text-lg mb-6 flex items-center gap-2">
-                                <MdLayers className="w-5 h-5 text-primary" /> Sectional Breakdown
+                                <MdLayers className="w-5 h-5 text-[#F97316]" /> Sectional Breakdown
                             </h4>
                             <div className="space-y-5">
                                 {[
@@ -183,18 +192,18 @@ export default function DashboardPreview() {
                         </div>
 
                         {/* AI Action Plan */}
-                        <div className="bg-primary hover:bg-primary/95 transition-colors rounded-2xl p-5 sm:p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-primary/20 flex flex-col justify-center cursor-pointer group">
+                        <div className="bg-[#F97316] hover:bg-[#F97316]/95 transition-colors rounded-2xl p-5 sm:p-6 md:p-8 relative overflow-hidden text-white shadow-xl shadow-[#F97316]/20 flex flex-col justify-center cursor-pointer group">
                             {/* Decorative background logo/icon */}
                             <MdFlashOn className="absolute -right-10 -top-10 w-48 h-48 text-white/5 rotate-12" />
                             
                             <h4 className="font-extrabold text-xl sm:text-2xl mb-2 flex items-center gap-2 relative z-10">
                                 <MdFlashOn className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300" /> AI Action Plan Ready
                             </h4>
-                            <p className="text-primary-foreground/80 text-sm sm:text-base font-medium mb-6 sm:mb-8 max-w-sm relative z-10">
+                            <p className="text-[#F97316]-foreground/80 text-sm sm:text-base font-medium mb-6 sm:mb-8 max-w-sm relative z-10">
                                 We've identified 3 weak chapters costing you 12 marks. Watch the recommended 20-min revision modules to fix them.
                             </p>
                             
-                            <div className="relative z-10 flex items-center justify-center gap-4 bg-white text-primary text-sm sm:text-base font-black py-3 sm:py-4 px-6 rounded-xl w-full sm:w-fit group-hover:scale-[1.02] transition-transform shadow-lg">
+                            <div className="relative z-10 flex items-center justify-center gap-4 bg-white text-[#F97316] text-sm sm:text-base font-black py-3 sm:py-4 px-6 rounded-xl w-full sm:w-fit group-hover:scale-[1.02] transition-transform shadow-lg">
                                 Start Revision <MdNorthEast className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
                         </div>

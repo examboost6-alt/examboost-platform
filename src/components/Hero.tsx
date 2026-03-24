@@ -1,163 +1,209 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { MdPlayCircleFilled, MdArrowForward, MdStar, MdCheckCircle } from 'react-icons/md';
+import { MdTrendingUp, MdLibraryBooks } from 'react-icons/md';
 import Link from 'next/link';
 
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-50 dark:bg-[#0B1120] transition-colors duration-500">
-            {/* Subtle Grid Background Pattern */}
-            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] dark:opacity-[0.05] z-0" />
-            
-            {/* Ambient Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-primary/10 dark:bg-primary/20 blur-[100px] rounded-full pointer-events-none -translate-y-1/2" />
+        <section className="relative w-full bg-white dark:bg-[#060D1A] overflow-hidden pt-16 lg:pt-28 pb-0 selection:bg-orange-500/30">
+            {/* 1. Subdued Graph Paper Grid Background */}
+            <div 
+                className="absolute inset-0 z-0 opacity-[0.25] dark:opacity-[0.05] pointer-events-none" 
+                style={{ 
+                    backgroundImage: 'linear-gradient(to right, #64748b33 1px, transparent 1px), linear-gradient(to bottom, #64748b33 1px, transparent 1px)', 
+                    backgroundSize: '40px 40px' 
+                }}
+            />
 
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+            {/* 2. Flowing Light Blue Abstract Shape (Behind everything) */}
+            <svg className="absolute left-[-20%] sm:left-[0%] top-[0%] w-[140%] sm:w-[100%] h-[120%] text-[#e0f2fe] dark:text-[#0c4a6e]/30 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <path 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="180" 
+                    strokeLinecap="round" 
+                    d="M-200,800 C150,800 350,100 600,200 C850,300 800,900 1200,800" 
+                />
+            </svg>
+
+            {/* 3. Orange Floating Stars */}
+            <svg className="absolute top-[20%] right-[30%] w-6 h-6 text-orange-500 animate-[pulse-slow_3s_ease-in-out_infinite] z-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+            </svg>
+            <svg className="absolute bottom-[40%] right-[45%] w-4 h-4 text-orange-400 animate-[pulse-slow_4s_ease-in-out_infinite] delay-700 z-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+            </svg>
+            <svg className="absolute top-[15%] left-[45%] w-5 h-5 text-orange-400 animate-[pulse-slow_5s_ease-in-out_infinite] delay-300 z-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+            </svg>
+            <svg className="absolute top-[35%] right-[5%] w-8 h-8 text-orange-600 animate-[pulse-slow_4s_ease-in-out_infinite] delay-100 hidden lg:block z-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+            </svg>
+
+            {/* 4. Main Container layout */}
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1300px] relative z-10">
+                <div className="flex flex-col lg:flex-row items-center justify-between">
                     
-                    {/* Left Content */}
-                    <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left">
-                        
-                        <motion.div
+                    {/* LEFT COLUMN: Typography & Cards */}
+                    <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left pt-12 lg:pt-8 pb-16 z-20">
+
+
+                        {/* Huge Headline */}
+                        <motion.h1 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm mb-6"
+                            transition={{ delay: 0.1 }}
+                            className="text-[3.25rem] sm:text-[4.5rem] md:text-6xl lg:text-[4.8rem] xl:text-[5.5rem] font-serif font-black text-slate-900 dark:text-white leading-[1.05] tracking-tight mb-6"
                         >
-                            <span className="flex h-2.5 w-2.5 relative">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            Test Series That <br className="hidden md:block" />
+                            Powers Your{' '}
+                            <span className="relative inline-block whitespace-nowrap mt-2 lg:mt-0">
+                                Selection
+                                {/* Hand-drawn orange circle around text */}
+                                <svg className="absolute -inset-2 lg:-inset-4 w-[calc(100%+16px)] lg:w-[calc(100%+32px)] h-[calc(100%+16px)] lg:h-[calc(100%+32px)] pointer-events-none text-[#F97316] overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
+                                    <path 
+                                        d="M93.3,16.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3 c13.4-2.3,19.3-7.5,20.8-11.5" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="1.5" 
+                                        strokeLinecap="round" 
+                                        vectorEffect="non-scaling-stroke"
+                                        className="animate-[dash_1.5s_ease-out_forwards]"
+                                        strokeDasharray="200"
+                                        strokeDashoffset="200"
+                                    />
+                                    <path 
+                                        d="M91.3,14.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="0.5" 
+                                        opacity="0.5"
+                                        strokeLinecap="round" 
+                                        vectorEffect="non-scaling-stroke"
+                                        className="animate-[dash_2s_ease-out_forwards]"
+                                        strokeDasharray="200"
+                                        strokeDashoffset="200"
+                                    />
+                                </svg>
                             </span>
-                            <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                                Over 10 Lakh+ Students Enrolled
-                            </span>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white mb-6"
-                        >
-                            Crack Your Dream Exam with <span className="text-primary">Confidence.</span>
                         </motion.h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed"
+                        <motion.p 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-lg"
                         >
-                            India's most trusted exam preparation platform. Access <strong className="text-slate-900 dark:text-white font-semibold">10,000+ Mock Tests</strong>, live classes, and personalized AI-driven study plans for SSC, UPSC, Banking & Engineering.
+                            Online mock tests & video courses for ambitious aspirants from <span className="font-bold italic text-orange-600 dark:text-orange-400">ExamBoost Platform.</span>
                         </motion.p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10"
+                            transition={{ delay: 0.4 }}
+                            className="mb-14"
                         >
-                            <Link href="/free-mock-tests" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2 text-lg">
-                                Start Free Test <MdPlayCircleFilled className="w-6 h-6" />
-                            </Link>
-                            <Link href="/exams" className="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 text-slate-700 dark:text-white font-semibold py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-2 text-lg">
-                                Explore Exams <MdArrowForward className="w-5 h-5" />
+                            <Link 
+                                href="/series" 
+                                className="inline-flex bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xl px-10 py-4 border-2 border-[#EA580C] rounded-full transition-transform hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(249,115,22,0.6)]"
+                            >
+                                Apply Now
                             </Link>
                         </motion.div>
 
-                        {/* Trust Metrics */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex items-center justify-center lg:justify-start gap-4 sm:gap-8 border-t border-slate-200 dark:border-slate-800 pt-8 w-full max-w-lg mx-auto lg:mx-0"
+                        {/* Refined Bottom Horizontal Cards (Like Online Manipal) */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            className="w-full"
                         >
-                            <div>
-                                <div className="text-2xl font-bold text-slate-900 dark:text-white mb-1">4.8/5</div>
-                                <div className="flex justify-center lg:justify-start gap-1 text-amber-400 mb-1">
-                                    {[1, 2, 3, 4, 5].map((i) => <MdStar key={i} className="w-4 h-4" />)}
-                                </div>
-                                <div className="text-sm text-slate-500 font-medium">App Rating</div>
-                            </div>
-                            <div className="w-px h-12 bg-slate-200 dark:bg-slate-800"></div>
-                            <div>
-                                <div className="text-2xl font-bold text-slate-900 dark:text-white mb-1">50M+</div>
-                                <div className="text-sm text-slate-500 font-medium mt-1">Tests Attempted</div>
-                            </div>
-                            <div className="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
-                            <div className="hidden sm:block">
-                                <div className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Top 100</div>
-                                <div className="text-sm text-slate-500 font-medium mt-1">Rankers in 2025</div>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
+                                {[
+                                    { title: "SSC Exams", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=300&auto=format&fit=crop", link: "/exams/ssc-exams" },
+                                    { title: "Banking PO", img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=300&auto=format&fit=crop", link: "/exams/banking" },
+                                    { title: "UPSC CSE", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=300&auto=format&fit=crop", link: "/exams/upsc-civil-services" },
+                                    { title: "Engineering", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300&auto=format&fit=crop", link: "/exams/engineering-entrance" },
+                                ].map((card, i) => (
+                                    <Link href={card.link} key={i} className="bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
+                                        <div className="w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-100">
+                                            <img src={card.img} alt={card.title} className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <h4 className="font-bold text-slate-800 dark:text-white text-center text-[15px] pb-1 font-serif">{card.title}</h4>
+                                    </Link>
+                                ))}
                             </div>
                         </motion.div>
                     </div>
 
-                    {/* Right Hero Visual (Composite UI) */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 50 }}
-                        className="w-full lg:w-[45%] relative z-10 flex items-center justify-center lg:justify-end mt-12 lg:mt-0"
-                    >
-                        <div className="relative w-full max-w-[500px] aspect-[4/3] sm:aspect-square lg:aspect-[4/5] bg-gradient-to-br from-primary/5 to-primary/10 dark:from-slate-800 dark:to-slate-900 rounded-[2.5rem] border border-white/50 dark:border-slate-700/50 shadow-2xl overflow-hidden flex items-center justify-center">
-                            
-                            {/* Decorative Background Elements inside the frame */}
-                            <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-primary/20 blur-[80px] rounded-full" />
-                            <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-accent/20 blur-[80px] rounded-full" />
-
-                            {/* Floating Mockup Card 1: Score Card (Hidden on Mobile) */}
-                            <motion.div 
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                                className="hidden sm:block absolute top-10 right-4 sm:right-10 bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 w-48 sm:w-64 z-20"
-                            >
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
-                                        <MdCheckCircle className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium pb-0.5">Mock Test 1</div>
-                                        <div className="text-sm font-bold text-slate-900 dark:text-white">Score: 185/200</div>
-                                    </div>
-                                </div>
-                                <div className="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                    <div className="h-full bg-green-500 w-[92%] rounded-full"></div>
-                                </div>
-                                <div className="text-[10px] text-slate-400 mt-2 text-right font-medium">Top 2% Percentile</div>
-                            </motion.div>
-
-                            {/* Floating Mockup Card 2: Live Class (Prominent Video Player on Mobile) */}
-                            <motion.div 
-                                animate={{ y: [0, 15, 0] }}
-                                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-                                className="absolute inset-4 sm:inset-auto sm:bottom-12 sm:left-6 flex flex-col justify-center bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-3xl sm:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-700 w-auto sm:w-72 z-30"
-                            >
-                                <div className="w-full aspect-[16/9] sm:h-32 bg-slate-100 dark:bg-slate-700 rounded-2xl sm:rounded-xl mb-3 relative overflow-hidden group">
-                                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2670&auto=format&fit=crop" alt="Live Class" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                                        <div className="w-12 h-12 sm:w-10 sm:h-10 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white/40 transition-colors">
-                                            <MdPlayCircleFilled className="w-8 h-8 sm:w-6 sm:h-6 text-white shadow-sm" />
-                                        </div>
-                                    </div>
-                                    <div className="absolute top-3 left-3 sm:top-2 sm:left-2 bg-rose-500 text-white text-[10px] sm:text-[10px] font-bold px-2 py-1 sm:py-0.5 rounded flex items-center gap-1.5 sm:gap-1">
-                                        <span className="w-1.5 h-1.5 sm:w-1.5 sm:h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
-                                    </div>
-                                </div>
-                                <div className="px-1">
-                                    <div className="font-bold text-slate-900 dark:text-white text-base mb-1 truncate">Complete Quant Strategy</div>
-                                    <div className="text-xs text-slate-500 dark:text-slate-400">By Rahul Sir • 1.2k watching</div>
-                                </div>
-                            </motion.div>
-
-                            {/* Base Image underneath (Hidden on Mobile) */}
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2670&auto=format&fit=crop" alt="Student studying" className="hidden sm:block w-full h-full object-cover opacity-60 dark:opacity-40 mix-blend-overlay" />
+                    {/* RIGHT COLUMN: Huge Cutout Image & Floating Elements */}
+                    <div className="w-full lg:w-[45%] relative mt-16 lg:mt-0 flex justify-center lg:justify-end h-full min-h-[500px]">
                         
+                        {/* Hand-drawn black curly arrow - moved z-index and position */}
+                        <motion.svg 
+                            initial={{ opacity: 0, pathLength: 0 }}
+                            animate={{ opacity: 1, pathLength: 1 }}
+                            transition={{ delay: 0.8, duration: 1 }}
+                            className="absolute right-[10%] lg:right-[20%] top-[0%] lg:-top-[5%] w-24 h-24 text-slate-800 dark:text-slate-300 -rotate-12 hidden md:block z-30" 
+                            viewBox="0 0 100 100" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2.5" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                        >
+                            <path d="M10,90 Q40,30 90,50" className="animate-[dash_1s_ease-out_forwards]" strokeDasharray="200" strokeDashoffset="200" />
+                            <path d="M70,35 L90,50 L75,70" className="animate-[dash_0.5s_ease-out_forwards_0.8s]" strokeDasharray="50" strokeDashoffset="50" />
+                        </motion.svg>
+
+                        {/* Signature Graphic - moved z-index and position */}
+                        <div className="absolute left-[10%] lg:left-[5%] bottom-[45%] lg:bottom-[50%] text-center hidden sm:block z-30 transform -rotate-6">
+                            <svg className="w-32 h-20 text-[#EA580C] dark:text-orange-400 opacity-90" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                                <path d="M20,60 C40,20 60,80 80,40 C95,15 110,70 130,50 C150,30 170,80 180,20" className="animate-[dash_2s_ease-out_forwards]" strokeDasharray="400" strokeDashoffset="400" />
+                            </svg>
+                            <p className="text-[12px] font-bold text-slate-900 dark:text-white mt-1 tracking-widest uppercase font-serif drop-shadow-sm">Top Educator</p>
                         </div>
-                    </motion.div>
+
+                        {/* Yellow tilted sticky note badge - moved to top right */}
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 12 }}
+                            transition={{ delay: 0.7, type: "spring", stiffness: 200, damping: 10 }}
+                            className="absolute right-[5%] sm:right-[15%] lg:-right-8 top-[10%] lg:top-[15%] w-36 h-36 bg-[#FDE047] border border-yellow-300 rounded-3xl shadow-[0_20px_40px_rgba(253,224,71,0.5)] flex flex-col items-center justify-center text-center p-4 z-40"
+                        >
+                            <span className="font-extrabold text-slate-900 leading-tight text-lg">Onwards<br/>& Upwards</span>
+                            <MdTrendingUp className="w-6 h-6 text-slate-900 mt-2" />
+                            <div className="absolute top-3 right-3 w-3 h-3 bg-orange-400 rounded-full shadow-inner opacity-70"></div>
+                        </motion.div>
+
+                        {/* The Cutout Image */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            className="relative z-20 w-[90%] sm:w-[80%] lg:w-[120%] max-w-[600px] -mr-8"
+                        >
+                            <img 
+                                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1000&auto=format&fit=crop" 
+                                alt="Educator" 
+                                className="w-full h-auto object-contain mix-blend-darken dark:mix-blend-normal rounded-t-full filter contrast-125 saturate-110"
+                            />
+                        </motion.div>
+                    </div>
 
                 </div>
             </div>
+
+            <style jsx global>{`
+                @keyframes dash {
+                    to { stroke-dashoffset: 0; }
+                }
+                @keyframes pulse-slow {
+                    0%, 100% { opacity: 1; transform: scale(1); }
+                    50% { opacity: 0.5; transform: scale(0.8); }
+                }
+            `}</style>
         </section>
     );
 }
