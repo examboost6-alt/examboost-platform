@@ -53,7 +53,7 @@ const testSeries = [
 
 export default function TestSeriesSection() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-[#060D1A] relative z-10 border-t border-slate-100 dark:border-slate-800">
+        <section className="py-24 bg-white dark:bg-[#060D1A] relative z-10 border-t border-slate-100 dark:border-slate-800">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px]">
                 <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
                     <div className="max-w-2xl">

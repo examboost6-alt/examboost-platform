@@ -5,7 +5,7 @@ import { MdSmartphone, MdCheckCircleOutline } from 'react-icons/md';
 
 export default function AppPromo() {
     return (
-        <section className="py-24 bg-slate-50/50 dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden font-sans border-t border-slate-100 dark:border-slate-800">
+        <section className="py-24 bg-white dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden font-sans border-t border-slate-100 dark:border-slate-800">
             
             {/* Soft Flowing Academic Background */}
             <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 via-slate-50 to-white dark:from-slate-800/20 dark:via-[#060D1A] dark:to-[#060D1A]" />

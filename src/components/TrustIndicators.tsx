@@ -12,7 +12,7 @@ const stats = [
 
 export default function TrustIndicators() {
     return (
-        <section className="py-16 bg-white dark:bg-[#0B1120] relative z-10 border-t border-slate-200 dark:border-slate-800/50">
+        <section className="py-16 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-200 dark:border-slate-800/50">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 gap-y-12 max-w-5xl mx-auto">

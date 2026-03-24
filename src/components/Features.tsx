@@ -5,7 +5,7 @@ import { MdPsychology, MdAdsClick, MdLeaderboard, MdLightbulbCircle, MdOutlineVe
 
 export default function Features() {
     return (
-        <section className="py-24 bg-white dark:bg-[#060D1A] relative z-10 border-t border-slate-100 dark:border-slate-800">
+        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-100 dark:border-slate-800">
             <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-slate-50 to-transparent dark:from-slate-900/30 to-transparent pointer-events-none -z-10" />
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1200px]">

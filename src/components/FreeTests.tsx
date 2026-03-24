@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function FreeTests() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] transition-colors duration-300 relative z-10 px-4 md:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
+        <section className="py-24 bg-orange-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 px-4 md:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
             {/* Soft vector shapes in background */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100 to-transparent dark:from-orange-900/20 pointer-events-none opacity-60"></div>
 

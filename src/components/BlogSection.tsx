@@ -30,7 +30,7 @@ const articles = [
 
 export default function BlogSection() {
     return (
-        <section className="py-24 bg-white dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden">
+        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-200 dark:border-slate-800">
             {/* Soft Flowing Academic Background */}
             <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-orange-50 dark:from-blue-900/10 dark:via-[#060D1A] dark:to-orange-900/10" />
 
