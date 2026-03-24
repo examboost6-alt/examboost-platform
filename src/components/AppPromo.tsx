@@ -24,7 +24,7 @@ export default function AppPromo() {
             {/* Abstract Backgrounds */}
             <div className="absolute top-0 left-[-10%] w-[50%] h-full bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-orange-100/50 to-transparent dark:from-[#F97316]/10 pointer-events-none z-0" />
 
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
 
                     <div className="w-full lg:w-1/2">
