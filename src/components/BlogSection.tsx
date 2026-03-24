@@ -31,14 +31,8 @@ const articles = [
 export default function BlogSection() {
     return (
         <section className="py-24 bg-white dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden">
-            {/* Hero-like Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.2] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b33 1px, transparent 1px), linear-gradient(to bottom, #64748b33 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* Soft Flowing Academic Background */}
+            <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-orange-50 dark:from-blue-900/10 dark:via-[#060D1A] dark:to-orange-900/10" />
 
             {/* Orange Floating Stars */}
             <svg className="absolute top-[10%] left-[5%] w-6 h-6 text-[#F97316]/40 animate-[pulse-slow_3s_ease-in-out_infinite] z-0" viewBox="0 0 24 24" fill="currentColor">

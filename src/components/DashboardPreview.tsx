@@ -7,14 +7,8 @@ import Link from 'next/link';
 export default function DashboardPreview() {
     return (
         <section className="py-24 bg-white dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden border-t border-slate-100 dark:border-slate-800/80">
-            {/* Hero-like Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* Soft Flowing Academic Background */}
+            <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-50 via-white to-blue-50 dark:from-orange-900/10 dark:via-[#060D1A] dark:to-blue-900/10" />
             {/* Soft Flowing Shapes */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-50 to-transparent dark:from-[#F97316]/5 pointer-events-none z-0" />
             <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-50 to-transparent dark:from-blue-900/10 pointer-events-none z-0" />

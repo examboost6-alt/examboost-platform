@@ -44,14 +44,8 @@ const testimonials = [
 export default function Testimonials() {
     return (
         <section className="py-24 bg-white dark:bg-[#060D1A] overflow-hidden relative z-10 border-t border-slate-100 dark:border-slate-800">
-            {/* Soft Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.25] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b33 1px, transparent 1px), linear-gradient(to bottom, #64748b33 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* Soft Flowing Background */}
+            <div className="absolute inset-0 z-0 opacity-50 dark:opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-50 via-white to-white dark:from-orange-900/10 dark:via-[#060D1A] dark:to-[#060D1A]"></div>
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px] relative z-20 mb-16 flex flex-col items-center text-center">
                 <motion.div

@@ -32,14 +32,8 @@ export default function BlogClient() {
 
             {/* 1. HERO SECTION (Premium Header) */}
             <header className="relative pt-24 pb-16 lg:pt-32 lg:pb-28 overflow-hidden bg-white dark:bg-[#060D1A] border-b border-slate-200 dark:border-slate-800/80">
-                {/* Hero-like Grid Background */}
-                <div 
-                    className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
-                    style={{ 
-                        backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                        backgroundSize: '40px 40px' 
-                    }}
-                />
+                {/* Soft Flowing Academic Background */}
+                <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-blue-50 dark:from-blue-900/10 dark:via-[#060D1A] dark:to-blue-900/10" />
 
                 {/* Soft Flowing Light Blue/Orange Background Shapes */}
                 <svg className="absolute top-[0%] right-[0%] w-[100%] h-[120%] text-orange-50 dark:text-[#F97316]/5 pointer-events-none z-0 rotate-180" viewBox="0 0 1000 1000" preserveAspectRatio="none">
@@ -292,14 +286,8 @@ export default function BlogClient() {
 
             {/* 3. CTA / NEWSLETTER SECTION */}
             <section className="bg-white dark:bg-[#060D1A] border-t border-slate-200 dark:border-slate-800 relative overflow-hidden">
-                {/* Hero-like Grid overlay */}
-                <div 
-                    className="absolute inset-0 z-0 opacity-[0.2] dark:opacity-[0.05] pointer-events-none" 
-                    style={{ 
-                        backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                        backgroundSize: '40px 40px' 
-                    }}
-                />
+                {/* Soft Flowing Academic Background */}
+                <div className="absolute inset-0 z-0 opacity-30 dark:opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-50 via-slate-50 to-orange-50 dark:from-orange-900/10 dark:via-[#060D1A] dark:to-orange-900/10" />
                 <div className="container mx-auto px-4 py-24 text-center relative z-10">
                     <div className="max-w-4xl mx-auto bg-[#F97316] rounded-[3rem] p-10 md:p-16 shadow-2xl shadow-[#F97316]/20 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-80 h-80 bg-white/20 blur-[80px] rounded-full pointer-events-none" />

@@ -7,14 +7,7 @@ import Link from 'next/link';
 export default function Hero() {
     return (
         <section className="relative w-full bg-white dark:bg-[#060D1A] overflow-hidden pt-16 lg:pt-28 pb-0 selection:bg-orange-500/30">
-            {/* 1. Subdued Graph Paper Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.25] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b33 1px, transparent 1px), linear-gradient(to bottom, #64748b33 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* 1. Subdued Graph Paper Grid Background (Removed as per user request) */}
 
             {/* 2. Flowing Light Blue Abstract Shape (Behind everything) */}
             <svg className="absolute left-[-20%] sm:left-[0%] top-[0%] w-[140%] sm:w-[100%] h-[120%] text-[#e0f2fe] dark:text-[#0c4a6e]/30 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">

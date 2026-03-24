@@ -58,25 +58,59 @@ export default function FreeTests() {
                                     <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                                     <div className="w-3 h-3 rounded-full bg-green-400"></div>
                                 </div>
-                                <div className="pt-14 px-6 pb-6 h-full flex flex-col justify-center">
-                                    <div className="w-3/4 h-8 bg-slate-200 dark:bg-slate-700 rounded-lg mb-4"></div>
-                                    <div className="w-full h-4 bg-slate-200 dark:bg-slate-700 rounded-md mb-2"></div>
-                                    <div className="w-5/6 h-4 bg-slate-200 dark:bg-slate-700 rounded-md mb-8"></div>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="w-full h-24 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl shadow-sm"></div>
-                                        <div className="w-full h-24 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl shadow-sm"></div>
+                                <div className="pt-12 sm:pt-14 px-4 sm:px-6 pb-6 h-full flex flex-col justify-start">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-8 h-8 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316]">
+                                            <MdPlayCircleFilled className="w-5 h-5" />
+                                        </div>
+                                        <h4 className="text-lg font-bold text-slate-900 dark:text-white font-serif">Free Mock Tests</h4>
+                                    </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-5 ml-10">Attempt full-length mocks to evaluate your preparation.</p>
+                                    
+                                    <div className="flex flex-col gap-3">
+                                        {/* Test Card 1 */}
+                                        <div className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 shadow-sm group hover:border-[#F97316]/50 transition-colors">
+                                            <div className="flex justify-between items-start mb-3">
+                                                <div>
+                                                    <div className="text-sm font-bold text-slate-800 dark:text-slate-200">SSC CGL Tier 1 - Full Mock</div>
+                                                    <div className="text-[10px] text-slate-500 mt-1 flex gap-2">
+                                                        <span>100 Qs</span> • <span>60 Mins</span>
+                                                    </div>
+                                                </div>
+                                                <div className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[9px] font-bold rounded">LIVE</div>
+                                            </div>
+                                            <button className="w-full py-2 bg-slate-50 dark:bg-slate-700/50 hover:bg-[#F97316] hover:text-white dark:hover:bg-[#F97316] text-slate-700 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors flex items-center justify-center gap-1">
+                                                Start Test Now
+                                            </button>
+                                        </div>
+
+                                        {/* Test Card 2 */}
+                                        <div className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 shadow-sm group hover:border-[#F97316]/50 transition-colors hidden sm:block">
+                                            <div className="flex justify-between items-start mb-3">
+                                                <div>
+                                                    <div className="text-sm font-bold text-slate-800 dark:text-slate-200">RRB NTPC Stage 1 CBT</div>
+                                                    <div className="text-[10px] text-slate-500 mt-1 flex gap-2">
+                                                        <span>100 Qs</span> • <span>90 Mins</span>
+                                                    </div>
+                                                </div>
+                                                <div className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[9px] font-bold rounded">NEW</div>
+                                            </div>
+                                            <button className="w-full py-2 bg-slate-50 dark:bg-slate-700/50 hover:bg-[#F97316] hover:text-white dark:hover:bg-[#F97316] text-slate-700 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors flex items-center justify-center gap-1">
+                                                Start Test Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                {/* Floating Badge inside the visual */}
-                                <motion.div 
-                                    animate={{ y: [0, -10, 0] }}
-                                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                                    className="absolute -right-4 lg:-left-10 lg:right-auto top-1/2 -translate-y-1/2 bg-[#FDE047] text-slate-900 border border-yellow-300 font-extrabold text-sm px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 transform -rotate-3 lg:rotate-3"
-                                >
-                                    SSC CGL <span className="px-2 py-0.5 bg-yellow-500/20 rounded">100% FREE</span>
-                                </motion.div>
                             </div>
+                            
+                            {/* Floating Badge inside the visual */}
+                            <motion.div 
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                                className="absolute top-4 -right-4 sm:-right-6 lg:-right-8 bg-[#FDE047] text-slate-900 border border-yellow-400 font-extrabold text-sm px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 transform rotate-6 z-20"
+                            >
+                                SSC CGL <span className="px-2 py-0.5 bg-yellow-500/40 rounded">100% FREE</span>
+                            </motion.div>
                         </div>
                     </div>
                 </motion.div>

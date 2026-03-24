@@ -55,7 +55,7 @@ export default function Features() {
                     >
                         <div className="absolute top-0 right-0 w-[60%] h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100 to-transparent dark:from-blue-900/20 pointer-events-none transition-colors duration-500"></div>
                         
-                        <div className="relative z-10 w-full md:w-[60%] mb-12">
+                        <div className="relative z-10 w-full md:w-[50%] lg:w-[45%] mb-4 md:mb-12">
                             <div className="w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center mb-8 border border-blue-200 dark:border-blue-800/50">
                                 <MdPsychology className="w-8 h-8" />
                             </div>
@@ -65,13 +65,39 @@ export default function Features() {
                             </p>
                         </div>
 
-                        {/* Visual Mockup inside card */}
-                        <div className="absolute -bottom-10 -right-10 w-[60%] lg:w-[45%] h-[80%] bg-white dark:bg-slate-900 rounded-tl-3xl border-t border-l border-slate-200 dark:border-slate-700 shadow-2xl p-6 group-hover:-translate-y-4 group-hover:-translate-x-4 transition-transform duration-500 ease-out hidden sm:block">
-                            <div className="w-full h-4 bg-slate-100 dark:bg-slate-800 rounded-full mb-4 w-3/4"></div>
-                            <div className="w-full h-24 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-xl mb-4"></div>
-                            <div className="flex gap-4">
-                                <div className="w-12 h-12 bg-orange-50 border border-orange-100 dark:bg-slate-800 dark:border-slate-700 rounded-full"></div>
-                                <div className="w-12 h-12 bg-green-50 border border-green-100 dark:bg-slate-800 dark:border-slate-700 rounded-full"></div>
+                        {/* Complete Visual Mockup inside card */}
+                        <div className="absolute -bottom-8 -right-8 w-[60%] md:w-[50%] lg:w-[50%] h-[85%] bg-white dark:bg-slate-900 rounded-tl-3xl border-t border-l border-slate-200 dark:border-slate-700 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] p-5 group-hover:-translate-y-4 group-hover:-translate-x-4 transition-transform duration-500 ease-out hidden md:flex flex-col">
+                            {/* Mockup Header */}
+                            <div className="flex items-center justify-between mb-4 mt-1">
+                                <div>
+                                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200">Chapter Analysis</div>
+                                    <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Physics • Kinematics</div>
+                                </div>
+                                <div className="px-2 py-0.5 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800/60 rounded-full text-[10px] font-bold">
+                                    Needs Work
+                                </div>
+                            </div>
+
+                            {/* Mockup Chart/Progress Area */}
+                            <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3 border border-slate-100 dark:border-slate-800 mb-2 flex-1 flex flex-col justify-center">
+                                <div className="flex justify-between text-[10px] font-semibold text-slate-500 mb-1.5">
+                                    <span>Accuracy</span>
+                                    <span className="text-slate-800 dark:text-white">42%</span>
+                                </div>
+                                <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-3">
+                                    <div className="w-[42%] h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full"></div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2 mt-1">
+                                    <div className="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-100 dark:border-slate-700 shadow-sm">
+                                        <div className="text-[9px] text-slate-400 font-medium mb-0.5">Time/Ques</div>
+                                        <div className="text-xs font-bold text-slate-700 dark:text-slate-200">2m 15s</div>
+                                    </div>
+                                    <div className="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-100 dark:border-slate-700 shadow-sm">
+                                        <div className="text-[9px] text-slate-400 font-medium mb-0.5">Attempted</div>
+                                        <div className="text-xs font-bold text-slate-700 dark:text-slate-200">18/25</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

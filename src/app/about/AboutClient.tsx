@@ -11,14 +11,8 @@ export default function AboutClient() {
 
             {/* 1. HERO SECTION (Advanced Premium) */}
             <section className="relative bg-white dark:bg-[#060D1A] border-b border-slate-200 dark:border-slate-800/80 pt-16 pb-32 lg:pt-24 lg:pb-40 overflow-hidden">
-                {/* Background Details */}
-                <div 
-                    className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
-                    style={{ 
-                        backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                        backgroundSize: '40px 40px' 
-                    }}
-                />
+                {/* Soft Flowing Academic Background */}
+                <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-50 via-white to-blue-50 dark:from-orange-900/10 dark:via-[#060D1A] dark:to-blue-900/10" />
                 <svg className="absolute top-[0%] left-[0%] w-[100%] h-[120%] text-orange-50 dark:text-[#F97316]/5 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
                     <path fill="none" stroke="currentColor" strokeWidth="150" strokeLinecap="round" d="M-200,800 C150,800 350,100 600,200 C850,300 800,900 1200,800" />
                 </svg>

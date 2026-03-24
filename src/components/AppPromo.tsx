@@ -7,14 +7,8 @@ export default function AppPromo() {
     return (
         <section className="py-24 bg-slate-50/50 dark:bg-[#060D1A] transition-colors duration-300 relative z-10 overflow-hidden font-sans border-t border-slate-100 dark:border-slate-800">
             
-            {/* Hero-like Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* Soft Flowing Academic Background */}
+            <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 via-slate-50 to-white dark:from-slate-800/20 dark:via-[#060D1A] dark:to-[#060D1A]" />
             
             {/* Flowing Light Orange Abstract Shape (Behind everything) */}
             <svg className="absolute right-[-20%] sm:right-[0%] top-[0%] w-[140%] sm:w-[100%] h-[120%] text-orange-50 dark:text-[#F97316]/5 pointer-events-none z-0 rotate-180" viewBox="0 0 1000 1000" preserveAspectRatio="none">

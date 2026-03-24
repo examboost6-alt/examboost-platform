@@ -15,14 +15,8 @@ export default function Footer() {
     return (
         <footer className="bg-slate-50/30 dark:bg-[#060D1A] text-slate-800 dark:text-slate-300 pt-20 pb-8 transition-colors duration-300 relative z-10 border-t border-slate-100 dark:border-slate-800/80 mt-12 overflow-hidden">
             
-            {/* Hero-like Grid Background */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.4] dark:opacity-[0.05] pointer-events-none" 
-                style={{ 
-                    backgroundImage: 'linear-gradient(to right, #64748b22 1px, transparent 1px), linear-gradient(to bottom, #64748b22 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' 
-                }}
-            />
+            {/* Soft Flowing Education Background */}
+            <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-50 via-slate-50 to-orange-50 dark:from-blue-900/10 dark:via-[#060D1A] dark:to-orange-900/10" />
 
             {/* Soft Flowing Light Blue/Orange Background */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-50/80 to-transparent dark:from-[#F97316]/5 pointer-events-none z-0" />
