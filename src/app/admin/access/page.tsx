@@ -31,7 +31,7 @@ export default function AdminAccess() {
       const { data: allAccessPurchases } = await supabase
          .from('purchases')
          .select('user_id, created_at')
-         .eq('series_id', 'ALL')
+         .eq('series_id', 0)
          .eq('status', 'success');
 
       if (!allAccessPurchases || allAccessPurchases.length === 0) {
@@ -113,7 +113,7 @@ export default function AdminAccess() {
        const { error: purchaseError } = await supabase.from('purchases').insert([
           {
             user_id: userId,
-            series_id: 'ALL',
+            series_id: 0,
             amount: 0,
             status: 'success',
             order_id: `admin_grant_${Date.now()}`,
@@ -143,7 +143,7 @@ export default function AdminAccess() {
         .from('purchases')
         .delete()
         .eq('user_id', userId)
-        .eq('series_id', 'ALL');
+        .eq('series_id', 0);
 
       if (error) {
         alert("Error: " + error.message);

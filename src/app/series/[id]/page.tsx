@@ -168,12 +168,17 @@ export default function SeriesPage() {
       if (auth.session) {
         setUserId(auth.session.user.id);
 
+        // Since series_id is an Int in DB, we must extract numeric digits 
+        // to prevent 'invalid input syntax for type integer' crash.
+        const numExtracted = String(seriesId).replace(/[^0-9]/g, '');
+        const numericSeriesId = numExtracted ? parseInt(numExtracted, 10) : -1;
+        
         const { data: purchases } = await supabase
           .from('purchases')
           .select('id')
           .eq('user_id', auth.session.user.id)
           .eq('status', 'success')
-          .in('series_id', [seriesId, 'ALL']);
+          .in('series_id', [0, numericSeriesId]); // 0 represents the global 'ALL' access
 
         if (purchases && purchases.length > 0) {
           setIsPurchased(true);

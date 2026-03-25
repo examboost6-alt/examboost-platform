@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     if (grantAllAccess) {
       const { error: purchaseError } = await supabaseAdmin.from('purchases').insert([{
         user_id: userId,
-        series_id: 'ALL',
+        series_id: 0,
         amount: 0,
         status: 'success',
         order_id: `demo_order_${Math.random().toString(36).substring(7)}`,

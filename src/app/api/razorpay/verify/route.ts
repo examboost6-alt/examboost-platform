@@ -28,10 +28,13 @@ export async function POST(req: Request) {
         const isAuthentic = expectedSignature === razorpay_signature;
 
         if (isAuthentic) {
+            const numExtracted = String(seriesId).replace(/[^0-9]/g, '');
+            const numericSeriesId = numExtracted ? parseInt(numExtracted, 10) : -1;
+
             // Save to database
             const { error } = await supabase.from('purchases').insert({
                 user_id: userId,
-                series_id: seriesId,
+                series_id: numericSeriesId,
                 amount: amount,
                 order_id: razorpay_order_id,
                 payment_id: razorpay_payment_id,
