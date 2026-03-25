@@ -1,0 +1,73 @@
+{
+  "testId": "jee-main-2025-jan-shift-1",
+  "title": "JEE Main 2025 - Session 1 (Morning Shift)",
+  "examType": "JEE Main",
+  "year": 2025,
+  "totalDurationMinutes": 180,
+  "totalMarks": 300,
+  "instructions": "This paper exactly mimics the NTA interface. There are 90 questions (30 per subject). Each subject has Section A (20 MCQs) and Section B (10 Numerical questions, out of which 5 must be attempted).",
+  "subjects": [
+    {
+      "subjectName": "Physics",
+      "sections": [
+        {
+          "sectionName": "Section A",
+          "questionType": "SINGLE_CORRECT_MCQ",
+          "totalQuestions": 20,
+          "mandatoryToAttempt": 20,
+          "markingScheme": { "correct": 4, "incorrect": -1, "unattempted": 0 },
+          "questions": [
+            {
+              "id": "PHY_A_001",
+              "questionTextEnglish": "A particle moves in a circle of radius R with a constant speed v. The magnitude of average acceleration during quarter revolution is:",
+              "questionTextHindi": "त्रिज्या R के एक वृत्त में एक कण निरंतर गति v के साथ घूमता है। चौथाई चक्कर के दौरान औसत त्वरण का परिमाण है:",
+              "questionImage": null,
+              "options": [
+                { "id": "A", "textEnglish": "v^2 / R", "textHindi": "v^2 / R" },
+                { "id": "B", "textEnglish": "2v^2 / πR", "textHindi": "2v^2 / πR" },
+                { "id": "C", "textEnglish": "v^2√2 / πR", "textHindi": "v^2√2 / πR" },
+                { "id": "D", "textEnglish": "2√2v^2 / πR", "textHindi": "2√2v^2 / πR" }
+              ],
+              "correctAnswer": "D",
+              "topicId": "KINEMATICS_1D_2D",
+              "difficulty": "MEDIUM",
+              "solutionEnglish": "Change in velocity magnitude = √2v. Time taken = πR/2v. Avg angular acc = √2v / (πR/2v) = 2√2v^2 / πR.",
+              "solutionHindi": "औसत त्वरण = वेग में परिवर्तन / लिया गया समय",
+              "solutionImage": null
+            }
+          ]
+        },
+        {
+          "sectionName": "Section B",
+          "questionType": "NUMERICAL_VALUE",
+          "totalQuestions": 10,
+          "mandatoryToAttempt": 5,
+          "markingScheme": { "correct": 4, "incorrect": -1, "unattempted": 0 },
+          "questions": [
+            {
+              "id": "PHY_B_001",
+              "questionTextEnglish": "A block of mass 2 kg is pulled by a force of 10 N horizontally. If the coefficient of kinetic friction is 0.2, what is the acceleration of the block in m/s²? (Take g = 10 m/s²)",
+              "questionTextHindi": "2 किलोग्राम द्रव्यमान का एक ब्लॉक क्षैतिज रूप से 10 N के बल से खींचा जाता है। यदी घर्षण 0.2 है, तो m/s² में त्वरण क्या है? (g = 10 m/s²)",
+              "questionImage": null,
+              "correctNumericalAnswer": 3.0,
+              "tolerance": 0.0,
+              "topicId": "LAWS_OF_MOTION",
+              "difficulty": "EASY",
+              "solutionEnglish": "Friction force f = μmg = 0.2 * 2 * 10 = 4 N. Net Force = 10 - 4 = 6 N. Acceleration a = F_net / m = 6 / 2 = 3 m/s².",
+              "solutionHindi": "घर्षण बल f = 4 N. शुद्ध बल = 6 N. त्वरण = 3 m/s².",
+              "solutionImage": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "Chemistry",
+      "sections": []
+    },
+    {
+      "subjectName": "Mathematics",
+      "sections": []
+    }
+  ]
+}

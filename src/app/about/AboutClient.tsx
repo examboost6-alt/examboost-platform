@@ -1,343 +1,440 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Target, Users, Award, BookOpen, Zap, ShieldCheck, Lightbulb, TrendingUp, Globe, Lock, Heart, Star, Compass, UserCircle2, ArrowRight } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { 
+    MonitorPlay, 
+    ShieldCheck, 
+    Cpu, 
+    Timer, 
+    Database, 
+    Globe, 
+    Activity, 
+    Award, 
+    BarChart2, 
+    Clock, 
+    Target, 
+    TrendingUp, 
+    Users,
+    BookOpen,
+    ArrowRight
+} from "lucide-react";
 
 export default function AboutClient() {
     return (
-        <div className="min-h-screen w-full bg-slate-50 dark:bg-[#0B1120] pt-20 font-sans selection:bg-[#F97316]/30 overflow-hidden">
-
-            {/* 1. HERO SECTION (Advanced Premium) */}
-            <section className="relative bg-white dark:bg-[#060D1A] border-b border-slate-200 dark:border-slate-800/80 pt-16 pb-32 lg:pt-24 lg:pb-40 overflow-hidden">
-                {/* Soft Flowing Academic Background */}
-                <div className="absolute inset-0 z-0 opacity-50 dark:opacity-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-50 via-white to-blue-50 dark:from-orange-900/10 dark:via-[#060D1A] dark:to-blue-900/10" />
-                <svg className="absolute top-[0%] left-[0%] w-[100%] h-[120%] text-orange-50 dark:text-[#F97316]/5 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                    <path fill="none" stroke="currentColor" strokeWidth="150" strokeLinecap="round" d="M-200,800 C150,800 350,100 600,200 C850,300 800,900 1200,800" />
+        <div className="min-h-screen w-full bg-[#FAFBFF] dark:bg-[#06040A] pt-16 font-sans selection:bg-orange-500/30 overflow-hidden">
+            
+            {/* 1. MODERN SIDE-BY-SIDE HERO (Perfectly sized, highly professional) */}
+            <section className="relative w-full pt-16 lg:pt-28 pb-20 justify-center overflow-hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#060D1A]">
+                {/* 2. Flowing Light Blue Abstract Shape (Behind everything) */}
+                <svg className="absolute left-[-20%] sm:left-[0%] top-[0%] w-[140%] sm:w-[100%] h-[120%] text-[#e0f2fe] dark:text-[#0c4a6e]/30 pointer-events-none z-0" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                    <path 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="180" 
+                        strokeLinecap="round" 
+                        d="M-200,800 C150,800 350,100 600,200 C850,300 800,900 1200,800" 
+                    />
                 </svg>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[500px] bg-[#F97316]/20 blur-[150px] rounded-full pointer-events-none z-0" />
-                
-                {/* Floating Stars */}
-                <svg className="absolute top-[15%] right-[25%] w-6 h-6 text-[#F97316]/60 animate-[pulse-slow_3s_ease-in-out_infinite] z-0 hidden md:block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" /></svg>
-                <svg className="absolute bottom-[20%] left-[15%] w-4 h-4 text-[#F97316]/40 animate-[pulse-slow_4s_ease-in-out_infinite] delay-700 z-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" /></svg>
 
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-                        {/* Text Content */}
-                        <div className="lg:w-1/2 text-center lg:text-left pt-10 lg:pt-0">
-                            <motion.div 
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-50 dark:bg-[#F97316]/10 border border-orange-200 dark:border-[#F97316]/20 text-sm font-black tracking-widest uppercase text-[#F97316] mb-8 shadow-sm"
-                            >
-                                <Star className="w-4 h-4 fill-[#F97316]" /> Know Our Story
-                            </motion.div>
+                {/* Orange Floating Stars */}
+                <svg className="absolute top-[20%] right-[30%] w-6 h-6 text-orange-500 animate-[pulse-slow_3s_ease-in-out_infinite] z-10" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+                </svg>
+                <svg className="absolute bottom-[40%] right-[45%] w-4 h-4 text-orange-400 animate-[pulse-slow_4s_ease-in-out_infinite] delay-700 z-10" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+                </svg>
+                <svg className="absolute top-[35%] right-[5%] w-8 h-8 text-orange-600 animate-[pulse-slow_4s_ease-in-out_infinite] delay-100 hidden lg:block z-10" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+                </svg>
 
-                            <motion.h1 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 }}
-                                className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black font-serif text-slate-900 dark:text-white mb-8 leading-[1.05] tracking-tight"
-                            >
-                                Building India's <br className="hidden md:block"/>
-                                <span className="text-[#F97316] relative inline-block">
-                                    Trusted Ecosystem
-                                    <svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-4 text-orange-300 dark:text-[#F97316]/50 pointer-events-none" viewBox="0 0 100 20" preserveAspectRatio="none">
-                                        <motion.path 
-                                            initial={{ pathLength: 0 }}
-                                            animate={{ pathLength: 1 }}
-                                            transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                                            fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" d="M5,15 Q50,5 95,15" 
-                                        />
-                                    </svg>
-                                </span>
-                            </motion.h1>
-
-                            <motion.p 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                            >
-                                ExamBoost is an outcome-driven EdTech platform, democratizing education with highly curated test series, deep analytics, and top-tier mentorship.
-                            </motion.p>
-                        </div>
-
-                        {/* Animated SVG Composition: Man with Arrow */}
+                <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 lg:gap-12 relative z-10">
+                    
+                    {/* Left Typography */}
+                    <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left pt-12 lg:pt-8 pb-16 z-20">
                         <motion.div 
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-300 text-[11px] font-bold tracking-[0.2em] uppercase mb-8 shadow-sm"
+                        >
+                            <span className="relative flex h-2 w-2 mr-1"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span></span>
+                            <span>The Ultimate CBT Engine</span>
+                        </motion.div>
+
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+                            className="text-[3.25rem] sm:text-[4.5rem] md:text-6xl lg:text-[4.8rem] xl:text-[5.5rem] font-serif font-black text-slate-900 dark:text-white leading-[1.05] tracking-tight mb-6"
+                        >
+                            Master the Exam.<br className="hidden md:block"/>
+                            <span className="relative inline-block whitespace-nowrap mt-2 lg:mt-0 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
+                                Not The Video.
+                                {/* Hand-drawn orange circle around text */}
+                                <svg className="absolute -inset-2 lg:-inset-4 w-[calc(100%+16px)] lg:w-[calc(100%+32px)] h-[calc(100%+16px)] lg:h-[calc(100%+32px)] pointer-events-none text-[#F97316] overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
+                                    <path 
+                                        d="M93.3,16.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3 c13.4-2.3,19.3-7.5,20.8-11.5" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="1.5" 
+                                        strokeLinecap="round" 
+                                        vectorEffect="non-scaling-stroke"
+                                        style={{ animation: 'dash 1.5s ease-out forwards' }}
+                                        strokeDasharray="200"
+                                        strokeDashoffset="200"
+                                    />
+                                    <path 
+                                        d="M91.3,14.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="0.5" 
+                                        opacity="0.5"
+                                        strokeLinecap="round" 
+                                        vectorEffect="non-scaling-stroke"
+                                        style={{ animation: 'dash 2s ease-out forwards' }}
+                                        strokeDasharray="200"
+                                        strokeDashoffset="200"
+                                    />
+                                </svg>
+                            </span>
+                        </motion.h1>
+
+                        <motion.p 
+                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium max-w-2xl leading-relaxed mb-10"
+                        >
+                            No long boring lectures. ExamBoost is an active simulation environment for aspirants who want to conquer the timer, eliminate anxiety, and secure actual selections.
+                        </motion.p>
+                        
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+                            className="mb-14 w-full sm:w-auto flex flex-col sm:flex-row justify-center lg:justify-start"
+                        >
+                            <Link 
+                                href="/exams" 
+                                className="inline-flex bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xl px-10 py-4 border-2 border-[#EA580C] rounded-full transition-transform hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(249,115,22,0.6)] justify-center gap-3 items-center"
+                            >
+                                Explore Setup <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Perfectly Controlled Image Shape */}
+                    <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center lg:justify-end items-end lg:min-h-[500px] perspective-[1000px]">
+                        
+                        {/* Hand-drawn black curly arrow */}
+                        <motion.svg 
+                            initial={{ opacity: 0, pathLength: 0 }}
+                            animate={{ opacity: 1, pathLength: 1 }}
+                            transition={{ delay: 0.8, duration: 1 }}
+                            className="absolute right-[5%] lg:right-[15%] top-[10%] lg:-top-[10%] w-24 h-24 text-slate-800 dark:text-slate-300 -rotate-12 hidden md:block z-30" 
+                            viewBox="0 0 100 100" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2.5" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                        >
+                            <path d="M10,90 Q40,30 90,50" style={{ animation: 'dash 1s ease-out forwards', strokeDasharray: 200, strokeDashoffset: 200 }} />
+                            <path d="M70,35 L90,50 L75,70" style={{ animation: 'dash 0.5s ease-out forwards 0.8s', strokeDasharray: 50, strokeDashoffset: 50 }} />
+                        </motion.svg>
+
+                        {/* Yellow tilted sticky note badge */}
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                            animate={{ opacity: 1, scale: 1, rotate: -12 }}
+                            transition={{ delay: 0.7, type: "spring", stiffness: 200, damping: 10 }}
+                            className="absolute -left-6 sm:left-[5%] lg:-left-12 top-[15%] lg:top-[20%] w-36 h-36 bg-[#FDE047] border border-yellow-300 rounded-3xl shadow-[0_20px_40px_rgba(253,224,71,0.5)] flex flex-col items-center justify-center text-center p-4 z-40"
+                        >
+                            <span className="font-extrabold text-slate-900 leading-tight text-lg">High<br/>Performance</span>
+                            <TrendingUp className="w-6 h-6 text-slate-900 mt-2" />
+                            <div className="absolute top-3 right-3 w-3 h-3 bg-orange-400 rounded-full shadow-inner opacity-70"></div>
+                        </motion.div>
+
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.3, duration: 0.8 }}
-                            className="lg:w-1/2 w-full relative h-[400px] md:h-[500px] flex items-center justify-center perspective-1000"
+                            transition={{ delay: 0.4, duration: 0.8 }}
+                            className="relative aspect-[4/3] w-full max-w-[500px] rounded-[2rem] p-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-3xl shadow-[0_30px_60px_-15px_rgba(234,88,12,0.15)] dark:shadow-none border border-slate-200 dark:border-slate-700/50 flex transform-gpu hover:rotateY-[-5deg] transition-transform duration-700 group z-20"
                         >
-                            <div className="relative w-full h-full max-w-lg mx-auto">
-                                {/* Base Platform Circle */}
-                                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#F97316]/20 rounded-[100%] blur-2xl"></div>
-                                <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-white dark:from-slate-800 dark:to-slate-900 rounded-[3rem] shadow-2xl border-[4px] border-white dark:border-slate-700/50 overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-700">
-                                    <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
-                                    
-                                    {/* The SVG Illustration */}
-                                    <svg viewBox="0 0 400 400" className="w-full h-full p-8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        {/* Background Grid inside the card */}
-                                        <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-slate-200 dark:text-slate-700" />
-                                        </pattern>
-                                        <rect width="400" height="400" fill="url(#smallGrid)" />
-                                        
-                                        {/* Target / Goal */}
-                                        <motion.circle 
-                                            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
-                                            cx="320" cy="80" r="40" className="fill-orange-100 dark:fill-[#F97316]/20" 
-                                        />
-                                        <motion.circle 
-                                            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring", stiffness: 100 }}
-                                            cx="320" cy="80" r="25" className="fill-orange-200 dark:fill-[#F97316]/40" 
-                                        />
-                                        <motion.circle 
-                                            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
-                                            cx="320" cy="80" r="10" className="fill-[#F97316]" 
-                                        />
+                            <img 
+                                src="/about_cbt_engine.png" 
+                                alt="CBT Engine Examination" 
+                                className="w-full h-full object-cover rounded-[1.5rem]"
+                            />
+                            {/* Inner Highlight Overlay */}
+                            <div className="absolute inset-0 bg-transparent group-hover:bg-white/5 transition-colors duration-500 rounded-[2rem] pointer-events-none"></div>
+                        </motion.div>
 
-                                        {/* The Big Upward Arrow */}
-                                        <motion.path 
-                                            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.5, duration: 1.5, ease: "easeInOut" }}
-                                            d="M 80 320 C 150 320, 200 200, 310 90" 
-                                            stroke="#F97316" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="10 10"
-                                        />
-                                        <motion.path 
-                                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}
-                                            d="M 280 80 L 320 80 L 320 120" 
-                                            stroke="#F97316" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none"
-                                        />
-
-                                        {/* The "Man" Icon riding/standing on the growth curve */}
-                                        <motion.g 
-                                            initial={{ x: -250, y: 250, opacity: 0 }}
-                                            animate={{ x: 0, y: 0, opacity: 1 }}
-                                            transition={{ delay: 1.5, duration: 1, type: "spring", bounce: 0.4 }}
-                                        >
-                                            <circle cx="210" cy="180" r="18" className="fill-slate-800 dark:fill-white" />
-                                            <path d="M 210 200 C 180 200, 170 230, 170 260 L 250 260 C 250 230, 240 200, 210 200 Z" className="fill-slate-800 dark:fill-white" />
-                                            {/* Graduation Cap element on man */}
-                                            <path d="M 185 165 L 210 150 L 235 165 L 210 180 Z" className="fill-[#F97316]" />
-                                            <rect x="233" y="165" width="2" height="15" className="fill-[#F97316]" />
-                                        </motion.g>
-
-                                        {/* Floating elements indicating data/analytics */}
-                                        <motion.rect initial={{ height: 0 }} animate={{ height: 40 }} transition={{ delay: 2.2 }} x="100" y="240" width="15" className="fill-indigo-500" rx="4" />
-                                        <motion.rect initial={{ height: 0 }} animate={{ height: 60 }} transition={{ delay: 2.3 }} x="125" y="220" width="15" className="fill-teal-500" rx="4" />
-                                        <motion.rect initial={{ height: 0 }} animate={{ height: 90 }} transition={{ delay: 2.4 }} x="150" y="190" width="15" className="fill-rose-500" rx="4" />
-                                    </svg>
-                                </div>
-                                {/* Decorative floating icons outside card */}
-                                <motion.div animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} className="absolute -top-8 -right-8 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700">
-                                    <TrendingUp className="w-8 h-8 text-[#F97316]" />
-                                </motion.div>
-                                <motion.div animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} className="absolute -bottom-8 -left-8 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700">
-                                    <Target className="w-8 h-8 text-emerald-500" />
-                                </motion.div>
+                        {/* Floating Tech Badges */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+                            className="absolute -left-6 md:-left-12 bottom-12 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex items-center gap-4 shadow-xl z-30"
+                        >
+                            <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center rounded-lg border border-emerald-200/50 dark:border-slate-700">
+                                <Activity className="w-5 h-5" />
+                            </div>
+                            <div className="text-left pr-2 whitespace-nowrap">
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-1">Latency</p>
+                                <p className="font-extrabold font-sans text-slate-800 dark:text-white text-base leading-none">Sub-Millisecond</p>
                             </div>
                         </motion.div>
 
+                        <motion.div 
+                            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+                            className="absolute -right-4 md:-right-8 top-1/2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex items-center gap-4 shadow-xl z-30"
+                        >
+                            <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center rounded-lg border border-orange-200/50 dark:border-slate-700">
+                                <ShieldCheck className="w-5 h-5" />
+                            </div>
+                            <div className="text-left pr-2 whitespace-nowrap">
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-1">Validated</p>
+                                <p className="font-extrabold font-sans text-slate-800 dark:text-white text-base leading-none">100% Replica</p>
+                            </div>
+                        </motion.div>
                     </div>
+
                 </div>
             </section>
 
-            {/* 2. THE STATS THAT MATTER (Floating Cards) */}
-            <section className="-mt-20 container mx-auto px-4 md:px-6 lg:px-8 relative z-20">
-                <div className="bg-white dark:bg-[#0F172A] rounded-[2.5rem] border-[1.5px] border-slate-100 dark:border-slate-700/80 p-10 shadow-2xl shadow-slate-200/50 dark:shadow-none relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#F97316]/5 blur-[80px] rounded-full pointer-events-none" />
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 divide-x-0 md:divide-x-2 divide-slate-100 dark:divide-slate-800 text-center relative z-10">
-                        {[
-                            { label: 'Registered Students', value: '50 Lakh+', icon: Users, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20' },
-                            { label: 'Mock Tests Attempted', value: '10 Crore+', icon: Target, color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-                            { label: 'Student Selections', value: '1.2 Lakh+', icon: Award, color: 'text-[#F97316]', bg: 'bg-orange-50 dark:bg-[#F97316]/10' },
-                            { label: 'Exams Covered', value: '500+', icon: BookOpen, color: 'text-fuchsia-600 dark:text-fuchsia-400', bg: 'bg-fuchsia-50 dark:bg-fuchsia-900/20' },
-                        ].map((stat, idx) => (
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                key={idx} 
-                                className="flex flex-col items-center px-4 group p-4 rounded-3xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
-                            >
-                                <div className={`w-16 h-16 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform`}>
-                                    <stat.icon className="w-8 h-8" />
-                                </div>
-                                <h3 className="text-4xl lg:text-5xl font-black font-serif text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-[#F97316] transition-colors">{stat.value}</h3>
-                                <p className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">{stat.label}</p>
-                            </motion.div>
-                        ))}
-                    </div>
+            {/* 2. THE ECOSYSTEM BENTO (Modern Apple-Style Bento Mesh) */}
+            <section className="py-24 max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center w-full max-w-4xl mx-auto mb-16">
+                    <span className="text-orange-600 dark:text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Engine Architecture</span>
+                    <h2 className="text-4xl md:text-5xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-6">Proprietary Technology Stack</h2>
                 </div>
-            </section>
-
-            {/* 3. MISSION & VISION */}
-            <section className="py-32 container mx-auto px-4 md:px-6 lg:px-8">
-                <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="order-2 md:order-1 relative"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#F97316] to-amber-400 rounded-[3rem] transform -rotate-6 scale-105 opacity-20 blur-xl"></div>
-                        <div className="bg-white dark:bg-[#0F172A] rounded-[3rem] p-12 lg:p-16 border-[1.5px] border-slate-100 dark:border-slate-700/80 flex flex-col items-center justify-center min-h-[450px] relative shadow-xl hover:-translate-y-2 transition-transform duration-500">
-                            <h2 className="text-4xl font-serif font-black text-slate-900 dark:text-white mb-8 text-center"><Star className="inline w-10 h-10 text-[#F97316] mb-2"/> <br/>ExamBoost</h2>
-                            <div className="mt-8 text-center w-full px-8 py-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                                <h4 className="text-2xl font-black text-[#F97316] mb-2 font-serif">Guided by Purpose</h4>
-                                <p className="text-slate-600 dark:text-slate-400 text-lg font-medium">Founded by educators, for learners.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+                    
+                    {/* Tech Bento Box 1 - Wide Server Element */}
+                    <div className="md:col-span-2 bg-slate-900 dark:bg-[#110B1A] rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden group shadow-lg">
+                        <div className="absolute right-0 top-0 w-1/2 h-full opacity-30 transform group-hover:scale-105 transition-transform duration-700">
+                            <img src="/about_tech_engine.png" className="w-full h-full object-cover mix-blend-screen" alt="Tech engine" />
+                        </div>
+                        <div className="relative z-10 w-full h-full flex flex-col justify-between">
+                            <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 text-white flex items-center justify-center rounded-2xl shadow-[0_10px_20px_rgba(249,115,22,0.4)]">
+                                <Cpu className="w-7 h-7" />
+                            </div>
+                            <div className="max-w-sm">
+                                <h3 className="text-3xl font-black font-sans tracking-tight text-white mb-3">0ms Latency Grid</h3>
+                                <p className="text-slate-300 font-medium leading-relaxed">Every click, section switch, and answer save is processed instantaneously via clustered regional nodes.</p>
                             </div>
                         </div>
-                    </motion.div>
-
-                    <div className="order-1 md:order-2 space-y-16">
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
-                                    <Target className="w-8 h-8" />
-                                </div>
-                                <h2 className="text-4xl md:text-5xl font-black font-serif text-slate-900 dark:text-white">Our Mission</h2>
-                            </div>
-                            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed border-l-[6px] rounded-l-md border-emerald-500 pl-8 py-3 bg-emerald-50/50 dark:bg-emerald-900/10 font-medium">
-                                To democratize access to high-quality education by building robust and affordable learning tools that eliminate geographical and financial barriers for students across India.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                                    <Lightbulb className="w-8 h-8" />
-                                </div>
-                                <h2 className="text-4xl md:text-5xl font-black font-serif text-slate-900 dark:text-white">Our Vision</h2>
-                            </div>
-                            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed border-l-[6px] rounded-l-md border-blue-500 pl-8 py-3 bg-blue-50/50 dark:bg-blue-900/10 font-medium">
-                                To become the ultimate companion for every aspirant—where an internet connection is the only requirement to crack the toughest exams and secure a brighter future.
-                            </p>
-                        </motion.div>
                     </div>
+
+                    {/* Tech Bento Box 2 - Timer Element */}
+                    <div className="md:col-span-1 bg-white dark:bg-slate-900/50 rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-slate-800 flex flex-col justify-between group hover:border-orange-500 transition-colors shadow-sm">
+                        <div className="w-14 h-14 bg-orange-50 dark:bg-orange-900/20 text-orange-600 flex items-center justify-center rounded-2xl border border-orange-100 dark:border-orange-800 transition-transform">
+                            <Timer className="w-7 h-7" />
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-2">Atomic Sync</h3>
+                            <p className="text-slate-600 dark:text-slate-400 font-medium">Server-side NTP sync prevents clock freezes or trickery.</p>
+                        </div>
+                    </div>
+
+                    {/* Tech Bento Box 3 - Vault Element */}
+                    <div className="md:col-span-1 bg-white dark:bg-slate-900/50 rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-slate-800 flex flex-col justify-between group hover:border-emerald-500 transition-colors shadow-sm">
+                        <div className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 flex items-center justify-center rounded-2xl border border-emerald-100 dark:border-emerald-800 transition-transform">
+                            <Database className="w-7 h-7" />
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-2">Audited Vault</h3>
+                            <p className="text-slate-600 dark:text-slate-400 font-medium">1M+ questions mapped strictly to official memorandums.</p>
+                        </div>
+                    </div>
+
+                    {/* Tech Bento Box 4 - Multilingual Element */}
+                    <div className="md:col-span-2 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-800 dark:to-[#0F172A] rounded-[2.5rem] p-8 md:p-10 border border-indigo-100 dark:border-slate-700 relative overflow-hidden flex flex-col justify-between shadow-sm group">
+                        <div className="w-14 h-14 bg-blue-600 text-white flex items-center justify-center rounded-2xl z-10 shadow-lg">
+                            <Globe className="w-7 h-7" />
+                        </div>
+                        <div className="relative z-10">
+                            <h3 className="text-3xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-3">Native Multilingual Engine</h3>
+                            <p className="text-slate-600 dark:text-slate-300 font-medium leading-relaxed max-w-md">Instantly toggle your CBT language from English to Hindi (and others) using our sub-second translation matrix dropdown, exactly like real exams.</p>
+                        </div>
+                        <div className="absolute right-0 bottom-[-15%] flex gap-4 opacity-10 dark:opacity-20 transform group-hover:-translate-x-2 transition-transform duration-700 pointer-events-none">
+                            <span className="text-[10rem] font-black text-blue-900 leading-none">A</span>
+                            <span className="text-[10rem] font-black font-serif text-blue-900 leading-none">अ</span>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            {/* 4. OUR PHILOSOPHY (Premium Banner) */}
-            <section className="py-24 bg-[#F97316] text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20"></div>
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 blur-[100px] rounded-full pointer-events-none" />
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center max-w-4xl relative z-10">
-                    <Heart className="w-16 h-16 mx-auto mb-8 text-white/90 drop-shadow-xl" />
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-serif mb-8 leading-tight">Student First, Always</h2>
-                    <p className="text-xl md:text-2xl text-orange-50/90 leading-relaxed font-medium">
-                        Every feature we build, every question we draft, and every decision we make is guided by one simple question: <br className="hidden md:block mt-2" /> 
-                        <strong className="text-white font-black bg-black/10 px-4 py-2 rounded-xl mt-4 inline-block">"How does this help our students succeed?"</strong>
-                    </p>
-                </div>
-            </section>
-
-            {/* 5. WHY EXAMBOOST? (Core Pillars - Glassmorphic Cards) */}
-            <section className="py-32 container mx-auto px-4 md:px-6 lg:px-8">
-                <div className="text-center max-w-4xl mx-auto mb-20">
-                    <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-black font-serif text-slate-900 dark:text-white mb-8 leading-tight">What Makes Us Different?</h2>
-                    <p className="text-xl text-slate-600 dark:text-slate-400 font-medium">We don't just provide questions; we provide an ecosystem that meticulously identifies your weaknesses and turns them into solid strengths.</p>
+            {/* 3. MODERN CONNECTED PROTOCOL */}
+            <section className="py-24 max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center w-full max-w-4xl mx-auto mb-16 relative">
+                    <span className="text-orange-600 dark:text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Proven Methodology</span>
+                    <h2 className="text-4xl md:text-5xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-6">The Success Protocol</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="relative flex flex-col md:flex-row gap-6 w-full justify-between items-stretch">
+                    {/* Absolute connecting continuous line for beautiful modern UI */}
+                    <div className="absolute top-1/2 left-[10%] w-[80%] h-1 bg-gradient-to-r from-orange-200 via-amber-200 to-emerald-200 hidden md:block -translate-y-1/2 z-0 rounded-full dark:from-slate-800 dark:via-slate-800 dark:to-slate-800"></div>
+
                     {[
-                        { icon: ShieldCheck, title: "Exam-Exact Interface", desc: "Experience the real CBT environment before the actual exam day. Say goodbye to exam anxiety." },
-                        { icon: Zap, title: "Deep Analytics", desc: "Get insights into your speed, accuracy, and topic-wise strengths compared to top aspirants." },
-                        { icon: BookOpen, title: "Error-Free Content", desc: "Questions drafted by subject matter experts, strictly aligned with the latest syllabus." },
-                        { icon: Globe, title: "Bilingual Platform", desc: "Switch between English and Hindi effortlessly. Language should not be a barrier." },
-                        { icon: Lock, title: "Affordable Access", desc: "Premium education and testing shouldn't break the bank. We offer the highest ROI." },
-                        { icon: Users, title: "Community Support", desc: "Mentorship sessions and a strong community that supports your overall preparation journey." }
-                    ].map((feature, idx) => (
-                        <motion.div 
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
-                            key={idx} 
-                            className="bg-white dark:bg-[#0F172A] p-10 rounded-[2rem] border-[1.5px] border-slate-100 dark:border-slate-800 hover:border-[#F97316] dark:hover:border-[#F97316] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover:bg-[#F97316] group-hover:text-white flex items-center justify-center mb-8 border border-slate-200 dark:border-slate-700 transition-colors">
-                                <feature.icon className="w-8 h-8" />
+                        { step: "01", title: "Conditioning", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-950/30", outline: "outline-orange-200 dark:outline-orange-900/50", desc: "Build mental stamina by surviving 2-hour virtual sessions on raw interface." },
+                        { step: "02", title: "Diagnosis", color: "text-amber-500 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/30", outline: "outline-amber-200 dark:outline-amber-900/50", desc: "Our engine isolates time-draining domains to fix your micro-strategy." },
+                        { step: "03", title: "Correction", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/30", outline: "outline-emerald-200 dark:outline-emerald-900/50", desc: "Review granular 'Zero Wait Time Solutions' instantly." }
+                    ].map((s, i) => (
+                        <div key={i} className="flex-1 bg-white dark:bg-[#0A0711] p-8 md:p-10 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm relative z-10 group transition-all duration-300">
+                            {/* Modern Number Node */}
+                            <div className={`w-14 h-14 ${s.bg} text-slate-900 dark:text-white font-black text-xl rounded-2xl flex items-center justify-center outline outline-4 outline-offset-2 ${s.outline} outline-transparent group-hover:outline-offset-4 transition-all mb-8`}>
+                                {s.step}
                             </div>
-                            <h3 className="text-2xl font-black font-serif text-slate-900 dark:text-white mb-4 group-hover:text-[#F97316] transition-colors">{feature.title}</h3>
-                            <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-medium text-lg">
-                                {feature.desc}
-                            </p>
-                        </motion.div>
+                            <h3 className={`text-2xl font-black font-sans tracking-tight mb-3 ${s.color}`}>{s.title}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">{s.desc}</p>
+                        </div>
                     ))}
                 </div>
             </section>
 
-            {/* 6. OUR JOURNEY / TIMELINE */}
-            <section className="py-32 bg-slate-50 dark:bg-[#060D1A] border-y border-slate-200 dark:border-slate-800/80 relative overflow-hidden">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F97316]/5 blur-[120px] rounded-full"></div>
-                
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-4xl md:text-5xl font-black font-serif text-slate-900 dark:text-white mb-6">The ExamBoost Journey</h2>
-                        <p className="text-xl text-slate-600 dark:text-slate-400 font-medium">From a small vision to India's most loved preparation destination.</p>
+            {/* 4. THE CORE STANCE (Cleaned UI & PERFECTLY PROPORTIONED IMAGE) */}
+            <section className="py-24 bg-slate-50 dark:bg-[#080511] border-y border-slate-200 dark:border-slate-800 relative z-10 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    
+                    {/* Fixed Size Elegant Image Profile */}
+                    <div className="w-full lg:w-5/12 max-w-sm mx-auto flex justify-center lg:justify-start relative perspective-[1000px]">
+                        <div className="relative w-full aspect-[4/5] bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800 transform-gpu hover:rotateY-[-5deg] transition-transform duration-700">
+                            <img src="/about_analytics.png" alt="Analytics Dashboard" className="w-[150%] h-full object-cover object-left rounded-[2.5rem] mix-blend-darken dark:mix-blend-normal"/>
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/40"></div>
+                            
+                            {/* Modern Bottom Tag */}
+                            <div className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-5 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center gap-3 shadow-sm">
+                                <BarChart2 className="w-6 h-6 text-orange-500" />
+                                <div>
+                                    <p className="text-[9px] uppercase tracking-widest font-bold text-slate-500 pt-0.5">Automated Analysis</p>
+                                    <p className="font-bold text-slate-900 dark:text-white text-sm leading-tight">Weakness Diagnostics</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                        {[
-                            { year: '2022', title: 'The Genesis', desc: 'Started with 5 free mock tests for SSC CGL. We hit 10,000 users in the first week through pure word-of-mouth.' },
-                            { year: '2023', title: 'Expanding Horizons', desc: 'Launched Banking, Railways, and Defense verticals. Introduced our proprietary Analytics engine.' },
-                            { year: '2024', title: '1 Million Strong', desc: 'Crossed the 1 Million active aspirants mark. Launched our mobile app to enable learning on the go.' },
-                            { year: '2025+', title: 'The Future', desc: 'Integrating Live Classes and robust mentorship programs. Continuously redefining preparation.' }
-                        ].map((step, idx) => (
-                            <motion.div 
-                                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                key={idx} 
-                                className="bg-white dark:bg-[#0F172A] rounded-[2rem] border-[1.5px] border-slate-100 dark:border-slate-800 p-10 hover:border-[#F97316]/50 dark:hover:border-[#F97316]/50 hover:shadow-xl transition-all duration-300"
-                            >
-                                <div className="text-[#F97316] font-black font-serif text-4xl mb-4">{step.year}</div>
-                                <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-4">{step.title}</h4>
-                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-medium text-lg">
-                                    {step.desc}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* 8. CALL TO ACTION (Premium Box) */}
-            <section className="py-32 bg-white dark:bg-[#0B1120] text-center">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-5xl mx-auto bg-[#0a1128] dark:bg-[#060D1A] rounded-[3rem] p-12 md:p-20 shadow-2xl border-[1.5px] border-slate-800 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-80 h-80 bg-[#F97316]/20 blur-[100px] rounded-full pointer-events-none" />
+                    <div className="w-full lg:w-7/12">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold uppercase text-[11px] tracking-widest mb-6 border border-orange-200 dark:border-orange-800">
+                            The Methodology
+                        </span>
                         
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-serif text-white mb-8 leading-tight relative z-10">Ready to Boost Your <br/> Preparation?</h2>
-                        <p className="text-xl text-slate-300 font-medium max-w-2xl mx-auto mb-12 relative z-10">
-                            Join 50 Lakh+ aspirants who have already made ExamBoost their trusted partner for success.
+                        <h2 className="text-4xl md:text-5xl font-black font-sans tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
+                            Stop Passively <br className="hidden sm:block"/> Watching.
+                        </h2>
+                        <p className="text-xl text-slate-600 dark:text-slate-400 font-medium mb-10 border-l-[3px] border-orange-500 pl-6 leading-relaxed">
+                            Watching a tutor solve a 2-minute math problem provides a false sense of security. Real examination temperment is built only by taking action.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 relative z-10">
-                            <Link href="/signup" className="px-10 py-5 bg-[#F97316] hover:bg-[#ea580c] text-white rounded-2xl font-black text-lg transition-all w-full sm:w-auto hover:-translate-y-1 shadow-lg shadow-[#F97316]/20 flex justify-center items-center gap-2">
-                                Join For Free Now <ArrowRight className="w-5 h-5"/>
-                            </Link>
-                            <Link href="/exams" className="px-10 py-5 bg-transparent border-2 border-slate-600 hover:border-slate-400 text-white rounded-2xl font-black text-lg transition-all w-full sm:w-auto hover:-translate-y-1">
-                                Explore Test Series
-                            </Link>
+
+                        <div className="space-y-6">
+                            {[
+                                { icon: Clock, title: "Active Recall", desc: "Interactive testing forces immediate recall, building permanent memory paths." },
+                                { icon: ShieldCheck, title: "Eradicate Exam Anxiety", desc: "Routine clock-pressure entirely desensitizes examination fear over time." },
+                                { icon: TrendingUp, title: "Mathematical Evidence", desc: "Visual percentiles and ranks never lie about your true progress baseline." }
+                            ].map((b, i) => (
+                                <div key={i} className="flex gap-5 items-start">
+                                    <div className="w-12 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center rounded-xl shrink-0 mt-1">
+                                        <b.icon className="w-5 h-5 text-orange-500" />
+                                    </div>
+                                    <div className="pt-1">
+                                        <h4 className="text-xl font-bold font-sans tracking-tight text-slate-900 dark:text-white mb-1.5">{b.title}</h4>
+                                        <p className="text-slate-500 font-medium text-[15px]">{b.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* 6. MODERN METRICS STRIP */}
+            <section className="w-full bg-slate-900 dark:bg-[#0A0711] py-8 overflow-hidden flex items-center relative z-10">
+                <div className="flex w-[300%] md:w-[200%] animate-[slide_30s_linear_infinite] whitespace-nowrap">
+                   <div className="flex gap-16 md:gap-32 px-4 items-center text-slate-400 font-bold text-lg md:text-2xl uppercase tracking-widest">
+                     <span className="flex items-center gap-3"><Users className="w-6 h-6 text-orange-500" /> 50 Lakh+ Students</span>
+                     <span className="flex items-center gap-3 text-slate-600 dark:text-slate-800">•</span>
+                     <span className="flex items-center gap-3"><Target className="w-6 h-6 text-orange-500" /> 10 Crore+ Tests</span>
+                     <span className="flex items-center gap-3 text-slate-600 dark:text-slate-800">•</span>
+                     <span className="flex items-center gap-3"><BookOpen className="w-6 h-6 text-orange-500" /> 500+ Categories</span>
+                     <span className="flex items-center gap-3 text-slate-600 dark:text-slate-800">•</span>
+                     <span className="flex items-center gap-3"><Award className="w-6 h-6 text-orange-500" /> 1.2 Lakh+ Selections</span>
+                   </div>
+                </div>
+            </section>
+
+            {/* 7. PLATFORM INTELLIGENCE INFO SECTION */}
+            <section className="py-24 max-w-7xl mx-auto px-6 mb-10">
+                <div className="w-full relative overflow-hidden flex flex-col gap-12">
+                    
+                    {/* Header */}
+                    <div className="text-center w-full max-w-4xl mx-auto pt-4 relative z-10">
+                        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-400 font-bold tracking-[0.15em] uppercase text-xs mb-6 rounded-full border border-orange-200 dark:border-orange-900/50">
+                            Our Core Vision
+                        </span>
+                        <h2 className="text-4xl md:text-[3.5rem] font-black font-sans tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+                            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-indigo-600">Actual Selections</span>
+                        </h2>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
+                            ExamBoost was forged from the realization that millions of deserving candidates fail simply due to poor exam temperament. We bring enterprise-grade test analytics directly to the aspirant.
+                        </p>
+                    </div>
+
+                    {/* Info Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                        {/* Info Card 1 */}
+                        <div className="bg-slate-900 dark:bg-[#110B1A] border border-slate-800 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group shadow-2xl shadow-indigo-900/20">
+                            <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/20 blur-[100px] rounded-full group-hover:bg-indigo-500/30 transition-colors duration-700 pointer-events-none"></div>
+                            <div className="w-14 h-14 bg-indigo-500/20 border border-indigo-400/30 text-indigo-400 flex items-center justify-center rounded-2xl mb-8">
+                                <MonitorPlay className="w-7 h-7" />
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-3xl font-black text-white mb-4 tracking-tight">Pioneering Authentic CBT Layouts</h3>
+                                <p className="text-slate-400 font-medium leading-relaxed mb-8 text-lg">
+                                    Most platforms use generic mock-up layouts. We specifically clone the exact official testing screen dynamics to eliminate the element of surprise on exam day.
+                                </p>
+                                <ul className="space-y-4">
+                                    {[
+                                        "Clinically exact color palettes for tracking answers",
+                                        "Instantaneous question switching & fast saves",
+                                        "Official marking schemes built directly into the engine"
+                                    ].map((item, idx) => (
+                                        <li key={idx} className="flex items-start gap-4 text-slate-300 font-medium">
+                                            <div className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5"><Activity className="w-3.5 h-3.5" /></div>
+                                            <span className="leading-snug">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Info Card 2 */}
+                        <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group shadow-xl">
+                            <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-400/10 blur-[100px] rounded-full group-hover:bg-orange-400/20 transition-colors duration-700 pointer-events-none"></div>
+                            <div className="w-14 h-14 bg-orange-50 text-orange-600 dark:bg-orange-950/30 dark:text-orange-400 border border-orange-200 dark:border-orange-900/50 flex items-center justify-center rounded-2xl mb-8">
+                                <TrendingUp className="w-7 h-7" />
+                            </div>
+                            <div className="relative z-10 w-full h-full flex flex-col">
+                                <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">Deep Predictive Mentorship</h3>
+                                <p className="text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-auto text-lg">
+                                    Our engine automatically constructs a heat map of your syllabus after 3 full mocks. We algorithmically guide you on exactly which chapter will maximize your score next.
+                                </p>
+                                <div className="mt-8 bg-slate-50 dark:bg-[#0A0711] p-6 rounded-2xl border border-slate-100 dark:border-slate-800/80">
+                                    <div className="flex justify-between items-center mb-3">
+                                        <span className="text-sm font-bold text-slate-500 dark:text-slate-400 tracking-wide">Accuracy Uplift</span>
+                                        <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">+42% Avg</span>
+                                    </div>
+                                    <div className="w-full bg-slate-200 dark:bg-slate-800 h-3 rounded-full overflow-hidden shadow-inner">
+                                        <div className="bg-gradient-to-r from-emerald-400 to-emerald-500 w-[78%] h-full rounded-full"></div>
+                                    </div>
+                                    <p className="text-[12px] text-slate-400 dark:text-slate-500 font-bold mt-4 tracking-wide uppercase">Based on users completing 15+ mock cycles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <style dangerouslySetInnerHTML={{__html: `
+                @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+                @keyframes shimmer { 100% { transform: translateX(100%); } }
+                @keyframes dash { to { stroke-dashoffset: 0; } }
+                @keyframes pulse-slow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+            `}} />
         </div>
     );
 }

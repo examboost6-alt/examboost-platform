@@ -333,42 +333,89 @@ export default function SeriesPage() {
           {/* Left Content Column */}
           <div className="w-full lg:w-2/3 flex flex-col gap-6">
 
-            {/* Header Content Section */}
-            <div className="bg-white dark:bg-[#111827] rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/60 dark:border-slate-800/60">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-100 dark:border-indigo-500/20">
-                  <BookOpen className="w-3.5 h-3.5" />
-                  Test Series
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-full border border-emerald-100 dark:border-emerald-500/20">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  {courseData.exam} Target
-                </span>
-              </div>
+            {/* Header Content Section (Advanced About) */}
+            <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-8 sm:p-10 shadow-xl shadow-indigo-500/5 dark:shadow-none border border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden group">
+              {/* Subtle background wave/gradient */}
+              <div className="absolute top-0 right-0 -m-20 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-colors duration-700 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 -m-20 w-80 h-80 bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-3xl group-hover:bg-orange-500/20 transition-colors duration-700 pointer-events-none"></div>
+              
+              {/* Animated Floating Elements */}
+              <svg className="absolute top-[10%] right-[20%] w-6 h-6 text-orange-500/80 animate-[pulse-slow_3s_ease-in-out_infinite] pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+              </svg>
+              <svg className="absolute top-[40%] right-[3%] w-24 h-24 text-indigo-500/10 dark:text-indigo-400/10 -rotate-12 pointer-events-none" 
+                  viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10,90 Q40,30 90,50" style={{ animation: 'dash 1.5s ease-out forwards', strokeDasharray: 200, strokeDashoffset: 200 }} />
+                  <path d="M70,35 L90,50 L75,70" style={{ animation: 'dash 0.5s ease-out forwards 1s', strokeDasharray: 50, strokeDashoffset: 50 }} />
+              </svg>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-snug">
-                {courseData.title}
-              </h1>
-              <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-6 font-medium">
-                {courseData.description}
-              </p>
+              <div className="relative z-10">
+                <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-[11px] font-black tracking-widest uppercase rounded-full border border-indigo-200/60 dark:border-indigo-500/20 shadow-sm">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    Test Series
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-black tracking-widest uppercase rounded-full border border-emerald-200/60 dark:border-emerald-500/20 shadow-sm">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    {courseData.exam} Target
+                  </span>
+                </div>
 
-              <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-                <div className="flex flex-col">
-                  <span className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Mocks</span>
-                  <div className="flex items-center gap-2 font-semibold">
-                    <FileText className="w-5 h-5 text-indigo-500" />
-                    <span>{courseData.testCount} Tests</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-black tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.15]">
+                  {courseData.title.split(' ').map((word: string, i: number, arr: string[]) => {
+                    if (word.toLowerCase() === 'series' || word.toLowerCase() === 'test' || i === arr.length - 1) {
+                      return (
+                        <span key={i} className="relative inline-block whitespace-nowrap mr-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 pb-2">
+                            {word}
+                            <svg className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none text-[#F97316] overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
+                                <path 
+                                    d="M93.3,16.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3 c13.4-2.3,19.3-7.5,20.8-11.5" 
+                                    fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke"
+                                    style={{ animation: 'dash 1.5s ease-out forwards', strokeDasharray: 200, strokeDashoffset: 200 }}
+                                />
+                                <path 
+                                    d="M91.3,14.7 c-2.4-7.4-15.6-13-35.8-14.8C35.5,0,15,3.7,5.5,10.6C-3.4,17,0,26.4,12.7,31.5c15.1,6.1,43.2,7,64.2,3.3" 
+                                    fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.5" strokeLinecap="round" vectorEffect="non-scaling-stroke"
+                                    style={{ animation: 'dash 2s ease-out forwards', strokeDasharray: 200, strokeDashoffset: 200 }}
+                                />
+                            </svg>
+                        </span>
+                      );
+                    }
+                    return <span key={i} className="mr-2">{word}</span>;
+                  })}
+                </h1>
+                
+                <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl leading-relaxed mb-8 font-medium max-w-2xl border-l-[3px] border-indigo-500/80 pl-5">
+                  {courseData.description}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-8 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                  <div className="flex flex-col">
+                    <span className="text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-[0.15em] mb-2">Total Mocks</span>
+                    <div className="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-lg">
+                      <div className="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20">
+                          <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                      </div>
+                      <span>{courseData.testCount} Premium Tests</span>
+                    </div>
+                  </div>
+                  <div className="w-px h-12 bg-slate-200 dark:bg-slate-700/50 hidden sm:block"></div>
+                  <div className="flex flex-col">
+                    <span className="text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-[0.15em] mb-2">Language Support</span>
+                    <div className="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-lg">
+                      <div className="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center border border-orange-100 dark:border-orange-500/20">
+                          <span className="text-[12px] font-serif font-black text-orange-600 dark:text-orange-400 leading-none">अ</span>
+                      </div>
+                      <span>English & Hindi</span>
+                    </div>
                   </div>
                 </div>
-                <div className="w-px h-10 bg-slate-200 dark:bg-slate-700"></div>
-                <div className="flex flex-col">
-                  <span className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Language</span>
-                  <div className="flex items-center gap-2 font-semibold">
-                    <span>English & Hindi</span>
-                  </div>
-                </div>
               </div>
+              <style dangerouslySetInnerHTML={{__html: `
+                  @keyframes dash { to { stroke-dashoffset: 0; } }
+                  @keyframes pulse-slow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+              `}} />
             </div>
 
             {/* Navigation Tabs */}
@@ -478,110 +525,119 @@ export default function SeriesPage() {
               )}
 
               {activeTab === 'syllabus' && (
-                <div className="animate-in fade-in duration-500 space-y-8">
-                  <div className="flex items-center justify-between mb-2">
+                <div className="animate-in fade-in duration-500 py-2">
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                     <div>
-                      <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Full Official Syllabus</h2>
-                      <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Based on the latest NTA 2026 guidelines</p>
+                      <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                        <Calendar className="w-6 h-6 text-indigo-500" /> Topic-wise Syllabus Map
+                      </h2>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Complete breakdown of official syllabus dynamically mapped for the 2026 pattern.</p>
+                    </div>
+                    <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-xl text-xs font-bold border border-emerald-200 dark:border-emerald-500/20 shadow-sm shrink-0 w-max">
+                      <CheckCircle2 className="w-4 h-4" /> 100% Updated
                     </div>
                   </div>
 
-                  <div className="bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 p-4 rounded-xl flex gap-3">
-                    <div className="mt-0.5"><CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" /></div>
-                    <div>
-                      <h4 className="font-bold text-emerald-900 dark:text-emerald-300">100% Updated Content</h4>
-                      <p className="text-emerald-800 dark:text-emerald-400 font-medium mt-1 text-sm">All our mock tests are mapped strictly to this exact syllabus.</p>
-                    </div>
-                  </div>
+                  {(() => {
+                    const syllabusData = courseData.exam === 'Medical' ? [
+                      {
+                        name: 'Bio / Medical',
+                        color: 'emerald',
+                        topics: [
+                          { title: 'Botany', items: ['Plant Diversity', 'Plant Physiology', 'Cell Biology', 'Genetics', 'Ecology'] },
+                          { title: 'Zoology', items: ['Animal Diversity', 'Human Physiology', 'Reproduction', 'Evolution', 'Biotech'] }
+                        ]
+                      },
+                      {
+                        name: 'Chemistry',
+                        color: 'orange',
+                        topics: [
+                          { title: 'Physical', items: ['Mole Concept', 'Thermodynamics', 'Equilibrium', 'Kinetics'] },
+                          { title: 'Organic', items: ['Hydrocarbons', 'Alcohols', 'Aldehydes', 'Biomolecules'] },
+                          { title: 'Inorganic', items: ['Bonding', 'Coordination', 'Periodic Table', 'Block Elements'] },
+                        ]
+                      },
+                      {
+                        name: 'Physics',
+                        color: 'blue',
+                        topics: [
+                          { title: 'Mechanics', items: ['Kinematics', 'Laws of Motion', 'Work Energy', 'Gravity'] },
+                          { title: 'Electromagnetism', items: ['Electrostatics', 'Current Elec', 'Magnetism', 'AC'] },
+                          { title: 'Modern Phys', items: ['Dual Nature', 'Atoms', 'Semiconductors'] },
+                        ]
+                      }
+                    ] : [
+                      {
+                        name: 'Mathematics',
+                        color: 'rose',
+                        topics: [
+                          { title: 'Algebra', items: ['Complex Numbers', 'Quadratics', 'Matrices', 'Permutations', 'Probability'] },
+                          { title: 'Calculus', items: ['Limits', 'Derivatives', 'Integration', 'Diff Equations'] },
+                          { title: 'Geometry', items: ['Straight Lines', 'Circles', 'Conic Sections', '3D & Vectors'] },
+                        ]
+                      },
+                      {
+                        name: 'Physics',
+                        color: 'blue',
+                        topics: [
+                          { title: 'Mechanics', items: ['Kinematics', 'Laws of Motion', 'Work Energy', 'Rotational', 'Gravity'] },
+                          { title: 'Heat & Thermo', items: ['Thermodynamics', 'KTG'] },
+                          { title: 'Electromagnetism', items: ['Electrostatics', 'Current Elec', 'Magnetism', 'AC'] },
+                          { title: 'Modern Phys', items: ['Dual Nature', 'Atoms', 'Semiconductors'] },
+                        ]
+                      },
+                      {
+                        name: 'Chemistry',
+                        color: 'orange',
+                        topics: [
+                          { title: 'Physical', items: ['Mole Concept', 'Thermodynamics', 'Equilibrium', 'Kinetics'] },
+                          { title: 'Organic', items: ['Hydrocarbons', 'Alcohols', 'Aldehydes', 'Biomolecules'] },
+                          { title: 'Inorganic', items: ['Bonding', 'Coordination', 'Periodic Table', 'Block Elements'] },
+                        ]
+                      }
+                    ];
 
-                  <div className="space-y-6">
-                    {/* Physics */}
-                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
-                        <div className="w-2 h-6 bg-blue-500 rounded-full"></div> Physics
-                      </div>
-                      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div>
-                          <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Mechanics</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Kinematics</li><li>• Laws of Motion</li><li>• Work Energy Power</li><li>• Rotational Motion</li><li>• Gravitation</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Heat & Thermodynamics</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Thermodynamics</li><li>• Kinetic Theory of Gases</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Electricity & Magnetism</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Electrostatics</li><li>• Current Electricity</li><li>• Magnetism</li><li>• EMI & AC</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 text-sm">Modern Physics</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Dual Nature of Matter</li><li>• Atoms and Nuclei</li><li>• Semiconductors</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+                    return (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {syllabusData.map((subject, idx) => {
+                            const bgHeader = subject.color === 'blue' ? 'bg-blue-500' : subject.color === 'orange' ? 'bg-orange-500' : subject.color === 'emerald' ? 'bg-emerald-500' : 'bg-rose-500';
+                            const textHeader = subject.color === 'blue' ? 'text-blue-600 dark:text-blue-400' : subject.color === 'orange' ? 'text-orange-600 dark:text-orange-400' : subject.color === 'emerald' ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400';
+                            const bgSoft = subject.color === 'blue' ? 'bg-blue-50/50 dark:bg-blue-900/10' : subject.color === 'orange' ? 'bg-orange-50/50 dark:bg-orange-900/10' : subject.color === 'emerald' ? 'bg-emerald-50/50 dark:bg-emerald-900/10' : 'bg-rose-50/50 dark:bg-rose-900/10';
+                            const borderSoft = subject.color === 'blue' ? 'border-blue-100 dark:border-blue-800' : subject.color === 'orange' ? 'border-orange-100 dark:border-orange-800' : subject.color === 'emerald' ? 'border-emerald-100 dark:border-emerald-800' : 'border-rose-100 dark:border-rose-800';
+                            const pillBg = subject.color === 'blue' ? 'hover:bg-blue-100 dark:hover:bg-blue-900/30' : subject.color === 'orange' ? 'hover:bg-orange-100 dark:hover:bg-orange-900/30' : subject.color === 'emerald' ? 'hover:bg-emerald-100 dark:hover:bg-emerald-900/30' : 'hover:bg-rose-100 dark:hover:bg-rose-900/30';
 
-                    {/* Chemistry */}
-                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
-                        <div className="w-2 h-6 bg-emerald-500 rounded-full"></div> Chemistry
-                      </div>
-                      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div>
-                          <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Physical Chemistry</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Mole Concept</li><li>• Thermodynamics</li><li>• Equilibrium</li><li>• Electrochemistry</li><li>• Chemical Kinetics</li>
-                          </ul>
+                            return (
+                                <div key={idx} className="flex flex-col bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300 group">
+                                  {/* Header */}
+                                  <div className={`p-5 sm:p-6 border-b border-slate-100 dark:border-slate-800 ${bgSoft}`}>
+                                    <div className="flex items-center gap-3">
+                                      <div className={`w-3 h-8 ${bgHeader} rounded-full`}></div>
+                                      <h3 className={`text-2xl font-black ${textHeader}`}>{subject.name}</h3>
+                                    </div>
+                                  </div>
+                                  {/* Topics List */}
+                                  <div className="p-5 sm:p-6 flex-1 flex flex-col gap-6 bg-slate-50/50 dark:bg-[#111827]">
+                                    {subject.topics.map((topic, tIdx) => (
+                                      <div key={tIdx}>
+                                        <h4 className="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                          <div className={`w-1.5 h-1.5 rounded-full ${bgHeader} opacity-80`}></div> {topic.title}
+                                        </h4>
+                                        <div className="flex flex-wrap gap-2">
+                                          {topic.items.map((item, iIdx) => (
+                                            <span key={iIdx} className={`px-2.5 py-1 text-xs font-bold rounded-lg bg-white dark:bg-slate-900 border ${borderSoft} text-slate-700 dark:text-slate-300 shadow-sm transition-colors cursor-default ${pillBg}`}>
+                                              {item}
+                                            </span>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                            );
+                          })}
                         </div>
-                        <div>
-                          <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Organic Chemistry</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Hydrocarbons</li><li>• Alcohols & Ethers</li><li>• Aldehydes & Ketones</li><li>• Carboxylic Acids</li><li>• Biomolecules</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-emerald-600 dark:text-emerald-400 mb-3 text-sm">Inorganic Chemistry</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Chemical Bonding</li><li>• Coordination Compounds</li><li>• Periodic Table</li><li>• p-Block & d-Block</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Maths */}
-                    <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-slate-50 dark:bg-slate-800/80 p-4 font-black text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
-                        <div className="w-2 h-6 bg-rose-500 rounded-full"></div> Mathematics
-                      </div>
-                      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div>
-                          <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Algebra</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Complex Numbers</li><li>• Quadratic Equations</li><li>• Matrices & Determinants</li><li>• P & C</li><li>• Probability</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Calculus</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Limits & Derivates</li><li>• Indefinite Integration</li><li>• Definite Integration</li><li>• Differential Equations</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-rose-600 dark:text-rose-400 mb-3 text-sm">Coordinate Geometry</h5>
-                          <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-none font-medium">
-                            <li>• Straight Lines</li><li>• Circles</li><li>• Conic Sections</li><li>• Vectors & 3D Geometry</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    );
+                  })()}
                 </div>
               )}
 
@@ -894,13 +950,22 @@ export default function SeriesPage() {
                     100% secure payment. Full access immediately.
                   </p>
 
-                  <div className="mt-6">
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-4 text-sm">This package includes:</h4>
-                    <ul className="space-y-3">
+                  <div className="mt-8 pt-6 border-t border-dashed border-slate-200 dark:border-slate-800">
+                    <h4 className="font-black text-slate-900 dark:text-white mb-4 text-[13px] uppercase tracking-widest flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-indigo-500" /> Inside The Package
+                    </h4>
+                    <ul className="space-y-2.5">
                       {courseData.features.map((feature: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
-                          <span className="text-sm font-medium text-slate-600 dark:text-slate-400 leading-snug">{feature}</span>
+                        <li key={idx} className="group relative flex items-start gap-3.5 p-3.5 rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-[#111827] dark:to-slate-900 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] border border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10 transition-all w-full overflow-hidden">
+                          {/* Inner glowing highlight */}
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 dark:bg-indigo-500/10 blur-2xl rounded-full group-hover:bg-indigo-500/15 transition-colors duration-500"></div>
+                          
+                          <div className="relative w-8 h-8 shrink-0 rounded-[10px] bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 flex items-center justify-center shadow-sm">
+                            <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                          </div>
+                          <span className="relative z-10 text-[13.5px] font-bold text-slate-700 dark:text-slate-300 leading-snug pt-1">
+                            {feature}
+                          </span>
                         </li>
                       ))}
                     </ul>

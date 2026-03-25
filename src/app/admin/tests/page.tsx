@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, BookOpen, Clock, FileText, CheckCircle, Search, Filter, MoreVertical, Edit, Trash2 } from "lucide-react";
+import Link from 'next/link';
 import { getSupabaseClient } from "@/lib/supabaseClient";
 
 type TestSeriesRow = {
@@ -112,9 +113,14 @@ export default function AdminTests() {
           <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Test Series</h1>
           <p className="text-slate-500 font-medium">Create, edit, and manage all your exam categories and mock tests.</p>
         </div>
-        <button onClick={onCreateSeries} disabled={creating || !supabase} className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-secondary disabled:opacity-50 text-white rounded-xl font-bold text-sm shadow-md transition-all shadow-primary/20 whitespace-nowrap">
-          <Plus className="w-5 h-5" /> {creating ? "Creating..." : "Create New Series"}
-        </button>
+        <div className="flex gap-3 items-center">
+            <Link href="/admin/tests/upload" className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 disabled:opacity-50 text-slate-800 dark:text-slate-200 rounded-xl font-bold text-sm shadow-sm transition-all whitespace-nowrap">
+                <FileText className="w-4 h-4" /> Bulk Upload JSON
+            </Link>
+            <button onClick={onCreateSeries} disabled={creating || !supabase} className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-secondary disabled:opacity-50 text-white rounded-xl font-bold text-sm shadow-md transition-all shadow-primary/20 whitespace-nowrap">
+                <Plus className="w-5 h-5" /> {creating ? "Creating..." : "Create New Series"}
+            </button>
+        </div>
       </div>
 
       <div className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">
