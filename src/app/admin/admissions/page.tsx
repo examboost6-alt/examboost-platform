@@ -1,25 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Search, Filter, MoreHorizontal, Download, Users as UsersIcon, Smartphone, 
   MapPin, CheckCircle2, FileText, Image as ImageIcon, Briefcase, Eye, 
-  UserPlus, FileCheck, X, Activity, AlertTriangle, User, Calendar, Save, Trash2, ShieldCheck
+  UserPlus, FileCheck, X, Activity, AlertTriangle, User, Calendar, Save, Trash2, ShieldCheck, Loader2
 } from "lucide-react";
+
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 export default function AdminAdmissions() {
   const [selectedAdmission, setSelectedAdmission] = useState<number | null>(null);
+  const [admissions, setAdmissions] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const admissions = [
-    { id: "ADM-65902", authId: "USR-092410", name: "Rahul Sharma", email: "rahul.sharma@example.com", phone: "+91 9876543210", photo: true, state: "Delhi NCR", exam: "SSC CGL", appliedDate: "12 Oct, 10:45 AM", status: "Verified", dob: "14 Jul 2000" },
-    { id: "ADM-65903", authId: "USR-040212", name: "Priya Patel", email: "priya.p@example.com", phone: "+91 8765432109", photo: true, state: "Gujarat", exam: "Banking PO", appliedDate: "12 Oct, 11:30 AM", status: "Pending", dob: "05 Nov 2001" },
-    { id: "ADM-65904", authId: "USR-082190", name: "Amit Kumar", email: "amit.k@example.com", phone: "+91 7654321098", photo: false, state: "Maharashtra", exam: "UPSC CSE", appliedDate: "11 Oct, 04:15 PM", status: "Incomplete", dob: "22 Aug 1999" },
-    { id: "ADM-65905", authId: "USR-010294", name: "Sneha Reddy", email: "sneha.r@example.com", phone: "+91 6543210987", photo: true, state: "Karnataka", exam: "JEE / NEET", appliedDate: "10 Oct, 09:10 AM", status: "Verified", dob: "18 Feb 2004" },
-    { id: "ADM-65906", authId: "USR-112349", name: "Vikram Singh", email: "vikram.s@example.com", phone: "+91 5432109876", photo: true, state: "Rajasthan", exam: "SSC CGL", appliedDate: "09 Oct, 02:40 PM", status: "Pending", dob: "01 Dec 2000" },
-  ];
+  const fetchAdmissions = async () => {
+    setLoading(true);
+    const supabase = getSupabaseClient();
+    if(!supabase) {
+        setLoading(false);
+        return;
+    }
+    const { data: profiles, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-  const admCard = selectedAdmission !== null ? admissions[selectedAdmission] : null;
+    if(profiles) {
+        const mapped = profiles.map((p: any) => {
+           let status = "Pending";
+           if (!p.photo_path || !p.phone) status = "Incomplete";
+           else if (p.admission_completed) status = "Verified";
+
+           return {
+               id: `ADM-${p.id.substring(0, 6).toUpperCase()}`,
+               authId: p.id,
+               name: p.full_name || "Unknown User",
+               email: p.email || "No Email Bound",
+               phone: p.phone || "No Phone",
+               photo: !!p.photo_path,
+               photo_path: p.photo_path,
+               state: p.state_location || "Not Set",
+               exam: p.target_exam || "Unspecified",
+               appliedDate: p.created_at ? new Date(p.created_at).toLocaleDateString() : "Unknown",
+               status: status,
+               dob: p.dob || "Unknown DOB"
+           };
+        });
+        setAdmissions(mapped);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchAdmissions();
+  }, []);
+
+  const filteredAdmissions = admissions.filter(a => {
+      if(!searchQuery) return true;
+      const q = searchQuery.toLowerCase();
+      return a.id.toLowerCase().includes(q) || a.name.toLowerCase().includes(q) || a.phone.includes(q);
+  });
+
+  const admCard = selectedAdmission !== null ? filteredAdmissions[selectedAdmission] : null;
 
   return (
     <div className="flex flex-col gap-6 pb-8 relative">
@@ -52,10 +97,10 @@ export default function AdminAdmissions() {
       {/* Analytics KPI Dashboard */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Total Submissions", count: "842K", desc: "Lifetime applications", icon: FileText, color: "text-blue-500 flex-1", bg: "bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20" },
-          { label: "Pending Verification", count: "12,450", desc: "Updates in real-time", icon: Eye, color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20" },
-          { label: "Approved Admissions", count: "820K", desc: "Identity secured", icon: CheckCircle2, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-500/20" },
-          { label: "Blocked / Incomplete", count: "8,704", desc: "Missing photo docs", icon: AlertTriangle, color: "text-rose-500", bg: "bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20" }
+          { label: "Total Submissions", count: admissions.length.toLocaleString(), desc: "Lifetime applications", icon: FileText, color: "text-blue-500 flex-1", bg: "bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20" },
+          { label: "Pending Verification", count: admissions.filter(a => a.status === 'Pending').length.toLocaleString(), desc: "Updates in real-time", icon: Eye, color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20" },
+          { label: "Approved Admissions", count: admissions.filter(a => a.status === 'Verified').length.toLocaleString(), desc: "Identity secured", icon: CheckCircle2, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-500/20" },
+          { label: "Blocked / Incomplete", count: admissions.filter(a => a.status === 'Incomplete').length.toLocaleString(), desc: "Missing photo docs", icon: AlertTriangle, color: "text-rose-500", bg: "bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20" }
         ].map((stat, i) => {
           const Icon = stat.icon;
           return (
@@ -89,6 +134,8 @@ export default function AdminAdmissions() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input 
               type="text" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by Form ID (e.g., ADM-659), Name, or Phone..." 
               className="w-full pl-12 pr-4 py-2.5 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500 text-sm font-bold text-slate-800 dark:text-slate-100 transition-colors shadow-sm"
             />
@@ -120,7 +167,14 @@ export default function AdminAdmissions() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-sm">
-              {admissions.map((adm, index) => (
+              {loading ? (
+                <tr>
+                   <td colSpan={7} className="p-8 text-center text-slate-500 font-bold">
+                       <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2 text-indigo-500" />
+                       Loading Admissions Engine...
+                   </td>
+                </tr>
+              ) : filteredAdmissions.map((adm, index) => (
                 <tr key={adm.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors group">
                   <td className="p-5 pl-8">
                      <input type="checkbox" className="rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer border-slate-300 dark:border-slate-600" />
@@ -243,9 +297,9 @@ export default function AdminAdmissions() {
                             </div>
                           </div>
                           <div className="flex gap-6 relative z-10">
-                             <div className={`w-24 h-28 rounded-xl shrink-0 flex items-center justify-center border-2 border-slate-100 dark:border-slate-800 ${!admCard.photo ? 'bg-slate-50 dark:bg-slate-800/50' : ''}`}>
+                             <div className={`w-24 h-28 rounded-xl shrink-0 flex items-center justify-center overflow-hidden border-2 border-slate-100 dark:border-slate-800 ${!admCard.photo ? 'bg-slate-50 dark:bg-slate-800/50' : ''}`}>
                                {!admCard.photo ? <User className="w-8 h-8 text-slate-300"/> : (
-                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop" className="w-full h-full object-cover rounded-[10px]" alt="Student ID Photo"/>
+                                 <img src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/student-photos/${admCard.photo_path}`} className="w-full h-full object-cover" alt="Student ID Photo"/>
                                )}
                              </div>
                              <div className="flex-1 grid gap-4 grid-cols-2">
