@@ -25,7 +25,7 @@ export default function AdminReports() {
         const totalStudents = profiles?.length || 0;
 
         const categoryCounts: Record<string, number> = {};
-        profiles?.forEach((p) => {
+        profiles?.forEach((p: any) => {
           let exam = p.target_exam ? p.target_exam.trim().toUpperCase() : "Unspecified";
           categoryCounts[exam] = (categoryCounts[exam] || 0) + 1;
         });
@@ -48,7 +48,7 @@ export default function AdminReports() {
         let globalAccSum = 0;
         let globalAttempts = 0;
 
-        userTests?.forEach((t) => {
+        userTests?.forEach((t: any) => {
           const tid = t.test_id || "Unknown Test";
           const acc = Number(t.accuracy) || 0;
           
@@ -146,7 +146,7 @@ export default function AdminReports() {
                 {/* Line chart mock aesthetic mapping to actual score area */}
                 <svg className="w-full h-full absolute inset-0 z-10" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <path 
-                    d="M 0 90 Q 20 80, 35 60 T 60 55 T 85 45 T 100 parseInt(stats.avgSystemScore) || 50" 
+                    d={`M 0 90 Q 20 80, 35 60 T 60 55 T 85 45 T 100 ${100 - (parseInt(stats.avgSystemScore) || 50)}`} 
                     fill="none" 
                     stroke="currentColor" 
                     strokeWidth="2.5" 
