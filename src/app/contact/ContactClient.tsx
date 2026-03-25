@@ -138,26 +138,50 @@ export default function ContactClient() {
                             <h3 className="text-3xl lg:text-4xl font-black font-serif text-slate-900 dark:text-white mb-3">Send us a message</h3>
                             <p className="text-slate-600 dark:text-slate-400 font-medium text-lg mb-10">We usually respond within 24 hours.</p>
 
-                            <form className="space-y-8">
+                            <form className="space-y-8" onSubmit={async (e) => {
+                                e.preventDefault();
+                                const formData = new FormData(e.currentTarget);
+                                const data = {
+                                    name: formData.get('firstName') + ' ' + (formData.get('lastName') || ''),
+                                    email: formData.get('email'),
+                                    subject: formData.get('subject'),
+                                    message: formData.get('message'),
+                                    status: 'Unread'
+                                };
+                                try {
+                                    const { getSupabaseClient } = await import('@/lib/supabaseClient');
+                                    const supabase = getSupabaseClient();
+                                    if(supabase) {
+                                        const { error } = await supabase.from('contact_messages').insert([data]);
+                                        if (error) alert("Could not send message. Ensure 'contact_messages' table exists. Error: " + error.message);
+                                        else {
+                                            alert("Message sent successfully!");
+                                            e.currentTarget.reset();
+                                        }
+                                    }
+                                } catch (err) {
+                                    alert("Client error.");
+                                }
+                            }}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div className="space-y-3">
                                         <label className="block text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">First Name <span className="text-[#F97316]">*</span></label>
-                                        <input type="text" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="John" required />
+                                        <input name="firstName" type="text" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="John" required />
                                     </div>
                                     <div className="space-y-3">
                                         <label className="block text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Last Name</label>
-                                        <input type="text" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="Doe" />
+                                        <input name="lastName" type="text" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="Doe" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-3">
                                     <label className="block text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Email Address <span className="text-[#F97316]">*</span></label>
-                                    <input type="email" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="john@example.com" required />
+                                    <input name="email" type="email" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl" placeholder="john@example.com" required />
                                 </div>
 
                                 <div className="space-y-3">
                                     <label className="block text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Subject</label>
-                                    <select className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl appearance-none">
+                                    <select name="subject" className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl appearance-none">
                                         <option>General Inquiry</option>
                                         <option>Technical Issue / Bug</option>
                                         <option>Payment & Billing</option>
@@ -167,10 +191,10 @@ export default function ContactClient() {
 
                                 <div className="space-y-3">
                                     <label className="block text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Your Message <span className="text-[#F97316]">*</span></label>
-                                    <textarea rows={5} className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl resize-none" placeholder="Please describe your issue or inquiry in detail..." required></textarea>
+                                    <textarea name="message" rows={5} className="w-full px-5 py-4 bg-slate-50 dark:bg-[#060D1A] border border-slate-200 dark:border-slate-800 focus:border-[#F97316] dark:focus:border-[#F97316] outline-none transition-colors text-slate-900 dark:text-white font-medium rounded-2xl resize-none" placeholder="Please describe your issue or inquiry in detail..." required></textarea>
                                 </div>
 
-                                <button type="button" className="w-full sm:w-auto px-10 py-5 bg-[#F97316] hover:bg-[#ea580c] text-white font-black rounded-2xl transition-all shadow-lg shadow-[#F97316]/20 flex items-center justify-center gap-2 text-lg hover:-translate-y-1">
+                                <button type="submit" className="w-full sm:w-auto px-10 py-5 bg-[#F97316] hover:bg-[#ea580c] text-white font-black rounded-2xl transition-all shadow-lg shadow-[#F97316]/20 flex items-center justify-center gap-2 text-lg hover:-translate-y-1">
                                     <Send className="w-5 h-5" /> Send Message
                                 </button>
                             </form>
