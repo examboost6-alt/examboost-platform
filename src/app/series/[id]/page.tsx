@@ -172,8 +172,8 @@ export default function SeriesPage() {
           .from('purchases')
           .select('id')
           .eq('user_id', auth.session.user.id)
-          .eq('series_id', seriesId)
-          .eq('status', 'success');
+          .eq('status', 'success')
+          .in('series_id', [seriesId, 'ALL']);
 
         if (purchases && purchases.length > 0) {
           setIsPurchased(true);
