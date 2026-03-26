@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MdArrowForward, MdChevronRight } from 'react-icons/md';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const categories = [
     { image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop", name: "Medical (NEET)", count: "800+ Tests", desc: "NEET UG, AIIMS", href: "/exams/medical-entrance", color: "from-blue-500/80" },
@@ -65,7 +66,7 @@ export default function Categories() {
                             >
                                 <Link href={cat.href} className="group block relative h-[420px] rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                                     <div className="absolute inset-0">
-                                        <img src={cat.image} alt={cat.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                        <Image src={cat.image} alt={cat.name} fill sizes="(max-width: 768px) 100vw, 350px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                                     </div>
                                     <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300`}></div>
                                     

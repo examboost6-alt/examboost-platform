@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Search, Menu, X, ChevronDown, Home, BookOpen, Layers, Newspaper, Info, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -194,8 +195,8 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group shrink-0 mr-4 sm:mr-8 md:mr-12 lg:mr-24">
                     <div className="w-20 sm:w-24 md:w-28 lg:w-[8rem] h-5 sm:h-6 md:h-8 flex items-center justify-start relative">
-                        <img src="/logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain object-left relative z-10 scale-[1.35] origin-left dark:hidden" />
-                        <img src="/white-logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain object-left relative z-10 scale-[1.35] origin-left hidden dark:block" />
+                        <Image src="/logo.png" alt="ExamBoost Logo" fill priority sizes="(max-width: 768px) 100px, 150px" className="object-contain object-left relative z-10 scale-[1.35] origin-left dark:hidden" />
+                        <Image src="/white-logo.png" alt="ExamBoost Logo" fill priority sizes="(max-width: 768px) 100px, 150px" className="object-contain object-left relative z-10 scale-[1.35] origin-left hidden dark:block" />
                     </div>
                 </Link>
 
@@ -427,8 +428,8 @@ export default function Navbar() {
                             <div className="flex items-center justify-between px-4 h-16 md:h-20 shrink-0 border-b border-slate-100 dark:border-slate-800">
                                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 group">
                                     <div className="w-20 sm:w-24 h-6 flex items-center justify-start relative">
-                                        <img src="/logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain object-left relative z-10 scale-[1.35] origin-left dark:hidden" />
-                                        <img src="/white-logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain object-left relative z-10 scale-[1.35] origin-left hidden dark:block" />
+                                        <Image src="/logo.png" alt="ExamBoost Logo" fill sizes="100px" className="object-contain object-left relative z-10 scale-[1.35] origin-left dark:hidden" />
+                                        <Image src="/white-logo.png" alt="ExamBoost Logo" fill sizes="100px" className="object-contain object-left relative z-10 scale-[1.35] origin-left hidden dark:block" />
                                     </div>
                                 </Link>
                                 <div className="flex items-center gap-4">

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MdPsychology, MdAdsClick, MdLeaderboard, MdLightbulbCircle, MdOutlineVerified } from 'react-icons/md';
+import Image from 'next/image';
 
 export default function Features() {
     return (
@@ -164,7 +165,7 @@ export default function Features() {
                         </div>
                         
                         <div className="w-full md:w-1/2 bg-white dark:bg-slate-900 rounded-2xl aspect-video relative overflow-hidden flex items-center justify-center group cursor-pointer shadow-sm border border-slate-200 dark:border-slate-700">
-                            <img src="https://images.unsplash.com/photo-1633534571960-93cb741984fb?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 opacity-90 mix-blend-multiply dark:mix-blend-normal" />
+                            <Image src="https://images.unsplash.com/photo-1633534571960-93cb741984fb?q=80&w=800&auto=format&fit=crop" alt="Detailed Video Solutions" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 opacity-90 mix-blend-multiply dark:mix-blend-normal" />
                             <div className="absolute bg-white/80 dark:bg-slate-900/80 backdrop-blur w-16 h-16 rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#F97316] group-hover:text-white transition-colors duration-300">
                                 <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-current border-b-[6px] border-b-transparent ml-1"></div>
                             </div>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Youtube, Instagram, Twitter, MessageCircle, MapPin, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
@@ -98,9 +99,9 @@ export default function Footer() {
                             transition={{ duration: 0.5 }}
                         >
                             <Link href="/" className="flex items-center gap-2 mb-6 inline-flex group">
-                                <div className="w-32 md:w-36 h-10 flex items-center justify-start group-hover:scale-105 transition-transform duration-300 origin-left">
-                                    <img src="/logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain dark:hidden" />
-                                    <img src="/white-logo.png" alt="ExamBoost Logo" className="w-full h-full object-contain hidden dark:block" />
+                                <div className="w-32 md:w-36 h-10 flex items-center justify-start group-hover:scale-105 transition-transform duration-300 origin-left relative">
+                                    <Image src="/logo.png" alt="ExamBoost Logo" fill sizes="(max-width: 768px) 150px, 200px" className="object-contain dark:hidden" />
+                                    <Image src="/white-logo.png" alt="ExamBoost Logo" fill sizes="(max-width: 768px) 150px, 200px" className="object-contain hidden dark:block" />
                                 </div>
                             </Link>
 

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MdTrendingUp, MdLibraryBooks } from 'react-icons/md';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
     return (
@@ -120,8 +121,8 @@ export default function Hero() {
                                     { title: "Engineering", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300&auto=format&fit=crop", link: "/exams/engineering-entrance" },
                                 ].map((card, i) => (
                                     <Link href={card.link} key={i} className="bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
-                                        <div className="w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-100">
-                                            <img src={card.img} alt={card.title} className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" />
+                                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-100">
+                                            <Image src={card.img} alt={card.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" />
                                         </div>
                                         <h4 className="font-bold text-slate-800 dark:text-white text-center text-[15px] pb-1 font-serif">{card.title}</h4>
                                     </Link>
@@ -177,9 +178,12 @@ export default function Hero() {
                             transition={{ delay: 0.2, duration: 0.8 }}
                             className="relative z-20 w-[90%] sm:w-[80%] lg:w-[120%] max-w-[600px] -mr-8"
                         >
-                            <img 
+                            <Image 
                                 src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1000&auto=format&fit=crop" 
                                 alt="Educator" 
+                                width={1000}
+                                height={1000}
+                                priority
                                 className="w-full h-auto object-contain mix-blend-darken dark:mix-blend-normal rounded-t-full filter contrast-125 saturate-110"
                             />
                         </motion.div>
