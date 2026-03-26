@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   try {
     const { studentId, seriesId } = await req.json();
 
-    if (!studentId || !seriesId) {
+    if (!studentId || seriesId === undefined || seriesId === null) {
       return NextResponse.json({ success: false, error: 'Student ID and Series ID required' }, { status: 400 });
     }
 
