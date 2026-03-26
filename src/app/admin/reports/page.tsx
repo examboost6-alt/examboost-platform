@@ -12,6 +12,7 @@ export default function AdminReports() {
     categoryDistribution: [] as any[],
     topTests: [] as any[],
     avgSystemScore: "0",
+    traffic: { totalVisits: 0, uniqueDevices: 0, topLocations: [] as any[] }
   });
 
   useEffect(() => {
@@ -73,11 +74,38 @@ export default function AdminReports() {
           .sort((a, b) => b.attempts - a.attempts)
           .slice(0, 10);
 
+        let trafficStats = { totalVisits: 0, uniqueDevices: 0, topLocations: [] as any[] };
+        try {
+           const { data: trafficData, error: trafficError } = await supabase.from("site_traffic").select("id, device_id, city, region, user_id");
+           
+           if (!trafficError && trafficData) {
+               trafficStats.totalVisits = trafficData.length;
+               
+               const uniqueDevices = new Set(trafficData.map((t: any) => t.device_id));
+               trafficStats.uniqueDevices = uniqueDevices.size;
+
+               // Count visits per City/Region combo
+               const locCounts: Record<string, number> = {};
+               trafficData.forEach((t: any) => {
+                   if (t.city && t.region && t.city !== 'Unknown') {
+                       const key = `${t.city}, ${t.region}`;
+                       locCounts[key] = (locCounts[key] || 0) + 1;
+                   }
+               });
+
+               trafficStats.topLocations = Object.entries(locCounts)
+                  .map(([loc, count]) => ({ location: loc, hits: count }))
+                  .sort((a, b) => b.hits - a.hits)
+                  .slice(0, 4);
+           }
+        } catch (e) { console.warn("site_traffic table likely doesn't exist yet"); }
+
         setStats({
           totalStudents,
           categoryDistribution,
           topTests,
           avgSystemScore: globalAttempts > 0 ? Math.round(globalAccSum / globalAttempts) + "%" : "N/A",
+          traffic: trafficStats
         });
 
       } catch (e) {
@@ -214,6 +242,55 @@ export default function AdminReports() {
             </div>
             </motion.div>
         </div>
+
+        {/* Real Traffic Analytics */}
+        <motion.div 
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="bg-white dark:bg-[#0f172a] rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden"
+        >
+             <div className="p-8 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#020617]/30">
+               <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+                     <TrendingUp className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-white tracking-tight">Global Traffic & Connectivity Logs</h2>
+                    <p className="text-sm font-medium text-slate-500 mt-1">Real-time device tracking via 'site_traffic' (Make sure to run the SQL snippet if metrics say zero).</p>
+                  </div>
+               </div>
+             </div>
+             
+             <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div className="bg-slate-50 dark:bg-[#020617] rounded-3xl p-6 border border-slate-100 dark:border-slate-800 shadow-inner flex flex-col items-center justify-center text-center">
+                     <div className="text-sm font-black text-slate-500 uppercase tracking-widest mb-2">Total Historic Hits</div>
+                     <div className="text-5xl font-black text-indigo-600 dark:text-indigo-400">{stats.traffic.totalVisits}</div>
+                     <p className="text-xs font-bold text-slate-400 mt-3 max-w-[200px]">Combined global route requests and full page re-generations.</p>
+                 </div>
+                 
+                 <div className="bg-slate-50 dark:bg-[#020617] rounded-3xl p-6 border border-slate-100 dark:border-slate-800 shadow-inner flex flex-col items-center justify-center text-center">
+                     <div className="text-sm font-black text-slate-500 uppercase tracking-widest mb-2">Unique Devices</div>
+                     <div className="text-5xl font-black text-emerald-600 dark:text-emerald-400">{stats.traffic.uniqueDevices}</div>
+                     <p className="text-xs font-bold text-slate-400 mt-3 max-w-[200px]">Fingerprinted individual users bypassing standard authentication.</p>
+                 </div>
+                 
+                 <div className="bg-slate-50 dark:bg-[#020617] rounded-3xl p-6 border border-slate-100 dark:border-slate-800 shadow-inner flex flex-col lg:col-span-1 md:col-span-2">
+                     <div className="text-sm font-black text-slate-500 uppercase tracking-widest mb-4">Top Origin Locations</div>
+                     <div className="space-y-4 w-full">
+                         {stats.traffic.topLocations.length > 0 ? stats.traffic.topLocations.map((loc, i) => (
+                             <div key={i} className="flex justify-between items-center w-full">
+                                 <span className="font-bold text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                                    <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px]">{i+1}</span>
+                                    {loc.location}
+                                 </span>
+                                 <span className="font-black text-slate-900 dark:text-white bg-white dark:bg-slate-800 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">{loc.hits}</span>
+                             </div>
+                         )) : (
+                             <div className="text-xs font-bold italic text-slate-400 text-center py-4">No geodata registered yet. Wait for a new user to hit the system!</div>
+                         )}
+                     </div>
+                 </div>
+             </div>
+        </motion.div>
         
         {/* Real Test completion stats */}
         <motion.div 

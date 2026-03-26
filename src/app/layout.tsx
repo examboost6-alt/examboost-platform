@@ -62,6 +62,8 @@ export const viewport = {
     userScalable: false,
 };
 
+import AnalyticsTracker from '@/components/AnalyticsTracker';
+
 export default function RootLayout({
     children,
 }: {
@@ -103,6 +105,7 @@ export default function RootLayout({
             </head>
             <body className="antialiased font-sans overflow-x-hidden">
                 <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+                    <AnalyticsTracker />
                     <Navbar />
                     <main className="overflow-x-hidden flex-1">{children}</main>
                     <Footer />
