@@ -20,6 +20,7 @@ export default function AdminAccess() {
 
   const [privilegedUsers, setPrivilegedUsers] = useState<any[]>([]);
   const [fetchingUsers, setFetchingUsers] = useState(true);
+  const [revokeLoading, setRevokeLoading] = useState<Record<string, boolean>>({});
 
   const fetchPrivilegedUsers = async () => {
     setFetchingUsers(true);
@@ -109,20 +110,17 @@ export default function AdminAccess() {
 
        const userId = profiles[0].id;
 
-       // Grant Access
-       const { error: purchaseError } = await supabase.from('purchases').insert([
-          {
-            user_id: userId,
-            series_id: 0,
-            amount: 0,
-            status: 'success',
-            order_id: `admin_grant_${Date.now()}`,
-            payment_id: `free_grant_${Date.now()}`
-          }
-       ]);
+       // Grant Access via backend API to bypass RLS
+       const res = await fetch('/api/admin/grant-access', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ studentId: userId, seriesId: 0 })
+       });
+       
+       const data = await res.json();
 
-       if (purchaseError) {
-          setUserMessage({ type: "error", text: purchaseError.message });
+       if (!data.success) {
+          setUserMessage({ type: "error", text: data.error || 'Failed to unlock access' });
        } else {
           setUserMessage({ type: "success", text: `Platform-wide access unlocked for ${profiles[0].full_name || targetEmail}!` });
           setTargetEmail("");
@@ -136,24 +134,27 @@ export default function AdminAccess() {
 
   const handleRevoke = async (userId: string) => {
     if (!confirm("Are you sure you want to completely revoke platform-wide access from this user?")) return;
-    const supabase = getSupabaseClient();
-    if(!supabase) return;
+    setRevokeLoading(prev => ({ ...prev, [userId]: true }));
+    
     try {
-      const { error } = await supabase
-        .from('purchases')
-        .delete()
-        .eq('user_id', userId)
-        .eq('series_id', 0);
-
-      if (error) {
-        alert("Error: " + error.message);
-      } else {
-        alert("Platform access revoked securely.");
-        fetchPrivilegedUsers();
-      }
-    } catch (err: any) {
-      alert("Error: " + err.message);
+        const res = await fetch('/api/admin/revoke-access', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ studentId: userId, seriesId: 0 })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+            alert("Platform access revoked securely.");
+            fetchPrivilegedUsers();
+        } else {
+            alert("Error: " + data.error);
+        }
+    } catch (e: any) {
+        alert("Error: " + e.message);
     }
+    
+    setRevokeLoading(prev => ({ ...prev, [userId]: false }));
   };
 
 
