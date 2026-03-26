@@ -6,27 +6,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A block slides down a rough incline (θ = 30°). If coefficient of friction = 0.5, acceleration is:",
-    "textHi": "A block slides down a rough incline (θ = 30°). If coefficient of friction = 0.5, acceleration is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एक ब्लॉक एक उबड़-खाबड़ ढलान (θ = 30°) से नीचे की ओर फिसलता है। यदि घर्षण का गुणांक = 0.5, तो त्वरण है:",
     "options": [
       {
         "id": 1,
         "textEn": "g/2",
-        "textHi": "g/2"
+        "textHi": "जी/2"
       },
       {
         "id": 2,
         "textEn": "g/4",
-        "textHi": "g/4"
+        "textHi": "जी/4"
       },
       {
         "id": 3,
         "textEn": "g(√3/2 − 0.5)",
-        "textHi": "g(√3/2 − 0.5)"
+        "textHi": "जी(√3/2 − 0.5)"
       },
       {
         "id": 4,
         "textEn": "g(0.5 − √3/2)",
-        "textHi": "g(0.5 − √3/2)"
+        "textHi": "जी(0.5 − √3/2)"
       }
     ],
     "correctOption": 4
@@ -36,7 +36,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A particle moves in a circle of radius R with constant speed. Work done after one revolution:",
-    "textHi": "A particle moves in a circle of radius R with constant speed. Work done after one revolution: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एक कण R त्रिज्या के वृत्त में नियत चाल से गति करता है। एक क्रांति के बाद किया गया कार्य:",
     "options": [
       {
         "id": 1,
@@ -46,17 +46,17 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       },
       {
         "id": 3,
         "textEn": "mv²",
-        "textHi": "mv²"
+        "textHi": "एमवी²"
       },
       {
         "id": 4,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       }
     ],
     "correctOption": 2
@@ -66,7 +66,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A body projected with velocity u at angle θ. Range is maximum when:",
-    "textHi": "A body projected with velocity u at angle θ. Range is maximum when: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एक पिंड θ कोण पर वेग u से प्रक्षेपित होता है। रेंज अधिकतम होती है जब:",
     "options": [
       {
         "id": 1,
@@ -96,7 +96,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If force F = kx², work done from 0 to x is:",
-    "textHi": "If force F = kx², work done from 0 to x is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यदि बल F = kx², तो 0 से x तक किया गया कार्य है:",
     "options": [
       {
         "id": 1,
@@ -116,7 +116,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "kx/2",
-        "textHi": "kx/2"
+        "textHi": "केएक्स/2"
       }
     ],
     "correctOption": 2
@@ -126,27 +126,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A particle moving under central force conserves:",
-    "textHi": "A particle moving under central force conserves: (Hindi translated via AI in actual exam DB)",
+    "textHi": "केंद्रीय बल के तहत गतिमान एक कण संरक्षित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Energy",
-        "textHi": "Energy"
+        "textHi": "ऊर्जा"
       },
       {
         "id": 2,
         "textEn": "Linear momentum",
-        "textHi": "Linear momentum"
+        "textHi": "रेखीय संवेग"
       },
       {
         "id": 3,
         "textEn": "Angular momentum",
-        "textHi": "Angular momentum"
+        "textHi": "कोनेदार गति"
       },
       {
         "id": 4,
         "textEn": "Velocity",
-        "textHi": "Velocity"
+        "textHi": "वेग"
       }
     ],
     "correctOption": 3
@@ -156,22 +156,22 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Time period of satellite ∝",
-    "textHi": "Time period of satellite ∝ (Hindi translated via AI in actual exam DB)",
+    "textHi": "उपग्रह की समयावधि ∝",
     "options": [
       {
         "id": 1,
         "textEn": "R",
-        "textHi": "R"
+        "textHi": "आर"
       },
       {
         "id": 2,
         "textEn": "R²",
-        "textHi": "R²"
+        "textHi": "आर²"
       },
       {
         "id": 3,
         "textEn": "R³ᐟ²",
-        "textHi": "R³ᐟ²"
+        "textHi": "र³ᐟ²"
       },
       {
         "id": 4,
@@ -186,27 +186,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If mass becomes double and velocity half, KE becomes:",
-    "textHi": "If mass becomes double and velocity half, KE becomes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यदि द्रव्यमान दोगुना और वेग आधा हो जाए, तो KE बन जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Same",
-        "textHi": "Same"
+        "textHi": "वही"
       },
       {
         "id": 2,
         "textEn": "Half",
-        "textHi": "Half"
+        "textHi": "आधा"
       },
       {
         "id": 3,
         "textEn": "Double",
-        "textHi": "Double"
+        "textHi": "दोहरा"
       },
       {
         "id": 4,
         "textEn": "One-fourth",
-        "textHi": "One-fourth"
+        "textHi": "एक चौथाई"
       }
     ],
     "correctOption": 2
@@ -216,27 +216,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "A body moving with constant velocity has:",
-    "textHi": "A body moving with constant velocity has: (Hindi translated via AI in actual exam DB)",
+    "textHi": "स्थिर वेग से गतिमान एक पिंड में है:",
     "options": [
       {
         "id": 1,
         "textEn": "Net force ≠ 0",
-        "textHi": "Net force ≠ 0"
+        "textHi": "शुद्ध बल ≠ 0"
       },
       {
         "id": 2,
         "textEn": "Net force = 0",
-        "textHi": "Net force = 0"
+        "textHi": "शुद्ध बल = 0"
       },
       {
         "id": 3,
         "textEn": "Acceleration ≠ 0",
-        "textHi": "Acceleration ≠ 0"
+        "textHi": "त्वरण ≠ 0"
       },
       {
         "id": 4,
         "textEn": "Momentum = 0",
-        "textHi": "Momentum = 0"
+        "textHi": "संवेग = 0"
       }
     ],
     "correctOption": 2
@@ -246,27 +246,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Escape velocity of Earth depends on:",
-    "textHi": "Escape velocity of Earth depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पृथ्वी का पलायन वेग निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Rotation",
-        "textHi": "Rotation"
+        "textHi": "ROTATION"
       },
       {
         "id": 2,
         "textEn": "Radius & mass",
-        "textHi": "Radius & mass"
+        "textHi": "त्रिज्या एवं द्रव्यमान"
       },
       {
         "id": 3,
         "textEn": "Mass only",
-        "textHi": "Mass only"
+        "textHi": "केवल मास"
       },
       {
         "id": 4,
         "textEn": "Radius only",
-        "textHi": "Radius only"
+        "textHi": "केवल त्रिज्या"
       }
     ],
     "correctOption": 2
@@ -276,27 +276,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If torque = 0, angular momentum is:",
-    "textHi": "If torque = 0, angular momentum is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यदि टॉर्क = 0 है, तो कोणीय संवेग है:",
     "options": [
       {
         "id": 1,
         "textEn": "Increasing",
-        "textHi": "Increasing"
+        "textHi": "की बढ़ती"
       },
       {
         "id": 2,
         "textEn": "Decreasing",
-        "textHi": "Decreasing"
+        "textHi": "घटाना"
       },
       {
         "id": 3,
         "textEn": "Constant",
-        "textHi": "Constant"
+        "textHi": "स्थिर"
       },
       {
         "id": 4,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       }
     ],
     "correctOption": 3
@@ -306,27 +306,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Work-energy theorem fails when:",
-    "textHi": "Work-energy theorem fails when: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कार्य-ऊर्जा प्रमेय तब विफल हो जाता है जब:",
     "options": [
       {
         "id": 1,
         "textEn": "Force is constant",
-        "textHi": "Force is constant"
+        "textHi": "बल स्थिर है"
       },
       {
         "id": 2,
         "textEn": "Motion is linear",
-        "textHi": "Motion is linear"
+        "textHi": "गति रैखिक है"
       },
       {
         "id": 3,
         "textEn": "Non-inertial frame",
-        "textHi": "Non-inertial frame"
+        "textHi": "गैर-जड़त्वीय फ्रेम"
       },
       {
         "id": 4,
         "textEn": "Conservative force",
-        "textHi": "Conservative force"
+        "textHi": "रूढ़िवादी बल"
       }
     ],
     "correctOption": 3
@@ -336,12 +336,12 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If potential energy is U = ax², force is:",
-    "textHi": "If potential energy is U = ax², force is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यदि स्थितिज ऊर्जा U = ax² है, तो बल है:",
     "options": [
       {
         "id": 1,
         "textEn": "ax",
-        "textHi": "ax"
+        "textHi": "कुल्हाड़ी"
       },
       {
         "id": 2,
@@ -356,7 +356,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "-ax",
-        "textHi": "-ax"
+        "textHi": "-कुल्हाड़ी"
       }
     ],
     "correctOption": 2
@@ -366,27 +366,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "In SHM, max velocity occurs at:",
-    "textHi": "In SHM, max velocity occurs at: (Hindi translated via AI in actual exam DB)",
+    "textHi": "SHM में, अधिकतम वेग होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Mean position",
-        "textHi": "Mean position"
+        "textHi": "माध्य स्थिति"
       },
       {
         "id": 2,
         "textEn": "Extreme position",
-        "textHi": "Extreme position"
+        "textHi": "चरम स्थिति"
       },
       {
         "id": 3,
         "textEn": "Anywhere",
-        "textHi": "Anywhere"
+        "textHi": "कहीं भी"
       },
       {
         "id": 4,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       }
     ],
     "correctOption": 1
@@ -396,7 +396,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Phase difference between displacement & velocity in SHM:",
-    "textHi": "Phase difference between displacement & velocity in SHM: (Hindi translated via AI in actual exam DB)",
+    "textHi": "SHM में विस्थापन और वेग के बीच चरण अंतर:",
     "options": [
       {
         "id": 1,
@@ -426,27 +426,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Wave speed depends on:",
-    "textHi": "Wave speed depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "तरंग की गति इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Frequency",
-        "textHi": "Frequency"
+        "textHi": "आवृत्ति"
       },
       {
         "id": 2,
         "textEn": "Medium",
-        "textHi": "Medium"
+        "textHi": "मध्यम"
       },
       {
         "id": 3,
         "textEn": "Amplitude",
-        "textHi": "Amplitude"
+        "textHi": "आयाम"
       },
       {
         "id": 4,
         "textEn": "Phase",
-        "textHi": "Phase"
+        "textHi": "चरण"
       }
     ],
     "correctOption": 2
@@ -456,27 +456,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Energy in SHM is:",
-    "textHi": "Energy in SHM is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "SHM में ऊर्जा है:",
     "options": [
       {
         "id": 1,
         "textEn": "Variable",
-        "textHi": "Variable"
+        "textHi": "चर"
       },
       {
         "id": 2,
         "textEn": "Constant",
-        "textHi": "Constant"
+        "textHi": "स्थिर"
       },
       {
         "id": 3,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       },
       {
         "id": 4,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       }
     ],
     "correctOption": 2
@@ -486,27 +486,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "If frequency doubles, wavelength:",
-    "textHi": "If frequency doubles, wavelength: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यदि आवृत्ति दोगुनी हो जाती है, तो तरंग दैर्ध्य:",
     "options": [
       {
         "id": 1,
         "textEn": "Doubles",
-        "textHi": "Doubles"
+        "textHi": "दोगुना हो जाता है"
       },
       {
         "id": 2,
         "textEn": "Halves",
-        "textHi": "Halves"
+        "textHi": "आधा"
       },
       {
         "id": 3,
         "textEn": "Same",
-        "textHi": "Same"
+        "textHi": "वही"
       },
       {
         "id": 4,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       }
     ],
     "correctOption": 2
@@ -516,27 +516,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Drift velocity ∝",
-    "textHi": "Drift velocity ∝ (Hindi translated via AI in actual exam DB)",
+    "textHi": "बहाव वेग ∝",
     "options": [
       {
         "id": 1,
         "textEn": "Electric field",
-        "textHi": "Electric field"
+        "textHi": "विद्युत क्षेत्र"
       },
       {
         "id": 2,
         "textEn": "Temperature",
-        "textHi": "Temperature"
+        "textHi": "तापमान"
       },
       {
         "id": 3,
         "textEn": "Resistance",
-        "textHi": "Resistance"
+        "textHi": "प्रतिरोध"
       },
       {
         "id": 4,
         "textEn": "Charge",
-        "textHi": "Charge"
+        "textHi": "शुल्क"
       }
     ],
     "correctOption": 1
@@ -546,27 +546,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Power dissipated P =",
-    "textHi": "Power dissipated P = (Hindi translated via AI in actual exam DB)",
+    "textHi": "शक्ति का अपव्यय P=",
     "options": [
       {
         "id": 1,
         "textEn": "VI",
-        "textHi": "VI"
+        "textHi": "छठी"
       },
       {
         "id": 2,
         "textEn": "V²/R",
-        "textHi": "V²/R"
+        "textHi": "वी²/आर"
       },
       {
         "id": 3,
         "textEn": "I²R",
-        "textHi": "I²R"
+        "textHi": "मैं²आर"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -576,27 +576,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Capacitance depends on:",
-    "textHi": "Capacitance depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "धारिता इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Area",
-        "textHi": "Area"
+        "textHi": "क्षेत्र"
       },
       {
         "id": 2,
         "textEn": "Distance",
-        "textHi": "Distance"
+        "textHi": "दूरी"
       },
       {
         "id": 3,
         "textEn": "Dielectric",
-        "textHi": "Dielectric"
+        "textHi": "ढांकता हुआ"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -606,27 +606,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Magnetic force on charge moving parallel to field:",
-    "textHi": "Magnetic force on charge moving parallel to field: (Hindi translated via AI in actual exam DB)",
+    "textHi": "क्षेत्र के समानांतर चलने वाले आवेश पर चुंबकीय बल:",
     "options": [
       {
         "id": 1,
         "textEn": "Max",
-        "textHi": "Max"
+        "textHi": "अधिकतम"
       },
       {
         "id": 2,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       },
       {
         "id": 3,
         "textEn": "Minimum",
-        "textHi": "Minimum"
+        "textHi": "न्यूनतम"
       },
       {
         "id": 4,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       }
     ],
     "correctOption": 2
@@ -636,27 +636,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "EMF induced ∝",
-    "textHi": "EMF induced ∝ (Hindi translated via AI in actual exam DB)",
+    "textHi": "ईएमएफ प्रेरित ∝",
     "options": [
       {
         "id": 1,
         "textEn": "Flux",
-        "textHi": "Flux"
+        "textHi": "फ्लक्स"
       },
       {
         "id": 2,
         "textEn": "Change in flux",
-        "textHi": "Change in flux"
+        "textHi": "प्रवाह में परिवर्तन"
       },
       {
         "id": 3,
         "textEn": "Area",
-        "textHi": "Area"
+        "textHi": "क्षेत्र"
       },
       {
         "id": 4,
         "textEn": "Time",
-        "textHi": "Time"
+        "textHi": "समय"
       }
     ],
     "correctOption": 2
@@ -666,27 +666,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Unit of magnetic flux:",
-    "textHi": "Unit of magnetic flux: (Hindi translated via AI in actual exam DB)",
+    "textHi": "चुंबकीय प्रवाह की इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "Tesla",
-        "textHi": "Tesla"
+        "textHi": "टेस्ला"
       },
       {
         "id": 2,
         "textEn": "Weber",
-        "textHi": "Weber"
+        "textHi": "वेबर"
       },
       {
         "id": 3,
         "textEn": "Henry",
-        "textHi": "Henry"
+        "textHi": "हेनरी"
       },
       {
         "id": 4,
         "textEn": "Volt",
-        "textHi": "Volt"
+        "textHi": "वाल्ट"
       }
     ],
     "correctOption": 2
@@ -696,27 +696,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Resistivity depends on:",
-    "textHi": "Resistivity depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रतिरोधकता इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Length",
-        "textHi": "Length"
+        "textHi": "लंबाई"
       },
       {
         "id": 2,
         "textEn": "Area",
-        "textHi": "Area"
+        "textHi": "क्षेत्र"
       },
       {
         "id": 3,
         "textEn": "Material",
-        "textHi": "Material"
+        "textHi": "सामग्री"
       },
       {
         "id": 4,
         "textEn": "Voltage",
-        "textHi": "Voltage"
+        "textHi": "वोल्टेज"
       }
     ],
     "correctOption": 3
@@ -726,27 +726,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "In series circuit, equivalent resistance is:",
-    "textHi": "In series circuit, equivalent resistance is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "श्रृंखला परिपथ में समतुल्य प्रतिरोध है:",
     "options": [
       {
         "id": 1,
         "textEn": "Sum",
-        "textHi": "Sum"
+        "textHi": "जोड़"
       },
       {
         "id": 2,
         "textEn": "Product",
-        "textHi": "Product"
+        "textHi": "उत्पाद"
       },
       {
         "id": 3,
         "textEn": "Reciprocal",
-        "textHi": "Reciprocal"
+        "textHi": "पारस्परिक"
       },
       {
         "id": 4,
         "textEn": "Difference",
-        "textHi": "Difference"
+        "textHi": "अंतर"
       }
     ],
     "correctOption": 1
@@ -756,27 +756,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Magnetic field inside solenoid is:",
-    "textHi": "Magnetic field inside solenoid is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सोलनॉइड के अंदर चुंबकीय क्षेत्र है:",
     "options": [
       {
         "id": 1,
         "textEn": "Uniform",
-        "textHi": "Uniform"
+        "textHi": "वर्दी"
       },
       {
         "id": 2,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       },
       {
         "id": 3,
         "textEn": "Variable",
-        "textHi": "Variable"
+        "textHi": "चर"
       },
       {
         "id": 4,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       }
     ],
     "correctOption": 1
@@ -786,27 +786,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Lorentz force depends on:",
-    "textHi": "Lorentz force depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "लोरेंत्ज़ बल इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "qvB",
-        "textHi": "qvB"
+        "textHi": "क्यूवीबी"
       },
       {
         "id": 2,
         "textEn": "qE",
-        "textHi": "qE"
+        "textHi": "त्वरित अनुमानों"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -816,27 +816,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Transformer works on:",
-    "textHi": "Transformer works on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ट्रांसफार्मर इस पर कार्य करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DC",
-        "textHi": "DC"
+        "textHi": "डीसी"
       },
       {
         "id": 2,
         "textEn": "AC",
-        "textHi": "AC"
+        "textHi": "ए.सी"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -846,27 +846,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Power of lens P =",
-    "textHi": "Power of lens P = (Hindi translated via AI in actual exam DB)",
+    "textHi": "लेंस की शक्ति P =",
     "options": [
       {
         "id": 1,
         "textEn": "f",
-        "textHi": "f"
+        "textHi": "एफ"
       },
       {
         "id": 2,
         "textEn": "1/f",
-        "textHi": "1/f"
+        "textHi": "1/एफ"
       },
       {
         "id": 3,
         "textEn": "f²",
-        "textHi": "f²"
+        "textHi": "एफ²"
       },
       {
         "id": 4,
         "textEn": "2f",
-        "textHi": "2f"
+        "textHi": "2एफ"
       }
     ],
     "correctOption": 2
@@ -876,27 +876,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Image distance sign convention depends on:",
-    "textHi": "Image distance sign convention depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "छवि दूरी संकेत परिपाटी इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Direction of light",
-        "textHi": "Direction of light"
+        "textHi": "प्रकाश की दिशा"
       },
       {
         "id": 2,
         "textEn": "Object",
-        "textHi": "Object"
+        "textHi": "वस्तु"
       },
       {
         "id": 3,
         "textEn": "Lens",
-        "textHi": "Lens"
+        "textHi": "लेंस"
       },
       {
         "id": 4,
         "textEn": "Mirror",
-        "textHi": "Mirror"
+        "textHi": "आईना"
       }
     ],
     "correctOption": 1
@@ -906,27 +906,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Total internal reflection occurs when:",
-    "textHi": "Total internal reflection occurs when: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पूर्ण आंतरिक परावर्तन तब होता है जब:",
     "options": [
       {
         "id": 1,
         "textEn": "i < c",
-        "textHi": "i < c"
+        "textHi": "मैं <सी"
       },
       {
         "id": 2,
         "textEn": "i > c",
-        "textHi": "i > c"
+        "textHi": "मैं > सी"
       },
       {
         "id": 3,
         "textEn": "i = 0",
-        "textHi": "i = 0"
+        "textHi": "मैं = 0"
       },
       {
         "id": 4,
         "textEn": "i = 90",
-        "textHi": "i = 90"
+        "textHi": "मैं = 90"
       }
     ],
     "correctOption": 2
@@ -936,27 +936,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Refractive index depends on:",
-    "textHi": "Refractive index depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "अपवर्तनांक इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Medium",
-        "textHi": "Medium"
+        "textHi": "मध्यम"
       },
       {
         "id": 2,
         "textEn": "Wavelength",
-        "textHi": "Wavelength"
+        "textHi": "वेवलेंथ"
       },
       {
         "id": 3,
         "textEn": "Temperature",
-        "textHi": "Temperature"
+        "textHi": "तापमान"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -966,27 +966,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Convex mirror always forms:",
-    "textHi": "Convex mirror always forms: (Hindi translated via AI in actual exam DB)",
+    "textHi": "उत्तल दर्पण हमेशा बनता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Real",
-        "textHi": "Real"
+        "textHi": "असली"
       },
       {
         "id": 2,
         "textEn": "Virtual",
-        "textHi": "Virtual"
+        "textHi": "आभासी"
       },
       {
         "id": 3,
         "textEn": "Inverted",
-        "textHi": "Inverted"
+        "textHi": "उल्टे"
       },
       {
         "id": 4,
         "textEn": "Same size",
-        "textHi": "Same size"
+        "textHi": "एक समान आकार"
       }
     ],
     "correctOption": 2
@@ -996,27 +996,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Interference occurs due to:",
-    "textHi": "Interference occurs due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "हस्तक्षेप निम्न के कारण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Reflection",
-        "textHi": "Reflection"
+        "textHi": "प्रतिबिंब"
       },
       {
         "id": 2,
         "textEn": "Diffraction",
-        "textHi": "Diffraction"
+        "textHi": "विवर्तन"
       },
       {
         "id": 3,
         "textEn": "Superposition",
-        "textHi": "Superposition"
+        "textHi": "superposition"
       },
       {
         "id": 4,
         "textEn": "Refraction",
-        "textHi": "Refraction"
+        "textHi": "अपवर्तन"
       }
     ],
     "correctOption": 3
@@ -1026,27 +1026,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Threshold frequency depends on:",
-    "textHi": "Threshold frequency depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "दहलीज आवृत्ति इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Metal",
-        "textHi": "Metal"
+        "textHi": "धातु"
       },
       {
         "id": 2,
         "textEn": "Light",
-        "textHi": "Light"
+        "textHi": "रोशनी"
       },
       {
         "id": 3,
         "textEn": "Intensity",
-        "textHi": "Intensity"
+        "textHi": "तीव्रता"
       },
       {
         "id": 4,
         "textEn": "Distance",
-        "textHi": "Distance"
+        "textHi": "दूरी"
       }
     ],
     "correctOption": 1
@@ -1056,27 +1056,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "de Broglie wavelength ∝",
-    "textHi": "de Broglie wavelength ∝ (Hindi translated via AI in actual exam DB)",
+    "textHi": "डी ब्रोगली तरंग दैर्ध्य ∝",
     "options": [
       {
         "id": 1,
         "textEn": "1/p",
-        "textHi": "1/p"
+        "textHi": "1/प"
       },
       {
         "id": 2,
         "textEn": "p",
-        "textHi": "p"
+        "textHi": "पी"
       },
       {
         "id": 3,
         "textEn": "v",
-        "textHi": "v"
+        "textHi": "वी"
       },
       {
         "id": 4,
         "textEn": "m",
-        "textHi": "m"
+        "textHi": "एम"
       }
     ],
     "correctOption": 1
@@ -1086,27 +1086,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Binding energy =",
-    "textHi": "Binding energy = (Hindi translated via AI in actual exam DB)",
+    "textHi": "बंधन ऊर्जा =",
     "options": [
       {
         "id": 1,
         "textEn": "Mass defect",
-        "textHi": "Mass defect"
+        "textHi": "सामूहिक दोष"
       },
       {
         "id": 2,
         "textEn": "Energy released",
-        "textHi": "Energy released"
+        "textHi": "ऊर्जा जारी"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -1116,7 +1116,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Half-life relation:",
-    "textHi": "Half-life relation: (Hindi translated via AI in actual exam DB)",
+    "textHi": "आधा जीवन संबंध:",
     "options": [
       {
         "id": 1,
@@ -1146,27 +1146,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Energy levels in atom are:",
-    "textHi": "Energy levels in atom are: (Hindi translated via AI in actual exam DB)",
+    "textHi": "परमाणु में ऊर्जा स्तर हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Continuous",
-        "textHi": "Continuous"
+        "textHi": "निरंतर"
       },
       {
         "id": 2,
         "textEn": "Discrete",
-        "textHi": "Discrete"
+        "textHi": "अलग"
       },
       {
         "id": 3,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       },
       {
         "id": 4,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       }
     ],
     "correctOption": 2
@@ -1176,27 +1176,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Photon has:",
-    "textHi": "Photon has: (Hindi translated via AI in actual exam DB)",
+    "textHi": "फोटॉन में है:",
     "options": [
       {
         "id": 1,
         "textEn": "Mass",
-        "textHi": "Mass"
+        "textHi": "द्रव्यमान"
       },
       {
         "id": 2,
         "textEn": "Charge",
-        "textHi": "Charge"
+        "textHi": "शुल्क"
       },
       {
         "id": 3,
         "textEn": "Momentum",
-        "textHi": "Momentum"
+        "textHi": "गति"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -1206,27 +1206,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Nuclear density is:",
-    "textHi": "Nuclear density is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "परमाणु घनत्व है:",
     "options": [
       {
         "id": 1,
         "textEn": "Constant",
-        "textHi": "Constant"
+        "textHi": "स्थिर"
       },
       {
         "id": 2,
         "textEn": "Variable",
-        "textHi": "Variable"
+        "textHi": "चर"
       },
       {
         "id": 3,
         "textEn": "Zero",
-        "textHi": "Zero"
+        "textHi": "शून्य"
       },
       {
         "id": 4,
         "textEn": "Infinite",
-        "textHi": "Infinite"
+        "textHi": "अनंत"
       }
     ],
     "correctOption": 1
@@ -1236,22 +1236,22 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Dimensional formula of force:",
-    "textHi": "Dimensional formula of force: (Hindi translated via AI in actual exam DB)",
+    "textHi": "बल का आयामी सूत्र:",
     "options": [
       {
         "id": 1,
         "textEn": "MLT⁻²",
-        "textHi": "MLT⁻²"
+        "textHi": "एमएलटी⁻²"
       },
       {
         "id": 2,
         "textEn": "ML²T⁻²",
-        "textHi": "ML²T⁻²"
+        "textHi": "एमएल²टी⁻²"
       },
       {
         "id": 3,
         "textEn": "MLT⁻¹",
-        "textHi": "MLT⁻¹"
+        "textHi": "एमएलटी⁻¹"
       },
       {
         "id": 4,
@@ -1266,27 +1266,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Unit of pressure:",
-    "textHi": "Unit of pressure: (Hindi translated via AI in actual exam DB)",
+    "textHi": "दबाव की इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "N/m²",
-        "textHi": "N/m²"
+        "textHi": "एन/एम²"
       },
       {
         "id": 2,
         "textEn": "J",
-        "textHi": "J"
+        "textHi": "जे"
       },
       {
         "id": 3,
         "textEn": "W",
-        "textHi": "W"
+        "textHi": "डब्ल्यू"
       },
       {
         "id": 4,
         "textEn": "C",
-        "textHi": "C"
+        "textHi": "सी"
       }
     ],
     "correctOption": 1
@@ -1296,27 +1296,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Momentum conservation valid when:",
-    "textHi": "Momentum conservation valid when: (Hindi translated via AI in actual exam DB)",
+    "textHi": "संवेग संरक्षण तब मान्य होता है जब:",
     "options": [
       {
         "id": 1,
         "textEn": "External force = 0",
-        "textHi": "External force = 0"
+        "textHi": "बाह्य बल = 0"
       },
       {
         "id": 2,
         "textEn": "Internal force = 0",
-        "textHi": "Internal force = 0"
+        "textHi": "आंतरिक बल = 0"
       },
       {
         "id": 3,
         "textEn": "Velocity constant",
-        "textHi": "Velocity constant"
+        "textHi": "वेग स्थिरांक"
       },
       {
         "id": 4,
         "textEn": "Mass constant",
-        "textHi": "Mass constant"
+        "textHi": "द्रव्यमान स्थिरांक"
       }
     ],
     "correctOption": 1
@@ -1326,27 +1326,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Physics",
     "textEn": "Energy-time relation dimension:",
-    "textHi": "Energy-time relation dimension: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ऊर्जा-समय संबंध आयाम:",
     "options": [
       {
         "id": 1,
         "textEn": "ML²T⁻¹",
-        "textHi": "ML²T⁻¹"
+        "textHi": "एमएल²टी⁻¹"
       },
       {
         "id": 2,
         "textEn": "ML²T⁻²",
-        "textHi": "ML²T⁻²"
+        "textHi": "एमएल²टी⁻²"
       },
       {
         "id": 3,
         "textEn": "MLT⁻²",
-        "textHi": "MLT⁻²"
+        "textHi": "एमएलटी⁻²"
       },
       {
         "id": 4,
         "textEn": "MLT⁻¹",
-        "textHi": "MLT⁻¹"
+        "textHi": "एमएलटी⁻¹"
       }
     ],
     "correctOption": 1
@@ -1356,27 +1356,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "For a reaction, ΔG = 0 indicates:",
-    "textHi": "For a reaction, ΔG = 0 indicates: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एक प्रतिक्रिया के लिए, ΔG = 0 इंगित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Reaction stops",
-        "textHi": "Reaction stops"
+        "textHi": "प्रतिक्रिया रुक जाती है"
       },
       {
         "id": 2,
         "textEn": "Equilibrium",
-        "textHi": "Equilibrium"
+        "textHi": "संतुलन"
       },
       {
         "id": 3,
         "textEn": "Spontaneous",
-        "textHi": "Spontaneous"
+        "textHi": "अविरल"
       },
       {
         "id": 4,
         "textEn": "Non-spontaneous",
-        "textHi": "Non-spontaneous"
+        "textHi": "गैर सहज"
       }
     ],
     "correctOption": 2
@@ -1386,22 +1386,22 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Unit of rate constant for 2nd order reaction:",
-    "textHi": "Unit of rate constant for 2nd order reaction: (Hindi translated via AI in actual exam DB)",
+    "textHi": "दूसरे क्रम की प्रतिक्रिया के लिए दर स्थिरांक की इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "s⁻¹",
-        "textHi": "s⁻¹"
+        "textHi": "एस⁻¹"
       },
       {
         "id": 2,
         "textEn": "mol L⁻¹ s⁻¹",
-        "textHi": "mol L⁻¹ s⁻¹"
+        "textHi": "मोल L⁻¹ s⁻¹"
       },
       {
         "id": 3,
         "textEn": "L mol⁻¹ s⁻¹",
-        "textHi": "L mol⁻¹ s⁻¹"
+        "textHi": "एल मोल⁻¹ एस⁻¹"
       },
       {
         "id": 4,
@@ -1416,27 +1416,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Increasing temperature increases rate because:",
-    "textHi": "Increasing temperature increases rate because: (Hindi translated via AI in actual exam DB)",
+    "textHi": "तापमान बढ़ने से दर बढ़ जाती है क्योंकि:",
     "options": [
       {
         "id": 1,
         "textEn": "More collisions",
-        "textHi": "More collisions"
+        "textHi": "अधिक टकराव"
       },
       {
         "id": 2,
         "textEn": "More activation energy",
-        "textHi": "More activation energy"
+        "textHi": "अधिक सक्रियण ऊर्जा"
       },
       {
         "id": 3,
         "textEn": "More effective collisions",
-        "textHi": "More effective collisions"
+        "textHi": "अधिक प्रभावी टकराव"
       },
       {
         "id": 4,
         "textEn": "Less energy",
-        "textHi": "Less energy"
+        "textHi": "कम ऊर्जा"
       }
     ],
     "correctOption": 3
@@ -1446,7 +1446,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "pH of 10⁻³ M HCl is:",
-    "textHi": "pH of 10⁻³ M HCl is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "10⁻³ M HCl का pH है:",
     "options": [
       {
         "id": 1,
@@ -1476,27 +1476,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "In electrochemical cell, oxidation occurs at:",
-    "textHi": "In electrochemical cell, oxidation occurs at: (Hindi translated via AI in actual exam DB)",
+    "textHi": "इलेक्ट्रोकेमिकल सेल में ऑक्सीकरण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Cathode",
-        "textHi": "Cathode"
+        "textHi": "कैथोड"
       },
       {
         "id": 2,
         "textEn": "Anode",
-        "textHi": "Anode"
+        "textHi": "एनोड"
       },
       {
         "id": 3,
         "textEn": "Salt bridge",
-        "textHi": "Salt bridge"
+        "textHi": "सॉल्ट ब्रिज"
       },
       {
         "id": 4,
         "textEn": "Electrolyte",
-        "textHi": "Electrolyte"
+        "textHi": "इलेक्ट्रोलाइट"
       }
     ],
     "correctOption": 2
@@ -1506,27 +1506,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "ΔH = negative indicates:",
-    "textHi": "ΔH = negative indicates: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ΔH = नकारात्मक इंगित करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Endothermic",
-        "textHi": "Endothermic"
+        "textHi": "एन्दोठेर्मिक"
       },
       {
         "id": 2,
         "textEn": "Exothermic",
-        "textHi": "Exothermic"
+        "textHi": "एक्ज़ोथिर्मिक"
       },
       {
         "id": 3,
         "textEn": "Neutral",
-        "textHi": "Neutral"
+        "textHi": "तटस्थ"
       },
       {
         "id": 4,
         "textEn": "Slow reaction",
-        "textHi": "Slow reaction"
+        "textHi": "धीमी प्रतिक्रिया"
       }
     ],
     "correctOption": 2
@@ -1536,27 +1536,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Ideal gas obeys PV = nRT at:",
-    "textHi": "Ideal gas obeys PV = nRT at: (Hindi translated via AI in actual exam DB)",
+    "textHi": "आदर्श गैस PV = nRT का पालन करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "High pressure",
-        "textHi": "High pressure"
+        "textHi": "उच्च दबाव"
       },
       {
         "id": 2,
         "textEn": "Low temperature",
-        "textHi": "Low temperature"
+        "textHi": "हल्का तापमान"
       },
       {
         "id": 3,
         "textEn": "Low pressure",
-        "textHi": "Low pressure"
+        "textHi": "कम दबाव"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 3
@@ -1566,27 +1566,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Colligative property depends on:",
-    "textHi": "Colligative property depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सहसंयोजक संपत्ति इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Nature",
-        "textHi": "Nature"
+        "textHi": "प्रकृति"
       },
       {
         "id": 2,
         "textEn": "Number of particles",
-        "textHi": "Number of particles"
+        "textHi": "कणों की संख्या"
       },
       {
         "id": 3,
         "textEn": "Volume",
-        "textHi": "Volume"
+        "textHi": "आयतन"
       },
       {
         "id": 4,
         "textEn": "Pressure",
-        "textHi": "Pressure"
+        "textHi": "दबाव"
       }
     ],
     "correctOption": 2
@@ -1596,27 +1596,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Degree of dissociation increases with:",
-    "textHi": "Degree of dissociation increases with: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पृथक्करण की डिग्री बढ़ जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Concentration",
-        "textHi": "Concentration"
+        "textHi": "एकाग्रता"
       },
       {
         "id": 2,
         "textEn": "Dilution",
-        "textHi": "Dilution"
+        "textHi": "पतला करने की क्रिया"
       },
       {
         "id": 3,
         "textEn": "Pressure",
-        "textHi": "Pressure"
+        "textHi": "दबाव"
       },
       {
         "id": 4,
         "textEn": "Volume decrease",
-        "textHi": "Volume decrease"
+        "textHi": "वॉल्यूम में कमी"
       }
     ],
     "correctOption": 2
@@ -1626,27 +1626,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Equilibrium constant depends on:",
-    "textHi": "Equilibrium constant depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "संतुलन स्थिरांक इस पर निर्भर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Pressure",
-        "textHi": "Pressure"
+        "textHi": "दबाव"
       },
       {
         "id": 2,
         "textEn": "Temperature",
-        "textHi": "Temperature"
+        "textHi": "तापमान"
       },
       {
         "id": 3,
         "textEn": "Concentration",
-        "textHi": "Concentration"
+        "textHi": "एकाग्रता"
       },
       {
         "id": 4,
         "textEn": "Volume",
-        "textHi": "Volume"
+        "textHi": "आयतन"
       }
     ],
     "correctOption": 2
@@ -1656,7 +1656,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Catalyst changes:",
-    "textHi": "Catalyst changes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "उत्प्रेरक परिवर्तन:",
     "options": [
       {
         "id": 1,
@@ -1666,17 +1666,17 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "ΔG",
-        "textHi": "ΔG"
+        "textHi": "Δजी"
       },
       {
         "id": 3,
         "textEn": "Activation energy",
-        "textHi": "Activation energy"
+        "textHi": "सक्रियण ऊर्जा"
       },
       {
         "id": 4,
         "textEn": "Equilibrium",
-        "textHi": "Equilibrium"
+        "textHi": "संतुलन"
       }
     ],
     "correctOption": 3
@@ -1686,27 +1686,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Osmotic pressure ∝",
-    "textHi": "Osmotic pressure ∝ (Hindi translated via AI in actual exam DB)",
+    "textHi": "आसमाटिक दबाव ∝",
     "options": [
       {
         "id": 1,
         "textEn": "Concentration",
-        "textHi": "Concentration"
+        "textHi": "एकाग्रता"
       },
       {
         "id": 2,
         "textEn": "Temperature",
-        "textHi": "Temperature"
+        "textHi": "तापमान"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -1716,27 +1716,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "For zero order reaction, rate is:",
-    "textHi": "For zero order reaction, rate is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "शून्य कोटि की प्रतिक्रिया के लिए, दर है:",
     "options": [
       {
         "id": 1,
         "textEn": "Dependent on concentration",
-        "textHi": "Dependent on concentration"
+        "textHi": "एकाग्रता पर निर्भर"
       },
       {
         "id": 2,
         "textEn": "Independent",
-        "textHi": "Independent"
+        "textHi": "स्वतंत्र"
       },
       {
         "id": 3,
         "textEn": "Linear",
-        "textHi": "Linear"
+        "textHi": "रेखीय"
       },
       {
         "id": 4,
         "textEn": "Exponential",
-        "textHi": "Exponential"
+        "textHi": "घातीय"
       }
     ],
     "correctOption": 2
@@ -1746,27 +1746,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "EMF of cell increases with:",
-    "textHi": "EMF of cell increases with: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सेल का ईएमएफ बढ़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Temperature",
-        "textHi": "Temperature"
+        "textHi": "तापमान"
       },
       {
         "id": 2,
         "textEn": "Concentration difference",
-        "textHi": "Concentration difference"
+        "textHi": "एकाग्रता में अंतर"
       },
       {
         "id": 3,
         "textEn": "Pressure",
-        "textHi": "Pressure"
+        "textHi": "दबाव"
       },
       {
         "id": 4,
         "textEn": "Volume",
-        "textHi": "Volume"
+        "textHi": "आयतन"
       }
     ],
     "correctOption": 2
@@ -1776,27 +1776,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Arrhenius equation relates:",
-    "textHi": "Arrhenius equation relates: (Hindi translated via AI in actual exam DB)",
+    "textHi": "अरहेनियस समीकरण संबंधित है:",
     "options": [
       {
         "id": 1,
         "textEn": "Rate & pressure",
-        "textHi": "Rate & pressure"
+        "textHi": "दर और दबाव"
       },
       {
         "id": 2,
         "textEn": "Rate & temperature",
-        "textHi": "Rate & temperature"
+        "textHi": "दर एवं तापमान"
       },
       {
         "id": 3,
         "textEn": "Rate & volume",
-        "textHi": "Rate & volume"
+        "textHi": "दर और मात्रा"
       },
       {
         "id": 4,
         "textEn": "Rate & concentration",
-        "textHi": "Rate & concentration"
+        "textHi": "दर और एकाग्रता"
       }
     ],
     "correctOption": 2
@@ -1806,7 +1806,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Stability order of carbocation:",
-    "textHi": "Stability order of carbocation: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कार्बोकेशन की स्थिरता क्रम:",
     "options": [
       {
         "id": 1,
@@ -1826,7 +1826,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "Same",
-        "textHi": "Same"
+        "textHi": "वही"
       }
     ],
     "correctOption": 2
@@ -1836,27 +1836,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "SN1 reaction depends on:",
-    "textHi": "SN1 reaction depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "SN1 प्रतिक्रिया इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Substrate only",
-        "textHi": "Substrate only"
+        "textHi": "केवल सब्सट्रेट"
       },
       {
         "id": 2,
         "textEn": "Nucleophile only",
-        "textHi": "Nucleophile only"
+        "textHi": "केवल न्यूक्लियोफाइल"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "Solvent only",
-        "textHi": "Solvent only"
+        "textHi": "केवल विलायक"
       }
     ],
     "correctOption": 1
@@ -1866,17 +1866,17 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Strong nucleophile is:",
-    "textHi": "Strong nucleophile is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रबल न्यूक्लियोफाइल है:",
     "options": [
       {
         "id": 1,
         "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textHi": "एनएच₃"
       },
       {
         "id": 2,
         "textEn": "OH⁻",
-        "textHi": "OH⁻"
+        "textHi": "ओह!"
       },
       {
         "id": 3,
@@ -1886,7 +1886,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "CH₄",
-        "textHi": "CH₄"
+        "textHi": "सीएच₄"
       }
     ],
     "correctOption": 2
@@ -1896,27 +1896,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Benzene undergoes:",
-    "textHi": "Benzene undergoes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "बेंजीन से गुजरता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Addition",
-        "textHi": "Addition"
+        "textHi": "जोड़ना"
       },
       {
         "id": 2,
         "textEn": "Substitution",
-        "textHi": "Substitution"
+        "textHi": "प्रतिस्थापन"
       },
       {
         "id": 3,
         "textEn": "Elimination",
-        "textHi": "Elimination"
+        "textHi": "उन्मूलन"
       },
       {
         "id": 4,
         "textEn": "Oxidation",
-        "textHi": "Oxidation"
+        "textHi": "ऑक्सीकरण"
       }
     ],
     "correctOption": 2
@@ -1926,27 +1926,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "+I effect stabilizes:",
-    "textHi": "+I effect stabilizes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "+I प्रभाव स्थिर करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Carbocation",
-        "textHi": "Carbocation"
+        "textHi": "कार्बोकेशन"
       },
       {
         "id": 2,
         "textEn": "Carbanion",
-        "textHi": "Carbanion"
+        "textHi": "कार्बोनियन"
       },
       {
         "id": 3,
         "textEn": "Radical",
-        "textHi": "Radical"
+        "textHi": "मौलिक"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -1956,27 +1956,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Aldehydes are more reactive than ketones due to:",
-    "textHi": "Aldehydes are more reactive than ketones due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एल्डिहाइड कीटोन की तुलना में अधिक प्रतिक्रियाशील होते हैं क्योंकि:",
     "options": [
       {
         "id": 1,
         "textEn": "Steric hindrance",
-        "textHi": "Steric hindrance"
+        "textHi": "स्थैतिक बाधा"
       },
       {
         "id": 2,
         "textEn": "Electron donation",
-        "textHi": "Electron donation"
+        "textHi": "इलेक्ट्रॉन दान"
       },
       {
         "id": 3,
         "textEn": "Inductive effect",
-        "textHi": "Inductive effect"
+        "textHi": "आगमनात्मक प्रभाव"
       },
       {
         "id": 4,
         "textEn": "Both A & C",
-        "textHi": "Both A & C"
+        "textHi": "ए और सी दोनों"
       }
     ],
     "correctOption": 4
@@ -1986,27 +1986,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Which shows resonance:",
-    "textHi": "Which shows resonance: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जो प्रतिध्वनि दर्शाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "CH₄",
-        "textHi": "CH₄"
+        "textHi": "सीएच₄"
       },
       {
         "id": 2,
         "textEn": "Benzene",
-        "textHi": "Benzene"
+        "textHi": "बेंजीन"
       },
       {
         "id": 3,
         "textEn": "Ethane",
-        "textHi": "Ethane"
+        "textHi": "एटैन"
       },
       {
         "id": 4,
         "textEn": "Propane",
-        "textHi": "Propane"
+        "textHi": "प्रोपेन"
       }
     ],
     "correctOption": 2
@@ -2016,7 +2016,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Hybridization of carbon in ethene:",
-    "textHi": "Hybridization of carbon in ethene: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एथीन में कार्बन का संकरण:",
     "options": [
       {
         "id": 1,
@@ -2031,12 +2031,12 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 3,
         "textEn": "sp",
-        "textHi": "sp"
+        "textHi": "एसपी"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2046,27 +2046,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Alcohol oxidation gives:",
-    "textHi": "Alcohol oxidation gives: (Hindi translated via AI in actual exam DB)",
+    "textHi": "अल्कोहल ऑक्सीकरण देता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Alkane",
-        "textHi": "Alkane"
+        "textHi": "एल्केन"
       },
       {
         "id": 2,
         "textEn": "Aldehyde/Ketone",
-        "textHi": "Aldehyde/Ketone"
+        "textHi": "एल्डिहाइड/कीटोन"
       },
       {
         "id": 3,
         "textEn": "Alkene",
-        "textHi": "Alkene"
+        "textHi": "अल्कीन"
       },
       {
         "id": 4,
         "textEn": "Acid always",
-        "textHi": "Acid always"
+        "textHi": "एसिड हमेशा"
       }
     ],
     "correctOption": 2
@@ -2076,27 +2076,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Which is strongest acid:",
-    "textHi": "Which is strongest acid: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सबसे प्रबल अम्ल कौन सा है:",
     "options": [
       {
         "id": 1,
         "textEn": "Phenol",
-        "textHi": "Phenol"
+        "textHi": "फिनोल"
       },
       {
         "id": 2,
         "textEn": "Alcohol",
-        "textHi": "Alcohol"
+        "textHi": "शराब"
       },
       {
         "id": 3,
         "textEn": "Carboxylic acid",
-        "textHi": "Carboxylic acid"
+        "textHi": "कार्बोज़ाइलिक तेजाब"
       },
       {
         "id": 4,
         "textEn": "Alkane",
-        "textHi": "Alkane"
+        "textHi": "एल्केन"
       }
     ],
     "correctOption": 3
@@ -2106,27 +2106,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Markovnikov rule applies to:",
-    "textHi": "Markovnikov rule applies to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मार्कोवनिकोव नियम इस पर लागू होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Alkane",
-        "textHi": "Alkane"
+        "textHi": "एल्केन"
       },
       {
         "id": 2,
         "textEn": "Alkene",
-        "textHi": "Alkene"
+        "textHi": "अल्कीन"
       },
       {
         "id": 3,
         "textEn": "Alkyne",
-        "textHi": "Alkyne"
+        "textHi": "alkyne"
       },
       {
         "id": 4,
         "textEn": "Benzene",
-        "textHi": "Benzene"
+        "textHi": "बेंजीन"
       }
     ],
     "correctOption": 2
@@ -2136,27 +2136,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Which is aromatic:",
-    "textHi": "Which is aromatic: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जो खुशबूदार है:",
     "options": [
       {
         "id": 1,
         "textEn": "Cyclobutadiene",
-        "textHi": "Cyclobutadiene"
+        "textHi": "साइक्लोबुटाडाइन"
       },
       {
         "id": 2,
         "textEn": "Benzene",
-        "textHi": "Benzene"
+        "textHi": "बेंजीन"
       },
       {
         "id": 3,
         "textEn": "Cyclopentane",
-        "textHi": "Cyclopentane"
+        "textHi": "साइक्लोपेंटेन"
       },
       {
         "id": 4,
         "textEn": "Cyclohexane",
-        "textHi": "Cyclohexane"
+        "textHi": "cyclohexane"
       }
     ],
     "correctOption": 2
@@ -2166,27 +2166,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Biomolecules include:",
-    "textHi": "Biomolecules include: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जैव अणुओं में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Proteins",
-        "textHi": "Proteins"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 2,
         "textEn": "Carbohydrates",
-        "textHi": "Carbohydrates"
+        "textHi": "कार्बोहाइड्रेट"
       },
       {
         "id": 3,
         "textEn": "Nucleic acids",
-        "textHi": "Nucleic acids"
+        "textHi": "न्यूक्लिक एसिड"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -2196,27 +2196,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Polymerization type:",
-    "textHi": "Polymerization type: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पॉलिमराइजेशन प्रकार:",
     "options": [
       {
         "id": 1,
         "textEn": "Addition",
-        "textHi": "Addition"
+        "textHi": "जोड़ना"
       },
       {
         "id": 2,
         "textEn": "Condensation",
-        "textHi": "Condensation"
+        "textHi": "वाष्पीकरण"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -2226,27 +2226,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Glucose is:",
-    "textHi": "Glucose is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ग्लूकोज है:",
     "options": [
       {
         "id": 1,
         "textEn": "Ketose",
-        "textHi": "Ketose"
+        "textHi": "कीटोज"
       },
       {
         "id": 2,
         "textEn": "Aldose",
-        "textHi": "Aldose"
+        "textHi": "एल्डोज़"
       },
       {
         "id": 3,
         "textEn": "Acid",
-        "textHi": "Acid"
+        "textHi": "अम्ल"
       },
       {
         "id": 4,
         "textEn": "Alcohol",
-        "textHi": "Alcohol"
+        "textHi": "शराब"
       }
     ],
     "correctOption": 2
@@ -2256,27 +2256,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Atomic size increases down group due to:",
-    "textHi": "Atomic size increases down group due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "समूह में नीचे की ओर परमाणु का आकार निम्न के कारण बढ़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Nuclear charge",
-        "textHi": "Nuclear charge"
+        "textHi": "परमाणु प्रभार"
       },
       {
         "id": 2,
         "textEn": "Shell addition",
-        "textHi": "Shell addition"
+        "textHi": "शैल जोड़"
       },
       {
         "id": 3,
         "textEn": "Attraction",
-        "textHi": "Attraction"
+        "textHi": "आकर्षण"
       },
       {
         "id": 4,
         "textEn": "Energy",
-        "textHi": "Energy"
+        "textHi": "ऊर्जा"
       }
     ],
     "correctOption": 2
@@ -2286,27 +2286,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Ionization energy decreases down group because:",
-    "textHi": "Ionization energy decreases down group because: (Hindi translated via AI in actual exam DB)",
+    "textHi": "समूह में नीचे की ओर आयनीकरण ऊर्जा कम हो जाती है क्योंकि:",
     "options": [
       {
         "id": 1,
         "textEn": "Size increases",
-        "textHi": "Size increases"
+        "textHi": "आकार बढ़ जाता है"
       },
       {
         "id": 2,
         "textEn": "Attraction decreases",
-        "textHi": "Attraction decreases"
+        "textHi": "आकर्षण कम हो जाता है"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -2316,27 +2316,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Electronegativity highest for:",
-    "textHi": "Electronegativity highest for: (Hindi translated via AI in actual exam DB)",
+    "textHi": "इलेक्ट्रोनगेटिविटी किसके लिए उच्चतम है:",
     "options": [
       {
         "id": 1,
         "textEn": "F",
-        "textHi": "F"
+        "textHi": "एफ"
       },
       {
         "id": 2,
         "textEn": "O",
-        "textHi": "O"
+        "textHi": "हे"
       },
       {
         "id": 3,
         "textEn": "Cl",
-        "textHi": "Cl"
+        "textHi": "क्लोरीन"
       },
       {
         "id": 4,
         "textEn": "N",
-        "textHi": "N"
+        "textHi": "एन"
       }
     ],
     "correctOption": 1
@@ -2346,7 +2346,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Bond angle in NH₃ is:",
-    "textHi": "Bond angle in NH₃ is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "NH₃ में आबंध कोण है:",
     "options": [
       {
         "id": 1,
@@ -2376,27 +2376,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Shape of CO₂:",
-    "textHi": "Shape of CO₂: (Hindi translated via AI in actual exam DB)",
+    "textHi": "CO₂ का आकार:",
     "options": [
       {
         "id": 1,
         "textEn": "Linear",
-        "textHi": "Linear"
+        "textHi": "रेखीय"
       },
       {
         "id": 2,
         "textEn": "Bent",
-        "textHi": "Bent"
+        "textHi": "झुका हुआ"
       },
       {
         "id": 3,
         "textEn": "Tetrahedral",
-        "textHi": "Tetrahedral"
+        "textHi": "चतुष्फलकीय"
       },
       {
         "id": 4,
         "textEn": "Trigonal",
-        "textHi": "Trigonal"
+        "textHi": "तिकोना"
       }
     ],
     "correctOption": 1
@@ -2406,27 +2406,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Coordination number in complex:",
-    "textHi": "Coordination number in complex: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सम्मिश्र में समन्वय संख्या:",
     "options": [
       {
         "id": 1,
         "textEn": "Ligands",
-        "textHi": "Ligands"
+        "textHi": "लाइगैंडों"
       },
       {
         "id": 2,
         "textEn": "Bonds",
-        "textHi": "Bonds"
+        "textHi": "बांड"
       },
       {
         "id": 3,
         "textEn": "Central atom",
-        "textHi": "Central atom"
+        "textHi": "केंद्रीय परमाणु"
       },
       {
         "id": 4,
         "textEn": "Charge",
-        "textHi": "Charge"
+        "textHi": "शुल्क"
       }
     ],
     "correctOption": 1
@@ -2436,27 +2436,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "d-block elements show:",
-    "textHi": "d-block elements show: (Hindi translated via AI in actual exam DB)",
+    "textHi": "डी-ब्लॉक तत्व दिखाते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Variable oxidation states",
-        "textHi": "Variable oxidation states"
+        "textHi": "परिवर्तनीय ऑक्सीकरण अवस्थाएँ"
       },
       {
         "id": 2,
         "textEn": "Fixed states",
-        "textHi": "Fixed states"
+        "textHi": "निश्चित अवस्थाएँ"
       },
       {
         "id": 3,
         "textEn": "No color",
-        "textHi": "No color"
+        "textHi": "कोई रंग नहीं"
       },
       {
         "id": 4,
         "textEn": "No bonding",
-        "textHi": "No bonding"
+        "textHi": "कोई बंधन नहीं"
       }
     ],
     "correctOption": 1
@@ -2466,7 +2466,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Strong field ligand:",
-    "textHi": "Strong field ligand: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मजबूत क्षेत्र लिगैंड:",
     "options": [
       {
         "id": 1,
@@ -2476,17 +2476,17 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 2,
         "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textHi": "एनएच₃"
       },
       {
         "id": 3,
         "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textHi": "सीएन⁻"
       },
       {
         "id": 4,
         "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textHi": "सीएल⁻"
       }
     ],
     "correctOption": 3
@@ -2496,7 +2496,7 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Oxidation state of Mn in KMnO₄:",
-    "textHi": "Oxidation state of Mn in KMnO₄: (Hindi translated via AI in actual exam DB)",
+    "textHi": "KMnO₄ में Mn की ऑक्सीकरण अवस्था:",
     "options": [
       {
         "id": 1,
@@ -2526,27 +2526,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "p-block elements include:",
-    "textHi": "p-block elements include: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पी-ब्लॉक तत्वों में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Groups 1–2",
-        "textHi": "Groups 1–2"
+        "textHi": "समूह 1-2"
       },
       {
         "id": 2,
         "textEn": "3–12",
-        "textHi": "3–12"
+        "textHi": "3-12"
       },
       {
         "id": 3,
         "textEn": "13–18",
-        "textHi": "13–18"
+        "textHi": "13-18"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 3
@@ -2556,27 +2556,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Lanthanides show:",
-    "textHi": "Lanthanides show: (Hindi translated via AI in actual exam DB)",
+    "textHi": "लैंथेनाइड्स दिखाते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Constant size",
-        "textHi": "Constant size"
+        "textHi": "स्थिर आकार"
       },
       {
         "id": 2,
         "textEn": "Contraction",
-        "textHi": "Contraction"
+        "textHi": "सिकुड़न"
       },
       {
         "id": 3,
         "textEn": "Expansion",
-        "textHi": "Expansion"
+        "textHi": "विस्तार"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -2586,17 +2586,17 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Hydrogen bonding strongest in:",
-    "textHi": "Hydrogen bonding strongest in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "हाइड्रोजन बंधन सबसे मजबूत:",
     "options": [
       {
         "id": 1,
         "textEn": "HCl",
-        "textHi": "HCl"
+        "textHi": "एचसीएल"
       },
       {
         "id": 2,
         "textEn": "HF",
-        "textHi": "HF"
+        "textHi": "एचएफ"
       },
       {
         "id": 3,
@@ -2606,7 +2606,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textHi": "एनएच₃"
       }
     ],
     "correctOption": 2
@@ -2616,27 +2616,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Oxidizing agent:",
-    "textHi": "Oxidizing agent: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ऑक्सीकरण एजेंट:",
     "options": [
       {
         "id": 1,
         "textEn": "Gains electrons",
-        "textHi": "Gains electrons"
+        "textHi": "इलेक्ट्रॉन प्राप्त करता है"
       },
       {
         "id": 2,
         "textEn": "Loses electrons",
-        "textHi": "Loses electrons"
+        "textHi": "इलेक्ट्रॉन खो देता है"
       },
       {
         "id": 3,
         "textEn": "Neutral",
-        "textHi": "Neutral"
+        "textHi": "तटस्थ"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -2646,27 +2646,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Periodic trend depends on:",
-    "textHi": "Periodic trend depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "आवधिक प्रवृत्ति इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Atomic number",
-        "textHi": "Atomic number"
+        "textHi": "परमाणु संख्या"
       },
       {
         "id": 2,
         "textEn": "Mass",
-        "textHi": "Mass"
+        "textHi": "द्रव्यमान"
       },
       {
         "id": 3,
         "textEn": "Volume",
-        "textHi": "Volume"
+        "textHi": "आयतन"
       },
       {
         "id": 4,
         "textEn": "Density",
-        "textHi": "Density"
+        "textHi": "घनत्व"
       }
     ],
     "correctOption": 1
@@ -2676,27 +2676,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Chemistry",
     "textEn": "Valency depends on:",
-    "textHi": "Valency depends on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "वैधता इस पर निर्भर करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Outer electrons",
-        "textHi": "Outer electrons"
+        "textHi": "बाहरी इलेक्ट्रॉन"
       },
       {
         "id": 2,
         "textEn": "Inner electrons",
-        "textHi": "Inner electrons"
+        "textHi": "आंतरिक इलेक्ट्रॉन"
       },
       {
         "id": 3,
         "textEn": "Neutrons",
-        "textHi": "Neutrons"
+        "textHi": "न्यूट्रॉन"
       },
       {
         "id": 4,
         "textEn": "Protons",
-        "textHi": "Protons"
+        "textHi": "प्रोटान"
       }
     ],
     "correctOption": 1
@@ -2706,27 +2706,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which statement is incorrect about plasma membrane?",
-    "textHi": "Which statement is incorrect about plasma membrane? (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्लाज्मा झिल्ली के बारे में कौन सा कथन गलत है?",
     "options": [
       {
         "id": 1,
         "textEn": "It is selectively permeable",
-        "textHi": "It is selectively permeable"
+        "textHi": "यह चयनात्मक रूप से पारगम्य है"
       },
       {
         "id": 2,
         "textEn": "Composed of phospholipid bilayer",
-        "textHi": "Composed of phospholipid bilayer"
+        "textHi": "फॉस्फोलिपिड बाइलेयर से बना है"
       },
       {
         "id": 3,
         "textEn": "Proteins are uniformly distributed",
-        "textHi": "Proteins are uniformly distributed"
+        "textHi": "प्रोटीन समान रूप से वितरित होते हैं"
       },
       {
         "id": 4,
         "textEn": "Shows fluid mosaic nature",
-        "textHi": "Shows fluid mosaic nature"
+        "textHi": "द्रव मोज़ेक प्रकृति को दर्शाता है"
       }
     ],
     "correctOption": 3
@@ -2736,27 +2736,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Fluidity of membrane increases with:",
-    "textHi": "Fluidity of membrane increases with: (Hindi translated via AI in actual exam DB)",
+    "textHi": "झिल्ली की तरलता बढ़ जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Saturated fatty acids",
-        "textHi": "Saturated fatty acids"
+        "textHi": "संतृप्त फैटी एसिड"
       },
       {
         "id": 2,
         "textEn": "Unsaturated fatty acids",
-        "textHi": "Unsaturated fatty acids"
+        "textHi": "असंतृप्त वसीय अम्ल"
       },
       {
         "id": 3,
         "textEn": "Cholesterol absence",
-        "textHi": "Cholesterol absence"
+        "textHi": "कोलेस्ट्रॉल की अनुपस्थिति"
       },
       {
         "id": 4,
         "textEn": "High protein content",
-        "textHi": "High protein content"
+        "textHi": "उच्च प्रोटीन सामग्री"
       }
     ],
     "correctOption": 2
@@ -2766,27 +2766,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which cell organelle lacks membrane?",
-    "textHi": "Which cell organelle lacks membrane? (Hindi translated via AI in actual exam DB)",
+    "textHi": "किस कोशिकांग में झिल्ली का अभाव होता है?",
     "options": [
       {
         "id": 1,
         "textEn": "Lysosome",
-        "textHi": "Lysosome"
+        "textHi": "लाइसोसोम"
       },
       {
         "id": 2,
         "textEn": "Ribosome",
-        "textHi": "Ribosome"
+        "textHi": "राइबोसोम"
       },
       {
         "id": 3,
         "textEn": "Golgi body",
-        "textHi": "Golgi body"
+        "textHi": "गॉल्जी शरीर"
       },
       {
         "id": 4,
         "textEn": "Vacuole",
-        "textHi": "Vacuole"
+        "textHi": "रिक्तिका"
       }
     ],
     "correctOption": 2
@@ -2796,27 +2796,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "DNA replication occurs in:",
-    "textHi": "DNA replication occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "डीएनए प्रतिकृति होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "G1 phase",
-        "textHi": "G1 phase"
+        "textHi": "G1 चरण"
       },
       {
         "id": 2,
         "textEn": "S phase",
-        "textHi": "S phase"
+        "textHi": "एस चरण"
       },
       {
         "id": 3,
         "textEn": "G2 phase",
-        "textHi": "G2 phase"
+        "textHi": "G2 चरण"
       },
       {
         "id": 4,
         "textEn": "M phase",
-        "textHi": "M phase"
+        "textHi": "एम चरण"
       }
     ],
     "correctOption": 2
@@ -2826,27 +2826,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Crossing over occurs in:",
-    "textHi": "Crossing over occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "क्रॉसिंग ओवर होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Leptotene",
-        "textHi": "Leptotene"
+        "textHi": "लेप्टोटीन"
       },
       {
         "id": 2,
         "textEn": "Zygotene",
-        "textHi": "Zygotene"
+        "textHi": "जाइगोटीन"
       },
       {
         "id": 3,
         "textEn": "Pachytene",
-        "textHi": "Pachytene"
+        "textHi": "पचीटीन"
       },
       {
         "id": 4,
         "textEn": "Diplotene",
-        "textHi": "Diplotene"
+        "textHi": "डिप्लोटीन"
       }
     ],
     "correctOption": 3
@@ -2856,27 +2856,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Spindle fibres attach at:",
-    "textHi": "Spindle fibres attach at: (Hindi translated via AI in actual exam DB)",
+    "textHi": "स्पिंडल फाइबर यहां जुड़ते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Centromere",
-        "textHi": "Centromere"
+        "textHi": "गुणसूत्रबिंदु"
       },
       {
         "id": 2,
         "textEn": "Chromatid",
-        "textHi": "Chromatid"
+        "textHi": "क्रोमैटिड"
       },
       {
         "id": 3,
         "textEn": "Telomere",
-        "textHi": "Telomere"
+        "textHi": "टेलोमेर"
       },
       {
         "id": 4,
         "textEn": "Nucleolus",
-        "textHi": "Nucleolus"
+        "textHi": "न्यूक्लियस"
       }
     ],
     "correctOption": 1
@@ -2886,27 +2886,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which is incorrect for mitochondria?",
-    "textHi": "Which is incorrect for mitochondria? (Hindi translated via AI in actual exam DB)",
+    "textHi": "माइटोकॉन्ड्रिया के लिए कौन सा गलत है?",
     "options": [
       {
         "id": 1,
         "textEn": "Double membrane",
-        "textHi": "Double membrane"
+        "textHi": "दोहरी झिल्ली"
       },
       {
         "id": 2,
         "textEn": "Own DNA",
-        "textHi": "Own DNA"
+        "textHi": "अपना डीएनए"
       },
       {
         "id": 3,
         "textEn": "Site of glycolysis",
-        "textHi": "Site of glycolysis"
+        "textHi": "ग्लाइकोलाइसिस का स्थल"
       },
       {
         "id": 4,
         "textEn": "ATP synthesis",
-        "textHi": "ATP synthesis"
+        "textHi": "एटीपी संश्लेषण"
       }
     ],
     "correctOption": 3
@@ -2916,27 +2916,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Ribosomes are composed of:",
-    "textHi": "Ribosomes are composed of: (Hindi translated via AI in actual exam DB)",
+    "textHi": "राइबोसोम निम्न से बने होते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA + protein",
-        "textHi": "DNA + protein"
+        "textHi": "डीएनए + प्रोटीन"
       },
       {
         "id": 2,
         "textEn": "RNA + protein",
-        "textHi": "RNA + protein"
+        "textHi": "आरएनए + प्रोटीन"
       },
       {
         "id": 3,
         "textEn": "Lipid + protein",
-        "textHi": "Lipid + protein"
+        "textHi": "लिपिड + प्रोटीन"
       },
       {
         "id": 4,
         "textEn": "DNA + RNA",
-        "textHi": "DNA + RNA"
+        "textHi": "डीएनए + आरएनए"
       }
     ],
     "correctOption": 2
@@ -2946,27 +2946,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "During anaphase, chromatids:",
-    "textHi": "During anaphase, chromatids: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एनाफ़ेज़ के दौरान, क्रोमैटिड्स:",
     "options": [
       {
         "id": 1,
         "textEn": "Pair",
-        "textHi": "Pair"
+        "textHi": "जोड़ा"
       },
       {
         "id": 2,
         "textEn": "Separate",
-        "textHi": "Separate"
+        "textHi": "अलग"
       },
       {
         "id": 3,
         "textEn": "Condense",
-        "textHi": "Condense"
+        "textHi": "गाढ़ा"
       },
       {
         "id": 4,
         "textEn": "Replicate",
-        "textHi": "Replicate"
+        "textHi": "दोहराने"
       }
     ],
     "correctOption": 2
@@ -2976,27 +2976,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which is true about prokaryotes?",
-    "textHi": "Which is true about prokaryotes? (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रोकैरियोट्स के बारे में कौन सा सत्य है?",
     "options": [
       {
         "id": 1,
         "textEn": "Membrane-bound nucleus",
-        "textHi": "Membrane-bound nucleus"
+        "textHi": "झिल्ली से बंधा हुआ केन्द्रक"
       },
       {
         "id": 2,
         "textEn": "Circular DNA",
-        "textHi": "Circular DNA"
+        "textHi": "वृत्ताकार डीएनए"
       },
       {
         "id": 3,
         "textEn": "Mitochondria present",
-        "textHi": "Mitochondria present"
+        "textHi": "माइटोकॉन्ड्रिया मौजूद"
       },
       {
         "id": 4,
         "textEn": "ER present",
-        "textHi": "ER present"
+        "textHi": "ईआर मौजूद"
       }
     ],
     "correctOption": 2
@@ -3006,27 +3006,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "C₄ plants minimize photorespiration by:",
-    "textHi": "C₄ plants minimize photorespiration by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "C₄ पौधे प्रकाश श्वसन को निम्न द्वारा कम करते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Rubisco absence",
-        "textHi": "Rubisco absence"
+        "textHi": "रुबिस्को की अनुपस्थिति"
       },
       {
         "id": 2,
         "textEn": "CO₂ concentration",
-        "textHi": "CO₂ concentration"
+        "textHi": "CO₂ एकाग्रता"
       },
       {
         "id": 3,
         "textEn": "O₂ release",
-        "textHi": "O₂ release"
+        "textHi": "ओ₂ रिलीज"
       },
       {
         "id": 4,
         "textEn": "ATP decrease",
-        "textHi": "ATP decrease"
+        "textHi": "एटीपी में कमी"
       }
     ],
     "correctOption": 2
@@ -3036,27 +3036,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which enzyme fixes CO₂ in Calvin cycle?",
-    "textHi": "Which enzyme fixes CO₂ in Calvin cycle? (Hindi translated via AI in actual exam DB)",
+    "textHi": "कौन सा एंजाइम केल्विन चक्र में CO₂ को स्थिर करता है?",
     "options": [
       {
         "id": 1,
         "textEn": "PEP carboxylase",
-        "textHi": "PEP carboxylase"
+        "textHi": "पीईपी कार्बोक्सिलेज़"
       },
       {
         "id": 2,
         "textEn": "Rubisco",
-        "textHi": "Rubisco"
+        "textHi": "रूबिस्को"
       },
       {
         "id": 3,
         "textEn": "ATP synthase",
-        "textHi": "ATP synthase"
+        "textHi": "एटीपी सिंथेज़"
       },
       {
         "id": 4,
         "textEn": "NADP reductase",
-        "textHi": "NADP reductase"
+        "textHi": "एनएडीपी रिडक्टेस"
       }
     ],
     "correctOption": 2
@@ -3066,27 +3066,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Transpiration pull occurs due to:",
-    "textHi": "Transpiration pull occurs due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "वाष्पोत्सर्जन खिंचाव निम्न के कारण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Root pressure",
-        "textHi": "Root pressure"
+        "textHi": "जड़ दबाव"
       },
       {
         "id": 2,
         "textEn": "Cohesion-tension",
-        "textHi": "Cohesion-tension"
+        "textHi": "सामंजस्य-टेंशन"
       },
       {
         "id": 3,
         "textEn": "Osmosis",
-        "textHi": "Osmosis"
+        "textHi": "असमस"
       },
       {
         "id": 4,
         "textEn": "Diffusion",
-        "textHi": "Diffusion"
+        "textHi": "प्रसार"
       }
     ],
     "correctOption": 2
@@ -3096,27 +3096,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which mineral is part of chlorophyll?",
-    "textHi": "Which mineral is part of chlorophyll? (Hindi translated via AI in actual exam DB)",
+    "textHi": "कौन सा खनिज क्लोरोफिल का भाग है?",
     "options": [
       {
         "id": 1,
         "textEn": "Fe",
-        "textHi": "Fe"
+        "textHi": "फ़े"
       },
       {
         "id": 2,
         "textEn": "Mg",
-        "textHi": "Mg"
+        "textHi": "मिलीग्राम"
       },
       {
         "id": 3,
         "textEn": "Ca",
-        "textHi": "Ca"
+        "textHi": "कै"
       },
       {
         "id": 4,
         "textEn": "K",
-        "textHi": "K"
+        "textHi": "के"
       }
     ],
     "correctOption": 2
@@ -3126,27 +3126,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Glycolysis occurs in:",
-    "textHi": "Glycolysis occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ग्लाइकोलाइसिस होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Mitochondria",
-        "textHi": "Mitochondria"
+        "textHi": "माइटोकॉन्ड्रिया"
       },
       {
         "id": 2,
         "textEn": "Cytoplasm",
-        "textHi": "Cytoplasm"
+        "textHi": "कोशिका द्रव्य"
       },
       {
         "id": 3,
         "textEn": "Chloroplast",
-        "textHi": "Chloroplast"
+        "textHi": "क्लोरोप्लास्ट"
       },
       {
         "id": 4,
         "textEn": "Nucleus",
-        "textHi": "Nucleus"
+        "textHi": "नाभिक"
       }
     ],
     "correctOption": 2
@@ -3156,27 +3156,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Light reaction occurs in:",
-    "textHi": "Light reaction occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रकाश प्रतिक्रिया होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Stroma",
-        "textHi": "Stroma"
+        "textHi": "स्ट्रोमा"
       },
       {
         "id": 2,
         "textEn": "Thylakoid",
-        "textHi": "Thylakoid"
+        "textHi": "थायलाकोइड"
       },
       {
         "id": 3,
         "textEn": "Matrix",
-        "textHi": "Matrix"
+        "textHi": "मैट्रिक्स"
       },
       {
         "id": 4,
         "textEn": "Cytoplasm",
-        "textHi": "Cytoplasm"
+        "textHi": "कोशिका द्रव्य"
       }
     ],
     "correctOption": 2
@@ -3186,27 +3186,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Water potential is maximum in:",
-    "textHi": "Water potential is maximum in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जल क्षमता अधिकतम है:",
     "options": [
       {
         "id": 1,
         "textEn": "Pure water",
-        "textHi": "Pure water"
+        "textHi": "शुद्ध पानी"
       },
       {
         "id": 2,
         "textEn": "Cell sap",
-        "textHi": "Cell sap"
+        "textHi": "सेल एसएपी"
       },
       {
         "id": 3,
         "textEn": "Dry soil",
-        "textHi": "Dry soil"
+        "textHi": "सूखी मिट्टी"
       },
       {
         "id": 4,
         "textEn": "Air",
-        "textHi": "Air"
+        "textHi": "वायु"
       }
     ],
     "correctOption": 1
@@ -3216,27 +3216,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Phloem transport is:",
-    "textHi": "Phloem transport is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "फ्लोएम परिवहन है:",
     "options": [
       {
         "id": 1,
         "textEn": "Active",
-        "textHi": "Active"
+        "textHi": "सक्रिय"
       },
       {
         "id": 2,
         "textEn": "Passive",
-        "textHi": "Passive"
+        "textHi": "निष्क्रिय"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -3246,27 +3246,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Auxin promotes:",
-    "textHi": "Auxin promotes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ऑक्सिन बढ़ावा देता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Root growth",
-        "textHi": "Root growth"
+        "textHi": "जड़ वृद्धि"
       },
       {
         "id": 2,
         "textEn": "Cell elongation",
-        "textHi": "Cell elongation"
+        "textHi": "कोशिका बढ़ाव"
       },
       {
         "id": 3,
         "textEn": "Senescence",
-        "textHi": "Senescence"
+        "textHi": "बुढ़ापा"
       },
       {
         "id": 4,
         "textEn": "Abscission",
-        "textHi": "Abscission"
+        "textHi": "विच्छेदन"
       }
     ],
     "correctOption": 2
@@ -3276,27 +3276,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "CAM plants open stomata at:",
-    "textHi": "CAM plants open stomata at: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सीएएम पौधे रंध्रों को यहां खोलते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Day",
-        "textHi": "Day"
+        "textHi": "दिन"
       },
       {
         "id": 2,
         "textEn": "Night",
-        "textHi": "Night"
+        "textHi": "रात"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3306,27 +3306,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Mendel’s law of segregation occurs in:",
-    "textHi": "Mendel’s law of segregation occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मेंडल का पृथक्करण का नियम घटित होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Meiosis I",
-        "textHi": "Meiosis I"
+        "textHi": "अर्धसूत्रीविभाजन I"
       },
       {
         "id": 2,
         "textEn": "Meiosis II",
-        "textHi": "Meiosis II"
+        "textHi": "अर्धसूत्रीविभाजन II"
       },
       {
         "id": 3,
         "textEn": "Mitosis",
-        "textHi": "Mitosis"
+        "textHi": "पिंजरे का बँटवारा"
       },
       {
         "id": 4,
         "textEn": "Fertilization",
-        "textHi": "Fertilization"
+        "textHi": "निषेचन"
       }
     ],
     "correctOption": 1
@@ -3336,27 +3336,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Homozygous means:",
-    "textHi": "Homozygous means: (Hindi translated via AI in actual exam DB)",
+    "textHi": "समयुग्मजी का अर्थ है:",
     "options": [
       {
         "id": 1,
         "textEn": "Different alleles",
-        "textHi": "Different alleles"
+        "textHi": "विभिन्न एलील"
       },
       {
         "id": 2,
         "textEn": "Same alleles",
-        "textHi": "Same alleles"
+        "textHi": "वही एलील"
       },
       {
         "id": 3,
         "textEn": "Multiple alleles",
-        "textHi": "Multiple alleles"
+        "textHi": "एकाधिक एलील"
       },
       {
         "id": 4,
         "textEn": "No alleles",
-        "textHi": "No alleles"
+        "textHi": "कोई एलील नहीं"
       }
     ],
     "correctOption": 2
@@ -3366,27 +3366,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "DNA replication is:",
-    "textHi": "DNA replication is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "डीएनए प्रतिकृति है:",
     "options": [
       {
         "id": 1,
         "textEn": "Conservative",
-        "textHi": "Conservative"
+        "textHi": "रूढ़िवादी"
       },
       {
         "id": 2,
         "textEn": "Semi-conservative",
-        "textHi": "Semi-conservative"
+        "textHi": "अर्द्ध रूढ़िवादी"
       },
       {
         "id": 3,
         "textEn": "Dispersive",
-        "textHi": "Dispersive"
+        "textHi": "फैलानेवाला"
       },
       {
         "id": 4,
         "textEn": "Random",
-        "textHi": "Random"
+        "textHi": "यादृच्छिक"
       }
     ],
     "correctOption": 2
@@ -3396,27 +3396,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "RNA contains:",
-    "textHi": "RNA contains: (Hindi translated via AI in actual exam DB)",
+    "textHi": "आरएनए में शामिल हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Thymine",
-        "textHi": "Thymine"
+        "textHi": "थाइमिन"
       },
       {
         "id": 2,
         "textEn": "Uracil",
-        "textHi": "Uracil"
+        "textHi": "यूरैसिल"
       },
       {
         "id": 3,
         "textEn": "Cytosine",
-        "textHi": "Cytosine"
+        "textHi": "साइटोसिन"
       },
       {
         "id": 4,
         "textEn": "Adenine",
-        "textHi": "Adenine"
+        "textHi": "एडीनाइन"
       }
     ],
     "correctOption": 2
@@ -3426,27 +3426,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Genetic code is:",
-    "textHi": "Genetic code is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "आनुवंशिक कोड है:",
     "options": [
       {
         "id": 1,
         "textEn": "Overlapping",
-        "textHi": "Overlapping"
+        "textHi": "ओवरलैपिंग"
       },
       {
         "id": 2,
         "textEn": "Non-overlapping",
-        "textHi": "Non-overlapping"
+        "textHi": "गैर अतिव्यापी"
       },
       {
         "id": 3,
         "textEn": "Ambiguous",
-        "textHi": "Ambiguous"
+        "textHi": "अस्पष्ट"
       },
       {
         "id": 4,
         "textEn": "Variable",
-        "textHi": "Variable"
+        "textHi": "चर"
       }
     ],
     "correctOption": 2
@@ -3456,27 +3456,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Mutation is:",
-    "textHi": "Mutation is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "उत्परिवर्तन है:",
     "options": [
       {
         "id": 1,
         "textEn": "Change in gene",
-        "textHi": "Change in gene"
+        "textHi": "जीन में बदलाव"
       },
       {
         "id": 2,
         "textEn": "Change in protein",
-        "textHi": "Change in protein"
+        "textHi": "प्रोटीन में परिवर्तन"
       },
       {
         "id": 3,
         "textEn": "Change in cell",
-        "textHi": "Change in cell"
+        "textHi": "सेल में बदलाव"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -3486,27 +3486,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Natural selection was proposed by:",
-    "textHi": "Natural selection was proposed by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्राकृतिक चयन किसके द्वारा प्रस्तावित किया गया था:",
     "options": [
       {
         "id": 1,
         "textEn": "Mendel",
-        "textHi": "Mendel"
+        "textHi": "मेंडेल"
       },
       {
         "id": 2,
         "textEn": "Darwin",
-        "textHi": "Darwin"
+        "textHi": "डार्विन"
       },
       {
         "id": 3,
         "textEn": "Lamarck",
-        "textHi": "Lamarck"
+        "textHi": "लैमार्क"
       },
       {
         "id": 4,
         "textEn": "Watson",
-        "textHi": "Watson"
+        "textHi": "वाटसन"
       }
     ],
     "correctOption": 2
@@ -3516,27 +3516,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "tRNA carries:",
-    "textHi": "tRNA carries: (Hindi translated via AI in actual exam DB)",
+    "textHi": "टीआरएनए वहन करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 2,
         "textEn": "Amino acid",
-        "textHi": "Amino acid"
+        "textHi": "एमिनो एसिड"
       },
       {
         "id": 3,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 4,
         "textEn": "Lipid",
-        "textHi": "Lipid"
+        "textHi": "लिपिड"
       }
     ],
     "correctOption": 2
@@ -3546,27 +3546,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Codon is present on:",
-    "textHi": "Codon is present on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कोडन मौजूद है:",
     "options": [
       {
         "id": 1,
         "textEn": "tRNA",
-        "textHi": "tRNA"
+        "textHi": "टीआरएनए"
       },
       {
         "id": 2,
         "textEn": "mRNA",
-        "textHi": "mRNA"
+        "textHi": "एमआरएनए"
       },
       {
         "id": 3,
         "textEn": "rRNA",
-        "textHi": "rRNA"
+        "textHi": "आरआरएनए"
       },
       {
         "id": 4,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       }
     ],
     "correctOption": 2
@@ -3576,27 +3576,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Evolution occurs due to:",
-    "textHi": "Evolution occurs due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "विकास निम्न के कारण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Mutation",
-        "textHi": "Mutation"
+        "textHi": "उत्परिवर्तन"
       },
       {
         "id": 2,
         "textEn": "Selection",
-        "textHi": "Selection"
+        "textHi": "चयन"
       },
       {
         "id": 3,
         "textEn": "Genetic drift",
-        "textHi": "Genetic drift"
+        "textHi": "आनुवंशिक बहाव"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -3606,27 +3606,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Restriction enzymes cut:",
-    "textHi": "Restriction enzymes cut: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रतिबंध एंजाइमों में कटौती:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 2,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 3,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 4,
         "textEn": "Lipid",
-        "textHi": "Lipid"
+        "textHi": "लिपिड"
       }
     ],
     "correctOption": 1
@@ -3636,27 +3636,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Vector used in cloning:",
-    "textHi": "Vector used in cloning: (Hindi translated via AI in actual exam DB)",
+    "textHi": "क्लोनिंग में प्रयुक्त वेक्टर:",
     "options": [
       {
         "id": 1,
         "textEn": "Plasmid",
-        "textHi": "Plasmid"
+        "textHi": "प्लाज्मिड"
       },
       {
         "id": 2,
         "textEn": "Ribosome",
-        "textHi": "Ribosome"
+        "textHi": "राइबोसोम"
       },
       {
         "id": 3,
         "textEn": "Lysosome",
-        "textHi": "Lysosome"
+        "textHi": "लाइसोसोम"
       },
       {
         "id": 4,
         "textEn": "Golgi",
-        "textHi": "Golgi"
+        "textHi": "गोल्जी"
       }
     ],
     "correctOption": 1
@@ -3666,27 +3666,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "PCR amplifies:",
-    "textHi": "PCR amplifies: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पीसीआर बढ़ाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 2,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 3,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 4,
         "textEn": "Lipid",
-        "textHi": "Lipid"
+        "textHi": "लिपिड"
       }
     ],
     "correctOption": 2
@@ -3696,27 +3696,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Bt toxin is:",
-    "textHi": "Bt toxin is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "बीटी विष है:",
     "options": [
       {
         "id": 1,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 2,
         "textEn": "Lipid",
-        "textHi": "Lipid"
+        "textHi": "लिपिड"
       },
       {
         "id": 3,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 4,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       }
     ],
     "correctOption": 1
@@ -3726,27 +3726,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "GM crops are:",
-    "textHi": "GM crops are: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जीएम फसलें हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Hybrid",
-        "textHi": "Hybrid"
+        "textHi": "हाइब्रिड"
       },
       {
         "id": 2,
         "textEn": "Genetically modified",
-        "textHi": "Genetically modified"
+        "textHi": "आनुवंशिक रूप से संशोधित"
       },
       {
         "id": 3,
         "textEn": "Natural",
-        "textHi": "Natural"
+        "textHi": "प्राकृतिक"
       },
       {
         "id": 4,
         "textEn": "Wild",
-        "textHi": "Wild"
+        "textHi": "जंगली"
       }
     ],
     "correctOption": 2
@@ -3756,27 +3756,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Gene cloning produces:",
-    "textHi": "Gene cloning produces: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जीन क्लोनिंग उत्पन्न करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Different genes",
-        "textHi": "Different genes"
+        "textHi": "विभिन्न जीन"
       },
       {
         "id": 2,
         "textEn": "Identical copies",
-        "textHi": "Identical copies"
+        "textHi": "समान प्रतियाँ"
       },
       {
         "id": 3,
         "textEn": "Mutations",
-        "textHi": "Mutations"
+        "textHi": "उत्परिवर्तन"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -3786,27 +3786,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "DNA ligase joins:",
-    "textHi": "DNA ligase joins: (Hindi translated via AI in actual exam DB)",
+    "textHi": "डीएनए लिगेज जुड़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Proteins",
-        "textHi": "Proteins"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 2,
         "textEn": "DNA fragments",
-        "textHi": "DNA fragments"
+        "textHi": "डीएनए के टुकड़े"
       },
       {
         "id": 3,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 4,
         "textEn": "Lipids",
-        "textHi": "Lipids"
+        "textHi": "लिपिड"
       }
     ],
     "correctOption": 2
@@ -3816,27 +3816,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "ELISA is used for:",
-    "textHi": "ELISA is used for: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एलिसा का उपयोग इसके लिए किया जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA replication",
-        "textHi": "DNA replication"
+        "textHi": "डीएनए प्रतिकृति"
       },
       {
         "id": 2,
         "textEn": "Disease detection",
-        "textHi": "Disease detection"
+        "textHi": "रोग का पता लगाना"
       },
       {
         "id": 3,
         "textEn": "Protein synthesis",
-        "textHi": "Protein synthesis"
+        "textHi": "प्रोटीन संश्लेषण"
       },
       {
         "id": 4,
         "textEn": "Photosynthesis",
-        "textHi": "Photosynthesis"
+        "textHi": "प्रकाश संश्लेषण"
       }
     ],
     "correctOption": 2
@@ -3846,27 +3846,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Which is NOT a plant hormone?",
-    "textHi": "Which is NOT a plant hormone? (Hindi translated via AI in actual exam DB)",
+    "textHi": "कौन सा पादप हार्मोन नहीं है?",
     "options": [
       {
         "id": 1,
         "textEn": "Auxin",
-        "textHi": "Auxin"
+        "textHi": "औक्सिन"
       },
       {
         "id": 2,
         "textEn": "Cytokinin",
-        "textHi": "Cytokinin"
+        "textHi": "साइटोकिनिन"
       },
       {
         "id": 3,
         "textEn": "Insulin",
-        "textHi": "Insulin"
+        "textHi": "इंसुलिन"
       },
       {
         "id": 4,
         "textEn": "Gibberellin",
-        "textHi": "Gibberellin"
+        "textHi": "गिबरेलिन"
       }
     ],
     "correctOption": 3
@@ -3876,27 +3876,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Double fertilization occurs in:",
-    "textHi": "Double fertilization occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "दोहरा निषेचन होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Gymnosperms",
-        "textHi": "Gymnosperms"
+        "textHi": "जिम्नोस्पर्म"
       },
       {
         "id": 2,
         "textEn": "Angiosperms",
-        "textHi": "Angiosperms"
+        "textHi": "आवृतबीजी"
       },
       {
         "id": 3,
         "textEn": "Algae",
-        "textHi": "Algae"
+        "textHi": "शैवाल"
       },
       {
         "id": 4,
         "textEn": "Fungi",
-        "textHi": "Fungi"
+        "textHi": "कवक"
       }
     ],
     "correctOption": 2
@@ -3906,27 +3906,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Endosperm is:",
-    "textHi": "Endosperm is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "भ्रूणपोष है:",
     "options": [
       {
         "id": 1,
         "textEn": "Haploid",
-        "textHi": "Haploid"
+        "textHi": "अगुणित"
       },
       {
         "id": 2,
         "textEn": "Diploid",
-        "textHi": "Diploid"
+        "textHi": "द्विगुणित"
       },
       {
         "id": 3,
         "textEn": "Triploid",
-        "textHi": "Triploid"
+        "textHi": "त्रिगुणित"
       },
       {
         "id": 4,
         "textEn": "Tetraploid",
-        "textHi": "Tetraploid"
+        "textHi": "टेट्राप्लोइड"
       }
     ],
     "correctOption": 3
@@ -3936,27 +3936,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Xylem transports:",
-    "textHi": "Xylem transports: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जाइलम परिवहन:",
     "options": [
       {
         "id": 1,
         "textEn": "Food",
-        "textHi": "Food"
+        "textHi": "खाना"
       },
       {
         "id": 2,
         "textEn": "Water",
-        "textHi": "Water"
+        "textHi": "पानी"
       },
       {
         "id": 3,
         "textEn": "Hormones",
-        "textHi": "Hormones"
+        "textHi": "हार्मोन"
       },
       {
         "id": 4,
         "textEn": "Enzymes",
-        "textHi": "Enzymes"
+        "textHi": "एंजाइमों"
       }
     ],
     "correctOption": 2
@@ -3966,27 +3966,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Phloem transports:",
-    "textHi": "Phloem transports: (Hindi translated via AI in actual exam DB)",
+    "textHi": "फ्लोएम परिवहन:",
     "options": [
       {
         "id": 1,
         "textEn": "Water",
-        "textHi": "Water"
+        "textHi": "पानी"
       },
       {
         "id": 2,
         "textEn": "Minerals",
-        "textHi": "Minerals"
+        "textHi": "खनिज पदार्थ"
       },
       {
         "id": 3,
         "textEn": "Food",
-        "textHi": "Food"
+        "textHi": "खाना"
       },
       {
         "id": 4,
         "textEn": "Oxygen",
-        "textHi": "Oxygen"
+        "textHi": "ऑक्सीजन"
       }
     ],
     "correctOption": 3
@@ -3996,27 +3996,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Nitrogen fixation done by:",
-    "textHi": "Nitrogen fixation done by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "नाइट्रोजन स्थिरीकरण किसके द्वारा किया जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Rhizobium",
-        "textHi": "Rhizobium"
+        "textHi": "राइजोबियम"
       },
       {
         "id": 2,
         "textEn": "E. coli",
-        "textHi": "E. coli"
+        "textHi": "ई कोलाई"
       },
       {
         "id": 3,
         "textEn": "Yeast",
-        "textHi": "Yeast"
+        "textHi": "यीस्ट"
       },
       {
         "id": 4,
         "textEn": "Virus",
-        "textHi": "Virus"
+        "textHi": "वायरस"
       }
     ],
     "correctOption": 1
@@ -4026,27 +4026,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Botany",
     "textEn": "Lenticels help in:",
-    "textHi": "Lenticels help in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "दालें इसमें मदद करती हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Photosynthesis",
-        "textHi": "Photosynthesis"
+        "textHi": "प्रकाश संश्लेषण"
       },
       {
         "id": 2,
         "textEn": "Transpiration",
-        "textHi": "Transpiration"
+        "textHi": "स्वेद"
       },
       {
         "id": 3,
         "textEn": "Gas exchange",
-        "textHi": "Gas exchange"
+        "textHi": "गैस विनिमय"
       },
       {
         "id": 4,
         "textEn": "Transport",
-        "textHi": "Transport"
+        "textHi": "परिवहन"
       }
     ],
     "correctOption": 3
@@ -4056,27 +4056,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cardiac output is the product of:",
-    "textHi": "Cardiac output is the product of: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कार्डिएक आउटपुट का उत्पाद है:",
     "options": [
       {
         "id": 1,
         "textEn": "Stroke volume × heart rate",
-        "textHi": "Stroke volume × heart rate"
+        "textHi": "स्ट्रोक की मात्रा × हृदय गति"
       },
       {
         "id": 2,
         "textEn": "Blood pressure × heart rate",
-        "textHi": "Blood pressure × heart rate"
+        "textHi": "रक्तचाप × हृदय गति"
       },
       {
         "id": 3,
         "textEn": "Stroke volume × BP",
-        "textHi": "Stroke volume × BP"
+        "textHi": "स्ट्रोक की मात्रा × बीपी"
       },
       {
         "id": 4,
         "textEn": "Heart rate / stroke volume",
-        "textHi": "Heart rate / stroke volume"
+        "textHi": "हृदय गति/स्ट्रोक की मात्रा"
       }
     ],
     "correctOption": 1
@@ -4086,27 +4086,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "SA node is located in:",
-    "textHi": "SA node is located in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "SA नोड स्थित है:",
     "options": [
       {
         "id": 1,
         "textEn": "Right atrium",
-        "textHi": "Right atrium"
+        "textHi": "ह्रदय का एक भाग"
       },
       {
         "id": 2,
         "textEn": "Left atrium",
-        "textHi": "Left atrium"
+        "textHi": "बायां आलिंद"
       },
       {
         "id": 3,
         "textEn": "Right ventricle",
-        "textHi": "Right ventricle"
+        "textHi": "दायां वेंट्रिकल"
       },
       {
         "id": 4,
         "textEn": "Septum",
-        "textHi": "Septum"
+        "textHi": "पट"
       }
     ],
     "correctOption": 1
@@ -4116,17 +4116,17 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Which ion triggers muscle contraction?",
-    "textHi": "Which ion triggers muscle contraction? (Hindi translated via AI in actual exam DB)",
+    "textHi": "कौन सा आयन मांसपेशी संकुचन को ट्रिगर करता है?",
     "options": [
       {
         "id": 1,
         "textEn": "Na⁺",
-        "textHi": "Na⁺"
+        "textHi": "ना⁺"
       },
       {
         "id": 2,
         "textEn": "K⁺",
-        "textHi": "K⁺"
+        "textHi": "क⁺"
       },
       {
         "id": 3,
@@ -4136,7 +4136,7 @@ export const neetMock1Questions: QuestionType[] = [
       {
         "id": 4,
         "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textHi": "सीएल⁻"
       }
     ],
     "correctOption": 3
@@ -4146,27 +4146,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Oxygen dissociation curve shifts right due to:",
-    "textHi": "Oxygen dissociation curve shifts right due to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ऑक्सीजन पृथक्करण वक्र किसके कारण दायीं ओर खिसकता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Low CO₂",
-        "textHi": "Low CO₂"
+        "textHi": "कम CO₂"
       },
       {
         "id": 2,
         "textEn": "High pH",
-        "textHi": "High pH"
+        "textHi": "उच्च पीएच"
       },
       {
         "id": 3,
         "textEn": "High temperature",
-        "textHi": "High temperature"
+        "textHi": "उच्च तापमान"
       },
       {
         "id": 4,
         "textEn": "Low temperature",
-        "textHi": "Low temperature"
+        "textHi": "हल्का तापमान"
       }
     ],
     "correctOption": 3
@@ -4176,27 +4176,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Functional unit of kidney:",
-    "textHi": "Functional unit of kidney: (Hindi translated via AI in actual exam DB)",
+    "textHi": "किडनी की कार्यात्मक इकाई:",
     "options": [
       {
         "id": 1,
         "textEn": "Neuron",
-        "textHi": "Neuron"
+        "textHi": "न्यूरॉन"
       },
       {
         "id": 2,
         "textEn": "Nephron",
-        "textHi": "Nephron"
+        "textHi": "नेफ्रॉन"
       },
       {
         "id": 3,
         "textEn": "Alveoli",
-        "textHi": "Alveoli"
+        "textHi": "एल्वियोली"
       },
       {
         "id": 4,
         "textEn": "Glomerulus",
-        "textHi": "Glomerulus"
+        "textHi": "ग्लोमेरुलस"
       }
     ],
     "correctOption": 2
@@ -4206,27 +4206,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Maximum reabsorption occurs in:",
-    "textHi": "Maximum reabsorption occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "अधिकतम पुनर्अवशोषण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "PCT",
-        "textHi": "PCT"
+        "textHi": "पीसीटी"
       },
       {
         "id": 2,
         "textEn": "Loop of Henle",
-        "textHi": "Loop of Henle"
+        "textHi": "हेनले का फंदा"
       },
       {
         "id": 3,
         "textEn": "DCT",
-        "textHi": "DCT"
+        "textHi": "डीसीटी"
       },
       {
         "id": 4,
         "textEn": "Collecting duct",
-        "textHi": "Collecting duct"
+        "textHi": "संग्रहण नलिका"
       }
     ],
     "correctOption": 1
@@ -4236,27 +4236,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "ADH acts on:",
-    "textHi": "ADH acts on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ADH इस पर कार्य करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "PCT",
-        "textHi": "PCT"
+        "textHi": "पीसीटी"
       },
       {
         "id": 2,
         "textEn": "DCT",
-        "textHi": "DCT"
+        "textHi": "डीसीटी"
       },
       {
         "id": 3,
         "textEn": "Loop",
-        "textHi": "Loop"
+        "textHi": "कुंडली"
       },
       {
         "id": 4,
         "textEn": "Glomerulus",
-        "textHi": "Glomerulus"
+        "textHi": "ग्लोमेरुलस"
       }
     ],
     "correctOption": 2
@@ -4266,27 +4266,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Insulin deficiency causes:",
-    "textHi": "Insulin deficiency causes: (Hindi translated via AI in actual exam DB)",
+    "textHi": "इंसुलिन की कमी के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "Hypoglycemia",
-        "textHi": "Hypoglycemia"
+        "textHi": "हाइपोग्लाइसीमिया"
       },
       {
         "id": 2,
         "textEn": "Hyperglycemia",
-        "textHi": "Hyperglycemia"
+        "textHi": "hyperglycemia"
       },
       {
         "id": 3,
         "textEn": "Anemia",
-        "textHi": "Anemia"
+        "textHi": "रक्ताल्पता"
       },
       {
         "id": 4,
         "textEn": "Hypertension",
-        "textHi": "Hypertension"
+        "textHi": "उच्च रक्तचाप"
       }
     ],
     "correctOption": 2
@@ -4296,27 +4296,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "T3 and T4 secreted by:",
-    "textHi": "T3 and T4 secreted by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "T3 और T4 किसके द्वारा स्रावित होते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Pituitary",
-        "textHi": "Pituitary"
+        "textHi": "पिट्यूटरी"
       },
       {
         "id": 2,
         "textEn": "Thyroid",
-        "textHi": "Thyroid"
+        "textHi": "थाइरोइड"
       },
       {
         "id": 3,
         "textEn": "Adrenal",
-        "textHi": "Adrenal"
+        "textHi": "अधिवृक्क"
       },
       {
         "id": 4,
         "textEn": "Pancreas",
-        "textHi": "Pancreas"
+        "textHi": "अग्न्याशय"
       }
     ],
     "correctOption": 2
@@ -4326,27 +4326,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Nerve impulse transmission uses:",
-    "textHi": "Nerve impulse transmission uses: (Hindi translated via AI in actual exam DB)",
+    "textHi": "तंत्रिका आवेग संचरण का उपयोग करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Hormones",
-        "textHi": "Hormones"
+        "textHi": "हार्मोन"
       },
       {
         "id": 2,
         "textEn": "Neurotransmitters",
-        "textHi": "Neurotransmitters"
+        "textHi": "न्यूरोट्रांसमीटर"
       },
       {
         "id": 3,
         "textEn": "Enzymes",
-        "textHi": "Enzymes"
+        "textHi": "एंजाइमों"
       },
       {
         "id": 4,
         "textEn": "Proteins",
-        "textHi": "Proteins"
+        "textHi": "प्रोटीन"
       }
     ],
     "correctOption": 2
@@ -4356,27 +4356,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Myelin sheath increases:",
-    "textHi": "Myelin sheath increases: (Hindi translated via AI in actual exam DB)",
+    "textHi": "माइलिन आवरण बढ़ता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Resistance",
-        "textHi": "Resistance"
+        "textHi": "प्रतिरोध"
       },
       {
         "id": 2,
         "textEn": "Speed",
-        "textHi": "Speed"
+        "textHi": "रफ़्तार"
       },
       {
         "id": 3,
         "textEn": "Diameter",
-        "textHi": "Diameter"
+        "textHi": "व्यास"
       },
       {
         "id": 4,
         "textEn": "Length",
-        "textHi": "Length"
+        "textHi": "लंबाई"
       }
     ],
     "correctOption": 2
@@ -4386,27 +4386,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Bohr effect relates to:",
-    "textHi": "Bohr effect relates to: (Hindi translated via AI in actual exam DB)",
+    "textHi": "बोह्र प्रभाव का संबंध है:",
     "options": [
       {
         "id": 1,
         "textEn": "CO₂ binding",
-        "textHi": "CO₂ binding"
+        "textHi": "CO₂ बाइंडिंग"
       },
       {
         "id": 2,
         "textEn": "O₂ release",
-        "textHi": "O₂ release"
+        "textHi": "ओ₂ रिलीज"
       },
       {
         "id": 3,
         "textEn": "Hemoglobin affinity",
-        "textHi": "Hemoglobin affinity"
+        "textHi": "हीमोग्लोबिन आत्मीयता"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -4416,27 +4416,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Urea formed in:",
-    "textHi": "Urea formed in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "यूरिया का गठन:",
     "options": [
       {
         "id": 1,
         "textEn": "Kidney",
-        "textHi": "Kidney"
+        "textHi": "किडनी"
       },
       {
         "id": 2,
         "textEn": "Liver",
-        "textHi": "Liver"
+        "textHi": "जिगर"
       },
       {
         "id": 3,
         "textEn": "Heart",
-        "textHi": "Heart"
+        "textHi": "दिल"
       },
       {
         "id": 4,
         "textEn": "Lungs",
-        "textHi": "Lungs"
+        "textHi": "फेफड़े"
       }
     ],
     "correctOption": 2
@@ -4446,27 +4446,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Which hormone increases blood calcium?",
-    "textHi": "Which hormone increases blood calcium? (Hindi translated via AI in actual exam DB)",
+    "textHi": "कौन सा हार्मोन रक्त में कैल्शियम बढ़ाता है?",
     "options": [
       {
         "id": 1,
         "textEn": "Calcitonin",
-        "textHi": "Calcitonin"
+        "textHi": "कैल्सीटोनिन"
       },
       {
         "id": 2,
         "textEn": "Parathormone",
-        "textHi": "Parathormone"
+        "textHi": "पैराथोर्मोन"
       },
       {
         "id": 3,
         "textEn": "Insulin",
-        "textHi": "Insulin"
+        "textHi": "इंसुलिन"
       },
       {
         "id": 4,
         "textEn": "ADH",
-        "textHi": "ADH"
+        "textHi": "एडीएच"
       }
     ],
     "correctOption": 2
@@ -4476,27 +4476,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Pulmonary artery carries:",
-    "textHi": "Pulmonary artery carries: (Hindi translated via AI in actual exam DB)",
+    "textHi": "फुफ्फुसीय धमनी ले जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Oxygenated blood",
-        "textHi": "Oxygenated blood"
+        "textHi": "ऑक्सीजनयुक्त रक्त"
       },
       {
         "id": 2,
         "textEn": "Deoxygenated blood",
-        "textHi": "Deoxygenated blood"
+        "textHi": "ऑक्सीजन - रहित खून"
       },
       {
         "id": 3,
         "textEn": "Mixed",
-        "textHi": "Mixed"
+        "textHi": "मिश्रित"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4506,27 +4506,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Platelets help in:",
-    "textHi": "Platelets help in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्लेटलेट्स मदद करते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Immunity",
-        "textHi": "Immunity"
+        "textHi": "रोग प्रतिरोधक क्षमता"
       },
       {
         "id": 2,
         "textEn": "Clotting",
-        "textHi": "Clotting"
+        "textHi": "थक्के"
       },
       {
         "id": 3,
         "textEn": "Respiration",
-        "textHi": "Respiration"
+        "textHi": "श्वसन"
       },
       {
         "id": 4,
         "textEn": "Transport",
-        "textHi": "Transport"
+        "textHi": "परिवहन"
       }
     ],
     "correctOption": 2
@@ -4536,27 +4536,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Rod cells are for:",
-    "textHi": "Rod cells are for: (Hindi translated via AI in actual exam DB)",
+    "textHi": "रॉड कोशिकाएँ निम्न के लिए हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Color vision",
-        "textHi": "Color vision"
+        "textHi": "रंग दृष्टि"
       },
       {
         "id": 2,
         "textEn": "Dim light",
-        "textHi": "Dim light"
+        "textHi": "मंद प्रकाश"
       },
       {
         "id": 3,
         "textEn": "Bright light",
-        "textHi": "Bright light"
+        "textHi": "तेज प्रकाश"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -4566,27 +4566,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Synapse is:",
-    "textHi": "Synapse is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "सिनैप्स है:",
     "options": [
       {
         "id": 1,
         "textEn": "Cell",
-        "textHi": "Cell"
+        "textHi": "कक्ष"
       },
       {
         "id": 2,
         "textEn": "Junction",
-        "textHi": "Junction"
+        "textHi": "जंक्शन"
       },
       {
         "id": 3,
         "textEn": "Tissue",
-        "textHi": "Tissue"
+        "textHi": "ऊतक"
       },
       {
         "id": 4,
         "textEn": "Organ",
-        "textHi": "Organ"
+        "textHi": "अंग"
       }
     ],
     "correctOption": 2
@@ -4596,27 +4596,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Coelom absent in:",
-    "textHi": "Coelom absent in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कोइलोम अनुपस्थित है:",
     "options": [
       {
         "id": 1,
         "textEn": "Annelida",
-        "textHi": "Annelida"
+        "textHi": "एनेलिडा"
       },
       {
         "id": 2,
         "textEn": "Arthropoda",
-        "textHi": "Arthropoda"
+        "textHi": "आर्थ्रोपोड़ा"
       },
       {
         "id": 3,
         "textEn": "Platyhelminthes",
-        "textHi": "Platyhelminthes"
+        "textHi": "प्लेटिहेल्मिन्थेस"
       },
       {
         "id": 4,
         "textEn": "Mollusca",
-        "textHi": "Mollusca"
+        "textHi": "मोलस्का"
       }
     ],
     "correctOption": 3
@@ -4626,27 +4626,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Radial symmetry seen in:",
-    "textHi": "Radial symmetry seen in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "रेडियल समरूपता देखी गई:",
     "options": [
       {
         "id": 1,
         "textEn": "Arthropoda",
-        "textHi": "Arthropoda"
+        "textHi": "आर्थ्रोपोड़ा"
       },
       {
         "id": 2,
         "textEn": "Mollusca",
-        "textHi": "Mollusca"
+        "textHi": "मोलस्का"
       },
       {
         "id": 3,
         "textEn": "Cnidaria",
-        "textHi": "Cnidaria"
+        "textHi": "निडारिया"
       },
       {
         "id": 4,
         "textEn": "Annelida",
-        "textHi": "Annelida"
+        "textHi": "एनेलिडा"
       }
     ],
     "correctOption": 3
@@ -4656,27 +4656,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Exoskeleton present in:",
-    "textHi": "Exoskeleton present in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एक्सोस्केलेटन में मौजूद:",
     "options": [
       {
         "id": 1,
         "textEn": "Annelida",
-        "textHi": "Annelida"
+        "textHi": "एनेलिडा"
       },
       {
         "id": 2,
         "textEn": "Arthropoda",
-        "textHi": "Arthropoda"
+        "textHi": "आर्थ्रोपोड़ा"
       },
       {
         "id": 3,
         "textEn": "Mollusca",
-        "textHi": "Mollusca"
+        "textHi": "मोलस्का"
       },
       {
         "id": 4,
         "textEn": "Echinodermata",
-        "textHi": "Echinodermata"
+        "textHi": "एकीनोडरमाटा"
       }
     ],
     "correctOption": 2
@@ -4686,27 +4686,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Water vascular system in:",
-    "textHi": "Water vascular system in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जल संवहनी तंत्र में:",
     "options": [
       {
         "id": 1,
         "textEn": "Mollusca",
-        "textHi": "Mollusca"
+        "textHi": "मोलस्का"
       },
       {
         "id": 2,
         "textEn": "Arthropoda",
-        "textHi": "Arthropoda"
+        "textHi": "आर्थ्रोपोड़ा"
       },
       {
         "id": 3,
         "textEn": "Echinodermata",
-        "textHi": "Echinodermata"
+        "textHi": "एकीनोडरमाटा"
       },
       {
         "id": 4,
         "textEn": "Annelida",
-        "textHi": "Annelida"
+        "textHi": "एनेलिडा"
       }
     ],
     "correctOption": 3
@@ -4716,27 +4716,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Chordates have:",
-    "textHi": "Chordates have: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कॉर्डेट्स में है:",
     "options": [
       {
         "id": 1,
         "textEn": "Notochord",
-        "textHi": "Notochord"
+        "textHi": "पृष्ठदंड"
       },
       {
         "id": 2,
         "textEn": "Exoskeleton",
-        "textHi": "Exoskeleton"
+        "textHi": "बहिःकंकाल"
       },
       {
         "id": 3,
         "textEn": "Open circulation",
-        "textHi": "Open circulation"
+        "textHi": "खुला संचलन"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4746,27 +4746,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Mammals are:",
-    "textHi": "Mammals are: (Hindi translated via AI in actual exam DB)",
+    "textHi": "स्तनधारी हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Oviparous",
-        "textHi": "Oviparous"
+        "textHi": "डिंबप्रसू"
       },
       {
         "id": 2,
         "textEn": "Viviparous",
-        "textHi": "Viviparous"
+        "textHi": "विविपेरस"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4776,27 +4776,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Heart of fish:",
-    "textHi": "Heart of fish: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मछली का दिल:",
     "options": [
       {
         "id": 1,
         "textEn": "2 chambered",
-        "textHi": "2 chambered"
+        "textHi": "2 कक्षयुक्त"
       },
       {
         "id": 2,
         "textEn": "3 chambered",
-        "textHi": "3 chambered"
+        "textHi": "3 कक्षयुक्त"
       },
       {
         "id": 3,
         "textEn": "4 chambered",
-        "textHi": "4 chambered"
+        "textHi": "4 कक्षयुक्त"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -4806,27 +4806,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Frog respiration occurs via:",
-    "textHi": "Frog respiration occurs via: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मेंढक की श्वसन क्रिया होती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Skin",
-        "textHi": "Skin"
+        "textHi": "त्वचा"
       },
       {
         "id": 2,
         "textEn": "Lungs",
-        "textHi": "Lungs"
+        "textHi": "फेफड़े"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 3
@@ -4836,27 +4836,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Columnar epithelium found in:",
-    "textHi": "Columnar epithelium found in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "स्तंभकार उपकला इसमें पाई जाती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Skin",
-        "textHi": "Skin"
+        "textHi": "त्वचा"
       },
       {
         "id": 2,
         "textEn": "Intestine",
-        "textHi": "Intestine"
+        "textHi": "आंत"
       },
       {
         "id": 3,
         "textEn": "Bone",
-        "textHi": "Bone"
+        "textHi": "हड्डी"
       },
       {
         "id": 4,
         "textEn": "Blood",
-        "textHi": "Blood"
+        "textHi": "खून"
       }
     ],
     "correctOption": 2
@@ -4866,27 +4866,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cartilage lacks:",
-    "textHi": "Cartilage lacks: (Hindi translated via AI in actual exam DB)",
+    "textHi": "उपास्थि की कमी:",
     "options": [
       {
         "id": 1,
         "textEn": "Cells",
-        "textHi": "Cells"
+        "textHi": "प्रकोष्ठों"
       },
       {
         "id": 2,
         "textEn": "Blood vessels",
-        "textHi": "Blood vessels"
+        "textHi": "रक्त वाहिकाएं"
       },
       {
         "id": 3,
         "textEn": "Matrix",
-        "textHi": "Matrix"
+        "textHi": "मैट्रिक्स"
       },
       {
         "id": 4,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       }
     ],
     "correctOption": 2
@@ -4896,27 +4896,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Fertilization in humans occurs in:",
-    "textHi": "Fertilization in humans occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "मनुष्य में निषेचन होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Ovary",
-        "textHi": "Ovary"
+        "textHi": "अंडाशय"
       },
       {
         "id": 2,
         "textEn": "Uterus",
-        "textHi": "Uterus"
+        "textHi": "गर्भाशय"
       },
       {
         "id": 3,
         "textEn": "Fallopian tube",
-        "textHi": "Fallopian tube"
+        "textHi": "फलोपियन ट्यूब"
       },
       {
         "id": 4,
         "textEn": "Cervix",
-        "textHi": "Cervix"
+        "textHi": "गर्भाशय ग्रीवा"
       }
     ],
     "correctOption": 3
@@ -4926,27 +4926,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Implantation occurs in:",
-    "textHi": "Implantation occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्रत्यारोपण इसमें होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Ovary",
-        "textHi": "Ovary"
+        "textHi": "अंडाशय"
       },
       {
         "id": 2,
         "textEn": "Uterus",
-        "textHi": "Uterus"
+        "textHi": "गर्भाशय"
       },
       {
         "id": 3,
         "textEn": "Tube",
-        "textHi": "Tube"
+        "textHi": "नली"
       },
       {
         "id": 4,
         "textEn": "Vagina",
-        "textHi": "Vagina"
+        "textHi": "प्रजनन नलिका"
       }
     ],
     "correctOption": 2
@@ -4956,27 +4956,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Spermatogenesis occurs in:",
-    "textHi": "Spermatogenesis occurs in: (Hindi translated via AI in actual exam DB)",
+    "textHi": "शुक्राणुजनन इसमें होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Ovary",
-        "textHi": "Ovary"
+        "textHi": "अंडाशय"
       },
       {
         "id": 2,
         "textEn": "Testis",
-        "textHi": "Testis"
+        "textHi": "वृषण"
       },
       {
         "id": 3,
         "textEn": "Uterus",
-        "textHi": "Uterus"
+        "textHi": "गर्भाशय"
       },
       {
         "id": 4,
         "textEn": "Kidney",
-        "textHi": "Kidney"
+        "textHi": "किडनी"
       }
     ],
     "correctOption": 2
@@ -4986,27 +4986,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Ovulation triggered by:",
-    "textHi": "Ovulation triggered by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "ओव्यूलेशन किसके द्वारा शुरू हुआ:",
     "options": [
       {
         "id": 1,
         "textEn": "FSH",
-        "textHi": "FSH"
+        "textHi": "एफएसएच"
       },
       {
         "id": 2,
         "textEn": "LH surge",
-        "textHi": "LH surge"
+        "textHi": "एलएच उछाल"
       },
       {
         "id": 3,
         "textEn": "Estrogen",
-        "textHi": "Estrogen"
+        "textHi": "एस्ट्रोजन"
       },
       {
         "id": 4,
         "textEn": "Progesterone",
-        "textHi": "Progesterone"
+        "textHi": "प्रोजेस्टेरोन"
       }
     ],
     "correctOption": 2
@@ -5016,27 +5016,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Zygote is:",
-    "textHi": "Zygote is: (Hindi translated via AI in actual exam DB)",
+    "textHi": "युग्मनज है:",
     "options": [
       {
         "id": 1,
         "textEn": "Haploid",
-        "textHi": "Haploid"
+        "textHi": "अगुणित"
       },
       {
         "id": 2,
         "textEn": "Diploid",
-        "textHi": "Diploid"
+        "textHi": "द्विगुणित"
       },
       {
         "id": 3,
         "textEn": "Triploid",
-        "textHi": "Triploid"
+        "textHi": "त्रिगुणित"
       },
       {
         "id": 4,
         "textEn": "Tetraploid",
-        "textHi": "Tetraploid"
+        "textHi": "टेट्राप्लोइड"
       }
     ],
     "correctOption": 2
@@ -5046,27 +5046,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Placenta provides:",
-    "textHi": "Placenta provides: (Hindi translated via AI in actual exam DB)",
+    "textHi": "प्लेसेंटा प्रदान करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Nutrition",
-        "textHi": "Nutrition"
+        "textHi": "पोषण"
       },
       {
         "id": 2,
         "textEn": "Oxygen",
-        "textHi": "Oxygen"
+        "textHi": "ऑक्सीजन"
       },
       {
         "id": 3,
         "textEn": "Waste removal",
-        "textHi": "Waste removal"
+        "textHi": "अपशिष्ट निष्कासन"
       },
       {
         "id": 4,
         "textEn": "All",
-        "textHi": "All"
+        "textHi": "सभी"
       }
     ],
     "correctOption": 4
@@ -5076,27 +5076,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Vaccine provides:",
-    "textHi": "Vaccine provides: (Hindi translated via AI in actual exam DB)",
+    "textHi": "टीका प्रदान करता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Passive immunity",
-        "textHi": "Passive immunity"
+        "textHi": "निष्क्रिय प्रतिरक्षा"
       },
       {
         "id": 2,
         "textEn": "Active immunity",
-        "textHi": "Active immunity"
+        "textHi": "सक्रिय प्रतिरक्षा"
       },
       {
         "id": 3,
         "textEn": "Artificial immunity",
-        "textHi": "Artificial immunity"
+        "textHi": "कृत्रिम प्रतिरक्षा"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5106,27 +5106,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "AIDS caused by:",
-    "textHi": "AIDS caused by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एड्स के कारण:",
     "options": [
       {
         "id": 1,
         "textEn": "Bacteria",
-        "textHi": "Bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 2,
         "textEn": "Virus",
-        "textHi": "Virus"
+        "textHi": "वायरस"
       },
       {
         "id": 3,
         "textEn": "Fungi",
-        "textHi": "Fungi"
+        "textHi": "कवक"
       },
       {
         "id": 4,
         "textEn": "Protozoa",
-        "textHi": "Protozoa"
+        "textHi": "प्रोटोज़ोआ"
       }
     ],
     "correctOption": 2
@@ -5136,27 +5136,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "ELISA detects:",
-    "textHi": "ELISA detects: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एलिसा का पता चलता है:",
     "options": [
       {
         "id": 1,
         "textEn": "DNA",
-        "textHi": "DNA"
+        "textHi": "डीएनए"
       },
       {
         "id": 2,
         "textEn": "Antigen-antibody",
-        "textHi": "Antigen-antibody"
+        "textHi": "प्रतिजन एंटीबॉडी"
       },
       {
         "id": 3,
         "textEn": "RNA",
-        "textHi": "RNA"
+        "textHi": "शाही सेना"
       },
       {
         "id": 4,
         "textEn": "Protein",
-        "textHi": "Protein"
+        "textHi": "प्रोटीन"
       }
     ],
     "correctOption": 2
@@ -5166,27 +5166,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Interferons are:",
-    "textHi": "Interferons are: (Hindi translated via AI in actual exam DB)",
+    "textHi": "इंटरफेरॉन हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Hormones",
-        "textHi": "Hormones"
+        "textHi": "हार्मोन"
       },
       {
         "id": 2,
         "textEn": "Proteins",
-        "textHi": "Proteins"
+        "textHi": "प्रोटीन"
       },
       {
         "id": 3,
         "textEn": "Lipids",
-        "textHi": "Lipids"
+        "textHi": "लिपिड"
       },
       {
         "id": 4,
         "textEn": "Enzymes",
-        "textHi": "Enzymes"
+        "textHi": "एंजाइमों"
       }
     ],
     "correctOption": 2
@@ -5196,27 +5196,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Antibiotics act on:",
-    "textHi": "Antibiotics act on: (Hindi translated via AI in actual exam DB)",
+    "textHi": "एंटीबायोटिक्स निम्नलिखित पर कार्य करते हैं:",
     "options": [
       {
         "id": 1,
         "textEn": "Virus",
-        "textHi": "Virus"
+        "textHi": "वायरस"
       },
       {
         "id": 2,
         "textEn": "Bacteria",
-        "textHi": "Bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 3,
         "textEn": "Both",
-        "textHi": "Both"
+        "textHi": "दोनों"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 2
@@ -5226,27 +5226,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "PCR used for:",
-    "textHi": "PCR used for: (Hindi translated via AI in actual exam DB)",
+    "textHi": "पीसीआर का उपयोग इसके लिए किया जाता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Protein synthesis",
-        "textHi": "Protein synthesis"
+        "textHi": "प्रोटीन संश्लेषण"
       },
       {
         "id": 2,
         "textEn": "DNA amplification",
-        "textHi": "DNA amplification"
+        "textHi": "डीएनए प्रवर्धन"
       },
       {
         "id": 3,
         "textEn": "RNA synthesis",
-        "textHi": "RNA synthesis"
+        "textHi": "आरएनए संश्लेषण"
       },
       {
         "id": 4,
         "textEn": "Lipid formation",
-        "textHi": "Lipid formation"
+        "textHi": "लिपिड गठन"
       }
     ],
     "correctOption": 2
@@ -5256,27 +5256,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Bt cotton resists:",
-    "textHi": "Bt cotton resists: (Hindi translated via AI in actual exam DB)",
+    "textHi": "बीटी कपास प्रतिरोधी:",
     "options": [
       {
         "id": 1,
         "textEn": "Virus",
-        "textHi": "Virus"
+        "textHi": "वायरस"
       },
       {
         "id": 2,
         "textEn": "Insect",
-        "textHi": "Insect"
+        "textHi": "कीड़ा"
       },
       {
         "id": 3,
         "textEn": "Bacteria",
-        "textHi": "Bacteria"
+        "textHi": "जीवाणु"
       },
       {
         "id": 4,
         "textEn": "Fungi",
-        "textHi": "Fungi"
+        "textHi": "कवक"
       }
     ],
     "correctOption": 2
@@ -5286,27 +5286,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Gene therapy treats:",
-    "textHi": "Gene therapy treats: (Hindi translated via AI in actual exam DB)",
+    "textHi": "जीन थेरेपी उपचार करती है:",
     "options": [
       {
         "id": 1,
         "textEn": "Genetic disorders",
-        "textHi": "Genetic disorders"
+        "textHi": "आनुवंशिक विकार"
       },
       {
         "id": 2,
         "textEn": "Infection",
-        "textHi": "Infection"
+        "textHi": "संक्रमण"
       },
       {
         "id": 3,
         "textEn": "Injury",
-        "textHi": "Injury"
+        "textHi": "चोट"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -5316,27 +5316,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Cancer is caused by:",
-    "textHi": "Cancer is caused by: (Hindi translated via AI in actual exam DB)",
+    "textHi": "कैंसर किसके कारण होता है:",
     "options": [
       {
         "id": 1,
         "textEn": "Uncontrolled division",
-        "textHi": "Uncontrolled division"
+        "textHi": "अनियंत्रित विभाजन"
       },
       {
         "id": 2,
         "textEn": "Controlled growth",
-        "textHi": "Controlled growth"
+        "textHi": "नियंत्रित वृद्धि"
       },
       {
         "id": 3,
         "textEn": "Normal cells",
-        "textHi": "Normal cells"
+        "textHi": "सामान्य कोशिकाएँ"
       },
       {
         "id": 4,
         "textEn": "None",
-        "textHi": "None"
+        "textHi": "कोई नहीं"
       }
     ],
     "correctOption": 1
@@ -5346,27 +5346,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Autoimmune disease:",
-    "textHi": "Autoimmune disease: (Hindi translated via AI in actual exam DB)",
+    "textHi": "स्व - प्रतिरक्षी रोग:",
     "options": [
       {
         "id": 1,
         "textEn": "AIDS",
-        "textHi": "AIDS"
+        "textHi": "एड्स"
       },
       {
         "id": 2,
         "textEn": "Allergy",
-        "textHi": "Allergy"
+        "textHi": "एलर्जी"
       },
       {
         "id": 3,
         "textEn": "Rheumatoid arthritis",
-        "textHi": "Rheumatoid arthritis"
+        "textHi": "रूमेटाइड गठिया"
       },
       {
         "id": 4,
         "textEn": "Malaria",
-        "textHi": "Malaria"
+        "textHi": "मलेरिया"
       }
     ],
     "correctOption": 3
@@ -5376,27 +5376,27 @@ export const neetMock1Questions: QuestionType[] = [
     "type": "MCQ",
     "subject": "Zoology",
     "textEn": "Immunity provided by mother milk:",
-    "textHi": "Immunity provided by mother milk: (Hindi translated via AI in actual exam DB)",
+    "textHi": "माँ के दूध से मिलती है रोग प्रतिरोधक क्षमता:",
     "options": [
       {
         "id": 1,
         "textEn": "Active",
-        "textHi": "Active"
+        "textHi": "सक्रिय"
       },
       {
         "id": 2,
         "textEn": "Passive",
-        "textHi": "Passive"
+        "textHi": "निष्क्रिय"
       },
       {
         "id": 3,
         "textEn": "Natural",
-        "textHi": "Natural"
+        "textHi": "प्राकृतिक"
       },
       {
         "id": 4,
         "textEn": "Artificial",
-        "textHi": "Artificial"
+        "textHi": "कृत्रिम"
       }
     ],
     "correctOption": 2
