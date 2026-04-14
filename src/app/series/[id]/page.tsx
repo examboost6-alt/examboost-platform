@@ -864,7 +864,10 @@ export default function SeriesPage() {
                       <h2 className="text-2xl md:text-3xl font-black mb-3 text-white leading-tight">Generate Unlimited <br />Chapter-wise Mocks</h2>
                       <p className="text-indigo-100 text-sm md:text-base font-medium leading-relaxed opacity-90 max-w-lg mb-6">Select your weak chapters, specify question count and difficulty, and our AI will instantly compile a fresh, non-repeating custom mock test targeted for your improvement.</p>
                       {isPurchased ? (
-                        <button className="bg-white text-emerald-700 hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all font-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-emerald-900/20 text-sm w-max">
+                        <button 
+                          onClick={() => router.push(`/series/${seriesId}/ai-generator`)}
+                          className="bg-white text-emerald-700 hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all font-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-emerald-900/20 text-sm w-max"
+                        >
                           <CheckCircle2 className="w-4 h-4" /> Generator Ready - Start
                         </button>
                       ) : (
