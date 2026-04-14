@@ -131,63 +131,70 @@ export default function AIGenerator() {
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-10">
 
         {showSuccess ? (
-          <div className="relative w-full max-w-4xl mx-auto mt-6 sm:mt-10 rounded-[2.5rem] p-[2px] shadow-2xl overflow-hidden group animate-in zoom-in-95 duration-700">
-            {/* Animated Gradient Border */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-indigo-500 to-purple-600 opacity-70 dark:opacity-80 group-hover:opacity-100 transition-opacity duration-1000"></div>
+          <div className="w-full min-h-[70vh] flex flex-col items-center justify-center relative animate-in zoom-in duration-1000 pt-10">
+            {/* Immersive background glows instead of a restrictive box */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-gradient-to-tr from-emerald-500/10 via-indigo-500/5 to-transparent blur-[120px] rounded-full pointer-events-none"></div>
             
-            <div className="relative bg-white/95 dark:bg-[#0b1120]/95 backdrop-blur-2xl rounded-[2.4rem] p-8 sm:p-16 flex flex-col items-center text-center overflow-hidden border border-white/50 dark:border-white/10">
-              
-              {/* Background ambient light */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/20 dark:bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-
-              {/* Glowing Icon Pedestal */}
-              <div className="relative mb-8 mt-4">
-                <div className="absolute inset-0 bg-emerald-400 blur-2xl opacity-40 rounded-full animate-pulse"></div>
-                <div className="relative w-28 h-28 bg-gradient-to-b from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/20 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center border-[6px] border-white dark:border-[#0b1120] shadow-2xl">
-                  <Sparkles className="absolute top-2 right-2 w-5 h-5 text-emerald-500 animate-[spin_4s_linear_infinite]" />
-                  <CheckCircle2 className="w-14 h-14 drop-shadow-md" />
-                </div>
-              </div>
-
-              <h2 className="text-4xl sm:text-[3.25rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 mb-8 tracking-tight leading-tight">
-                Mock Ready to Start
-              </h2>
-              
-              {/* Data Pills */}
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <div className="flex items-center gap-3 bg-indigo-50/80 dark:bg-indigo-900/20 border border-indigo-100/80 dark:border-indigo-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-800/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-inner"><Layers className="w-5 h-5" /></div>
-                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-indigo-500 dark:text-indigo-400/80 line-clamp-1 mb-0.5">Chapters Linked</p><p className="text-base font-black text-indigo-900 dark:text-indigo-200 leading-none">{selectedChapters.length}</p></div>
-                </div>
-                <div className="flex items-center gap-3 bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-100/80 dark:border-emerald-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-800/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-inner"><Target className="w-5 h-5" /></div>
-                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-emerald-500 dark:text-emerald-400/80 line-clamp-1 mb-0.5">Total Questions</p><p className="text-base font-black text-emerald-900 dark:text-emerald-200 leading-none">{questionCount}</p></div>
-                </div>
-                <div className="flex items-center gap-3 bg-rose-50/80 dark:bg-rose-900/20 border border-rose-100/80 dark:border-rose-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
-                  <div className="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-800/50 flex items-center justify-center text-rose-600 dark:text-rose-400 shadow-inner"><Activity className="w-5 h-5" /></div>
-                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-rose-500 dark:text-rose-400/80 line-clamp-1 mb-0.5">AI Difficulty</p><p className="text-base font-black text-rose-900 dark:text-rose-200 leading-none">{difficulty}</p></div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full max-w-lg mx-auto">
-                <button
-                  onClick={() => alert("Normally this would route to /test/CUSTOM_ID/instructions")} 
-                  className="w-full relative group overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white px-8 py-4 md:py-5 rounded-2xl font-black text-lg shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] transition-all transform active:scale-95 flex items-center justify-center gap-3"
-                >
-                  <div className="absolute inset-0 bg-white/20 w-full hover:w-0 transition-all duration-300 opacity-0 group-hover:opacity-100 mix-blend-overlay"></div>
-                  <PlayCircle className="w-6 h-6" /> Start Attempt Now
-                </button>
-                <button
-                  onClick={() => {
-                    setShowSuccess(false);
-                  }} 
-                  className="w-full sm:w-auto bg-slate-100/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700/80 px-8 py-4 md:py-5 rounded-2xl font-bold text-base transition-all flex items-center justify-center shrink-0 backdrop-blur-sm"
-                >
-                  Modify Settings
-                </button>
+            {/* The core animated icon - floating seamlessly */}
+            <div className="relative mb-10 group">
+              <div className="absolute inset-0 bg-emerald-400 blur-3xl opacity-20 group-hover:opacity-40 rounded-full transition-opacity duration-700"></div>
+              <div className="relative w-32 h-32 text-emerald-500 flex items-center justify-center filter drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform duration-500">
+                <Sparkles className="absolute -top-4 -right-4 w-8 h-8 text-emerald-400 animate-[spin_6s_linear_infinite]" />
+                <Sparkles className="absolute -bottom-2 -left-4 w-5 h-5 text-indigo-400/70 animate-[spin_4s_linear_infinite_reverse]" />
+                <svg viewBox="0 0 100 100" className="w-full h-full text-emerald-500 z-10" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" className="animate-[dash_3s_ease-in-out_infinite] opacity-30"></path>
+                  <circle cx="50" cy="50" r="28" fill="currentColor" fillOpacity="0.1" className="animate-pulse"></circle>
+                  <path d="M38 52 L46 60 L62 42" strokeWidth="6" stroke="#10b981"></path>
+                </svg>
               </div>
             </div>
+
+            <h2 className="text-5xl sm:text-6xl md:text-[4.5rem] font-black text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-700 to-indigo-900 dark:from-white dark:via-slate-200 dark:to-indigo-300 mb-4 tracking-[-0.04em] leading-tight text-center relative z-10">
+              Exam Compiled.
+            </h2>
+            <p className="text-xl text-slate-500 dark:text-slate-400 font-medium mb-16 text-center max-w-2xl relative z-10">
+              Your customized simulation engine is ready.
+            </p>
+            
+            {/* Floating Info Elements - No hard boxes */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 mb-16 relative z-10">
+              <div className="flex flex-col items-center gap-2 group">
+                <div className="text-4xl font-black text-indigo-600 dark:text-indigo-400 group-hover:-translate-y-1 transition-transform">{selectedChapters.length}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" /> Chapters</div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
+              <div className="flex flex-col items-center gap-2 group">
+                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform">{questionCount}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Target Qs</div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
+              <div className="flex flex-col items-center gap-2 group">
+                <div className="text-3xl font-black text-rose-600 dark:text-rose-400 group-hover:-translate-y-1 transition-transform capitalize mt-1.5">{difficulty}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" /> Difficulty</div>
+              </div>
+            </div>
+
+            {/* Seamless Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-md relative z-20">
+              <button
+                onClick={() => router.push(`/test/${seriesId}-ai-mock/instructions`)} 
+                className="w-full bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-8 py-5 rounded-full font-black text-lg shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.3)] transition-all transform active:scale-95 flex items-center justify-center gap-3"
+              >
+                Start Simulation <PlayCircle className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => {
+                  setShowSuccess(false);
+                }} 
+                className="w-full sm:w-auto text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white px-8 py-4 rounded-full font-bold text-sm transition-colors flex items-center justify-center shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-800"
+              >
+                Edit Parameters
+              </button>
+            </div>
+            
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes dash { 0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; } 50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; } 100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; } }
+            `}} />
           </div>
         ) : (
           <div className="flex flex-col gap-10">
