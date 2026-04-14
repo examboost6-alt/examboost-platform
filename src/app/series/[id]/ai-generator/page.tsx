@@ -131,32 +131,60 @@ export default function AIGenerator() {
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-10">
 
         {showSuccess ? (
-          <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-8 sm:p-14 shadow-xl border border-emerald-200/60 dark:border-emerald-900/40 text-center animate-in zoom-in-95 duration-500 relative overflow-hidden">
-            <div className="absolute inset-0 bg-emerald-500/5 blur-3xl rounded-full"></div>
-            <div className="relative z-10">
-              <div className="w-24 h-24 mx-auto bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-8 border-[6px] border-emerald-50 dark:border-emerald-900/20 shadow-inner">
-                <CheckCircle2 className="w-12 h-12" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">Your Custom Mock is Ready!</h2>
-              <p className="text-slate-500 dark:text-slate-400 font-medium text-lg max-w-lg mx-auto mb-10">
-                AI has successfully curated a highly targeted {questionCount}-question test across {selectedChapters.length} chapters at {difficulty} difficulty.
-              </p>
+          <div className="relative w-full max-w-4xl mx-auto mt-6 sm:mt-10 rounded-[2.5rem] p-[2px] shadow-2xl overflow-hidden group animate-in zoom-in-95 duration-700">
+            {/* Animated Gradient Border */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-indigo-500 to-purple-600 opacity-70 dark:opacity-80 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            
+            <div className="relative bg-white/95 dark:bg-[#0b1120]/95 backdrop-blur-2xl rounded-[2.4rem] p-8 sm:p-16 flex flex-col items-center text-center overflow-hidden border border-white/50 dark:border-white/10">
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* Background ambient light */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/20 dark:bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+              {/* Glowing Icon Pedestal */}
+              <div className="relative mb-8 mt-4">
+                <div className="absolute inset-0 bg-emerald-400 blur-2xl opacity-40 rounded-full animate-pulse"></div>
+                <div className="relative w-28 h-28 bg-gradient-to-b from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/20 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center border-[6px] border-white dark:border-[#0b1120] shadow-2xl">
+                  <Sparkles className="absolute top-2 right-2 w-5 h-5 text-emerald-500 animate-[spin_4s_linear_infinite]" />
+                  <CheckCircle2 className="w-14 h-14 drop-shadow-md" />
+                </div>
+              </div>
+
+              <h2 className="text-4xl sm:text-[3.25rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 mb-8 tracking-tight leading-tight">
+                Mock Ready to Start
+              </h2>
+              
+              {/* Data Pills */}
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex items-center gap-3 bg-indigo-50/80 dark:bg-indigo-900/20 border border-indigo-100/80 dark:border-indigo-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-800/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-inner"><Layers className="w-5 h-5" /></div>
+                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-indigo-500 dark:text-indigo-400/80 line-clamp-1 mb-0.5">Chapters Linked</p><p className="text-base font-black text-indigo-900 dark:text-indigo-200 leading-none">{selectedChapters.length}</p></div>
+                </div>
+                <div className="flex items-center gap-3 bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-100/80 dark:border-emerald-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-800/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-inner"><Target className="w-5 h-5" /></div>
+                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-emerald-500 dark:text-emerald-400/80 line-clamp-1 mb-0.5">Total Questions</p><p className="text-base font-black text-emerald-900 dark:text-emerald-200 leading-none">{questionCount}</p></div>
+                </div>
+                <div className="flex items-center gap-3 bg-rose-50/80 dark:bg-rose-900/20 border border-rose-100/80 dark:border-rose-800/50 pr-6 pl-2 py-2 rounded-2xl shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-800/50 flex items-center justify-center text-rose-600 dark:text-rose-400 shadow-inner"><Activity className="w-5 h-5" /></div>
+                  <div className="text-left"><p className="text-[10px] font-black uppercase tracking-widest text-rose-500 dark:text-rose-400/80 line-clamp-1 mb-0.5">AI Difficulty</p><p className="text-base font-black text-rose-900 dark:text-rose-200 leading-none">{difficulty}</p></div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full max-w-lg mx-auto">
                 <button
                   onClick={() => alert("Normally this would route to /test/CUSTOM_ID/instructions")} 
-                  className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 flex items-center justify-center gap-2"
+                  className="w-full relative group overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white px-8 py-4 md:py-5 rounded-2xl font-black text-lg shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] transition-all transform active:scale-95 flex items-center justify-center gap-3"
                 >
-                  <PlayCircle className="w-5 h-5" /> Start Attempt Now
+                  <div className="absolute inset-0 bg-white/20 w-full hover:w-0 transition-all duration-300 opacity-0 group-hover:opacity-100 mix-blend-overlay"></div>
+                  <PlayCircle className="w-6 h-6" /> Start Attempt Now
                 </button>
                 <button
                   onClick={() => {
                     setShowSuccess(false);
-                    setSelectedChapters([]);
                   }} 
-                  className="w-full sm:w-auto bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center"
+                  className="w-full sm:w-auto bg-slate-100/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700/80 px-8 py-4 md:py-5 rounded-2xl font-bold text-base transition-all flex items-center justify-center shrink-0 backdrop-blur-sm"
                 >
-                  Create Another
+                  Modify Settings
                 </button>
               </div>
             </div>
