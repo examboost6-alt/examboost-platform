@@ -15,33 +15,45 @@ const MOCK_DB: any = {
   'mock-med-1': { exam: 'Medical', title: 'ExamBoost NEET Shourya 2026' }
 };
 
+const BOOKS = {
+  'NCERT': { name: 'NCERT', priority: 1, available: true },
+  'HC Verma': { name: 'HC Verma', priority: 2, available: true, subject: 'Physics' },
+  'DC Pandey': { name: 'DC Pandey', priority: 3, available: true, subject: 'Physics' },
+  'OP Tandon': { name: 'OP Tandon', priority: 2, available: true, subject: 'Chemistry' },
+  'VK Jaiswal': { name: 'VK Jaiswal', priority: 3, available: true, subject: 'Chemistry' },
+  'RD Sharma': { name: 'RD Sharma', priority: 2, available: true, subject: 'Mathematics' },
+  'Arihant': { name: 'Arihant', priority: 3, available: true, subject: 'Mathematics' },
+  'Trueman': { name: 'Trueman', priority: 2, available: true, subject: 'Biology' },
+  'Pradeep': { name: 'Pradeep', priority: 3, available: true, subject: 'Biology' }
+};
+
 const SYLLABUS: any = {
   Engineering: [
     { subject: 'Physics', color: 'blue', chapters: [
-        { name: 'Physical World & Measurement', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Properties of Solids & Liquids', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Kinetic Theory of Gases', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
-        { name: 'Electric Charges and Fields', class: '12th' }, { name: 'Electrostatic Potential and Capacitance', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Moving Charges and Magnetism', class: '12th' }, { name: 'Magnetism and Matter', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Alternating Current', class: '12th' }, { name: 'Electromagnetic Waves', class: '12th' }, { name: 'Ray Optics and Optical Instruments', class: '12th' }, { name: 'Wave Optics', class: '12th' }, { name: 'Dual Nature of Radiation and Matter', class: '12th' }, { name: 'Atoms', class: '12th' }, { name: 'Nuclei', class: '12th' }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th' }
+        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinematics', class: '11th', books: ['NCERT', 'HC Verma', 'DC Pandey'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Gravitation', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT', 'HC Verma'] },
+        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Atoms', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Nuclei', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT', 'HC Verma'] }
     ] },
     { subject: 'Chemistry', color: 'orange', chapters: [
-        { name: 'Some Basic Concepts of Chemistry', class: '11th' }, { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table & Periodicity', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 'p-Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
-        { name: 'Solutions', class: '12th' }, { name: 'Electrochemistry', class: '12th' }, { name: 'Chemical Kinetics', class: '12th' }, { name: 'd- and f-Block Elements', class: '12th' }, { name: 'Coordination Compounds', class: '12th' }, { name: 'Haloalkanes and Haloarenes', class: '12th' }, { name: 'Alcohols, Phenols and Ethers', class: '12th' }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT', 'OP Tandon'] },
+        { name: 'Solutions', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Amines', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT', 'OP Tandon'] }
     ] },
     { subject: 'Mathematics', color: 'rose', chapters: [
-        { name: 'Sets, Relations & Functions', class: '11th' }, { name: 'Complex Numbers & Quadratics', class: '11th' }, { name: 'Permutations & Combinations', class: '11th' }, { name: 'Binomial Theorem', class: '11th' }, { name: 'Sequence & Series', class: '11th' }, { name: 'Straight Lines', class: '11th' }, { name: 'Conic Sections', class: '11th' }, { name: 'Limits & Derivatives', class: '11th' }, { name: 'Statistics', class: '11th' },
-        { name: 'Relations and Functions', class: '12th' }, { name: 'Inverse Trigonometric Functions', class: '12th' }, { name: 'Matrices', class: '12th' }, { name: 'Determinants', class: '12th' }, { name: 'Continuity and Differentiability', class: '12th' }, { name: 'Application of Derivatives', class: '12th' }, { name: 'Integrals', class: '12th' }, { name: 'Application of Integrals', class: '12th' }, { name: 'Differential Equations', class: '12th' }, { name: 'Vector Algebra', class: '12th' }, { name: 'Three Dimensional Geometry', class: '12th' }, { name: 'Linear Programming', class: '12th' }, { name: 'Probability', class: '12th' }
+        { name: 'Sets, Relations & Functions', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Complex Numbers & Quadratics', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Permutations & Combinations', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Binomial Theorem', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Sequence & Series', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Straight Lines', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Conic Sections', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Limits & Derivatives', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Statistics', class: '11th', books: ['NCERT', 'RD Sharma'] },
+        { name: 'Relations and Functions', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Inverse Trigonometric Functions', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Matrices', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Determinants', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Continuity and Differentiability', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Application of Derivatives', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Integrals', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Application of Integrals', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Differential Equations', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Vector Algebra', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Three Dimensional Geometry', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Linear Programming', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Probability', class: '12th', books: ['NCERT', 'RD Sharma'] }
     ] }
   ],
   Medical: [
     { subject: 'Physics', color: 'blue', chapters: [
-        { name: 'Physical World & Measurement', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Properties of Solids & Liquids', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Kinetic Theory of Gases', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
-        { name: 'Electric Charges and Fields', class: '12th' }, { name: 'Electrostatic Potential and Capacitance', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Moving Charges and Magnetism', class: '12th' }, { name: 'Magnetism and Matter', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Alternating Current', class: '12th' }, { name: 'Electromagnetic Waves', class: '12th' }, { name: 'Ray Optics and Optical Instruments', class: '12th' }, { name: 'Wave Optics', class: '12th' }, { name: 'Dual Nature of Radiation and Matter', class: '12th' }, { name: 'Atoms', class: '12th' }, { name: 'Nuclei', class: '12th' }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th' }
+        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinematics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Gravitation', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT', 'HC Verma'] },
+        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Atoms', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Nuclei', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT', 'HC Verma'] }
     ] },
     { subject: 'Chemistry', color: 'orange', chapters: [
-        { name: 'Some Basic Concepts of Chemistry', class: '11th' }, { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table & Periodicity', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 'p-Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
-        { name: 'Solutions', class: '12th' }, { name: 'Electrochemistry', class: '12th' }, { name: 'Chemical Kinetics', class: '12th' }, { name: 'd- and f-Block Elements', class: '12th' }, { name: 'Coordination Compounds', class: '12th' }, { name: 'Haloalkanes and Haloarenes', class: '12th' }, { name: 'Alcohols, Phenols and Ethers', class: '12th' }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT', 'OP Tandon'] },
+        { name: 'Solutions', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Amines', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT', 'OP Tandon'] }
     ] },
     { subject: 'Biology', color: 'emerald', chapters: [
-        { name: 'The Living World', class: '11th' }, { name: 'Biological Classification', class: '11th' }, { name: 'Plant Kingdom', class: '11th' }, { name: 'Animal Kingdom', class: '11th' }, { name: 'Morphology of Flowering Plants', class: '11th' }, { name: 'Anatomy of Flowering Plants', class: '11th' }, { name: 'Structural Organisation', class: '11th' }, { name: 'Cell: The Unit of Life', class: '11th' }, { name: 'Biomolecules (11th)', class: '11th' }, { name: 'Cell Cycle and Division', class: '11th' }, { name: 'Photosynthesis', class: '11th' }, { name: 'Respiration in Plants', class: '11th' }, { name: 'Plant Growth', class: '11th' }, { name: 'Breathing & Exchange', class: '11th' }, { name: 'Body Fluids & Circulation', class: '11th' }, { name: 'Excretory Products', class: '11th' }, { name: 'Locomotion & Movement', class: '11th' }, { name: 'Neural Control', class: '11th' }, { name: 'Chemical Coordination', class: '11th' },
-        { name: 'Reproduction in Organisms', class: '12th' }, { name: 'Sexual Reproduction in Plants', class: '12th' }, { name: 'Human Reproduction', class: '12th' }, { name: 'Reproductive Health', class: '12th' }, { name: 'Principles of Inheritance', class: '12th' }, { name: 'Molecular Basis of Inheritance', class: '12th' }, { name: 'Evolution', class: '12th' }, { name: 'Human Health & Disease', class: '12th' }, { name: 'Microbes in Human Welfare', class: '12th' }, { name: 'Biotechnology: Principles', class: '12th' }, { name: 'Biotechnology Applications', class: '12th' }, { name: 'Organisms & Populations', class: '12th' }, { name: 'Ecosystem', class: '12th' }, { name: 'Biodiversity & Conservation', class: '12th' }
+        { name: 'The Living World', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Biological Classification', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Plant Kingdom', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Animal Kingdom', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Morphology of Flowering Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Anatomy of Flowering Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Structural Organisation', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Cell: The Unit of Life', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Biomolecules (11th)', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Cell Cycle and Division', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Photosynthesis', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Respiration in Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Plant Growth', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Breathing & Exchange', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Body Fluids & Circulation', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Excretory Products', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Locomotion & Movement', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Neural Control', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Chemical Coordination', class: '11th', books: ['NCERT', 'Trueman'] },
+        { name: 'Reproduction in Organisms', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Sexual Reproduction in Plants', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Human Reproduction', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Reproductive Health', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Principles of Inheritance', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Molecular Basis of Inheritance', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Evolution', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Human Health & Disease', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Microbes in Human Welfare', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biotechnology: Principles', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biotechnology Applications', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Organisms & Populations', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Ecosystem', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biodiversity & Conservation', class: '12th', books: ['NCERT', 'Trueman'] }
     ] }
   ]
 };
@@ -58,8 +70,12 @@ export default function AIGenerator() {
   const [activeSubjectIndex, setActiveSubjectIndex] = useState(0);
   const [classFilter, setClassFilter] = useState<'All' | '11th' | '12th'>('All');
   const [selectedChapters, setSelectedChapters] = useState<string[]>([]);
+  const [selectedBooks, setSelectedBooks] = useState<string[]>(['NCERT']);
   const [difficulty, setDifficulty] = useState('Mixed');
   const [questionCount, setQuestionCount] = useState(30);
+  const [mixedGradeMode, setMixedGradeMode] = useState(false);
+  const [selected11thChapters, setSelected11thChapters] = useState<string[]>([]);
+  const [selected12thChapters, setSelected12thChapters] = useState<string[]>([]);
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -71,27 +87,82 @@ export default function AIGenerator() {
   const subjects = SYLLABUS[courseData.exam] || SYLLABUS['Engineering'];
   const activeSubject = subjects[activeSubjectIndex];
 
-  const toggleChapter = (chap: string) => {
-    if (selectedChapters.includes(chap)) {
-      setSelectedChapters(prev => prev.filter(c => c !== chap));
+  const toggleChapter = (chap: string, chapterClass?: string) => {
+    if (mixedGradeMode) {
+      if (chapterClass === '11th') {
+        if (selected11thChapters.includes(chap)) {
+          setSelected11thChapters(prev => prev.filter(c => c !== chap));
+        } else {
+          setSelected11thChapters(prev => [...prev, chap]);
+        }
+      } else if (chapterClass === '12th') {
+        if (selected12thChapters.includes(chap)) {
+          setSelected12thChapters(prev => prev.filter(c => c !== chap));
+        } else {
+          setSelected12thChapters(prev => [...prev, chap]);
+        }
+      }
     } else {
-      setSelectedChapters(prev => [...prev, chap]);
+      if (selectedChapters.includes(chap)) {
+        setSelectedChapters(prev => prev.filter(c => c !== chap));
+      } else {
+        setSelectedChapters(prev => [...prev, chap]);
+      }
     }
   };
 
+  const toggleBook = (book: string) => {
+    if (selectedBooks.includes(book)) {
+      setSelectedBooks(prev => prev.filter(b => b !== book));
+    } else {
+      setSelectedBooks(prev => [...prev, book]);
+    }
+  };
+
+  const getAvailableBooks = () => {
+    const subjectBooks = Object.entries(BOOKS)
+      .filter(([key, value]) => {
+        const book = value as any;
+        return !book.subject || book.subject === activeSubject.subject;
+      })
+      .map(([key, value]) => ({ key, ...value }));
+    return subjectBooks.sort((a, b) => a.priority - b.priority);
+  };
+
+  const getTotalSelectedChapters = () => {
+    if (mixedGradeMode) {
+      return selected11thChapters.length + selected12thChapters.length;
+    }
+    return selectedChapters.length;
+  };
+
   const handleGenerate = () => {
-    if (selectedChapters.length === 0) {
+    const totalSelected = getTotalSelectedChapters();
+    if (totalSelected === 0) {
       alert("Please select at least one chapter to generate questions.");
       return;
     }
     
+    if (selectedBooks.length === 0) {
+      alert("Please select at least one book to generate questions.");
+      return;
+    }
+    
     // Save settings to sessionStorage so the test engine can read them
-    sessionStorage.setItem('aiMockParams', JSON.stringify({
-      selectedChapters,
+    const mockParams = {
+      selectedChapters: mixedGradeMode ? {
+        '11th': selected11thChapters,
+        '12th': selected12thChapters
+      } : selectedChapters,
+      selectedBooks,
       difficulty,
       questionCount,
-      examType: courseData.exam
-    }));
+      examType: courseData.exam,
+      mixedGradeMode,
+      subject: activeSubject.subject
+    };
+
+    sessionStorage.setItem('aiMockParams', JSON.stringify(mockParams));
 
     setIsGenerating(true);
     setTimeout(() => {
@@ -161,14 +232,19 @@ export default function AIGenerator() {
             </p>
             
             {/* Floating Info Elements - No hard boxes */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 mb-16 relative z-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mb-16 relative z-10">
               <div className="flex flex-col items-center gap-2 group">
-                <div className="text-4xl font-black text-indigo-600 dark:text-indigo-400 group-hover:-translate-y-1 transition-transform">{selectedChapters.length}</div>
+                <div className="text-4xl font-black text-indigo-600 dark:text-indigo-400 group-hover:-translate-y-1 transition-transform">{getTotalSelectedChapters()}</div>
                 <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" /> Chapters</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
-                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform">{questionCount}</div>
+                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform">{selectedBooks.length}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Books</div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
+              <div className="flex flex-col items-center gap-2 group">
+                <div className="text-4xl font-black text-purple-600 dark:text-purple-400 group-hover:-translate-y-1 transition-transform">{questionCount}</div>
                 <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Target Qs</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
@@ -176,6 +252,15 @@ export default function AIGenerator() {
                 <div className="text-3xl font-black text-rose-600 dark:text-rose-400 group-hover:-translate-y-1 transition-transform capitalize mt-1.5">{difficulty}</div>
                 <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" /> Difficulty</div>
               </div>
+              {mixedGradeMode && (
+                <>
+                  <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
+                  <div className="flex flex-col items-center gap-2 group">
+                    <div className="text-2xl font-black text-amber-600 dark:text-amber-400 group-hover:-translate-y-1 transition-transform">11+12</div>
+                    <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BrainCircuit className="w-3.5 h-3.5" /> Mixed</div>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Seamless Actions */}
@@ -258,6 +343,54 @@ export default function AIGenerator() {
                     </div>
                   </div>
 
+                  {/* Book Selection Segment */}
+                  <div className="mb-8">
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3 block">Select Books</label>
+                    <div className="flex flex-col gap-2">
+                      {getAvailableBooks().map((book) => (
+                        <button
+                          key={book.key}
+                          onClick={() => toggleBook(book.key)}
+                          className={`flex items-center px-4 py-3 rounded-xl border text-sm font-bold transition-all ${
+                            selectedBooks.includes(book.key)
+                              ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
+                              : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400'
+                          }`}
+                        >
+                          <div className={`w-3.5 h-3.5 rounded-full border-2 mr-3 flex items-center justify-center ${
+                            selectedBooks.includes(book.key) ? 'border-emerald-500' : 'border-slate-300 dark:border-slate-600'
+                          }`}>
+                            {selectedBooks.includes(book.key) && <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>}
+                          </div>
+                          {book.name}
+                          {book.priority === 1 && <span className="ml-auto text-xs bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full">NCERT</span>}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Mixed Grade Mode Toggle */}
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between mb-3">
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500">Mixed Grade Mode</label>
+                      <button
+                        onClick={() => setMixedGradeMode(!mixedGradeMode)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                          mixedGradeMode ? 'bg-indigo-600' : 'bg-slate-200 dark:bg-slate-700'
+                        }`}
+                      >
+                        <span
+                          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                            mixedGradeMode ? 'translate-x-6' : 'translate-x-1'
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {mixedGradeMode ? 'Select chapters from both 11th and 12th grade' : 'Select chapters from filtered grade only'}
+                    </p>
+                  </div>
+
                   {/* Question Count Segment */}
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -272,6 +405,7 @@ export default function AIGenerator() {
                       value={questionCount}
                       onChange={(e) => setQuestionCount(parseInt(e.target.value))}
                       className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600 transition-all"
+                      aria-label="Total Questions"
                     />
                     <div className="flex justify-between text-[10px] font-bold text-slate-400 mt-2">
                       <span>10</span>
@@ -283,19 +417,20 @@ export default function AIGenerator() {
                 {/* Submit Action */}
                 <button
                   onClick={handleGenerate}
-                  disabled={isGenerating || selectedChapters.length === 0}
+                  disabled={isGenerating || getTotalSelectedChapters() === 0}
                   className={`w-full py-4 rounded-2xl font-black text-base flex justify-center items-center gap-2 shadow-xl shadow-indigo-600/20 active:scale-[0.98] transition-all relative overflow-hidden ${
-                    isGenerating || selectedChapters.length === 0
+                    isGenerating || getTotalSelectedChapters() === 0
                       ? 'bg-slate-300 dark:bg-slate-700 text-slate-500 cursor-not-allowed shadow-none'
                       : 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:opacity-90'
                   }`}
+                  aria-label="Generate AI Mock Test"
                 >
                   {isGenerating ? (
                     <>
                       <div className="w-5 h-5 border-2 border-slate-500 border-t-white rounded-full animate-spin"></div>
                       Compiling Neural Mock...
                     </>
-                  ) : selectedChapters.length === 0 ? (
+                  ) : getTotalSelectedChapters() === 0 ? (
                     "Select Chapters First"
                   ) : (
                     <>
@@ -379,18 +514,38 @@ export default function AIGenerator() {
 
                   <div className="flex items-center justify-between mb-4">
                     <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                       <Layers className="w-4 h-4 hidden sm:block" /> {classFilter === 'All' ? 'All Chapters' : `Class ${classFilter} Syllabus`}
+                       <Layers className="w-4 h-4 hidden sm:block" /> {mixedGradeMode ? 'Mixed Grade Selection' : (classFilter === 'All' ? 'All Chapters' : `Class ${classFilter} Syllabus`)}
                     </div>
                     <button
                       onClick={() => {
-                        const displayedChaps = activeSubject.chapters.filter((c: any) => classFilter === 'All' || c.class === classFilter);
-                        const displayedChapNames = displayedChaps.map((c: any) => c.name);
-                        const hasAll = displayedChapNames.every((c: string) => selectedChapters.includes(c));
-                        if (hasAll) {
-                          setSelectedChapters(prev => prev.filter(c => !displayedChapNames.includes(c)));
+                        if (mixedGradeMode) {
+                          // Toggle all 11th chapters
+                          const ch11Chaps = activeSubject.chapters.filter((c: any) => c.class === '11th');
+                          const ch11Names = ch11Chaps.map((c: any) => c.name);
+                          const hasAll11th = ch11Names.every((c: string) => selected11thChapters.includes(c));
+                          
+                          // Toggle all 12th chapters
+                          const ch12Chaps = activeSubject.chapters.filter((c: any) => c.class === '12th');
+                          const ch12Names = ch12Chaps.map((c: any) => c.name);
+                          const hasAll12th = ch12Names.every((c: string) => selected12thChapters.includes(c));
+                          
+                          if (hasAll11th && hasAll12th) {
+                            setSelected11thChapters([]);
+                            setSelected12thChapters([]);
+                          } else {
+                            setSelected11thChapters(ch11Names);
+                            setSelected12thChapters(ch12Names);
+                          }
                         } else {
-                          const newAdditions = displayedChapNames.filter((c: string) => !selectedChapters.includes(c));
-                          setSelectedChapters(prev => [...prev, ...newAdditions]);
+                          const displayedChaps = activeSubject.chapters.filter((c: any) => classFilter === 'All' || c.class === classFilter);
+                          const displayedChapNames = displayedChaps.map((c: any) => c.name);
+                          const hasAll = displayedChapNames.every((c: string) => selectedChapters.includes(c));
+                          if (hasAll) {
+                            setSelectedChapters(prev => prev.filter(c => !displayedChapNames.includes(c)));
+                          } else {
+                            const newAdditions = displayedChapNames.filter((c: string) => !selectedChapters.includes(c));
+                            setSelectedChapters(prev => [...prev, ...newAdditions]);
+                          }
                         }
                       }}
                       className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-xs font-bold transition-colors bg-indigo-50 dark:bg-indigo-500/10 px-3 py-1.5 rounded-md"
@@ -401,10 +556,23 @@ export default function AIGenerator() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {activeSubject.chapters
-                      .filter((chapObj: any) => classFilter === 'All' || chapObj.class === classFilter)
+                      .filter((chapObj: any) => {
+                        if (mixedGradeMode) {
+                          return true; // Show all chapters in mixed grade mode
+                        }
+                        return classFilter === 'All' || chapObj.class === classFilter;
+                      })
                       .map((chapObj: any) => {
                       const chap = chapObj.name;
-                      const isSelected = selectedChapters.includes(chap);
+                      const chapClass = chapObj.class;
+                      const chapBooks = chapObj.books || ['NCERT'];
+                      
+                      let isSelected = false;
+                      if (mixedGradeMode) {
+                        isSelected = chapClass === '11th' ? selected11thChapters.includes(chap) : selected12thChapters.includes(chap);
+                      } else {
+                        isSelected = selectedChapters.includes(chap);
+                      }
                       
                       const selectedBg = {
                         blue: 'bg-blue-50/50 dark:bg-blue-900/10 border-blue-300 dark:border-blue-700 shadow-sm',
@@ -427,10 +595,14 @@ export default function AIGenerator() {
                         emerald: 'text-emerald-900 dark:text-emerald-100 font-bold',
                       };
 
+                      const classBadgeColor = chapClass === '11th' 
+                        ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800'
+                        : 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800';
+
                       return (
                         <div
                           key={chap}
-                          onClick={() => toggleChapter(chap)}
+                          onClick={() => toggleChapter(chap, chapClass)}
                           className={`group cursor-pointer rounded-2xl p-4 flex items-center gap-4 transition-all border ${
                             isSelected 
                               ? (selectedBg[activeSubject.color as keyof typeof selectedBg] || selectedBg.blue)
@@ -444,13 +616,23 @@ export default function AIGenerator() {
                           }`}>
                             <ListChecks className="w-4 h-4" />
                           </div>
-                          <span className={`font-semibold text-sm leading-tight select-none transition-colors ${
-                            isSelected 
-                              ? (selectedTextColor[activeSubject.color as keyof typeof selectedTextColor] || selectedTextColor.blue)
-                              : `text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white`
-                          }`}>
-                            {chap}
-                          </span>
+                          <div className="flex-1">
+                            <span className={`font-semibold text-sm leading-tight select-none transition-colors block ${
+                              isSelected 
+                                ? (selectedTextColor[activeSubject.color as keyof typeof selectedTextColor] || selectedTextColor.blue)
+                                : `text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white`
+                            }`}>
+                              {chap}
+                            </span>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold border ${classBadgeColor}`}>
+                                {chapClass}
+                              </span>
+                              <span className="text-[9px] text-slate-400 dark:text-slate-500">
+                                {chapBooks.join(', ')}
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       )
                     })}
