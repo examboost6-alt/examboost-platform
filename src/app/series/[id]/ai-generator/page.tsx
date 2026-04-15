@@ -8,6 +8,12 @@ import {
   ListChecks, Target, BrainCircuit, Activity, CheckCircle2,
   AlertCircle, Moon, Sun, PlayCircle
 } from 'lucide-react';
+import { 
+  initializeQuestionDatabase, 
+  generateQuestionsForChapters, 
+  getRandomQuestions,
+  type Question 
+} from '@/lib/simpleQuestionGenerator';
 
 const MOCK_DB: any = {
   'mock-eng-1': { exam: 'Engineering', title: 'Shikhar JEE Main 2026' },
@@ -16,44 +22,36 @@ const MOCK_DB: any = {
 };
 
 const BOOKS = {
-  'NCERT': { name: 'NCERT', priority: 1, available: true },
-  'HC Verma': { name: 'HC Verma', priority: 2, available: true, subject: 'Physics' },
-  'DC Pandey': { name: 'DC Pandey', priority: 3, available: true, subject: 'Physics' },
-  'OP Tandon': { name: 'OP Tandon', priority: 2, available: true, subject: 'Chemistry' },
-  'VK Jaiswal': { name: 'VK Jaiswal', priority: 3, available: true, subject: 'Chemistry' },
-  'RD Sharma': { name: 'RD Sharma', priority: 2, available: true, subject: 'Mathematics' },
-  'Arihant': { name: 'Arihant', priority: 3, available: true, subject: 'Mathematics' },
-  'Trueman': { name: 'Trueman', priority: 2, available: true, subject: 'Biology' },
-  'Pradeep': { name: 'Pradeep', priority: 3, available: true, subject: 'Biology' }
+  'NCERT': { name: 'NCERT', priority: 1, available: true }
 };
 
 const SYLLABUS: any = {
   Engineering: [
     { subject: 'Physics', color: 'blue', chapters: [
-        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinematics', class: '11th', books: ['NCERT', 'HC Verma', 'DC Pandey'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Gravitation', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT', 'HC Verma'] },
-        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Atoms', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Nuclei', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT', 'HC Verma'] }
+        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT'] }, { name: 'Kinematics', class: '11th', books: ['NCERT'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT'] }, { name: 'Gravitation', class: '11th', books: ['NCERT'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT'] },
+        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT'] }, { name: 'Atoms', class: '12th', books: ['NCERT'] }, { name: 'Nuclei', class: '12th', books: ['NCERT'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT'] }
     ] },
     { subject: 'Chemistry', color: 'orange', chapters: [
-        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT', 'OP Tandon'] },
-        { name: 'Solutions', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Amines', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT', 'OP Tandon'] }
+        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT'] },
+        { name: 'Solutions', class: '12th', books: ['NCERT'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT'] }, { name: 'Amines', class: '12th', books: ['NCERT'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT'] }
     ] },
     { subject: 'Mathematics', color: 'rose', chapters: [
-        { name: 'Sets, Relations & Functions', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Complex Numbers & Quadratics', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Permutations & Combinations', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Binomial Theorem', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Sequence & Series', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Straight Lines', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Conic Sections', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Limits & Derivatives', class: '11th', books: ['NCERT', 'RD Sharma'] }, { name: 'Statistics', class: '11th', books: ['NCERT', 'RD Sharma'] },
-        { name: 'Relations and Functions', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Inverse Trigonometric Functions', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Matrices', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Determinants', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Continuity and Differentiability', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Application of Derivatives', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Integrals', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Application of Integrals', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Differential Equations', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Vector Algebra', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Three Dimensional Geometry', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Linear Programming', class: '12th', books: ['NCERT', 'RD Sharma'] }, { name: 'Probability', class: '12th', books: ['NCERT', 'RD Sharma'] }
+        { name: 'Sets, Relations & Functions', class: '11th', books: ['NCERT'] }, { name: 'Complex Numbers & Quadratics', class: '11th', books: ['NCERT'] }, { name: 'Permutations & Combinations', class: '11th', books: ['NCERT'] }, { name: 'Binomial Theorem', class: '11th', books: ['NCERT'] }, { name: 'Sequence & Series', class: '11th', books: ['NCERT'] }, { name: 'Straight Lines', class: '11th', books: ['NCERT'] }, { name: 'Conic Sections', class: '11th', books: ['NCERT'] }, { name: 'Limits & Derivatives', class: '11th', books: ['NCERT'] }, { name: 'Statistics', class: '11th', books: ['NCERT'] },
+        { name: 'Relations and Functions', class: '12th', books: ['NCERT'] }, { name: 'Inverse Trigonometric Functions', class: '12th', books: ['NCERT'] }, { name: 'Matrices', class: '12th', books: ['NCERT'] }, { name: 'Determinants', class: '12th', books: ['NCERT'] }, { name: 'Continuity and Differentiability', class: '12th', books: ['NCERT'] }, { name: 'Application of Derivatives', class: '12th', books: ['NCERT'] }, { name: 'Integrals', class: '12th', books: ['NCERT'] }, { name: 'Application of Integrals', class: '12th', books: ['NCERT'] }, { name: 'Differential Equations', class: '12th', books: ['NCERT'] }, { name: 'Vector Algebra', class: '12th', books: ['NCERT'] }, { name: 'Three Dimensional Geometry', class: '12th', books: ['NCERT'] }, { name: 'Linear Programming', class: '12th', books: ['NCERT'] }, { name: 'Probability', class: '12th', books: ['NCERT'] }
     ] }
   ],
   Medical: [
     { subject: 'Physics', color: 'blue', chapters: [
-        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinematics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Gravitation', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT', 'HC Verma'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT', 'HC Verma'] },
-        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Atoms', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Nuclei', class: '12th', books: ['NCERT', 'HC Verma'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT', 'HC Verma'] }
+        { name: 'Physical World & Measurement', class: '11th', books: ['NCERT'] }, { name: 'Kinematics', class: '11th', books: ['NCERT'] }, { name: 'Laws of Motion', class: '11th', books: ['NCERT'] }, { name: 'Work, Energy & Power', class: '11th', books: ['NCERT'] }, { name: 'Rotational Motion', class: '11th', books: ['NCERT'] }, { name: 'Gravitation', class: '11th', books: ['NCERT'] }, { name: 'Properties of Solids & Liquids', class: '11th', books: ['NCERT'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT'] }, { name: 'Kinetic Theory of Gases', class: '11th', books: ['NCERT'] }, { name: 'Oscillations & Waves', class: '11th', books: ['NCERT'] },
+        { name: 'Electric Charges and Fields', class: '12th', books: ['NCERT'] }, { name: 'Electrostatic Potential and Capacitance', class: '12th', books: ['NCERT'] }, { name: 'Current Electricity', class: '12th', books: ['NCERT'] }, { name: 'Moving Charges and Magnetism', class: '12th', books: ['NCERT'] }, { name: 'Magnetism and Matter', class: '12th', books: ['NCERT'] }, { name: 'Electromagnetic Induction', class: '12th', books: ['NCERT'] }, { name: 'Alternating Current', class: '12th', books: ['NCERT'] }, { name: 'Electromagnetic Waves', class: '12th', books: ['NCERT'] }, { name: 'Ray Optics and Optical Instruments', class: '12th', books: ['NCERT'] }, { name: 'Wave Optics', class: '12th', books: ['NCERT'] }, { name: 'Dual Nature of Radiation and Matter', class: '12th', books: ['NCERT'] }, { name: 'Atoms', class: '12th', books: ['NCERT'] }, { name: 'Nuclei', class: '12th', books: ['NCERT'] }, { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', class: '12th', books: ['NCERT'] }
     ] },
     { subject: 'Chemistry', color: 'orange', chapters: [
-        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT', 'OP Tandon'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT', 'OP Tandon'] },
-        { name: 'Solutions', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Amines', class: '12th', books: ['NCERT', 'OP Tandon'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT', 'OP Tandon'] }
+        { name: 'Some Basic Concepts of Chemistry', class: '11th', books: ['NCERT'] }, { name: 'Structure of Atom', class: '11th', books: ['NCERT'] }, { name: 'Periodic Table & Periodicity', class: '11th', books: ['NCERT'] }, { name: 'Chemical Bonding', class: '11th', books: ['NCERT'] }, { name: 'Thermodynamics', class: '11th', books: ['NCERT'] }, { name: 'Equilibrium', class: '11th', books: ['NCERT'] }, { name: 'Redox Reactions', class: '11th', books: ['NCERT'] }, { name: 'p-Block Elements', class: '11th', books: ['NCERT'] }, { name: 'Organic Chemistry Basics', class: '11th', books: ['NCERT'] }, { name: 'Hydrocarbons', class: '11th', books: ['NCERT'] },
+        { name: 'Solutions', class: '12th', books: ['NCERT'] }, { name: 'Electrochemistry', class: '12th', books: ['NCERT'] }, { name: 'Chemical Kinetics', class: '12th', books: ['NCERT'] }, { name: 'd- and f-Block Elements', class: '12th', books: ['NCERT'] }, { name: 'Coordination Compounds', class: '12th', books: ['NCERT'] }, { name: 'Haloalkanes and Haloarenes', class: '12th', books: ['NCERT'] }, { name: 'Alcohols, Phenols and Ethers', class: '12th', books: ['NCERT'] }, { name: 'Aldehydes, Ketones and Carboxylic Acids', class: '12th', books: ['NCERT'] }, { name: 'Amines', class: '12th', books: ['NCERT'] }, { name: 'Biomolecules', class: '12th', books: ['NCERT'] }
     ] },
     { subject: 'Biology', color: 'emerald', chapters: [
-        { name: 'The Living World', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Biological Classification', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Plant Kingdom', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Animal Kingdom', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Morphology of Flowering Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Anatomy of Flowering Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Structural Organisation', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Cell: The Unit of Life', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Biomolecules (11th)', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Cell Cycle and Division', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Photosynthesis', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Respiration in Plants', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Plant Growth', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Breathing & Exchange', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Body Fluids & Circulation', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Excretory Products', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Locomotion & Movement', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Neural Control', class: '11th', books: ['NCERT', 'Trueman'] }, { name: 'Chemical Coordination', class: '11th', books: ['NCERT', 'Trueman'] },
-        { name: 'Reproduction in Organisms', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Sexual Reproduction in Plants', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Human Reproduction', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Reproductive Health', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Principles of Inheritance', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Molecular Basis of Inheritance', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Evolution', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Human Health & Disease', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Microbes in Human Welfare', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biotechnology: Principles', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biotechnology Applications', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Organisms & Populations', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Ecosystem', class: '12th', books: ['NCERT', 'Trueman'] }, { name: 'Biodiversity & Conservation', class: '12th', books: ['NCERT', 'Trueman'] }
+        { name: 'The Living World', class: '11th', books: ['NCERT'] }, { name: 'Biological Classification', class: '11th', books: ['NCERT'] }, { name: 'Plant Kingdom', class: '11th', books: ['NCERT'] }, { name: 'Animal Kingdom', class: '11th', books: ['NCERT'] }, { name: 'Morphology of Flowering Plants', class: '11th', books: ['NCERT'] }, { name: 'Anatomy of Flowering Plants', class: '11th', books: ['NCERT'] }, { name: 'Structural Organisation', class: '11th', books: ['NCERT'] }, { name: 'Cell: The Unit of Life', class: '11th', books: ['NCERT'] }, { name: 'Biomolecules (11th)', class: '11th', books: ['NCERT'] }, { name: 'Cell Cycle and Division', class: '11th', books: ['NCERT'] }, { name: 'Photosynthesis', class: '11th', books: ['NCERT'] }, { name: 'Respiration in Plants', class: '11th', books: ['NCERT'] }, { name: 'Plant Growth', class: '11th', books: ['NCERT'] }, { name: 'Breathing & Exchange', class: '11th', books: ['NCERT'] }, { name: 'Body Fluids & Circulation', class: '11th', books: ['NCERT'] }, { name: 'Excretory Products', class: '11th', books: ['NCERT'] }, { name: 'Locomotion & Movement', class: '11th', books: ['NCERT'] }, { name: 'Neural Control', class: '11th', books: ['NCERT'] }, { name: 'Chemical Coordination', class: '11th', books: ['NCERT'] },
+        { name: 'Reproduction in Organisms', class: '12th', books: ['NCERT'] }, { name: 'Sexual Reproduction in Plants', class: '12th', books: ['NCERT'] }, { name: 'Human Reproduction', class: '12th', books: ['NCERT'] }, { name: 'Reproductive Health', class: '12th', books: ['NCERT'] }, { name: 'Principles of Inheritance', class: '12th', books: ['NCERT'] }, { name: 'Molecular Basis of Inheritance', class: '12th', books: ['NCERT'] }, { name: 'Evolution', class: '12th', books: ['NCERT'] }, { name: 'Human Health & Disease', class: '12th', books: ['NCERT'] }, { name: 'Microbes in Human Welfare', class: '12th', books: ['NCERT'] }, { name: 'Biotechnology: Principles', class: '12th', books: ['NCERT'] }, { name: 'Biotechnology Applications', class: '12th', books: ['NCERT'] }, { name: 'Organisms & Populations', class: '12th', books: ['NCERT'] }, { name: 'Ecosystem', class: '12th', books: ['NCERT'] }, { name: 'Biodiversity & Conservation', class: '12th', books: ['NCERT'] }
     ] }
   ]
 };
@@ -136,7 +134,7 @@ export default function AIGenerator() {
     return selectedChapters.length;
   };
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     const totalSelected = getTotalSelectedChapters();
     if (totalSelected === 0) {
       alert("Please select at least one chapter to generate questions.");
@@ -148,27 +146,82 @@ export default function AIGenerator() {
       return;
     }
     
-    // Save settings to sessionStorage so the test engine can read them
-    const mockParams = {
-      selectedChapters: mixedGradeMode ? {
-        '11th': selected11thChapters,
-        '12th': selected12thChapters
-      } : selectedChapters,
-      selectedBooks,
-      difficulty,
-      questionCount,
-      examType: courseData.exam,
-      mixedGradeMode,
-      subject: activeSubject.subject
-    };
-
-    sessionStorage.setItem('aiMockParams', JSON.stringify(mockParams));
-
     setIsGenerating(true);
-    setTimeout(() => {
+    
+    try {
+      // Initialize NCERT question database
+      const questionDB = initializeQuestionDatabase();
+      
+      // Prepare chapters for question generation
+      let chaptersForGeneration: { name: string; subject: string; class: string }[] = [];
+      
+      if (mixedGradeMode) {
+        // Add selected 11th chapters
+        selected11thChapters.forEach(chapterName => {
+          chaptersForGeneration.push({
+            name: chapterName,
+            subject: activeSubject.subject,
+            class: '11th'
+          });
+        });
+        
+        // Add selected 12th chapters
+        selected12thChapters.forEach(chapterName => {
+          chaptersForGeneration.push({
+            name: chapterName,
+            subject: activeSubject.subject,
+            class: '12th'
+          });
+        });
+      } else {
+        // Add selected chapters
+        selectedChapters.forEach(chapterName => {
+          const chapterObj = activeSubject.chapters.find((c: any) => c.name === chapterName);
+          if (chapterObj) {
+            chaptersForGeneration.push({
+              name: chapterName,
+              subject: activeSubject.subject,
+              class: chapterObj.class
+            });
+          }
+        });
+      }
+      
+      // Generate questions for selected chapters
+      const generatedQuestions = generateQuestionsForChapters(chaptersForGeneration, 50);
+      
+      // Get random questions based on difficulty and count
+      let finalQuestions = getRandomQuestions(generatedQuestions, questionCount, difficulty === 'Mixed' ? undefined : difficulty as any);
+      
+      // Save settings and questions to sessionStorage
+      const mockParams = {
+        selectedChapters: mixedGradeMode ? {
+          '11th': selected11thChapters,
+          '12th': selected12thChapters
+        } : selectedChapters,
+        selectedBooks,
+        difficulty,
+        questionCount,
+        examType: courseData.exam,
+        mixedGradeMode,
+        subject: activeSubject.subject,
+        generatedQuestions: finalQuestions,
+        totalQuestionsAvailable: generatedQuestions.length
+      };
+
+      sessionStorage.setItem('aiMockParams', JSON.stringify(mockParams));
+      
+      // Simulate processing time
+      setTimeout(() => {
+        setIsGenerating(false);
+        setShowSuccess(true);
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Error generating questions:', error);
       setIsGenerating(false);
-      setShowSuccess(true);
-    }, 2500);
+      alert('Error generating questions. Please try again.');
+    }
   };
 
   if (!isClient) return null;
@@ -239,13 +292,13 @@ export default function AIGenerator() {
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
-                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform">{selectedBooks.length}</div>
-                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Books</div>
+                <div className="text-4xl font-black text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform">{questionCount}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Generated</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
-                <div className="text-4xl font-black text-purple-600 dark:text-purple-400 group-hover:-translate-y-1 transition-transform">{questionCount}</div>
-                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Target Qs</div>
+                <div className="text-4xl font-black text-purple-600 dark:text-purple-400 group-hover:-translate-y-1 transition-transform">NCERT</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Source</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
