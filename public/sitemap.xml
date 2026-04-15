@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.examboost.in/</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://www.examboost.in/about</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/contact</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/blog</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/dashboard</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Exam Categories -->
+  <url>
+    <loc>https://www.examboost.in/exams</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Engineering Entrance Exams -->
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/jee</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/jee/jee-advanced</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/jee/jee-advanced/full-length-tests</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/jee/jee-advanced/pyqs</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/jee/jee-advanced/subject-wise-tests</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/bitsat</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/viteee</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- State Engineering Exams -->
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/state-engineering-exams</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/state-engineering-exams/kcet</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/state-engineering-exams/mht-cet</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/state-engineering-exams/wbjee</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/engineering-entrance/srmjeee</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Medical Entrance Exams -->
+  <url>
+    <loc>https://www.examboost.in/exams/medical-entrance</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/medical-entrance/neet-ug</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/medical-entrance/aiims-nursing</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/medical-entrance/jipmer</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/medical-entrance/afmc</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Banking Exams -->
+  <url>
+    <loc>https://www.examboost.in/exams/banking</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/banking/ibps-po</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/banking/ibps-clerk</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/banking/sbi-po</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/banking/sbi-clerk</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Other Exam Categories -->
+  <url>
+    <loc>https://www.examboost.in/exams/railways</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/police</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/mba</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/law</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.examboost.in/exams/cuet</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Authentication Pages -->
+  <url>
+    <loc>https://www.examboost.in/auth/callback</loc>
+    <lastmod>2026-04-16T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
