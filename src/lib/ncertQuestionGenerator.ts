@@ -30,7 +30,7 @@ const questionTemplates = {
       {
         template: "The SI unit of {quantity} is?",
         variables: { quantity: ["length", "mass", "time", "temperature", "electric current"] },
-        options: (variable: string) => {
+        options: (vars: Record<string, string>) => {
           const units: {[key: string]: string[]} = {
             "length": ["meter", "kilometer", "centimeter", "millimeter"],
             "mass": ["kilogram", "gram", "milligram", "tonne"],
@@ -38,13 +38,10 @@ const questionTemplates = {
             "temperature": ["kelvin", "celsius", "fahrenheit", "rankine"],
             "electric current": ["ampere", "milliampere", "microampere", "kiloampere"]
           };
-          return units[variable] || ["meter", "kilogram", "second", "kelvin"];
+          return units[vars.quantity] || ["meter", "kilogram", "second", "kelvin"];
         },
-        correct: (variable: string) => {
-          const correct: {[key: string]: number} = {
-            "length": 0, "mass": 0, "time": 0, "temperature": 0, "electric current": 0
-          };
-          return correct[variable] || 0;
+        correct: (vars: Record<string, string>) => {
+          return 0; // First option is always correct for SI units
         }
       },
       {
@@ -55,20 +52,17 @@ const questionTemplates = {
       {
         template: "The dimensional formula of {quantity} is?",
         variables: { quantity: ["force", "pressure", "energy", "power"] },
-        options: (variable: string) => {
+        options: (vars: Record<string, string>) => {
           const dimensions: {[key: string]: string[]} = {
             "force": ["[MLT^-2]", "[MLT^-1]", "[ML^2T^-2]", "[ML^2T^-3]"],
             "pressure": ["[ML^-1T^-2]", "[MLT^-2]", "[ML^2T^-2]", "[ML^-1T^-1]"],
             "energy": ["[ML^2T^-2]", "[MLT^-2]", "[ML^2T^-3]", "[ML^-1T^-2]"],
             "power": ["[ML^2T^-3]", "[ML^2T^-2]", "[MLT^-2]", "[ML^-1T^-2]"]
           };
-          return dimensions[variable] || ["[MLT^-2]", "[ML^-1T^-2]", "[ML^2T^-2]", "[ML^2T^-3]"];
+          return dimensions[vars.quantity] || ["[MLT^-2]", "[ML^-1T^-2]", "[ML^2T^-2]", "[ML^2T^-3]"];
         },
-        correct: (variable: string) => {
-          const correct: {[key: string]: number} = {
-            "force": 0, "pressure": 0, "energy": 0, "power": 0
-          };
-          return correct[variable] || 0;
+        correct: (vars: Record<string, string>) => {
+          return 0; // First option is always correct
         }
       }
     ],
@@ -95,12 +89,12 @@ const questionTemplates = {
       {
         template: "The number of moles in {mass}g of {substance} (Molar mass = {molarMass}g/mol) is?",
         variables: { 
-          mass: [2, 4, 8, 16, 32],
+          mass: ["2", "4", "8", "16", "32"],
           substance: ["hydrogen", "oxygen", "nitrogen", "carbon dioxide"],
-          molarMass: [2, 32, 28, 44]
+          molarMass: ["2", "32", "28", "44"]
         },
-        options: (vars: any) => {
-          const moles = vars.mass / vars.molarMass;
+        options: (vars: Record<string, string>) => {
+          const moles = parseFloat(vars.mass) / parseFloat(vars.molarMass);
           const actual = moles.toFixed(2);
           return [
             actual,
@@ -109,7 +103,9 @@ const questionTemplates = {
             (moles * 10).toFixed(2)
           ];
         },
-        correct: (vars: any) => 0
+        correct: (vars: Record<string, string>) => {
+          return 0; // First option is always correct
+        }
       },
       {
         template: "Which of the following has maximum number of molecules?",
@@ -134,6 +130,27 @@ const questionTemplates = {
   }
 };
 
+// Define template types
+interface VariableTemplate {
+  template: string;
+  variables: Record<string, string[]>;
+  options: (vars: Record<string, string>) => string[];
+  correct: (vars: Record<string, string>) => number;
+}
+
+interface FixedTemplate {
+  template: string;
+  options: string[];
+  correct: number;
+}
+
+type QuestionTemplate = VariableTemplate | FixedTemplate;
+
+// Helper function to check if template has variables
+function hasVariables(template: QuestionTemplate): template is VariableTemplate {
+  return 'variables' in template;
+}
+
 // Auto-generate questions for a chapter
 export function generateQuestionsForChapter(
   subjectParam: string, 
@@ -152,25 +169,21 @@ export function generateQuestionsForChapter(
 
   for (let i = 0; i < count; i++) {
     const templateIndex = i % templates.length;
-    const template = templates[templateIndex];
+    const template = templates[templateIndex] as QuestionTemplate;
     
     let question: Question;
     
-    if ('variables' in template && template.variables) {
+    if (hasVariables(template)) {
       // Template with variables
-      const variables: any = {};
+      const variables: Record<string, string> = {};
       Object.keys(template.variables).forEach(key => {
-        const values = template.variables[key as keyof typeof template.variables];
+        const values = template.variables[key];
         variables[key] = values[Math.floor(Math.random() * values.length)];
       });
       
       const questionText = template.template.replace(/{(\w+)}/g, (match: any, key: any) => variables[key] || match);
-      const options = typeof template.options === 'function' 
-        ? template.options(variables) 
-        : template.options;
-      const correctAnswer = typeof template.correct === 'function'
-        ? template.correct(variables)
-        : template.correct;
+      const options = template.options(variables);
+      const correctAnswer = template.correct(variables);
       
       question = {
         id: `${subjectParam}-${chapterParam}-${i}`,
