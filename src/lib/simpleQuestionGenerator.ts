@@ -266,12 +266,12 @@ export function getRandomQuestions(
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
-// Generate complete NCERT question database (20K questions)
-export function generateNCERTQuestionDatabase(): Question[] {
+// Generate JEE Question Database (50K questions - Physics, Chemistry, Mathematics)
+export function generateJEEQuestionDatabase(): Question[] {
   const allQuestions: Question[] = [];
   
-  // Engineering syllabus chapters
-  const engineeringChapters = [
+  // JEE syllabus chapters
+  const jeeChapters = [
     // Physics 11th
     { name: 'Physical World & Measurement', subject: 'Physics', class: '11th' },
     { name: 'Kinematics', subject: 'Physics', class: '11th' },
@@ -350,10 +350,31 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Linear Programming', subject: 'Mathematics', class: '12th' },
     { name: 'Probability', subject: 'Mathematics', class: '12th' }
   ];
+  
+  // Generate questions for each chapter (approximately 877 questions per chapter for 50K total)
+  const questionsPerChapter = Math.ceil(50000 / jeeChapters.length);
+  
+  jeeChapters.forEach(chapter => {
+    const questions = generateQuestionsForChapter(
+      chapter.subject,
+      chapter.name,
+      chapter.class,
+      questionsPerChapter
+    );
+    allQuestions.push(...questions);
+  });
+  
+  // Return exactly 50,000 questions
+  return allQuestions.slice(0, 50000);
+}
 
-  // Medical syllabus chapters (Biology focused)
-  const medicalChapters = [
-    // Physics 11th (Medical)
+// Generate NEET Question Database (50K questions - Physics, Chemistry, Biology)
+export function generateNEETQuestionDatabase(): Question[] {
+  const allQuestions: Question[] = [];
+  
+  // NEET syllabus chapters
+  const neetChapters = [
+    // Physics 11th (NEET)
     { name: 'Physical World & Measurement', subject: 'Physics', class: '11th' },
     { name: 'Kinematics', subject: 'Physics', class: '11th' },
     { name: 'Laws of Motion', subject: 'Physics', class: '11th' },
@@ -365,7 +386,7 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Kinetic Theory of Gases', subject: 'Physics', class: '11th' },
     { name: 'Oscillations & Waves', subject: 'Physics', class: '11th' },
     
-    // Physics 12th (Medical)
+    // Physics 12th (NEET)
     { name: 'Electric Charges and Fields', subject: 'Physics', class: '12th' },
     { name: 'Electrostatic Potential and Capacitance', subject: 'Physics', class: '12th' },
     { name: 'Current Electricity', subject: 'Physics', class: '12th' },
@@ -381,7 +402,7 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Nuclei', subject: 'Physics', class: '12th' },
     { name: 'Semiconductor Electronics: Materials, Devices and Simple Circuits', subject: 'Physics', class: '12th' },
     
-    // Chemistry 11th (Medical)
+    // Chemistry 11th (NEET)
     { name: 'Some Basic Concepts of Chemistry', subject: 'Chemistry', class: '11th' },
     { name: 'Structure of Atom', subject: 'Chemistry', class: '11th' },
     { name: 'Periodic Table & Periodicity', subject: 'Chemistry', class: '11th' },
@@ -393,7 +414,7 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Organic Chemistry Basics', subject: 'Chemistry', class: '11th' },
     { name: 'Hydrocarbons', subject: 'Chemistry', class: '11th' },
     
-    // Chemistry 12th (Medical)
+    // Chemistry 12th (NEET)
     { name: 'Solutions', subject: 'Chemistry', class: '12th' },
     { name: 'Electrochemistry', subject: 'Chemistry', class: '12th' },
     { name: 'Chemical Kinetics', subject: 'Chemistry', class: '12th' },
@@ -405,7 +426,7 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Amines', subject: 'Chemistry', class: '12th' },
     { name: 'Biomolecules', subject: 'Chemistry', class: '12th' },
     
-    // Biology 11th (Medical)
+    // Biology 11th (NEET)
     { name: 'The Living World', subject: 'Biology', class: '11th' },
     { name: 'Biological Classification', subject: 'Biology', class: '11th' },
     { name: 'Plant Kingdom', subject: 'Biology', class: '11th' },
@@ -426,7 +447,7 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Neural Control', subject: 'Biology', class: '11th' },
     { name: 'Chemical Coordination', subject: 'Biology', class: '11th' },
     
-    // Biology 12th (Medical)
+    // Biology 12th (NEET)
     { name: 'Reproduction in Organisms', subject: 'Biology', class: '12th' },
     { name: 'Sexual Reproduction in Plants', subject: 'Biology', class: '12th' },
     { name: 'Human Reproduction', subject: 'Biology', class: '12th' },
@@ -443,13 +464,10 @@ export function generateNCERTQuestionDatabase(): Question[] {
     { name: 'Biodiversity & Conservation', subject: 'Biology', class: '12th' }
   ];
   
-  // Combine all chapters
-  const allChapters = [...engineeringChapters, ...medicalChapters];
+  // Generate questions for each chapter (approximately 877 questions per chapter for 50K total)
+  const questionsPerChapter = Math.ceil(50000 / neetChapters.length);
   
-  // Generate questions for each chapter (100 questions per chapter)
-  const questionsPerChapter = 100;
-  
-  allChapters.forEach(chapter => {
+  neetChapters.forEach(chapter => {
     const questions = generateQuestionsForChapter(
       chapter.subject,
       chapter.name,
@@ -459,21 +477,28 @@ export function generateNCERTQuestionDatabase(): Question[] {
     allQuestions.push(...questions);
   });
   
-  // Return exactly 20,000 questions
-  return allQuestions.slice(0, 20000);
+  // Return exactly 50,000 questions
+  return allQuestions.slice(0, 50000);
 }
 
-// Save question database to localStorage
-export function saveQuestionDatabase(questions: Question[]): void {
+// Save JEE question database to localStorage
+export function saveJEEQuestionDatabase(questions: Question[]): void {
   if (typeof window !== 'undefined') {
-    localStorage.setItem('ncertQuestionDatabase', JSON.stringify(questions));
+    localStorage.setItem('jeeQuestionDatabase', JSON.stringify(questions));
   }
 }
 
-// Load question database from localStorage
-export function loadQuestionDatabase(): Question[] {
+// Save NEET question database to localStorage
+export function saveNEETQuestionDatabase(questions: Question[]): void {
   if (typeof window !== 'undefined') {
-    const stored = localStorage.getItem('ncertQuestionDatabase');
+    localStorage.setItem('neetQuestionDatabase', JSON.stringify(questions));
+  }
+}
+
+// Load JEE question database from localStorage
+export function loadJEEQuestionDatabase(): Question[] {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('jeeQuestionDatabase');
     if (stored) {
       return JSON.parse(stored);
     }
@@ -481,14 +506,46 @@ export function loadQuestionDatabase(): Question[] {
   return [];
 }
 
-// Initialize question database if not exists
-export function initializeQuestionDatabase(): Question[] {
-  let questions = loadQuestionDatabase();
+// Load NEET question database from localStorage
+export function loadNEETQuestionDatabase(): Question[] {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('neetQuestionDatabase');
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  }
+  return [];
+}
+
+// Initialize JEE question database if not exists
+export function initializeJEEQuestionDatabase(): Question[] {
+  let questions = loadJEEQuestionDatabase();
   
   if (questions.length === 0) {
-    questions = generateNCERTQuestionDatabase();
-    saveQuestionDatabase(questions);
+    questions = generateJEEQuestionDatabase();
+    saveJEEQuestionDatabase(questions);
   }
   
   return questions;
+}
+
+// Initialize NEET question database if not exists
+export function initializeNEETQuestionDatabase(): Question[] {
+  let questions = loadNEETQuestionDatabase();
+  
+  if (questions.length === 0) {
+    questions = generateNEETQuestionDatabase();
+    saveNEETQuestionDatabase(questions);
+  }
+  
+  return questions;
+}
+
+// Get stream-specific question database
+export function getStreamQuestionDatabase(stream: 'JEE' | 'NEET'): Question[] {
+  if (stream === 'JEE') {
+    return initializeJEEQuestionDatabase();
+  } else {
+    return initializeNEETQuestionDatabase();
+  }
 }

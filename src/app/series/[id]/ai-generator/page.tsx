@@ -9,7 +9,7 @@ import {
   AlertCircle, Moon, Sun, PlayCircle
 } from 'lucide-react';
 import { 
-  initializeQuestionDatabase, 
+  getStreamQuestionDatabase, 
   generateQuestionsForChapters, 
   getRandomQuestions,
   type Question 
@@ -149,49 +149,33 @@ export default function AIGenerator() {
     setIsGenerating(true);
     
     try {
-      // Initialize NCERT question database
-      const questionDB = initializeQuestionDatabase();
+      // Determine stream based on course data
+      const stream = courseData.exam === 'Engineering' ? 'JEE' : 'NEET';
       
-      // Prepare chapters for question generation
-      let chaptersForGeneration: { name: string; subject: string; class: string }[] = [];
+      // Initialize stream-specific question database
+      const questionDB = getStreamQuestionDatabase(stream);
       
+      // Filter questions by selected subjects and chapters
+      let filteredQuestions = questionDB.filter(q => q.subject === activeSubject.subject);
+      
+      // Further filter by selected chapters
       if (mixedGradeMode) {
-        // Add selected 11th chapters
-        selected11thChapters.forEach(chapterName => {
-          chaptersForGeneration.push({
-            name: chapterName,
-            subject: activeSubject.subject,
-            class: '11th'
-          });
-        });
-        
-        // Add selected 12th chapters
-        selected12thChapters.forEach(chapterName => {
-          chaptersForGeneration.push({
-            name: chapterName,
-            subject: activeSubject.subject,
-            class: '12th'
-          });
-        });
+        const allSelectedChapters = [...selected11thChapters, ...selected12thChapters];
+        filteredQuestions = filteredQuestions.filter(q => 
+          allSelectedChapters.includes(q.chapter)
+        );
       } else {
-        // Add selected chapters
-        selectedChapters.forEach(chapterName => {
-          const chapterObj = activeSubject.chapters.find((c: any) => c.name === chapterName);
-          if (chapterObj) {
-            chaptersForGeneration.push({
-              name: chapterName,
-              subject: activeSubject.subject,
-              class: chapterObj.class
-            });
-          }
-        });
+        filteredQuestions = filteredQuestions.filter(q => 
+          selectedChapters.includes(q.chapter)
+        );
       }
       
-      // Generate questions for selected chapters
-      const generatedQuestions = generateQuestionsForChapters(chaptersForGeneration, 50);
-      
       // Get random questions based on difficulty and count
-      let finalQuestions = getRandomQuestions(generatedQuestions, questionCount, difficulty === 'Mixed' ? undefined : difficulty as any);
+      let finalQuestions = getRandomQuestions(
+        filteredQuestions, 
+        questionCount, 
+        difficulty === 'Mixed' ? undefined : difficulty as any
+      );
       
       // Save settings and questions to sessionStorage
       const mockParams = {
@@ -205,8 +189,9 @@ export default function AIGenerator() {
         examType: courseData.exam,
         mixedGradeMode,
         subject: activeSubject.subject,
+        stream,
         generatedQuestions: finalQuestions,
-        totalQuestionsAvailable: generatedQuestions.length
+        totalQuestionsAvailable: filteredQuestions.length
       };
 
       sessionStorage.setItem('aiMockParams', JSON.stringify(mockParams));
@@ -297,8 +282,8 @@ export default function AIGenerator() {
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
-                <div className="text-4xl font-black text-purple-600 dark:text-purple-400 group-hover:-translate-y-1 transition-transform">NCERT</div>
-                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Source</div>
+                <div className="text-4xl font-black text-purple-600 dark:text-purple-400 group-hover:-translate-y-1 transition-transform">{courseData.exam === 'Engineering' ? 'JEE' : 'NEET'}</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Stream</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-slate-300 dark:via-slate-700 to-transparent"></div>
               <div className="flex flex-col items-center gap-2 group">
