@@ -17,38 +17,32 @@ const MOCK_DB: any = {
 
 const SYLLABUS: any = {
   Engineering: [
-    {
-      subject: 'Physics',
-      color: 'blue',
-      chapters: ['Units & Measurements', 'Kinematics', 'Laws of Motion', 'Work, Energy & Power', 'Rotational Motion', 'Gravitation', 'Thermodynamics', 'Oscillations & Waves', 'Electrostatics', 'Current Electricity', 'Magnetic Effects', 'Electromagnetic Induction', 'Optics', 'Modern Physics']
-    },
-    {
-      subject: 'Chemistry',
-      color: 'orange',
-      chapters: ['Structure of Atom', 'Periodic Table', 'Chemical Bonding', 'States of Matter', 'Thermodynamics', 'Equilibrium', 'Redox Reactions', 's & p Block Elements', 'Organic Chemistry Basics', 'Hydrocarbons', 'Alcohols & Phenols', 'Aldehydes & Ketones', 'Amines', 'Biomolecules']
-    },
-    {
-      subject: 'Mathematics',
-      color: 'rose',
-      chapters: ['Sets & Functions', 'Complex Numbers', 'Matrices & Determinants', 'Permutations & Combinations', 'Binomial Theorem', 'Sequence & Series', 'Limits & Derivatives', 'Integral Calculus', 'Differential Equations', 'Coordinate Geometry', '3D Geometry', 'Vector Algebra', 'Probability', 'Trigonometry']
-    }
+    { subject: 'Physics', color: 'blue', chapters: [
+        { name: 'Units & Measurements', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
+        { name: 'Electrostatics', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Magnetic Effects', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Optics', class: '12th' }, { name: 'Modern Physics', class: '12th' }
+    ] },
+    { subject: 'Chemistry', color: 'orange', chapters: [
+        { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'States of Matter', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 's & p Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
+        { name: 'Alcohols & Phenols', class: '12th' }, { name: 'Aldehydes & Ketones', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+    ] },
+    { subject: 'Mathematics', color: 'rose', chapters: [
+        { name: 'Sets & Functions', class: '11th' }, { name: 'Complex Numbers', class: '11th' }, { name: 'Permutations & Combinations', class: '11th' }, { name: 'Binomial Theorem', class: '11th' }, { name: 'Sequence & Series', class: '11th' }, { name: 'Limits & Derivatives', class: '11th' }, { name: 'Coordinate Geometry', class: '11th' }, { name: 'Trigonometry', class: '11th' },
+        { name: 'Matrices & Determinants', class: '12th' }, { name: 'Integral Calculus', class: '12th' }, { name: 'Differential Equations', class: '12th' }, { name: '3D Geometry', class: '12th' }, { name: 'Vector Algebra', class: '12th' }, { name: 'Probability', class: '12th' }
+    ] }
   ],
   Medical: [
-    {
-      subject: 'Physics',
-      color: 'blue',
-      chapters: ['Units & Measurements', 'Kinematics', 'Laws of Motion', 'Work, Energy & Power', 'Rotational Motion', 'Gravitation', 'Thermodynamics', 'Oscillations & Waves', 'Electrostatics', 'Current Electricity', 'Magnetic Effects', 'Electromagnetic Induction', 'Optics', 'Modern Physics']
-    },
-    {
-      subject: 'Chemistry',
-      color: 'orange',
-      chapters: ['Structure of Atom', 'Periodic Table', 'Chemical Bonding', 'States of Matter', 'Thermodynamics', 'Equilibrium', 'Redox Reactions', 's & p Block Elements', 'Organic Chemistry Basics', 'Hydrocarbons', 'Alcohols & Phenols', 'Aldehydes & Ketones', 'Amines', 'Biomolecules']
-    },
-    {
-      subject: 'Biology',
-      color: 'emerald',
-      chapters: ['Biological Classification', 'Plant Kingdom', 'Animal Kingdom', 'Morphology of Plants', 'Anatomy of Plants', 'Structural Organisation', 'Cell: Unit of Life', 'Biomolecules', 'Cell Cycle', 'Plant Physiology', 'Human Physiology', 'Reproduction', 'Genetics', 'Evolution', 'Biotechnology', 'Ecology']
-    }
+    { subject: 'Physics', color: 'blue', chapters: [
+        { name: 'Units & Measurements', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
+        { name: 'Electrostatics', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Magnetic Effects', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Optics', class: '12th' }, { name: 'Modern Physics', class: '12th' }
+    ] },
+    { subject: 'Chemistry', color: 'orange', chapters: [
+        { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'States of Matter', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 's & p Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
+        { name: 'Alcohols & Phenols', class: '12th' }, { name: 'Aldehydes & Ketones', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+    ] },
+    { subject: 'Biology', color: 'emerald', chapters: [
+        { name: 'Biological Classification', class: '11th' }, { name: 'Plant Kingdom', class: '11th' }, { name: 'Animal Kingdom', class: '11th' }, { name: 'Morphology of Plants', class: '11th' }, { name: 'Anatomy of Plants', class: '11th' }, { name: 'Structural Organisation', class: '11th' }, { name: 'Cell: Unit of Life', class: '11th' }, { name: 'Biomolecules', class: '11th' }, { name: 'Cell Cycle', class: '11th' }, { name: 'Plant Physiology', class: '11th' }, { name: 'Human Physiology', class: '11th' },
+        { name: 'Reproduction', class: '12th' }, { name: 'Genetics', class: '12th' }, { name: 'Evolution', class: '12th' }, { name: 'Biotechnology', class: '12th' }, { name: 'Ecology', class: '12th' }
+    ] }
   ]
 };
 
@@ -62,6 +56,7 @@ export default function AIGenerator() {
   const { theme, setTheme } = useTheme();
 
   const [activeSubjectIndex, setActiveSubjectIndex] = useState(0);
+  const [classFilter, setClassFilter] = useState<'All' | '11th' | '12th'>('All');
   const [selectedChapters, setSelectedChapters] = useState<string[]>([]);
   const [difficulty, setDifficulty] = useState('Mixed');
   const [questionCount, setQuestionCount] = useState(30);
@@ -89,6 +84,15 @@ export default function AIGenerator() {
       alert("Please select at least one chapter to generate questions.");
       return;
     }
+    
+    // Save settings to sessionStorage so the test engine can read them
+    sessionStorage.setItem('aiMockParams', JSON.stringify({
+      selectedChapters,
+      difficulty,
+      questionCount,
+      examType: courseData.exam
+    }));
+
     setIsGenerating(true);
     setTimeout(() => {
       setIsGenerating(false);
@@ -308,7 +312,7 @@ export default function AIGenerator() {
                 <div className="flex items-center p-1.5 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm max-w-full overflow-x-auto scrollbar-hide">
                   {subjects.map((sub: any, idx: number) => {
                     const isActive = activeSubjectIndex === idx;
-                    const subChapters = sub.chapters;
+                    const subChapters = sub.chapters.map((c: any) => c.name);
                     const selectedInSub = selectedChapters.filter(c => subChapters.includes(c)).length;
                     
                     const badgeColors: any = {
@@ -341,7 +345,7 @@ export default function AIGenerator() {
 
                 {/* Chapter List Area */}
                 <div className="bg-white dark:bg-[#111827] rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-800/80 animate-in fade-in zoom-in-95 duration-200">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4 border-b border-slate-100 dark:border-slate-800 pb-5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 border-b border-slate-100 dark:border-slate-800 pb-5">
                     <div>
                       <h3 className="text-xl font-black flex items-center gap-2 mb-1 text-slate-900 dark:text-white">
                         <BookOpen className={`w-5 h-5 ${
@@ -355,25 +359,51 @@ export default function AIGenerator() {
                         Choose the precise chapters you want to train on.
                       </p>
                     </div>
+
+                    <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-100 dark:bg-slate-800/50 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700/50 self-start sm:self-auto shrink-0 overflow-x-auto w-full sm:w-auto">
+                      {['All', '11th', '12th'].map(cls => (
+                        <button
+                          key={cls}
+                          onClick={() => setClassFilter(cls as 'All' | '11th' | '12th')}
+                          className={`flex-1 sm:flex-none px-4 py-2.5 sm:py-2 text-xs font-black rounded-lg transition-all whitespace-nowrap ${
+                            classFilter === cls 
+                              ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm' 
+                              : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800'
+                          }`}
+                        >
+                          {cls === 'All' ? 'All Classes' : `Class ${cls}`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                       <Layers className="w-4 h-4 hidden sm:block" /> {classFilter === 'All' ? 'All Chapters' : `Class ${classFilter} Syllabus`}
+                    </div>
                     <button
                       onClick={() => {
-                        const allChaps = activeSubject.chapters;
-                        const hasAll = allChaps.every((c: string) => selectedChapters.includes(c));
+                        const displayedChaps = activeSubject.chapters.filter((c: any) => classFilter === 'All' || c.class === classFilter);
+                        const displayedChapNames = displayedChaps.map((c: any) => c.name);
+                        const hasAll = displayedChapNames.every((c: string) => selectedChapters.includes(c));
                         if (hasAll) {
-                          setSelectedChapters(prev => prev.filter(c => !allChaps.includes(c)));
+                          setSelectedChapters(prev => prev.filter(c => !displayedChapNames.includes(c)));
                         } else {
-                          const newAdditions = allChaps.filter((c: string) => !selectedChapters.includes(c));
+                          const newAdditions = displayedChapNames.filter((c: string) => !selectedChapters.includes(c));
                           setSelectedChapters(prev => [...prev, ...newAdditions]);
                         }
                       }}
-                      className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold px-4 py-2 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-max shrink-0"
+                      className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-xs font-bold transition-colors bg-indigo-50 dark:bg-indigo-500/10 px-3 py-1.5 rounded-md"
                     >
-                      Toggle All
+                      Toggle All (Current View)
                     </button>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    {activeSubject.chapters.map((chap: string) => {
+                    {activeSubject.chapters
+                      .filter((chapObj: any) => classFilter === 'All' || chapObj.class === classFilter)
+                      .map((chapObj: any) => {
+                      const chap = chapObj.name;
                       const isSelected = selectedChapters.includes(chap);
                       
                       const selectedBg = {

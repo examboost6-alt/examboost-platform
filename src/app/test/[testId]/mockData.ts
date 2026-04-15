@@ -119,3 +119,93 @@ export const getNeetMockQuestions = (testId: string): QuestionType[] => {
     if (testId.includes('test-9')) return neetMock9Questions;
     return neetFallbackGen;
 };
+
+export const SYLLABUS: any = {
+  Engineering: [
+    { subject: 'Physics', chapters: [
+        { name: 'Units & Measurements', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
+        { name: 'Electrostatics', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Magnetic Effects', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Optics', class: '12th' }, { name: 'Modern Physics', class: '12th' }
+    ] },
+    { subject: 'Chemistry', chapters: [
+        { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'States of Matter', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 's & p Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
+        { name: 'Alcohols & Phenols', class: '12th' }, { name: 'Aldehydes & Ketones', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+    ] },
+    { subject: 'Mathematics', chapters: [
+        { name: 'Sets & Functions', class: '11th' }, { name: 'Complex Numbers', class: '11th' }, { name: 'Permutations & Combinations', class: '11th' }, { name: 'Binomial Theorem', class: '11th' }, { name: 'Sequence & Series', class: '11th' }, { name: 'Limits & Derivatives', class: '11th' }, { name: 'Coordinate Geometry', class: '11th' }, { name: 'Trigonometry', class: '11th' },
+        { name: 'Matrices & Determinants', class: '12th' }, { name: 'Integral Calculus', class: '12th' }, { name: 'Differential Equations', class: '12th' }, { name: '3D Geometry', class: '12th' }, { name: 'Vector Algebra', class: '12th' }, { name: 'Probability', class: '12th' }
+    ] }
+  ],
+  Medical: [
+    { subject: 'Physics', chapters: [
+        { name: 'Units & Measurements', class: '11th' }, { name: 'Kinematics', class: '11th' }, { name: 'Laws of Motion', class: '11th' }, { name: 'Work, Energy & Power', class: '11th' }, { name: 'Rotational Motion', class: '11th' }, { name: 'Gravitation', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Oscillations & Waves', class: '11th' },
+        { name: 'Electrostatics', class: '12th' }, { name: 'Current Electricity', class: '12th' }, { name: 'Magnetic Effects', class: '12th' }, { name: 'Electromagnetic Induction', class: '12th' }, { name: 'Optics', class: '12th' }, { name: 'Modern Physics', class: '12th' }
+    ] },
+    { subject: 'Chemistry', chapters: [
+        { name: 'Structure of Atom', class: '11th' }, { name: 'Periodic Table', class: '11th' }, { name: 'Chemical Bonding', class: '11th' }, { name: 'States of Matter', class: '11th' }, { name: 'Thermodynamics', class: '11th' }, { name: 'Equilibrium', class: '11th' }, { name: 'Redox Reactions', class: '11th' }, { name: 's & p Block Elements', class: '11th' }, { name: 'Organic Chemistry Basics', class: '11th' }, { name: 'Hydrocarbons', class: '11th' },
+        { name: 'Alcohols & Phenols', class: '12th' }, { name: 'Aldehydes & Ketones', class: '12th' }, { name: 'Amines', class: '12th' }, { name: 'Biomolecules', class: '12th' }
+    ] },
+    { subject: 'Biology', chapters: [
+        { name: 'Biological Classification', class: '11th' }, { name: 'Plant Kingdom', class: '11th' }, { name: 'Animal Kingdom', class: '11th' }, { name: 'Morphology of Plants', class: '11th' }, { name: 'Anatomy of Plants', class: '11th' }, { name: 'Structural Organisation', class: '11th' }, { name: 'Cell: Unit of Life', class: '11th' }, { name: 'Biomolecules', class: '11th' }, { name: 'Cell Cycle', class: '11th' }, { name: 'Plant Physiology', class: '11th' }, { name: 'Human Physiology', class: '11th' },
+        { name: 'Reproduction', class: '12th' }, { name: 'Genetics', class: '12th' }, { name: 'Evolution', class: '12th' }, { name: 'Biotechnology', class: '12th' }, { name: 'Ecology', class: '12th' }
+    ] }
+  ]
+};
+
+export const generateAIMockQuestions = (params: any): { qs: QuestionType[], subs: string[] } => {
+    const { selectedChapters = [], questionCount = 30, examType = 'Engineering', difficulty = 'Mixed' } = params;
+    
+    // Build a map of chapter to subject
+    const chapterToSubject: Record<string, string> = {};
+    const syllabusArray = SYLLABUS[examType] || SYLLABUS['Engineering'];
+    syllabusArray.forEach((sub: any) => {
+        sub.chapters.forEach((chap: any) => {
+            chapterToSubject[chap.name] = sub.subject;
+        });
+    });
+
+    const questions: QuestionType[] = [];
+    const subjectsSet = new Set<string>();
+
+    for(let i=0; i<questionCount; i++) {
+        // Round robin pick from selected chapters
+        const chapter = selectedChapters[i % selectedChapters.length] || 'General Concept';
+        const subject = chapterToSubject[chapter] || 'Physics';
+        subjectsSet.add(subject);
+
+        const difficultyLabel = difficulty;
+
+        questions.push({
+            id: i + 1,
+            subject: subject,
+            type: 'MCQ',
+            textEn: `[AI Simulated - ${difficultyLabel}] A conceptual problem based on ${chapter}. Given the physical parameters and theoretical boundary conditions related to ${chapter}, evaluate the correct inference from the options below.`,
+            textHi: `[AI Simulated - ${difficultyLabel}] ${chapter} पर आधारित एक वैचारिक समस्या। ${chapter} से संबंधित भौतिक मापदंडों और सैद्धांतिक सीमा स्थितियों को देखते हुए, नीचे दिए गए विकल्पों में से सही निष्कर्ष का मूल्यांकन करें।`,
+            options: [
+                { id: 1, textEn: "Inference confirms positive correlation", textHi: "निष्कर्ष सकारात्मक सहसंबंध की पुष्टि करता है" },
+                { id: 2, textEn: "System remains in invariant state", textHi: "प्रणाली अपरिवर्तनीय स्थिति में रहती है" },
+                { id: 3, textEn: "Calculated magnitude deviates significantly", textHi: "परिकलित परिमाण काफी विचलित होता है" },
+                { id: 4, textEn: "Fundamental laws are preserved universally", textHi: "मौलिक नियम सार्वभौमिक रूप से संरक्षित हैं" }
+            ],
+            correctOption: (i % 4) + 1
+        });
+    }
+
+    // Sort questions by Subject so they group together appropriately
+    const defaultOrder = examType === 'Medical' ? ['Physics', 'Chemistry', 'Biology'] : ['Physics', 'Chemistry', 'Mathematics'];
+    
+    questions.sort((a,b) => {
+        return defaultOrder.indexOf(a.subject) - defaultOrder.indexOf(b.subject);
+    });
+
+    // Reassign IDs to be sequential
+    questions.forEach((q, idx) => {
+        q.id = idx + 1;
+    });
+
+    const activeSubjects = Array.from(subjectsSet).sort((a,b) => defaultOrder.indexOf(a) - defaultOrder.indexOf(b));
+
+    // Fallback if no subjects
+    if (activeSubjects.length === 0) activeSubjects.push('Physics');
+
+    return { qs: questions, subs: activeSubjects };
+};

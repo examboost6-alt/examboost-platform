@@ -18,8 +18,7 @@ export default function NTA_JEETestEngineWrapper() {
     );
 }
 
-import { jeeSubjectsList, neetSubjectsList, getJeeMockQuestions, getNeetMockQuestions, QuestionType } from '../mockData';
-
+import { jeeSubjectsList, neetSubjectsList, getJeeMockQuestions, getNeetMockQuestions, QuestionType, generateAIMockQuestions } from '../mockData';
 
 function JEE_NTA_TestEngine() {
     const router = useRouter();
@@ -28,10 +27,11 @@ function JEE_NTA_TestEngine() {
     const testId = (params?.testId as string) || '';
     const isNeet = testId.includes('med');
 
-    const mockQuestions = isNeet ? getNeetMockQuestions(testId) : getJeeMockQuestions(testId);
-    const subjectsList = isNeet ? neetSubjectsList : jeeSubjectsList;
-    const examName = isNeet ? 'NEET UG' : 'JEE MAIN';
-    const examPaperName = isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1';
+    const [isCoreLoading, setIsCoreLoading] = useState(true);
+    const [mockQuestions, setMockQuestions] = useState<QuestionType[]>([]);
+    const [subjectsList, setSubjectsList] = useState<string[]>([]);
+    const [examName, setExamName] = useState(isNeet ? 'NEET UG' : 'JEE MAIN');
+    const [examPaperName, setExamPaperName] = useState(isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1');
 
     const defaultLang = searchParams.get('lang') === 'hindi' ? 'hindi' : 'english';
 
@@ -48,12 +48,40 @@ function JEE_NTA_TestEngine() {
     const [questionLang, setQuestionLang] = useState<'english' | 'hindi'>(defaultLang);
 
     const [responses, setResponses] = useState<Record<number, number | string>>({});
-    const [status, setStatus] = useState<Record<number, string>>({
-        [mockQuestions[0].id]: 'not_answered'
-    });
+    const [status, setStatus] = useState<Record<number, string>>({});
 
-    const currentQuestion = mockQuestions[currentQuestionIndex];
-    const [activeSubject, setActiveSubject] = useState(currentQuestion.subject);
+    const [activeSubject, setActiveSubject] = useState("");
+
+    useEffect(() => {
+        let qs: QuestionType[] = [];
+        let subs: string[] = [];
+        let ename = isNeet ? 'NEET UG' : 'JEE MAIN';
+        let epaper = isNeet ? 'NEET UG PAPER' : 'JEE MAIN PAPER 1';
+
+        if (testId.includes('ai-mock') && typeof sessionStorage !== 'undefined') {
+            const paramsStr = sessionStorage.getItem('aiMockParams');
+            if (paramsStr) {
+                const aiParams = JSON.parse(paramsStr);
+                const generated = generateAIMockQuestions(aiParams);
+                qs = generated.qs;
+                subs = generated.subs;
+                epaper = 'AI CUSTOM MOCK TEST';
+            }
+        }
+
+        if (qs.length === 0) {
+             qs = isNeet ? getNeetMockQuestions(testId) : getJeeMockQuestions(testId);
+             subs = isNeet ? neetSubjectsList : jeeSubjectsList;
+        }
+
+        setMockQuestions(qs);
+        setSubjectsList(subs);
+        setExamName(ename);
+        setExamPaperName(epaper);
+        setStatus({ [qs[0].id]: 'not_answered' });
+        setActiveSubject(qs[0].subject);
+        setIsCoreLoading(false);
+    }, [testId, isNeet]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -76,14 +104,17 @@ function JEE_NTA_TestEngine() {
     }, []);
 
     useEffect(() => {
+        if (mockQuestions.length === 0) return;
+        const currentQuestion = mockQuestions[currentQuestionIndex];
+        if (!currentQuestion) return;
         // Sync active subject tab when question changes via Next/Back
         if (currentQuestion.subject !== activeSubject) {
             setActiveSubject(currentQuestion.subject);
         }
-    }, [currentQuestionIndex]);
+    }, [currentQuestionIndex, mockQuestions, activeSubject]);
 
     useEffect(() => {
-        if (isSubmitted) return;
+        if (isSubmitted || isCoreLoading) return;
         const interval = setInterval(() => {
             setTimeLeft((prev) => {
                 if (prev <= 1) {
@@ -95,16 +126,33 @@ function JEE_NTA_TestEngine() {
             });
         }, 1000);
         return () => clearInterval(interval);
-    }, [isSubmitted]);
+    }, [isSubmitted, isCoreLoading]);
 
     useEffect(() => {
+        if (mockQuestions.length === 0) return;
+        const currentQuestion = mockQuestions[currentQuestionIndex];
+        if (!currentQuestion) return;
+        
         setStatus((prev) => {
             if (!prev[currentQuestion.id] || prev[currentQuestion.id] === 'not_visited') {
                 return { ...prev, [currentQuestion.id]: 'not_answered' };
             }
             return prev;
         });
-    }, [currentQuestionIndex, currentQuestion.id]);
+    }, [currentQuestionIndex, mockQuestions]);
+
+    if (isCoreLoading || mockQuestions.length === 0) {
+        return (
+            <div className="flex min-h-screen items-center justify-center bg-[#f4f7fe]">
+                <div className="text-center font-bold text-slate-500 flex flex-col items-center gap-3">
+                    <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin shadow-md"></div>
+                    <span className="text-lg uppercase tracking-widest text-[#2B579A]">Compiling Engine...</span>
+                </div>
+            </div>
+        );
+    }
+
+    const currentQuestion = mockQuestions[currentQuestionIndex];
 
     const formatTime = (seconds: number) => {
         const h = Math.floor(seconds / 3600);
