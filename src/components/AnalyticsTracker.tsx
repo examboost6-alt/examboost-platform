@@ -1,57 +1,61 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { getSupabaseClient } from "@/lib/supabaseClient";
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function AnalyticsTracker() {
-  const pathname = usePathname();
+    const pathname = usePathname();
 
-  useEffect(() => {
-    // We only want to track initial visits per device or significant path changes
-    // But to keep it simple and fulfill "1 visit per device", we'll generate a 
-    // unique device fingerprint using localStorage and send it to our API.
-    const trackVisit = async () => {
-      // Don't track admin pages to not skew analytics
-      if (pathname?.startsWith("/admin")) return;
+    useEffect(() => {
+        if (!pathname) return;
 
-      try {
-         // Get or generate device ID cookie/localstorage
-         let deviceId = localStorage.getItem("dev_fp_id");
-         if (!deviceId) {
-            deviceId = "dev_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
-            localStorage.setItem("dev_fp_id", deviceId);
-         }
+        // Skip tracking for admin paths to avoid polluting user stats
+        if (pathname.startsWith('/admin')) return;
 
-         const supabase = getSupabaseClient();
-         let userId = null;
-         
-         if (supabase) {
-             const { data: auth } = await supabase.auth.getSession();
-             if (auth?.session?.user) {
-                 userId = auth.session.user.id;
-             }
-         }
+        const trackView = async () => {
+            try {
+                // Get basic device info
+                const ua = window.navigator.userAgent;
+                let deviceType = 'Desktop';
+                if (/Mobi|Android/i.test(ua)) deviceType = 'Mobile';
+                if (/Tablet|iPad/i.test(ua)) deviceType = 'Tablet';
+                
+                let browser = 'Other';
+                if (ua.includes('Chrome')) browser = 'Chrome';
+                else if (ua.includes('Safari')) browser = 'Safari';
+                else if (ua.includes('Firefox')) browser = 'Firefox';
+                else if (ua.includes('Edge')) browser = 'Edge';
 
-         // Send tracking payload
-         await fetch("/api/track-visit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-               deviceId,
-               userId,
-               path: pathname,
-               userAgent: navigator.userAgent
-            }),
-         });
-      } catch (e) {
-         // Silent fail - analytics shouldn't break the app
-         console.warn("Analytics tracking bypassed");
-      }
-    };
+                let os = 'Other';
+                if (ua.includes('Win')) os = 'Windows';
+                else if (ua.includes('Mac')) os = 'macOS';
+                else if (ua.includes('Linux')) os = 'Linux';
+                else if (ua.includes('Android')) os = 'Android';
+                else if (ua.includes('iOS') || ua.includes('iPhone')) os = 'iOS';
 
-    trackVisit();
-  }, [pathname]);
+                // Hit our custom API route to insert into Supabase securely
+                await fetch('/api/analytics/track', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        path: pathname,
+                        device_type: deviceType,
+                        browser,
+                        os
+                    })
+                });
+            } catch (err) {
+                console.error("Failed to track analytics:", err);
+            }
+        };
 
-  return null;
+        // Adding a slight delay so it doesn't block critical rendering
+        const timer = setTimeout(() => {
+            trackView();
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [pathname]);
+
+    return null; // Invisible component
 }

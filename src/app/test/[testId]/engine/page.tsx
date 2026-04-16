@@ -240,7 +240,7 @@ function JEE_NTA_TestEngine() {
         setIsConfirmModalOpen(true);
     };
 
-    const handleFinalSubmit = () => {
+    const handleFinalSubmit = async () => {
         setIsConfirmModalOpen(false);
         let score = 0;
         let correct = 0;
@@ -281,6 +281,8 @@ function JEE_NTA_TestEngine() {
                 const historyKey = `exam_history_${seriesId}`;
                 const existingHistory = JSON.parse(localStorage.getItem(historyKey) || '[]');
 
+                const timeTakenSeconds = (180 * 60) - timeLeft;
+
                 const newAttempt = {
                     testId,
                     attemptId,
@@ -290,7 +292,7 @@ function JEE_NTA_TestEngine() {
                     incorrect,
                     unattempted,
                     isNeet,
-                    timeTakenSeconds: (180 * 60) - timeLeft,
+                    timeTakenSeconds,
                     responses
                 };
 
@@ -298,8 +300,30 @@ function JEE_NTA_TestEngine() {
                 localStorage.setItem(historyKey, JSON.stringify(existingHistory));
 
                 setIsSubmitted(true);
+                
+                // Track backend analytics silently
+                const supabase = getSupabaseClient();
+                if (supabase) {
+                    supabase.auth.getSession().then(({ data: authData }: any) => {
+                        if (authData?.session?.user) {
+                            supabase.from('user_tests').insert({
+                                user_id: authData.session.user.id,
+                                test_id: testId,
+                                score: score,
+                                correct: correct,
+                                incorrect: incorrect,
+                                unattempted: unattempted,
+                                time_taken: timeTakenSeconds,
+                                responses: responses
+                            }).then(({ error }: any) => {
+                                if (error) console.error("Error saving user_test:", error);
+                            });
+                        }
+                    });
+                }
+
                 setTimeout(() => {
-                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}&timeTaken=${(180 * 60) - timeLeft}`);
+                    router.push(`/test/${testId}/analysis?score=${score}&correct=${correct}&incorrect=${incorrect}&unattempted=${unattempted}&isNeet=${isNeet}&attemptId=${attemptId}&timeTaken=${timeTakenSeconds}`);
                 }, 1500);
             } catch (e) {
                 console.error("Could not save history", e);
