@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BarChart as BarChartIcon, Download, PieChart, TrendingUp, Loader2 } from "lucide-react";
 import { getSupabaseClient } from "@/lib/supabaseClient";
+import AdminLayout from "@/components/AdminLayout";
 
 export default function AdminReports() {
   const [loading, setLoading] = useState(true);
@@ -118,7 +119,8 @@ export default function AdminReports() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-8 pb-8">
+    <AdminLayout>
+      <div className="flex flex-col gap-8 pb-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
@@ -343,5 +345,6 @@ export default function AdminReports() {
         </>
       )}
     </div>
+    </AdminLayout>
   );
 }
