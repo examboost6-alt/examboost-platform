@@ -105,7 +105,7 @@ export default function AdminReports() {
           totalStudents,
           categoryDistribution,
           topTests,
-          avgSystemScore: globalAttempts > 0 ? Math.round(globalAccSum / globalAttempts) + "%" : "N/A",
+          avgSystemScore: globalAttempts > 0 ? Math.round(globalAccSum / globalAttempts) + "%" : "0",
           traffic: trafficStats
         });
 
