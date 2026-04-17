@@ -82,6 +82,10 @@ export default function Breadcrumbs() {
 
     if (breadcrumbs.length === 0) return null;
 
+    if (pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/onboarding') || pathname.startsWith('/series') || pathname.startsWith('/test')) {
+        return null;
+    }
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
