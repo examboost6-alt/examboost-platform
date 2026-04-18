@@ -215,9 +215,9 @@ export default function AdminRealTime() {
 
   const getEventColor = (eventType: RealTimeEvent['eventType']) => {
     switch (eventType) {
-      case 'page_view': return 'text-blue-600 bg-blue-100 dark:bg-blue-500/20 dark:text-blue-400';
+      case 'page_view': return 'text-primary bg-blue-100 dark:bg-primary/20 dark:text-primary';
       case 'user_login': return 'text-emerald-600 bg-emerald-100 dark:bg-emerald-500/20 dark:text-emerald-400';
-      case 'test_start': return 'text-purple-600 bg-purple-100 dark:bg-purple-500/20 dark:text-purple-400';
+      case 'test_start': return 'text-accent bg-purple-100 dark:bg-accent/20 dark:text-accent';
       case 'test_complete': return 'text-green-600 bg-green-100 dark:bg-green-500/20 dark:text-green-400';
       case 'purchase': return 'text-orange-600 bg-orange-100 dark:bg-orange-500/20 dark:text-orange-400';
       case 'error': return 'text-red-600 bg-red-100 dark:bg-red-500/20 dark:text-red-400';
@@ -281,8 +281,8 @@ export default function AdminRealTime() {
       {/* Live Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Online Users', value: metrics.onlineUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-100 dark:bg-blue-500/10', trend: 'up' },
-          { label: 'Active Tests', value: metrics.activeTests, icon: Activity, color: 'text-purple-600', bg: 'bg-purple-100 dark:bg-purple-500/10', trend: 'up' },
+          { label: 'Online Users', value: metrics.onlineUsers, icon: Users, color: 'text-primary', bg: 'bg-blue-100 dark:bg-primary/10', trend: 'up' },
+          { label: 'Active Tests', value: metrics.activeTests, icon: Activity, color: 'text-accent', bg: 'bg-purple-100 dark:bg-accent/10', trend: 'up' },
           { label: 'Page Views/min', value: metrics.pageViewsPerMinute, icon: Eye, color: 'text-emerald-600', bg: 'bg-emerald-100 dark:bg-emerald-500/10', trend: 'up' },
           { label: 'Error Rate', value: `${metrics.errorRate.toFixed(1)}%`, icon: AlertTriangle, color: 'text-red-600', bg: 'bg-red-100 dark:bg-red-500/10', trend: 'down' }
         ].map((metric, i) => (
@@ -316,9 +316,9 @@ export default function AdminRealTime() {
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">System Performance</h3>
           <div className="space-y-4">
             {[
-              { label: 'Server Load', value: metrics.serverLoad, unit: '%', max: 100, color: 'bg-blue-500' },
+              { label: 'Server Load', value: metrics.serverLoad, unit: '%', max: 100, color: 'bg-primary' },
               { label: 'Database Connections', value: metrics.databaseConnections, unit: '', max: 200, color: 'bg-green-500' },
-              { label: 'Bandwidth Usage', value: metrics.bandwidthUsage, unit: 'MB/s', max: 2000, color: 'bg-purple-500' },
+              { label: 'Bandwidth Usage', value: metrics.bandwidthUsage, unit: 'MB/s', max: 2000, color: 'bg-accent' },
               { label: 'Avg Response Time', value: metrics.avgResponseTime, unit: 'ms', max: 500, color: 'bg-orange-500' }
             ].map((perf, i) => (
               <div key={i} className="flex items-center justify-between">

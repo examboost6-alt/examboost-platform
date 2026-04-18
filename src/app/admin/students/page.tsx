@@ -418,10 +418,10 @@ export default function AdminStudentsPage() {
                 </div>
 
                 <div className="bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30 rounded-2xl p-5 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 blur-2xl rounded-full pointer-events-none"></div>
+                   <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-2xl rounded-full pointer-events-none"></div>
                    
                    <h3 className="text-sm font-black text-indigo-900 dark:text-indigo-100 mb-1 relative z-10 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-indigo-500" /> Grant Premium Access
+                      <ShieldCheck className="w-4 h-4 text-secondary" /> Grant Premium Access
                    </h3>
                    <p className="text-xs font-semibold text-indigo-700/70 dark:text-indigo-300/70 mb-4 relative z-10">
                       Give this user complimentary access to any premium test series.
@@ -434,7 +434,7 @@ export default function AdminStudentsPage() {
                         <select 
                           value={grantingSeriesId}
                           onChange={(e) => setGrantingSeriesId(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0f172a] border border-indigo-200 dark:border-indigo-800 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus:border-indigo-500 transition-colors shadow-sm appearance-none cursor-pointer"
+                          className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0f172a] border border-indigo-200 dark:border-indigo-800 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus:border-secondary transition-colors shadow-sm appearance-none cursor-pointer"
                         >
                            <option value="" disabled>-- Select a Series to Grant --</option>
                            {allSeries.map(s => {
@@ -449,7 +449,7 @@ export default function AdminStudentsPage() {
                         <button 
                           onClick={handleGrantAccess}
                           disabled={!grantingSeriesId || grantLoading}
-                          className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:hover:bg-indigo-600 transition-colors text-white font-bold text-sm flex items-center justify-center gap-2 rounded-xl shadow-md active:scale-95"
+                          className="w-full py-3 bg-secondary hover:bg-indigo-700 disabled:opacity-50 disabled:hover:bg-secondary transition-colors text-white font-bold text-sm flex items-center justify-center gap-2 rounded-xl shadow-md active:scale-95"
                         >
                            {grantLoading ? "Processing granting..." : "Grant Free Access"}
                         </button>

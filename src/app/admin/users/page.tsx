@@ -266,10 +266,10 @@ export default function AdvancedUserManagement() {
             {/* Smart KPI Top Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                    { label: "Platform Scholars", val: kpi.total, icon: UsersIcon, color: "text-blue-500", bg: "bg-blue-500/10" },
+                    { label: "Platform Scholars", val: kpi.total, icon: UsersIcon, color: "text-primary", bg: "bg-primary/10" },
                     { label: "Active Live / Today", val: kpi.activeToday, icon: Activity, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-                    { label: "Subscribed (Paid)", val: kpi.paid, icon: ShieldCheck, color: "text-indigo-500", bg: "bg-indigo-500/10" },
-                    { label: "New Admissions", val: kpi.newToday, icon: UserPlus, color: "text-purple-500", bg: "bg-purple-500/10" }
+                    { label: "Subscribed (Paid)", val: kpi.paid, icon: ShieldCheck, color: "text-secondary", bg: "bg-secondary/10" },
+                    { label: "New Admissions", val: kpi.newToday, icon: UserPlus, color: "text-accent", bg: "bg-accent/10" }
                 ].map((stat, i) => {
                     const Icon = stat.icon;
                     return (
@@ -442,7 +442,7 @@ export default function AdvancedUserManagement() {
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedUser(null)} className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100]" />
                         
                         <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            className="fixed inset-y-0 right-0 w-full max-w-md bg-white dark:bg-[#0f172a] shadow-2xl z-[110] border-l border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
+                            className="fixed inset-y-0 right-0 w-full max-w-xl bg-white dark:bg-[#0f172a] shadow-2xl z-[110] border-l border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
                         >
                             {/* Modal Header */}
                             <div className="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#020617] flex justify-between items-start">
@@ -477,7 +477,7 @@ export default function AdvancedUserManagement() {
                                 {/* Info Cards */}
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-800">
-                                        <Calendar className="w-5 h-5 text-indigo-500 mb-2" />
+                                        <Calendar className="w-5 h-5 text-secondary mb-2" />
                                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-0.5">Joined</p>
                                         <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{new Date(selectedUser.created_at).toLocaleDateString()}</p>
                                     </div>
@@ -496,7 +496,7 @@ export default function AdvancedUserManagement() {
                                     <h3 className="text-xs font-black uppercase tracking-widest text-slate-500 mb-4 pt-4 border-t border-slate-100 dark:border-slate-800">Dangerous Policies Constraints</h3>
                                     <div className="flex flex-col gap-3">
                                         <button className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-left transition-colors font-bold text-sm text-slate-700 dark:text-slate-300">
-                                            <FileText className="w-4 h-4 text-blue-500" /> Force Inject Manual Course
+                                            <FileText className="w-4 h-4 text-primary" /> Force Inject Manual Course
                                         </button>
                                         
                                         {selectedUser.status === 'Banned' ? (

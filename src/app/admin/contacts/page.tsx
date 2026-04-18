@@ -73,7 +73,7 @@ export default function AdminContacts() {
   });
 
   const stats = [
-    { label: "Total Messages", count: messages.length, color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
+    { label: "Total Messages", count: messages.length, color: "text-primary", bg: "bg-blue-50 dark:bg-primary/10" },
     { label: "Unread / Pending", count: messages.filter(m => m.status === 'Unread').length, color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10" },
     { label: "Replied / Closed", count: messages.filter(m => m.status === 'Closed' || m.status === 'Replied').length, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
   ];
@@ -110,7 +110,7 @@ export default function AdminContacts() {
 
       {loading ? (
         <div className="h-64 flex flex-col items-center justify-center bg-white dark:bg-[#0f172a] rounded-[2rem] border border-slate-200 dark:border-slate-800">
-           <Loader2 className="w-10 h-10 animate-spin text-blue-500 mb-3" />
+           <Loader2 className="w-10 h-10 animate-spin text-primary mb-3" />
            <p className="text-slate-500 font-bold">Synchronizing Live Database...</p>
         </div>
       ) : (
@@ -126,7 +126,7 @@ export default function AdminContacts() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search active messages..." 
-              className="w-full pl-11 pr-4 py-3 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500/50 text-sm font-medium transition-colors"
+              className="w-full pl-11 pr-4 py-3 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-primary/50 text-sm font-medium transition-colors"
             />
           </div>
           <div className="flex gap-3">
@@ -182,12 +182,12 @@ export default function AdminContacts() {
                   </td>
                   <td className="p-4 align-top">
                     {msg.status === 'Unread' && <span className="inline-flex items-center px-2 py-1 rounded-[6px] text-[10px] font-black border border-amber-200 text-amber-600 bg-amber-50 dark:border-amber-500/30 dark:text-amber-400 dark:bg-amber-500/10 uppercase tracking-widest"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"/>Unread</span>}
-                    {msg.status === 'Replied' && <span className="inline-flex items-center px-2 py-1 rounded-[6px] text-[10px] font-black border border-blue-200 text-blue-600 bg-blue-50 dark:border-blue-500/30 dark:text-blue-400 dark:bg-blue-500/10 uppercase tracking-widest"><div className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"/>Replied</span>}
+                    {msg.status === 'Replied' && <span className="inline-flex items-center px-2 py-1 rounded-[6px] text-[10px] font-black border border-blue-200 text-primary bg-blue-50 dark:border-primary/30 dark:text-primary dark:bg-primary/10 uppercase tracking-widest"><div className="w-1.5 h-1.5 rounded-full bg-primary mr-1.5"/>Replied</span>}
                     {(msg.status === 'Closed' || !msg.status) && <span className="inline-flex items-center px-2 py-1 rounded-[6px] text-[10px] font-black border border-slate-200 text-slate-600 bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:bg-slate-800 uppercase tracking-widest"><div className="w-1.5 h-1.5 rounded-full bg-slate-500 mr-1.5"/>Closed</span>}
                   </td>
                   <td className="p-4 pr-8 align-top">
                     <div className="flex justify-end gap-2 flex-wrap">
-                      <a href={`mailto:${msg.email}?subject=RE: ${msg.subject}`} onClick={() => updateStatus(msg.id, 'Replied')} className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 dark:text-blue-400 font-bold text-xs rounded-lg transition-colors cursor-pointer">
+                      <a href={`mailto:${msg.email}?subject=RE: ${msg.subject}`} onClick={() => updateStatus(msg.id, 'Replied')} className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-primary dark:bg-primary/10 dark:hover:bg-primary/20 dark:text-primary font-bold text-xs rounded-lg transition-colors cursor-pointer">
                         <Reply className="w-3 h-3" /> Reply
                       </a>
                       {msg.status === 'Unread' && (

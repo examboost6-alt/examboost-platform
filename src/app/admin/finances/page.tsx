@@ -35,8 +35,8 @@ export default function AdminFinances() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { label: "Total Revenue", amount: "₹42.5L", change: "+15.2%", trend: "up", icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
-          { label: "Monthly Recurring", amount: "₹18.4L", change: "+8.4%", trend: "up", icon: TrendingUp, color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
-          { label: "Successful Sales", amount: "12,450", change: "+12.1%", trend: "up", icon: CreditCard, color: "text-indigo-500", bg: "bg-indigo-50 dark:bg-indigo-500/10" },
+          { label: "Monthly Recurring", amount: "₹18.4L", change: "+8.4%", trend: "up", icon: TrendingUp, color: "text-primary", bg: "bg-blue-50 dark:bg-primary/10" },
+          { label: "Successful Sales", amount: "12,450", change: "+12.1%", trend: "up", icon: CreditCard, color: "text-secondary", bg: "bg-indigo-50 dark:bg-secondary/10" },
           { label: "Refunds", amount: "₹45K", change: "-2.5%", trend: "down", icon: TrendingDown, color: "text-rose-500", bg: "bg-rose-50 dark:bg-rose-500/10" }
         ].map((stat, i) => {
           const Icon = stat.icon;

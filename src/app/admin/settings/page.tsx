@@ -180,7 +180,7 @@ export default function EnterpriseSettings() {
                 <section className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
                   <div className="bg-slate-50/50 dark:bg-[#020617]/50 border-b border-slate-200 dark:border-slate-800 p-5 flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-lg"><Lock className="w-5 h-5"/></div>
+                      <div className="p-2 bg-indigo-100 dark:bg-secondary/20 text-secondary dark:text-secondary rounded-lg"><Lock className="w-5 h-5"/></div>
                       <div>
                         <h2 className="text-md font-bold text-slate-900 dark:text-white">Authentication Policies</h2>
                         <p className="text-xs font-semibold text-slate-500">Enforce strict rules for login and sessions</p>
@@ -203,7 +203,7 @@ export default function EnterpriseSettings() {
                               <p className="text-xs text-slate-500 font-medium mt-0.5 max-w-md">{feature.desc}</p>
                             </div>
                           </div>
-                          <button className={`w-12 h-6 rounded-full relative transition-colors ${feature.enabled ? 'bg-indigo-500' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                          <button className={`w-12 h-6 rounded-full relative transition-colors ${feature.enabled ? 'bg-secondary' : 'bg-slate-200 dark:bg-slate-700'}`}>
                             <div className={`w-4 h-4 rounded-full bg-white shadow-sm absolute top-1 transition-transform duration-300 ${feature.enabled ? 'translate-x-7' : 'translate-x-1'}`} />
                           </button>
                         </div>
@@ -215,7 +215,7 @@ export default function EnterpriseSettings() {
                 <section className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden p-6">
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">Admin Office IP Whitelisting</h3>
                   <div className="flex gap-3">
-                    <input type="text" placeholder="e.g. 192.168.1.1/24" className="flex-1 px-4 py-2.5 bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-indigo-500/50 text-sm font-mono transition-colors" />
+                    <input type="text" placeholder="e.g. 192.168.1.1/24" className="flex-1 px-4 py-2.5 bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-secondary/50 text-sm font-mono transition-colors" />
                     <button className="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white dark:bg-white dark:hover:bg-slate-200 dark:text-slate-900 rounded-xl font-bold text-sm shadow-sm transition-all">Add IP</button>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -238,7 +238,7 @@ export default function EnterpriseSettings() {
                 className="flex flex-col gap-6"
               >
                 {[
-                  { title: "Payment Gateways", desc: "Razorpay / Stripe Credentials", icon: CreditCard, color: "text-blue-500", bg: "bg-blue-100 dark:bg-blue-500/20", fields: ["rzp_live_key_id", "rzp_webhook_secret"] },
+                  { title: "Payment Gateways", desc: "Razorpay / Stripe Credentials", icon: CreditCard, color: "text-primary", bg: "bg-blue-100 dark:bg-primary/20", fields: ["rzp_live_key_id", "rzp_webhook_secret"] },
                   { title: "SMS Service (OTP)", desc: "Twilio / Fast2SMS Routing", icon: MessageSquare, color: "text-emerald-500", bg: "bg-emerald-100 dark:bg-emerald-500/20", fields: ["sms_api_key", "sms_sender_id"] },
                   { title: "Transactional Emails", desc: "AWS SES / SendGrid Configs", icon: Mail, color: "text-amber-500", bg: "bg-amber-100 dark:bg-amber-500/20", fields: ["smtp_host", "ses_access_key"] },
                 ].map((integ, i) => {
@@ -280,7 +280,7 @@ export default function EnterpriseSettings() {
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 <div className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-2">
+                  <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-accent/20 text-accent dark:text-accent flex items-center justify-center mb-2">
                     <Database className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 dark:text-white">Database Snapshots</h3>
@@ -292,7 +292,7 @@ export default function EnterpriseSettings() {
                 </div>
 
                 <div className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-2">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-primary/20 text-primary dark:text-primary flex items-center justify-center mb-2">
                     <RefreshCw className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 dark:text-white">Redis Cache Clear</h3>

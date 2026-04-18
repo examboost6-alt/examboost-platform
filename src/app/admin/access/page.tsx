@@ -178,8 +178,8 @@ export default function AdminAccess() {
             className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6"
             >
             <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0">
-                <Unlock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                <Unlock className="w-5 h-5 text-secondary dark:text-secondary" />
                 </div>
                 <div>
                 <h2 className="text-lg font-bold text-slate-800 dark:text-white">Unlock Existing Student</h2>
@@ -203,7 +203,7 @@ export default function AdminAccess() {
                         value={targetEmail}
                         onChange={(e) => setTargetEmail(e.target.value)}
                         placeholder="Search specific user..." 
-                        className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-indigo-500/50 text-sm font-medium transition-colors text-slate-800 dark:text-slate-200"
+                        className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-secondary/50 text-sm font-medium transition-colors text-slate-800 dark:text-slate-200"
                     />
                 </div>
                 </div>
@@ -218,7 +218,7 @@ export default function AdminAccess() {
                 <button 
                 type="submit" 
                 disabled={grantingUser}
-                className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white rounded-xl font-bold shadow-md transition-colors shadow-indigo-500/20 flex items-center justify-center gap-2"
+                className="w-full py-3 bg-secondary hover:bg-indigo-700 disabled:bg-slate-400 text-white rounded-xl font-bold shadow-md transition-colors shadow-indigo-500/20 flex items-center justify-center gap-2"
                 >
                 {grantingUser ? <Loader2 className="w-5 h-5 animate-spin" /> : <ShieldCheck className="w-5 h-5 text-indigo-300" />} 
                 {grantingUser ? 'Securing Registration...' : 'Authorize Full Account Sync'}

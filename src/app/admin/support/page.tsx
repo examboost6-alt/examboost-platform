@@ -25,7 +25,7 @@ export default function AdminSupport() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           { label: "Open Doubts", count: "124", color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10" },
-          { label: "In Progress", count: "45", color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
+          { label: "In Progress", count: "45", color: "text-primary", bg: "bg-blue-50 dark:bg-primary/10" },
           { label: "Resolved Today", count: "312", color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
         ].map((stat, i) => (
           <motion.div 
@@ -112,7 +112,7 @@ export default function AdminSupport() {
                       doubt.status === 'Open' 
                         ? 'border-amber-200 text-amber-600 bg-amber-50 dark:border-amber-500/30 dark:text-amber-400 dark:bg-amber-500/10' 
                         : doubt.status === 'In Progress'
-                          ? 'border-blue-200 text-blue-600 bg-blue-50 dark:border-blue-500/30 dark:text-blue-400 dark:bg-blue-500/10'
+                          ? 'border-blue-200 text-primary bg-blue-50 dark:border-primary/30 dark:text-primary dark:bg-primary/10'
                           : 'border-emerald-200 text-emerald-600 bg-emerald-50 dark:border-emerald-500/30 dark:text-emerald-400 dark:bg-emerald-500/10'
                     }`}>
                       {doubt.status}

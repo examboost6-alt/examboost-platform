@@ -157,8 +157,8 @@ export default function AdminTests() {
       {/* Analytics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { label: "Total Test Series", count: String(rows.length), icon: BookOpen, color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
-          { label: "Active Series", count: String(rows.filter((r) => r.is_active).length), icon: FileText, color: "text-indigo-500", bg: "bg-indigo-50 dark:bg-indigo-500/10" },
+          { label: "Total Test Series", count: String(rows.length), icon: BookOpen, color: "text-primary", bg: "bg-blue-50 dark:bg-primary/10" },
+          { label: "Active Series", count: String(rows.filter((r) => r.is_active).length), icon: FileText, color: "text-secondary", bg: "bg-indigo-50 dark:bg-secondary/10" },
           { label: "Published Tests", count: "0", icon: CheckCircle, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
           { label: "Inactive Series", count: String(rows.filter((r) => !r.is_active).length), icon: Clock, color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10" }
         ].map((stat, i) => {

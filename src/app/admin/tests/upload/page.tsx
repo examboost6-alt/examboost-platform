@@ -71,7 +71,7 @@ export default function AdminUploadTest() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2 flex items-center gap-3">
-            <Database className="w-8 h-8 text-indigo-500" />
+            <Database className="w-8 h-8 text-secondary" />
             Bulk Question Uploader
           </h1>
           <p className="text-slate-500 font-medium">Instantly import complete Mock Tests or Previous Year Papers via JSON payload.</p>
@@ -88,13 +88,13 @@ export default function AdminUploadTest() {
             <div className="bg-white dark:bg-[#0f172a] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 overflow-hidden">
                 <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
                     <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                        <FileJson className="w-5 h-5 text-indigo-500" /> Raw JSON Payload
+                        <FileJson className="w-5 h-5 text-secondary" /> Raw JSON Payload
                     </h3>
                 </div>
 
                 <div className="relative mb-6 group">
-                    <label className="absolute inset-0 flex flex-col items-center justify-center bg-slate-50/80 dark:bg-slate-900/40 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl cursor-pointer hover:bg-indigo-50/50 hover:border-indigo-400 dark:hover:bg-indigo-900/20 dark:hover:border-indigo-500/50 transition-colors z-10 backdrop-blur-[1px] opacity-100 peer-focus-within:opacity-0 peer-focus-within:pointer-events-none data-[has-text=true]:opacity-0 data-[has-text=true]:pointer-events-none" data-has-text={jsonInput.length > 0}>
-                        <UploadCloud className="w-10 h-10 text-indigo-400 dark:text-indigo-500 mb-3" />
+                    <label className="absolute inset-0 flex flex-col items-center justify-center bg-slate-50/80 dark:bg-slate-900/40 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl cursor-pointer hover:bg-indigo-50/50 hover:border-secondary dark:hover:bg-indigo-900/20 dark:hover:border-secondary/50 transition-colors z-10 backdrop-blur-[1px] opacity-100 peer-focus-within:opacity-0 peer-focus-within:pointer-events-none data-[has-text=true]:opacity-0 data-[has-text=true]:pointer-events-none" data-has-text={jsonInput.length > 0}>
+                        <UploadCloud className="w-10 h-10 text-secondary dark:text-secondary mb-3" />
                         <span className="font-bold text-slate-700 dark:text-slate-300">Drag & Drop JSON file here</span>
                         <span className="text-sm font-medium text-slate-500 mt-1">or click to browse local files</span>
                         <input type="file" accept=".json" onChange={handleFileUpload} className="hidden" />
@@ -103,7 +103,7 @@ export default function AdminUploadTest() {
                         value={jsonInput}
                         onChange={(e) => setJsonInput(e.target.value)}
                         placeholder="Paste your JSON text here..."
-                        className="w-full h-[400px] p-5 bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-300 font-mono text-sm border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-indigo-500 dark:focus:border-indigo-500 resize-none peer relative z-0"
+                        className="w-full h-[400px] p-5 bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-300 font-mono text-sm border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-secondary dark:focus:border-secondary resize-none peer relative z-0"
                         spellCheck="false"
                     />
                 </div>
@@ -111,7 +111,7 @@ export default function AdminUploadTest() {
                 <button 
                     onClick={handleValidate} 
                     disabled={isValidating || jsonInput.length === 0}
-                    className="w-full flex items-center justify-center gap-2 py-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-600/20 text-white font-black text-[15px] uppercase tracking-wider rounded-2xl shadow-lg shadow-indigo-600/30 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2 py-4 bg-secondary hover:bg-indigo-700 focus:ring-4 focus:ring-secondary/20 text-white font-black text-[15px] uppercase tracking-wider rounded-2xl shadow-lg shadow-indigo-600/30 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                     {isValidating ? (
                         <div className="flex items-center gap-3">
@@ -129,7 +129,7 @@ export default function AdminUploadTest() {
         {/* Right Side: Status area */}
         <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="bg-slate-900 dark:bg-[#110b1a] rounded-3xl border border-slate-800 p-8 shadow-xl relative overflow-hidden h-full flex flex-col">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 dark:bg-indigo-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 dark:bg-secondary/5 blur-[80px] rounded-full pointer-events-none"></div>
 
                 <h3 className="text-xl font-black text-white mb-6 tracking-tight relative z-10">Validation Status</h3>
 
@@ -176,7 +176,7 @@ export default function AdminUploadTest() {
                                 </div>
                                 <div>
                                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1 text-right">Engine Type</p>
-                                    <p className="text-xl font-bold text-indigo-400 text-right">JEE Main</p>
+                                    <p className="text-xl font-bold text-secondary text-right">JEE Main</p>
                                 </div>
                             </div>
                         </div>

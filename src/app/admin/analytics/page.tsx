@@ -224,7 +224,7 @@ export default function AdminAnalytics() {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-[#0f172a] flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-indigo-600 mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 animate-spin text-secondary mx-auto mb-4" />
           <p className="text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-widest text-sm">Aggregating Global Telemetry...</p>
         </div>
       </div>
@@ -241,8 +241,8 @@ export default function AdminAnalytics() {
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 relative z-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-400 rounded-md text-[10px] font-black uppercase tracking-widest mb-3 border border-indigo-200 dark:border-indigo-500/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" /> Live Telemetry
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-indigo-100 text-indigo-700 dark:bg-secondary/20 dark:text-secondary rounded-md text-[10px] font-black uppercase tracking-widest mb-3 border border-indigo-200 dark:border-secondary/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> Live Telemetry
             </div>
             <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Master Analytics</h1>
             <p className="text-slate-500 font-semibold flex items-center gap-2">
@@ -257,13 +257,13 @@ export default function AdminAnalytics() {
                 placeholder="Find users..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-64 transition-all"
+                className="pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-64 transition-all"
               />
             </div>
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
-              className="px-4 py-2.5 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-2.5 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
             >
               <option value="24h">Past 24 Hours</option>
               <option value="7d">Past 7 Days</option>
@@ -272,7 +272,7 @@ export default function AdminAnalytics() {
             </select>
             <button
               onClick={fetchAnalyticsData}
-              className="p-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-md transition-all active:scale-95"
+              className="p-2.5 bg-secondary hover:bg-indigo-700 text-white rounded-xl shadow-md transition-all active:scale-95"
             >
               <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
             </button>
@@ -291,7 +291,7 @@ export default function AdminAnalytics() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all ${
                 activeTab === tab.id
-                  ? 'bg-white dark:bg-[#1e293b] text-indigo-600 dark:text-indigo-400 shadow-sm'
+                  ? 'bg-white dark:bg-[#1e293b] text-secondary dark:text-secondary shadow-sm'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
@@ -309,12 +309,12 @@ export default function AdminAnalytics() {
             {/* KPI Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
-                { label: 'Total Page Views', value: visitorStats.totalVisits.toLocaleString(), icon: Eye, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+                { label: 'Total Page Views', value: visitorStats.totalVisits.toLocaleString(), icon: Eye, color: 'text-primary', bg: 'bg-primary/10' },
                 { label: 'Unique IPs', value: visitorStats.uniqueVisitors.toLocaleString(), icon: Users, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
-                { label: 'Authenticated Hits', value: visitorStats.authenticatedVisits.toLocaleString(), icon: Activity, color: 'text-purple-500', bg: 'bg-purple-500/10' },
+                { label: 'Authenticated Hits', value: visitorStats.authenticatedVisits.toLocaleString(), icon: Activity, color: 'text-accent', bg: 'bg-accent/10' },
                 { label: 'Time Filter', value: dateRange.toUpperCase(), icon: Clock, color: 'text-orange-500', bg: 'bg-orange-500/10' }
               ].map((metric, i) => (
-                <div key={metric.label} className="bg-white dark:bg-[#1e293b] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group hover:border-indigo-500/30 transition-colors">
+                <div key={metric.label} className="bg-white dark:bg-[#1e293b] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group hover:border-secondary/30 transition-colors">
                   <div className="flex items-center justify-between mb-4 relative z-10">
                     <div className={`p-3 rounded-xl ${metric.bg} ${metric.color}`}>
                       <metric.icon className="w-6 h-6" />
@@ -331,7 +331,7 @@ export default function AdminAnalytics() {
               {/* Top Pages */}
               <div className="lg:col-span-7 bg-white dark:bg-[#1e293b] p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <h3 className="text-lg font-black text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                    <History className="w-5 h-5 text-indigo-500" /> Hot Pages
+                    <History className="w-5 h-5 text-secondary" /> Hot Pages
                 </h3>
                 <div className="space-y-4">
                   {visitorStats.topPages.length === 0 ? <p className="text-slate-500 italic">No traffic data yet.</p> :
@@ -340,7 +340,7 @@ export default function AdminAnalytics() {
                       <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-black text-slate-400 text-xs shrink-0">#{i+1}</div>
                       <div className="flex-1 bg-slate-50 dark:bg-[#0f172a] rounded-xl p-3 border border-slate-100 dark:border-slate-800 flex justify-between items-center group hover:border-indigo-200 transition-colors">
                           <div className="font-mono text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold truncate max-w-[200px] sm:max-w-xs">{page.page}</div>
-                          <div className="font-black text-indigo-600 bg-indigo-50 dark:bg-indigo-500/10 px-3 py-1 rounded-lg text-sm">{page.views.toLocaleString()}</div>
+                          <div className="font-black text-secondary bg-indigo-50 dark:bg-secondary/10 px-3 py-1 rounded-lg text-sm">{page.views.toLocaleString()}</div>
                       </div>
                     </div>
                   ))}
@@ -354,8 +354,8 @@ export default function AdminAnalytics() {
                     <h3 className="text-sm font-black text-slate-900 dark:text-white mb-6 uppercase tracking-widest flex items-center gap-2">Hardware</h3>
                     <div className="space-y-5">
                       {[
-                        { type: 'Desktop OS', value: visitorStats.desktop, icon: Monitor, color: 'bg-blue-500' },
-                        { type: 'Mobile Handsets', value: visitorStats.mobile, icon: Smartphone, color: 'bg-indigo-500' },
+                        { type: 'Desktop OS', value: visitorStats.desktop, icon: Monitor, color: 'bg-primary' },
+                        { type: 'Mobile Handsets', value: visitorStats.mobile, icon: Smartphone, color: 'bg-secondary' },
                         { type: 'Tablets', value: visitorStats.tablet, icon: Tablet, color: 'bg-emerald-500' }
                       ].map((device, i) => (
                         <div key={i}>
@@ -425,7 +425,7 @@ export default function AdminAnalytics() {
                           </div>
                           <div className="text-xs text-slate-400">{new Date(user.lastSeen).toLocaleTimeString()}</div>
                         </td>
-                        <td className="p-4 font-black text-indigo-600 dark:text-indigo-400">{user.totalVisits}</td>
+                        <td className="p-4 font-black text-secondary dark:text-secondary">{user.totalVisits}</td>
                         <td className="p-4">
                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase">
                               {user.preferredDevice === 'Desktop' ? <Monitor className="w-3.5 h-3.5" /> : <Smartphone className="w-3.5 h-3.5"/>}
@@ -436,7 +436,7 @@ export default function AdminAnalytics() {
                            {user.primaryLocation}
                         </td>
                         <td className="p-4 pr-8 text-right">
-                          <button onClick={() => toggleRowExpansion(user.id)} className="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-indigo-500 group-hover:text-indigo-500 transition-all">
+                          <button onClick={() => toggleRowExpansion(user.id)} className="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary group-hover:text-secondary transition-all">
                             {expandedUsers.has(user.id) ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                           </button>
                         </td>
@@ -446,16 +446,16 @@ export default function AdminAnalytics() {
                       <AnimatePresence>
                         {expandedUsers.has(user.id) && (
                            <motion.tr initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="bg-slate-50/80 dark:bg-[#0f172a]/80 shadow-inner">
-                              <td colSpan={6} className="p-0 border-b-2 border-indigo-500/20">
+                              <td colSpan={6} className="p-0 border-b-2 border-secondary/20">
                                  <div className="p-6 md:p-8">
                                     <h4 className="text-xs font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4"/> Recent Navigation Trail</h4>
                                     <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 space-y-4">
                                         {user.history.length === 0 ? <p className="pl-6 text-sm text-slate-500 italic">No detailed path history mapped.</p> :
                                          user.history.map((hit: any, i: number) => (
                                             <div key={hit.id} className="relative pl-6">
-                                                <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-indigo-500 ring-4 ring-slate-50 dark:ring-[#0f172a]" />
+                                                <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-slate-50 dark:ring-[#0f172a]" />
                                                 <div className="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-700 p-3 rounded-xl flex justify-between items-center shadow-sm">
-                                                    <span className="font-mono text-xs sm:text-sm text-indigo-600 dark:text-indigo-400 font-semibold">{hit.path}</span>
+                                                    <span className="font-mono text-xs sm:text-sm text-secondary dark:text-secondary font-semibold">{hit.path}</span>
                                                     <span className="text-[10px] sm:text-xs font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{new Date(hit.created_at).toLocaleTimeString()} ({hit.os})</span>
                                                 </div>
                                             </div>
@@ -540,7 +540,7 @@ export default function AdminAnalytics() {
                                             </div>
                                         </td>
                                         <td className="p-4 pr-8 text-right">
-                                            <button onClick={() => toggleRowExpansion(`perf-${student.id}`)} className="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-indigo-500 group-hover:text-indigo-500 transition-all">
+                                            <button onClick={() => toggleRowExpansion(`perf-${student.id}`)} className="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-secondary group-hover:text-secondary transition-all">
                                                 {expandedUsers.has(`perf-${student.id}`) ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                             </button>
                                         </td>
@@ -549,7 +549,7 @@ export default function AdminAnalytics() {
                                     <AnimatePresence>
                                       {expandedUsers.has(`perf-${student.id}`) && (
                                          <motion.tr initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="bg-slate-50/80 dark:bg-[#0f172a]/80 shadow-inner">
-                                            <td colSpan={6} className="p-0 border-b-2 border-indigo-500/20">
+                                            <td colSpan={6} className="p-0 border-b-2 border-secondary/20">
                                                <div className="p-6 md:p-8">
                                                   <h4 className="text-xs font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2"><Database className="w-4 h-4"/> Cryptographic Answer Registry (Last 5 Sessions)</h4>
                                                   <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">

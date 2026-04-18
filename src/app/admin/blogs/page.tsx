@@ -126,7 +126,7 @@ export default function AdminBlogs() {
                   <td className="p-4 pr-6">
                     <div className="flex justify-end gap-2">
                       <button className="text-slate-400 hover:text-primary transition-colors p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><Eye className="w-4 h-4" /></button>
-                      <button className="text-slate-400 hover:text-indigo-500 transition-colors p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><Edit className="w-4 h-4" /></button>
+                      <button className="text-slate-400 hover:text-secondary transition-colors p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><Edit className="w-4 h-4" /></button>
                       <button className="text-slate-400 hover:text-rose-500 transition-colors p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-500/10"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </td>

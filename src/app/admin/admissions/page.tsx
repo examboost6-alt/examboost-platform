@@ -72,7 +72,7 @@ export default function AdminAdmissions() {
       {/* Header Area */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 bg-white dark:bg-[#0f172a] p-6 lg:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
         {/* Decorative BG element */}
-        <div className="absolute right-0 top-0 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute right-0 top-0 w-64 h-64 bg-secondary/5 dark:bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200 dark:border-emerald-800">
@@ -97,7 +97,7 @@ export default function AdminAdmissions() {
       {/* Analytics KPI Dashboard */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Total Submissions", count: admissions.length.toLocaleString(), desc: "Lifetime applications", icon: FileText, color: "text-blue-500 flex-1", bg: "bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20" },
+          { label: "Total Submissions", count: admissions.length.toLocaleString(), desc: "Lifetime applications", icon: FileText, color: "text-primary flex-1", bg: "bg-blue-50 dark:bg-primary/10 border-blue-100 dark:border-primary/20" },
           { label: "Pending Verification", count: admissions.filter(a => a.status === 'Pending').length.toLocaleString(), desc: "Updates in real-time", icon: Eye, color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20" },
           { label: "Approved Admissions", count: admissions.filter(a => a.status === 'Verified').length.toLocaleString(), desc: "Identity secured", icon: CheckCircle2, color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-500/20" },
           { label: "Blocked / Incomplete", count: admissions.filter(a => a.status === 'Incomplete').length.toLocaleString(), desc: "Missing photo docs", icon: AlertTriangle, color: "text-rose-500", bg: "bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20" }
@@ -137,7 +137,7 @@ export default function AdminAdmissions() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by Form ID (e.g., ADM-659), Name, or Phone..." 
-              className="w-full pl-12 pr-4 py-2.5 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500 text-sm font-bold text-slate-800 dark:text-slate-100 transition-colors shadow-sm"
+              className="w-full pl-12 pr-4 py-2.5 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-primary text-sm font-bold text-slate-800 dark:text-slate-100 transition-colors shadow-sm"
             />
           </div>
           
@@ -156,7 +156,7 @@ export default function AdminAdmissions() {
             <thead>
               <tr className="bg-white dark:bg-[#0f172a] border-b border-slate-200 dark:border-slate-800 text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                 <th className="p-5 pl-8 w-10">
-                   <input type="checkbox" className="rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer" />
+                   <input type="checkbox" className="rounded text-secondary focus:ring-secondary cursor-pointer" />
                 </th>
                 <th className="p-5">Student Information</th>
                 <th className="p-5">Geo Tracking</th>
@@ -170,14 +170,14 @@ export default function AdminAdmissions() {
               {loading ? (
                 <tr>
                    <td colSpan={7} className="p-8 text-center text-slate-500 font-bold">
-                       <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2 text-indigo-500" />
+                       <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2 text-secondary" />
                        Loading Admissions Engine...
                    </td>
                 </tr>
               ) : filteredAdmissions.map((adm, index) => (
                 <tr key={adm.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors group">
                   <td className="p-5 pl-8">
-                     <input type="checkbox" className="rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer border-slate-300 dark:border-slate-600" />
+                     <input type="checkbox" className="rounded text-secondary focus:ring-secondary cursor-pointer border-slate-300 dark:border-slate-600" />
                   </td>
                   <td className="p-5">
                     <div className="flex items-center gap-4">
@@ -199,7 +199,7 @@ export default function AdminAdmissions() {
                     </div>
                   </td>
                   <td className="p-5">
-                    <span className="inline-flex items-center px-2.5 py-1.5 bg-blue-50 text-blue-700 border border-blue-100 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20 rounded-lg font-bold text-[11px] uppercase tracking-wide">
+                    <span className="inline-flex items-center px-2.5 py-1.5 bg-blue-50 text-blue-700 border border-blue-100 dark:bg-primary/10 dark:text-primary dark:border-primary/20 rounded-lg font-bold text-[11px] uppercase tracking-wide">
                        {adm.exam}
                     </span>
                   </td>
@@ -292,7 +292,7 @@ export default function AdminAdmissions() {
                           <img src="/grid-pattern.svg" className="absolute inset-0 opacity-5" alt="Background" />
                           <div className="flex justify-between items-start mb-6 border-b border-slate-100 dark:border-slate-800 pb-4 relative z-10">
                             <div>
-                               <div className="text-[10px] font-black uppercase text-indigo-600 tracking-widest bg-indigo-50 dark:bg-indigo-900/30 dark:text-indigo-400 px-2.5 py-1 rounded inline-block mb-1">Official Test Hall Ticket Data</div>
+                               <div className="text-[10px] font-black uppercase text-secondary tracking-widest bg-indigo-50 dark:bg-indigo-900/30 dark:text-secondary px-2.5 py-1 rounded inline-block mb-1">Official Test Hall Ticket Data</div>
                                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{admCard.name}</h3>
                             </div>
                           </div>
@@ -343,7 +343,7 @@ export default function AdminAdmissions() {
                        <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-2">Admin Notes (Internal)</h4>
                        <textarea 
                           placeholder="Add verification notes here... (Not visible to student)"
-                          className="w-full bg-slate-50 dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 min-h-[100px] text-sm font-medium outline-none focus:border-blue-500 resize-none shadow-inner"
+                          className="w-full bg-slate-50 dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 min-h-[100px] text-sm font-medium outline-none focus:border-primary resize-none shadow-inner"
                        ></textarea>
                     </div>
 

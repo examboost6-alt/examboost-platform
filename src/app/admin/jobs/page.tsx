@@ -24,9 +24,9 @@ export default function AdminJobs() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
-          { label: "Total Applications", count: "402", color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
+          { label: "Total Applications", count: "402", color: "text-primary", bg: "bg-blue-50 dark:bg-primary/10" },
           { label: "Under Review", count: "45", color: "text-amber-500", bg: "bg-amber-50 dark:bg-amber-500/10" },
-          { label: "Shortlisted", count: "24", color: "text-indigo-500", bg: "bg-indigo-50 dark:bg-indigo-500/10" },
+          { label: "Shortlisted", count: "24", color: "text-secondary", bg: "bg-indigo-50 dark:bg-secondary/10" },
           { label: "Hired", count: "12", color: "text-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
         ].map((stat, i) => (
           <motion.div 
@@ -127,7 +127,7 @@ export default function AdminJobs() {
                       app.status === 'Hired' 
                         ? 'border-emerald-200 text-emerald-700 bg-emerald-50 dark:border-emerald-500/30 dark:text-emerald-400 dark:bg-emerald-500/10' 
                         : app.status === 'Shortlisted'
-                          ? 'border-blue-200 text-blue-700 bg-blue-50 dark:border-blue-500/30 dark:text-blue-400 dark:bg-blue-500/10'
+                          ? 'border-blue-200 text-blue-700 bg-blue-50 dark:border-primary/30 dark:text-primary dark:bg-primary/10'
                           : app.status === 'Rejected'
                             ? 'border-rose-200 text-rose-700 bg-rose-50 dark:border-rose-500/30 dark:text-rose-400 dark:bg-rose-500/10'
                             : 'border-amber-200 text-amber-700 bg-amber-50 dark:border-amber-500/30 dark:text-amber-400 dark:bg-amber-500/10'
