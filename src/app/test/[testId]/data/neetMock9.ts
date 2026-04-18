@@ -2765,8 +2765,8 @@ export const neetMock9Questions: QuestionType[] = [
     "id": 93,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "Lysosomes called "suicide bags" due to:",
-    "textHi": "Lysosomes called "suicide bags" due to: (Hindi translated via AI)",
+    "textEn": "Lysosomes called 'suicide bags' due to:",
+    "textHi": "Lysosomes called 'suicide bags' due to: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,

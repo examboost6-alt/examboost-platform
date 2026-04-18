@@ -4385,8 +4385,8 @@ export const neetMock6Questions: QuestionType[] = [
     "id": 147,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "12. Circulation - Heart Sounds \n"Atrioventricular and semilunar valves closing" produces:",
-    "textHi": "12. Circulation - Heart Sounds (Hindi translated via AI) \n"Atrioventricular and semilunar valves closing" produces:",
+    "textEn": "12. Circulation - Heart Sounds \n'Atrioventricular and semilunar valves closing' produces:",
+    "textHi": "12. Circulation - Heart Sounds (Hindi translated via AI) \n'Atrioventricular and semilunar valves closing' produces:",
     "options": [
       {
         "id": 1,
@@ -4715,8 +4715,8 @@ export const neetMock6Questions: QuestionType[] = [
     "id": 158,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "23. Biomolecules - Enzymes \n"Lock‑and‑key" model explains:",
-    "textHi": "23. Biomolecules - Enzymes (Hindi translated via AI) \n"Lock‑and‑key" model explains:",
+    "textEn": "23. Biomolecules - Enzymes \n'Lock‑and‑key' model explains:",
+    "textHi": "23. Biomolecules - Enzymes (Hindi translated via AI) \n'Lock‑and‑key' model explains:",
     "options": [
       {
         "id": 1,

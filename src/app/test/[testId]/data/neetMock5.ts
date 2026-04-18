@@ -3665,8 +3665,8 @@ export const neetMock5Questions: QuestionType[] = [
     "id": 123,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "33. Molecular Basis - Central Dogma \nIn eukaryotes, the process "DNA → mRNA → protein" occurs in:",
-    "textHi": "33. Molecular Basis - Central Dogma (Hindi translated via AI) \nIn eukaryotes, the process "DNA → mRNA → protein" occurs in:",
+    "textEn": "33. Molecular Basis - Central Dogma \nIn eukaryotes, the process 'DNA → mRNA → protein' occurs in:",
+    "textHi": "33. Molecular Basis - Central Dogma (Hindi translated via AI) \nIn eukaryotes, the process 'DNA → mRNA → protein' occurs in:",
     "options": [
       {
         "id": 1,
@@ -4385,8 +4385,8 @@ export const neetMock5Questions: QuestionType[] = [
     "id": 147,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "12. Body Fluids - Cardiac Cycle \nThe "lub‑dub" sound in the heart corresponds to closure of:",
-    "textHi": "12. Body Fluids - Cardiac Cycle (Hindi translated via AI) \nThe "lub‑dub" sound in the heart corresponds to closure of:",
+    "textEn": "12. Body Fluids - Cardiac Cycle \nThe 'lub‑dub' sound in the heart corresponds to closure of:",
+    "textHi": "12. Body Fluids - Cardiac Cycle (Hindi translated via AI) \nThe 'lub‑dub' sound in the heart corresponds to closure of:",
     "options": [
       {
         "id": 1,
@@ -4715,8 +4715,8 @@ export const neetMock5Questions: QuestionType[] = [
     "id": 158,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "23. Biomolecules - Enzymes \nThe "lock and key" model explains:",
-    "textHi": "23. Biomolecules - Enzymes (Hindi translated via AI) \nThe "lock and key" model explains:",
+    "textEn": "23. Biomolecules - Enzymes \nThe 'lock and key' model explains:",
+    "textHi": "23. Biomolecules - Enzymes (Hindi translated via AI) \nThe 'lock and key' model explains:",
     "options": [
       {
         "id": 1,
