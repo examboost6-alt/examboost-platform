@@ -60,7 +60,7 @@ export default function RevenueTab({ dateRange }: { dateRange: string }) {
                  <PieChart>
                    <Pie data={revenueSourceData} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value" stroke="none">
                       {revenueSourceData.map((entry, index) => (
-                         <Cell key={\`pie-\${index}\`} fill={entry.color} />
+                         <Cell key={`pie-${index}`} fill={entry.color} />
                       ))}
                    </Pie>
                  </PieChart>
