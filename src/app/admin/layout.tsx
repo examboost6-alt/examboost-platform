@@ -193,9 +193,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 {sidebarOpen && (
                   <span className="font-semibold text-sm tracking-wide truncate">{link.label}</span>
                 )}
-                {isActive && sidebarOpen && (
-                  <motion.div layoutId="active-indicator" className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-8 rounded-l-full bg-accent" />
-                )}
               </Link>
             );
           })}

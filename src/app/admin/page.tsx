@@ -264,26 +264,24 @@ export default function AdvancedAdminDashboard() {
       </div>
 
       {/* 📊 KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {kpis.map((kpi, i) => {
           const Icon = kpi.icon;
           return (
             <Link href={kpi.link || "#"} key={kpi.label} className="block group h-full">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
-                className="bg-white dark:bg-[#0b1221] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:border-primary/50 shadow-sm group-hover:shadow-md transition-all relative overflow-hidden h-full flex flex-col justify-between group-hover:-translate-y-1"
+                className="bg-white dark:bg-[#0b1221] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:border-primary/50 shadow-sm group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:group-hover:shadow-[0_8px_30px_rgba(26,94,161,0.1)] transition-all relative overflow-hidden h-full flex items-center gap-5 group-hover:-translate-y-1"
               >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                    <Icon className="w-5 h-5 flex-shrink-0" />
-                  </div>
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 group-hover:bg-primary group-hover:text-white transition-all duration-300 w-14 h-14 flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6" />
                 </div>
                 
-                <div>
-                  <div className="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-2">{kpi.value}</div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-slate-500 dark:text-slate-400 font-semibold text-xs tracking-wide">{kpi.label}</p>
-                    <div className={`flex items-center gap-1 text-[11px] font-bold ${kpi.trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
+                <div className="flex-1 min-w-0">
+                  <div className="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-1 truncate">{kpi.value}</div>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                    <p className="text-slate-500 dark:text-slate-400 font-bold text-xs tracking-wide uppercase truncate">{kpi.label}</p>
+                    <div className={`flex items-center gap-1 text-[11px] font-black tracking-wide ${kpi.trend === 'up' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-rose-500 bg-rose-50 dark:bg-rose-500/10'} px-2 py-0.5 rounded w-fit`}>
                       {kpi.change}
                     </div>
                   </div>
