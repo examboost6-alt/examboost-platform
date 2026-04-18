@@ -74,24 +74,24 @@ export default function UserActivityTimeline({ userId }: UserActivityTimelinePro
         <div className="flex flex-col gap-6 mt-2">
             
             {/* Header / Tabs */}
-            <div className="flex items-center gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-x-auto no-scrollbar">
+            <div className="flex items-center p-1 bg-slate-100/80 dark:bg-slate-800/80 rounded-xl overflow-x-auto no-scrollbar shadow-inner border border-slate-200/50 dark:border-slate-700/50">
                 <button 
                     onClick={() => setActiveTab('timeline')}
-                    className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'timeline' ? 'bg-white dark:bg-[#020617] text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'timeline' ? 'bg-white dark:bg-[#020617] text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
                 >
-                    <Activity className="w-4 h-4" /> Timeline
+                    <Activity className="w-3.5 h-3.5" /> Timeline
                 </button>
                 <button 
                     onClick={() => setActiveTab('tests')}
-                    className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'tests' ? 'bg-white dark:bg-[#020617] text-purple-600 dark:text-purple-400 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'tests' ? 'bg-white dark:bg-[#020617] text-purple-600 dark:text-purple-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
                 >
-                    <PlayCircle className="w-4 h-4" /> Test Attempts
+                    <PlayCircle className="w-3.5 h-3.5" /> Test Attempts
                 </button>
                 <button 
                     onClick={() => setActiveTab('payments')}
-                    className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'payments' ? 'bg-white dark:bg-[#020617] text-emerald-600 dark:text-emerald-400 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'payments' ? 'bg-white dark:bg-[#020617] text-emerald-600 dark:text-emerald-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
                 >
-                    <CreditCard className="w-4 h-4" /> Payments
+                    <CreditCard className="w-3.5 h-3.5" /> Payments
                 </button>
             </div>
 
@@ -122,24 +122,24 @@ export default function UserActivityTimeline({ userId }: UserActivityTimelinePro
                                         <div key={idx} className="relative pl-6 pb-6 last:pb-0">
                                             <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-white dark:border-[#0f172a] shadow-sm ${view.durationSeconds === -1 ? 'bg-emerald-500 animate-pulse' : 'bg-indigo-400'}`}></div>
                                             
-                                            <div className="bg-slate-50 dark:bg-slate-800/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-500/30 transition-colors">
-                                                <div className="flex items-start justify-between gap-4">
-                                                    <div>
-                                                        <p className="font-bold text-sm text-slate-800 dark:text-slate-200 font-mono flex items-center gap-2">
+                                            <div className="bg-slate-50/80 dark:bg-slate-800/30 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 hover:border-indigo-200 dark:hover:border-indigo-500/30 hover:bg-white dark:hover:bg-slate-800/60 hover:shadow-sm transition-all">
+                                                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
+                                                    <div className="min-w-0 flex-1">
+                                                        <p className="font-bold text-[13px] text-slate-800 dark:text-slate-200 font-mono break-all leading-relaxed">
                                                             {view.path}
                                                         </p>
-                                                        <div className="flex items-center gap-3 mt-2 text-xs font-semibold text-slate-500">
-                                                            <span className="flex items-center gap-1">
-                                                                <Clock className="w-3.5 h-3.5" /> 
-                                                                {new Date(view.created_at).toLocaleString()}
+                                                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-[11px] font-semibold text-slate-500">
+                                                            <span className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                                                                <Clock className="w-3 h-3 text-slate-400" /> 
+                                                                {new Date(view.created_at).toLocaleString(undefined, {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'})}
                                                             </span>
-                                                            <span className="flex items-center gap-1">
-                                                                {view.device_type === 'Mobile' ? <Smartphone className="w-3.5 h-3.5" /> : <Laptop className="w-3.5 h-3.5" />} 
-                                                                {view.device_type} ({view.os})
+                                                            <span className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                                                                {view.device_type === 'Mobile' ? <Smartphone className="w-3 h-3 text-slate-400" /> : <Laptop className="w-3 h-3 text-slate-400" />} 
+                                                                {view.device_type} <span className="opacity-60 font-medium">({view.os})</span>
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <div className={`shrink-0 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider border ${view.durationSeconds === -1 ? 'bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/30' : 'bg-white dark:bg-[#020617] text-slate-500 border-slate-200 dark:text-slate-400 dark:border-slate-700'}`}>
+                                                    <div className={`shrink-0 self-start px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider border ${view.durationSeconds === -1 ? 'bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/30' : 'bg-white dark:bg-[#020617] text-slate-500 border-slate-200 dark:text-slate-400 dark:border-slate-700'}`}>
                                                         {formatDuration(view.durationSeconds)}
                                                     </div>
                                                 </div>
