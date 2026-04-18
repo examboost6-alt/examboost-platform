@@ -193,22 +193,32 @@ export default function AdminStudentsPage() {
 
   return (
     <div className="flex flex-col gap-6 pb-8">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 bg-white dark:bg-[#0f172a] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-        <div>
-          <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight mb-1">Students</h1>
-          <p className="text-slate-500 dark:text-slate-400 font-medium text-sm">
-            View onboarding submissions and securely preview student photos.
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white dark:bg-slate-900 rounded-3xl p-6 lg:p-8 shadow-sm border border-slate-200 dark:border-slate-800 relative overflow-hidden shrink-0">
+        <div className="absolute right-0 top-0 w-80 h-80 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
+        
+        <div className="relative z-10 w-full md:w-auto">
+          <div className="flex items-center gap-4 mb-3 flex-wrap">
+              <h1 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Onboarded Students</h1>
+              <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent dark:bg-accent/20 rounded-full text-xs font-bold tracking-wide border border-accent/20">
+                      <BookOpen className="w-4 h-4" /> Academic Records
+                  </div>
+              </div>
+          </div>
+          <p className="text-slate-500 max-w-2xl text-sm md:text-base leading-relaxed">
+            Verify onboarding submissions, monitor prep modes, and securely preview uploaded student identity documents.
           </p>
         </div>
 
-        <div className="relative w-full md:w-[420px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+        <div className="relative z-10 w-full md:w-[420px] shrink-0">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by name, phone, exam, or user id..."
-            className="w-full pl-10 pr-4 py-2 bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-primary/50 text-sm font-bold transition-colors shadow-sm"
+            placeholder="Search by name, phone, exam..."
+            className="w-full pl-12 pr-4 py-3.5 bg-slate-50 dark:bg-[#020617] border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-primary focus:ring-2 ring-primary/20 text-sm font-bold text-slate-800 dark:text-slate-100 transition-all shadow-sm"
           />
         </div>
       </div>
@@ -216,17 +226,17 @@ export default function AdminStudentsPage() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden"
+        className="bg-white dark:bg-[#0f172a] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col min-h-[400px]"
       >
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto flex-1 custom-scrollbar">
           <table className="w-full text-left border-collapse whitespace-nowrap">
             <thead>
               <tr className="bg-slate-50/80 dark:bg-[#020617]/50 border-b border-slate-200 dark:border-slate-800 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                <th className="p-4 pl-6">Student</th>
-                <th className="p-4">Phone</th>
-                <th className="p-4">Target Exam</th>
-                <th className="p-4">Admission</th>
-                <th className="p-4 pr-6 text-right">Action</th>
+                <th className="p-4 pl-6 font-black uppercase">Enrolled Profile</th>
+                <th className="p-4 font-black uppercase">Verified Contact</th>
+                <th className="p-4 font-black uppercase">Examination Goal</th>
+                <th className="p-4 font-black uppercase">Onboarding Phase</th>
+                <th className="p-4 pr-6 font-black uppercase text-right">Access Controls</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-xs">
@@ -247,11 +257,15 @@ export default function AdminStudentsPage() {
                   <tr key={r.id} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors">
                     <td className="p-4 pl-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-100 to-primary/20 dark:from-indigo-900/50 dark:to-primary/30 flex items-center justify-center font-black text-primary shrink-0">
-                          {(r.full_name || "S").charAt(0)}
+                        <div className="relative">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-100 to-primary/20 dark:from-indigo-900/50 dark:to-primary/30 flex items-center justify-center font-black text-primary shrink-0 shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                {r.photo_path ? (
+                                    <img src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/student-photos/${r.photo_path}`} className="w-full h-full object-cover" />
+                                ) : (r.full_name || "S").charAt(0)}
+                            </div>
                         </div>
                         <div>
-                          <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{r.full_name || "Student"}</p>
+                          <p className="font-bold text-sm text-slate-800 dark:text-slate-200 hover:text-primary transition-colors cursor-pointer">{r.full_name || "Student"}</p>
                           <p className="font-mono text-[10px] font-bold text-slate-400 mt-0.5 flex items-center gap-2">
                             {r.id}
                             <button
@@ -274,12 +288,12 @@ export default function AdminStudentsPage() {
                     </td>
                     <td className="p-4">
                       {r.admission_completed ? (
-                        <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold text-[10px] uppercase tracking-wider">
-                          <ShieldCheck className="w-4 h-4" /> Completed
+                        <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 px-2.5 py-1 rounded-lg font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                          <ShieldCheck className="w-4 h-4" /> Finalized
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 text-amber-600 dark:text-amber-400 font-bold text-[10px] uppercase tracking-wider">
-                          <ShieldCheck className="w-4 h-4" /> Pending
+                        <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 px-2.5 py-1 rounded-lg font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                          <ShieldCheck className="w-4 h-4" /> Needs Verifying
                         </span>
                       )}
                     </td>

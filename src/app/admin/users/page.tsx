@@ -241,43 +241,59 @@ export default function AdvancedUserManagement() {
         <div className="flex flex-col gap-6 pb-8 h-full relative">
             
             {/* Header Module */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 bg-white dark:bg-[#0f172a] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
-                <div className="relative z-10 w-full sm:w-auto">
-                    <div className="flex items-center gap-3 mb-1">
-                        <UsersIcon className="w-7 h-7 text-primary" />
-                        <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Enterprise User Profiles</h1>
+            <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 bg-white dark:bg-slate-900 rounded-3xl p-6 lg:p-8 shadow-sm border border-slate-200 dark:border-slate-800 relative overflow-hidden shrink-0">
+                <div className="absolute right-0 top-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
+                
+                <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-3 flex-wrap">
+                        <h1 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Enterprise User Profiles</h1>
+                        <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 rounded-full text-xs font-bold tracking-wide border border-primary/20">
+                                <ShieldCheck className="w-4 h-4" /> Global Access
+                            </div>
+                        </div>
                     </div>
-                    <p className="text-slate-500 font-medium text-sm">Deploy policies, monitor telemetry maps, and execute robust identity checks globally.</p>
+                    <p className="text-slate-500 max-w-2xl text-sm md:text-base leading-relaxed">
+                        Deploy policies, monitor telemetry maps, and execute robust identity checks globally across all connected accounts.
+                    </p>
                 </div>
-                <div className="flex flex-wrap sm:flex-nowrap gap-2 relative z-10 w-full sm:w-auto">
-                    <button className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-sm transition-colors shadow-sm">
+                
+                <div className="flex flex-wrap sm:flex-nowrap gap-3 relative z-10 w-full xl:w-auto shrink-0">
+                    <button className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-transparent text-slate-700 dark:text-slate-300 rounded-xl font-bold text-sm transition-all shadow-sm">
                         <Upload className="w-4 h-4" /> Import CSV
                     </button>
-                    <button onClick={triggerBulkExport} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/10 dark:hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 rounded-xl font-bold text-sm transition-colors shadow-sm">
+                    <button onClick={triggerBulkExport} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/10 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 rounded-xl font-bold text-sm transition-all shadow-sm">
                         <Download className="w-4 h-4" /> Export Data
                     </button>
-                    <button className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 py-2.5 bg-primary hover:bg-secondary text-white rounded-xl font-bold text-sm shadow-md transition-all">
+                    <button className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-sm shadow-md shadow-primary/20 transition-all">
                         <UserPlus className="w-4 h-4" /> Provision Account
                     </button>
                 </div>
             </div>
 
             {/* Smart KPI Top Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
                 {[
-                    { label: "Platform Scholars", val: kpi.total, icon: UsersIcon, color: "text-primary", bg: "bg-primary/10" },
-                    { label: "Active Live / Today", val: kpi.activeToday, icon: Activity, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-                    { label: "Subscribed (Paid)", val: kpi.paid, icon: ShieldCheck, color: "text-secondary", bg: "bg-secondary/10" },
-                    { label: "New Admissions", val: kpi.newToday, icon: UserPlus, color: "text-accent", bg: "bg-accent/10" }
+                    { label: "Platform Scholars", val: kpi.total, icon: UsersIcon, color: "text-primary group-hover:text-white", bg: "bg-slate-50 dark:bg-slate-800/80 group-hover:bg-primary" },
+                    { label: "Active Live / Today", val: kpi.activeToday, icon: Activity, color: "text-emerald-500 group-hover:text-white", bg: "bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 group-hover:bg-emerald-500" },
+                    { label: "Subscribed (Paid)", val: kpi.paid, icon: ShieldCheck, color: "text-secondary group-hover:text-white", bg: "bg-slate-50 dark:bg-slate-800/80 group-hover:bg-secondary" },
+                    { label: "New Admissions", val: kpi.newToday, icon: UserPlus, color: "text-accent group-hover:text-white", bg: "bg-orange-50 dark:bg-accent/10 border border-orange-100 dark:border-accent/20 group-hover:bg-accent" }
                 ].map((stat, i) => {
                     const Icon = stat.icon;
                     return (
-                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} key={stat.label} className="bg-white dark:bg-[#0f172a] rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-4">
-                            <div className={`p-3 rounded-full ${stat.bg} ${stat.color} shrink-0`}><Icon className="w-5 h-5" /></div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-0.5">{stat.label}</p>
-                                <p className="text-xl font-black text-slate-900 dark:text-white leading-none">{stat.val.toLocaleString()}</p>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} key={stat.label} 
+                            className="bg-white dark:bg-[#0b1221] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:border-primary/50 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(26,94,161,0.1)] transition-all relative overflow-hidden h-full flex items-center gap-5 group hover:-translate-y-1 cursor-default"
+                        >
+                            <div className="absolute -right-6 -bottom-6 opacity-[0.03] text-primary group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+                                <Icon className="w-32 h-32" />
+                            </div>
+                            <div className={`w-14 h-14 rounded-2xl ${stat.bg} ${stat.color} transition-all duration-300 flex items-center justify-center shrink-0 shadow-sm z-10`}>
+                                <Icon className="w-6 h-6" />
+                            </div>
+                            <div className="flex-1 min-w-0 z-10">
+                                <div className="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-1 truncate">{stat.val.toLocaleString()}</div>
+                                <p className="text-slate-500 dark:text-slate-400 font-bold text-xs tracking-wide uppercase truncate">{stat.label}</p>
                             </div>
                         </motion.div>
                     )
