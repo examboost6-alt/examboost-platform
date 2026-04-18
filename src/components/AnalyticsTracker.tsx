@@ -39,6 +39,20 @@ export default function AnalyticsTracker() {
                 const { data: { session } } = await supabase.auth.getSession();
                 const userId = session?.user?.id || null;
 
+                // Fetch Geo IP info gracefully
+                let geoCity = null;
+                let geoCountry = null;
+                try {
+                    const geoRes = await fetch('https://get.geojs.io/v1/ip/geo.json');
+                    if (geoRes.ok) {
+                        const geoData = await geoRes.json();
+                        geoCity = geoData.city;
+                        geoCountry = geoData.country;
+                    }
+                } catch (e) {
+                    // Fail silently, use server side IP fallback
+                }
+
                 // Hit our custom API route to insert into Supabase securely
                 await fetch('/api/analytics/track', {
                     method: 'POST',
@@ -48,7 +62,9 @@ export default function AnalyticsTracker() {
                         device_type: deviceType,
                         browser,
                         os,
-                        user_id: userId
+                        user_id: userId,
+                        city: geoCity,
+                        country: geoCountry
                     })
                 });
             } catch (err) {

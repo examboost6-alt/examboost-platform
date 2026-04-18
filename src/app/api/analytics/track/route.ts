@@ -9,7 +9,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { path, device_type, browser, os, user_id } = body;
+        const { path, device_type, browser, os, user_id, city: clientCity, country: clientCountry } = body;
 
         if (!path) {
             return NextResponse.json({ error: 'Path is required' }, { status: 400 });
@@ -26,9 +26,9 @@ export async function POST(req: Request) {
         // 2. Approximate Location via Request IP & Headers
         // In production on Vercel, x-real-ip and x-vercel-ip-* headers are available.
         const ip = req.headers.get('x-real-ip') || req.headers.get('x-forwarded-for') || '127.0.0.1';
-        const city = req.headers.get('x-vercel-ip-city') || 'Unknown';
+        const city = clientCity || req.headers.get('x-vercel-ip-city') || 'Unknown';
         const region = req.headers.get('x-vercel-ip-country-region') || 'Unknown';
-        const country = req.headers.get('x-vercel-ip-country') || 'Unknown';
+        const country = clientCountry || req.headers.get('x-vercel-ip-country') || 'Unknown';
 
         // 3. Insert into Supabase
         const { error } = await supabase.from('page_views').insert({
