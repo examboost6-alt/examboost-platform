@@ -170,7 +170,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <div className="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-1.5 custom-scrollbar-dark">
           {sidebarLinks.map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            const isActive = link.href === '/admin' ? pathname === '/admin' : (pathname === link.href || pathname.startsWith(link.href + '/'));
             const Icon = link.icon;
             return (
               <Link
