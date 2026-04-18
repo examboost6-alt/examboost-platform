@@ -6,27 +6,63 @@ import { TrendingUp, Users, Target, Activity, DollarSign, MousePointerClick, Fil
 import { EmptyState } from "./Skeletons";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
-// High fidelity mock data for presentation
-const revenueData = [
-  { name: 'Week 1', revenue: 4000, active: 2400 },
-  { name: 'Week 2', revenue: 3000, active: 1398 },
-  { name: 'Week 3', revenue: 2000, active: 9800 },
-  { name: 'Week 4', revenue: 2780, active: 3908 },
-  { name: 'Week 5', revenue: 1890, active: 4800 },
-  { name: 'Week 6', revenue: 2390, active: 3800 },
-  { name: 'Week 7', revenue: 3490, active: 4300 },
-];
+export default function OverviewTab({ dateRange, data }: { dateRange: string, data: any }) {
+  
+  const { kpis, revenueData, funnelData } = useMemo(() => {
+    const { pageViews, purchases, userTests, profiles } = data;
+    
+    // 1. KPIs
+    const totalRevenue = purchases.reduce((acc: number, curr: any) => acc + (Number(curr.amount) || 0), 0);
+    const uniqueVisitors = new Set(pageViews.map((pv: any) => pv.user_id || pv.city + pv.device_type)).size;
+    const convRate = uniqueVisitors > 0 ? ((purchases.length / uniqueVisitors) * 100).toFixed(1) : "0.0";
+    
+    const avgScore = userTests.length > 0 
+       ? (userTests.reduce((acc: number, curr: any) => acc + (Number(curr.score) || 0), 0) / userTests.length).toFixed(1)
+       : "0.0";
 
-const funnelData = [
-  { step: 'Visited Website', count: 12450, percentage: 100 },
-  { step: 'Signed Up', count: 4200, percentage: 33.7 },
-  { step: 'Bought Course', count: 850, percentage: 6.8 },
-  { step: 'Attempted Test', count: 480, percentage: 3.8 },
-];
+    const kpis = [
+      { label: "Total Revenue", value: `₹${totalRevenue.toLocaleString()}`, change: "Real-time", isUp: true, icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-500" },
+      { label: "Active Users", value: uniqueVisitors.toLocaleString(), change: "Real-time", isUp: true, icon: Users, color: "text-blue-500", bg: "bg-blue-500" },
+      { label: "Conversion Rate", value: `${convRate}%`, change: "Real-time", isUp: true, icon: MousePointerClick, color: "text-indigo-500", bg: "bg-indigo-500" },
+      { label: "Avg Test Score", value: `${avgScore}%`, change: "Real-time", isUp: true, icon: Target, color: "text-amber-500", bg: "bg-amber-500" },
+    ];
 
-export default function OverviewTab({ dateRange }: { dateRange: string }) {
-  // If we simulate an empty state based on some rare dateRange (e.g. "custom_empty")
-  if (dateRange === "empty") {
+    // 2. Revenue Trend Chart (Group by Day)
+    const trendMap: Record<string, { name: string, revenue: number, active: number }> = {};
+    pageViews.forEach((pv: any) => {
+        const d = new Date(pv.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        if (!trendMap[d]) trendMap[d] = { name: d, revenue: 0, active: 0 };
+        trendMap[d].active += 1;
+    });
+    purchases.forEach((p: any) => {
+        const d = new Date(p.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        if (!trendMap[d]) trendMap[d] = { name: d, revenue: 0, active: 0 };
+        trendMap[d].revenue += Number(p.amount) || 0;
+    });
+    
+    // Sort array chronologically by creating dates and parsing them to sort
+    const revenueData = Object.values(trendMap).sort((a,b) => new Date(`${a.name} ${new Date().getFullYear()}`).getTime() - new Date(`${b.name} ${new Date().getFullYear()}`).getTime());
+    // Fallback empty scale
+    if(revenueData.length === 0) {
+      revenueData.push({ name: 'No Data', revenue: 0, active: 0 });
+    }
+
+    // 3. Funnel Data
+    const signedUp = profiles.length;
+    const boughtCourse = new Set(purchases.map((p:any) => p.user_id)).size;
+    const attemptedTest = new Set(userTests.map((u:any) => u.user_id)).size;
+
+    const funnelData = [
+      { step: 'Visited Website', count: uniqueVisitors, percentage: 100 },
+      { step: 'Signed Up', count: signedUp, percentage: uniqueVisitors ? Math.min(100, Math.round((signedUp / uniqueVisitors) * 100)) : 0 },
+      { step: 'Bought Course', count: boughtCourse, percentage: uniqueVisitors ? Math.min(100, Math.round((boughtCourse / uniqueVisitors) * 100)) : 0 },
+      { step: 'Attempted Test', count: attemptedTest, percentage: uniqueVisitors ? Math.min(100, Math.round((attemptedTest / uniqueVisitors) * 100)) : 0 },
+    ];
+
+    return { kpis, revenueData, funnelData };
+  }, [data]);
+
+  if (dateRange === "empty" || (!data.loading && data.pageViews.length === 0 && data.purchases.length === 0)) {
     return <EmptyState message="No traffic or activity logged for the selected dates." icon={Filter} />;
   }
 
@@ -35,12 +71,7 @@ export default function OverviewTab({ dateRange }: { dateRange: string }) {
       
       {/* 1. KPIs */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {[
-          { label: "Total Revenue", value: "₹4,25,000", change: "+12.5%", isUp: true, icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-500" },
-          { label: "Active Users", value: "1,240", change: "+5.2%", isUp: true, icon: Users, color: "text-blue-500", bg: "bg-blue-500" },
-          { label: "Conversion Rate", value: "6.8%", change: "-1.1%", isUp: false, icon: MousePointerClick, color: "text-indigo-500", bg: "bg-indigo-500" },
-          { label: "Avg Test Score", value: "64.5%", change: "+2.4%", isUp: true, icon: Target, color: "text-amber-500", bg: "bg-amber-500" },
-        ].map((kpi, i) => (
+        {kpis.map((kpi, i) => (
           <div key={i} className="bg-white dark:bg-[#0f172a] rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group hover:border-slate-300 dark:hover:border-slate-700 transition-all">
             <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full ${kpi.bg}/10 blur-2xl group-hover:scale-150 transition-transform duration-500`}></div>
             <div className="flex justify-between items-start mb-4 relative z-10">

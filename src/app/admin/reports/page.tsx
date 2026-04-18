@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, FileText, Calendar, Loader2, LayoutDashboard, Globe, Target, CircleDollarSign } from "lucide-react";
+import { Download, FileText, Calendar, Loader2, LayoutDashboard, Target, CircleDollarSign, Users } from "lucide-react";
 import AdminLayout from "@/components/AdminLayout";
 import { ChartSkeleton, KPISkeleton, TableSkeleton } from "./components/Skeletons";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 // Lazy load feature tabs for Performance Optimization
 const OverviewTab = React.lazy(() => import('./components/OverviewTab'));
@@ -12,14 +13,77 @@ const UserTrafficTab = React.lazy(() => import('./components/UserTrafficTab'));
 const RevenueTab = React.lazy(() => import('./components/RevenueTab'));
 const TestPerformanceTab = React.lazy(() => import('./components/TestPerformanceTab'));
 
+export interface AnalyticsPayload {
+  loading: boolean;
+  pageViews: any[];
+  userTests: any[];
+  purchases: any[];
+  profiles: any[];
+}
+
 export default function AnalyticsCommandCenter() {
   const [activeTab, setActiveTab] = useState<'overview' | 'traffic' | 'revenue' | 'performance'>('overview');
   const [dateRange, setDateRange] = useState('7d');
   const [isExporting, setIsExporting] = useState(false);
+  
+  // Real data state
+  const [data, setData] = useState<AnalyticsPayload>({
+    loading: true,
+    pageViews: [],
+    userTests: [],
+    purchases: [],
+    profiles: []
+  });
+
+  const supabase = getSupabaseClient();
+
+  useEffect(() => {
+    let isMounted = true;
+    async function fetchRealData() {
+      if (!supabase) return;
+      if (dateRange === "empty") {
+        setData({ loading: false, pageViews: [], userTests: [], purchases: [], profiles: [] });
+        return;
+      }
+      
+      setData(prev => ({ ...prev, loading: true }));
+      
+      try {
+        const now = new Date();
+        if (dateRange === '24h') now.setHours(now.getHours() - 24);
+        else if (dateRange === '7d') now.setDate(now.getDate() - 7);
+        else if (dateRange === '30d') now.setDate(now.getDate() - 30);
+        else if (dateRange === '90d') now.setDate(now.getDate() - 90);
+        const isoThreshold = now.toISOString();
+
+        const [pvRes, utRes, pRes, profRes] = await Promise.all([
+          supabase.from('page_views').select('*').gte('created_at', isoThreshold),
+          supabase.from('user_tests').select('*').gte('created_at', isoThreshold),
+          supabase.from('purchases').select('*').gte('created_at', isoThreshold),
+          supabase.from('profiles').select('id, full_name, email, created_at')
+        ]);
+
+        if (isMounted) {
+          setData({
+            loading: false,
+            pageViews: pvRes.data || [],
+            userTests: utRes.data || [],
+            purchases: pRes.data || [],
+            profiles: profRes.data || []
+          });
+        }
+      } catch (e) {
+        console.error("Error fetching analytics data", e);
+        if (isMounted) setData(prev => ({ ...prev, loading: false }));
+      }
+    }
+    
+    fetchRealData();
+    return () => { isMounted = false; };
+  }, [dateRange, supabase]);
 
   const mockExportCSV = () => {
     setIsExporting(true);
-    // Simulate generation delay
     setTimeout(() => {
       const csvContent = "data:text/csv;charset=utf-8,Date,Metric,Value\\n2026-04-18,Revenue,425000\\n2026-04-18,Active Users,1240\\n";
       const encodedUri = encodeURI(csvContent);
@@ -33,10 +97,7 @@ export default function AnalyticsCommandCenter() {
     }, 1500);
   };
 
-  const handleExportPDF = () => {
-    // Built-in print dialogue triggered for PDF creation
-    window.print();
-  };
+  const handleExportPDF = () => window.print();
 
   const FullPageSkeleton = () => (
     <div className="space-y-6">
@@ -49,15 +110,12 @@ export default function AnalyticsCommandCenter() {
   return (
     <AdminLayout>
       <div className="flex flex-col min-h-screen pb-12">
-        
-        {/* Sticky Top Bar - UX Next Level */}
         <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#020617]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 pb-4 pt-2 -mx-4 px-4 sm:-mx-8 sm:px-8 mb-8 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-[1600px] mx-auto">
             <div>
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                  Command Center <span className="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary text-[10px] uppercase tracking-widest border border-secondary/20">Live</span>
               </h1>
-              <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">Aggregated platform analytics & global metrics.</p>
             </div>
             
             <div className="flex flex-wrap items-center gap-3">
@@ -90,7 +148,6 @@ export default function AnalyticsCommandCenter() {
             </div>
           </div>
 
-          {/* Nav Tabs within Sticky Header */}
           <div className="flex items-center gap-2 mt-6 overflow-x-auto custom-scrollbar-dark pb-1 max-w-[1600px] mx-auto">
             {[
               { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -117,26 +174,28 @@ export default function AnalyticsCommandCenter() {
           </div>
         </div>
 
-        {/* Tab Content Display */}
         <div className="flex-1 w-full max-w-[1600px] mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab + dateRange}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Suspense fallback={<FullPageSkeleton />}>
-                {activeTab === 'overview' && <OverviewTab dateRange={dateRange} />}
-                {activeTab === 'traffic' && <UserTrafficTab dateRange={dateRange} />}
-                {activeTab === 'revenue' && <RevenueTab dateRange={dateRange} />}
-                {activeTab === 'performance' && <TestPerformanceTab dateRange={dateRange} />}
-              </Suspense>
-            </motion.div>
-          </AnimatePresence>
+          {data.loading ? (
+             <FullPageSkeleton />
+          ) : (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab + dateRange}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Suspense fallback={<FullPageSkeleton />}>
+                  {activeTab === 'overview' && <OverviewTab dateRange={dateRange} data={data} />}
+                  {activeTab === 'traffic' && <UserTrafficTab dateRange={dateRange} data={data} />}
+                  {activeTab === 'revenue' && <RevenueTab dateRange={dateRange} data={data} />}
+                  {activeTab === 'performance' && <TestPerformanceTab dateRange={dateRange} data={data} />}
+                </Suspense>
+              </motion.div>
+            </AnimatePresence>
+          )}
         </div>
-
       </div>
     </AdminLayout>
   );

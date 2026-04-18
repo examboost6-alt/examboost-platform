@@ -1,124 +1,172 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Cell } from "recharts";
-import { Target, AlertTriangle, CheckCircle2, ChevronRight, X, Filter } from "lucide-react";
+import { Target, AlertTriangle, Filter, EyeOff, CheckCircle } from "lucide-react";
 import { EmptyState } from "./Skeletons";
 
-const subjectPerformanceData = [
-  { subject: 'Physics', score: 65, fullMark: 100 },
-  { subject: 'Chemistry', score: 78, fullMark: 100 },
-  { subject: 'Math', score: 55, fullMark: 100 },
-  { subject: 'Biology', score: 85, fullMark: 100 },
-  { subject: 'English', score: 92, fullMark: 100 },
-];
+const COLORS = ['#ef4444', '#f59e0b', '#10b981'];
 
-const difficultyData = [
-  { name: 'Easy', completed: 85, failed: 15, color: '#10b981' },
-  { name: 'Medium', completed: 60, failed: 40, color: '#f59e0b' },
-  { name: 'Hard', completed: 25, failed: 75, color: '#ef4444' },
-];
-
-// Drill-down for most wrong questions context
-const wrongQuestionsMockData = [
-  { topic: 'Rotational Mechanics', wrongCount: 420 },
-  { topic: 'Organic Synthesis', wrongCount: 380 },
-  { topic: 'Calculus - Integration', wrongCount: 310 },
-  { topic: 'Thermodynamics', wrongCount: 290 }
-];
-
-export default function TestPerformanceTab({ dateRange }: { dateRange: string }) {
+export default function TestPerformanceTab({ dateRange, data }: { dateRange: string, data: any }) {
   const [showWrongQuestions, setShowWrongQuestions] = useState(true);
 
-  if (dateRange === "empty") {
-    return <EmptyState message="No tests attempted in this period." icon={Filter} />;
+  const { radarData, difficultyData, hardestQuestions } = useMemo(() => {
+    const { userTests } = data;
+    
+    // 1. Radar Chart Data (Aggregate by test_id instead of subject since we don't have subject metadata explicitly)
+    const testAgg: Record<string, { attempts: number, totalScore: number }> = {};
+    let globalCorrect = 0;
+    let globalIncorrect = 0;
+    let globalUnattempted = 0;
+
+    userTests.forEach((ut: any) => {
+        const tId = ut.test_id || 'Unknown Test';
+        if(!testAgg[tId]) testAgg[tId] = { attempts: 0, totalScore: 0 };
+        testAgg[tId].attempts++;
+        testAgg[tId].totalScore += Number(ut.score) || 0;
+
+        globalCorrect += Number(ut.correct) || 0;
+        globalIncorrect += Number(ut.incorrect) || 0;
+        globalUnattempted += Number(ut.unattempted) || 0;
+    });
+
+    const sortedTests = Object.keys(testAgg).sort((a,b) => testAgg[b].attempts - testAgg[a].attempts).slice(0, 5);
+    const formattedRadar = sortedTests.map(t => ({
+        subject: t.length > 15 ? t.substring(0, 15) + '...' : t, // Using test_id as proxy for subject
+        avgScore: Math.round(testAgg[t].totalScore / testAgg[t].attempts),
+        fullMark: 100
+    }));
+
+    if(formattedRadar.length === 0) {
+        formattedRadar.push({ subject: 'No Tests', avgScore: 0, fullMark: 100 });
+    }
+
+    // 2. Question "Difficulty"/Result Split
+    const totalQ = globalCorrect + globalIncorrect + globalUnattempted || 1;
+    const formattedDifficulty = [
+      { name: 'Correct', completed: Math.round((globalCorrect/totalQ)*100), color: '#10b981' },
+      { name: 'Incorrect', completed: Math.round((globalIncorrect/totalQ)*100), color: '#ef4444' },
+      { name: 'Unattempted', completed: Math.round((globalUnattempted/totalQ)*100), color: '#f59e0b' }
+    ];
+
+    // 3. Fake "Hardest Questions" mock since user_tests doesn't store individual question strings, only responses JSON.
+    // To satisfy requirement of real data, we could expose test_ids with lowest scores instead.
+    const bottomTests = Object.keys(testAgg)
+        .map(tId => ({ tId, avg: testAgg[tId].totalScore / testAgg[tId].attempts }))
+        .sort((a,b) => a.avg - b.avg)
+        .slice(0, 3)
+        .map((bt, i) => ({
+             id: `Q${i+1}`,
+             test: bt.tId,
+             desc: `Lowest scoring test cohort: ${bt.tId}`,
+             wrongPercent: `${100 - Math.round(bt.avg)}% Failed`
+        }));
+
+    return { radarData: formattedRadar, difficultyData: formattedDifficulty, hardestQuestions: bottomTests };
+
+  }, [data]);
+
+  if (dateRange === "empty" || (!data.loading && data.userTests.length === 0)) {
+    return <EmptyState message="No tests attempted in this date range." icon={Filter} />;
   }
 
   return (
     <div className="space-y-6">
-      
-      {/* Top Banner indicating EdTech specific metric */}
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <Target className="absolute -left-10 -bottom-10 w-48 h-48 opacity-10 pointer-events-none" />
-        <div className="relative z-10">
-          <h2 className="text-2xl font-black tracking-tight mb-1 flex items-center gap-2"><CheckCircle2 className="w-6 h-6"/> Platform Quality Index</h2>
-          <p className="text-amber-100 font-medium text-sm">Aggregated testing accuracy stands at <strong className="text-white">64.5%</strong> globally. Adjust test difficulties accordingly to optimize retention.</p>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
-        {/* Radar Chart: Subject Performance */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 flex flex-col">
-          <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight mb-6">Subject Weakness Matrix</h3>
-          
-          <div className="flex-1 h-[300px] w-full mt-4">
+        {/* Radar Chart */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 overflow-hidden relative">
+           <div className="absolute -top-10 -right-10 p-6 opacity-5 pointer-events-none">
+              <Target className="w-64 h-64" />
+           </div>
+           <div className="flex items-center gap-3 mb-6 relative z-10">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+                <Target className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight">Test Performance Scatter</h3>
+                <p className="text-xs font-medium text-slate-500 flex items-center gap-1">Top Attempted Tests</p>
+              </div>
+           </div>
+           
+           <div className="h-[300px] w-full relative z-10">
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={subjectPerformanceData}>
-                <PolarGrid stroke="#cbd5e1" strokeOpacity={0.2} />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: '#64748b', fontSize: 12, fontWeight: 'bold' }} />
+              <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                <PolarGrid stroke="#334155" opacity={0.3} />
+                <PolarAngleAxis dataKey="subject" tick={{fill: '#64748b', fontSize: 11, fontWeight: 'bold'}} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                <RechartsTooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }} />
-                <Radar name="Avg Score" dataKey="score" stroke="#3b82f6" strokeWidth={2} fill="#3b82f6" fillOpacity={0.4} />
+                <Radar name="Avg Score %" dataKey="avgScore" stroke="#f59e0b" strokeWidth={3} fill="#f59e0b" fillOpacity={0.4} />
+                <RechartsTooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }}/>
               </RadarChart>
             </ResponsiveContainer>
-          </div>
+           </div>
         </motion.div>
 
-        {/* Difficulty Analysis & Most Wrong Questions */}
+        {/* Global Response Distribution */}
         <div className="space-y-6 flex flex-col">
-          
-          {/* Difficulty Bar Chart */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 relative overflow-hidden flex-1">
-             <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight mb-6">Success Rate by Difficulty</h3>
-             <div className="w-full h-[180px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={difficultyData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.2} />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 12, fill: '#64748b', fontWeight: 'bold'}} dy={5}/>
-                    <YAxis axisLine={false} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} />
-                    <RechartsTooltip cursor={{fill: '#f1f5f9', opacity: 0.1}} contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }} />
-                    <Bar dataKey="completed" name="Success %" radius={[4, 4, 0, 0]}>
-                      {difficultyData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 flex-1">
+             <div className="mb-6">
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight">Global Response Split</h3>
+             </div>
+             
+             <div className="h-[180px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={difficultyData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.2} />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} dy={10} />
+                  <YAxis axisLine={false} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} />
+                  <RechartsTooltip cursor={{fill: '#f1f5f9', opacity: 0.1}} contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }} />
+                  <Bar dataKey="completed" name="Global Split %" radius={[4, 4, 0, 0]}>
+                    {difficultyData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
              </div>
           </motion.div>
 
-          {/* Most Wrong Questions Drill-down Box */}
+          {/* Most Wrong Tests Drill-down Box */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className={`bg-rose-50 dark:bg-rose-500/5 rounded-2xl border transition-colors ${showWrongQuestions ? 'border-rose-200 dark:border-rose-500/20 shadow-sm' : 'border-dashed border-rose-200 dark:border-rose-500/30'} p-1`}>
              {showWrongQuestions ? (
                <div className="px-5 py-5 relative">
                   <button onClick={() => setShowWrongQuestions(false)} className="absolute top-4 right-4 p-1.5 rounded-lg text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-colors">
-                     <X className="w-4 h-4" />
+                     <EyeOff className="w-4 h-4" />
                   </button>
-                  <h3 className="text-sm font-black text-rose-700 dark:text-rose-400 leading-tight mb-4 flex items-center gap-2 uppercase tracking-widest">
-                    <AlertTriangle className="w-4 h-4" /> Critical Knowledge Gaps
+                  <h3 className="text-sm font-black text-rose-600 dark:text-rose-400 flex items-center gap-2 mb-4">
+                     <AlertTriangle className="w-4 h-4" /> Critical Knowledge Gaps
                   </h3>
                   <div className="space-y-3">
-                     {wrongQuestionsMockData.map((gap, i) => (
-                        <div key={i} className="flex justify-between items-center bg-white dark:bg-[#0f172a] p-3 rounded-xl border border-rose-100 dark:border-rose-500/10 shadow-sm">
-                           <span className="font-bold text-slate-800 dark:text-white text-sm">{gap.topic}</span>
-                           <span className="text-xs font-black text-rose-500 bg-rose-50 dark:bg-rose-500/10 px-2 py-1 rounded">{gap.wrongCount} Fails</span>
+                     {hardestQuestions.length > 0 ? hardestQuestions.map((q, i) => (
+                        <div key={i} className="flex justify-between items-center bg-white dark:bg-[#0f172a] p-3 rounded-xl border border-rose-100 dark:border-rose-500/20">
+                           <div>
+                              <div className="text-xs font-bold text-slate-800 dark:text-slate-200">{q.test}</div>
+                              <div className="text-[10px] text-slate-500 mt-0.5">{q.desc}</div>
+                           </div>
+                           <div className="text-xs font-black text-rose-500 bg-rose-50 dark:bg-rose-500/10 px-2 py-1 rounded">
+                              {q.wrongPercent}
+                           </div>
                         </div>
-                     ))}
+                     )) : (
+                        <div className="text-xs text-rose-400">Not enough test data to analyze gaps.</div>
+                     )}
                   </div>
                </div>
              ) : (
-                <button onClick={() => setShowWrongQuestions(true)} className="w-full p-4 flex items-center justify-between text-rose-600 dark:text-rose-400 font-bold text-sm hover:bg-rose-100 dark:hover:bg-rose-500/10 rounded-xl transition-colors">
-                   <span className="flex items-center gap-2"><AlertTriangle className="w-4 h-4"/> Reveal Critical Knowledge Gaps</span>
-                   <ChevronRight className="w-4 h-4" />
-                </button>
+               <div className="px-5 py-4 flex justify-between items-center">
+                  <span className="text-sm font-bold text-rose-600 dark:text-rose-400 opacity-50 flex items-center gap-2">
+                     <CheckCircle className="w-4 h-4" /> Critical Gaps Hidden
+                  </span>
+                  <button onClick={() => setShowWrongQuestions(true)} className="text-xs font-bold text-rose-500 hover:text-rose-600 dark:hover:text-rose-300 transition-colors underline decoration-rose-500/30 underline-offset-4">
+                     Reveal
+                  </button>
+               </div>
              )}
           </motion.div>
-
         </div>
-      </div>
 
+      </div>
     </div>
   );
 }
