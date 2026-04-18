@@ -5,28 +5,28 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 1,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Two blocks, m₁ = 2 kg, m₂ = 3 kg, connected over a frictionless pulley. If a force F = 10 N is applied on m₁ horizontally, find acceleration of m₂.",
-    "textHi": " (Hindi translated via AI) \nTwo blocks, m₁ = 2 kg, m₂ = 3 kg, connected over a frictionless pulley. If a force F = 10 N is applied on m₁ horizontally, find acceleration of m₂.",
+    "textEn": "Two blocks, m_1 = 2 kg, m_2 = 3 kg, connected over a frictionless pulley. If a force F = 10 N is applied on m_1 horizontally, find acceleration of m_2.",
+    "textHi": " (Hindi translated via AI) \nTwo blocks, m_1 = 2 kg, m_2 = 3 kg, connected over a frictionless pulley. If a force F = 10 N is applied on m_1 horizontally, find acceleration of m_2.",
     "options": [
       {
         "id": 1,
-        "textEn": "1 m/s²",
-        "textHi": "1 m/s²"
+        "textEn": "1 m/s^2",
+        "textHi": "1 m/s^2"
       },
       {
         "id": 2,
-        "textEn": "2 m/s²",
-        "textHi": "2 m/s²"
+        "textEn": "2 m/s^2",
+        "textHi": "2 m/s^2"
       },
       {
         "id": 3,
-        "textEn": "3 m/s²",
-        "textHi": "3 m/s²"
+        "textEn": "3 m/s^2",
+        "textHi": "3 m/s^2"
       },
       {
         "id": 4,
-        "textEn": "4 m/s²",
-        "textHi": "4 m/s²"
+        "textEn": "4 m/s^2",
+        "textHi": "4 m/s^2"
       }
     ],
     "correctOption": 2
@@ -70,23 +70,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "4 m/s²",
-        "textHi": "4 m/s²"
+        "textEn": "4 m/s^2",
+        "textHi": "4 m/s^2"
       },
       {
         "id": 2,
-        "textEn": "6 m/s²",
-        "textHi": "6 m/s²"
+        "textEn": "6 m/s^2",
+        "textHi": "6 m/s^2"
       },
       {
         "id": 3,
-        "textEn": "8 m/s²",
-        "textHi": "8 m/s²"
+        "textEn": "8 m/s^2",
+        "textHi": "8 m/s^2"
       },
       {
         "id": 4,
-        "textEn": "16 m/s²",
-        "textHi": "16 m/s²"
+        "textEn": "16 m/s^2",
+        "textHi": "16 m/s^2"
       }
     ],
     "correctOption": 3
@@ -105,18 +105,18 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "mv²/r",
-        "textHi": "mv²/r"
+        "textEn": "mv^2/r",
+        "textHi": "mv^2/r"
       },
       {
         "id": 3,
-        "textEn": "½ mv²",
-        "textHi": "½ mv²"
+        "textEn": "1/2 mv^2",
+        "textHi": "1/2 mv^2"
       },
       {
         "id": 4,
-        "textEn": "mv²",
-        "textHi": "mv²"
+        "textEn": "mv^2",
+        "textHi": "mv^2"
       }
     ],
     "correctOption": 1
@@ -155,8 +155,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 6,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "SHM → max acceleration = 2 m/s², amplitude = 0.2 m. Find angular frequency ω.",
-    "textHi": " (Hindi translated via AI) \nSHM → max acceleration = 2 m/s², amplitude = 0.2 m. Find angular frequency ω.",
+    "textEn": "SHM → max acceleration = 2 m/s^2, amplitude = 0.2 m. Find angular frequency ω.",
+    "textHi": " (Hindi translated via AI) \nSHM → max acceleration = 2 m/s^2, amplitude = 0.2 m. Find angular frequency ω.",
     "options": [
       {
         "id": 1,
@@ -305,8 +305,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 11,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Two capacitors, C₁ = 4 μF, C₂ = 6 μF in series → equivalent capacitance?",
-    "textHi": " (Hindi translated via AI) \nTwo capacitors, C₁ = 4 μF, C₂ = 6 μF in series → equivalent capacitance?",
+    "textEn": "Two capacitors, C_1 = 4 μF, C_2 = 6 μF in series → equivalent capacitance?",
+    "textHi": " (Hindi translated via AI) \nTwo capacitors, C_1 = 4 μF, C_2 = 6 μF in series → equivalent capacitance?",
     "options": [
       {
         "id": 1,
@@ -365,28 +365,28 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 13,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Solenoid → n = 1000 turns/m, I = 2 A → B inside? μ₀ = 4π ×10⁻⁷ H/m",
-    "textHi": " (Hindi translated via AI) \nSolenoid → n = 1000 turns/m, I = 2 A → B inside? μ₀ = 4π ×10⁻⁷ H/m",
+    "textEn": "Solenoid → n = 1000 turns/m, I = 2 A → B inside? μ_0 = 4π x10^-⁷ H/m",
+    "textHi": " (Hindi translated via AI) \nSolenoid → n = 1000 turns/m, I = 2 A → B inside? μ_0 = 4π x10^-⁷ H/m",
     "options": [
       {
         "id": 1,
-        "textEn": "2.5 ×10⁻³ T",
-        "textHi": "2.5 ×10⁻³ T"
+        "textEn": "2.5 x10^-^3 T",
+        "textHi": "2.5 x10^-^3 T"
       },
       {
         "id": 2,
-        "textEn": "2.51 ×10⁻³ T",
-        "textHi": "2.51 ×10⁻³ T"
+        "textEn": "2.51 x10^-^3 T",
+        "textHi": "2.51 x10^-^3 T"
       },
       {
         "id": 3,
-        "textEn": "2.52 ×10⁻³ T",
-        "textHi": "2.52 ×10⁻³ T"
+        "textEn": "2.52 x10^-^3 T",
+        "textHi": "2.52 x10^-^3 T"
       },
       {
         "id": 4,
-        "textEn": "2.53 ×10⁻³ T",
-        "textHi": "2.53 ×10⁻³ T"
+        "textEn": "2.53 x10^-^3 T",
+        "textHi": "2.53 x10^-^3 T"
       }
     ],
     "correctOption": 2
@@ -395,8 +395,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 14,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Faraday’s law → induced emf = 0.1 V, area = 0.2 m². Rate of change of flux?",
-    "textHi": " (Hindi translated via AI) \nFaraday’s law → induced emf = 0.1 V, area = 0.2 m². Rate of change of flux?",
+    "textEn": "Faraday's law → induced emf = 0.1 V, area = 0.2 m^2. Rate of change of flux?",
+    "textHi": " (Hindi translated via AI) \nFaraday's law → induced emf = 0.1 V, area = 0.2 m^2. Rate of change of flux?",
     "options": [
       {
         "id": 1,
@@ -410,8 +410,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "0.02 T·m²/s",
-        "textHi": "0.02 T·m²/s"
+        "textEn": "0.02 T·m^2/s",
+        "textHi": "0.02 T·m^2/s"
       },
       {
         "id": 4,
@@ -515,28 +515,28 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 18,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Photoelectric effect → threshold frequency = 5 ×10¹⁴ Hz, KE = 2 eV, incident frequency?",
-    "textHi": " (Hindi translated via AI) \nPhotoelectric effect → threshold frequency = 5 ×10¹⁴ Hz, KE = 2 eV, incident frequency?",
+    "textEn": "Photoelectric effect → threshold frequency = 5 x10¹⁴ Hz, KE = 2 eV, incident frequency?",
+    "textHi": " (Hindi translated via AI) \nPhotoelectric effect → threshold frequency = 5 x10¹⁴ Hz, KE = 2 eV, incident frequency?",
     "options": [
       {
         "id": 1,
-        "textEn": "6 ×10¹⁴ Hz",
-        "textHi": "6 ×10¹⁴ Hz"
+        "textEn": "6 x10¹⁴ Hz",
+        "textHi": "6 x10¹⁴ Hz"
       },
       {
         "id": 2,
-        "textEn": "7 ×10¹⁴ Hz",
-        "textHi": "7 ×10¹⁴ Hz"
+        "textEn": "7 x10¹⁴ Hz",
+        "textHi": "7 x10¹⁴ Hz"
       },
       {
         "id": 3,
-        "textEn": "8 ×10¹⁴ Hz",
-        "textHi": "8 ×10¹⁴ Hz"
+        "textEn": "8 x10¹⁴ Hz",
+        "textHi": "8 x10¹⁴ Hz"
       },
       {
         "id": 4,
-        "textEn": "9 ×10¹⁴ Hz",
-        "textHi": "9 ×10¹⁴ Hz"
+        "textEn": "9 x10¹⁴ Hz",
+        "textHi": "9 x10¹⁴ Hz"
       }
     ],
     "correctOption": 2
@@ -545,28 +545,28 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 19,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "de Broglie wavelength → electron with momentum p = 3.3 ×10⁻²⁴ kg·m/s?",
-    "textHi": " (Hindi translated via AI) \nde Broglie wavelength → electron with momentum p = 3.3 ×10⁻²⁴ kg·m/s?",
+    "textEn": "de Broglie wavelength → electron with momentum p = 3.3 x10^-^2⁴ kg·m/s?",
+    "textHi": " (Hindi translated via AI) \nde Broglie wavelength → electron with momentum p = 3.3 x10^-^2⁴ kg·m/s?",
     "options": [
       {
         "id": 1,
-        "textEn": "2 ×10⁻¹⁰ m",
-        "textHi": "2 ×10⁻¹⁰ m"
+        "textEn": "2 x10^-¹⁰ m",
+        "textHi": "2 x10^-¹⁰ m"
       },
       {
         "id": 2,
-        "textEn": "1 ×10⁻¹⁰ m",
-        "textHi": "1 ×10⁻¹⁰ m"
+        "textEn": "1 x10^-¹⁰ m",
+        "textHi": "1 x10^-¹⁰ m"
       },
       {
         "id": 3,
-        "textEn": "0.5 ×10⁻¹⁰ m",
-        "textHi": "0.5 ×10⁻¹⁰ m"
+        "textEn": "0.5 x10^-¹⁰ m",
+        "textHi": "0.5 x10^-¹⁰ m"
       },
       {
         "id": 4,
-        "textEn": "3 ×10⁻¹⁰ m",
-        "textHi": "3 ×10⁻¹⁰ m"
+        "textEn": "3 x10^-¹⁰ m",
+        "textHi": "3 x10^-¹⁰ m"
       }
     ],
     "correctOption": 2
@@ -610,8 +610,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "²⁴He²⁺",
-        "textHi": "²⁴He²⁺"
+        "textEn": "^2⁴He^2^+",
+        "textHi": "^2⁴He^2^+"
       },
       {
         "id": 2,
@@ -695,8 +695,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 24,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Half-life t½ = 0.693/λ → reaction order first-order → t½ independent of concentration",
-    "textHi": " (Hindi translated via AI) \nHalf-life t½ = 0.693/λ → reaction order first-order → t½ independent of concentration",
+    "textEn": "Half-life t1/2 = 0.693/λ → reaction order first-order → t1/2 independent of concentration",
+    "textHi": " (Hindi translated via AI) \nHalf-life t1/2 = 0.693/λ → reaction order first-order → t1/2 independent of concentration",
     "options": [
       {
         "id": 1,
@@ -725,8 +725,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 25,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Young’s modulus → stress/strain → SI unit?",
-    "textHi": " (Hindi translated via AI) \nYoung’s modulus → stress/strain → SI unit?",
+    "textEn": "Young's modulus → stress/strain → SI unit?",
+    "textHi": " (Hindi translated via AI) \nYoung's modulus → stress/strain → SI unit?",
     "options": [
       {
         "id": 1,
@@ -745,8 +745,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "N/m²",
-        "textHi": "N/m²"
+        "textEn": "N/m^2",
+        "textHi": "N/m^2"
       }
     ],
     "correctOption": 1
@@ -755,13 +755,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 26,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "SHM → max energy = ½ kA²",
-    "textHi": " (Hindi translated via AI) \nSHM → max energy = ½ kA²",
+    "textEn": "SHM → max energy = 1/2 kA^2",
+    "textHi": " (Hindi translated via AI) \nSHM → max energy = 1/2 kA^2",
     "options": [
       {
         "id": 1,
-        "textEn": "½ kA²",
-        "textHi": "½ kA²"
+        "textEn": "1/2 kA^2",
+        "textHi": "1/2 kA^2"
       },
       {
         "id": 2,
@@ -785,8 +785,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 27,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Power radiated → Larmor formula → P ∝ a²",
-    "textHi": " (Hindi translated via AI) \nPower radiated → Larmor formula → P ∝ a²",
+    "textEn": "Power radiated → Larmor formula → P ∝ a^2",
+    "textHi": " (Hindi translated via AI) \nPower radiated → Larmor formula → P ∝ a^2",
     "options": [
       {
         "id": 1,
@@ -815,13 +815,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 28,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Speed of EM wave → c = 3 ×10⁸ m/s",
-    "textHi": " (Hindi translated via AI) \nSpeed of EM wave → c = 3 ×10⁸ m/s",
+    "textEn": "Speed of EM wave → c = 3 x10⁸ m/s",
+    "textHi": " (Hindi translated via AI) \nSpeed of EM wave → c = 3 x10⁸ m/s",
     "options": [
       {
         "id": 1,
-        "textEn": "3 ×10⁸ m/s",
-        "textHi": "3 ×10⁸ m/s"
+        "textEn": "3 x10⁸ m/s",
+        "textHi": "3 x10⁸ m/s"
       },
       {
         "id": 2,
@@ -845,13 +845,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 29,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Lens formula → 1/f = 1/v – 1/u (sign convention)",
-    "textHi": " (Hindi translated via AI) \nLens formula → 1/f = 1/v – 1/u (sign convention)",
+    "textEn": "Lens formula → 1/f = 1/v - 1/u (sign convention)",
+    "textHi": " (Hindi translated via AI) \nLens formula → 1/f = 1/v - 1/u (sign convention)",
     "options": [
       {
         "id": 1,
-        "textEn": "1/v – 1/u",
-        "textHi": "1/v – 1/u"
+        "textEn": "1/v - 1/u",
+        "textHi": "1/v - 1/u"
       },
       {
         "id": 2,
@@ -965,13 +965,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 33,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Polarization → intensity after polarizer → I = I₀ cos²θ",
-    "textHi": " (Hindi translated via AI) \nPolarization → intensity after polarizer → I = I₀ cos²θ",
+    "textEn": "Polarization → intensity after polarizer → I = I_0 cos^2θ",
+    "textHi": " (Hindi translated via AI) \nPolarization → intensity after polarizer → I = I_0 cos^2θ",
     "options": [
       {
         "id": 1,
-        "textEn": "I = I₀ cos²θ",
-        "textHi": "I = I₀ cos²θ"
+        "textEn": "I = I_0 cos^2θ",
+        "textHi": "I = I_0 cos^2θ"
       },
       {
         "id": 2,
@@ -1055,13 +1055,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 36,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Resistors in series → R = R₁ + R₂ + …",
-    "textHi": " (Hindi translated via AI) \nResistors in series → R = R₁ + R₂ + …",
+    "textEn": "Resistors in series → R = R_1 + R_2 + …",
+    "textHi": " (Hindi translated via AI) \nResistors in series → R = R_1 + R_2 + …",
     "options": [
       {
         "id": 1,
-        "textEn": "R = R₁ + R₂",
-        "textHi": "R = R₁ + R₂"
+        "textEn": "R = R_1 + R_2",
+        "textHi": "R = R_1 + R_2"
       },
       {
         "id": 2,
@@ -1085,13 +1085,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 37,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Resistors in parallel → 1/R = 1/R₁ + 1/R₂ + …",
-    "textHi": " (Hindi translated via AI) \nResistors in parallel → 1/R = 1/R₁ + 1/R₂ + …",
+    "textEn": "Resistors in parallel → 1/R = 1/R_1 + 1/R_2 + …",
+    "textHi": " (Hindi translated via AI) \nResistors in parallel → 1/R = 1/R_1 + 1/R_2 + …",
     "options": [
       {
         "id": 1,
-        "textEn": "1/R = 1/R₁ + 1/R₂",
-        "textHi": "1/R = 1/R₁ + 1/R₂"
+        "textEn": "1/R = 1/R_1 + 1/R_2",
+        "textHi": "1/R = 1/R_1 + 1/R_2"
       },
       {
         "id": 2,
@@ -1115,8 +1115,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 38,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Kirchhoff’s law → conservation of:",
-    "textHi": " (Hindi translated via AI) \nKirchhoff’s law → conservation of:",
+    "textEn": "Kirchhoff's law → conservation of:",
+    "textHi": " (Hindi translated via AI) \nKirchhoff's law → conservation of:",
     "options": [
       {
         "id": 1,
@@ -1175,13 +1175,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 40,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Inductors in series → L = L₁ + L₂ + …",
-    "textHi": " (Hindi translated via AI) \nInductors in series → L = L₁ + L₂ + …",
+    "textEn": "Inductors in series → L = L_1 + L_2 + …",
+    "textHi": " (Hindi translated via AI) \nInductors in series → L = L_1 + L_2 + …",
     "options": [
       {
         "id": 1,
-        "textEn": "L = L₁ + L₂",
-        "textHi": "L = L₁ + L₂"
+        "textEn": "L = L_1 + L_2",
+        "textHi": "L = L_1 + L_2"
       },
       {
         "id": 2,
@@ -1205,13 +1205,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 41,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Inductors in parallel → 1/L = 1/L₁ + 1/L₂ + …",
-    "textHi": " (Hindi translated via AI) \nInductors in parallel → 1/L = 1/L₁ + 1/L₂ + …",
+    "textEn": "Inductors in parallel → 1/L = 1/L_1 + 1/L_2 + …",
+    "textHi": " (Hindi translated via AI) \nInductors in parallel → 1/L = 1/L_1 + 1/L_2 + …",
     "options": [
       {
         "id": 1,
-        "textEn": "1/L = 1/L₁ + 1/L₂",
-        "textHi": "1/L = 1/L₁ + 1/L₂"
+        "textEn": "1/L = 1/L_1 + 1/L_2",
+        "textHi": "1/L = 1/L_1 + 1/L_2"
       },
       {
         "id": 2,
@@ -1265,13 +1265,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 43,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Photoelectric effect → KEmax = hν – φ",
-    "textHi": " (Hindi translated via AI) \nPhotoelectric effect → KEmax = hν – φ",
+    "textEn": "Photoelectric effect → KEmax = hν - φ",
+    "textHi": " (Hindi translated via AI) \nPhotoelectric effect → KEmax = hν - φ",
     "options": [
       {
         "id": 1,
-        "textEn": "KEmax = hν – φ",
-        "textHi": "KEmax = hν – φ"
+        "textEn": "KEmax = hν - φ",
+        "textHi": "KEmax = hν - φ"
       },
       {
         "id": 2,
@@ -1295,13 +1295,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 44,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "EMF induced in loop → Faraday’s law → ε = –dΦ/dt",
-    "textHi": " (Hindi translated via AI) \nEMF induced in loop → Faraday’s law → ε = –dΦ/dt",
+    "textEn": "EMF induced in loop → Faraday's law → ε = -dΦ/dt",
+    "textHi": " (Hindi translated via AI) \nEMF induced in loop → Faraday's law → ε = -dΦ/dt",
     "options": [
       {
         "id": 1,
-        "textEn": "ε = –dΦ/dt",
-        "textHi": "ε = –dΦ/dt"
+        "textEn": "ε = -dΦ/dt",
+        "textHi": "ε = -dΦ/dt"
       },
       {
         "id": 2,
@@ -1325,8 +1325,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 45,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Magnetic field inside long solenoid → B = μ₀ n I",
-    "textHi": " (Hindi translated via AI) \nMagnetic field inside long solenoid → B = μ₀ n I",
+    "textEn": "Magnetic field inside long solenoid → B = μ_0 n I",
+    "textHi": " (Hindi translated via AI) \nMagnetic field inside long solenoid → B = μ_0 n I",
     "options": [
       {
         "id": 1,
@@ -1435,8 +1435,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "Ka × C",
-        "textHi": "Ka × C"
+        "textEn": "Ka x C",
+        "textHi": "Ka x C"
       }
     ],
     "correctOption": 1
@@ -1450,23 +1450,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "pKa + log([A⁻]/[HA])",
-        "textHi": "pKa + log([A⁻]/[HA])"
+        "textEn": "pKa + log([A^-]/[HA])",
+        "textHi": "pKa + log([A^-]/[HA])"
       },
       {
         "id": 2,
-        "textEn": "pKa – log([A⁻]/[HA])",
-        "textHi": "pKa – log([A⁻]/[HA])"
+        "textEn": "pKa - log([A^-]/[HA])",
+        "textHi": "pKa - log([A^-]/[HA])"
       },
       {
         "id": 3,
-        "textEn": "log([A⁻]/[HA])",
-        "textHi": "log([A⁻]/[HA])"
+        "textEn": "log([A^-]/[HA])",
+        "textHi": "log([A^-]/[HA])"
       },
       {
         "id": 4,
-        "textEn": "pKa × log([A⁻]/[HA])",
-        "textHi": "pKa × log([A⁻]/[HA])"
+        "textEn": "pKa x log([A^-]/[HA])",
+        "textHi": "pKa x log([A^-]/[HA])"
       }
     ],
     "correctOption": 1
@@ -1475,8 +1475,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 50,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "K₂Cr₂O₇ → oxidation state of Cr?",
-    "textHi": " (Hindi translated via AI) \nK₂Cr₂O₇ → oxidation state of Cr?",
+    "textEn": "K_2Cr_2O_7 → oxidation state of Cr?",
+    "textHi": " (Hindi translated via AI) \nK_2Cr_2O_7 → oxidation state of Cr?",
     "options": [
       {
         "id": 1,
@@ -1505,28 +1505,28 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 51,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "PCl₅ → hybridization of P?",
-    "textHi": " (Hindi translated via AI) \nPCl₅ → hybridization of P?",
+    "textEn": "PCl_5 → hybridization of P?",
+    "textHi": " (Hindi translated via AI) \nPCl_5 → hybridization of P?",
     "options": [
       {
         "id": 1,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 2,
-        "textEn": "sp³d",
-        "textHi": "sp³d"
+        "textEn": "sp^3d",
+        "textHi": "sp^3d"
       },
       {
         "id": 3,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 4,
-        "textEn": "sp³d²",
-        "textHi": "sp³d²"
+        "textEn": "sp^3d^2",
+        "textHi": "sp^3d^2"
       }
     ],
     "correctOption": 2
@@ -1535,8 +1535,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 52,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Dipole moment of CO₂ → ?",
-    "textHi": " (Hindi translated via AI) \nDipole moment of CO₂ → ?",
+    "textEn": "Dipole moment of CO_2 → ?",
+    "textHi": " (Hindi translated via AI) \nDipole moment of CO_2 → ?",
     "options": [
       {
         "id": 1,
@@ -1565,8 +1565,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 53,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Dipole moment of H₂O → ?",
-    "textHi": " (Hindi translated via AI) \nDipole moment of H₂O → ?",
+    "textEn": "Dipole moment of H_2O → ?",
+    "textHi": " (Hindi translated via AI) \nDipole moment of H_2O → ?",
     "options": [
       {
         "id": 1,
@@ -1715,8 +1715,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 58,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Aromaticity → Huckel’s rule → antiaromatic?",
-    "textHi": " (Hindi translated via AI) \nAromaticity → Huckel’s rule → antiaromatic?",
+    "textEn": "Aromaticity → Huckel's rule → antiaromatic?",
+    "textHi": " (Hindi translated via AI) \nAromaticity → Huckel's rule → antiaromatic?",
     "options": [
       {
         "id": 1,
@@ -1750,23 +1750,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "–OH",
-        "textHi": "–OH"
+        "textEn": "-OH",
+        "textHi": "-OH"
       },
       {
         "id": 2,
-        "textEn": "–NO₂",
-        "textHi": "–NO₂"
+        "textEn": "-NO_2",
+        "textHi": "-NO_2"
       },
       {
         "id": 3,
-        "textEn": "–CHO",
-        "textHi": "–CHO"
+        "textEn": "-CHO",
+        "textHi": "-CHO"
       },
       {
         "id": 4,
-        "textEn": "–COOH",
-        "textHi": "–COOH"
+        "textEn": "-COOH",
+        "textHi": "-COOH"
       }
     ],
     "correctOption": 1
@@ -1780,23 +1780,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "–NO₂",
-        "textHi": "–NO₂"
+        "textEn": "-NO_2",
+        "textHi": "-NO_2"
       },
       {
         "id": 2,
-        "textEn": "–OH",
-        "textHi": "–OH"
+        "textEn": "-OH",
+        "textHi": "-OH"
       },
       {
         "id": 3,
-        "textEn": "–CH₃",
-        "textHi": "–CH₃"
+        "textEn": "-CH_3",
+        "textHi": "-CH_3"
       },
       {
         "id": 4,
-        "textEn": "–NH₂",
-        "textHi": "–NH₂"
+        "textEn": "-NH_2",
+        "textHi": "-NH_2"
       }
     ],
     "correctOption": 1
@@ -1810,8 +1810,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "–NO₂ substituted benzene",
-        "textHi": "–NO₂ substituted benzene"
+        "textEn": "-NO_2 substituted benzene",
+        "textHi": "-NO_2 substituted benzene"
       },
       {
         "id": 2,
@@ -1835,8 +1835,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 62,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Aldehyde + Tollens’ → ?",
-    "textHi": " (Hindi translated via AI) \nAldehyde + Tollens’ → ?",
+    "textEn": "Aldehyde + Tollens' → ?",
+    "textHi": " (Hindi translated via AI) \nAldehyde + Tollens' → ?",
     "options": [
       {
         "id": 1,
@@ -1865,8 +1865,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 63,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Ketone → Tollens’ → ?",
-    "textHi": " (Hindi translated via AI) \nKetone → Tollens’ → ?",
+    "textEn": "Ketone → Tollens' → ?",
+    "textHi": " (Hindi translated via AI) \nKetone → Tollens' → ?",
     "options": [
       {
         "id": 1,
@@ -2200,23 +2200,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textEn": "CN^-",
+        "textHi": "CN^-"
       },
       {
         "id": 2,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 3,
-        "textEn": "F⁻",
-        "textHi": "F⁻"
+        "textEn": "F^-",
+        "textHi": "F^-"
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textEn": "Cl^-",
+        "textHi": "Cl^-"
       }
     ],
     "correctOption": 1
@@ -2230,23 +2230,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 2,
-        "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textEn": "CN^-",
+        "textHi": "CN^-"
       },
       {
         "id": 3,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       },
       {
         "id": 4,
-        "textEn": "NO₂⁻",
-        "textHi": "NO₂⁻"
+        "textEn": "NO_2^-",
+        "textHi": "NO_2^-"
       }
     ],
     "correctOption": 1
@@ -2325,8 +2325,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "CH₃COOH",
-        "textHi": "CH₃COOH"
+        "textEn": "CH_3COOH",
+        "textHi": "CH_3COOH"
       },
       {
         "id": 3,
@@ -2355,18 +2355,18 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "NH₄OH",
-        "textHi": "NH₄OH"
+        "textEn": "NH_4OH",
+        "textHi": "NH_4OH"
       },
       {
         "id": 3,
-        "textEn": "CH₃COONa",
-        "textHi": "CH₃COONa"
+        "textEn": "CH_3COONa",
+        "textHi": "CH_3COONa"
       },
       {
         "id": 4,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       }
     ],
     "correctOption": 1
@@ -2560,8 +2560,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CH₃COOH + CH₃COONa",
-        "textHi": "CH₃COOH + CH₃COONa"
+        "textEn": "CH_3COOH + CH_3COONa",
+        "textHi": "CH_3COOH + CH_3COONa"
       },
       {
         "id": 2,
@@ -2570,8 +2570,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "NaOH + H₂O",
-        "textHi": "NaOH + H₂O"
+        "textEn": "NaOH + H_2O",
+        "textHi": "NaOH + H_2O"
       },
       {
         "id": 4,
@@ -2585,8 +2585,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 87,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "pH of 0.1 M NH₄Cl → ?",
-    "textHi": " (Hindi translated via AI) \npH of 0.1 M NH₄Cl → ?",
+    "textEn": "pH of 0.1 M NH_4Cl → ?",
+    "textHi": " (Hindi translated via AI) \npH of 0.1 M NH_4Cl → ?",
     "options": [
       {
         "id": 1,
@@ -2645,8 +2645,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 89,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Electrolysis → Faraday’s law → m = ?",
-    "textHi": " (Hindi translated via AI) \nElectrolysis → Faraday’s law → m = ?",
+    "textEn": "Electrolysis → Faraday's law → m = ?",
+    "textHi": " (Hindi translated via AI) \nElectrolysis → Faraday's law → m = ?",
     "options": [
       {
         "id": 1,
@@ -2765,8 +2765,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 93,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C3 plant → first product of CO₂ fixation:",
-    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO₂ fixation:",
+    "textEn": "C3 plant → first product of CO_2 fixation:",
+    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO_2 fixation:",
     "options": [
       {
         "id": 1,
@@ -2795,8 +2795,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 94,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C4 plant → first product of CO₂ fixation:",
-    "textHi": " (Hindi translated via AI) \nC4 plant → first product of CO₂ fixation:",
+    "textEn": "C4 plant → first product of CO_2 fixation:",
+    "textHi": " (Hindi translated via AI) \nC4 plant → first product of CO_2 fixation:",
     "options": [
       {
         "id": 1,
@@ -4180,8 +4180,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
@@ -4220,8 +4220,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "Bowman’s capsule",
-        "textHi": "Bowman’s capsule"
+        "textEn": "Bowman's capsule",
+        "textHi": "Bowman's capsule"
       },
       {
         "id": 4,
@@ -4625,8 +4625,8 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 155,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "Respiration → alveoli → O₂ diffuses:",
-    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → O₂ diffuses:",
+    "textEn": "Respiration → alveoli → O_2 diffuses:",
+    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → O_2 diffuses:",
     "options": [
       {
         "id": 1,
@@ -4655,13 +4655,13 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "id": 156,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "CO₂ transported mainly as:",
-    "textHi": " (Hindi translated via AI) \nCO₂ transported mainly as:",
+    "textEn": "CO_2 transported mainly as:",
+    "textHi": " (Hindi translated via AI) \nCO_2 transported mainly as:",
     "options": [
       {
         "id": 1,
-        "textEn": "Dissolved CO₂",
-        "textHi": "Dissolved CO₂"
+        "textEn": "Dissolved CO_2",
+        "textHi": "Dissolved CO_2"
       },
       {
         "id": 2,
@@ -4780,23 +4780,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 2
@@ -4810,23 +4810,23 @@ export const neetIntensiveMock5Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 3

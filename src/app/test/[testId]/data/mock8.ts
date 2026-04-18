@@ -75,8 +75,8 @@ const physicsQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Ideal gas undergoes process P·V³ = constant. Its bulk modulus is:",
-        "textHi": "आदर्श गैस P·V³ = स्थिरांक प्रक्रिया से गुजरती है। इसका आयतन प्रत्यास्थता गुणांक (Bulk Modulus) है:",
+        "textEn": "Ideal gas undergoes process P·V^3 = constant. Its bulk modulus is:",
+        "textHi": "आदर्श गैस P·V^3 = स्थिरांक प्रक्रिया से गुजरती है। इसका आयतन प्रत्यास्थता गुणांक (Bulk Modulus) है:",
         "options": [
             {
                 "en": "P",
@@ -443,8 +443,8 @@ const physicsQuestions_8: any[] = [
                 "hi": "λ"
             },
             {
-                "en": "1/λ²",
-                "hi": "1/λ²"
+                "en": "1/λ^2",
+                "hi": "1/λ^2"
             },
             {
                 "en": "1/λ⁴",
@@ -459,24 +459,24 @@ const physicsQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Dimensions of electrical permittivity (ε₀) are:",
-        "textHi": "विद्युतशीलता (ε₀) की विमाएं हैं:",
+        "textEn": "Dimensions of electrical permittivity (ε_0) are:",
+        "textHi": "विद्युतशीलता (ε_0) की विमाएं हैं:",
         "options": [
             {
-                "en": "M⁻¹L⁻³T⁴A²",
-                "hi": "M⁻¹L⁻³T⁴A²"
+                "en": "M^-¹L^-^3T⁴A^2",
+                "hi": "M^-¹L^-^3T⁴A^2"
             },
             {
-                "en": "ML³T⁻⁴A⁻²",
-                "hi": "ML³T⁻⁴A⁻²"
+                "en": "ML^3T^-⁴A^-^2",
+                "hi": "ML^3T^-⁴A^-^2"
             },
             {
-                "en": "ML²T⁻²",
-                "hi": "ML²T⁻²"
+                "en": "ML^2T^-^2",
+                "hi": "ML^2T^-^2"
             },
             {
-                "en": "M⁻¹L²T⁻³",
-                "hi": "M⁻¹L²T⁻³"
+                "en": "M^-¹L^2T^-^3",
+                "hi": "M^-¹L^2T^-^3"
             }
         ],
         "ans": 1
@@ -489,8 +489,8 @@ const physicsQuestions_8: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Particle in circle (R=5m) has constant tangential acceleration. Velocity is 10 m/s after 2nd revolution. Tangential acceleration (m/s²)?",
-        "textHi": "वृत्त (R=5m) में कण का नियत स्पर्शरेखीय त्वरण है। 2रे चक्कर के बाद वेग 10 m/s है। त्वरण (m/s²) ज्ञात करें।",
+        "textEn": "Particle in circle (R=5m) has constant tangential acceleration. Velocity is 10 m/s after 2nd revolution. Tangential acceleration (m/s^2)?",
+        "textHi": "वृत्त (R=5m) में कण का नियत स्पर्शरेखीय त्वरण है। 2रे चक्कर के बाद वेग 10 m/s है। त्वरण (m/s^2) ज्ञात करें।",
         "ans": "0.4"
     },
     {
@@ -563,8 +563,8 @@ const chemistryQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The spin-only magnetic moment of [Fe(H₂O)₆]²⁺ is:",
-        "textHi": "[Fe(H₂O)₆]²⁺ का केवल-चक्रण (spin-only) चुंबकीय आघूर्ण है:",
+        "textEn": "The spin-only magnetic moment of [Fe(H_2O)_6]^2^+ is:",
+        "textHi": "[Fe(H_2O)_6]^2^+ का केवल-चक्रण (spin-only) चुंबकीय आघूर्ण है:",
         "options": [
             {
                 "en": "1.73 BM",
@@ -591,20 +591,20 @@ const chemistryQuestions_8: any[] = [
         "textHi": "बोरॉन हैलाइड्स के लिए लुईस अम्ल की शक्ति का सही क्रम है:",
         "options": [
             {
-                "en": "BF₃ > BCl₃ > BBr₃",
-                "hi": "BF₃ > BCl₃ > BBr₃"
+                "en": "BF_3 > BCl_3 > BBr_3",
+                "hi": "BF_3 > BCl_3 > BBr_3"
             },
             {
-                "en": "BI₃ > BBr₃ > BCl₃ > BF₃",
-                "hi": "BI₃ > BBr₃ > BCl₃ > BF₃"
+                "en": "BI_3 > BBr_3 > BCl_3 > BF_3",
+                "hi": "BI_3 > BBr_3 > BCl_3 > BF_3"
             },
             {
                 "en": "All are equal",
                 "hi": "All are equal"
             },
             {
-                "en": "BF₃ > BI₃",
-                "hi": "BF₃ > BI₃"
+                "en": "BF_3 > BI_3",
+                "hi": "BF_3 > BI_3"
             }
         ],
         "ans": 2
@@ -711,16 +711,16 @@ const chemistryQuestions_8: any[] = [
         "textHi": "क्रिस्टल क्षेत्र सिद्धांत (CFT) के अनुसार, उच्च चक्रण संकुल तब बनते हैं जब:",
         "options": [
             {
-                "en": "Δ₀ > P",
-                "hi": "Δ₀ > P"
+                "en": "Δ_0 > P",
+                "hi": "Δ_0 > P"
             },
             {
-                "en": "Δ₀ < P",
-                "hi": "Δ₀ < P"
+                "en": "Δ_0 < P",
+                "hi": "Δ_0 < P"
             },
             {
-                "en": "Δ₀ = P",
-                "hi": "Δ₀ = P"
+                "en": "Δ_0 = P",
+                "hi": "Δ_0 = P"
             },
             {
                 "en": "P = 0",
@@ -739,8 +739,8 @@ const chemistryQuestions_8: any[] = [
                 "hi": "Nitrous"
             },
             {
-                "en": "Nitrate (NO₃⁻)",
-                "hi": "Nitrate (NO₃⁻)"
+                "en": "Nitrate (NO_3^-)",
+                "hi": "Nitrate (NO_3^-)"
             },
             {
                 "en": "Sulphate",
@@ -995,8 +995,8 @@ const chemistryQuestions_8: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Find the pH of a 10⁻⁸ M HCl solution at 25°C. (Report up to 2 decimal places)",
-        "textHi": "10⁻⁸ M HCl विलयन का 25°C पर pH ज्ञात करें। (2 दशमलव स्थानों तक)",
+        "textEn": "Find the pH of a 10^-⁸ M HCl solution at 25°C. (Report up to 2 decimal places)",
+        "textHi": "10^-⁸ M HCl विलयन का 25°C पर pH ज्ञात करें। (2 दशमलव स्थानों तक)",
         "ans": "6.98"
     },
     {
@@ -1007,20 +1007,20 @@ const chemistryQuestions_8: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "The number of lone pairs on the central atom of XeF₄ is:",
-        "textHi": "XeF₄ के केंद्रीय परमाणु पर एकाकी युग्मों (lone pairs) की संख्या है:",
+        "textEn": "The number of lone pairs on the central atom of XeF_4 is:",
+        "textHi": "XeF_4 के केंद्रीय परमाणु पर एकाकी युग्मों (lone pairs) की संख्या है:",
         "ans": "2"
     },
     {
         "type": "Numerical",
-        "textEn": "Find the oxidation state of Cr in K₂Cr₂O₇.",
-        "textHi": "K₂Cr₂O₇ में Cr की ऑक्सीकरण अवस्था ज्ञात करें।",
+        "textEn": "Find the oxidation state of Cr in K_2Cr_2O_7.",
+        "textHi": "K_2Cr_2O_7 में Cr की ऑक्सीकरण अवस्था ज्ञात करें।",
         "ans": "6"
     },
     {
         "type": "Numerical",
-        "textEn": "If Ksp of AgCl is 10⁻¹⁰, find its solubility in 0.1 M NaCl solution (in mol/L) (Ans in format 1e-9).",
-        "textHi": "यदि AgCl का Ksp 10⁻¹⁰ है, तो 0.1 M NaCl विलयन में इसकी विलेयता (mol/L में) ज्ञात करें।",
+        "textEn": "If Ksp of AgCl is 10^-¹⁰, find its solubility in 0.1 M NaCl solution (in mol/L) (Ans in format 1e-9).",
+        "textHi": "यदि AgCl का Ksp 10^-¹⁰ है, तो 0.1 M NaCl विलयन में इसकी विलेयता (mol/L में) ज्ञात करें।",
         "ans": "1e-9"
     }
 ];
@@ -1051,8 +1051,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The area of the region defined by |z - 1| ≤ |z - i| and |z - 1| ≤ 1 in the complex plane is:",
-        "textHi": "सम्मिश्र तल में |z - 1| ≤ |z - i| और |z - 1| ≤ 1 द्वारा परिभाषित क्षेत्र का क्षेत्रफल है:",
+        "textEn": "The area of the region defined by |z - 1| <= |z - i| and |z - 1| <= 1 in the complex plane is:",
+        "textHi": "सम्मिश्र तल में |z - 1| <= |z - i| और |z - 1| <= 1 द्वारा परिभाषित क्षेत्र का क्षेत्रफल है:",
         "options": [
             {
                 "en": "π/4",
@@ -1123,24 +1123,24 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Integral from 0 to π of [ x · sinx / (1 + cos²x) ] dx is:",
-        "textHi": "0 से π तक [ x · sinx / (1 + cos²x) ] dx का समाकलन है:",
+        "textEn": "Integral from 0 to π of [ x · sinx / (1 + cos^2x) ] dx is:",
+        "textHi": "0 से π तक [ x · sinx / (1 + cos^2x) ] dx का समाकलन है:",
         "options": [
             {
-                "en": "π²/2",
-                "hi": "π²/2"
+                "en": "π^2/2",
+                "hi": "π^2/2"
             },
             {
-                "en": "π²/4",
-                "hi": "π²/4"
+                "en": "π^2/4",
+                "hi": "π^2/4"
             },
             {
                 "en": "π/4",
                 "hi": "π/4"
             },
             {
-                "en": "π²",
-                "hi": "π²"
+                "en": "π^2",
+                "hi": "π^2"
             }
         ],
         "ans": 2
@@ -1195,8 +1195,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Eccentricity of the hyperbola x²/9 - y²/16 = 1 is:",
-        "textHi": "अतिपरवलय (hyperbola) x²/9 - y²/16 = 1 की उत्केंद्रता है:",
+        "textEn": "Eccentricity of the hyperbola x^2/9 - y^2/16 = 1 is:",
+        "textHi": "अतिपरवलय (hyperbola) x^2/9 - y^2/16 = 1 की उत्केंद्रता है:",
         "options": [
             {
                 "en": "5/3",
@@ -1219,8 +1219,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The latus rectum of parabola y² = 12x is:",
-        "textHi": "परवलय y² = 12x का नाभिलंब (latus rectum) है:",
+        "textEn": "The latus rectum of parabola y^2 = 12x is:",
+        "textHi": "परवलय y^2 = 12x का नाभिलंब (latus rectum) है:",
         "options": [
             {
                 "en": "3",
@@ -1267,8 +1267,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The shortest distance from point (0, c) to the parabola y = x² is:",
-        "textHi": "बिंदु (0, c) से परवलय y = x² की न्यूनतम दूरी है:",
+        "textEn": "The shortest distance from point (0, c) to the parabola y = x^2 is:",
+        "textHi": "बिंदु (0, c) से परवलय y = x^2 की न्यूनतम दूरी है:",
         "options": [
             {
                 "en": "√(c - 1/4)",
@@ -1315,8 +1315,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Domain of the function f(x) = √(1 - x²) is:",
-        "textHi": "फलन f(x) = √(1 - x²) का डोमेन (प्रांत) है:",
+        "textEn": "Domain of the function f(x) = √(1 - x^2) is:",
+        "textHi": "फलन f(x) = √(1 - x^2) का डोमेन (प्रांत) है:",
         "options": [
             {
                 "en": "[-1, 1]",
@@ -1387,8 +1387,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If a line makes angles α, β, γ with coordinate axes, then cos²α + cos²β + cos²γ = ?",
-        "textHi": "यदि कोई रेखा अक्षों के साथ α, β, γ कोण बनाती है, तो cos²α + cos²β + cos²γ = ?",
+        "textEn": "If a line makes angles α, β, γ with coordinate axes, then cos^2α + cos^2β + cos^2γ = ?",
+        "textHi": "यदि कोई रेखा अक्षों के साथ α, β, γ कोण बनाती है, तो cos^2α + cos^2β + cos^2γ = ?",
         "options": [
             {
                 "en": "0",
@@ -1435,8 +1435,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Order and degree of differential equation (d²y/dx²)³ + dy/dx = 0 are respectively:",
-        "textHi": "अवकल समीकरण (d²y/dx²)³ + dy/dx = 0 की कोटि (order) और घात (degree) क्रमशः हैं:",
+        "textEn": "Order and degree of differential equation (d^2y/dx^2)^3 + dy/dx = 0 are respectively:",
+        "textHi": "अवकल समीकरण (d^2y/dx^2)^3 + dy/dx = 0 की कोटि (order) और घात (degree) क्रमशः हैं:",
         "options": [
             {
                 "en": "2, 3",
@@ -1459,8 +1459,8 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Number of common tangents to circles x²+y²=4 and (x-3)²+y²=1 is:",
-        "textHi": "वृत्तों x²+y²=4 और (x-3)²+y²=1 की उभयनिष्ठ स्पर्श रेखाओं की संख्या है:",
+        "textEn": "Number of common tangents to circles x^2+y^2=4 and (x-3)^2+y^2=1 is:",
+        "textHi": "वृत्तों x^2+y^2=4 और (x-3)^2+y^2=1 की उभयनिष्ठ स्पर्श रेखाओं की संख्या है:",
         "options": [
             {
                 "en": "1",
@@ -1507,7 +1507,7 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "System: x+y+z=2, 2x+3y+2z=5, 2x+3y+(k²-1)z = k+1 has NO solution. Sum of possible values of k?",
+        "textEn": "System: x+y+z=2, 2x+3y+2z=5, 2x+3y+(k^2-1)z = k+1 has NO solution. Sum of possible values of k?",
         "textHi": "दी गई समीकरण प्रणाली का कोई हल नहीं है। k के संभावित मानों का योग ज्ञात करें।",
         "ans": "-2"
     },
@@ -1525,14 +1525,14 @@ const mathQuestions_8: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Find the coefficient of x⁵ in the expansion of (1 + x²)⁵ × (1 + x)⁴.",
-        "textHi": "(1 + x²)⁵ × (1 + x)⁴ के प्रसार में x⁵ का गुणांक ज्ञात करें।",
+        "textEn": "Find the coefficient of x⁵ in the expansion of (1 + x^2)⁵ x (1 + x)⁴.",
+        "textHi": "(1 + x^2)⁵ x (1 + x)⁴ के प्रसार में x⁵ का गुणांक ज्ञात करें।",
         "ans": "60"
     },
     {
         "type": "Numerical",
-        "textEn": "Shortest distance between lines (x-1)/2=(y-2)/3=(z-3)/4 and (x-2)/3=(y-4)/4=(z-5)/5 is d. Find 1/d². (If lines intersect, d=0 i.e. write 0)",
-        "textHi": "दी गई रेखाओं के बीच की न्यूनतम दूरी d है। 1/d² ज्ञात करें। (यदि रेखाएं प्रतिच्छेद करती हैं, 0 लिखें)",
+        "textEn": "Shortest distance between lines (x-1)/2=(y-2)/3=(z-3)/4 and (x-2)/3=(y-4)/4=(z-5)/5 is d. Find 1/d^2. (If lines intersect, d=0 i.e. write 0)",
+        "textHi": "दी गई रेखाओं के बीच की न्यूनतम दूरी d है। 1/d^2 ज्ञात करें। (यदि रेखाएं प्रतिच्छेद करती हैं, 0 लिखें)",
         "ans": "0"
     }
 ];

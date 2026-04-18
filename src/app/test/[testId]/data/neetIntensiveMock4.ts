@@ -5,23 +5,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 1,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Two blocks of masses m₁, m₂ connected by a string on a frictionless table → acceleration of m₁ = ?",
-    "textHi": " (Hindi translated via AI) \nTwo blocks of masses m₁, m₂ connected by a string on a frictionless table → acceleration of m₁ = ?",
+    "textEn": "Two blocks of masses m_1, m_2 connected by a string on a frictionless table → acceleration of m_1 = ?",
+    "textHi": " (Hindi translated via AI) \nTwo blocks of masses m_1, m_2 connected by a string on a frictionless table → acceleration of m_1 = ?",
     "options": [
       {
         "id": 1,
-        "textEn": "(m₁ + m₂)g",
-        "textHi": "(m₁ + m₂)g"
+        "textEn": "(m_1 + m_2)g",
+        "textHi": "(m_1 + m_2)g"
       },
       {
         "id": 2,
-        "textEn": "m₂g / (m₁ + m₂)",
-        "textHi": "m₂g / (m₁ + m₂)"
+        "textEn": "m_2g / (m_1 + m_2)",
+        "textHi": "m_2g / (m_1 + m_2)"
       },
       {
         "id": 3,
-        "textEn": "m₁g / (m₁ + m₂)",
-        "textHi": "m₁g / (m₁ + m₂)"
+        "textEn": "m_1g / (m_1 + m_2)",
+        "textHi": "m_1g / (m_1 + m_2)"
       },
       {
         "id": 4,
@@ -70,23 +70,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "v²/r",
-        "textHi": "v²/r"
+        "textEn": "v^2/r",
+        "textHi": "v^2/r"
       },
       {
         "id": 2,
-        "textEn": "v/r²",
-        "textHi": "v/r²"
+        "textEn": "v/r^2",
+        "textHi": "v/r^2"
       },
       {
         "id": 3,
-        "textEn": "r/v²",
-        "textHi": "r/v²"
+        "textEn": "r/v^2",
+        "textHi": "r/v^2"
       },
       {
         "id": 4,
-        "textEn": "v²r",
-        "textHi": "v²r"
+        "textEn": "v^2r",
+        "textHi": "v^2r"
       }
     ],
     "correctOption": 1
@@ -105,18 +105,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "mv²/r",
-        "textHi": "mv²/r"
+        "textEn": "mv^2/r",
+        "textHi": "mv^2/r"
       },
       {
         "id": 3,
-        "textEn": "½ mv²",
-        "textHi": "½ mv²"
+        "textEn": "1/2 mv^2",
+        "textHi": "1/2 mv^2"
       },
       {
         "id": 4,
-        "textEn": "mv²",
-        "textHi": "mv²"
+        "textEn": "mv^2",
+        "textHi": "mv^2"
       }
     ],
     "correctOption": 1
@@ -160,8 +160,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ω²A",
-        "textHi": "ω²A"
+        "textEn": "ω^2A",
+        "textHi": "ω^2A"
       },
       {
         "id": 2,
@@ -170,8 +170,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "A/ω²",
-        "textHi": "A/ω²"
+        "textEn": "A/ω^2",
+        "textHi": "A/ω^2"
       },
       {
         "id": 4,
@@ -190,23 +190,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ln(A₁/A₂)",
-        "textHi": "ln(A₁/A₂)"
+        "textEn": "ln(A_1/A_2)",
+        "textHi": "ln(A_1/A_2)"
       },
       {
         "id": 2,
-        "textEn": "ln(A₂/A₁)",
-        "textHi": "ln(A₂/A₁)"
+        "textEn": "ln(A_2/A_1)",
+        "textHi": "ln(A_2/A_1)"
       },
       {
         "id": 3,
-        "textEn": "A₁–A₂",
-        "textHi": "A₁–A₂"
+        "textEn": "A_1-A_2",
+        "textHi": "A_1-A_2"
       },
       {
         "id": 4,
-        "textEn": "A₂–A₁",
-        "textHi": "A₂–A₁"
+        "textEn": "A_2-A_1",
+        "textHi": "A_2-A_1"
       }
     ],
     "correctOption": 1
@@ -255,8 +255,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "Δx = (n+½)λ",
-        "textHi": "Δx = (n+½)λ"
+        "textEn": "Δx = (n+1/2)λ",
+        "textHi": "Δx = (n+1/2)λ"
       },
       {
         "id": 3,
@@ -310,18 +310,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "1/Ceq = 1/C₁ + 1/C₂ + …",
-        "textHi": "1/Ceq = 1/C₁ + 1/C₂ + …"
+        "textEn": "1/Ceq = 1/C_1 + 1/C_2 + …",
+        "textHi": "1/Ceq = 1/C_1 + 1/C_2 + …"
       },
       {
         "id": 2,
-        "textEn": "Ceq = C₁ + C₂",
-        "textHi": "Ceq = C₁ + C₂"
+        "textEn": "Ceq = C_1 + C_2",
+        "textHi": "Ceq = C_1 + C_2"
       },
       {
         "id": 3,
-        "textEn": "Ceq = C₁C₂ / (C₁ + C₂)",
-        "textHi": "Ceq = C₁C₂ / (C₁ + C₂)"
+        "textEn": "Ceq = C_1C_2 / (C_1 + C_2)",
+        "textHi": "Ceq = C_1C_2 / (C_1 + C_2)"
       },
       {
         "id": 4,
@@ -340,18 +340,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½ CV²",
-        "textHi": "½ CV²"
+        "textEn": "1/2 CV^2",
+        "textHi": "1/2 CV^2"
       },
       {
         "id": 2,
-        "textEn": "CV²",
-        "textHi": "CV²"
+        "textEn": "CV^2",
+        "textHi": "CV^2"
       },
       {
         "id": 3,
-        "textEn": "½ C/V",
-        "textHi": "½ C/V"
+        "textEn": "1/2 C/V",
+        "textHi": "1/2 C/V"
       },
       {
         "id": 4,
@@ -370,23 +370,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "μ₀nI",
-        "textHi": "μ₀nI"
+        "textEn": "μ_0nI",
+        "textHi": "μ_0nI"
       },
       {
         "id": 2,
-        "textEn": "μ₀I/2πr",
-        "textHi": "μ₀I/2πr"
+        "textEn": "μ_0I/2πr",
+        "textHi": "μ_0I/2πr"
       },
       {
         "id": 3,
-        "textEn": "μ₀I",
-        "textHi": "μ₀I"
+        "textEn": "μ_0I",
+        "textHi": "μ_0I"
       },
       {
         "id": 4,
-        "textEn": "nI/μ₀",
-        "textHi": "nI/μ₀"
+        "textEn": "nI/μ_0",
+        "textHi": "nI/μ_0"
       }
     ],
     "correctOption": 1
@@ -395,8 +395,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 14,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Lenz’s law → induced current direction opposes:",
-    "textHi": " (Hindi translated via AI) \nLenz’s law → induced current direction opposes:",
+    "textEn": "Lenz's law → induced current direction opposes:",
+    "textHi": " (Hindi translated via AI) \nLenz's law → induced current direction opposes:",
     "options": [
       {
         "id": 1,
@@ -520,8 +520,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "hν – φ",
-        "textHi": "hν – φ"
+        "textEn": "hν - φ",
+        "textHi": "hν - φ"
       },
       {
         "id": 2,
@@ -530,8 +530,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "φ – hν",
-        "textHi": "φ – hν"
+        "textEn": "φ - hν",
+        "textHi": "φ - hν"
       },
       {
         "id": 4,
@@ -565,8 +565,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "h²/p",
-        "textHi": "h²/p"
+        "textEn": "h^2/p",
+        "textHi": "h^2/p"
       }
     ],
     "correctOption": 1
@@ -590,8 +590,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "n²ħ",
-        "textHi": "n²ħ"
+        "textEn": "n^2ħ",
+        "textHi": "n^2ħ"
       },
       {
         "id": 4,
@@ -610,8 +610,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "²⁴He²⁺",
-        "textHi": "²⁴He²⁺"
+        "textEn": "^2⁴He^2^+",
+        "textHi": "^2⁴He^2^+"
       },
       {
         "id": 2,
@@ -695,8 +695,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 24,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Half-life → t½ = 0.693/λ → first-order",
-    "textHi": " (Hindi translated via AI) \nHalf-life → t½ = 0.693/λ → first-order",
+    "textEn": "Half-life → t1/2 = 0.693/λ → first-order",
+    "textHi": " (Hindi translated via AI) \nHalf-life → t1/2 = 0.693/λ → first-order",
     "options": [
       {
         "id": 1,
@@ -725,8 +725,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 25,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Young’s modulus → stress/strain → SI unit:",
-    "textHi": " (Hindi translated via AI) \nYoung’s modulus → stress/strain → SI unit:",
+    "textEn": "Young's modulus → stress/strain → SI unit:",
+    "textHi": " (Hindi translated via AI) \nYoung's modulus → stress/strain → SI unit:",
     "options": [
       {
         "id": 1,
@@ -745,8 +745,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "N/m²",
-        "textHi": "N/m²"
+        "textEn": "N/m^2",
+        "textHi": "N/m^2"
       }
     ],
     "correctOption": 1
@@ -820,13 +820,13 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "f' = f(v±v₀)/(v∓vs)",
-        "textHi": "f' = f(v±v₀)/(v∓vs)"
+        "textEn": "f' = f(v±v_0)/(v∓vs)",
+        "textHi": "f' = f(v±v_0)/(v∓vs)"
       },
       {
         "id": 2,
-        "textEn": "f' = f(v±vs)/(v∓v₀)",
-        "textHi": "f' = f(v±vs)/(v∓v₀)"
+        "textEn": "f' = f(v±vs)/(v∓v_0)",
+        "textHi": "f' = f(v±vs)/(v∓v_0)"
       },
       {
         "id": 3,
@@ -835,8 +835,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "f' = f√(v±v₀)/(v∓vs)",
-        "textHi": "f' = f√(v±v₀)/(v∓vs)"
+        "textEn": "f' = f√(v±v_0)/(v∓vs)",
+        "textHi": "f' = f√(v±v_0)/(v∓vs)"
       }
     ],
     "correctOption": 1
@@ -860,8 +860,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "n²",
-        "textHi": "n²"
+        "textEn": "n^2",
+        "textHi": "n^2"
       },
       {
         "id": 4,
@@ -880,23 +880,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "n₂/n₁",
-        "textHi": "n₂/n₁"
+        "textEn": "n_2/n_1",
+        "textHi": "n_2/n_1"
       },
       {
         "id": 2,
-        "textEn": "n₁/n₂",
-        "textHi": "n₁/n₂"
+        "textEn": "n_1/n_2",
+        "textHi": "n_1/n_2"
       },
       {
         "id": 3,
-        "textEn": "n₁n₂",
-        "textHi": "n₁n₂"
+        "textEn": "n_1n_2",
+        "textHi": "n_1n_2"
       },
       {
         "id": 4,
-        "textEn": "√(n₁/n₂)",
-        "textHi": "√(n₁/n₂)"
+        "textEn": "√(n_1/n_2)",
+        "textHi": "√(n_1/n_2)"
       }
     ],
     "correctOption": 2
@@ -910,8 +910,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "1/v – 1/u",
-        "textHi": "1/v – 1/u"
+        "textEn": "1/v - 1/u",
+        "textHi": "1/v - 1/u"
       },
       {
         "id": 2,
@@ -945,8 +945,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "1/v – 1/u",
-        "textHi": "1/v – 1/u"
+        "textEn": "1/v - 1/u",
+        "textHi": "1/v - 1/u"
       },
       {
         "id": 3,
@@ -985,8 +985,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "100/f²",
-        "textHi": "100/f²"
+        "textEn": "100/f^2",
+        "textHi": "100/f^2"
       }
     ],
     "correctOption": 1
@@ -1030,8 +1030,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½",
-        "textHi": "½"
+        "textEn": "1/2",
+        "textHi": "1/2"
       },
       {
         "id": 2,
@@ -1075,8 +1075,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "A²/d²",
-        "textHi": "A²/d²"
+        "textEn": "A^2/d^2",
+        "textHi": "A^2/d^2"
       }
     ],
     "correctOption": 1
@@ -1085,13 +1085,13 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 37,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Energy in SHO → max = ½ kA²",
-    "textHi": " (Hindi translated via AI) \nEnergy in SHO → max = ½ kA²",
+    "textEn": "Energy in SHO → max = 1/2 kA^2",
+    "textHi": " (Hindi translated via AI) \nEnergy in SHO → max = 1/2 kA^2",
     "options": [
       {
         "id": 1,
-        "textEn": "½ kA²",
-        "textHi": "½ kA²"
+        "textEn": "1/2 kA^2",
+        "textHi": "1/2 kA^2"
       },
       {
         "id": 2,
@@ -1115,8 +1115,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 38,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Power radiated → Larmor formula → P ∝ a²",
-    "textHi": " (Hindi translated via AI) \nPower radiated → Larmor formula → P ∝ a²",
+    "textEn": "Power radiated → Larmor formula → P ∝ a^2",
+    "textHi": " (Hindi translated via AI) \nPower radiated → Larmor formula → P ∝ a^2",
     "options": [
       {
         "id": 1,
@@ -1150,18 +1150,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "3×10⁸ m/s",
-        "textHi": "3×10⁸ m/s"
+        "textEn": "3x10⁸ m/s",
+        "textHi": "3x10⁸ m/s"
       },
       {
         "id": 2,
-        "textEn": "3×10⁶ m/s",
-        "textHi": "3×10⁶ m/s"
+        "textEn": "3x10⁶ m/s",
+        "textHi": "3x10⁶ m/s"
       },
       {
         "id": 3,
-        "textEn": "3×10⁵ km/s",
-        "textHi": "3×10⁵ km/s"
+        "textEn": "3x10⁵ km/s",
+        "textHi": "3x10⁵ km/s"
       },
       {
         "id": 4,
@@ -1240,18 +1240,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "R₁ + R₂ + …",
-        "textHi": "R₁ + R₂ + …"
+        "textEn": "R_1 + R_2 + …",
+        "textHi": "R_1 + R_2 + …"
       },
       {
         "id": 2,
-        "textEn": "1/R = 1/R₁ + 1/R₂",
-        "textHi": "1/R = 1/R₁ + 1/R₂"
+        "textEn": "1/R = 1/R_1 + 1/R_2",
+        "textHi": "1/R = 1/R_1 + 1/R_2"
       },
       {
         "id": 3,
-        "textEn": "R₁R₂/(R₁+R₂)",
-        "textHi": "R₁R₂/(R₁+R₂)"
+        "textEn": "R_1R_2/(R_1+R_2)",
+        "textHi": "R_1R_2/(R_1+R_2)"
       },
       {
         "id": 4,
@@ -1270,18 +1270,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "1/R₁ + 1/R₂ + …",
-        "textHi": "1/R₁ + 1/R₂ + …"
+        "textEn": "1/R_1 + 1/R_2 + …",
+        "textHi": "1/R_1 + 1/R_2 + …"
       },
       {
         "id": 2,
-        "textEn": "R₁ + R₂ + …",
-        "textHi": "R₁ + R₂ + …"
+        "textEn": "R_1 + R_2 + …",
+        "textHi": "R_1 + R_2 + …"
       },
       {
         "id": 3,
-        "textEn": "R₁R₂/(R₁+R₂)",
-        "textHi": "R₁R₂/(R₁+R₂)"
+        "textEn": "R_1R_2/(R_1+R_2)",
+        "textHi": "R_1R_2/(R_1+R_2)"
       },
       {
         "id": 4,
@@ -1295,8 +1295,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 44,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Kirchhoff’s law → conservation of:",
-    "textHi": " (Hindi translated via AI) \nKirchhoff’s law → conservation of:",
+    "textEn": "Kirchhoff's law → conservation of:",
+    "textHi": " (Hindi translated via AI) \nKirchhoff's law → conservation of:",
     "options": [
       {
         "id": 1,
@@ -1355,8 +1355,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 46,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "0.02 M HCl → pH considering [H⁺] contribution from H₂O = ?",
-    "textHi": " (Hindi translated via AI) \n0.02 M HCl → pH considering [H⁺] contribution from H₂O = ?",
+    "textEn": "0.02 M HCl → pH considering [H^+] contribution from H_2O = ?",
+    "textHi": " (Hindi translated via AI) \n0.02 M HCl → pH considering [H^+] contribution from H_2O = ?",
     "options": [
       {
         "id": 1,
@@ -1365,8 +1365,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "1.7–1.8",
-        "textHi": "1.7–1.8"
+        "textEn": "1.7-1.8",
+        "textHi": "1.7-1.8"
       },
       {
         "id": 3,
@@ -1445,28 +1445,28 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 49,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "pH of buffer solution → Henderson–Hasselbalch → pH = ?",
-    "textHi": " (Hindi translated via AI) \npH of buffer solution → Henderson–Hasselbalch → pH = ?",
+    "textEn": "pH of buffer solution → Henderson-Hasselbalch → pH = ?",
+    "textHi": " (Hindi translated via AI) \npH of buffer solution → Henderson-Hasselbalch → pH = ?",
     "options": [
       {
         "id": 1,
-        "textEn": "pKa + log([A⁻]/[HA])",
-        "textHi": "pKa + log([A⁻]/[HA])"
+        "textEn": "pKa + log([A^-]/[HA])",
+        "textHi": "pKa + log([A^-]/[HA])"
       },
       {
         "id": 2,
-        "textEn": "pKa – log([A⁻]/[HA])",
-        "textHi": "pKa – log([A⁻]/[HA])"
+        "textEn": "pKa - log([A^-]/[HA])",
+        "textHi": "pKa - log([A^-]/[HA])"
       },
       {
         "id": 3,
-        "textEn": "pKa × log([A⁻]/[HA])",
-        "textHi": "pKa × log([A⁻]/[HA])"
+        "textEn": "pKa x log([A^-]/[HA])",
+        "textHi": "pKa x log([A^-]/[HA])"
       },
       {
         "id": 4,
-        "textEn": "pKa / log([A⁻]/[HA])",
-        "textHi": "pKa / log([A⁻]/[HA])"
+        "textEn": "pKa / log([A^-]/[HA])",
+        "textHi": "pKa / log([A^-]/[HA])"
       }
     ],
     "correctOption": 1
@@ -1475,8 +1475,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 50,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Oxidation state of Cr in K₂Cr₂O₇:",
-    "textHi": " (Hindi translated via AI) \nOxidation state of Cr in K₂Cr₂O₇:",
+    "textEn": "Oxidation state of Cr in K_2Cr_2O_7:",
+    "textHi": " (Hindi translated via AI) \nOxidation state of Cr in K_2Cr_2O_7:",
     "options": [
       {
         "id": 1,
@@ -1505,28 +1505,28 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 51,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Hybridization of PCl₅:",
-    "textHi": " (Hindi translated via AI) \nHybridization of PCl₅:",
+    "textEn": "Hybridization of PCl_5:",
+    "textHi": " (Hindi translated via AI) \nHybridization of PCl_5:",
     "options": [
       {
         "id": 1,
-        "textEn": "sp³d",
-        "textHi": "sp³d"
+        "textEn": "sp^3d",
+        "textHi": "sp^3d"
       },
       {
         "id": 2,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 3,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 4,
-        "textEn": "sp³d²",
-        "textHi": "sp³d²"
+        "textEn": "sp^3d^2",
+        "textHi": "sp^3d^2"
       }
     ],
     "correctOption": 1
@@ -1570,18 +1570,18 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 3,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       },
       {
         "id": 4,
@@ -1715,8 +1715,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 58,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Aromaticity → Huckel’s rule → example of anti-aromatic:",
-    "textHi": " (Hindi translated via AI) \nAromaticity → Huckel’s rule → example of anti-aromatic:",
+    "textEn": "Aromaticity → Huckel's rule → example of anti-aromatic:",
+    "textHi": " (Hindi translated via AI) \nAromaticity → Huckel's rule → example of anti-aromatic:",
     "options": [
       {
         "id": 1,
@@ -1750,23 +1750,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "–NO₂",
-        "textHi": "–NO₂"
+        "textEn": "-NO_2",
+        "textHi": "-NO_2"
       },
       {
         "id": 2,
-        "textEn": "–OH",
-        "textHi": "–OH"
+        "textEn": "-OH",
+        "textHi": "-OH"
       },
       {
         "id": 3,
-        "textEn": "–CH₃",
-        "textHi": "–CH₃"
+        "textEn": "-CH_3",
+        "textHi": "-CH_3"
       },
       {
         "id": 4,
-        "textEn": "–NH₂",
-        "textHi": "–NH₂"
+        "textEn": "-NH_2",
+        "textHi": "-NH_2"
       }
     ],
     "correctOption": 1
@@ -1775,13 +1775,13 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 60,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Friedel–Crafts alkylation fails in:",
-    "textHi": " (Hindi translated via AI) \nFriedel–Crafts alkylation fails in:",
+    "textEn": "Friedel-Crafts alkylation fails in:",
+    "textHi": " (Hindi translated via AI) \nFriedel-Crafts alkylation fails in:",
     "options": [
       {
         "id": 1,
-        "textEn": "–NO₂ substituted benzene",
-        "textHi": "–NO₂ substituted benzene"
+        "textEn": "-NO_2 substituted benzene",
+        "textHi": "-NO_2 substituted benzene"
       },
       {
         "id": 2,
@@ -2165,8 +2165,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 73,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Strong field ligand → low-spin complex → example: CN⁻",
-    "textHi": " (Hindi translated via AI) \nStrong field ligand → low-spin complex → example: CN⁻",
+    "textEn": "Strong field ligand → low-spin complex → example: CN^-",
+    "textHi": " (Hindi translated via AI) \nStrong field ligand → low-spin complex → example: CN^-",
     "options": [
       {
         "id": 1,
@@ -2195,13 +2195,13 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 74,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Weak field ligand → high-spin complex → example: H₂O",
-    "textHi": " (Hindi translated via AI) \nWeak field ligand → high-spin complex → example: H₂O",
+    "textEn": "Weak field ligand → high-spin complex → example: H_2O",
+    "textHi": " (Hindi translated via AI) \nWeak field ligand → high-spin complex → example: H_2O",
     "options": [
       {
         "id": 1,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 2,
@@ -2495,8 +2495,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 84,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Buffer solution → example: CH₃COOH + CH₃COONa",
-    "textHi": " (Hindi translated via AI) \nBuffer solution → example: CH₃COOH + CH₃COONa",
+    "textEn": "Buffer solution → example: CH_3COOH + CH_3COONa",
+    "textHi": " (Hindi translated via AI) \nBuffer solution → example: CH_3COOH + CH_3COONa",
     "options": [
       {
         "id": 1,
@@ -2525,8 +2525,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 85,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "pH of 0.1 M NH₄Cl → acidic",
-    "textHi": " (Hindi translated via AI) \npH of 0.1 M NH₄Cl → acidic",
+    "textEn": "pH of 0.1 M NH_4Cl → acidic",
+    "textHi": " (Hindi translated via AI) \npH of 0.1 M NH_4Cl → acidic",
     "options": [
       {
         "id": 1,
@@ -2585,8 +2585,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 87,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Electrolysis → Faraday’s law → m = ZIt",
-    "textHi": " (Hindi translated via AI) \nElectrolysis → Faraday’s law → m = ZIt",
+    "textEn": "Electrolysis → Faraday's law → m = ZIt",
+    "textHi": " (Hindi translated via AI) \nElectrolysis → Faraday's law → m = ZIt",
     "options": [
       {
         "id": 1,
@@ -2615,8 +2615,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 88,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Strong acid → HCl, HNO₃",
-    "textHi": " (Hindi translated via AI) \nStrong acid → HCl, HNO₃",
+    "textEn": "Strong acid → HCl, HNO_3",
+    "textHi": " (Hindi translated via AI) \nStrong acid → HCl, HNO_3",
     "options": [
       {
         "id": 1,
@@ -2765,8 +2765,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 93,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C3 plant → first product of CO₂ fixation:",
-    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO₂ fixation:",
+    "textEn": "C3 plant → first product of CO_2 fixation:",
+    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO_2 fixation:",
     "options": [
       {
         "id": 1,
@@ -2795,8 +2795,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 94,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C4 plant → first product of CO₂ fixation:",
-    "textHi": " (Hindi translated via AI) \nC4 plant → first product of CO₂ fixation:",
+    "textEn": "C4 plant → first product of CO_2 fixation:",
+    "textHi": " (Hindi translated via AI) \nC4 plant → first product of CO_2 fixation:",
     "options": [
       {
         "id": 1,
@@ -4180,8 +4180,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
@@ -4220,8 +4220,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "Bowman’s capsule",
-        "textHi": "Bowman’s capsule"
+        "textEn": "Bowman's capsule",
+        "textHi": "Bowman's capsule"
       },
       {
         "id": 4,
@@ -4625,8 +4625,8 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 155,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "Respiration → alveoli → O₂ diffuses:",
-    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → O₂ diffuses:",
+    "textEn": "Respiration → alveoli → O_2 diffuses:",
+    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → O_2 diffuses:",
     "options": [
       {
         "id": 1,
@@ -4655,13 +4655,13 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "id": 156,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "CO₂ transported mainly as:",
-    "textHi": " (Hindi translated via AI) \nCO₂ transported mainly as:",
+    "textEn": "CO_2 transported mainly as:",
+    "textHi": " (Hindi translated via AI) \nCO_2 transported mainly as:",
     "options": [
       {
         "id": 1,
-        "textEn": "Dissolved CO₂",
-        "textHi": "Dissolved CO₂"
+        "textEn": "Dissolved CO_2",
+        "textHi": "Dissolved CO_2"
       },
       {
         "id": 2,
@@ -4780,23 +4780,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 2
@@ -4810,23 +4810,23 @@ export const neetIntensiveMock4Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 3

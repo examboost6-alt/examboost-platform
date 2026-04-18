@@ -5,8 +5,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 1,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "1. The Living World – Taxonomy \nWhich of the following is NOT a characteristic of all living organisms?",
-    "textHi": "1. The Living World – Taxonomy (Hindi translated via AI) \nWhich of the following is NOT a characteristic of all living organisms?",
+    "textEn": "1. The Living World - Taxonomy \nWhich of the following is NOT a characteristic of all living organisms?",
+    "textHi": "1. The Living World - Taxonomy (Hindi translated via AI) \nWhich of the following is NOT a characteristic of all living organisms?",
     "options": [
       {
         "id": 1,
@@ -35,8 +35,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 2,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "2. Biological Classification – Kingdoms \nIn which kingdom are all organisms unicellular and possess a well‑defined nucleus?",
-    "textHi": "2. Biological Classification – Kingdoms (Hindi translated via AI) \nIn which kingdom are all organisms unicellular and possess a well‑defined nucleus?",
+    "textEn": "2. Biological Classification - Kingdoms \nIn which kingdom are all organisms unicellular and possess a well‑defined nucleus?",
+    "textHi": "2. Biological Classification - Kingdoms (Hindi translated via AI) \nIn which kingdom are all organisms unicellular and possess a well‑defined nucleus?",
     "options": [
       {
         "id": 1,
@@ -65,8 +65,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 3,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "3. Biological Classification – Fungi \nWhich of the following is a correct feature of fungi?",
-    "textHi": "3. Biological Classification – Fungi (Hindi translated via AI) \nWhich of the following is a correct feature of fungi?",
+    "textEn": "3. Biological Classification - Fungi \nWhich of the following is a correct feature of fungi?",
+    "textHi": "3. Biological Classification - Fungi (Hindi translated via AI) \nWhich of the following is a correct feature of fungi?",
     "options": [
       {
         "id": 1,
@@ -95,8 +95,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 4,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "4. Plant Kingdom – Algae \nWhich of the following algal groups stores starch similar to higher plants?",
-    "textHi": "4. Plant Kingdom – Algae (Hindi translated via AI) \nWhich of the following algal groups stores starch similar to higher plants?",
+    "textEn": "4. Plant Kingdom - Algae \nWhich of the following algal groups stores starch similar to higher plants?",
+    "textHi": "4. Plant Kingdom - Algae (Hindi translated via AI) \nWhich of the following algal groups stores starch similar to higher plants?",
     "options": [
       {
         "id": 1,
@@ -125,8 +125,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 5,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "5. Plant Kingdom – Bryophytes \nIndependent sporophyte is absent in:",
-    "textHi": "5. Plant Kingdom – Bryophytes (Hindi translated via AI) \nIndependent sporophyte is absent in:",
+    "textEn": "5. Plant Kingdom - Bryophytes \nIndependent sporophyte is absent in:",
+    "textHi": "5. Plant Kingdom - Bryophytes (Hindi translated via AI) \nIndependent sporophyte is absent in:",
     "options": [
       {
         "id": 1,
@@ -155,8 +155,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 6,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "6. Plant Kingdom – Pteridophytes \nIn pteridophytes, the dominant phase of life cycle is:",
-    "textHi": "6. Plant Kingdom – Pteridophytes (Hindi translated via AI) \nIn pteridophytes, the dominant phase of life cycle is:",
+    "textEn": "6. Plant Kingdom - Pteridophytes \nIn pteridophytes, the dominant phase of life cycle is:",
+    "textHi": "6. Plant Kingdom - Pteridophytes (Hindi translated via AI) \nIn pteridophytes, the dominant phase of life cycle is:",
     "options": [
       {
         "id": 1,
@@ -185,8 +185,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 7,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "7. Plant Kingdom – Gymnosperms \nWhich of the following is NOT a feature of gymnosperms?",
-    "textHi": "7. Plant Kingdom – Gymnosperms (Hindi translated via AI) \nWhich of the following is NOT a feature of gymnosperms?",
+    "textEn": "7. Plant Kingdom - Gymnosperms \nWhich of the following is NOT a feature of gymnosperms?",
+    "textHi": "7. Plant Kingdom - Gymnosperms (Hindi translated via AI) \nWhich of the following is NOT a feature of gymnosperms?",
     "options": [
       {
         "id": 1,
@@ -215,8 +215,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 8,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "8. Plant Kingdom – Angiosperms \nDouble fertilisation is a feature of:",
-    "textHi": "8. Plant Kingdom – Angiosperms (Hindi translated via AI) \nDouble fertilisation is a feature of:",
+    "textEn": "8. Plant Kingdom - Angiosperms \nDouble fertilisation is a feature of:",
+    "textHi": "8. Plant Kingdom - Angiosperms (Hindi translated via AI) \nDouble fertilisation is a feature of:",
     "options": [
       {
         "id": 1,
@@ -245,8 +245,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 9,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "9. Morphology of Flowering Plants – Root \nPneumatophores are modified roots seen in plants growing in:",
-    "textHi": "9. Morphology of Flowering Plants – Root (Hindi translated via AI) \nPneumatophores are modified roots seen in plants growing in:",
+    "textEn": "9. Morphology of Flowering Plants - Root \nPneumatophores are modified roots seen in plants growing in:",
+    "textHi": "9. Morphology of Flowering Plants - Root (Hindi translated via AI) \nPneumatophores are modified roots seen in plants growing in:",
     "options": [
       {
         "id": 1,
@@ -275,8 +275,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 10,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "10. Morphology – Leaf \nReticulate venation is a characteristic feature of:",
-    "textHi": "10. Morphology – Leaf (Hindi translated via AI) \nReticulate venation is a characteristic feature of:",
+    "textEn": "10. Morphology - Leaf \nReticulate venation is a characteristic feature of:",
+    "textHi": "10. Morphology - Leaf (Hindi translated via AI) \nReticulate venation is a characteristic feature of:",
     "options": [
       {
         "id": 1,
@@ -305,8 +305,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 11,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "11. Anatomy of Flowering Plants – Tissues \nWhich of the following is a meristematic tissue?",
-    "textHi": "11. Anatomy of Flowering Plants – Tissues (Hindi translated via AI) \nWhich of the following is a meristematic tissue?",
+    "textEn": "11. Anatomy of Flowering Plants - Tissues \nWhich of the following is a meristematic tissue?",
+    "textHi": "11. Anatomy of Flowering Plants - Tissues (Hindi translated via AI) \nWhich of the following is a meristematic tissue?",
     "options": [
       {
         "id": 1,
@@ -335,8 +335,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 12,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "12. Anatomy – Vascular Bundles \nIn a closed vascular bundle, cambium is:",
-    "textHi": "12. Anatomy – Vascular Bundles (Hindi translated via AI) \nIn a closed vascular bundle, cambium is:",
+    "textEn": "12. Anatomy - Vascular Bundles \nIn a closed vascular bundle, cambium is:",
+    "textHi": "12. Anatomy - Vascular Bundles (Hindi translated via AI) \nIn a closed vascular bundle, cambium is:",
     "options": [
       {
         "id": 1,
@@ -365,8 +365,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 13,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "13. Cell – The Unit of Life – Organelles \nPlastids containing chlorophyll in plant cells are:",
-    "textHi": "13. Cell – The Unit of Life – Organelles (Hindi translated via AI) \nPlastids containing chlorophyll in plant cells are:",
+    "textEn": "13. Cell - The Unit of Life - Organelles \nPlastids containing chlorophyll in plant cells are:",
+    "textHi": "13. Cell - The Unit of Life - Organelles (Hindi translated via AI) \nPlastids containing chlorophyll in plant cells are:",
     "options": [
       {
         "id": 1,
@@ -395,8 +395,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 14,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "14. Cell – Nucleus & Chromosomes \nThe number of DNA molecules in a human somatic cell in G1 phase is:",
-    "textHi": "14. Cell – Nucleus & Chromosomes (Hindi translated via AI) \nThe number of DNA molecules in a human somatic cell in G1 phase is:",
+    "textEn": "14. Cell - Nucleus & Chromosomes \nThe number of DNA molecules in a human somatic cell in G1 phase is:",
+    "textHi": "14. Cell - Nucleus & Chromosomes (Hindi translated via AI) \nThe number of DNA molecules in a human somatic cell in G1 phase is:",
     "options": [
       {
         "id": 1,
@@ -425,8 +425,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 15,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "15. Cell Division – Mitosis \nDuring which stage of mitosis do chromatids separate?",
-    "textHi": "15. Cell Division – Mitosis (Hindi translated via AI) \nDuring which stage of mitosis do chromatids separate?",
+    "textEn": "15. Cell Division - Mitosis \nDuring which stage of mitosis do chromatids separate?",
+    "textHi": "15. Cell Division - Mitosis (Hindi translated via AI) \nDuring which stage of mitosis do chromatids separate?",
     "options": [
       {
         "id": 1,
@@ -455,8 +455,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 16,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "16. Cell Division – Meiosis \nCrossing over occurs during:",
-    "textHi": "16. Cell Division – Meiosis (Hindi translated via AI) \nCrossing over occurs during:",
+    "textEn": "16. Cell Division - Meiosis \nCrossing over occurs during:",
+    "textHi": "16. Cell Division - Meiosis (Hindi translated via AI) \nCrossing over occurs during:",
     "options": [
       {
         "id": 1,
@@ -485,8 +485,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 17,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "17. Transport in Plants – Xylem \nThe main force responsible for long‑distance transport of water in xylem is:",
-    "textHi": "17. Transport in Plants – Xylem (Hindi translated via AI) \nThe main force responsible for long‑distance transport of water in xylem is:",
+    "textEn": "17. Transport in Plants - Xylem \nThe main force responsible for long‑distance transport of water in xylem is:",
+    "textHi": "17. Transport in Plants - Xylem (Hindi translated via AI) \nThe main force responsible for long‑distance transport of water in xylem is:",
     "options": [
       {
         "id": 1,
@@ -515,8 +515,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 18,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "18. Transport – Phloem \nTranslocation of organic nutrients in angiosperms mainly occurs through:",
-    "textHi": "18. Transport – Phloem (Hindi translated via AI) \nTranslocation of organic nutrients in angiosperms mainly occurs through:",
+    "textEn": "18. Transport - Phloem \nTranslocation of organic nutrients in angiosperms mainly occurs through:",
+    "textHi": "18. Transport - Phloem (Hindi translated via AI) \nTranslocation of organic nutrients in angiosperms mainly occurs through:",
     "options": [
       {
         "id": 1,
@@ -545,8 +545,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 19,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "19. Mineral Nutrition – Essential Elements \nDeficiency of which element causes interveinal chlorosis in older leaves?",
-    "textHi": "19. Mineral Nutrition – Essential Elements (Hindi translated via AI) \nDeficiency of which element causes interveinal chlorosis in older leaves?",
+    "textEn": "19. Mineral Nutrition - Essential Elements \nDeficiency of which element causes interveinal chlorosis in older leaves?",
+    "textHi": "19. Mineral Nutrition - Essential Elements (Hindi translated via AI) \nDeficiency of which element causes interveinal chlorosis in older leaves?",
     "options": [
       {
         "id": 1,
@@ -575,8 +575,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 20,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "20. Mineral Nutrition – Nitrogen Fixation \nWhich of the following organisms can fix atmospheric nitrogen in symbiotic association with plants?",
-    "textHi": "20. Mineral Nutrition – Nitrogen Fixation (Hindi translated via AI) \nWhich of the following organisms can fix atmospheric nitrogen in symbiotic association with plants?",
+    "textEn": "20. Mineral Nutrition - Nitrogen Fixation \nWhich of the following organisms can fix atmospheric nitrogen in symbiotic association with plants?",
+    "textHi": "20. Mineral Nutrition - Nitrogen Fixation (Hindi translated via AI) \nWhich of the following organisms can fix atmospheric nitrogen in symbiotic association with plants?",
     "options": [
       {
         "id": 1,
@@ -605,8 +605,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 21,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "21. Photosynthesis – Light Reactions \nIn the light reactions of photosynthesis, the main source of electrons in PSII is:",
-    "textHi": "21. Photosynthesis – Light Reactions (Hindi translated via AI) \nIn the light reactions of photosynthesis, the main source of electrons in PSII is:",
+    "textEn": "21. Photosynthesis - Light Reactions \nIn the light reactions of photosynthesis, the main source of electrons in PSII is:",
+    "textHi": "21. Photosynthesis - Light Reactions (Hindi translated via AI) \nIn the light reactions of photosynthesis, the main source of electrons in PSII is:",
     "options": [
       {
         "id": 1,
@@ -615,8 +615,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "NADP⁺",
-        "textHi": "NADP⁺"
+        "textEn": "NADP^+",
+        "textHi": "NADP^+"
       },
       {
         "id": 3,
@@ -635,8 +635,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 22,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "22. Photosynthesis – C4 Pathway \nIn C4 plants, the primary CO₂ acceptor in mesophyll cells is:",
-    "textHi": "22. Photosynthesis – C4 Pathway (Hindi translated via AI) \nIn C4 plants, the primary CO₂ acceptor in mesophyll cells is:",
+    "textEn": "22. Photosynthesis - C4 Pathway \nIn C4 plants, the primary CO_2 acceptor in mesophyll cells is:",
+    "textHi": "22. Photosynthesis - C4 Pathway (Hindi translated via AI) \nIn C4 plants, the primary CO_2 acceptor in mesophyll cells is:",
     "options": [
       {
         "id": 1,
@@ -665,8 +665,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 23,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "23. Respiration – Glycolysis \nThe net gain of ATP in glycolysis (per glucose molecule) in plant cells is:",
-    "textHi": "23. Respiration – Glycolysis (Hindi translated via AI) \nThe net gain of ATP in glycolysis (per glucose molecule) in plant cells is:",
+    "textEn": "23. Respiration - Glycolysis \nThe net gain of ATP in glycolysis (per glucose molecule) in plant cells is:",
+    "textHi": "23. Respiration - Glycolysis (Hindi translated via AI) \nThe net gain of ATP in glycolysis (per glucose molecule) in plant cells is:",
     "options": [
       {
         "id": 1,
@@ -695,8 +695,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 24,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "24. Respiration – ETC \nOxygen in aerobic respiration acts as the final electron acceptor in the:",
-    "textHi": "24. Respiration – ETC (Hindi translated via AI) \nOxygen in aerobic respiration acts as the final electron acceptor in the:",
+    "textEn": "24. Respiration - ETC \nOxygen in aerobic respiration acts as the final electron acceptor in the:",
+    "textHi": "24. Respiration - ETC (Hindi translated via AI) \nOxygen in aerobic respiration acts as the final electron acceptor in the:",
     "options": [
       {
         "id": 1,
@@ -725,8 +725,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 25,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "25. Plant Growth – Hormones \nWhich plant hormone is mainly responsible for seed dormancy?",
-    "textHi": "25. Plant Growth – Hormones (Hindi translated via AI) \nWhich plant hormone is mainly responsible for seed dormancy?",
+    "textEn": "25. Plant Growth - Hormones \nWhich plant hormone is mainly responsible for seed dormancy?",
+    "textHi": "25. Plant Growth - Hormones (Hindi translated via AI) \nWhich plant hormone is mainly responsible for seed dormancy?",
     "options": [
       {
         "id": 1,
@@ -755,8 +755,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 26,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "26. Plant Growth – Vernalisation \nVernalisation is the process of:",
-    "textHi": "26. Plant Growth – Vernalisation (Hindi translated via AI) \nVernalisation is the process of:",
+    "textEn": "26. Plant Growth - Vernalisation \nVernalisation is the process of:",
+    "textHi": "26. Plant Growth - Vernalisation (Hindi translated via AI) \nVernalisation is the process of:",
     "options": [
       {
         "id": 1,
@@ -785,8 +785,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 27,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "27. Sexual Reproduction – Pollination \nTransfer of pollen from anther of one flower to the stigma of another flower on a different plant is called:",
-    "textHi": "27. Sexual Reproduction – Pollination (Hindi translated via AI) \nTransfer of pollen from anther of one flower to the stigma of another flower on a different plant is called:",
+    "textEn": "27. Sexual Reproduction - Pollination \nTransfer of pollen from anther of one flower to the stigma of another flower on a different plant is called:",
+    "textHi": "27. Sexual Reproduction - Pollination (Hindi translated via AI) \nTransfer of pollen from anther of one flower to the stigma of another flower on a different plant is called:",
     "options": [
       {
         "id": 1,
@@ -815,8 +815,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 28,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "28. Sexual Reproduction – Double Fertilisation \nIn angiosperms, one sperm fuses with the egg and the other with:",
-    "textHi": "28. Sexual Reproduction – Double Fertilisation (Hindi translated via AI) \nIn angiosperms, one sperm fuses with the egg and the other with:",
+    "textEn": "28. Sexual Reproduction - Double Fertilisation \nIn angiosperms, one sperm fuses with the egg and the other with:",
+    "textHi": "28. Sexual Reproduction - Double Fertilisation (Hindi translated via AI) \nIn angiosperms, one sperm fuses with the egg and the other with:",
     "options": [
       {
         "id": 1,
@@ -845,8 +845,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 29,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "29. Reproduction – Apomixis \nApomixis is a form of reproduction where:",
-    "textHi": "29. Reproduction – Apomixis (Hindi translated via AI) \nApomixis is a form of reproduction where:",
+    "textEn": "29. Reproduction - Apomixis \nApomixis is a form of reproduction where:",
+    "textHi": "29. Reproduction - Apomixis (Hindi translated via AI) \nApomixis is a form of reproduction where:",
     "options": [
       {
         "id": 1,
@@ -875,8 +875,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 30,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "30. Genetics – Mendel’s Laws \nMendel’s law of independent assortment is valid when genes are:",
-    "textHi": "30. Genetics – Mendel’s Laws (Hindi translated via AI) \nMendel’s law of independent assortment is valid when genes are:",
+    "textEn": "30. Genetics - Mendel's Laws \nMendel's law of independent assortment is valid when genes are:",
+    "textHi": "30. Genetics - Mendel's Laws (Hindi translated via AI) \nMendel's law of independent assortment is valid when genes are:",
     "options": [
       {
         "id": 1,
@@ -905,8 +905,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 31,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "31. Principles of Inheritance – Linkage \nIn case of complete linkage, the number of phenotypic classes in a dihybrid cross is:",
-    "textHi": "31. Principles of Inheritance – Linkage (Hindi translated via AI) \nIn case of complete linkage, the number of phenotypic classes in a dihybrid cross is:",
+    "textEn": "31. Principles of Inheritance - Linkage \nIn case of complete linkage, the number of phenotypic classes in a dihybrid cross is:",
+    "textHi": "31. Principles of Inheritance - Linkage (Hindi translated via AI) \nIn case of complete linkage, the number of phenotypic classes in a dihybrid cross is:",
     "options": [
       {
         "id": 1,
@@ -935,8 +935,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 32,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "32. Molecular Basis of Inheritance – DNA \nThe sugar present in DNA is:",
-    "textHi": "32. Molecular Basis of Inheritance – DNA (Hindi translated via AI) \nThe sugar present in DNA is:",
+    "textEn": "32. Molecular Basis of Inheritance - DNA \nThe sugar present in DNA is:",
+    "textHi": "32. Molecular Basis of Inheritance - DNA (Hindi translated via AI) \nThe sugar present in DNA is:",
     "options": [
       {
         "id": 1,
@@ -965,8 +965,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 33,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "33. Molecular Basis – Transcription \nIn eukaryotes, transcription of DNA to RNA takes place in the:",
-    "textHi": "33. Molecular Basis – Transcription (Hindi translated via AI) \nIn eukaryotes, transcription of DNA to RNA takes place in the:",
+    "textEn": "33. Molecular Basis - Transcription \nIn eukaryotes, transcription of DNA to RNA takes place in the:",
+    "textHi": "33. Molecular Basis - Transcription (Hindi translated via AI) \nIn eukaryotes, transcription of DNA to RNA takes place in the:",
     "options": [
       {
         "id": 1,
@@ -995,8 +995,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 34,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "34. Evolution – Hardy–Weinberg \nIn a population in Hardy–Weinberg equilibrium, frequency of genotype Aa (heterozygote) is:",
-    "textHi": "34. Evolution – Hardy–Weinberg (Hindi translated via AI) \nIn a population in Hardy–Weinberg equilibrium, frequency of genotype Aa (heterozygote) is:",
+    "textEn": "34. Evolution - Hardy-Weinberg \nIn a population in Hardy-Weinberg equilibrium, frequency of genotype Aa (heterozygote) is:",
+    "textHi": "34. Evolution - Hardy-Weinberg (Hindi translated via AI) \nIn a population in Hardy-Weinberg equilibrium, frequency of genotype Aa (heterozygote) is:",
     "options": [
       {
         "id": 1,
@@ -1015,8 +1015,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "p²",
-        "textHi": "p²"
+        "textEn": "p^2",
+        "textHi": "p^2"
       }
     ],
     "correctOption": 3
@@ -1025,8 +1025,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 35,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "35. Evolution – Natural Selection \nWhich type of selection favours extreme phenotypes at both ends?",
-    "textHi": "35. Evolution – Natural Selection (Hindi translated via AI) \nWhich type of selection favours extreme phenotypes at both ends?",
+    "textEn": "35. Evolution - Natural Selection \nWhich type of selection favours extreme phenotypes at both ends?",
+    "textHi": "35. Evolution - Natural Selection (Hindi translated via AI) \nWhich type of selection favours extreme phenotypes at both ends?",
     "options": [
       {
         "id": 1,
@@ -1055,8 +1055,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 36,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "36. Biotechnology – DNA Recombination \nThe enzyme that joins two DNA fragments with a phosphodiester bond is:",
-    "textHi": "36. Biotechnology – DNA Recombination (Hindi translated via AI) \nThe enzyme that joins two DNA fragments with a phosphodiester bond is:",
+    "textEn": "36. Biotechnology - DNA Recombination \nThe enzyme that joins two DNA fragments with a phosphodiester bond is:",
+    "textHi": "36. Biotechnology - DNA Recombination (Hindi translated via AI) \nThe enzyme that joins two DNA fragments with a phosphodiester bond is:",
     "options": [
       {
         "id": 1,
@@ -1085,23 +1085,23 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 37,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "37. Biotechnology – PCR \nThe temperature used in the extension step of PCR is approximately:",
-    "textHi": "37. Biotechnology – PCR (Hindi translated via AI) \nThe temperature used in the extension step of PCR is approximately:",
+    "textEn": "37. Biotechnology - PCR \nThe temperature used in the extension step of PCR is approximately:",
+    "textHi": "37. Biotechnology - PCR (Hindi translated via AI) \nThe temperature used in the extension step of PCR is approximately:",
     "options": [
       {
         "id": 1,
-        "textEn": "50–60°C",
-        "textHi": "50–60°C"
+        "textEn": "50-60°C",
+        "textHi": "50-60°C"
       },
       {
         "id": 2,
-        "textEn": "70–75°C",
-        "textHi": "70–75°C"
+        "textEn": "70-75°C",
+        "textHi": "70-75°C"
       },
       {
         "id": 3,
-        "textEn": "90–95°C",
-        "textHi": "90–95°C"
+        "textEn": "90-95°C",
+        "textHi": "90-95°C"
       },
       {
         "id": 4,
@@ -1115,8 +1115,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 38,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "38. Biotechnology – Transgenic Plants \nBt cotton is genetically modified to express:",
-    "textHi": "38. Biotechnology – Transgenic Plants (Hindi translated via AI) \nBt cotton is genetically modified to express:",
+    "textEn": "38. Biotechnology - Transgenic Plants \nBt cotton is genetically modified to express:",
+    "textHi": "38. Biotechnology - Transgenic Plants (Hindi translated via AI) \nBt cotton is genetically modified to express:",
     "options": [
       {
         "id": 1,
@@ -1145,8 +1145,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 39,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "39. Microbes in Human Welfare – Biocontrol \nLadybird beetle is used for:",
-    "textHi": "39. Microbes in Human Welfare – Biocontrol (Hindi translated via AI) \nLadybird beetle is used for:",
+    "textEn": "39. Microbes in Human Welfare - Biocontrol \nLadybird beetle is used for:",
+    "textHi": "39. Microbes in Human Welfare - Biocontrol (Hindi translated via AI) \nLadybird beetle is used for:",
     "options": [
       {
         "id": 1,
@@ -1175,8 +1175,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 40,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "40. Environmental Issues – Eutrophication \nExcessive nutrient enrichment of water bodies often leads to:",
-    "textHi": "40. Environmental Issues – Eutrophication (Hindi translated via AI) \nExcessive nutrient enrichment of water bodies often leads to:",
+    "textEn": "40. Environmental Issues - Eutrophication \nExcessive nutrient enrichment of water bodies often leads to:",
+    "textHi": "40. Environmental Issues - Eutrophication (Hindi translated via AI) \nExcessive nutrient enrichment of water bodies often leads to:",
     "options": [
       {
         "id": 1,
@@ -1205,8 +1205,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 41,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "41. Biodiversity – Levels \nGenetic, species and ecosystem diversity together constitute:",
-    "textHi": "41. Biodiversity – Levels (Hindi translated via AI) \nGenetic, species and ecosystem diversity together constitute:",
+    "textEn": "41. Biodiversity - Levels \nGenetic, species and ecosystem diversity together constitute:",
+    "textHi": "41. Biodiversity - Levels (Hindi translated via AI) \nGenetic, species and ecosystem diversity together constitute:",
     "options": [
       {
         "id": 1,
@@ -1235,8 +1235,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 42,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "42. Ecosystem – Energy Flow \nIn an ecosystem, energy flow is:",
-    "textHi": "42. Ecosystem – Energy Flow (Hindi translated via AI) \nIn an ecosystem, energy flow is:",
+    "textEn": "42. Ecosystem - Energy Flow \nIn an ecosystem, energy flow is:",
+    "textHi": "42. Ecosystem - Energy Flow (Hindi translated via AI) \nIn an ecosystem, energy flow is:",
     "options": [
       {
         "id": 1,
@@ -1265,8 +1265,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 43,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "43. Ecology – Succession \nSecondary succession begins on:",
-    "textHi": "43. Ecology – Succession (Hindi translated via AI) \nSecondary succession begins on:",
+    "textEn": "43. Ecology - Succession \nSecondary succession begins on:",
+    "textHi": "43. Ecology - Succession (Hindi translated via AI) \nSecondary succession begins on:",
     "options": [
       {
         "id": 1,
@@ -1295,8 +1295,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 44,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "44. Physiology – Transpiration \nWhich of the following factors reduces the rate of transpiration?",
-    "textHi": "44. Physiology – Transpiration (Hindi translated via AI) \nWhich of the following factors reduces the rate of transpiration?",
+    "textEn": "44. Physiology - Transpiration \nWhich of the following factors reduces the rate of transpiration?",
+    "textHi": "44. Physiology - Transpiration (Hindi translated via AI) \nWhich of the following factors reduces the rate of transpiration?",
     "options": [
       {
         "id": 1,
@@ -1325,8 +1325,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 45,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "45. Genetics – Mutation \nA substitution of one base pair in DNA may cause:",
-    "textHi": "45. Genetics – Mutation (Hindi translated via AI) \nA substitution of one base pair in DNA may cause:",
+    "textEn": "45. Genetics - Mutation \nA substitution of one base pair in DNA may cause:",
+    "textHi": "45. Genetics - Mutation (Hindi translated via AI) \nA substitution of one base pair in DNA may cause:",
     "options": [
       {
         "id": 1,
@@ -1355,8 +1355,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 46,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "1. Animal Kingdom – Symmetry & Body Plan \nAn animal showing radial symmetry, diploblastic condition and cnidocytes is most likely a member of:",
-    "textHi": "1. Animal Kingdom – Symmetry & Body Plan (Hindi translated via AI) \nAn animal showing radial symmetry, diploblastic condition and cnidocytes is most likely a member of:",
+    "textEn": "1. Animal Kingdom - Symmetry & Body Plan \nAn animal showing radial symmetry, diploblastic condition and cnidocytes is most likely a member of:",
+    "textHi": "1. Animal Kingdom - Symmetry & Body Plan (Hindi translated via AI) \nAn animal showing radial symmetry, diploblastic condition and cnidocytes is most likely a member of:",
     "options": [
       {
         "id": 1,
@@ -1385,8 +1385,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 47,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "2. Animal Kingdom – Coelom \nA true coelom lined by mesoderm is present in all of the following EXCEPT:",
-    "textHi": "2. Animal Kingdom – Coelom (Hindi translated via AI) \nA true coelom lined by mesoderm is present in all of the following EXCEPT:",
+    "textEn": "2. Animal Kingdom - Coelom \nA true coelom lined by mesoderm is present in all of the following EXCEPT:",
+    "textHi": "2. Animal Kingdom - Coelom (Hindi translated via AI) \nA true coelom lined by mesoderm is present in all of the following EXCEPT:",
     "options": [
       {
         "id": 1,
@@ -1415,8 +1415,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 48,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "3. Animal Kingdom – Chordata \nWhich of the following is a defining feature of chordates at some stage of life?",
-    "textHi": "3. Animal Kingdom – Chordata (Hindi translated via AI) \nWhich of the following is a defining feature of chordates at some stage of life?",
+    "textEn": "3. Animal Kingdom - Chordata \nWhich of the following is a defining feature of chordates at some stage of life?",
+    "textHi": "3. Animal Kingdom - Chordata (Hindi translated via AI) \nWhich of the following is a defining feature of chordates at some stage of life?",
     "options": [
       {
         "id": 1,
@@ -1445,8 +1445,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 49,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "4. Structural Organisation – Animal Tissues \nThe type of epithelium lining the inner surface of the trachea is:",
-    "textHi": "4. Structural Organisation – Animal Tissues (Hindi translated via AI) \nThe type of epithelium lining the inner surface of the trachea is:",
+    "textEn": "4. Structural Organisation - Animal Tissues \nThe type of epithelium lining the inner surface of the trachea is:",
+    "textHi": "4. Structural Organisation - Animal Tissues (Hindi translated via AI) \nThe type of epithelium lining the inner surface of the trachea is:",
     "options": [
       {
         "id": 1,
@@ -1475,8 +1475,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 50,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "5. Structural Organisation – Connective Tissue \nWhich of the following is a fluid connective tissue?",
-    "textHi": "5. Structural Organisation – Connective Tissue (Hindi translated via AI) \nWhich of the following is a fluid connective tissue?",
+    "textEn": "5. Structural Organisation - Connective Tissue \nWhich of the following is a fluid connective tissue?",
+    "textHi": "5. Structural Organisation - Connective Tissue (Hindi translated via AI) \nWhich of the following is a fluid connective tissue?",
     "options": [
       {
         "id": 1,
@@ -1505,8 +1505,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 51,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "6. Digestion & Absorption – Enzymes \nWhich enzyme is responsible for the hydrolysis of proteins in the stomach?",
-    "textHi": "6. Digestion & Absorption – Enzymes (Hindi translated via AI) \nWhich enzyme is responsible for the hydrolysis of proteins in the stomach?",
+    "textEn": "6. Digestion & Absorption - Enzymes \nWhich enzyme is responsible for the hydrolysis of proteins in the stomach?",
+    "textHi": "6. Digestion & Absorption - Enzymes (Hindi translated via AI) \nWhich enzyme is responsible for the hydrolysis of proteins in the stomach?",
     "options": [
       {
         "id": 1,
@@ -1535,8 +1535,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 52,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "7. Digestion – Regions & Functions \nThe major site of absorption of water, electrolytes and nutrients in the small intestine is:",
-    "textHi": "7. Digestion – Regions & Functions (Hindi translated via AI) \nThe major site of absorption of water, electrolytes and nutrients in the small intestine is:",
+    "textEn": "7. Digestion - Regions & Functions \nThe major site of absorption of water, electrolytes and nutrients in the small intestine is:",
+    "textHi": "7. Digestion - Regions & Functions (Hindi translated via AI) \nThe major site of absorption of water, electrolytes and nutrients in the small intestine is:",
     "options": [
       {
         "id": 1,
@@ -1565,8 +1565,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 53,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "8. Breathing & Exchange of Gases – Respiratory System \nThe partial pressure of oxygen in alveolar air is approximately:",
-    "textHi": "8. Breathing & Exchange of Gases – Respiratory System (Hindi translated via AI) \nThe partial pressure of oxygen in alveolar air is approximately:",
+    "textEn": "8. Breathing & Exchange of Gases - Respiratory System \nThe partial pressure of oxygen in alveolar air is approximately:",
+    "textHi": "8. Breathing & Exchange of Gases - Respiratory System (Hindi translated via AI) \nThe partial pressure of oxygen in alveolar air is approximately:",
     "options": [
       {
         "id": 1,
@@ -1595,18 +1595,18 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 54,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "9. Breathing – Gases Transport \nIn blood, most of the CO₂ is transported as:",
-    "textHi": "9. Breathing – Gases Transport (Hindi translated via AI) \nIn blood, most of the CO₂ is transported as:",
+    "textEn": "9. Breathing - Gases Transport \nIn blood, most of the CO_2 is transported as:",
+    "textHi": "9. Breathing - Gases Transport (Hindi translated via AI) \nIn blood, most of the CO_2 is transported as:",
     "options": [
       {
         "id": 1,
-        "textEn": "Dissolved CO₂",
-        "textHi": "Dissolved CO₂"
+        "textEn": "Dissolved CO_2",
+        "textHi": "Dissolved CO_2"
       },
       {
         "id": 2,
-        "textEn": "Bicarbonate ions (HCO₃⁻)",
-        "textHi": "Bicarbonate ions (HCO₃⁻)"
+        "textEn": "Bicarbonate ions (HCO_3^-)",
+        "textHi": "Bicarbonate ions (HCO_3^-)"
       },
       {
         "id": 3,
@@ -1625,8 +1625,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 55,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "10. Body Fluids & Circulation – Blood Groups \nA person with blood group O can donate blood to:",
-    "textHi": "10. Body Fluids & Circulation – Blood Groups (Hindi translated via AI) \nA person with blood group O can donate blood to:",
+    "textEn": "10. Body Fluids & Circulation - Blood Groups \nA person with blood group O can donate blood to:",
+    "textHi": "10. Body Fluids & Circulation - Blood Groups (Hindi translated via AI) \nA person with blood group O can donate blood to:",
     "options": [
       {
         "id": 1,
@@ -1655,8 +1655,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 56,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "11. Body Fluids – Heart & Cycle \nThe phase of the cardiac cycle during which all chambers are relaxed is:",
-    "textHi": "11. Body Fluids – Heart & Cycle (Hindi translated via AI) \nThe phase of the cardiac cycle during which all chambers are relaxed is:",
+    "textEn": "11. Body Fluids - Heart & Cycle \nThe phase of the cardiac cycle during which all chambers are relaxed is:",
+    "textHi": "11. Body Fluids - Heart & Cycle (Hindi translated via AI) \nThe phase of the cardiac cycle during which all chambers are relaxed is:",
     "options": [
       {
         "id": 1,
@@ -1685,13 +1685,13 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 57,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "12. Excretory Products – Nephron \nUltrafiltration of blood occurs in the:",
-    "textHi": "12. Excretory Products – Nephron (Hindi translated via AI) \nUltrafiltration of blood occurs in the:",
+    "textEn": "12. Excretory Products - Nephron \nUltrafiltration of blood occurs in the:",
+    "textHi": "12. Excretory Products - Nephron (Hindi translated via AI) \nUltrafiltration of blood occurs in the:",
     "options": [
       {
         "id": 1,
-        "textEn": "Bowman’s capsule",
-        "textHi": "Bowman’s capsule"
+        "textEn": "Bowman's capsule",
+        "textHi": "Bowman's capsule"
       },
       {
         "id": 2,
@@ -1715,8 +1715,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 58,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "13. Excretory – Osmoregulation \nAmmonia is the main nitrogenous waste in:",
-    "textHi": "13. Excretory – Osmoregulation (Hindi translated via AI) \nAmmonia is the main nitrogenous waste in:",
+    "textEn": "13. Excretory - Osmoregulation \nAmmonia is the main nitrogenous waste in:",
+    "textHi": "13. Excretory - Osmoregulation (Hindi translated via AI) \nAmmonia is the main nitrogenous waste in:",
     "options": [
       {
         "id": 1,
@@ -1745,8 +1745,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 59,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "14. Locomotion & Movement – Muscles \nThe contractile unit of a striated muscle is:",
-    "textHi": "14. Locomotion & Movement – Muscles (Hindi translated via AI) \nThe contractile unit of a striated muscle is:",
+    "textEn": "14. Locomotion & Movement - Muscles \nThe contractile unit of a striated muscle is:",
+    "textHi": "14. Locomotion & Movement - Muscles (Hindi translated via AI) \nThe contractile unit of a striated muscle is:",
     "options": [
       {
         "id": 1,
@@ -1775,8 +1775,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 60,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "15. Locomotion – Skeletal System \nThe joint between the carpals and metacarpals in the human hand is a:",
-    "textHi": "15. Locomotion – Skeletal System (Hindi translated via AI) \nThe joint between the carpals and metacarpals in the human hand is a:",
+    "textEn": "15. Locomotion - Skeletal System \nThe joint between the carpals and metacarpals in the human hand is a:",
+    "textHi": "15. Locomotion - Skeletal System (Hindi translated via AI) \nThe joint between the carpals and metacarpals in the human hand is a:",
     "options": [
       {
         "id": 1,
@@ -1805,28 +1805,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 61,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "16. Neural Control – Nerve Impulse \nThe resting potential of a neuron is mainly due to:",
-    "textHi": "16. Neural Control – Nerve Impulse (Hindi translated via AI) \nThe resting potential of a neuron is mainly due to:",
+    "textEn": "16. Neural Control - Nerve Impulse \nThe resting potential of a neuron is mainly due to:",
+    "textHi": "16. Neural Control - Nerve Impulse (Hindi translated via AI) \nThe resting potential of a neuron is mainly due to:",
     "options": [
       {
         "id": 1,
-        "textEn": "Influx of Na⁺",
-        "textHi": "Influx of Na⁺"
+        "textEn": "Influx of Na^+",
+        "textHi": "Influx of Na^+"
       },
       {
         "id": 2,
-        "textEn": "Efflux of K⁺",
-        "textHi": "Efflux of K⁺"
+        "textEn": "Efflux of K^+",
+        "textHi": "Efflux of K^+"
       },
       {
         "id": 3,
-        "textEn": "Influx of Ca²⁺",
-        "textHi": "Influx of Ca²⁺"
+        "textEn": "Influx of Ca^2^+",
+        "textHi": "Influx of Ca^2^+"
       },
       {
         "id": 4,
-        "textEn": "Efflux of Cl⁻",
-        "textHi": "Efflux of Cl⁻"
+        "textEn": "Efflux of Cl^-",
+        "textHi": "Efflux of Cl^-"
       }
     ],
     "correctOption": 2
@@ -1835,8 +1835,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 62,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "17. Neural – Reflex \nIn a monosynaptic reflex arc, the number of neurons directly involved is:",
-    "textHi": "17. Neural – Reflex (Hindi translated via AI) \nIn a monosynaptic reflex arc, the number of neurons directly involved is:",
+    "textEn": "17. Neural - Reflex \nIn a monosynaptic reflex arc, the number of neurons directly involved is:",
+    "textHi": "17. Neural - Reflex (Hindi translated via AI) \nIn a monosynaptic reflex arc, the number of neurons directly involved is:",
     "options": [
       {
         "id": 1,
@@ -1865,8 +1865,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 63,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "18. Chemical Control – Hormones \nThe hormone released by the posterior pituitary that regulates water reabsorption is:",
-    "textHi": "18. Chemical Control – Hormones (Hindi translated via AI) \nThe hormone released by the posterior pituitary that regulates water reabsorption is:",
+    "textEn": "18. Chemical Control - Hormones \nThe hormone released by the posterior pituitary that regulates water reabsorption is:",
+    "textHi": "18. Chemical Control - Hormones (Hindi translated via AI) \nThe hormone released by the posterior pituitary that regulates water reabsorption is:",
     "options": [
       {
         "id": 1,
@@ -1895,8 +1895,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 64,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "19. Chemical Control – Thyroid \nThyroxine (T₄) is secreted by:",
-    "textHi": "19. Chemical Control – Thyroid (Hindi translated via AI) \nThyroxine (T₄) is secreted by:",
+    "textEn": "19. Chemical Control - Thyroid \nThyroxine (T_4) is secreted by:",
+    "textHi": "19. Chemical Control - Thyroid (Hindi translated via AI) \nThyroxine (T_4) is secreted by:",
     "options": [
       {
         "id": 1,
@@ -1925,8 +1925,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 65,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "20. Biomolecules – Proteins \nThe tertiary structure of a protein is stabilised mainly by:",
-    "textHi": "20. Biomolecules – Proteins (Hindi translated via AI) \nThe tertiary structure of a protein is stabilised mainly by:",
+    "textEn": "20. Biomolecules - Proteins \nThe tertiary structure of a protein is stabilised mainly by:",
+    "textHi": "20. Biomolecules - Proteins (Hindi translated via AI) \nThe tertiary structure of a protein is stabilised mainly by:",
     "options": [
       {
         "id": 1,
@@ -1955,8 +1955,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 66,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "21. Human Reproduction – Gametogenesis \nIn human spermatogenesis, meiosis I occurs in:",
-    "textHi": "21. Human Reproduction – Gametogenesis (Hindi translated via AI) \nIn human spermatogenesis, meiosis I occurs in:",
+    "textEn": "21. Human Reproduction - Gametogenesis \nIn human spermatogenesis, meiosis I occurs in:",
+    "textHi": "21. Human Reproduction - Gametogenesis (Hindi translated via AI) \nIn human spermatogenesis, meiosis I occurs in:",
     "options": [
       {
         "id": 1,
@@ -1985,8 +1985,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 67,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "22. Human Reproduction – Menstrual Cycle \nThe phase of the menstrual cycle during which ovulation occurs is:",
-    "textHi": "22. Human Reproduction – Menstrual Cycle (Hindi translated via AI) \nThe phase of the menstrual cycle during which ovulation occurs is:",
+    "textEn": "22. Human Reproduction - Menstrual Cycle \nThe phase of the menstrual cycle during which ovulation occurs is:",
+    "textHi": "22. Human Reproduction - Menstrual Cycle (Hindi translated via AI) \nThe phase of the menstrual cycle during which ovulation occurs is:",
     "options": [
       {
         "id": 1,
@@ -2015,8 +2015,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 68,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "23. Reproductive Health – Assisted Reproduction \nIn which technique are embryos transferred into the fallopian tube?",
-    "textHi": "23. Reproductive Health – Assisted Reproduction (Hindi translated via AI) \nIn which technique are embryos transferred into the fallopian tube?",
+    "textEn": "23. Reproductive Health - Assisted Reproduction \nIn which technique are embryos transferred into the fallopian tube?",
+    "textHi": "23. Reproductive Health - Assisted Reproduction (Hindi translated via AI) \nIn which technique are embryos transferred into the fallopian tube?",
     "options": [
       {
         "id": 1,
@@ -2045,8 +2045,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 69,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "24. Reproductive Health – STDs \nWhich of the following is caused by a bacterium?",
-    "textHi": "24. Reproductive Health – STDs (Hindi translated via AI) \nWhich of the following is caused by a bacterium?",
+    "textEn": "24. Reproductive Health - STDs \nWhich of the following is caused by a bacterium?",
+    "textHi": "24. Reproductive Health - STDs (Hindi translated via AI) \nWhich of the following is caused by a bacterium?",
     "options": [
       {
         "id": 1,
@@ -2075,8 +2075,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 70,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "25. Evolution – Evidence \nHomologous organs indicate:",
-    "textHi": "25. Evolution – Evidence (Hindi translated via AI) \nHomologous organs indicate:",
+    "textEn": "25. Evolution - Evidence \nHomologous organs indicate:",
+    "textHi": "25. Evolution - Evidence (Hindi translated via AI) \nHomologous organs indicate:",
     "options": [
       {
         "id": 1,
@@ -2105,8 +2105,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 71,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "26. Evolution – Populations \nIn Hardy‑Weinberg equilibrium, the frequency of heterozygotes is:",
-    "textHi": "26. Evolution – Populations (Hindi translated via AI) \nIn Hardy‑Weinberg equilibrium, the frequency of heterozygotes is:",
+    "textEn": "26. Evolution - Populations \nIn Hardy‑Weinberg equilibrium, the frequency of heterozygotes is:",
+    "textHi": "26. Evolution - Populations (Hindi translated via AI) \nIn Hardy‑Weinberg equilibrium, the frequency of heterozygotes is:",
     "options": [
       {
         "id": 1,
@@ -2115,13 +2115,13 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "p²",
-        "textHi": "p²"
+        "textEn": "p^2",
+        "textHi": "p^2"
       },
       {
         "id": 3,
-        "textEn": "q²",
-        "textHi": "q²"
+        "textEn": "q^2",
+        "textHi": "q^2"
       },
       {
         "id": 4,
@@ -2135,8 +2135,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 72,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "27. Human Health – Immunity \nWhich of the following is an example of active immunity?",
-    "textHi": "27. Human Health – Immunity (Hindi translated via AI) \nWhich of the following is an example of active immunity?",
+    "textEn": "27. Human Health - Immunity \nWhich of the following is an example of active immunity?",
+    "textHi": "27. Human Health - Immunity (Hindi translated via AI) \nWhich of the following is an example of active immunity?",
     "options": [
       {
         "id": 1,
@@ -2165,8 +2165,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 73,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "28. Human Health – Cancer \nOncogenes, when activated, promote:",
-    "textHi": "28. Human Health – Cancer (Hindi translated via AI) \nOncogenes, when activated, promote:",
+    "textEn": "28. Human Health - Cancer \nOncogenes, when activated, promote:",
+    "textHi": "28. Human Health - Cancer (Hindi translated via AI) \nOncogenes, when activated, promote:",
     "options": [
       {
         "id": 1,
@@ -2195,8 +2195,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 74,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "29. Animal Physiology – Excretion \nIn the kidney, the counter‑current mechanism is associated with:",
-    "textHi": "29. Animal Physiology – Excretion (Hindi translated via AI) \nIn the kidney, the counter‑current mechanism is associated with:",
+    "textEn": "29. Animal Physiology - Excretion \nIn the kidney, the counter‑current mechanism is associated with:",
+    "textHi": "29. Animal Physiology - Excretion (Hindi translated via AI) \nIn the kidney, the counter‑current mechanism is associated with:",
     "options": [
       {
         "id": 1,
@@ -2215,8 +2215,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "Capsule, Bowman’s capsule",
-        "textHi": "Capsule, Bowman’s capsule"
+        "textEn": "Capsule, Bowman's capsule",
+        "textHi": "Capsule, Bowman's capsule"
       }
     ],
     "correctOption": 1
@@ -2225,8 +2225,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 75,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "30. Neural – Sense Organs \nThe organ of Corti is associated with:",
-    "textHi": "30. Neural – Sense Organs (Hindi translated via AI) \nThe organ of Corti is associated with:",
+    "textEn": "30. Neural - Sense Organs \nThe organ of Corti is associated with:",
+    "textHi": "30. Neural - Sense Organs (Hindi translated via AI) \nThe organ of Corti is associated with:",
     "options": [
       {
         "id": 1,
@@ -2255,8 +2255,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 76,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "31. Chemical Control – Hypothalamus \nWhich of the following hormones is NOT released by the hypothalamus?",
-    "textHi": "31. Chemical Control – Hypothalamus (Hindi translated via AI) \nWhich of the following hormones is NOT released by the hypothalamus?",
+    "textEn": "31. Chemical Control - Hypothalamus \nWhich of the following hormones is NOT released by the hypothalamus?",
+    "textHi": "31. Chemical Control - Hypothalamus (Hindi translated via AI) \nWhich of the following hormones is NOT released by the hypothalamus?",
     "options": [
       {
         "id": 1,
@@ -2285,8 +2285,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 77,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "32. Structural Organisation – Earthworm \nThe primary function of the clitellum in earthworms is related to:",
-    "textHi": "32. Structural Organisation – Earthworm (Hindi translated via AI) \nThe primary function of the clitellum in earthworms is related to:",
+    "textEn": "32. Structural Organisation - Earthworm \nThe primary function of the clitellum in earthworms is related to:",
+    "textHi": "32. Structural Organisation - Earthworm (Hindi translated via AI) \nThe primary function of the clitellum in earthworms is related to:",
     "options": [
       {
         "id": 1,
@@ -2315,8 +2315,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 78,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "33. Structural – Cockroach \nIn cockroach, the tracheal system primarily helps in:",
-    "textHi": "33. Structural – Cockroach (Hindi translated via AI) \nIn cockroach, the tracheal system primarily helps in:",
+    "textEn": "33. Structural - Cockroach \nIn cockroach, the tracheal system primarily helps in:",
+    "textHi": "33. Structural - Cockroach (Hindi translated via AI) \nIn cockroach, the tracheal system primarily helps in:",
     "options": [
       {
         "id": 1,
@@ -2345,8 +2345,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 79,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "34. Human Physiology – Digestion \nThe hormone secreted by the duodenum that stimulates the release of pancreatic juice is:",
-    "textHi": "34. Human Physiology – Digestion (Hindi translated via AI) \nThe hormone secreted by the duodenum that stimulates the release of pancreatic juice is:",
+    "textEn": "34. Human Physiology - Digestion \nThe hormone secreted by the duodenum that stimulates the release of pancreatic juice is:",
+    "textHi": "34. Human Physiology - Digestion (Hindi translated via AI) \nThe hormone secreted by the duodenum that stimulates the release of pancreatic juice is:",
     "options": [
       {
         "id": 1,
@@ -2375,8 +2375,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 80,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "35. Human Physiology – Nervous \nThe cerebellum is mainly responsible for:",
-    "textHi": "35. Human Physiology – Nervous (Hindi translated via AI) \nThe cerebellum is mainly responsible for:",
+    "textEn": "35. Human Physiology - Nervous \nThe cerebellum is mainly responsible for:",
+    "textHi": "35. Human Physiology - Nervous (Hindi translated via AI) \nThe cerebellum is mainly responsible for:",
     "options": [
       {
         "id": 1,
@@ -2405,8 +2405,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 81,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "36. Reproduction – Fertilisation \nFertilisation of the ovum in humans normally occurs in the:",
-    "textHi": "36. Reproduction – Fertilisation (Hindi translated via AI) \nFertilisation of the ovum in humans normally occurs in the:",
+    "textEn": "36. Reproduction - Fertilisation \nFertilisation of the ovum in humans normally occurs in the:",
+    "textHi": "36. Reproduction - Fertilisation (Hindi translated via AI) \nFertilisation of the ovum in humans normally occurs in the:",
     "options": [
       {
         "id": 1,
@@ -2435,13 +2435,13 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 82,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "37. Human Health – Immune Disorders \nAn autoimmune disease in which the body attacks its own thyroid is:",
-    "textHi": "37. Human Health – Immune Disorders (Hindi translated via AI) \nAn autoimmune disease in which the body attacks its own thyroid is:",
+    "textEn": "37. Human Health - Immune Disorders \nAn autoimmune disease in which the body attacks its own thyroid is:",
+    "textHi": "37. Human Health - Immune Disorders (Hindi translated via AI) \nAn autoimmune disease in which the body attacks its own thyroid is:",
     "options": [
       {
         "id": 1,
-        "textEn": "Hashimoto’s thyroiditis",
-        "textHi": "Hashimoto’s thyroiditis"
+        "textEn": "Hashimoto's thyroiditis",
+        "textHi": "Hashimoto's thyroiditis"
       },
       {
         "id": 2,
@@ -2465,23 +2465,23 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 83,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "38. Biotechnology – PCR \nIn PCR, the step at which primers anneal to the DNA template occurs at:",
-    "textHi": "38. Biotechnology – PCR (Hindi translated via AI) \nIn PCR, the step at which primers anneal to the DNA template occurs at:",
+    "textEn": "38. Biotechnology - PCR \nIn PCR, the step at which primers anneal to the DNA template occurs at:",
+    "textHi": "38. Biotechnology - PCR (Hindi translated via AI) \nIn PCR, the step at which primers anneal to the DNA template occurs at:",
     "options": [
       {
         "id": 1,
-        "textEn": "50–60°C",
-        "textHi": "50–60°C"
+        "textEn": "50-60°C",
+        "textHi": "50-60°C"
       },
       {
         "id": 2,
-        "textEn": "90–95°C",
-        "textHi": "90–95°C"
+        "textEn": "90-95°C",
+        "textHi": "90-95°C"
       },
       {
         "id": 3,
-        "textEn": "70–75°C",
-        "textHi": "70–75°C"
+        "textEn": "70-75°C",
+        "textHi": "70-75°C"
       },
       {
         "id": 4,
@@ -2495,8 +2495,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 84,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "39. Biotechnology – Gene Transfer \nThe plasmid commonly used as a vector in recombinant DNA technology is:",
-    "textHi": "39. Biotechnology – Gene Transfer (Hindi translated via AI) \nThe plasmid commonly used as a vector in recombinant DNA technology is:",
+    "textEn": "39. Biotechnology - Gene Transfer \nThe plasmid commonly used as a vector in recombinant DNA technology is:",
+    "textHi": "39. Biotechnology - Gene Transfer (Hindi translated via AI) \nThe plasmid commonly used as a vector in recombinant DNA technology is:",
     "options": [
       {
         "id": 1,
@@ -2525,8 +2525,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 85,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "40. Human Health – Drug Abuse \nWhich of the following is a hallucinogen?",
-    "textHi": "40. Human Health – Drug Abuse (Hindi translated via AI) \nWhich of the following is a hallucinogen?",
+    "textEn": "40. Human Health - Drug Abuse \nWhich of the following is a hallucinogen?",
+    "textHi": "40. Human Health - Drug Abuse (Hindi translated via AI) \nWhich of the following is a hallucinogen?",
     "options": [
       {
         "id": 1,
@@ -2555,8 +2555,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 86,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "41. Animal Kingdom – Arthropoda \nWhich of the following is NOT a characteristic of arthropods?",
-    "textHi": "41. Animal Kingdom – Arthropoda (Hindi translated via AI) \nWhich of the following is NOT a characteristic of arthropods?",
+    "textEn": "41. Animal Kingdom - Arthropoda \nWhich of the following is NOT a characteristic of arthropods?",
+    "textHi": "41. Animal Kingdom - Arthropoda (Hindi translated via AI) \nWhich of the following is NOT a characteristic of arthropods?",
     "options": [
       {
         "id": 1,
@@ -2585,8 +2585,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 87,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "42. Body Fluids – Blood Composition \nWhich of the following is a nucleated cell in human blood?",
-    "textHi": "42. Body Fluids – Blood Composition (Hindi translated via AI) \nWhich of the following is a nucleated cell in human blood?",
+    "textEn": "42. Body Fluids - Blood Composition \nWhich of the following is a nucleated cell in human blood?",
+    "textHi": "42. Body Fluids - Blood Composition (Hindi translated via AI) \nWhich of the following is a nucleated cell in human blood?",
     "options": [
       {
         "id": 1,
@@ -2615,8 +2615,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 88,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "43. Neural – Synapse \nAt a chemical synapse, the neurotransmitter is released into the:",
-    "textHi": "43. Neural – Synapse (Hindi translated via AI) \nAt a chemical synapse, the neurotransmitter is released into the:",
+    "textEn": "43. Neural - Synapse \nAt a chemical synapse, the neurotransmitter is released into the:",
+    "textHi": "43. Neural - Synapse (Hindi translated via AI) \nAt a chemical synapse, the neurotransmitter is released into the:",
     "options": [
       {
         "id": 1,
@@ -2645,8 +2645,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 89,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "44. Chemical Control – Adrenal \nThe hormone secreted by the adrenal medulla that increases heart rate and blood pressure is:",
-    "textHi": "44. Chemical Control – Adrenal (Hindi translated via AI) \nThe hormone secreted by the adrenal medulla that increases heart rate and blood pressure is:",
+    "textEn": "44. Chemical Control - Adrenal \nThe hormone secreted by the adrenal medulla that increases heart rate and blood pressure is:",
+    "textHi": "44. Chemical Control - Adrenal (Hindi translated via AI) \nThe hormone secreted by the adrenal medulla that increases heart rate and blood pressure is:",
     "options": [
       {
         "id": 1,
@@ -2675,8 +2675,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 90,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "45. Evolution – Human Evolution \nThe earliest known human ancestor showing bipedalism is:",
-    "textHi": "45. Evolution – Human Evolution (Hindi translated via AI) \nThe earliest known human ancestor showing bipedalism is:",
+    "textEn": "45. Evolution - Human Evolution \nThe earliest known human ancestor showing bipedalism is:",
+    "textHi": "45. Evolution - Human Evolution (Hindi translated via AI) \nThe earliest known human ancestor showing bipedalism is:",
     "options": [
       {
         "id": 1,
@@ -2705,8 +2705,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 91,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "1. Physics & Measurement – Dimensions \nA quantity X is defined as X = F/Lv², where F is force, L is length and v is speed. The dimensions of X are same as those of:",
-    "textHi": "1. Physics & Measurement – Dimensions (Hindi translated via AI) \nA quantity X is defined as X = F/Lv², where F is force, L is length and v is speed. The dimensions of X are same as those of:",
+    "textEn": "1. Physics & Measurement - Dimensions \nA quantity X is defined as X = F/Lv^2, where F is force, L is length and v is speed. The dimensions of X are same as those of:",
+    "textHi": "1. Physics & Measurement - Dimensions (Hindi translated via AI) \nA quantity X is defined as X = F/Lv^2, where F is force, L is length and v is speed. The dimensions of X are same as those of:",
     "options": [
       {
         "id": 1,
@@ -2735,8 +2735,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 92,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "2. Kinematics – 1D Motion \nA particle moves with constant acceleration along a straight line and covers equal distances in 1st and 2nd seconds. Its initial velocity is:",
-    "textHi": "2. Kinematics – 1D Motion (Hindi translated via AI) \nA particle moves with constant acceleration along a straight line and covers equal distances in 1st and 2nd seconds. Its initial velocity is:",
+    "textEn": "2. Kinematics - 1D Motion \nA particle moves with constant acceleration along a straight line and covers equal distances in 1st and 2nd seconds. Its initial velocity is:",
+    "textHi": "2. Kinematics - 1D Motion (Hindi translated via AI) \nA particle moves with constant acceleration along a straight line and covers equal distances in 1st and 2nd seconds. Its initial velocity is:",
     "options": [
       {
         "id": 1,
@@ -2765,8 +2765,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 93,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "3. Kinematics – Projectile Motion \nA projectile is launched at an angle θ to the horizontal. The angle between its velocity and acceleration at the highest point is:",
-    "textHi": "3. Kinematics – Projectile Motion (Hindi translated via AI) \nA projectile is launched at an angle θ to the horizontal. The angle between its velocity and acceleration at the highest point is:",
+    "textEn": "3. Kinematics - Projectile Motion \nA projectile is launched at an angle θ to the horizontal. The angle between its velocity and acceleration at the highest point is:",
+    "textHi": "3. Kinematics - Projectile Motion (Hindi translated via AI) \nA projectile is launched at an angle θ to the horizontal. The angle between its velocity and acceleration at the highest point is:",
     "options": [
       {
         "id": 1,
@@ -2795,8 +2795,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 94,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "4. Laws of Motion – FBD \nA block of mass m is pushed by a constant horizontal force F on a smooth horizontal surface. Its acceleration is:",
-    "textHi": "4. Laws of Motion – FBD (Hindi translated via AI) \nA block of mass m is pushed by a constant horizontal force F on a smooth horizontal surface. Its acceleration is:",
+    "textEn": "4. Laws of Motion - FBD \nA block of mass m is pushed by a constant horizontal force F on a smooth horizontal surface. Its acceleration is:",
+    "textHi": "4. Laws of Motion - FBD (Hindi translated via AI) \nA block of mass m is pushed by a constant horizontal force F on a smooth horizontal surface. Its acceleration is:",
     "options": [
       {
         "id": 1,
@@ -2825,8 +2825,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 95,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "5. Laws of Motion – Friction \nFor a block on a rough horizontal surface, motion just starts when the applied force equals:",
-    "textHi": "5. Laws of Motion – Friction (Hindi translated via AI) \nFor a block on a rough horizontal surface, motion just starts when the applied force equals:",
+    "textEn": "5. Laws of Motion - Friction \nFor a block on a rough horizontal surface, motion just starts when the applied force equals:",
+    "textHi": "5. Laws of Motion - Friction (Hindi translated via AI) \nFor a block on a rough horizontal surface, motion just starts when the applied force equals:",
     "options": [
       {
         "id": 1,
@@ -2885,8 +2885,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 97,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "7. Work, Energy – Collisions \nIn a perfectly elastic collision between two bodies of equal mass, moving along a line, they exchange velocities because:",
-    "textHi": "7. Work, Energy – Collisions (Hindi translated via AI) \nIn a perfectly elastic collision between two bodies of equal mass, moving along a line, they exchange velocities because:",
+    "textEn": "7. Work, Energy - Collisions \nIn a perfectly elastic collision between two bodies of equal mass, moving along a line, they exchange velocities because:",
+    "textHi": "7. Work, Energy - Collisions (Hindi translated via AI) \nIn a perfectly elastic collision between two bodies of equal mass, moving along a line, they exchange velocities because:",
     "options": [
       {
         "id": 1,
@@ -2915,28 +2915,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 98,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "8. Rotational Motion – Moment of Inertia \nThe moment of inertia of a thin rod of length L and mass m about an axis perpendicular to its length and passing through its centre is:",
-    "textHi": "8. Rotational Motion – Moment of Inertia (Hindi translated via AI) \nThe moment of inertia of a thin rod of length L and mass m about an axis perpendicular to its length and passing through its centre is:",
+    "textEn": "8. Rotational Motion - Moment of Inertia \nThe moment of inertia of a thin rod of length L and mass m about an axis perpendicular to its length and passing through its centre is:",
+    "textHi": "8. Rotational Motion - Moment of Inertia (Hindi translated via AI) \nThe moment of inertia of a thin rod of length L and mass m about an axis perpendicular to its length and passing through its centre is:",
     "options": [
       {
         "id": 1,
-        "textEn": "1/3 mL²",
-        "textHi": "1/3 mL²"
+        "textEn": "1/3 mL^2",
+        "textHi": "1/3 mL^2"
       },
       {
         "id": 2,
-        "textEn": "2/3 mL²",
-        "textHi": "2/3 mL²"
+        "textEn": "2/3 mL^2",
+        "textHi": "2/3 mL^2"
       },
       {
         "id": 3,
-        "textEn": "1/12 mL²",
-        "textHi": "1/12 mL²"
+        "textEn": "1/12 mL^2",
+        "textHi": "1/12 mL^2"
       },
       {
         "id": 4,
-        "textEn": "1/6 mL²",
-        "textHi": "1/6 mL²"
+        "textEn": "1/6 mL^2",
+        "textHi": "1/6 mL^2"
       }
     ],
     "correctOption": 3
@@ -2945,8 +2945,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 99,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "9. Rotational Motion – Torque & Angular Momentum \nWhen the external torque on a system is zero, the quantity conserved is:",
-    "textHi": "9. Rotational Motion – Torque & Angular Momentum (Hindi translated via AI) \nWhen the external torque on a system is zero, the quantity conserved is:",
+    "textEn": "9. Rotational Motion - Torque & Angular Momentum \nWhen the external torque on a system is zero, the quantity conserved is:",
+    "textHi": "9. Rotational Motion - Torque & Angular Momentum (Hindi translated via AI) \nWhen the external torque on a system is zero, the quantity conserved is:",
     "options": [
       {
         "id": 1,
@@ -2975,8 +2975,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 100,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "10. Gravitation – Satellites \nA satellite in circular orbit around Earth has its speed suddenly reduced. The satellite will:",
-    "textHi": "10. Gravitation – Satellites (Hindi translated via AI) \nA satellite in circular orbit around Earth has its speed suddenly reduced. The satellite will:",
+    "textEn": "10. Gravitation - Satellites \nA satellite in circular orbit around Earth has its speed suddenly reduced. The satellite will:",
+    "textHi": "10. Gravitation - Satellites (Hindi translated via AI) \nA satellite in circular orbit around Earth has its speed suddenly reduced. The satellite will:",
     "options": [
       {
         "id": 1,
@@ -3005,8 +3005,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 101,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "11. Gravitation – Escape Velocity \nThe escape velocity from the surface of a planet depends on the:",
-    "textHi": "11. Gravitation – Escape Velocity (Hindi translated via AI) \nThe escape velocity from the surface of a planet depends on the:",
+    "textEn": "11. Gravitation - Escape Velocity \nThe escape velocity from the surface of a planet depends on the:",
+    "textHi": "11. Gravitation - Escape Velocity (Hindi translated via AI) \nThe escape velocity from the surface of a planet depends on the:",
     "options": [
       {
         "id": 1,
@@ -3035,8 +3035,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 102,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "12. Properties of Bulk Matter – Elasticity \nYoung’s modulus is defined as:",
-    "textHi": "12. Properties of Bulk Matter – Elasticity (Hindi translated via AI) \nYoung’s modulus is defined as:",
+    "textEn": "12. Properties of Bulk Matter - Elasticity \nYoung's modulus is defined as:",
+    "textHi": "12. Properties of Bulk Matter - Elasticity (Hindi translated via AI) \nYoung's modulus is defined as:",
     "options": [
       {
         "id": 1,
@@ -3065,8 +3065,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 103,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "13. Thermodynamics – 1st Law \nIn an isothermal expansion of an ideal gas, the change in internal energy is:",
-    "textHi": "13. Thermodynamics – 1st Law (Hindi translated via AI) \nIn an isothermal expansion of an ideal gas, the change in internal energy is:",
+    "textEn": "13. Thermodynamics - 1st Law \nIn an isothermal expansion of an ideal gas, the change in internal energy is:",
+    "textHi": "13. Thermodynamics - 1st Law (Hindi translated via AI) \nIn an isothermal expansion of an ideal gas, the change in internal energy is:",
     "options": [
       {
         "id": 1,
@@ -3095,8 +3095,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 104,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "14. Thermodynamics – Efficiency \nThe efficiency of a Carnot engine operating between temperatures T1 (source) and T2 (sink) is:",
-    "textHi": "14. Thermodynamics – Efficiency (Hindi translated via AI) \nThe efficiency of a Carnot engine operating between temperatures T1 (source) and T2 (sink) is:",
+    "textEn": "14. Thermodynamics - Efficiency \nThe efficiency of a Carnot engine operating between temperatures T1 (source) and T2 (sink) is:",
+    "textHi": "14. Thermodynamics - Efficiency (Hindi translated via AI) \nThe efficiency of a Carnot engine operating between temperatures T1 (source) and T2 (sink) is:",
     "options": [
       {
         "id": 1,
@@ -3125,8 +3125,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 105,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "15. Oscillations – SHM \nA particle executes SHM with amplitude A. At what displacement is kinetic energy equal to potential energy?",
-    "textHi": "15. Oscillations – SHM (Hindi translated via AI) \nA particle executes SHM with amplitude A. At what displacement is kinetic energy equal to potential energy?",
+    "textEn": "15. Oscillations - SHM \nA particle executes SHM with amplitude A. At what displacement is kinetic energy equal to potential energy?",
+    "textHi": "15. Oscillations - SHM (Hindi translated via AI) \nA particle executes SHM with amplitude A. At what displacement is kinetic energy equal to potential energy?",
     "options": [
       {
         "id": 1,
@@ -3155,8 +3155,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 106,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "16. Waves – Speed of Sound \nThe speed of sound in a gas mainly depends on:",
-    "textHi": "16. Waves – Speed of Sound (Hindi translated via AI) \nThe speed of sound in a gas mainly depends on:",
+    "textEn": "16. Waves - Speed of Sound \nThe speed of sound in a gas mainly depends on:",
+    "textHi": "16. Waves - Speed of Sound (Hindi translated via AI) \nThe speed of sound in a gas mainly depends on:",
     "options": [
       {
         "id": 1,
@@ -3185,8 +3185,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 107,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "17. Electrostatics – Coulomb’s Law \nIf distance between two point charges is doubled, the electrostatic force becomes:",
-    "textHi": "17. Electrostatics – Coulomb’s Law (Hindi translated via AI) \nIf distance between two point charges is doubled, the electrostatic force becomes:",
+    "textEn": "17. Electrostatics - Coulomb's Law \nIf distance between two point charges is doubled, the electrostatic force becomes:",
+    "textHi": "17. Electrostatics - Coulomb's Law (Hindi translated via AI) \nIf distance between two point charges is doubled, the electrostatic force becomes:",
     "options": [
       {
         "id": 1,
@@ -3215,8 +3215,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 108,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "18. Electrostatics – Electric Field \nThe electric field at the centre of a uniformly charged spherical shell is:",
-    "textHi": "18. Electrostatics – Electric Field (Hindi translated via AI) \nThe electric field at the centre of a uniformly charged spherical shell is:",
+    "textEn": "18. Electrostatics - Electric Field \nThe electric field at the centre of a uniformly charged spherical shell is:",
+    "textHi": "18. Electrostatics - Electric Field (Hindi translated via AI) \nThe electric field at the centre of a uniformly charged spherical shell is:",
     "options": [
       {
         "id": 1,
@@ -3245,8 +3245,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 109,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "19. Electrostatics – Potential & Energy \nWhen a positive charge is moved from a point of lower potential to higher potential, its potential energy:",
-    "textHi": "19. Electrostatics – Potential & Energy (Hindi translated via AI) \nWhen a positive charge is moved from a point of lower potential to higher potential, its potential energy:",
+    "textEn": "19. Electrostatics - Potential & Energy \nWhen a positive charge is moved from a point of lower potential to higher potential, its potential energy:",
+    "textHi": "19. Electrostatics - Potential & Energy (Hindi translated via AI) \nWhen a positive charge is moved from a point of lower potential to higher potential, its potential energy:",
     "options": [
       {
         "id": 1,
@@ -3275,8 +3275,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 110,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "20. Current Electricity – Ohm’s Law \nThe resistance of a metallic wire depends on:",
-    "textHi": "20. Current Electricity – Ohm’s Law (Hindi translated via AI) \nThe resistance of a metallic wire depends on:",
+    "textEn": "20. Current Electricity - Ohm's Law \nThe resistance of a metallic wire depends on:",
+    "textHi": "20. Current Electricity - Ohm's Law (Hindi translated via AI) \nThe resistance of a metallic wire depends on:",
     "options": [
       {
         "id": 1,
@@ -3305,8 +3305,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 111,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "21. Current Electricity – Kirchhoff’s Laws \nKirchhoff’s junction rule is based on the law of conservation of:",
-    "textHi": "21. Current Electricity – Kirchhoff’s Laws (Hindi translated via AI) \nKirchhoff’s junction rule is based on the law of conservation of:",
+    "textEn": "21. Current Electricity - Kirchhoff's Laws \nKirchhoff's junction rule is based on the law of conservation of:",
+    "textHi": "21. Current Electricity - Kirchhoff's Laws (Hindi translated via AI) \nKirchhoff's junction rule is based on the law of conservation of:",
     "options": [
       {
         "id": 1,
@@ -3335,8 +3335,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 112,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "22. Magnetic Effects – Biot–Savart \nThe magnetic field at the centre of a circular coil of radius R, carrying current I, is proportional to:",
-    "textHi": "22. Magnetic Effects – Biot–Savart (Hindi translated via AI) \nThe magnetic field at the centre of a circular coil of radius R, carrying current I, is proportional to:",
+    "textEn": "22. Magnetic Effects - Biot-Savart \nThe magnetic field at the centre of a circular coil of radius R, carrying current I, is proportional to:",
+    "textHi": "22. Magnetic Effects - Biot-Savart (Hindi translated via AI) \nThe magnetic field at the centre of a circular coil of radius R, carrying current I, is proportional to:",
     "options": [
       {
         "id": 1,
@@ -3355,8 +3355,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "I/R²",
-        "textHi": "I/R²"
+        "textEn": "I/R^2",
+        "textHi": "I/R^2"
       }
     ],
     "correctOption": 3
@@ -3365,8 +3365,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 113,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "23. Magnetic Effects – Force on Conductor \nFleming’s left‑hand rule gives the direction of:",
-    "textHi": "23. Magnetic Effects – Force on Conductor (Hindi translated via AI) \nFleming’s left‑hand rule gives the direction of:",
+    "textEn": "23. Magnetic Effects - Force on Conductor \nFleming's left‑hand rule gives the direction of:",
+    "textHi": "23. Magnetic Effects - Force on Conductor (Hindi translated via AI) \nFleming's left‑hand rule gives the direction of:",
     "options": [
       {
         "id": 1,
@@ -3395,8 +3395,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 114,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "24. EMI – Faraday’s Law \nThe magnitude of induced EMF is proportional to:",
-    "textHi": "24. EMI – Faraday’s Law (Hindi translated via AI) \nThe magnitude of induced EMF is proportional to:",
+    "textEn": "24. EMI - Faraday's Law \nThe magnitude of induced EMF is proportional to:",
+    "textHi": "24. EMI - Faraday's Law (Hindi translated via AI) \nThe magnitude of induced EMF is proportional to:",
     "options": [
       {
         "id": 1,
@@ -3425,8 +3425,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 115,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "25. EMI – Lenz’s Law \nLenz’s law is a consequence of the law of conservation of:",
-    "textHi": "25. EMI – Lenz’s Law (Hindi translated via AI) \nLenz’s law is a consequence of the law of conservation of:",
+    "textEn": "25. EMI - Lenz's Law \nLenz's law is a consequence of the law of conservation of:",
+    "textHi": "25. EMI - Lenz's Law (Hindi translated via AI) \nLenz's law is a consequence of the law of conservation of:",
     "options": [
       {
         "id": 1,
@@ -3455,8 +3455,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 116,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "26. AC Circuits – RMS Value \nFor sinusoidal AC, RMS value is related to peak value I0 by:",
-    "textHi": "26. AC Circuits – RMS Value (Hindi translated via AI) \nFor sinusoidal AC, RMS value is related to peak value I0 by:",
+    "textEn": "26. AC Circuits - RMS Value \nFor sinusoidal AC, RMS value is related to peak value I0 by:",
+    "textHi": "26. AC Circuits - RMS Value (Hindi translated via AI) \nFor sinusoidal AC, RMS value is related to peak value I0 by:",
     "options": [
       {
         "id": 1,
@@ -3485,8 +3485,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 117,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "27. Electromagnetic Waves – Speed \nIn vacuum, speed of EM waves:",
-    "textHi": "27. Electromagnetic Waves – Speed (Hindi translated via AI) \nIn vacuum, speed of EM waves:",
+    "textEn": "27. Electromagnetic Waves - Speed \nIn vacuum, speed of EM waves:",
+    "textHi": "27. Electromagnetic Waves - Speed (Hindi translated via AI) \nIn vacuum, speed of EM waves:",
     "options": [
       {
         "id": 1,
@@ -3515,8 +3515,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 118,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "28. Optics – Reflection \nFor a plane mirror, angle of incidence and angle of reflection are:",
-    "textHi": "28. Optics – Reflection (Hindi translated via AI) \nFor a plane mirror, angle of incidence and angle of reflection are:",
+    "textEn": "28. Optics - Reflection \nFor a plane mirror, angle of incidence and angle of reflection are:",
+    "textHi": "28. Optics - Reflection (Hindi translated via AI) \nFor a plane mirror, angle of incidence and angle of reflection are:",
     "options": [
       {
         "id": 1,
@@ -3545,8 +3545,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 119,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "29. Optics – Refraction \nWhen a ray goes from air to water, angle of refraction is less than angle of incidence because:",
-    "textHi": "29. Optics – Refraction (Hindi translated via AI) \nWhen a ray goes from air to water, angle of refraction is less than angle of incidence because:",
+    "textEn": "29. Optics - Refraction \nWhen a ray goes from air to water, angle of refraction is less than angle of incidence because:",
+    "textHi": "29. Optics - Refraction (Hindi translated via AI) \nWhen a ray goes from air to water, angle of refraction is less than angle of incidence because:",
     "options": [
       {
         "id": 1,
@@ -3575,8 +3575,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 120,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "30. Optics – Lens \nPower of a lens of focal length 50 cm is:",
-    "textHi": "30. Optics – Lens (Hindi translated via AI) \nPower of a lens of focal length 50 cm is:",
+    "textEn": "30. Optics - Lens \nPower of a lens of focal length 50 cm is:",
+    "textHi": "30. Optics - Lens (Hindi translated via AI) \nPower of a lens of focal length 50 cm is:",
     "options": [
       {
         "id": 1,
@@ -3605,8 +3605,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 121,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "31. Optics – Dispersion \nIn a glass prism, violet light deviates more than red light because:",
-    "textHi": "31. Optics – Dispersion (Hindi translated via AI) \nIn a glass prism, violet light deviates more than red light because:",
+    "textEn": "31. Optics - Dispersion \nIn a glass prism, violet light deviates more than red light because:",
+    "textHi": "31. Optics - Dispersion (Hindi translated via AI) \nIn a glass prism, violet light deviates more than red light because:",
     "options": [
       {
         "id": 1,
@@ -3635,8 +3635,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 122,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "32. Dual Nature – Photoelectric Effect \nIn photoelectric effect, stopping potential depends mainly on:",
-    "textHi": "32. Dual Nature – Photoelectric Effect (Hindi translated via AI) \nIn photoelectric effect, stopping potential depends mainly on:",
+    "textEn": "32. Dual Nature - Photoelectric Effect \nIn photoelectric effect, stopping potential depends mainly on:",
+    "textHi": "32. Dual Nature - Photoelectric Effect (Hindi translated via AI) \nIn photoelectric effect, stopping potential depends mainly on:",
     "options": [
       {
         "id": 1,
@@ -3665,8 +3665,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 123,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "33. Dual Nature – de Broglie \nThe de Broglie wavelength of a particle is inversely proportional to its:",
-    "textHi": "33. Dual Nature – de Broglie (Hindi translated via AI) \nThe de Broglie wavelength of a particle is inversely proportional to its:",
+    "textEn": "33. Dual Nature - de Broglie \nThe de Broglie wavelength of a particle is inversely proportional to its:",
+    "textHi": "33. Dual Nature - de Broglie (Hindi translated via AI) \nThe de Broglie wavelength of a particle is inversely proportional to its:",
     "options": [
       {
         "id": 1,
@@ -3695,8 +3695,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 124,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "34. Atoms – Bohr Model \nIn Bohr’s model of hydrogen atom, radius of nth orbit is proportional to:",
-    "textHi": "34. Atoms – Bohr Model (Hindi translated via AI) \nIn Bohr’s model of hydrogen atom, radius of nth orbit is proportional to:",
+    "textEn": "34. Atoms - Bohr Model \nIn Bohr's model of hydrogen atom, radius of nth orbit is proportional to:",
+    "textHi": "34. Atoms - Bohr Model (Hindi translated via AI) \nIn Bohr's model of hydrogen atom, radius of nth orbit is proportional to:",
     "options": [
       {
         "id": 1,
@@ -3705,13 +3705,13 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "n²",
-        "textHi": "n²"
+        "textEn": "n^2",
+        "textHi": "n^2"
       },
       {
         "id": 3,
-        "textEn": "n³",
-        "textHi": "n³"
+        "textEn": "n^3",
+        "textHi": "n^3"
       },
       {
         "id": 4,
@@ -3725,8 +3725,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 125,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "35. Atoms – Energy Levels \nWhen an electron in hydrogen atom jumps from n=3 to n=2, it emits radiation in the:",
-    "textHi": "35. Atoms – Energy Levels (Hindi translated via AI) \nWhen an electron in hydrogen atom jumps from n=3 to n=2, it emits radiation in the:",
+    "textEn": "35. Atoms - Energy Levels \nWhen an electron in hydrogen atom jumps from n=3 to n=2, it emits radiation in the:",
+    "textHi": "35. Atoms - Energy Levels (Hindi translated via AI) \nWhen an electron in hydrogen atom jumps from n=3 to n=2, it emits radiation in the:",
     "options": [
       {
         "id": 1,
@@ -3755,8 +3755,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 126,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "36. Nuclei – Radioactivity \nIn β⁻ decay, a neutron transforms into:",
-    "textHi": "36. Nuclei – Radioactivity (Hindi translated via AI) \nIn β⁻ decay, a neutron transforms into:",
+    "textEn": "36. Nuclei - Radioactivity \nIn β^- decay, a neutron transforms into:",
+    "textHi": "36. Nuclei - Radioactivity (Hindi translated via AI) \nIn β^- decay, a neutron transforms into:",
     "options": [
       {
         "id": 1,
@@ -3785,8 +3785,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 127,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "37. Nuclei – Binding Energy \nThe stability of a nucleus mainly depends on:",
-    "textHi": "37. Nuclei – Binding Energy (Hindi translated via AI) \nThe stability of a nucleus mainly depends on:",
+    "textEn": "37. Nuclei - Binding Energy \nThe stability of a nucleus mainly depends on:",
+    "textHi": "37. Nuclei - Binding Energy (Hindi translated via AI) \nThe stability of a nucleus mainly depends on:",
     "options": [
       {
         "id": 1,
@@ -3815,8 +3815,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 128,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "38. Electronic Devices – p–n Junction \nA p–n junction diode conducts current easily in:",
-    "textHi": "38. Electronic Devices – p–n Junction (Hindi translated via AI) \nA p–n junction diode conducts current easily in:",
+    "textEn": "38. Electronic Devices - p-n Junction \nA p-n junction diode conducts current easily in:",
+    "textHi": "38. Electronic Devices - p-n Junction (Hindi translated via AI) \nA p-n junction diode conducts current easily in:",
     "options": [
       {
         "id": 1,
@@ -3845,8 +3845,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 129,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "39. Electronic Devices – Logic Gates \nA gate whose output is 1 only when both inputs are 1 is:",
-    "textHi": "39. Electronic Devices – Logic Gates (Hindi translated via AI) \nA gate whose output is 1 only when both inputs are 1 is:",
+    "textEn": "39. Electronic Devices - Logic Gates \nA gate whose output is 1 only when both inputs are 1 is:",
+    "textHi": "39. Electronic Devices - Logic Gates (Hindi translated via AI) \nA gate whose output is 1 only when both inputs are 1 is:",
     "options": [
       {
         "id": 1,
@@ -3875,8 +3875,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 130,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "40. Physics & Measurement – Errors \nNumber of significant figures in 0.00450 is:",
-    "textHi": "40. Physics & Measurement – Errors (Hindi translated via AI) \nNumber of significant figures in 0.00450 is:",
+    "textEn": "40. Physics & Measurement - Errors \nNumber of significant figures in 0.00450 is:",
+    "textHi": "40. Physics & Measurement - Errors (Hindi translated via AI) \nNumber of significant figures in 0.00450 is:",
     "options": [
       {
         "id": 1,
@@ -3905,8 +3905,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 131,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "41. Thermodynamics – Adiabatic Process \nIn an adiabatic process, no heat exchange occurs, so:",
-    "textHi": "41. Thermodynamics – Adiabatic Process (Hindi translated via AI) \nIn an adiabatic process, no heat exchange occurs, so:",
+    "textEn": "41. Thermodynamics - Adiabatic Process \nIn an adiabatic process, no heat exchange occurs, so:",
+    "textHi": "41. Thermodynamics - Adiabatic Process (Hindi translated via AI) \nIn an adiabatic process, no heat exchange occurs, so:",
     "options": [
       {
         "id": 1,
@@ -3935,8 +3935,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 132,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "42. Oscillations – Time Period \nTime period of a simple pendulum is proportional to:",
-    "textHi": "42. Oscillations – Time Period (Hindi translated via AI) \nTime period of a simple pendulum is proportional to:",
+    "textEn": "42. Oscillations - Time Period \nTime period of a simple pendulum is proportional to:",
+    "textHi": "42. Oscillations - Time Period (Hindi translated via AI) \nTime period of a simple pendulum is proportional to:",
     "options": [
       {
         "id": 1,
@@ -3965,8 +3965,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 133,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "43. Waves – Interference \nTwo waves of same amplitude and frequency interfere constructively when phase difference is:",
-    "textHi": "43. Waves – Interference (Hindi translated via AI) \nTwo waves of same amplitude and frequency interfere constructively when phase difference is:",
+    "textEn": "43. Waves - Interference \nTwo waves of same amplitude and frequency interfere constructively when phase difference is:",
+    "textHi": "43. Waves - Interference (Hindi translated via AI) \nTwo waves of same amplitude and frequency interfere constructively when phase difference is:",
     "options": [
       {
         "id": 1,
@@ -3995,8 +3995,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 134,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "44. Optics – Diffraction \nIn single‑slit diffraction, the central maximum is:",
-    "textHi": "44. Optics – Diffraction (Hindi translated via AI) \nIn single‑slit diffraction, the central maximum is:",
+    "textEn": "44. Optics - Diffraction \nIn single‑slit diffraction, the central maximum is:",
+    "textHi": "44. Optics - Diffraction (Hindi translated via AI) \nIn single‑slit diffraction, the central maximum is:",
     "options": [
       {
         "id": 1,
@@ -4025,8 +4025,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 135,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "45. Nuclei – Source of Sun \nThe main energy‑producing reaction in the Sun is:",
-    "textHi": "45. Nuclei – Source of Sun (Hindi translated via AI) \nThe main energy‑producing reaction in the Sun is:",
+    "textEn": "45. Nuclei - Source of Sun \nThe main energy‑producing reaction in the Sun is:",
+    "textHi": "45. Nuclei - Source of Sun (Hindi translated via AI) \nThe main energy‑producing reaction in the Sun is:",
     "options": [
       {
         "id": 1,
@@ -4055,8 +4055,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 136,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "1. Some Basic Concepts of Chemistry – Stoichiometry \nWhen 1 mole of ethane burns completely in excess oxygen, the number of moles of CO₂ produced is:",
-    "textHi": "1. Some Basic Concepts of Chemistry – Stoichiometry (Hindi translated via AI) \nWhen 1 mole of ethane burns completely in excess oxygen, the number of moles of CO₂ produced is:",
+    "textEn": "1. Some Basic Concepts of Chemistry - Stoichiometry \nWhen 1 mole of ethane burns completely in excess oxygen, the number of moles of CO_2 produced is:",
+    "textHi": "1. Some Basic Concepts of Chemistry - Stoichiometry (Hindi translated via AI) \nWhen 1 mole of ethane burns completely in excess oxygen, the number of moles of CO_2 produced is:",
     "options": [
       {
         "id": 1,
@@ -4085,8 +4085,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 137,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "2. Basic Concepts – Mole & Molarity \nThe molarity of a solution containing 58.5 g of NaCl in 1 L of water is approximately:",
-    "textHi": "2. Basic Concepts – Mole & Molarity (Hindi translated via AI) \nThe molarity of a solution containing 58.5 g of NaCl in 1 L of water is approximately:",
+    "textEn": "2. Basic Concepts - Mole & Molarity \nThe molarity of a solution containing 58.5 g of NaCl in 1 L of water is approximately:",
+    "textHi": "2. Basic Concepts - Mole & Molarity (Hindi translated via AI) \nThe molarity of a solution containing 58.5 g of NaCl in 1 L of water is approximately:",
     "options": [
       {
         "id": 1,
@@ -4115,8 +4115,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 138,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "3. Atomic Structure – Quantum Numbers \nFor an orbital with n=4, the maximum possible value of the azimuthal quantum number l is:",
-    "textHi": "3. Atomic Structure – Quantum Numbers (Hindi translated via AI) \nFor an orbital with n=4, the maximum possible value of the azimuthal quantum number l is:",
+    "textEn": "3. Atomic Structure - Quantum Numbers \nFor an orbital with n=4, the maximum possible value of the azimuthal quantum number l is:",
+    "textHi": "3. Atomic Structure - Quantum Numbers (Hindi translated via AI) \nFor an orbital with n=4, the maximum possible value of the azimuthal quantum number l is:",
     "options": [
       {
         "id": 1,
@@ -4145,8 +4145,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 139,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "4. Atomic Structure – Hydrogen Spectrum \nIn the Balmer series of hydrogen spectrum, all lines lie in the:",
-    "textHi": "4. Atomic Structure – Hydrogen Spectrum (Hindi translated via AI) \nIn the Balmer series of hydrogen spectrum, all lines lie in the:",
+    "textEn": "4. Atomic Structure - Hydrogen Spectrum \nIn the Balmer series of hydrogen spectrum, all lines lie in the:",
+    "textHi": "4. Atomic Structure - Hydrogen Spectrum (Hindi translated via AI) \nIn the Balmer series of hydrogen spectrum, all lines lie in the:",
     "options": [
       {
         "id": 1,
@@ -4175,8 +4175,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 140,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "5. Chemical Bonding – VSEPR \nA molecule with 2 bond pairs and 2 lone pairs around the central atom has geometry:",
-    "textHi": "5. Chemical Bonding – VSEPR (Hindi translated via AI) \nA molecule with 2 bond pairs and 2 lone pairs around the central atom has geometry:",
+    "textEn": "5. Chemical Bonding - VSEPR \nA molecule with 2 bond pairs and 2 lone pairs around the central atom has geometry:",
+    "textHi": "5. Chemical Bonding - VSEPR (Hindi translated via AI) \nA molecule with 2 bond pairs and 2 lone pairs around the central atom has geometry:",
     "options": [
       {
         "id": 1,
@@ -4205,18 +4205,18 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 141,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "6. Chemical Bonding – Hybridisation \nThe type of hybridisation of carbon in methane (CH₄) is:",
-    "textHi": "6. Chemical Bonding – Hybridisation (Hindi translated via AI) \nThe type of hybridisation of carbon in methane (CH₄) is:",
+    "textEn": "6. Chemical Bonding - Hybridisation \nThe type of hybridisation of carbon in methane (CH_4) is:",
+    "textHi": "6. Chemical Bonding - Hybridisation (Hindi translated via AI) \nThe type of hybridisation of carbon in methane (CH_4) is:",
     "options": [
       {
         "id": 1,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 2,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 3,
@@ -4225,8 +4225,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "dsp²",
-        "textHi": "dsp²"
+        "textEn": "dsp^2",
+        "textHi": "dsp^2"
       }
     ],
     "correctOption": 1
@@ -4235,8 +4235,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 142,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "7. Thermodynamics – Enthalpy \nFor an endothermic reaction, the sign of ΔH is:",
-    "textHi": "7. Thermodynamics – Enthalpy (Hindi translated via AI) \nFor an endothermic reaction, the sign of ΔH is:",
+    "textEn": "7. Thermodynamics - Enthalpy \nFor an endothermic reaction, the sign of ΔH is:",
+    "textHi": "7. Thermodynamics - Enthalpy (Hindi translated via AI) \nFor an endothermic reaction, the sign of ΔH is:",
     "options": [
       {
         "id": 1,
@@ -4265,8 +4265,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 143,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "8. Thermodynamics – Spontaneity \nA reaction is spontaneous at a given temperature if:",
-    "textHi": "8. Thermodynamics – Spontaneity (Hindi translated via AI) \nA reaction is spontaneous at a given temperature if:",
+    "textEn": "8. Thermodynamics - Spontaneity \nA reaction is spontaneous at a given temperature if:",
+    "textHi": "8. Thermodynamics - Spontaneity (Hindi translated via AI) \nA reaction is spontaneous at a given temperature if:",
     "options": [
       {
         "id": 1,
@@ -4295,28 +4295,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 144,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "9. Equilibrium – Kc \nFor the reaction 2NO₂ ⇌ N₂O₄, the expression for Kc is:",
-    "textHi": "9. Equilibrium – Kc (Hindi translated via AI) \nFor the reaction 2NO₂ ⇌ N₂O₄, the expression for Kc is:",
+    "textEn": "9. Equilibrium - Kc \nFor the reaction 2NO_2 ⇌ N_2O_4, the expression for Kc is:",
+    "textHi": "9. Equilibrium - Kc (Hindi translated via AI) \nFor the reaction 2NO_2 ⇌ N_2O_4, the expression for Kc is:",
     "options": [
       {
         "id": 1,
-        "textEn": "[N₂O₄] / [NO₂]",
-        "textHi": "[N₂O₄] / [NO₂]"
+        "textEn": "[N_2O_4] / [NO_2]",
+        "textHi": "[N_2O_4] / [NO_2]"
       },
       {
         "id": 2,
-        "textEn": "[N₂O₄] / [NO₂]²",
-        "textHi": "[N₂O₄] / [NO₂]²"
+        "textEn": "[N_2O_4] / [NO_2]^2",
+        "textHi": "[N_2O_4] / [NO_2]^2"
       },
       {
         "id": 3,
-        "textEn": "[NO₂]² / [N₂O₄]",
-        "textHi": "[NO₂]² / [N₂O₄]"
+        "textEn": "[NO_2]^2 / [N_2O_4]",
+        "textHi": "[NO_2]^2 / [N_2O_4]"
       },
       {
         "id": 4,
-        "textEn": "[N₂O₄]² / [NO₂]",
-        "textHi": "[N₂O₄]² / [NO₂]"
+        "textEn": "[N_2O_4]^2 / [NO_2]",
+        "textHi": "[N_2O_4]^2 / [NO_2]"
       }
     ],
     "correctOption": 2
@@ -4325,8 +4325,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 145,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "10. Ionic Equilibrium – pH \nThe pH of 0.001 M NaOH at 25°C is:",
-    "textHi": "10. Ionic Equilibrium – pH (Hindi translated via AI) \nThe pH of 0.001 M NaOH at 25°C is:",
+    "textEn": "10. Ionic Equilibrium - pH \nThe pH of 0.001 M NaOH at 25°C is:",
+    "textHi": "10. Ionic Equilibrium - pH (Hindi translated via AI) \nThe pH of 0.001 M NaOH at 25°C is:",
     "options": [
       {
         "id": 1,
@@ -4355,8 +4355,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 146,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "11. Ionic Equilibrium – Buffer \nA buffer solution maintains pH because it contains:",
-    "textHi": "11. Ionic Equilibrium – Buffer (Hindi translated via AI) \nA buffer solution maintains pH because it contains:",
+    "textEn": "11. Ionic Equilibrium - Buffer \nA buffer solution maintains pH because it contains:",
+    "textHi": "11. Ionic Equilibrium - Buffer (Hindi translated via AI) \nA buffer solution maintains pH because it contains:",
     "options": [
       {
         "id": 1,
@@ -4385,8 +4385,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 147,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "12. Redox Reactions – Oxidation State \nThe oxidation state of chromium in K₂Cr₂O₇ is:",
-    "textHi": "12. Redox Reactions – Oxidation State (Hindi translated via AI) \nThe oxidation state of chromium in K₂Cr₂O₇ is:",
+    "textEn": "12. Redox Reactions - Oxidation State \nThe oxidation state of chromium in K_2Cr_2O_7 is:",
+    "textHi": "12. Redox Reactions - Oxidation State (Hindi translated via AI) \nThe oxidation state of chromium in K_2Cr_2O_7 is:",
     "options": [
       {
         "id": 1,
@@ -4415,8 +4415,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 148,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "13. Electrochemistry – Galvanic Cell \nIn a galvanic cell, electrons flow from:",
-    "textHi": "13. Electrochemistry – Galvanic Cell (Hindi translated via AI) \nIn a galvanic cell, electrons flow from:",
+    "textEn": "13. Electrochemistry - Galvanic Cell \nIn a galvanic cell, electrons flow from:",
+    "textHi": "13. Electrochemistry - Galvanic Cell (Hindi translated via AI) \nIn a galvanic cell, electrons flow from:",
     "options": [
       {
         "id": 1,
@@ -4445,8 +4445,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 149,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "14. Electrochemistry – Nernst Equation \nThe Nernst equation for a general half‑cell reaction involves the term:",
-    "textHi": "14. Electrochemistry – Nernst Equation (Hindi translated via AI) \nThe Nernst equation for a general half‑cell reaction involves the term:",
+    "textEn": "14. Electrochemistry - Nernst Equation \nThe Nernst equation for a general half‑cell reaction involves the term:",
+    "textHi": "14. Electrochemistry - Nernst Equation (Hindi translated via AI) \nThe Nernst equation for a general half‑cell reaction involves the term:",
     "options": [
       {
         "id": 1,
@@ -4475,8 +4475,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 150,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "15. Chemical Kinetics – Order \nFor a first‑order reaction, the half‑life is:",
-    "textHi": "15. Chemical Kinetics – Order (Hindi translated via AI) \nFor a first‑order reaction, the half‑life is:",
+    "textEn": "15. Chemical Kinetics - Order \nFor a first‑order reaction, the half‑life is:",
+    "textHi": "15. Chemical Kinetics - Order (Hindi translated via AI) \nFor a first‑order reaction, the half‑life is:",
     "options": [
       {
         "id": 1,
@@ -4505,8 +4505,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 151,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "16. Chemical Kinetics – Activation Energy \nA decrease in activation energy leads to:",
-    "textHi": "16. Chemical Kinetics – Activation Energy (Hindi translated via AI) \nA decrease in activation energy leads to:",
+    "textEn": "16. Chemical Kinetics - Activation Energy \nA decrease in activation energy leads to:",
+    "textHi": "16. Chemical Kinetics - Activation Energy (Hindi translated via AI) \nA decrease in activation energy leads to:",
     "options": [
       {
         "id": 1,
@@ -4535,8 +4535,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 152,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "17. Solid State – Packing \nIn a body‑centred cubic (bcc) lattice, the number of atoms per unit cell is:",
-    "textHi": "17. Solid State – Packing (Hindi translated via AI) \nIn a body‑centred cubic (bcc) lattice, the number of atoms per unit cell is:",
+    "textEn": "17. Solid State - Packing \nIn a body‑centred cubic (bcc) lattice, the number of atoms per unit cell is:",
+    "textHi": "17. Solid State - Packing (Hindi translated via AI) \nIn a body‑centred cubic (bcc) lattice, the number of atoms per unit cell is:",
     "options": [
       {
         "id": 1,
@@ -4565,8 +4565,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 153,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "18. Solutions – Colligative Properties \nThe elevation in boiling point depends on:",
-    "textHi": "18. Solutions – Colligative Properties (Hindi translated via AI) \nThe elevation in boiling point depends on:",
+    "textEn": "18. Solutions - Colligative Properties \nThe elevation in boiling point depends on:",
+    "textHi": "18. Solutions - Colligative Properties (Hindi translated via AI) \nThe elevation in boiling point depends on:",
     "options": [
       {
         "id": 1,
@@ -4595,8 +4595,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 154,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "19. Surface Chemistry – Adsorption \nIn physisorption, the forces between adsorbate and adsorbent are mainly:",
-    "textHi": "19. Surface Chemistry – Adsorption (Hindi translated via AI) \nIn physisorption, the forces between adsorbate and adsorbent are mainly:",
+    "textEn": "19. Surface Chemistry - Adsorption \nIn physisorption, the forces between adsorbate and adsorbent are mainly:",
+    "textHi": "19. Surface Chemistry - Adsorption (Hindi translated via AI) \nIn physisorption, the forces between adsorbate and adsorbent are mainly:",
     "options": [
       {
         "id": 1,
@@ -4625,8 +4625,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 155,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "20. p‑Block – Boron Family \nWhich of the following is a correct property of boron compounds?",
-    "textHi": "20. p‑Block – Boron Family (Hindi translated via AI) \nWhich of the following is a correct property of boron compounds?",
+    "textEn": "20. p‑Block - Boron Family \nWhich of the following is a correct property of boron compounds?",
+    "textHi": "20. p‑Block - Boron Family (Hindi translated via AI) \nWhich of the following is a correct property of boron compounds?",
     "options": [
       {
         "id": 1,
@@ -4655,8 +4655,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 156,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "21. p‑Block – Carbon Family \nThe most abundant form of elemental carbon on Earth is:",
-    "textHi": "21. p‑Block – Carbon Family (Hindi translated via AI) \nThe most abundant form of elemental carbon on Earth is:",
+    "textEn": "21. p‑Block - Carbon Family \nThe most abundant form of elemental carbon on Earth is:",
+    "textHi": "21. p‑Block - Carbon Family (Hindi translated via AI) \nThe most abundant form of elemental carbon on Earth is:",
     "options": [
       {
         "id": 1,
@@ -4685,8 +4685,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 157,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "22. p‑Block – Nitrogen Family \nAmong the hydrides NH₃, PH₃, AsH₃, SbH₃ and BiH₃, the order of thermal stability is:",
-    "textHi": "22. p‑Block – Nitrogen Family (Hindi translated via AI) \nAmong the hydrides NH₃, PH₃, AsH₃, SbH₃ and BiH₃, the order of thermal stability is:",
+    "textEn": "22. p‑Block - Nitrogen Family \nAmong the hydrides NH_3, PH_3, AsH_3, SbH_3 and BiH_3, the order of thermal stability is:",
+    "textHi": "22. p‑Block - Nitrogen Family (Hindi translated via AI) \nAmong the hydrides NH_3, PH_3, AsH_3, SbH_3 and BiH_3, the order of thermal stability is:",
     "options": [
       {
         "id": 1,
@@ -4715,28 +4715,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 158,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "23. p‑Block – Oxygen Family \nAmong H₂O, H₂S, H₂Se and H₂Te, the highest boiling point is of:",
-    "textHi": "23. p‑Block – Oxygen Family (Hindi translated via AI) \nAmong H₂O, H₂S, H₂Se and H₂Te, the highest boiling point is of:",
+    "textEn": "23. p‑Block - Oxygen Family \nAmong H_2O, H_2S, H_2Se and H_2Te, the highest boiling point is of:",
+    "textHi": "23. p‑Block - Oxygen Family (Hindi translated via AI) \nAmong H_2O, H_2S, H_2Se and H_2Te, the highest boiling point is of:",
     "options": [
       {
         "id": 1,
-        "textEn": "H₂S",
-        "textHi": "H₂S"
+        "textEn": "H_2S",
+        "textHi": "H_2S"
       },
       {
         "id": 2,
-        "textEn": "H₂Se",
-        "textHi": "H₂Se"
+        "textEn": "H_2Se",
+        "textHi": "H_2Se"
       },
       {
         "id": 3,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 4,
-        "textEn": "H₂Te",
-        "textHi": "H₂Te"
+        "textEn": "H_2Te",
+        "textHi": "H_2Te"
       }
     ],
     "correctOption": 3
@@ -4745,8 +4745,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 159,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "24. p‑Block – Halogens \nThe strongest oxidising agent among halogens is:",
-    "textHi": "24. p‑Block – Halogens (Hindi translated via AI) \nThe strongest oxidising agent among halogens is:",
+    "textEn": "24. p‑Block - Halogens \nThe strongest oxidising agent among halogens is:",
+    "textHi": "24. p‑Block - Halogens (Hindi translated via AI) \nThe strongest oxidising agent among halogens is:",
     "options": [
       {
         "id": 1,
@@ -4775,13 +4775,13 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 160,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "25. d‑ & f‑Block – Transition Metals \nColoured compounds of transition metals are mainly due to:",
-    "textHi": "25. d‑ & f‑Block – Transition Metals (Hindi translated via AI) \nColoured compounds of transition metals are mainly due to:",
+    "textEn": "25. d‑ & f‑Block - Transition Metals \nColoured compounds of transition metals are mainly due to:",
+    "textHi": "25. d‑ & f‑Block - Transition Metals (Hindi translated via AI) \nColoured compounds of transition metals are mainly due to:",
     "options": [
       {
         "id": 1,
-        "textEn": "d–d transitions",
-        "textHi": "d–d transitions"
+        "textEn": "d-d transitions",
+        "textHi": "d-d transitions"
       },
       {
         "id": 2,
@@ -4805,8 +4805,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 161,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "26. Coordination Compounds – IUPAC \nThe IUPAC name of [Co(NH₃)₅Cl]Cl₂ is:",
-    "textHi": "26. Coordination Compounds – IUPAC (Hindi translated via AI) \nThe IUPAC name of [Co(NH₃)₅Cl]Cl₂ is:",
+    "textEn": "26. Coordination Compounds - IUPAC \nThe IUPAC name of [Co(NH_3)_5Cl]Cl_2 is:",
+    "textHi": "26. Coordination Compounds - IUPAC (Hindi translated via AI) \nThe IUPAC name of [Co(NH_3)_5Cl]Cl_2 is:",
     "options": [
       {
         "id": 1,
@@ -4835,8 +4835,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 162,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "27. Coordination – Isomerism \nGeometrical isomerism is possible in:",
-    "textHi": "27. Coordination – Isomerism (Hindi translated via AI) \nGeometrical isomerism is possible in:",
+    "textEn": "27. Coordination - Isomerism \nGeometrical isomerism is possible in:",
+    "textHi": "27. Coordination - Isomerism (Hindi translated via AI) \nGeometrical isomerism is possible in:",
     "options": [
       {
         "id": 1,
@@ -4865,8 +4865,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 163,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "28. Haloalkanes & Haloarenes – SN1 vs SN2 \nTertiary alkyl halides predominantly undergo:",
-    "textHi": "28. Haloalkanes & Haloarenes – SN1 vs SN2 (Hindi translated via AI) \nTertiary alkyl halides predominantly undergo:",
+    "textEn": "28. Haloalkanes & Haloarenes - SN1 vs SN2 \nTertiary alkyl halides predominantly undergo:",
+    "textHi": "28. Haloalkanes & Haloarenes - SN1 vs SN2 (Hindi translated via AI) \nTertiary alkyl halides predominantly undergo:",
     "options": [
       {
         "id": 1,
@@ -4895,8 +4895,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 164,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "29. Alcohols, Phenols, Ethers – Acidity \nThe order of acidity in aqueous medium among methanol, ethanol, and phenol is:",
-    "textHi": "29. Alcohols, Phenols, Ethers – Acidity (Hindi translated via AI) \nThe order of acidity in aqueous medium among methanol, ethanol, and phenol is:",
+    "textEn": "29. Alcohols, Phenols, Ethers - Acidity \nThe order of acidity in aqueous medium among methanol, ethanol, and phenol is:",
+    "textHi": "29. Alcohols, Phenols, Ethers - Acidity (Hindi translated via AI) \nThe order of acidity in aqueous medium among methanol, ethanol, and phenol is:",
     "options": [
       {
         "id": 1,
@@ -4925,8 +4925,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 165,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "30. Aldehydes, Ketones – Cannizzaro \nCannizzaro reaction is shown by aldehydes that:",
-    "textHi": "30. Aldehydes, Ketones – Cannizzaro (Hindi translated via AI) \nCannizzaro reaction is shown by aldehydes that:",
+    "textEn": "30. Aldehydes, Ketones - Cannizzaro \nCannizzaro reaction is shown by aldehydes that:",
+    "textHi": "30. Aldehydes, Ketones - Cannizzaro (Hindi translated via AI) \nCannizzaro reaction is shown by aldehydes that:",
     "options": [
       {
         "id": 1,
@@ -4955,8 +4955,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 166,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "31. Aldehydes & Ketones – Nucleophilic Addition \nThe product of the reaction between acetaldehyde and HCN is:",
-    "textHi": "31. Aldehydes & Ketones – Nucleophilic Addition (Hindi translated via AI) \nThe product of the reaction between acetaldehyde and HCN is:",
+    "textEn": "31. Aldehydes & Ketones - Nucleophilic Addition \nThe product of the reaction between acetaldehyde and HCN is:",
+    "textHi": "31. Aldehydes & Ketones - Nucleophilic Addition (Hindi translated via AI) \nThe product of the reaction between acetaldehyde and HCN is:",
     "options": [
       {
         "id": 1,
@@ -4985,23 +4985,23 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 167,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "32. Amines – Basicity \nIn aqueous medium, the order of basicity of CH₃NH₂, (CH₃)₂NH and (CH₃)₃N is:",
-    "textHi": "32. Amines – Basicity (Hindi translated via AI) \nIn aqueous medium, the order of basicity of CH₃NH₂, (CH₃)₂NH and (CH₃)₃N is:",
+    "textEn": "32. Amines - Basicity \nIn aqueous medium, the order of basicity of CH_3NH_2, (CH_3)_2NH and (CH_3)_3N is:",
+    "textHi": "32. Amines - Basicity (Hindi translated via AI) \nIn aqueous medium, the order of basicity of CH_3NH_2, (CH_3)_2NH and (CH_3)_3N is:",
     "options": [
       {
         "id": 1,
-        "textEn": "(CH₃)₃N > (CH₃)₂NH > CH₃NH₂",
-        "textHi": "(CH₃)₃N > (CH₃)₂NH > CH₃NH₂"
+        "textEn": "(CH_3)_3N > (CH_3)_2NH > CH_3NH_2",
+        "textHi": "(CH_3)_3N > (CH_3)_2NH > CH_3NH_2"
       },
       {
         "id": 2,
-        "textEn": "(CH₃)₂NH > CH₃NH₂ > (CH₃)₃N",
-        "textHi": "(CH₃)₂NH > CH₃NH₂ > (CH₃)₃N"
+        "textEn": "(CH_3)_2NH > CH_3NH_2 > (CH_3)_3N",
+        "textHi": "(CH_3)_2NH > CH_3NH_2 > (CH_3)_3N"
       },
       {
         "id": 3,
-        "textEn": "CH₃NH₂ > (CH₃)₂NH > (CH₃)₃N",
-        "textHi": "CH₃NH₂ > (CH₃)₂NH > (CH₃)₃N"
+        "textEn": "CH_3NH_2 > (CH_3)_2NH > (CH_3)_3N",
+        "textHi": "CH_3NH_2 > (CH_3)_2NH > (CH_3)_3N"
       },
       {
         "id": 4,
@@ -5015,8 +5015,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 168,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "33. Biomolecules – Carbohydrates \nA non‑reducing disaccharide is:",
-    "textHi": "33. Biomolecules – Carbohydrates (Hindi translated via AI) \nA non‑reducing disaccharide is:",
+    "textEn": "33. Biomolecules - Carbohydrates \nA non‑reducing disaccharide is:",
+    "textHi": "33. Biomolecules - Carbohydrates (Hindi translated via AI) \nA non‑reducing disaccharide is:",
     "options": [
       {
         "id": 1,
@@ -5045,8 +5045,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 169,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "34. Biomolecules – Proteins \nThe secondary structure of proteins involves:",
-    "textHi": "34. Biomolecules – Proteins (Hindi translated via AI) \nThe secondary structure of proteins involves:",
+    "textEn": "34. Biomolecules - Proteins \nThe secondary structure of proteins involves:",
+    "textHi": "34. Biomolecules - Proteins (Hindi translated via AI) \nThe secondary structure of proteins involves:",
     "options": [
       {
         "id": 1,
@@ -5075,8 +5075,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 170,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "35. Biomolecules – Enzymes \nEnzymes are:",
-    "textHi": "35. Biomolecules – Enzymes (Hindi translated via AI) \nEnzymes are:",
+    "textEn": "35. Biomolecules - Enzymes \nEnzymes are:",
+    "textHi": "35. Biomolecules - Enzymes (Hindi translated via AI) \nEnzymes are:",
     "options": [
       {
         "id": 1,
@@ -5105,8 +5105,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 171,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "36. Polymers – Classification \nPolystyrene is an example of a:",
-    "textHi": "36. Polymers – Classification (Hindi translated via AI) \nPolystyrene is an example of a:",
+    "textEn": "36. Polymers - Classification \nPolystyrene is an example of a:",
+    "textHi": "36. Polymers - Classification (Hindi translated via AI) \nPolystyrene is an example of a:",
     "options": [
       {
         "id": 1,
@@ -5135,8 +5135,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 172,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "37. Polymers – Natural \nWhich of the following is a natural polymer?",
-    "textHi": "37. Polymers – Natural (Hindi translated via AI) \nWhich of the following is a natural polymer?",
+    "textEn": "37. Polymers - Natural \nWhich of the following is a natural polymer?",
+    "textHi": "37. Polymers - Natural (Hindi translated via AI) \nWhich of the following is a natural polymer?",
     "options": [
       {
         "id": 1,
@@ -5165,8 +5165,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 173,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "38. Organic Chemistry – Markovnikov Rule \nMarkovnikov’s rule is used to predict the major product in:",
-    "textHi": "38. Organic Chemistry – Markovnikov Rule (Hindi translated via AI) \nMarkovnikov’s rule is used to predict the major product in:",
+    "textEn": "38. Organic Chemistry - Markovnikov Rule \nMarkovnikov's rule is used to predict the major product in:",
+    "textHi": "38. Organic Chemistry - Markovnikov Rule (Hindi translated via AI) \nMarkovnikov's rule is used to predict the major product in:",
     "options": [
       {
         "id": 1,
@@ -5195,28 +5195,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 174,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "39. Aromatic Hydrocarbons – Nitration \nIn nitration of benzene, the attacking species is:",
-    "textHi": "39. Aromatic Hydrocarbons – Nitration (Hindi translated via AI) \nIn nitration of benzene, the attacking species is:",
+    "textEn": "39. Aromatic Hydrocarbons - Nitration \nIn nitration of benzene, the attacking species is:",
+    "textHi": "39. Aromatic Hydrocarbons - Nitration (Hindi translated via AI) \nIn nitration of benzene, the attacking species is:",
     "options": [
       {
         "id": 1,
-        "textEn": "NO₂⁻",
-        "textHi": "NO₂⁻"
+        "textEn": "NO_2^-",
+        "textHi": "NO_2^-"
       },
       {
         "id": 2,
-        "textEn": "NO₂⁺ (nitronium ion)",
-        "textHi": "NO₂⁺ (nitronium ion)"
+        "textEn": "NO_2^+ (nitronium ion)",
+        "textHi": "NO_2^+ (nitronium ion)"
       },
       {
         "id": 3,
-        "textEn": "HNO₃",
-        "textHi": "HNO₃"
+        "textEn": "HNO_3",
+        "textHi": "HNO_3"
       },
       {
         "id": 4,
-        "textEn": "H⁺",
-        "textHi": "H⁺"
+        "textEn": "H^+",
+        "textHi": "H^+"
       }
     ],
     "correctOption": 2
@@ -5225,28 +5225,28 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 175,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "40. Environmental Chemistry – Greenhouse Effect \nA major greenhouse gas containing carbon‑oxygen bonds is:",
-    "textHi": "40. Environmental Chemistry – Greenhouse Effect (Hindi translated via AI) \nA major greenhouse gas containing carbon‑oxygen bonds is:",
+    "textEn": "40. Environmental Chemistry - Greenhouse Effect \nA major greenhouse gas containing carbon‑oxygen bonds is:",
+    "textHi": "40. Environmental Chemistry - Greenhouse Effect (Hindi translated via AI) \nA major greenhouse gas containing carbon‑oxygen bonds is:",
     "options": [
       {
         "id": 1,
-        "textEn": "O₂",
-        "textHi": "O₂"
+        "textEn": "O_2",
+        "textHi": "O_2"
       },
       {
         "id": 2,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 3,
-        "textEn": "N₂",
-        "textHi": "N₂"
+        "textEn": "N_2",
+        "textHi": "N_2"
       },
       {
         "id": 4,
-        "textEn": "H₂",
-        "textHi": "H₂"
+        "textEn": "H_2",
+        "textHi": "H_2"
       }
     ],
     "correctOption": 2
@@ -5255,8 +5255,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 176,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "41. s‑Block – Group 1 & 2 \nThe solubility of group 2 sulphates in water generally:",
-    "textHi": "41. s‑Block – Group 1 & 2 (Hindi translated via AI) \nThe solubility of group 2 sulphates in water generally:",
+    "textEn": "41. s‑Block - Group 1 & 2 \nThe solubility of group 2 sulphates in water generally:",
+    "textHi": "41. s‑Block - Group 1 & 2 (Hindi translated via AI) \nThe solubility of group 2 sulphates in water generally:",
     "options": [
       {
         "id": 1,
@@ -5285,8 +5285,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 177,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "42. s‑Block – Hydrides \nThe hydride ion (H⁻) is present in:",
-    "textHi": "42. s‑Block – Hydrides (Hindi translated via AI) \nThe hydride ion (H⁻) is present in:",
+    "textEn": "42. s‑Block - Hydrides \nThe hydride ion (H^-) is present in:",
+    "textHi": "42. s‑Block - Hydrides (Hindi translated via AI) \nThe hydride ion (H^-) is present in:",
     "options": [
       {
         "id": 1,
@@ -5305,8 +5305,8 @@ export const neetMock3Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       }
     ],
     "correctOption": 2
@@ -5315,8 +5315,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 178,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "43. Solid State – Bragg’s Law \nBragg’s law is used in analysis of:",
-    "textHi": "43. Solid State – Bragg’s Law (Hindi translated via AI) \nBragg’s law is used in analysis of:",
+    "textEn": "43. Solid State - Bragg's Law \nBragg's law is used in analysis of:",
+    "textHi": "43. Solid State - Bragg's Law (Hindi translated via AI) \nBragg's law is used in analysis of:",
     "options": [
       {
         "id": 1,
@@ -5345,8 +5345,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 179,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "44. Solutions – Raoult’s Law \nRaoult’s law is valid for:",
-    "textHi": "44. Solutions – Raoult’s Law (Hindi translated via AI) \nRaoult’s law is valid for:",
+    "textEn": "44. Solutions - Raoult's Law \nRaoult's law is valid for:",
+    "textHi": "44. Solutions - Raoult's Law (Hindi translated via AI) \nRaoult's law is valid for:",
     "options": [
       {
         "id": 1,
@@ -5375,8 +5375,8 @@ export const neetMock3Questions: QuestionType[] = [
     "id": 180,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "45. Chemistry in Everyday Life – Drugs \nAntibiotics destroy:",
-    "textHi": "45. Chemistry in Everyday Life – Drugs (Hindi translated via AI) \nAntibiotics destroy:",
+    "textEn": "45. Chemistry in Everyday Life - Drugs \nAntibiotics destroy:",
+    "textHi": "45. Chemistry in Everyday Life - Drugs (Hindi translated via AI) \nAntibiotics destroy:",
     "options": [
       {
         "id": 1,

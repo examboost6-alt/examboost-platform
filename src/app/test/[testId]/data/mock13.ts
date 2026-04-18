@@ -7,20 +7,20 @@ const physicsQuestions_13: any[] = [
         "textHi": "बल (Force) का विमीय सूत्र (Dimensional formula) है:",
         "options": [
             {
-                "en": "MLT⁻²",
-                "hi": "MLT⁻²"
+                "en": "MLT^-^2",
+                "hi": "MLT^-^2"
             },
             {
-                "en": "ML²T⁻²",
-                "hi": "ML²T⁻²"
+                "en": "ML^2T^-^2",
+                "hi": "ML^2T^-^2"
             },
             {
-                "en": "MLT⁻¹",
-                "hi": "MLT⁻¹"
+                "en": "MLT^-¹",
+                "hi": "MLT^-¹"
             },
             {
-                "en": "ML⁻¹T⁻²",
-                "hi": "ML⁻¹T⁻²"
+                "en": "ML^-¹T^-^2",
+                "hi": "ML^-¹T^-^2"
             }
         ],
         "ans": 1
@@ -43,8 +43,8 @@ const physicsQuestions_13: any[] = [
                 "hi": "ΔA/A - ΔB/B"
             },
             {
-                "en": "ΔA × ΔB",
-                "hi": "ΔA × ΔB"
+                "en": "ΔA x ΔB",
+                "hi": "ΔA x ΔB"
             }
         ],
         "ans": 2
@@ -83,8 +83,8 @@ const physicsQuestions_13: any[] = [
                 "hi": "u"
             },
             {
-                "en": "u²",
-                "hi": "u²"
+                "en": "u^2",
+                "hi": "u^2"
             },
             {
                 "en": "1/u",
@@ -103,12 +103,12 @@ const physicsQuestions_13: any[] = [
         "textHi": "आवेग (Impulse) =:",
         "options": [
             {
-                "en": "Force × time",
-                "hi": "Force × time"
+                "en": "Force x time",
+                "hi": "Force x time"
             },
             {
-                "en": "Mass × velocity",
-                "hi": "Mass × velocity"
+                "en": "Mass x velocity",
+                "hi": "Mass x velocity"
             },
             {
                 "en": "Work",
@@ -199,8 +199,8 @@ const physicsQuestions_13: any[] = [
         "textHi": "बलाघूर्ण (Torque) =:",
         "options": [
             {
-                "en": "r × F",
-                "hi": "r × F"
+                "en": "r x F",
+                "hi": "r x F"
             },
             {
                 "en": "r·F",
@@ -211,8 +211,8 @@ const physicsQuestions_13: any[] = [
                 "hi": "F/r"
             },
             {
-                "en": "rF²",
-                "hi": "rF²"
+                "en": "rF^2",
+                "hi": "rF^2"
             }
         ],
         "ans": 1
@@ -259,8 +259,8 @@ const physicsQuestions_13: any[] = [
                 "hi": "mgh"
             },
             {
-                "en": "GM/r²",
-                "hi": "GM/r²"
+                "en": "GM/r^2",
+                "hi": "GM/r^2"
             }
         ],
         "ans": 1
@@ -319,20 +319,20 @@ const physicsQuestions_13: any[] = [
         "textHi": "दक्षता (Efficiency) =:",
         "options": [
             {
-                "en": "W/Q₁",
-                "hi": "W/Q₁"
+                "en": "W/Q_1",
+                "hi": "W/Q_1"
             },
             {
-                "en": "Q₁/W",
-                "hi": "Q₁/W"
+                "en": "Q_1/W",
+                "hi": "Q_1/W"
             },
             {
-                "en": "W/Q₂",
-                "hi": "W/Q₂"
+                "en": "W/Q_2",
+                "hi": "W/Q_2"
             },
             {
-                "en": "Q₂/W",
-                "hi": "Q₂/W"
+                "en": "Q_2/W",
+                "hi": "Q_2/W"
             }
         ],
         "ans": 1
@@ -379,8 +379,8 @@ const physicsQuestions_13: any[] = [
                 "hi": "vf"
             },
             {
-                "en": "v²/f",
-                "hi": "v²/f"
+                "en": "v^2/f",
+                "hi": "v^2/f"
             }
         ],
         "ans": 1
@@ -391,20 +391,20 @@ const physicsQuestions_13: any[] = [
         "textHi": "कूलॉम बल नियतांक k =:",
         "options": [
             {
-                "en": "1/4πε₀",
-                "hi": "1/4πε₀"
+                "en": "1/4πε_0",
+                "hi": "1/4πε_0"
             },
             {
-                "en": "4πε₀",
-                "hi": "4πε₀"
+                "en": "4πε_0",
+                "hi": "4πε_0"
             },
             {
-                "en": "ε₀",
-                "hi": "ε₀"
+                "en": "ε_0",
+                "hi": "ε_0"
             },
             {
-                "en": "1/ε₀",
-                "hi": "1/ε₀"
+                "en": "1/ε_0",
+                "hi": "1/ε_0"
             }
         ],
         "ans": 1
@@ -439,20 +439,20 @@ const physicsQuestions_13: any[] = [
         "textHi": "प्रतिरोधक (Resistor) में शक्ति (Power):",
         "options": [
             {
-                "en": "I²R",
-                "hi": "I²R"
+                "en": "I^2R",
+                "hi": "I^2R"
             },
             {
-                "en": "IR²",
-                "hi": "IR²"
+                "en": "IR^2",
+                "hi": "IR^2"
             },
             {
-                "en": "V²/I",
-                "hi": "V²/I"
+                "en": "V^2/I",
+                "hi": "V^2/I"
             },
             {
-                "en": "VI²",
-                "hi": "VI²"
+                "en": "VI^2",
+                "hi": "VI^2"
             }
         ],
         "ans": 1
@@ -495,8 +495,8 @@ const physicsQuestions_13: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Force between two 1 kg masses at 1 m (G = 6.67×10⁻¹¹):",
-        "textHi": "1 मीटर की दूरी पर रखे दो 1 kg द्रव्यमान के बीच बल (G = 6.67×10⁻¹¹):",
+        "textEn": "Force between two 1 kg masses at 1 m (G = 6.67x10^-¹¹):",
+        "textHi": "1 मीटर की दूरी पर रखे दो 1 kg द्रव्यमान के बीच बल (G = 6.67x10^-¹¹):",
         "ans": "6.67e-11"
     },
     {
@@ -507,7 +507,7 @@ const physicsQuestions_13: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Magnification if image = 2× object:",
+        "textEn": "Magnification if image = 2x object:",
         "textHi": "परिवर्धन (Magnification) यदि प्रतिबिंब विन्यास वस्तु का दोगुना है:",
         "ans": "2"
     }
@@ -591,20 +591,20 @@ const chemistryQuestions_13: any[] = [
         "textHi": "किसमें अधिकतम आबंध कोण है?",
         "options": [
             {
-                "en": "NH₃",
-                "hi": "NH₃"
+                "en": "NH_3",
+                "hi": "NH_3"
             },
             {
-                "en": "H₂O",
-                "hi": "H₂O"
+                "en": "H_2O",
+                "hi": "H_2O"
             },
             {
-                "en": "CH₄",
-                "hi": "CH₄"
+                "en": "CH_4",
+                "hi": "CH_4"
             },
             {
-                "en": "BF₃",
-                "hi": "BF₃"
+                "en": "BF_3",
+                "hi": "BF_3"
             }
         ],
         "ans": 4
@@ -615,20 +615,20 @@ const chemistryQuestions_13: any[] = [
         "textHi": "कौन सा अणु ध्रुवीय (polar) है?",
         "options": [
             {
-                "en": "CO₂",
-                "hi": "CO₂"
+                "en": "CO_2",
+                "hi": "CO_2"
             },
             {
-                "en": "BF₃",
-                "hi": "BF₃"
+                "en": "BF_3",
+                "hi": "BF_3"
             },
             {
-                "en": "H₂O",
-                "hi": "H₂O"
+                "en": "H_2O",
+                "hi": "H_2O"
             },
             {
-                "en": "CCl₄",
-                "hi": "CCl₄"
+                "en": "CCl_4",
+                "hi": "CCl_4"
             }
         ],
         "ans": 3
@@ -851,8 +851,8 @@ const chemistryQuestions_13: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Coordination number of [Co(NH₃)₆]³⁺:",
-        "textHi": "[Co(NH₃)₆]³⁺ की समन्वय संख्या (Coordination number):",
+        "textEn": "Coordination number of [Co(NH_3)_6]^3^+:",
+        "textHi": "[Co(NH_3)_6]^3^+ की समन्वय संख्या (Coordination number):",
         "options": [
             {
                 "en": "4",
@@ -903,16 +903,16 @@ const chemistryQuestions_13: any[] = [
         "textHi": "एल्काइन (Alkyne) का सामान्य सूत्र:",
         "options": [
             {
-                "en": "CₙH₂ₙ",
-                "hi": "CₙH₂ₙ"
+                "en": "CₙH_2ₙ",
+                "hi": "CₙH_2ₙ"
             },
             {
-                "en": "CₙH₂ₙ₊₂",
-                "hi": "CₙH₂ₙ₊₂"
+                "en": "CₙH_2ₙ₊_2",
+                "hi": "CₙH_2ₙ₊_2"
             },
             {
-                "en": "CₙH₂ₙ₋₂",
-                "hi": "CₙH₂ₙ₋₂"
+                "en": "CₙH_2ₙ₋_2",
+                "hi": "CₙH_2ₙ₋_2"
             },
             {
                 "en": "CₙHₙ",
@@ -947,7 +947,7 @@ const chemistryQuestions_13: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Tollens’ reagent test for:",
+        "textEn": "Tollens' reagent test for:",
         "textHi": "टॉलेन्स अभिकर्मक परीक्षण किसके लिए है?",
         "options": [
             {
@@ -995,8 +995,8 @@ const chemistryQuestions_13: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Molar mass of H₂SO₄:",
-        "textHi": "H₂SO₄ का मोलर द्रव्यमान:",
+        "textEn": "Molar mass of H_2SO_4:",
+        "textHi": "H_2SO_4 का मोलर द्रव्यमान:",
         "ans": "98"
     },
     {
@@ -1051,20 +1051,20 @@ const mathQuestions_13: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If roots of ax² + bx + c = 0 are equal, then:",
-        "textHi": "यदि ax² + bx + c = 0 के मूल समान हैं, तो:",
+        "textEn": "If roots of ax^2 + bx + c = 0 are equal, then:",
+        "textHi": "यदि ax^2 + bx + c = 0 के मूल समान हैं, तो:",
         "options": [
             {
-                "en": "b² - 4ac = 0",
-                "hi": "b² - 4ac = 0"
+                "en": "b^2 - 4ac = 0",
+                "hi": "b^2 - 4ac = 0"
             },
             {
-                "en": "b² - 4ac > 0",
-                "hi": "b² - 4ac > 0"
+                "en": "b^2 - 4ac > 0",
+                "hi": "b^2 - 4ac > 0"
             },
             {
-                "en": "b² - 4ac < 0",
-                "hi": "b² - 4ac < 0"
+                "en": "b^2 - 4ac < 0",
+                "hi": "b^2 - 4ac < 0"
             },
             {
                 "en": "None",
@@ -1083,8 +1083,8 @@ const mathQuestions_13: any[] = [
                 "hi": "n(n+1)/2"
             },
             {
-                "en": "n²",
-                "hi": "n²"
+                "en": "n^2",
+                "hi": "n^2"
             },
             {
                 "en": "n(n-1)/2",
@@ -1099,8 +1099,8 @@ const mathQuestions_13: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Coefficient of x² in (1 + x)⁵:",
-        "textHi": "(1 + x)⁵ के प्रसार में x² का गुणांक:",
+        "textEn": "Coefficient of x^2 in (1 + x)⁵:",
+        "textHi": "(1 + x)⁵ के प्रसार में x^2 का गुणांक:",
         "options": [
             {
                 "en": "5",
@@ -1251,8 +1251,8 @@ const mathQuestions_13: any[] = [
                 "hi": "LHL = RHL = f(a)"
             },
             {
-                "en": "LHL ≠ RHL",
-                "hi": "LHL ≠ RHL"
+                "en": "LHL != RHL",
+                "hi": "LHL != RHL"
             },
             {
                 "en": "Only LHL exists",
@@ -1327,8 +1327,8 @@ const mathQuestions_13: any[] = [
                 "hi": "x"
             },
             {
-                "en": "x²",
-                "hi": "x²"
+                "en": "x^2",
+                "hi": "x^2"
             },
             {
                 "en": "e^x",
@@ -1363,8 +1363,8 @@ const mathQuestions_13: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Order of dy/dx = x²:",
-        "textHi": "अवकल समीकरण dy/dx = x² की कोटि (Order):",
+        "textEn": "Order of dy/dx = x^2:",
+        "textHi": "अवकल समीकरण dy/dx = x^2 की कोटि (Order):",
         "options": [
             {
                 "en": "1",
@@ -1415,20 +1415,20 @@ const mathQuestions_13: any[] = [
         "textHi": "केंद्र (0,0) और त्रिज्या 3 वाले वृत्त का समीकरण:",
         "options": [
             {
-                "en": "x² + y² = 9",
-                "hi": "x² + y² = 9"
+                "en": "x^2 + y^2 = 9",
+                "hi": "x^2 + y^2 = 9"
             },
             {
-                "en": "x² + y² = 3",
-                "hi": "x² + y² = 3"
+                "en": "x^2 + y^2 = 3",
+                "hi": "x^2 + y^2 = 3"
             },
             {
-                "en": "x² + y² = 6",
-                "hi": "x² + y² = 6"
+                "en": "x^2 + y^2 = 6",
+                "hi": "x^2 + y^2 = 6"
             },
             {
-                "en": "x² + y² = 12",
-                "hi": "x² + y² = 12"
+                "en": "x^2 + y^2 = 12",
+                "hi": "x^2 + y^2 = 12"
             }
         ],
         "ans": 1
@@ -1439,12 +1439,12 @@ const mathQuestions_13: any[] = [
         "textHi": "x-अक्ष के सममित परवलय का मानक समीकरण:",
         "options": [
             {
-                "en": "y² = 4ax",
-                "hi": "y² = 4ax"
+                "en": "y^2 = 4ax",
+                "hi": "y^2 = 4ax"
             },
             {
-                "en": "x² = 4ay",
-                "hi": "x² = 4ay"
+                "en": "x^2 = 4ay",
+                "hi": "x^2 = 4ay"
             },
             {
                 "en": "Both",
@@ -1507,8 +1507,8 @@ const mathQuestions_13: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "lim(x→0) (1 - cosx)/x²:",
-        "textHi": "lim(x→0) (1 - cosx)/x²:",
+        "textEn": "lim(x→0) (1 - cosx)/x^2:",
+        "textHi": "lim(x→0) (1 - cosx)/x^2:",
         "ans": "0.5"
     },
     {
@@ -1525,8 +1525,8 @@ const mathQuestions_13: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "log₂(8):",
-        "textHi": "log₂(8):",
+        "textEn": "log_2(8):",
+        "textHi": "log_2(8):",
         "ans": "3"
     },
     {

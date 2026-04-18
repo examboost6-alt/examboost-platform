@@ -65,8 +65,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 3,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "Maximum CO₂ transported as:",
-    "textHi": "Maximum CO₂ transported as: (Hindi translated via AI)",
+    "textEn": "Maximum CO_2 transported as:",
+    "textHi": "Maximum CO_2 transported as: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -310,23 +310,23 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Na⁺ influx",
-        "textHi": "Na⁺ influx"
+        "textEn": "Na^+ influx",
+        "textHi": "Na^+ influx"
       },
       {
         "id": 2,
-        "textEn": "K⁺ efflux",
-        "textHi": "K⁺ efflux"
+        "textEn": "K^+ efflux",
+        "textHi": "K^+ efflux"
       },
       {
         "id": 3,
-        "textEn": "Cl⁻ entry",
-        "textHi": "Cl⁻ entry"
+        "textEn": "Cl^- entry",
+        "textHi": "Cl^- entry"
       },
       {
         "id": 4,
-        "textEn": "Ca²⁺",
-        "textHi": "Ca²⁺"
+        "textEn": "Ca^2^+",
+        "textHi": "Ca^2^+"
       }
     ],
     "correctOption": 2
@@ -345,8 +345,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "Ca²⁺",
-        "textHi": "Ca²⁺"
+        "textEn": "Ca^2^+",
+        "textHi": "Ca^2^+"
       },
       {
         "id": 3,
@@ -945,8 +945,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "5–7 days",
-        "textHi": "5–7 days"
+        "textEn": "5-7 days",
+        "textHi": "5-7 days"
       },
       {
         "id": 3,
@@ -1625,8 +1625,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 55,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "Which enzyme fixes CO₂?",
-    "textHi": "Which enzyme fixes CO₂? (Hindi translated via AI)",
+    "textEn": "Which enzyme fixes CO_2?",
+    "textHi": "Which enzyme fixes CO_2? (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -1715,8 +1715,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 58,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "CAM plants fix CO₂ at:",
-    "textHi": "CAM plants fix CO₂ at: (Hindi translated via AI)",
+    "textEn": "CAM plants fix CO_2 at:",
+    "textHi": "CAM plants fix CO_2 at: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -1780,18 +1780,18 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O₂",
-        "textHi": "O₂"
+        "textEn": "O_2",
+        "textHi": "O_2"
       },
       {
         "id": 2,
-        "textEn": "H⁺",
-        "textHi": "H⁺"
+        "textEn": "H^+",
+        "textHi": "H^+"
       },
       {
         "id": 3,
-        "textEn": "e⁻",
-        "textHi": "e⁻"
+        "textEn": "e^-",
+        "textHi": "e^-"
       },
       {
         "id": 4,
@@ -2435,8 +2435,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 82,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "CO₂ fixation done by:",
-    "textHi": "CO₂ fixation done by: (Hindi translated via AI)",
+    "textEn": "CO_2 fixation done by:",
+    "textHi": "CO_2 fixation done by: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2560,18 +2560,18 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "N₂ → NH₃",
-        "textHi": "N₂ → NH₃"
+        "textEn": "N_2 → NH_3",
+        "textHi": "N_2 → NH_3"
       },
       {
         "id": 2,
-        "textEn": "NH₃ → NO₂",
-        "textHi": "NH₃ → NO₂"
+        "textEn": "NH_3 → NO_2",
+        "textHi": "NH_3 → NO_2"
       },
       {
         "id": 3,
-        "textEn": "NO₂ → NO₃",
-        "textHi": "NO₂ → NO₃"
+        "textEn": "NO_2 → NO_3",
+        "textHi": "NO_2 → NO_3"
       },
       {
         "id": 4,
@@ -2650,13 +2650,13 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
-        "textEn": "CH₄",
-        "textHi": "CH₄"
+        "textEn": "CH_4",
+        "textHi": "CH_4"
       },
       {
         "id": 3,
@@ -2705,8 +2705,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 91,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Position: x=2t3−6t2. Velocity at t = 1 s:",
-    "textHi": "Position: x=2t3−6t2. Velocity at t = 1 s: (Hindi translated via AI)",
+    "textEn": "Position: x=2t3-6t2. Velocity at t = 1 s:",
+    "textHi": "Position: x=2t3-6t2. Velocity at t = 1 s: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2795,8 +2795,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 94,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Torque τ = r × F depends on:",
-    "textHi": "Torque τ = r × F depends on: (Hindi translated via AI)",
+    "textEn": "Torque τ = r x F depends on:",
+    "textHi": "Torque τ = r x F depends on: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2830,13 +2830,13 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½mv²",
-        "textHi": "½mv²"
+        "textEn": "1/2mv^2",
+        "textHi": "1/2mv^2"
       },
       {
         "id": 2,
-        "textEn": "½Iω²",
-        "textHi": "½Iω²"
+        "textEn": "1/2Iω^2",
+        "textHi": "1/2Iω^2"
       },
       {
         "id": 3,
@@ -2925,13 +2925,13 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "x²",
-        "textHi": "x²"
+        "textEn": "x^2",
+        "textHi": "x^2"
       },
       {
         "id": 3,
-        "textEn": "x³",
-        "textHi": "x³"
+        "textEn": "x^3",
+        "textHi": "x^3"
       },
       {
         "id": 4,
@@ -2950,23 +2950,23 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "MLT⁻²",
-        "textHi": "MLT⁻²"
+        "textEn": "MLT^-^2",
+        "textHi": "MLT^-^2"
       },
       {
         "id": 2,
-        "textEn": "ML²T⁻²",
-        "textHi": "ML²T⁻²"
+        "textEn": "ML^2T^-^2",
+        "textHi": "ML^2T^-^2"
       },
       {
         "id": 3,
-        "textEn": "MLT⁻¹",
-        "textHi": "MLT⁻¹"
+        "textEn": "MLT^-¹",
+        "textHi": "MLT^-¹"
       },
       {
         "id": 4,
-        "textEn": "MT⁻²",
-        "textHi": "MT⁻²"
+        "textEn": "MT^-^2",
+        "textHi": "MT^-^2"
       }
     ],
     "correctOption": 1
@@ -3045,18 +3045,18 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "Force × distance",
-        "textHi": "Force × distance"
+        "textEn": "Force x distance",
+        "textHi": "Force x distance"
       },
       {
         "id": 3,
-        "textEn": "Energy × time",
-        "textHi": "Energy × time"
+        "textEn": "Energy x time",
+        "textHi": "Energy x time"
       },
       {
         "id": 4,
-        "textEn": "Work × time",
-        "textHi": "Work × time"
+        "textEn": "Work x time",
+        "textHi": "Work x time"
       }
     ],
     "correctOption": 1
@@ -3080,8 +3080,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "x²",
-        "textHi": "x²"
+        "textEn": "x^2",
+        "textHi": "x^2"
       },
       {
         "id": 4,
@@ -3115,8 +3115,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "l²",
-        "textHi": "l²"
+        "textEn": "l^2",
+        "textHi": "l^2"
       }
     ],
     "correctOption": 1
@@ -3145,8 +3145,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "T²",
-        "textHi": "T²"
+        "textEn": "T^2",
+        "textHi": "T^2"
       }
     ],
     "correctOption": 1
@@ -3295,8 +3295,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "T²",
-        "textHi": "T²"
+        "textEn": "T^2",
+        "textHi": "T^2"
       }
     ],
     "correctOption": 1
@@ -3305,8 +3305,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 111,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Ohm’s law:",
-    "textHi": "Ohm’s law: (Hindi translated via AI)",
+    "textEn": "Ohm's law:",
+    "textHi": "Ohm's law: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -3485,8 +3485,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 117,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Fleming’s left hand rule gives:",
-    "textHi": "Fleming’s left hand rule gives: (Hindi translated via AI)",
+    "textEn": "Fleming's left hand rule gives:",
+    "textHi": "Fleming's left hand rule gives: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -3645,8 +3645,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "I²",
-        "textHi": "I²"
+        "textEn": "I^2",
+        "textHi": "I^2"
       },
       {
         "id": 3,
@@ -3725,8 +3725,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 125,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Young’s experiment shows:",
-    "textHi": "Young’s experiment shows: (Hindi translated via AI)",
+    "textEn": "Young's experiment shows:",
+    "textHi": "Young's experiment shows: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -3825,13 +3825,13 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "mc²",
-        "textHi": "mc²"
+        "textEn": "mc^2",
+        "textHi": "mc^2"
       },
       {
         "id": 3,
-        "textEn": "mv²",
-        "textHi": "mv²"
+        "textEn": "mv^2",
+        "textHi": "mv^2"
       },
       {
         "id": 4,
@@ -3910,18 +3910,18 @@ export const neetMock8Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "t½ ∝ 1/k",
-        "textHi": "t½ ∝ 1/k"
+        "textEn": "t1/2 ∝ 1/k",
+        "textHi": "t1/2 ∝ 1/k"
       },
       {
         "id": 2,
-        "textEn": "t½ ∝ k",
-        "textHi": "t½ ∝ k"
+        "textEn": "t1/2 ∝ k",
+        "textHi": "t1/2 ∝ k"
       },
       {
         "id": 3,
-        "textEn": "t½ ∝ k²",
-        "textHi": "t½ ∝ k²"
+        "textEn": "t1/2 ∝ k^2",
+        "textHi": "t1/2 ∝ k^2"
       },
       {
         "id": 4,
@@ -4075,8 +4075,8 @@ export const neetMock8Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "mol²/(L².s)",
-        "textHi": "mol²/(L².s)"
+        "textEn": "mol^2/(L^2.s)",
+        "textHi": "mol^2/(L^2.s)"
       }
     ],
     "correctOption": 2
@@ -4265,8 +4265,8 @@ export const neetMock8Questions: QuestionType[] = [
     "id": 143,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Raoult’s law is applicable for:",
-    "textHi": "Raoult’s law is applicable for: (Hindi translated via AI)",
+    "textEn": "Raoult's law is applicable for:",
+    "textHi": "Raoult's law is applicable for: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,

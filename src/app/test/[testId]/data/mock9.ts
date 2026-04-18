@@ -7,16 +7,16 @@ const physicsQuestions_9: any[] = [
         "textHi": "यदि बल (F), वेग (V), और समय (T) को मूल इकाई माना जाए, तो द्रव्यमान (M) का विमीय सूत्र (dimensional formula) क्या होगा?",
         "options": [
             {
-                "en": "[F V T⁻¹]",
-                "hi": "[F V T⁻¹]"
+                "en": "[F V T^-¹]",
+                "hi": "[F V T^-¹]"
             },
             {
-                "en": "[F V⁻¹ T]",
-                "hi": "[F V⁻¹ T]"
+                "en": "[F V^-¹ T]",
+                "hi": "[F V^-¹ T]"
             },
             {
-                "en": "[F V⁻¹ T⁻¹]",
-                "hi": "[F V⁻¹ T⁻¹]"
+                "en": "[F V^-¹ T^-¹]",
+                "hi": "[F V^-¹ T^-¹]"
             },
             {
                 "en": "[F V T]",
@@ -31,28 +31,28 @@ const physicsQuestions_9: any[] = [
         "textHi": "एक प्रक्षेप्य (projectile) को क्षैतिज से 45° के कोण पर दागा जाता है। उच्चतम बिंदु पर, इसके वक्रता की त्रिज्या क्या है?",
         "options": [
             {
-                "en": "u²/g",
-                "hi": "u²/g"
+                "en": "u^2/g",
+                "hi": "u^2/g"
             },
             {
-                "en": "u²/(2g)",
-                "hi": "u²/(2g)"
+                "en": "u^2/(2g)",
+                "hi": "u^2/(2g)"
             },
             {
-                "en": "u²/(2√2g)",
-                "hi": "u²/(2√2g)"
+                "en": "u^2/(2√2g)",
+                "hi": "u^2/(2√2g)"
             },
             {
-                "en": "(u²cos²45)/g",
-                "hi": "(u²cos²45)/g"
+                "en": "(u^2cos^245)/g",
+                "hi": "(u^2cos^245)/g"
             }
         ],
         "ans": 3
     },
     {
         "type": "MCQ",
-        "textEn": "A rocket of mass 1000 kg is ready for vertical firing. Exhaust speed is 500 m/s. Mass of gas ejected per second to supply thrust to overcome weight (g = 10 m/s²) is:",
-        "textHi": "1000 किग्रा द्रव्यमान का एक रॉकेट ऊर्ध्वाधर फायरिंग के लिए तैयार है। निकास गति 500 मीटर/सेकंड है। अपने वजन को दूर करने के लिए आवश्यक थ्रस्ट प्रदान करने के लिए प्रति सेकंड उत्सर्जित गैस का द्रव्यमान (g = 10 m/s²) है:",
+        "textEn": "A rocket of mass 1000 kg is ready for vertical firing. Exhaust speed is 500 m/s. Mass of gas ejected per second to supply thrust to overcome weight (g = 10 m/s^2) is:",
+        "textHi": "1000 किग्रा द्रव्यमान का एक रॉकेट ऊर्ध्वाधर फायरिंग के लिए तैयार है। निकास गति 500 मीटर/सेकंड है। अपने वजन को दूर करने के लिए आवश्यक थ्रस्ट प्रदान करने के लिए प्रति सेकंड उत्सर्जित गैस का द्रव्यमान (g = 10 m/s^2) है:",
         "options": [
             {
                 "en": "10 kg/s",
@@ -83,8 +83,8 @@ const physicsQuestions_9: any[] = [
                 "hi": "t^(1/2)"
             },
             {
-                "en": "t²",
-                "hi": "t²"
+                "en": "t^2",
+                "hi": "t^2"
             },
             {
                 "en": "t^(3/2)",
@@ -171,8 +171,8 @@ const physicsQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "In an adiabatic process, pressure is proportional to the cube of absolute temp (P ∝ T³). Ratio of specific heats (γ = Cp/Cv) is:",
-        "textHi": "एक रुद्धोष्म प्रक्रिया में, दाब पूर्ण तापमान के घन के समानुपाती होता है (P ∝ T³)। विशिष्ट उष्माओं का अनुपात (γ = Cp/Cv) क्या है?",
+        "textEn": "In an adiabatic process, pressure is proportional to the cube of absolute temp (P ∝ T^3). Ratio of specific heats (γ = Cp/Cv) is:",
+        "textHi": "एक रुद्धोष्म प्रक्रिया में, दाब पूर्ण तापमान के घन के समानुपाती होता है (P ∝ T^3)। विशिष्ट उष्माओं का अनुपात (γ = Cp/Cv) क्या है?",
         "options": [
             {
                 "en": "4/3",
@@ -207,12 +207,12 @@ const physicsQuestions_9: any[] = [
                 "hi": "5000 K"
             },
             {
-                "en": "1.6 × 10⁵ K",
-                "hi": "1.6 × 10⁵ K"
+                "en": "1.6 x 10⁵ K",
+                "hi": "1.6 x 10⁵ K"
             },
             {
-                "en": "2.5 × 10⁴ K",
-                "hi": "2.5 × 10⁴ K"
+                "en": "2.5 x 10⁴ K",
+                "hi": "2.5 x 10⁴ K"
             }
         ],
         "ans": 3
@@ -251,8 +251,8 @@ const physicsQuestions_9: any[] = [
                 "hi": "t"
             },
             {
-                "en": "t²",
-                "hi": "t²"
+                "en": "t^2",
+                "hi": "t^2"
             },
             {
                 "en": "√t",
@@ -319,12 +319,12 @@ const physicsQuestions_9: any[] = [
         "textHi": "त्रिज्या R का एक वृत्ताकार लूप एकसमान चुंबकीय क्षेत्र B में कोणीय वेग ω के साथ घूमता है। अधिकतम प्रेरित EMF क्या है?",
         "options": [
             {
-                "en": "B R² ω",
-                "hi": "B R² ω"
+                "en": "B R^2 ω",
+                "hi": "B R^2 ω"
             },
             {
-                "en": "B π R² ω",
-                "hi": "B π R² ω"
+                "en": "B π R^2 ω",
+                "hi": "B π R^2 ω"
             },
             {
                 "en": "2 B π R ω",
@@ -387,8 +387,8 @@ const physicsQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Light of frequency 2ν₀ falls on a metal, max velocity is V. If frequency is increased to 5ν₀, new max velocity is:",
-        "textHi": "जब आवृत्ति 2ν₀ का प्रकाश धातु पर गिरता है, तो अधिकतम वेग V होता है। यदि आवृत्ति बढाकर 5ν₀ कर दी जाए, तो नया अधिकतम वेग होगा:",
+        "textEn": "Light of frequency 2ν_0 falls on a metal, max velocity is V. If frequency is increased to 5ν_0, new max velocity is:",
+        "textHi": "जब आवृत्ति 2ν_0 का प्रकाश धातु पर गिरता है, तो अधिकतम वेग V होता है। यदि आवृत्ति बढाकर 5ν_0 कर दी जाए, तो नया अधिकतम वेग होगा:",
         "options": [
             {
                 "en": "4V",
@@ -543,20 +543,20 @@ const chemistryQuestions_9: any[] = [
         "textHi": "आणविक कक्षक सिद्धांत (MOT) के अनुसार कौन सी प्रजाति प्रतिचुंबकीय (diamagnetic) है?",
         "options": [
             {
-                "en": "O₂",
-                "hi": "O₂"
+                "en": "O_2",
+                "hi": "O_2"
             },
             {
-                "en": "B₂",
-                "hi": "B₂"
+                "en": "B_2",
+                "hi": "B_2"
             },
             {
-                "en": "C₂",
-                "hi": "C₂"
+                "en": "C_2",
+                "hi": "C_2"
             },
             {
-                "en": "N₂⁺",
-                "hi": "N₂⁺"
+                "en": "N_2^+",
+                "hi": "N_2^+"
             }
         ],
         "ans": 3
@@ -587,8 +587,8 @@ const chemistryQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Correct IUPAC name of [Pt(NH₃)₂Cl(NH₂CH₃)]Cl is:",
-        "textHi": "[Pt(NH₃)₂Cl(NH₂CH₃)]Cl का सही IUPAC नाम है:",
+        "textEn": "Correct IUPAC name of [Pt(NH_3)_2Cl(NH_2CH_3)]Cl is:",
+        "textHi": "[Pt(NH_3)_2Cl(NH_2CH_3)]Cl का सही IUPAC नाम है:",
         "options": [
             {
                 "en": "Diamminechlorido(methylamine)platinum(II) chloride",
@@ -639,28 +639,28 @@ const chemistryQuestions_9: any[] = [
         "textHi": "फास्फोरस के किस ऑक्सोअम्ल में एक सीधा P-P आबंध होता है?",
         "options": [
             {
-                "en": "H₃PO₄",
-                "hi": "H₃PO₄"
+                "en": "H_3PO_4",
+                "hi": "H_3PO_4"
             },
             {
-                "en": "H₄P₂O₇",
-                "hi": "H₄P₂O₇"
+                "en": "H_4P_2O_7",
+                "hi": "H_4P_2O_7"
             },
             {
-                "en": "H₄P₂O₆",
-                "hi": "H₄P₂O₆"
+                "en": "H_4P_2O_6",
+                "hi": "H_4P_2O_6"
             },
             {
-                "en": "H₃PO₃",
-                "hi": "H₃PO₃"
+                "en": "H_3PO_3",
+                "hi": "H_3PO_3"
             }
         ],
         "ans": 3
     },
     {
         "type": "MCQ",
-        "textEn": "Van't Hoff factor (i) for a dilute solution of K₄[Fe(CN)₆] with 75% dissociation is:",
-        "textHi": "K₄[Fe(CN)₆] के 75% वियोजित (dissociated) तनु विलयन के लिए वांट हॉफ गुणांक (i) है:",
+        "textEn": "Van't Hoff factor (i) for a dilute solution of K_4[Fe(CN)_6] with 75% dissociation is:",
+        "textHi": "K_4[Fe(CN)_6] के 75% वियोजित (dissociated) तनु विलयन के लिए वांट हॉफ गुणांक (i) है:",
         "options": [
             {
                 "en": "3",
@@ -683,8 +683,8 @@ const chemistryQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Molar conductivity of 0.5 M AgNO₃ with electrolytic conductivity 5.76 × 10⁻³ S/cm is (in S cm²/mol):",
-        "textHi": "विद्युत अपघटनी चालकता 5.76×10⁻³ S/cm वाले 0.5 M AgNO₃ विलयन की मोलर चालकता (S cm²/mol में) क्या है?",
+        "textEn": "Molar conductivity of 0.5 M AgNO_3 with electrolytic conductivity 5.76 x 10^-^3 S/cm is (in S cm^2/mol):",
+        "textHi": "विद्युत अपघटनी चालकता 5.76x10^-^3 S/cm वाले 0.5 M AgNO_3 विलयन की मोलर चालकता (S cm^2/mol में) क्या है?",
         "options": [
             {
                 "en": "0.0115",
@@ -979,16 +979,16 @@ const chemistryQuestions_9: any[] = [
                 "hi": "Gold sol"
             },
             {
-                "en": "As₂S₃ sol",
-                "hi": "As₂S₃ sol"
+                "en": "As_2S_3 sol",
+                "hi": "As_2S_3 sol"
             },
             {
                 "en": "Starch sol",
                 "hi": "Starch sol"
             },
             {
-                "en": "Fe(OH)₃ sol",
-                "hi": "Fe(OH)₃ sol"
+                "en": "Fe(OH)_3 sol",
+                "hi": "Fe(OH)_3 sol"
             }
         ],
         "ans": 3
@@ -1001,8 +1001,8 @@ const chemistryQuestions_9: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "For N₂ + 3H₂ ⇌ 2NH₃, if Kp = 1.44 × 10⁻⁵ at 500°C (773K), find Kc (approx value). [R=0.0821]",
-        "textHi": "500°C पर Kp = 1.44 × 10⁻⁵ होने पर अभिक्रिया N₂ + 3H₂ ⇌ 2NH₃ के लिए Kc का मान ज्ञात करें।",
+        "textEn": "For N_2 + 3H_2 ⇌ 2NH_3, if Kp = 1.44 x 10^-⁵ at 500°C (773K), find Kc (approx value). [R=0.0821]",
+        "textHi": "500°C पर Kp = 1.44 x 10^-⁵ होने पर अभिक्रिया N_2 + 3H_2 ⇌ 2NH_3 के लिए Kc का मान ज्ञात करें।",
         "ans": "0.06"
     },
     {
@@ -1013,14 +1013,14 @@ const chemistryQuestions_9: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Calculate the Double Bond Equivalent (DBE) or Degree of Unsaturation specifically for the molecule benzene (C₆H₆).",
-        "textHi": "बेंजीन (C₆H₆) अणु के लिए विशेष रूप से डबल बॉन्ड समतुल्य (DBE) या असंतृप्ति की डिग्री की गणना करें।",
+        "textEn": "Calculate the Double Bond Equivalent (DBE) or Degree of Unsaturation specifically for the molecule benzene (C_6H_6).",
+        "textHi": "बेंजीन (C_6H_6) अणु के लिए विशेष रूप से डबल बॉन्ड समतुल्य (DBE) या असंतृप्ति की डिग्री की गणना करें।",
         "ans": "4"
     },
     {
         "type": "Numerical",
-        "textEn": "In the fully balanced redox reaction MnO₄⁻ + C₂O₄²⁻ + H⁺ → Mn²⁺ + CO₂ + H₂O, the n-factor of Oxalate ion is:",
-        "textHi": "दिए गए रेडॉक्स रिएक्शन में, ऑक्सालेट (C₂O₄²⁻) आयन का n-फैक्टर क्या है?",
+        "textEn": "In the fully balanced redox reaction MnO_4^- + C_2O_4^2^- + H^+ → Mn^2^+ + CO_2 + H_2O, the n-factor of Oxalate ion is:",
+        "textHi": "दिए गए रेडॉक्स रिएक्शन में, ऑक्सालेट (C_2O_4^2^-) आयन का n-फैक्टर क्या है?",
         "ans": "2"
     }
 ];
@@ -1051,8 +1051,8 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Area of region in complex plane defined by |z-1| ≤ |z-i| and |z-1| ≤ 1 is:",
-        "textHi": "सम्मिश्र तल में |z-1| ≤ |z-i| और |z-1| ≤ 1 द्वारा परिभाषित क्षेत्र का क्षेत्रफल है:",
+        "textEn": "Area of region in complex plane defined by |z-1| <= |z-i| and |z-1| <= 1 is:",
+        "textHi": "सम्मिश्र तल में |z-1| <= |z-i| और |z-1| <= 1 द्वारा परिभाषित क्षेत्र का क्षेत्रफल है:",
         "options": [
             {
                 "en": "π/4",
@@ -1099,24 +1099,24 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If sum of first n terms of an A.P. is cn², then sum of squares of these n terms is:",
-        "textHi": "यदि A.P. के प्रथम n पदों का योग cn² है, तो इन n पदों के वर्गों का योग है:",
+        "textEn": "If sum of first n terms of an A.P. is cn^2, then sum of squares of these n terms is:",
+        "textHi": "यदि A.P. के प्रथम n पदों का योग cn^2 है, तो इन n पदों के वर्गों का योग है:",
         "options": [
             {
-                "en": "[n(4n²-1)c²]/6",
-                "hi": "[n(4n²-1)c²]/6"
+                "en": "[n(4n^2-1)c^2]/6",
+                "hi": "[n(4n^2-1)c^2]/6"
             },
             {
-                "en": "[n(4n²-1)c²]/3",
-                "hi": "[n(4n²-1)c²]/3"
+                "en": "[n(4n^2-1)c^2]/3",
+                "hi": "[n(4n^2-1)c^2]/3"
             },
             {
-                "en": "n²c²",
-                "hi": "n²c²"
+                "en": "n^2c^2",
+                "hi": "n^2c^2"
             },
             {
-                "en": "[n(2n+1)c²]/3",
-                "hi": "[n(2n+1)c²]/3"
+                "en": "[n(2n+1)c^2]/3",
+                "hi": "[n(2n+1)c^2]/3"
             }
         ],
         "ans": 2
@@ -1147,20 +1147,20 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Let f(x) = [x²] sin(πx), where [·] is greatest integer function. f(x) is discontinuous at:",
-        "textHi": "माना f(x) = [x²] sin(πx), जहाँ [·] महत्तम पूर्णांक फलन है। तो f(x) कहाँ असतत है?",
+        "textEn": "Let f(x) = [x^2] sin(πx), where [·] is greatest integer function. f(x) is discontinuous at:",
+        "textHi": "माना f(x) = [x^2] sin(πx), जहाँ [·] महत्तम पूर्णांक फलन है। तो f(x) कहाँ असतत है?",
         "options": [
             {
                 "en": "All integers",
                 "hi": "All integers"
             },
             {
-                "en": "All x where x² is integer",
-                "hi": "All x where x² is integer"
+                "en": "All x where x^2 is integer",
+                "hi": "All x where x^2 is integer"
             },
             {
-                "en": "All x where x² is integer, except x=0",
-                "hi": "All x where x² is integer, except x=0"
+                "en": "All x where x^2 is integer, except x=0",
+                "hi": "All x where x^2 is integer, except x=0"
             },
             {
                 "en": "Nowhere",
@@ -1171,8 +1171,8 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Shortest distance distinctly measurable between line y - x = 1 and parabola x = y² is:",
-        "textHi": "रेखा y - x = 1 और परवलय x = y² के बीच न्यूनतम दूरी है:",
+        "textEn": "Shortest distance distinctly measurable between line y - x = 1 and parabola x = y^2 is:",
+        "textHi": "रेखा y - x = 1 और परवलय x = y^2 के बीच न्यूनतम दूरी है:",
         "options": [
             {
                 "en": "√3/4",
@@ -1195,20 +1195,20 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Integral of (x²-1)/(x⁴+3x²+1) dx solves precisely to:",
-        "textHi": "(x²-1)/(x⁴+3x²+1) dx का समाकलन है:",
+        "textEn": "Integral of (x^2-1)/(x⁴+3x^2+1) dx solves precisely to:",
+        "textHi": "(x^2-1)/(x⁴+3x^2+1) dx का समाकलन है:",
         "options": [
             {
-                "en": "(1/√5)*ln|(x²-√5x+1)/(x²+√5x+1)| + C",
-                "hi": "(1/√5)*ln|(x²-√5x+1)/(x²+√5x+1)| + C"
+                "en": "(1/√5)*ln|(x^2-√5x+1)/(x^2+√5x+1)| + C",
+                "hi": "(1/√5)*ln|(x^2-√5x+1)/(x^2+√5x+1)| + C"
             },
             {
-                "en": "tan⁻¹(x+1/x) + C",
-                "hi": "tan⁻¹(x+1/x) + C"
+                "en": "tan^-¹(x+1/x) + C",
+                "hi": "tan^-¹(x+1/x) + C"
             },
             {
-                "en": "ln|x²+1/x²| + C",
-                "hi": "ln|x²+1/x²| + C"
+                "en": "ln|x^2+1/x^2| + C",
+                "hi": "ln|x^2+1/x^2| + C"
             },
             {
                 "en": "None of these",
@@ -1219,24 +1219,24 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Definite integral from 0 to π of [x·sinx / (1+cos²x)] dx equals:",
-        "textHi": "0 से π तक [x·sinx / (1+cos²x)] dx का निश्चित समाकलन है:",
+        "textEn": "Definite integral from 0 to π of [x·sinx / (1+cos^2x)] dx equals:",
+        "textHi": "0 से π तक [x·sinx / (1+cos^2x)] dx का निश्चित समाकलन है:",
         "options": [
             {
-                "en": "π²/2",
-                "hi": "π²/2"
+                "en": "π^2/2",
+                "hi": "π^2/2"
             },
             {
-                "en": "π²/4",
-                "hi": "π²/4"
+                "en": "π^2/4",
+                "hi": "π^2/4"
             },
             {
                 "en": "π/4",
                 "hi": "π/4"
             },
             {
-                "en": "π²",
-                "hi": "π²"
+                "en": "π^2",
+                "hi": "π^2"
             }
         ],
         "ans": 2
@@ -1255,8 +1255,8 @@ const mathQuestions_9: any[] = [
                 "hi": "y+x = ln|x-y| + C"
             },
             {
-                "en": "x²+y² = C",
-                "hi": "x²+y² = C"
+                "en": "x^2+y^2 = C",
+                "hi": "x^2+y^2 = C"
             },
             {
                 "en": "None",
@@ -1271,8 +1271,8 @@ const mathQuestions_9: any[] = [
         "textHi": "यदि मूलबिंदु (0,0) से किसी रेखा पर डाले गए लंब का पाद (h,k) है, तो रेखा का समीकरण है:",
         "options": [
             {
-                "en": "hx+ky = h²+k²",
-                "hi": "hx+ky = h²+k²"
+                "en": "hx+ky = h^2+k^2",
+                "hi": "hx+ky = h^2+k^2"
             },
             {
                 "en": "hx+ky = 0",
@@ -1283,16 +1283,16 @@ const mathQuestions_9: any[] = [
                 "hi": "x/h + y/k = 1"
             },
             {
-                "en": "kx+hy = h²+k²",
-                "hi": "kx+hy = h²+k²"
+                "en": "kx+hy = h^2+k^2",
+                "hi": "kx+hy = h^2+k^2"
             }
         ],
         "ans": 1
     },
     {
         "type": "MCQ",
-        "textEn": "Number of common graphical tangents to circles x²+y²-4x-6y-12=0 and x²+y²+6x+18y+26=0 is:",
-        "textHi": "वृत्तों x²+y²-4x-6y-12=0 और x²+y²+6x+18y+26=0 की उभयनिष्ठ स्पर्श रेखाओं की संख्या है:",
+        "textEn": "Number of common graphical tangents to circles x^2+y^2-4x-6y-12=0 and x^2+y^2+6x+18y+26=0 is:",
+        "textHi": "वृत्तों x^2+y^2-4x-6y-12=0 और x^2+y^2+6x+18y+26=0 की उभयनिष्ठ स्पर्श रेखाओं की संख्या है:",
         "options": [
             {
                 "en": "1",
@@ -1315,24 +1315,24 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If line y=mx+c geometrically touches the parabola y²=4ax tangentially, point of contact is:",
-        "textHi": "यदि रेखा y=mx+c परवलय y²=4ax की स्पर्श रेखा है, तो स्पर्श बिंदु (point of contact) है:",
+        "textEn": "If line y=mx+c geometrically touches the parabola y^2=4ax tangentially, point of contact is:",
+        "textHi": "यदि रेखा y=mx+c परवलय y^2=4ax की स्पर्श रेखा है, तो स्पर्श बिंदु (point of contact) है:",
         "options": [
             {
-                "en": "(a/m², 2a/m)",
-                "hi": "(a/m², 2a/m)"
+                "en": "(a/m^2, 2a/m)",
+                "hi": "(a/m^2, 2a/m)"
             },
             {
-                "en": "(am², 2am)",
-                "hi": "(am², 2am)"
+                "en": "(am^2, 2am)",
+                "hi": "(am^2, 2am)"
             },
             {
-                "en": "(a/m, a/m²)",
-                "hi": "(a/m, a/m²)"
+                "en": "(a/m, a/m^2)",
+                "hi": "(a/m, a/m^2)"
             },
             {
-                "en": "(-a/m², -2a/m)",
-                "hi": "(-a/m², -2a/m)"
+                "en": "(-a/m^2, -2a/m)",
+                "hi": "(-a/m^2, -2a/m)"
             }
         ],
         "ans": 1
@@ -1355,8 +1355,8 @@ const mathQuestions_9: any[] = [
                 "hi": "0"
             },
             {
-                "en": "[a b c]²",
-                "hi": "[a b c]²"
+                "en": "[a b c]^2",
+                "hi": "[a b c]^2"
             }
         ],
         "ans": 2
@@ -1459,8 +1459,8 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Evaluate specific series summation: cot( Σ[n=1 to 23] cot⁻¹(1+n+n²) ) :",
-        "textHi": "श्रृंखला का योग ज्ञात करें: cot( Σ[n=1..23] cot⁻¹(1+n+n²) ):",
+        "textEn": "Evaluate specific series summation: cot( Σ[n=1 to 23] cot^-¹(1+n+n^2) ) :",
+        "textHi": "श्रृंखला का योग ज्ञात करें: cot( Σ[n=1..23] cot^-¹(1+n+n^2) ):",
         "options": [
             {
                 "en": "23/25",
@@ -1483,8 +1483,8 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Numeric algebraic remainder inherently obtained when firmly dividing 7¹⁰³ primarily by 25 is:",
-        "textHi": "7¹⁰³ को 25 से विभाजित करने पर प्राप्त शेषफल (remainder) है:",
+        "textEn": "Numeric algebraic remainder inherently obtained when firmly dividing 7¹⁰^3 primarily by 25 is:",
+        "textHi": "7¹⁰^3 को 25 से विभाजित करने पर प्राप्त शेषफल (remainder) है:",
         "options": [
             {
                 "en": "7",
@@ -1507,7 +1507,7 @@ const mathQuestions_9: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "System x+y+z=2, 2x+3y+2z=5, 2x+3y+(k²-1)z=k+1 has absolutely NO valid solution. Absolute value of k?",
+        "textEn": "System x+y+z=2, 2x+3y+2z=5, 2x+3y+(k^2-1)z=k+1 has absolutely NO valid solution. Absolute value of k?",
         "textHi": "दी गई निकाय का कोई हल नहीं है। k का निरपेक्ष (absolute) मान ज्ञात करें।",
         "ans": "1"
     },

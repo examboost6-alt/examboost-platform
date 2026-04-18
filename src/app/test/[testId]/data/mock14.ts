@@ -7,20 +7,20 @@ const physicsQuestions_14: any[] = [
         "textHi": "ऊर्जा (Energy) का विमीय सूत्र (Dimensional formula) है:",
         "options": [
             {
-                "en": "ML²T⁻²",
-                "hi": "ML²T⁻²"
+                "en": "ML^2T^-^2",
+                "hi": "ML^2T^-^2"
             },
             {
-                "en": "MLT⁻²",
-                "hi": "MLT⁻²"
+                "en": "MLT^-^2",
+                "hi": "MLT^-^2"
             },
             {
-                "en": "ML²T⁻¹",
-                "hi": "ML²T⁻¹"
+                "en": "ML^2T^-¹",
+                "hi": "ML^2T^-¹"
             },
             {
-                "en": "MLT⁻¹",
-                "hi": "MLT⁻¹"
+                "en": "MLT^-¹",
+                "hi": "MLT^-¹"
             }
         ],
         "ans": 1
@@ -179,8 +179,8 @@ const physicsQuestions_14: any[] = [
                 "hi": "v"
             },
             {
-                "en": "v²",
-                "hi": "v²"
+                "en": "v^2",
+                "hi": "v^2"
             },
             {
                 "en": "1/v",
@@ -331,8 +331,8 @@ const physicsQuestions_14: any[] = [
                 "hi": "1/m"
             },
             {
-                "en": "m²",
-                "hi": "m²"
+                "en": "m^2",
+                "hi": "m^2"
             }
         ],
         "ans": 1
@@ -391,27 +391,27 @@ const physicsQuestions_14: any[] = [
         "textHi": "संधारित्र में संग्रहीत ऊर्जा:",
         "options": [
             {
-                "en": "½CV²",
-                "hi": "½CV²"
+                "en": "1/2CV^2",
+                "hi": "1/2CV^2"
             },
             {
-                "en": "CV²",
-                "hi": "CV²"
+                "en": "CV^2",
+                "hi": "CV^2"
             },
             {
-                "en": "V²/C",
-                "hi": "V²/C"
+                "en": "V^2/C",
+                "hi": "V^2/C"
             },
             {
-                "en": "2CV²",
-                "hi": "2CV²"
+                "en": "2CV^2",
+                "hi": "2CV^2"
             }
         ],
         "ans": 1
     },
     {
         "type": "MCQ",
-        "textEn": "Ohm’s law:",
+        "textEn": "Ohm's law:",
         "textHi": "ओम का नियम:",
         "options": [
             {
@@ -483,8 +483,8 @@ const physicsQuestions_14: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Distance = ut + ½at², if u=0, a=2, t=3:",
-        "textHi": "दूरी = ut + ½at², यदि u=0, a=2, t=3:",
+        "textEn": "Distance = ut + 1/2at^2, if u=0, a=2, t=3:",
+        "textHi": "दूरी = ut + 1/2at^2, यदि u=0, a=2, t=3:",
         "ans": "9"
     },
     {
@@ -515,8 +515,8 @@ const physicsQuestions_14: any[] = [
 const chemistryQuestions_14: any[] = [
     {
         "type": "MCQ",
-        "textEn": "Number of moles in 44 g CO₂:",
-        "textHi": "44 ग्राम CO₂ में मोलों की संख्या:",
+        "textEn": "Number of moles in 44 g CO_2:",
+        "textHi": "44 ग्राम CO_2 में मोलों की संख्या:",
         "options": [
             {
                 "en": "1",
@@ -587,32 +587,32 @@ const chemistryQuestions_14: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Hybridization in CH₄:",
-        "textHi": "CH₄ में संकरण (Hybridization):",
+        "textEn": "Hybridization in CH_4:",
+        "textHi": "CH_4 में संकरण (Hybridization):",
         "options": [
             {
                 "en": "sp",
                 "hi": "sp"
             },
             {
-                "en": "sp²",
-                "hi": "sp²"
+                "en": "sp^2",
+                "hi": "sp^2"
             },
             {
-                "en": "sp³",
-                "hi": "sp³"
+                "en": "sp^3",
+                "hi": "sp^3"
             },
             {
-                "en": "dsp²",
-                "hi": "dsp²"
+                "en": "dsp^2",
+                "hi": "dsp^2"
             }
         ],
         "ans": 3
     },
     {
         "type": "MCQ",
-        "textEn": "Shape of SF₆:",
-        "textHi": "SF₆ का आकार:",
+        "textEn": "Shape of SF_6:",
+        "textHi": "SF_6 का आकार:",
         "options": [
             {
                 "en": "Octahedral",
@@ -715,16 +715,16 @@ const chemistryQuestions_14: any[] = [
                 "hi": "HCl"
             },
             {
-                "en": "CH₃COOH",
-                "hi": "CH₃COOH"
+                "en": "CH_3COOH",
+                "hi": "CH_3COOH"
             },
             {
-                "en": "NH₃",
-                "hi": "NH₃"
+                "en": "NH_3",
+                "hi": "NH_3"
             },
             {
-                "en": "H₂O",
-                "hi": "H₂O"
+                "en": "H_2O",
+                "hi": "H_2O"
             }
         ],
         "ans": 1
@@ -735,12 +735,12 @@ const chemistryQuestions_14: any[] = [
         "textHi": "ऑक्सीकरण है:",
         "options": [
             {
-                "en": "Gain of e⁻",
-                "hi": "Gain of e⁻"
+                "en": "Gain of e^-",
+                "hi": "Gain of e^-"
             },
             {
-                "en": "Loss of e⁻",
-                "hi": "Loss of e⁻"
+                "en": "Loss of e^-",
+                "hi": "Loss of e^-"
             },
             {
                 "en": "Gain of H",
@@ -759,16 +759,16 @@ const chemistryQuestions_14: any[] = [
         "textHi": "प्रथम कोटि प्रतिक्रिया के लिए दर स्थिरांक इकाई:",
         "options": [
             {
-                "en": "s⁻¹",
-                "hi": "s⁻¹"
+                "en": "s^-¹",
+                "hi": "s^-¹"
             },
             {
                 "en": "mol/L/s",
                 "hi": "mol/L/s"
             },
             {
-                "en": "mol²",
-                "hi": "mol²"
+                "en": "mol^2",
+                "hi": "mol^2"
             },
             {
                 "en": "s",
@@ -903,16 +903,16 @@ const chemistryQuestions_14: any[] = [
         "textHi": "एल्केन का सामान्य सूत्र:",
         "options": [
             {
-                "en": "CₙH₂ₙ₊₂",
-                "hi": "CₙH₂ₙ₊₂"
+                "en": "CₙH_2ₙ₊_2",
+                "hi": "CₙH_2ₙ₊_2"
             },
             {
-                "en": "CₙH₂ₙ",
-                "hi": "CₙH₂ₙ"
+                "en": "CₙH_2ₙ",
+                "hi": "CₙH_2ₙ"
             },
             {
-                "en": "CₙH₂ₙ₋₂",
-                "hi": "CₙH₂ₙ₋₂"
+                "en": "CₙH_2ₙ₋_2",
+                "hi": "CₙH_2ₙ₋_2"
             },
             {
                 "en": "CₙHₙ",
@@ -951,20 +951,20 @@ const chemistryQuestions_14: any[] = [
         "textHi": "प्राथमिक एल्कोहॉल का उदाहरण:",
         "options": [
             {
-                "en": "CH₃OH",
-                "hi": "CH₃OH"
+                "en": "CH_3OH",
+                "hi": "CH_3OH"
             },
             {
-                "en": "(CH₃)₃COH",
-                "hi": "(CH₃)₃COH"
+                "en": "(CH_3)_3COH",
+                "hi": "(CH_3)_3COH"
             },
             {
-                "en": "CH₃CHO",
-                "hi": "CH₃CHO"
+                "en": "CH_3CHO",
+                "hi": "CH_3CHO"
             },
             {
-                "en": "CH₃COOH",
-                "hi": "CH₃COOH"
+                "en": "CH_3COOH",
+                "hi": "CH_3COOH"
             }
         ],
         "ans": 1
@@ -995,8 +995,8 @@ const chemistryQuestions_14: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Moles in 22 g CO₂:",
-        "textHi": "22 ग्राम CO₂ में मोल:",
+        "textEn": "Moles in 22 g CO_2:",
+        "textHi": "22 ग्राम CO_2 में मोल:",
         "ans": "0.5"
     },
     {
@@ -1031,8 +1031,8 @@ const mathQuestions_14: any[] = [
         "textHi": "यदि A ⊆ B और B ⊆ A, तो:",
         "options": [
             {
-                "en": "A ≠ B",
-                "hi": "A ≠ B"
+                "en": "A != B",
+                "hi": "A != B"
             },
             {
                 "en": "A = B",
@@ -1079,16 +1079,16 @@ const mathQuestions_14: any[] = [
         "textHi": "√(x-3) का प्रांत (Domain) है:",
         "options": [
             {
-                "en": "x ≥ 3",
-                "hi": "x ≥ 3"
+                "en": "x >= 3",
+                "hi": "x >= 3"
             },
             {
                 "en": "x > 3",
                 "hi": "x > 3"
             },
             {
-                "en": "x ≤ 3",
-                "hi": "x ≤ 3"
+                "en": "x <= 3",
+                "hi": "x <= 3"
             },
             {
                 "en": "All real",
@@ -1131,8 +1131,8 @@ const mathQuestions_14: any[] = [
                 "hi": "LHL = RHL = f(a)"
             },
             {
-                "en": "LHL ≠ RHL",
-                "hi": "LHL ≠ RHL"
+                "en": "LHL != RHL",
+                "hi": "LHL != RHL"
             },
             {
                 "en": "f(a) undefined",
@@ -1147,8 +1147,8 @@ const mathQuestions_14: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "d/dx (x²) =",
-        "textHi": "d/dx (x²) =",
+        "textEn": "d/dx (x^2) =",
+        "textHi": "d/dx (x^2) =",
         "options": [
             {
                 "en": "x",
@@ -1159,8 +1159,8 @@ const mathQuestions_14: any[] = [
                 "hi": "2x"
             },
             {
-                "en": "x²",
-                "hi": "x²"
+                "en": "x^2",
+                "hi": "x^2"
             },
             {
                 "en": "1",
@@ -1211,16 +1211,16 @@ const mathQuestions_14: any[] = [
                 "hi": "1/x"
             },
             {
-                "en": "x²",
-                "hi": "x²"
+                "en": "x^2",
+                "hi": "x^2"
             }
         ],
         "ans": 1
     },
     {
         "type": "MCQ",
-        "textEn": "∫₀¹ x dx =",
-        "textHi": "∫₀¹ x dx =",
+        "textEn": "∫_0¹ x dx =",
+        "textHi": "∫_0¹ x dx =",
         "options": [
             {
                 "en": "1/2",
@@ -1391,8 +1391,8 @@ const mathQuestions_14: any[] = [
         "textHi": "मूल बिंदु पर केंद्र वाले वृत्त का समीकरण:",
         "options": [
             {
-                "en": "x²+y²=r²",
-                "hi": "x²+y²=r²"
+                "en": "x^2+y^2=r^2",
+                "hi": "x^2+y^2=r^2"
             },
             {
                 "en": "x+y=r",
@@ -1403,8 +1403,8 @@ const mathQuestions_14: any[] = [
                 "hi": "xy=r"
             },
             {
-                "en": "x²-y²=r²",
-                "hi": "x²-y²=r²"
+                "en": "x^2-y^2=r^2",
+                "hi": "x^2-y^2=r^2"
             }
         ],
         "ans": 1
@@ -1415,12 +1415,12 @@ const mathQuestions_14: any[] = [
         "textHi": "परवलय का मानक समीकरण:",
         "options": [
             {
-                "en": "y²=4ax",
-                "hi": "y²=4ax"
+                "en": "y^2=4ax",
+                "hi": "y^2=4ax"
             },
             {
-                "en": "x²+y²=r²",
-                "hi": "x²+y²=r²"
+                "en": "x^2+y^2=r^2",
+                "hi": "x^2+y^2=r^2"
             },
             {
                 "en": "y=mx+c",
@@ -1463,16 +1463,16 @@ const mathQuestions_14: any[] = [
         "textHi": "अतिपरवलय (Hyperbola) का समीकरण:",
         "options": [
             {
-                "en": "x²/a² - y²/b² =1",
-                "hi": "x²/a² - y²/b² =1"
+                "en": "x^2/a^2 - y^2/b^2 =1",
+                "hi": "x^2/a^2 - y^2/b^2 =1"
             },
             {
-                "en": "x²+y²=r²",
-                "hi": "x²+y²=r²"
+                "en": "x^2+y^2=r^2",
+                "hi": "x^2+y^2=r^2"
             },
             {
-                "en": "y²=4ax",
-                "hi": "y²=4ax"
+                "en": "y^2=4ax",
+                "hi": "y^2=4ax"
             },
             {
                 "en": "x+y=1",
@@ -1519,8 +1519,8 @@ const mathQuestions_14: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "∫₀¹ x² dx =",
-        "textHi": "∫₀¹ x² dx =",
+        "textEn": "∫_0¹ x^2 dx =",
+        "textHi": "∫_0¹ x^2 dx =",
         "ans": "0.33"
     },
     {

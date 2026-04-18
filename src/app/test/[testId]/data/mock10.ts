@@ -7,16 +7,16 @@ const physicsQuestions_10: any[] = [
         "textHi": "एक समान रूप से आवेशित वलय (त्रिज्या R) पर आवेश Q है। यदि आधा वलय हटा दिया जाए, तो केंद्र पर विद्युत क्षेत्र होगा:",
         "options": [
             {
-                "en": "kQ/R²",
-                "hi": "kQ/R²"
+                "en": "kQ/R^2",
+                "hi": "kQ/R^2"
             },
             {
-                "en": "kQ/2R²",
-                "hi": "kQ/2R²"
+                "en": "kQ/2R^2",
+                "hi": "kQ/2R^2"
             },
             {
-                "en": "kQ/πR²",
-                "hi": "kQ/πR²"
+                "en": "kQ/πR^2",
+                "hi": "kQ/πR^2"
             },
             {
                 "en": "0",
@@ -27,24 +27,24 @@ const physicsQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Two dielectrics k₁ and k₂ fill equal area of capacitor. Equivalent k:",
-        "textHi": "दो परावैद्युत (dielectrics) k₁ और k₂ संधारित्र के समान क्षेत्रफल को भरते हैं। समतुल्य k (Equivalent k) क्या है?",
+        "textEn": "Two dielectrics k_1 and k_2 fill equal area of capacitor. Equivalent k:",
+        "textHi": "दो परावैद्युत (dielectrics) k_1 और k_2 संधारित्र के समान क्षेत्रफल को भरते हैं। समतुल्य k (Equivalent k) क्या है?",
         "options": [
             {
-                "en": "(k₁+k₂)/2",
-                "hi": "(k₁+k₂)/2"
+                "en": "(k_1+k_2)/2",
+                "hi": "(k_1+k_2)/2"
             },
             {
-                "en": "2k₁k₂/(k₁+k₂)",
-                "hi": "2k₁k₂/(k₁+k₂)"
+                "en": "2k_1k_2/(k_1+k_2)",
+                "hi": "2k_1k_2/(k_1+k_2)"
             },
             {
-                "en": "k₁+k₂",
-                "hi": "k₁+k₂"
+                "en": "k_1+k_2",
+                "hi": "k_1+k_2"
             },
             {
-                "en": "k₁k₂",
-                "hi": "k₁k₂"
+                "en": "k_1k_2",
+                "hi": "k_1k_2"
             }
         ],
         "ans": 1
@@ -183,8 +183,8 @@ const physicsQuestions_10: any[] = [
                 "hi": "1/v"
             },
             {
-                "en": "v²",
-                "hi": "v²"
+                "en": "v^2",
+                "hi": "v^2"
             },
             {
                 "en": "Constant",
@@ -247,12 +247,12 @@ const physicsQuestions_10: any[] = [
         "textHi": "उपग्रह की कुल ऊर्जा (Total energy) होती है:",
         "options": [
             {
-                "en": "−GMm/2r",
-                "hi": "−GMm/2r"
+                "en": "-GMm/2r",
+                "hi": "-GMm/2r"
             },
             {
-                "en": "−GMm/r",
-                "hi": "−GMm/r"
+                "en": "-GMm/r",
+                "hi": "-GMm/r"
             },
             {
                 "en": "GMm/r",
@@ -375,8 +375,8 @@ const physicsQuestions_10: any[] = [
                 "hi": "1/E"
             },
             {
-                "en": "E²",
-                "hi": "E²"
+                "en": "E^2",
+                "hi": "E^2"
             },
             {
                 "en": "Constant",
@@ -391,20 +391,20 @@ const physicsQuestions_10: any[] = [
         "textHi": "ऊर्जा की (Energy) विमा (dimension) है:",
         "options": [
             {
-                "en": "ML²T⁻²",
-                "hi": "ML²T⁻²"
+                "en": "ML^2T^-^2",
+                "hi": "ML^2T^-^2"
             },
             {
-                "en": "MLT⁻²",
-                "hi": "MLT⁻²"
+                "en": "MLT^-^2",
+                "hi": "MLT^-^2"
             },
             {
-                "en": "ML²T⁻¹",
-                "hi": "ML²T⁻¹"
+                "en": "ML^2T^-¹",
+                "hi": "ML^2T^-¹"
             },
             {
-                "en": "MLT⁻¹",
-                "hi": "MLT⁻¹"
+                "en": "MLT^-¹",
+                "hi": "MLT^-¹"
             }
         ],
         "ans": 1
@@ -415,8 +415,8 @@ const physicsQuestions_10: any[] = [
         "textHi": "विपरीत दिशा से एक दूसरे की ओर आते हुए दो पिंड (वेग v1 और v2) → उनका सापेक्ष वेग (relative velocity):",
         "options": [
             {
-                "en": "v1−v2",
-                "hi": "v1−v2"
+                "en": "v1-v2",
+                "hi": "v1-v2"
             },
             {
                 "en": "v1+v2",
@@ -483,8 +483,8 @@ const physicsQuestions_10: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Charge 2C at 1m → electric field field? (k=9×10⁹)",
-        "textHi": "1m की दूरी पर 2C के आवेश द्वारा उत्पन्न विद्युत क्षेत्र (Field) ज्ञात करें। (k=9×10⁹)",
+        "textEn": "Charge 2C at 1m → electric field field? (k=9x10⁹)",
+        "textHi": "1m की दूरी पर 2C के आवेश द्वारा उत्पन्न विद्युत क्षेत्र (Field) ज्ञात करें। (k=9x10⁹)",
         "ans": "1.8e10"
     },
     {
@@ -515,8 +515,8 @@ const physicsQuestions_10: any[] = [
 const chemistryQuestions_10: any[] = [
     {
         "type": "MCQ",
-        "textEn": "For hydrogen-like species, ratio of energies of n=3 level for He⁺ and Li²⁺ is:",
-        "textHi": "हाइड्रोजन जैसी प्रजातियों के लिए, He⁺ और Li²⁺ के लिए n=3 स्तर की ऊर्जाओं का अनुपात है:",
+        "textEn": "For hydrogen-like species, ratio of energies of n=3 level for He^+ and Li^2^+ is:",
+        "textHi": "हाइड्रोजन जैसी प्रजातियों के लिए, He^+ और Li^2^+ के लिए n=3 स्तर की ऊर्जाओं का अनुपात है:",
         "options": [
             {
                 "en": "1:4",
@@ -563,24 +563,24 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Hybridization of central atom in IF₇ is:",
-        "textHi": "IF₇ में केंद्रीय परमाणु का संकरण (hybridization) क्या है?",
+        "textEn": "Hybridization of central atom in IF_7 is:",
+        "textHi": "IF_7 में केंद्रीय परमाणु का संकरण (hybridization) क्या है?",
         "options": [
             {
-                "en": "sp³d³",
-                "hi": "sp³d³"
+                "en": "sp^3d^3",
+                "hi": "sp^3d^3"
             },
             {
-                "en": "sp³d²",
-                "hi": "sp³d²"
+                "en": "sp^3d^2",
+                "hi": "sp^3d^2"
             },
             {
-                "en": "d³sp³",
-                "hi": "d³sp³"
+                "en": "d^3sp^3",
+                "hi": "d^3sp^3"
             },
             {
-                "en": "sp³",
-                "hi": "sp³"
+                "en": "sp^3",
+                "hi": "sp^3"
             }
         ],
         "ans": 1
@@ -611,16 +611,16 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "For reaction Δn = −2, relation between Kp and Kc is:",
-        "textHi": "यदि किसी प्रतिक्रिया में Δn = −2 है, तो Kp और Kc के बीच का संबंध है:",
+        "textEn": "For reaction Δn = -2, relation between Kp and Kc is:",
+        "textHi": "यदि किसी प्रतिक्रिया में Δn = -2 है, तो Kp और Kc के बीच का संबंध है:",
         "options": [
             {
-                "en": "Kp = Kc(RT)²",
-                "hi": "Kp = Kc(RT)²"
+                "en": "Kp = Kc(RT)^2",
+                "hi": "Kp = Kc(RT)^2"
             },
             {
-                "en": "Kp = Kc/(RT)²",
-                "hi": "Kp = Kc/(RT)²"
+                "en": "Kp = Kc/(RT)^2",
+                "hi": "Kp = Kc/(RT)^2"
             },
             {
                 "en": "Kp = KcRT",
@@ -659,8 +659,8 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Van’t Hoff factor for complete dissociation of Al₂(SO₄)₃ is:",
-        "textHi": "Al₂(SO₄)₃ के पूर्ण वियोजन (complete dissociation) के लिए वांट हॉफ गुणांक है:",
+        "textEn": "Van't Hoff factor for complete dissociation of Al_2(SO_4)_3 is:",
+        "textHi": "Al_2(SO_4)_3 के पूर्ण वियोजन (complete dissociation) के लिए वांट हॉफ गुणांक है:",
         "options": [
             {
                 "en": "3",
@@ -691,16 +691,16 @@ const chemistryQuestions_10: any[] = [
                 "hi": "k"
             },
             {
-                "en": "−k",
-                "hi": "−k"
+                "en": "-k",
+                "hi": "-k"
             },
             {
                 "en": "1/k",
                 "hi": "1/k"
             },
             {
-                "en": "−1/k",
-                "hi": "−1/k"
+                "en": "-1/k",
+                "hi": "-1/k"
             }
         ],
         "ans": 2
@@ -739,16 +739,16 @@ const chemistryQuestions_10: any[] = [
                 "hi": "0"
             },
             {
-                "en": "−0.4Δ₀",
-                "hi": "−0.4Δ₀"
+                "en": "-0.4Δ_0",
+                "hi": "-0.4Δ_0"
             },
             {
-                "en": "−0.6Δ₀",
-                "hi": "−0.6Δ₀"
+                "en": "-0.6Δ_0",
+                "hi": "-0.6Δ_0"
             },
             {
-                "en": "−1.0Δ₀",
-                "hi": "−1.0Δ₀"
+                "en": "-1.0Δ_0",
+                "hi": "-1.0Δ_0"
             }
         ],
         "ans": 1
@@ -827,24 +827,24 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Strongest −I (Inductive effect) group among the following is:",
-        "textHi": "निम्नलिखित में से सबसे मजबूत −I (प्रेरणिक प्रभाव) समूह कौन सा है?",
+        "textEn": "Strongest -I (Inductive effect) group among the following is:",
+        "textHi": "निम्नलिखित में से सबसे मजबूत -I (प्रेरणिक प्रभाव) समूह कौन सा है?",
         "options": [
             {
-                "en": "−NO₂",
-                "hi": "−NO₂"
+                "en": "-NO_2",
+                "hi": "-NO_2"
             },
             {
-                "en": "−Cl",
-                "hi": "−Cl"
+                "en": "-Cl",
+                "hi": "-Cl"
             },
             {
-                "en": "−OH",
-                "hi": "−OH"
+                "en": "-OH",
+                "hi": "-OH"
             },
             {
-                "en": "−CH₃",
-                "hi": "−CH₃"
+                "en": "-CH_3",
+                "hi": "-CH_3"
             }
         ],
         "ans": 1
@@ -1007,8 +1007,8 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "If rate constant (k) for a first-order reaction is 0.693 min⁻¹, its half-life (t₁/₂) is:",
-        "textHi": "यदि प्रथम कोटि की अभिक्रिया का दर नियतांक (k) 0.693 min⁻¹ है, तो इसकी अर्द्ध-आयु (t₁/₂) क्या है?",
+        "textEn": "If rate constant (k) for a first-order reaction is 0.693 min^-¹, its half-life (t_1/_2) is:",
+        "textHi": "यदि प्रथम कोटि की अभिक्रिया का दर नियतांक (k) 0.693 min^-¹ है, तो इसकी अर्द्ध-आयु (t_1/_2) क्या है?",
         "ans": "1"
     },
     {
@@ -1019,28 +1019,28 @@ const chemistryQuestions_10: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "The Degree of Unsaturation or Double Bond Equivalent (DBE) for Benzene (C₆H₆) is:",
-        "textHi": "बेंजीन (C₆H₆) के लिए असंतृप्ति की डिग्री (DBE) क्या है?",
+        "textEn": "The Degree of Unsaturation or Double Bond Equivalent (DBE) for Benzene (C_6H_6) is:",
+        "textHi": "बेंजीन (C_6H_6) के लिए असंतृप्ति की डिग्री (DBE) क्या है?",
         "ans": "4"
     }
 ];
 const mathQuestions_10: any[] = [
     {
         "type": "MCQ",
-        "textEn": "If f(x) + f(1−x) = 1 and f(2) = 3, then f(−1) is:",
-        "textHi": "यदि f(x) + f(1−x) = 1 और f(2) = 3 है, तो f(−1) का मान है:",
+        "textEn": "If f(x) + f(1-x) = 1 and f(2) = 3, then f(-1) is:",
+        "textHi": "यदि f(x) + f(1-x) = 1 और f(2) = 3 है, तो f(-1) का मान है:",
         "options": [
             {
-                "en": "−2",
-                "hi": "−2"
+                "en": "-2",
+                "hi": "-2"
             },
             {
                 "en": "3",
                 "hi": "3"
             },
             {
-                "en": "−3",
-                "hi": "−3"
+                "en": "-3",
+                "hi": "-3"
             },
             {
                 "en": "2",
@@ -1051,8 +1051,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "lim (x→0) [(e^x − e^(−x) − 2x) / x³] evaluates to:",
-        "textHi": "सीमा lim (x→0) [(eˣ − e⁻ˣ − 2x) / x³] का मान है:",
+        "textEn": "lim (x→0) [(e^x - e^(-x) - 2x) / x^3] evaluates to:",
+        "textHi": "सीमा lim (x→0) [(eˣ - e^-ˣ - 2x) / x^3] का मान है:",
         "options": [
             {
                 "en": "0",
@@ -1075,8 +1075,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Number of points of discontinuity of f(x) = |x²−1| / (x−1) is:",
-        "textHi": "फलन f(x) = |x²−1| / (x−1) के असतत होने वाले (discontinuity) बिंदुओं की संख्या है:",
+        "textEn": "Number of points of discontinuity of f(x) = |x^2-1| / (x-1) is:",
+        "textHi": "फलन f(x) = |x^2-1| / (x-1) के असतत होने वाले (discontinuity) बिंदुओं की संख्या है:",
         "options": [
             {
                 "en": "0",
@@ -1099,8 +1099,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If x=t² and y=t³, then dy/dx at t=1 is:",
-        "textHi": "यदि x=t² और y=t³ है, तो t=1 पर dy/dx क्या होगा?",
+        "textEn": "If x=t^2 and y=t^3, then dy/dx at t=1 is:",
+        "textHi": "यदि x=t^2 और y=t^3 है, तो t=1 पर dy/dx क्या होगा?",
         "options": [
             {
                 "en": "3/2",
@@ -1123,8 +1123,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Number of local extrema of f(x) = x⁴ − 4x³ + 6x² is:",
-        "textHi": "फलन f(x) = x⁴ − 4x³ + 6x² के स्थानीय चरम (local extrema) बिंदुओं की संख्या है:",
+        "textEn": "Number of local extrema of f(x) = x⁴ - 4x^3 + 6x^2 is:",
+        "textHi": "फलन f(x) = x⁴ - 4x^3 + 6x^2 के स्थानीय चरम (local extrema) बिंदुओं की संख्या है:",
         "options": [
             {
                 "en": "1",
@@ -1147,8 +1147,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Definite integral ∫₀^π sin³x dx equals:",
-        "textHi": "निश्चित समाकलन ∫₀^π sin³x dx का मान है:",
+        "textEn": "Definite integral ∫_0^π sin^3x dx equals:",
+        "textHi": "निश्चित समाकलन ∫_0^π sin^3x dx का मान है:",
         "options": [
             {
                 "en": "2/3",
@@ -1171,8 +1171,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The Area bounded between y=x² and y=2x is:",
-        "textHi": "y=x² और y=2x के बीच घिरे क्षेत्र का क्षेत्रफल है:",
+        "textEn": "The Area bounded between y=x^2 and y=2x is:",
+        "textHi": "y=x^2 और y=2x के बीच घिरे क्षेत्र का क्षेत्रफल है:",
         "options": [
             {
                 "en": "1/3",
@@ -1211,8 +1211,8 @@ const mathQuestions_10: any[] = [
                 "hi": "y=logx"
             },
             {
-                "en": "y=x²",
-                "hi": "y=x²"
+                "en": "y=x^2",
+                "hi": "y=x^2"
             }
         ],
         "ans": 1
@@ -1243,8 +1243,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If A⁻¹ exists, then det(A⁻¹) is equivalent to:",
-        "textHi": "यदि A⁻¹ मौजूद है, तो det(A⁻¹) किसके समतुल्य है?",
+        "textEn": "If A^-¹ exists, then det(A^-¹) is equivalent to:",
+        "textHi": "यदि A^-¹ मौजूद है, तो det(A^-¹) किसके समतुल्य है?",
         "options": [
             {
                 "en": "det(A)",
@@ -1255,8 +1255,8 @@ const mathQuestions_10: any[] = [
                 "hi": "1/det(A)"
             },
             {
-                "en": "−det(A)",
-                "hi": "−det(A)"
+                "en": "-det(A)",
+                "hi": "-det(A)"
             },
             {
                 "en": "0",
@@ -1267,8 +1267,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "In the complex plane, |z−1| = |z+1| represents a:",
-        "textHi": "सम्मिश्र तल में, |z−1| = |z+1| किसको दर्शाता है?",
+        "textEn": "In the complex plane, |z-1| = |z+1| represents a:",
+        "textHi": "सम्मिश्र तल में, |z-1| = |z+1| किसको दर्शाता है?",
         "options": [
             {
                 "en": "Circle",
@@ -1339,8 +1339,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The coefficient of x² in the expansion of (1+x)⁵ is:",
-        "textHi": "(1+x)⁵ के द्विपद प्रसार में x² का गुणांक है:",
+        "textEn": "The coefficient of x^2 in the expansion of (1+x)⁵ is:",
+        "textHi": "(1+x)⁵ के द्विपद प्रसार में x^2 का गुणांक है:",
         "options": [
             {
                 "en": "5",
@@ -1367,16 +1367,16 @@ const mathQuestions_10: any[] = [
         "textHi": "प्रथम 'n' प्राकृतिक संख्याओं के योग का सूत्र है:",
         "options": [
             {
-                "en": "n²",
-                "hi": "n²"
+                "en": "n^2",
+                "hi": "n^2"
             },
             {
                 "en": "n(n+1)/2",
                 "hi": "n(n+1)/2"
             },
             {
-                "en": "n(n−1)/2",
-                "hi": "n(n−1)/2"
+                "en": "n(n-1)/2",
+                "hi": "n(n-1)/2"
             },
             {
                 "en": "2n",
@@ -1395,16 +1395,16 @@ const mathQuestions_10: any[] = [
                 "hi": "2"
             },
             {
-                "en": "−1/2",
-                "hi": "−1/2"
+                "en": "-1/2",
+                "hi": "-1/2"
             },
             {
                 "en": "1/2",
                 "hi": "1/2"
             },
             {
-                "en": "−2",
-                "hi": "−2"
+                "en": "-2",
+                "hi": "-2"
             }
         ],
         "ans": 2
@@ -1415,16 +1415,16 @@ const mathQuestions_10: any[] = [
         "textHi": "केंद्र (1,2) और त्रिज्या 3 वाले वृत्त का समीकरण है:",
         "options": [
             {
-                "en": "(x−1)²+(y−2)²=9",
-                "hi": "(x−1)²+(y−2)²=9"
+                "en": "(x-1)^2+(y-2)^2=9",
+                "hi": "(x-1)^2+(y-2)^2=9"
             },
             {
-                "en": "x²+y²=9",
-                "hi": "x²+y²=9"
+                "en": "x^2+y^2=9",
+                "hi": "x^2+y^2=9"
             },
             {
-                "en": "(x+1)²+(y+2)²=9",
-                "hi": "(x+1)²+(y+2)²=9"
+                "en": "(x+1)^2+(y+2)^2=9",
+                "hi": "(x+1)^2+(y+2)^2=9"
             },
             {
                 "en": "None of these",
@@ -1435,8 +1435,8 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "The focus of the standard parabola y² = 4ax is at:",
-        "textHi": "मानक परवलय y² = 4ax की नाभि (focus) कहाँ है?",
+        "textEn": "The focus of the standard parabola y^2 = 4ax is at:",
+        "textHi": "मानक परवलय y^2 = 4ax की नाभि (focus) कहाँ है?",
         "options": [
             {
                 "en": "(a,0)",
@@ -1447,12 +1447,12 @@ const mathQuestions_10: any[] = [
                 "hi": "(0,a)"
             },
             {
-                "en": "(−a,0)",
-                "hi": "(−a,0)"
+                "en": "(-a,0)",
+                "hi": "(-a,0)"
             },
             {
-                "en": "(0,−a)",
-                "hi": "(0,−a)"
+                "en": "(0,-a)",
+                "hi": "(0,-a)"
             }
         ],
         "ans": 1
@@ -1513,14 +1513,14 @@ const mathQuestions_10: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Find the derivative d/dx (x²) evaluated at x = 2:",
-        "textHi": "x = 2 पर अवकलज d/dx (x²) का मान ज्ञात करें:",
+        "textEn": "Find the derivative d/dx (x^2) evaluated at x = 2:",
+        "textHi": "x = 2 पर अवकलज d/dx (x^2) का मान ज्ञात करें:",
         "ans": "4"
     },
     {
         "type": "Numerical",
-        "textEn": "Evaluate the definite integral ∫₀¹ x dx :",
-        "textHi": "निश्चित समाकलन ∫₀¹ x dx का मूल्यांकन करें:",
+        "textEn": "Evaluate the definite integral ∫_0¹ x dx :",
+        "textHi": "निश्चित समाकलन ∫_0¹ x dx का मूल्यांकन करें:",
         "ans": "0.5"
     },
     {

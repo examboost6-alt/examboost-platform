@@ -3,24 +3,24 @@ import { QuestionType } from '../mockData';
 const physicsQuestions_11: any[] = [
     {
         "type": "MCQ",
-        "textEn": "Dimensions of Planck’s constant h:",
+        "textEn": "Dimensions of Planck's constant h:",
         "textHi": "प्लांक नियतांक h की विमाएँ (Dimensions) हैं:",
         "options": [
             {
-                "en": "ML²T⁻¹",
-                "hi": "ML²T⁻¹"
+                "en": "ML^2T^-¹",
+                "hi": "ML^2T^-¹"
             },
             {
-                "en": "ML²T⁻²",
-                "hi": "ML²T⁻²"
+                "en": "ML^2T^-^2",
+                "hi": "ML^2T^-^2"
             },
             {
-                "en": "MLT⁻¹",
-                "hi": "MLT⁻¹"
+                "en": "MLT^-¹",
+                "hi": "MLT^-¹"
             },
             {
-                "en": "ML⁻¹T⁻¹",
-                "hi": "ML⁻¹T⁻¹"
+                "en": "ML^-¹T^-¹",
+                "hi": "ML^-¹T^-¹"
             }
         ],
         "ans": 1
@@ -63,8 +63,8 @@ const physicsQuestions_11: any[] = [
                 "hi": "mg/μ"
             },
             {
-                "en": "μ²mg",
-                "hi": "μ²mg"
+                "en": "μ^2mg",
+                "hi": "μ^2mg"
             },
             {
                 "en": "mg",
@@ -127,20 +127,20 @@ const physicsQuestions_11: any[] = [
         "textHi": "व्यास के परितः वलय (ring) का जड़त्व आघूर्ण:",
         "options": [
             {
-                "en": "MR²",
-                "hi": "MR²"
+                "en": "MR^2",
+                "hi": "MR^2"
             },
             {
-                "en": "MR²/2",
-                "hi": "MR²/2"
+                "en": "MR^2/2",
+                "hi": "MR^2/2"
             },
             {
-                "en": "MR²/4",
-                "hi": "MR²/4"
+                "en": "MR^2/4",
+                "hi": "MR^2/4"
             },
             {
-                "en": "2MR²",
-                "hi": "2MR²"
+                "en": "2MR^2",
+                "hi": "2MR^2"
             }
         ],
         "ans": 2
@@ -171,7 +171,7 @@ const physicsQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Young’s modulus = stress / strain has unit:",
+        "textEn": "Young's modulus = stress / strain has unit:",
         "textHi": "यंग मापांक = प्रतिबल / विकृति की इकाई है:",
         "options": [
             {
@@ -283,8 +283,8 @@ const physicsQuestions_11: any[] = [
                 "hi": "λ/f"
             },
             {
-                "en": "f²λ",
-                "hi": "f²λ"
+                "en": "f^2λ",
+                "hi": "f^2λ"
             }
         ],
         "ans": 1
@@ -339,7 +339,7 @@ const physicsQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Ohm’s law: V = IR valid when:",
+        "textEn": "Ohm's law: V = IR valid when:",
         "textHi": "ओम का नियम: V = IR तब मान्य है जब:",
         "options": [
             {
@@ -467,24 +467,24 @@ const physicsQuestions_11: any[] = [
                 "hi": "hν"
             },
             {
-                "en": "mc²",
-                "hi": "mc²"
+                "en": "mc^2",
+                "hi": "mc^2"
             },
             {
-                "en": "hv²",
-                "hi": "hv²"
+                "en": "hv^2",
+                "hi": "hv^2"
             },
             {
-                "en": "mv²",
-                "hi": "mv²"
+                "en": "mv^2",
+                "hi": "mv^2"
             }
         ],
         "ans": 1
     },
     {
         "type": "Numerical",
-        "textEn": "Car accelerates from rest at 2 m/s² for 5 s. Distance covered:",
-        "textHi": "कार विरामावस्था से 2 m/s² पर 5 सेकंड के लिए त्वरित होती है। तय की गई दूरी:",
+        "textEn": "Car accelerates from rest at 2 m/s^2 for 5 s. Distance covered:",
+        "textHi": "कार विरामावस्था से 2 m/s^2 पर 5 सेकंड के लिए त्वरित होती है। तय की गई दूरी:",
         "ans": "25"
     },
     {
@@ -587,8 +587,8 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Shape of SF₄ molecule:",
-        "textHi": "SF₄ अणु का आकार:",
+        "textEn": "Shape of SF_4 molecule:",
+        "textHi": "SF_4 अणु का आकार:",
         "options": [
             {
                 "en": "Tetrahedral",
@@ -611,24 +611,24 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Hybridization of central atom in NH₃:",
-        "textHi": "NH₃ में केंद्रीय परमाणु का संकरण:",
+        "textEn": "Hybridization of central atom in NH_3:",
+        "textHi": "NH_3 में केंद्रीय परमाणु का संकरण:",
         "options": [
             {
                 "en": "sp",
                 "hi": "sp"
             },
             {
-                "en": "sp²",
-                "hi": "sp²"
+                "en": "sp^2",
+                "hi": "sp^2"
             },
             {
-                "en": "sp³",
-                "hi": "sp³"
+                "en": "sp^3",
+                "hi": "sp^3"
             },
             {
-                "en": "dsp²",
-                "hi": "dsp²"
+                "en": "dsp^2",
+                "hi": "dsp^2"
             }
         ],
         "ans": 3
@@ -851,8 +851,8 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Oxidation state of Fe in [Fe(CN)₆]³⁻:",
-        "textHi": "[Fe(CN)₆]³⁻ में Fe की ऑक्सीकरण अवस्था:",
+        "textEn": "Oxidation state of Fe in [Fe(CN)_6]^3^-:",
+        "textHi": "[Fe(CN)_6]^3^- में Fe की ऑक्सीकरण अवस्था:",
         "options": [
             {
                 "en": "+2",
@@ -875,8 +875,8 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "IUPAC name of CH₃–CH₂–OH:",
-        "textHi": "CH₃–CH₂–OH का IUPAC नाम:",
+        "textEn": "IUPAC name of CH_3-CH_2-OH:",
+        "textHi": "CH_3-CH_2-OH का IUPAC नाम:",
         "options": [
             {
                 "en": "Methanol",
@@ -903,16 +903,16 @@ const chemistryQuestions_11: any[] = [
         "textHi": "क्षारों (alkanes) का सामान्य सूत्र:",
         "options": [
             {
-                "en": "CₙH₂ₙ",
-                "hi": "CₙH₂ₙ"
+                "en": "CₙH_2ₙ",
+                "hi": "CₙH_2ₙ"
             },
             {
-                "en": "CₙH₂ₙ₊₂",
-                "hi": "CₙH₂ₙ₊₂"
+                "en": "CₙH_2ₙ₊_2",
+                "hi": "CₙH_2ₙ₊_2"
             },
             {
-                "en": "CₙH₂ₙ₋₂",
-                "hi": "CₙH₂ₙ₋₂"
+                "en": "CₙH_2ₙ₋_2",
+                "hi": "CₙH_2ₙ₋_2"
             },
             {
                 "en": "CₙHₙ",
@@ -1001,8 +1001,8 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Moles in 44 g CO₂:",
-        "textHi": "44 ग्राम CO₂ में मोल्स:",
+        "textEn": "Moles in 44 g CO_2:",
+        "textHi": "44 ग्राम CO_2 में मोल्स:",
         "ans": "1"
     },
     {
@@ -1019,16 +1019,16 @@ const chemistryQuestions_11: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Number of isomers of C₄H₁₀:",
-        "textHi": "C₄H₁₀ के समावयवियों (isomers) की संख्या:",
+        "textEn": "Number of isomers of C_4H_1_0:",
+        "textHi": "C_4H_1_0 के समावयवियों (isomers) की संख्या:",
         "ans": "2"
     }
 ];
 const mathQuestions_11: any[] = [
     {
         "type": "MCQ",
-        "textEn": "If A is a 3×3 matrix such that A² = I and A ≠ I, then det(A) is:",
-        "textHi": "यदि A एक 3×3 आव्यूह है जहाँ A² = I और A ≠ I, तो det(A) है:",
+        "textEn": "If A is a 3x3 matrix such that A^2 = I and A != I, then det(A) is:",
+        "textHi": "यदि A एक 3x3 आव्यूह है जहाँ A^2 = I और A != I, तो det(A) है:",
         "options": [
             {
                 "en": "1",
@@ -1051,8 +1051,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If |A| = 3, then |2A⁻¹| is:",
-        "textHi": "यदि |A| = 3, तो |2A⁻¹| है:",
+        "textEn": "If |A| = 3, then |2A^-¹| is:",
+        "textHi": "यदि |A| = 3, तो |2A^-¹| है:",
         "options": [
             {
                 "en": "4/3",
@@ -1075,8 +1075,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Number of solutions of |x² - 5x + 6| = x:",
-        "textHi": "|x² - 5x + 6| = x के हलों की संख्या:",
+        "textEn": "Number of solutions of |x^2 - 5x + 6| = x:",
+        "textHi": "|x^2 - 5x + 6| = x के हलों की संख्या:",
         "options": [
             {
                 "en": "1",
@@ -1099,8 +1099,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "sin⁻¹(3/5) + cos⁻¹(4/5) =",
-        "textHi": "sin⁻¹(3/5) + cos⁻¹(4/5) =",
+        "textEn": "sin^-¹(3/5) + cos^-¹(4/5) =",
+        "textHi": "sin^-¹(3/5) + cos^-¹(4/5) =",
         "options": [
             {
                 "en": "π/2",
@@ -1123,8 +1123,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "lim(x→0) [(e^x - 1 - x)/x²] =",
-        "textHi": "lim(x→0) [(e^x - 1 - x)/x²] =",
+        "textEn": "lim(x→0) [(e^x - 1 - x)/x^2] =",
+        "textHi": "lim(x→0) [(e^x - 1 - x)/x^2] =",
         "options": [
             {
                 "en": "0",
@@ -1147,8 +1147,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Find k for continuity of f(x) = (kx² - 1)/(x - 1) at x = 1:",
-        "textHi": "x = 1 पर f(x) = (kx² - 1)/(x - 1) की निरंतरता (continuity) के लिए k ज्ञात करें:",
+        "textEn": "Find k for continuity of f(x) = (kx^2 - 1)/(x - 1) at x = 1:",
+        "textHi": "x = 1 पर f(x) = (kx^2 - 1)/(x - 1) की निरंतरता (continuity) के लिए k ज्ञात करें:",
         "options": [
             {
                 "en": "1",
@@ -1195,8 +1195,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Maximum value of x³ - 3x on local domain:",
-        "textHi": "x³ - 3x का स्थानीय अधिकतम मान:",
+        "textEn": "Maximum value of x^3 - 3x on local domain:",
+        "textHi": "x^3 - 3x का स्थानीय अधिकतम मान:",
         "options": [
             {
                 "en": "2",
@@ -1259,8 +1259,8 @@ const mathQuestions_11: any[] = [
                 "hi": "1"
             },
             {
-                "en": "π²",
-                "hi": "π²"
+                "en": "π^2",
+                "hi": "π^2"
             }
         ],
         "ans": 1
@@ -1315,8 +1315,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Radius of circle x² + y² + 4x - 6y + 9 = 0:",
-        "textHi": "वृत्त x² + y² + 4x - 6y + 9 = 0 की त्रिज्या:",
+        "textEn": "Radius of circle x^2 + y^2 + 4x - 6y + 9 = 0:",
+        "textHi": "वृत्त x^2 + y^2 + 4x - 6y + 9 = 0 की त्रिज्या:",
         "options": [
             {
                 "en": "2",
@@ -1339,8 +1339,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Length of latus rectum of y² = 8x:",
-        "textHi": "y² = 8x के नाभिलंब (latus rectum) की लंबाई:",
+        "textEn": "Length of latus rectum of y^2 = 8x:",
+        "textHi": "y^2 = 8x के नाभिलंब (latus rectum) की लंबाई:",
         "options": [
             {
                 "en": "8",
@@ -1363,8 +1363,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Eccentricity of 4x² - 9y² = 36:",
-        "textHi": "4x² - 9y² = 36 की उत्केंद्रता (Eccentricity):",
+        "textEn": "Eccentricity of 4x^2 - 9y^2 = 36:",
+        "textHi": "4x^2 - 9y^2 = 36 की उत्केंद्रता (Eccentricity):",
         "options": [
             {
                 "en": "5/3",
@@ -1459,8 +1459,8 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Coefficient of x³ in (1 + x)^6:",
-        "textHi": "(1 + x)^6 के प्रसार में x³ का गुणांक:",
+        "textEn": "Coefficient of x^3 in (1 + x)^6:",
+        "textHi": "(1 + x)^6 के प्रसार में x^3 का गुणांक:",
         "options": [
             {
                 "en": "10",
@@ -1507,14 +1507,14 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "lim(x→∞) (√(x² + x) - x) =",
-        "textHi": "lim(x→∞) (√(x² + x) - x) =",
+        "textEn": "lim(x→∞) (√(x^2 + x) - x) =",
+        "textHi": "lim(x→∞) (√(x^2 + x) - x) =",
         "ans": "0.5"
     },
     {
         "type": "Numerical",
-        "textEn": "Area between y = x² and y = 4:",
-        "textHi": "y = x² और y = 4 के बीच का क्षेत्रफल:",
+        "textEn": "Area between y = x^2 and y = 4:",
+        "textHi": "y = x^2 और y = 4 के बीच का क्षेत्रफल:",
         "ans": "5.33"
     },
     {
@@ -1525,14 +1525,14 @@ const mathQuestions_11: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "If determinant = (x-2)(x-3)² = 0, positive real solution excluding 3:",
-        "textHi": "यदि सारणिक = (x-2)(x-3)² = 0 है, तो सकारात्मक हल (3 को छोड़कर):",
+        "textEn": "If determinant = (x-2)(x-3)^2 = 0, positive real solution excluding 3:",
+        "textHi": "यदि सारणिक = (x-2)(x-3)^2 = 0 है, तो सकारात्मक हल (3 को छोड़कर):",
         "ans": "2"
     },
     {
         "type": "Numerical",
-        "textEn": "If f(x) = x⁴ - 4x³ + 6x², number of extrema:",
-        "textHi": "यदि f(x) = x⁴ - 4x³ + 6x² है, तो चरम (extrema) बिंदुओं की संख्या:",
+        "textEn": "If f(x) = x⁴ - 4x^3 + 6x^2, number of extrema:",
+        "textHi": "यदि f(x) = x⁴ - 4x^3 + 6x^2 है, तो चरम (extrema) बिंदुओं की संख्या:",
         "ans": "2"
     }
 ];

@@ -3,8 +3,8 @@ import { QuestionType } from '../mockData';
 const physicsQuestions_15: any[] = [
     {
         "type": "MCQ",
-        "textEn": "Position x = 2t² + 3t, velocity at t=2s:",
-        "textHi": "स्थिति x = 2t² + 3t, t=2s पर वेग:",
+        "textEn": "Position x = 2t^2 + 3t, velocity at t=2s:",
+        "textHi": "स्थिति x = 2t^2 + 3t, t=2s पर वेग:",
         "options": [
             {
                 "en": "11",
@@ -27,20 +27,20 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Acceleration = d²x/dt² for x = t³:",
-        "textHi": "x = t³ के लिए त्वरण = d²x/dt²:",
+        "textEn": "Acceleration = d^2x/dt^2 for x = t^3:",
+        "textHi": "x = t^3 के लिए त्वरण = d^2x/dt^2:",
         "options": [
             {
                 "en": "6t",
                 "hi": "6t"
             },
             {
-                "en": "3t²",
-                "hi": "3t²"
+                "en": "3t^2",
+                "hi": "3t^2"
             },
             {
-                "en": "t²",
-                "hi": "t²"
+                "en": "t^2",
+                "hi": "t^2"
             },
             {
                 "en": "3t",
@@ -51,8 +51,8 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Force required to accelerate 2 kg at 3 m/s²:",
-        "textHi": "2 kg को 3 m/s² से त्वरित करने के लिए आवश्यक बल:",
+        "textEn": "Force required to accelerate 2 kg at 3 m/s^2:",
+        "textHi": "2 kg को 3 m/s^2 से त्वरित करने के लिए आवश्यक बल:",
         "options": [
             {
                 "en": "5",
@@ -115,8 +115,8 @@ const physicsQuestions_15: any[] = [
                 "hi": "F/d"
             },
             {
-                "en": "F²d",
-                "hi": "F²d"
+                "en": "F^2d",
+                "hi": "F^2d"
             }
         ],
         "ans": 1
@@ -151,16 +151,16 @@ const physicsQuestions_15: any[] = [
         "textHi": "अभिकेंद्रीय बल =",
         "options": [
             {
-                "en": "mv²/r",
-                "hi": "mv²/r"
+                "en": "mv^2/r",
+                "hi": "mv^2/r"
             },
             {
-                "en": "mr²/v",
-                "hi": "mr²/v"
+                "en": "mr^2/v",
+                "hi": "mr^2/v"
             },
             {
-                "en": "mv/r²",
-                "hi": "mv/r²"
+                "en": "mv/r^2",
+                "hi": "mv/r^2"
             },
             {
                 "en": "mvr",
@@ -175,12 +175,12 @@ const physicsQuestions_15: any[] = [
         "textHi": "g ∝:",
         "options": [
             {
-                "en": "1/r²",
-                "hi": "1/r²"
+                "en": "1/r^2",
+                "hi": "1/r^2"
             },
             {
-                "en": "r²",
-                "hi": "r²"
+                "en": "r^2",
+                "hi": "r^2"
             },
             {
                 "en": "r",
@@ -199,12 +199,12 @@ const physicsQuestions_15: any[] = [
         "textHi": "आवेशों के बीच बल ∝:",
         "options": [
             {
-                "en": "1/r²",
-                "hi": "1/r²"
+                "en": "1/r^2",
+                "hi": "1/r^2"
             },
             {
-                "en": "r²",
-                "hi": "r²"
+                "en": "r^2",
+                "hi": "r^2"
             },
             {
                 "en": "r",
@@ -291,7 +291,7 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Ohm’s Law: V ∝ I:",
+        "textEn": "Ohm's Law: V ∝ I:",
         "textHi": "ओम का नियम: V ∝ I:",
         "options": [
             {
@@ -339,7 +339,7 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Faraday’s law relates:",
+        "textEn": "Faraday's law relates:",
         "textHi": "फैराडे का नियम किससे संबंधित है:",
         "options": [
             {
@@ -371,8 +371,8 @@ const physicsQuestions_15: any[] = [
                 "hi": "Peak/√2"
             },
             {
-                "en": "Peak×√2",
-                "hi": "Peak×√2"
+                "en": "Peakx√2",
+                "hi": "Peakx√2"
             },
             {
                 "en": "Peak",
@@ -411,8 +411,8 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "E = mc² relates:",
-        "textHi": "E = mc² सहसंबंधित करता है:",
+        "textEn": "E = mc^2 relates:",
+        "textHi": "E = mc^2 सहसंबंधित करता है:",
         "options": [
             {
                 "en": "Mass & energy",
@@ -507,8 +507,8 @@ const physicsQuestions_15: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Modern Physics: Energy of photon E = hf, h=6.6×10⁻³⁴, f=10¹⁴:",
-        "textHi": "आधुनिक भौतिकी: E = hf, h=6.6×10⁻³⁴, f=10¹⁴:",
+        "textEn": "Modern Physics: Energy of photon E = hf, h=6.6x10^-^3⁴, f=10¹⁴:",
+        "textHi": "आधुनिक भौतिकी: E = hf, h=6.6x10^-^3⁴, f=10¹⁴:",
         "ans": "6.6e-20"
     }
 ];
@@ -519,16 +519,16 @@ const chemistryQuestions_15: any[] = [
         "textHi": "STP पर 11.2 L गैस में अणुओं की संख्या:",
         "options": [
             {
-                "en": "3.01×10²³",
-                "hi": "3.01×10²³"
+                "en": "3.01x10^2^3",
+                "hi": "3.01x10^2^3"
             },
             {
-                "en": "6.02×10²³",
-                "hi": "6.02×10²³"
+                "en": "6.02x10^2^3",
+                "hi": "6.02x10^2^3"
             },
             {
-                "en": "1.204×10²⁴",
-                "hi": "1.204×10²⁴"
+                "en": "1.204x10^2⁴",
+                "hi": "1.204x10^2⁴"
             },
             {
                 "en": "0",
@@ -587,24 +587,24 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Hybridization in C₂H₄:",
-        "textHi": "C₂H₄ में संकरण:",
+        "textEn": "Hybridization in C_2H_4:",
+        "textHi": "C_2H_4 में संकरण:",
         "options": [
             {
                 "en": "sp",
                 "hi": "sp"
             },
             {
-                "en": "sp²",
-                "hi": "sp²"
+                "en": "sp^2",
+                "hi": "sp^2"
             },
             {
-                "en": "sp³",
-                "hi": "sp³"
+                "en": "sp^3",
+                "hi": "sp^3"
             },
             {
-                "en": "dsp²",
-                "hi": "dsp²"
+                "en": "dsp^2",
+                "hi": "dsp^2"
             }
         ],
         "ans": 2
@@ -735,16 +735,16 @@ const chemistryQuestions_15: any[] = [
         "textHi": "प्रथम कोटि की दर स्थिरांक इकाई:",
         "options": [
             {
-                "en": "s⁻¹",
-                "hi": "s⁻¹"
+                "en": "s^-¹",
+                "hi": "s^-¹"
             },
             {
                 "en": "mol/L/s",
                 "hi": "mol/L/s"
             },
             {
-                "en": "mol²",
-                "hi": "mol²"
+                "en": "mol^2",
+                "hi": "mol^2"
             },
             {
                 "en": "L/mol",
@@ -803,7 +803,7 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Raoult’s law applies to:",
+        "textEn": "Raoult's law applies to:",
         "textHi": "राउल्ट का नियम किस पर लागू होता है:",
         "options": [
             {
@@ -827,8 +827,8 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Oxidation state of Fe in [Fe(CN)₆]⁴⁻:",
-        "textHi": "[Fe(CN)₆]⁴⁻ में Fe की ऑक्सीकरण अवस्था:",
+        "textEn": "Oxidation state of Fe in [Fe(CN)_6]⁴^-:",
+        "textHi": "[Fe(CN)_6]⁴^- में Fe की ऑक्सीकरण अवस्था:",
         "options": [
             {
                 "en": "+2",
@@ -903,20 +903,20 @@ const chemistryQuestions_15: any[] = [
         "textHi": "सबसे अच्छा नाभिकरागी (nucleophile):",
         "options": [
             {
-                "en": "OH⁻",
-                "hi": "OH⁻"
+                "en": "OH^-",
+                "hi": "OH^-"
             },
             {
-                "en": "Cl⁻",
-                "hi": "Cl⁻"
+                "en": "Cl^-",
+                "hi": "Cl^-"
             },
             {
-                "en": "H₂O",
-                "hi": "H₂O"
+                "en": "H_2O",
+                "hi": "H_2O"
             },
             {
-                "en": "NH₃",
-                "hi": "NH₃"
+                "en": "NH_3",
+                "hi": "NH_3"
             }
         ],
         "ans": 1
@@ -947,8 +947,8 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "CH₃CHO gives positive test with:",
-        "textHi": "CH₃CHO किसके साथ सकारात्मक परीक्षण देता है:",
+        "textEn": "CH_3CHO gives positive test with:",
+        "textHi": "CH_3CHO किसके साथ सकारात्मक परीक्षण देता है:",
         "options": [
             {
                 "en": "Fehling solution",
@@ -995,8 +995,8 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Moles in 18 g H₂O:",
-        "textHi": "18 ग्राम H₂O में मोल:",
+        "textEn": "Moles in 18 g H_2O:",
+        "textHi": "18 ग्राम H_2O में मोल:",
         "ans": "1"
     },
     {
@@ -1019,16 +1019,16 @@ const chemistryQuestions_15: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Coordination number in [Ni(CO)₄]:",
-        "textHi": "[Ni(CO)₄] में समन्वय संख्या:",
+        "textEn": "Coordination number in [Ni(CO)_4]:",
+        "textHi": "[Ni(CO)_4] में समन्वय संख्या:",
         "ans": "4"
     }
 ];
 const mathQuestions_15: any[] = [
     {
         "type": "MCQ",
-        "textEn": "lim x→0 (tanx - sinx)/x³ =",
-        "textHi": "lim x→0 (tanx - sinx)/x³ =",
+        "textEn": "lim x→0 (tanx - sinx)/x^3 =",
+        "textHi": "lim x→0 (tanx - sinx)/x^3 =",
         "options": [
             {
                 "en": "1/2",
@@ -1051,8 +1051,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "lim x→∞ (√(x²+2x) - x) =",
-        "textHi": "lim x→∞ (√(x²+2x) - x) =",
+        "textEn": "lim x→∞ (√(x^2+2x) - x) =",
+        "textHi": "lim x→∞ (√(x^2+2x) - x) =",
         "options": [
             {
                 "en": "1",
@@ -1123,8 +1123,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Maximum value of x² - 4x +5:",
-        "textHi": "x² - 4x +5 का अधिकतम मान:",
+        "textEn": "Maximum value of x^2 - 4x +5:",
+        "textHi": "x^2 - 4x +5 का अधिकतम मान:",
         "options": [
             {
                 "en": "1",
@@ -1147,8 +1147,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Slope of tangent to y=x³ at x=2:",
-        "textHi": "x=2 पर y=x³ की स्पर्श रेखा की ढलान:",
+        "textEn": "Slope of tangent to y=x^3 at x=2:",
+        "textHi": "x=2 पर y=x^3 की स्पर्श रेखा की ढलान:",
         "options": [
             {
                 "en": "12",
@@ -1171,32 +1171,32 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "∫ (2x)/(x²+1) dx =",
-        "textHi": "∫ (2x)/(x²+1) dx =",
+        "textEn": "∫ (2x)/(x^2+1) dx =",
+        "textHi": "∫ (2x)/(x^2+1) dx =",
         "options": [
             {
-                "en": "ln(x²+1)",
-                "hi": "ln(x²+1)"
+                "en": "ln(x^2+1)",
+                "hi": "ln(x^2+1)"
             },
             {
-                "en": "1/(x²+1)",
-                "hi": "1/(x²+1)"
+                "en": "1/(x^2+1)",
+                "hi": "1/(x^2+1)"
             },
             {
-                "en": "x²+1",
-                "hi": "x²+1"
+                "en": "x^2+1",
+                "hi": "x^2+1"
             },
             {
-                "en": "tan⁻¹x",
-                "hi": "tan⁻¹x"
+                "en": "tan^-¹x",
+                "hi": "tan^-¹x"
             }
         ],
         "ans": 1
     },
     {
         "type": "MCQ",
-        "textEn": "∫ sin²x dx =",
-        "textHi": "∫ sin²x dx =",
+        "textEn": "∫ sin^2x dx =",
+        "textHi": "∫ sin^2x dx =",
         "options": [
             {
                 "en": "x/2 - sin2x/4",
@@ -1211,16 +1211,16 @@ const mathQuestions_15: any[] = [
                 "hi": "cosx"
             },
             {
-                "en": "x²",
-                "hi": "x²"
+                "en": "x^2",
+                "hi": "x^2"
             }
         ],
         "ans": 1
     },
     {
         "type": "MCQ",
-        "textEn": "∫₀^π cosx dx =",
-        "textHi": "∫₀^π cosx dx =",
+        "textEn": "∫_0^π cosx dx =",
+        "textHi": "∫_0^π cosx dx =",
         "options": [
             {
                 "en": "0",
@@ -1243,24 +1243,24 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "dy/dx = x² ⇒ y =",
-        "textHi": "dy/dx = x² ⇒ y =",
+        "textEn": "dy/dx = x^2 ⇒ y =",
+        "textHi": "dy/dx = x^2 ⇒ y =",
         "options": [
             {
-                "en": "x³/3 + C",
-                "hi": "x³/3 + C"
+                "en": "x^3/3 + C",
+                "hi": "x^3/3 + C"
             },
             {
-                "en": "x² + C",
-                "hi": "x² + C"
+                "en": "x^2 + C",
+                "hi": "x^2 + C"
             },
             {
                 "en": "2x + C",
                 "hi": "2x + C"
             },
             {
-                "en": "x³ + C",
-                "hi": "x³ + C"
+                "en": "x^3 + C",
+                "hi": "x^3 + C"
             }
         ],
         "ans": 1
@@ -1291,8 +1291,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Radius of x²+y²-6x-8y+9=0:",
-        "textHi": "वृत्त x²+y²-6x-8y+9=0 की त्रिज्या:",
+        "textEn": "Radius of x^2+y^2-6x-8y+9=0:",
+        "textHi": "वृत्त x^2+y^2-6x-8y+9=0 की त्रिज्या:",
         "options": [
             {
                 "en": "5",
@@ -1315,8 +1315,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Length of latus rectum of y²=8x:",
-        "textHi": "y²=8x के नाभिलंब (latus rectum) की लंबाई:",
+        "textEn": "Length of latus rectum of y^2=8x:",
+        "textHi": "y^2=8x के नाभिलंब (latus rectum) की लंबाई:",
         "options": [
             {
                 "en": "8",
@@ -1339,8 +1339,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Eccentricity of ellipse x²/9 + y²/4 = 1:",
-        "textHi": "दीर्घवृत्त x²/9 + y²/4 = 1 की उत्केन्द्रता (Eccentricity):",
+        "textEn": "Eccentricity of ellipse x^2/9 + y^2/4 = 1:",
+        "textHi": "दीर्घवृत्त x^2/9 + y^2/4 = 1 की उत्केन्द्रता (Eccentricity):",
         "options": [
             {
                 "en": "√5/3",
@@ -1363,8 +1363,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Asymptotes of x² - y² = 1:",
-        "textHi": "x² - y² = 1 के अनंतस्पर्शी (Asymptotes):",
+        "textEn": "Asymptotes of x^2 - y^2 = 1:",
+        "textHi": "x^2 - y^2 = 1 के अनंतस्पर्शी (Asymptotes):",
         "options": [
             {
                 "en": "y=±x",
@@ -1375,8 +1375,8 @@ const mathQuestions_15: any[] = [
                 "hi": "y=±2x"
             },
             {
-                "en": "x=±y²",
-                "hi": "x=±y²"
+                "en": "x=±y^2",
+                "hi": "x=±y^2"
             },
             {
                 "en": "none",
@@ -1483,8 +1483,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Coefficient of x² in (1+x)⁵:",
-        "textHi": "(1+x)⁵ में x² का गुणांक:",
+        "textEn": "Coefficient of x^2 in (1+x)⁵:",
+        "textHi": "(1+x)⁵ में x^2 का गुणांक:",
         "options": [
             {
                 "en": "10",
@@ -1507,8 +1507,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "lim x→0 (1 - cosx)/x² =",
-        "textHi": "lim x→0 (1 - cosx)/x² =",
+        "textEn": "lim x→0 (1 - cosx)/x^2 =",
+        "textHi": "lim x→0 (1 - cosx)/x^2 =",
         "ans": "0.5"
     },
     {
@@ -1519,8 +1519,8 @@ const mathQuestions_15: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "∫₀¹ (x+1) dx =",
-        "textHi": "∫₀¹ (x+1) dx =",
+        "textEn": "∫_0¹ (x+1) dx =",
+        "textHi": "∫_0¹ (x+1) dx =",
         "ans": "1.5"
     },
     {

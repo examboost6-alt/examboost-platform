@@ -27,8 +27,8 @@ const physicsQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "A particle moves with velocity v = 3t². Displacement in 2 s:",
-        "textHi": "एक कण वेग v = 3t² से चलता है। 2 सेकंड में विस्थापन:",
+        "textEn": "A particle moves with velocity v = 3t^2. Displacement in 2 s:",
+        "textHi": "एक कण वेग v = 3t^2 से चलता है। 2 सेकंड में विस्थापन:",
         "options": [
             {
                 "en": "4",
@@ -115,8 +115,8 @@ const physicsQuestions_12: any[] = [
                 "hi": "N/μ"
             },
             {
-                "en": "μ²N",
-                "hi": "μ²N"
+                "en": "μ^2N",
+                "hi": "μ^2N"
             }
         ],
         "ans": 2
@@ -207,12 +207,12 @@ const physicsQuestions_12: any[] = [
                 "hi": "v = ω/r"
             },
             {
-                "en": "v = r²ω",
-                "hi": "v = r²ω"
+                "en": "v = r^2ω",
+                "hi": "v = r^2ω"
             },
             {
-                "en": "v = ω²r",
-                "hi": "v = ω²r"
+                "en": "v = ω^2r",
+                "hi": "v = ω^2r"
             }
         ],
         "ans": 1
@@ -391,12 +391,12 @@ const physicsQuestions_12: any[] = [
         "textHi": "आवेशों के बीच बल:",
         "options": [
             {
-                "en": "∝ 1/r²",
-                "hi": "∝ 1/r²"
+                "en": "∝ 1/r^2",
+                "hi": "∝ 1/r^2"
             },
             {
-                "en": "∝ r²",
-                "hi": "∝ r²"
+                "en": "∝ r^2",
+                "hi": "∝ r^2"
             },
             {
                 "en": "∝ r",
@@ -423,8 +423,8 @@ const physicsQuestions_12: any[] = [
                 "hi": "kqr"
             },
             {
-                "en": "q/r²",
-                "hi": "q/r²"
+                "en": "q/r^2",
+                "hi": "q/r^2"
             },
             {
                 "en": "kr/q",
@@ -471,8 +471,8 @@ const physicsQuestions_12: any[] = [
                 "hi": "∝ r"
             },
             {
-                "en": "∝ 1/r²",
-                "hi": "∝ 1/r²"
+                "en": "∝ 1/r^2",
+                "hi": "∝ 1/r^2"
             },
             {
                 "en": "Constant",
@@ -587,8 +587,8 @@ const chemistryQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Bond angle in H₂O:",
-        "textHi": "H₂O में आबंध कोण:",
+        "textEn": "Bond angle in H_2O:",
+        "textHi": "H_2O में आबंध कोण:",
         "options": [
             {
                 "en": "90°",
@@ -683,7 +683,7 @@ const chemistryQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Le Chatelier’s principle applies when:",
+        "textEn": "Le Chatelier's principle applies when:",
         "textHi": "ले शातेलिए का सिद्धांत तब लागू होता है जब:",
         "options": [
             {
@@ -851,8 +851,8 @@ const chemistryQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Ligand NH₃ is:",
-        "textHi": "NH₃ लिगैंड है:",
+        "textEn": "Ligand NH_3 is:",
+        "textHi": "NH_3 लिगैंड है:",
         "options": [
             {
                 "en": "Neutral",
@@ -907,16 +907,16 @@ const chemistryQuestions_12: any[] = [
                 "hi": "sp"
             },
             {
-                "en": "sp²",
-                "hi": "sp²"
+                "en": "sp^2",
+                "hi": "sp^2"
             },
             {
-                "en": "sp³",
-                "hi": "sp³"
+                "en": "sp^3",
+                "hi": "sp^3"
             },
             {
-                "en": "dsp²",
-                "hi": "dsp²"
+                "en": "dsp^2",
+                "hi": "dsp^2"
             }
         ],
         "ans": 2
@@ -1019,8 +1019,8 @@ const chemistryQuestions_12: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "Number of σ bonds in ethane (C₂H₆):",
-        "textHi": "एथेन (C₂H₆) में सिग्मा (σ) आबंधों की संख्या:",
+        "textEn": "Number of σ bonds in ethane (C_2H_6):",
+        "textHi": "एथेन (C_2H_6) में सिग्मा (σ) आबंधों की संख्या:",
         "ans": "7"
     }
 ];
@@ -1035,8 +1035,8 @@ const mathQuestions_12: any[] = [
                 "hi": "A = B"
             },
             {
-                "en": "A ≠ B",
-                "hi": "A ≠ B"
+                "en": "A != B",
+                "hi": "A != B"
             },
             {
                 "en": "A ∩ B = ∅",
@@ -1075,8 +1075,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "If f(x) = x² - 4x + 3, minimum value is:",
-        "textHi": "यदि f(x) = x² - 4x + 3 है, तो न्यूनतम मान है:",
+        "textEn": "If f(x) = x^2 - 4x + 3, minimum value is:",
+        "textHi": "यदि f(x) = x^2 - 4x + 3 है, तो न्यूनतम मान है:",
         "options": [
             {
                 "en": "-1",
@@ -1099,8 +1099,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "tan⁻¹(1) + tan⁻¹(1) =",
-        "textHi": "tan⁻¹(1) + tan⁻¹(1) =",
+        "textEn": "tan^-¹(1) + tan^-¹(1) =",
+        "textHi": "tan^-¹(1) + tan^-¹(1) =",
         "options": [
             {
                 "en": "π/2",
@@ -1219,8 +1219,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Slope of tangent to y = x² at x = 1:",
-        "textHi": "x = 1 पर y = x² की स्पर्श रेखा (tangent) की ढाल:",
+        "textEn": "Slope of tangent to y = x^2 at x = 1:",
+        "textHi": "x = 1 पर y = x^2 की स्पर्श रेखा (tangent) की ढाल:",
         "options": [
             {
                 "en": "1",
@@ -1243,8 +1243,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Minimum value of x² + 4x + 5:",
-        "textHi": "x² + 4x + 5 का न्यूनतम मान:",
+        "textEn": "Minimum value of x^2 + 4x + 5:",
+        "textHi": "x^2 + 4x + 5 का न्यूनतम मान:",
         "options": [
             {
                 "en": "0",
@@ -1271,12 +1271,12 @@ const mathQuestions_12: any[] = [
         "textHi": "∫ x dx =",
         "options": [
             {
-                "en": "x²/2 + C",
-                "hi": "x²/2 + C"
+                "en": "x^2/2 + C",
+                "hi": "x^2/2 + C"
             },
             {
-                "en": "x² + C",
-                "hi": "x² + C"
+                "en": "x^2 + C",
+                "hi": "x^2 + C"
             },
             {
                 "en": "x + C",
@@ -1291,8 +1291,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "∫(0 to 1) x² dx =",
-        "textHi": "∫(0 to 1) x² dx =",
+        "textEn": "∫(0 to 1) x^2 dx =",
+        "textHi": "∫(0 to 1) x^2 dx =",
         "options": [
             {
                 "en": "1/2",
@@ -1319,8 +1319,8 @@ const mathQuestions_12: any[] = [
         "textHi": "dy/dx = 2x का हल:",
         "options": [
             {
-                "en": "x² + C",
-                "hi": "x² + C"
+                "en": "x^2 + C",
+                "hi": "x^2 + C"
             },
             {
                 "en": "2x + C",
@@ -1363,8 +1363,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Center of x² + y² + 2x + 4y = 0:",
-        "textHi": "x² + y² + 2x + 4y = 0 का केंद्र:",
+        "textEn": "Center of x^2 + y^2 + 2x + 4y = 0:",
+        "textHi": "x^2 + y^2 + 2x + 4y = 0 का केंद्र:",
         "options": [
             {
                 "en": "(-1, -2)",
@@ -1387,8 +1387,8 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "MCQ",
-        "textEn": "Vertex of y = (x - 2)²:",
-        "textHi": "y = (x - 2)² का शीर्ष (Vertex):",
+        "textEn": "Vertex of y = (x - 2)^2:",
+        "textHi": "y = (x - 2)^2 का शीर्ष (Vertex):",
         "options": [
             {
                 "en": "(0,0)",
@@ -1525,14 +1525,14 @@ const mathQuestions_12: any[] = [
     },
     {
         "type": "Numerical",
-        "textEn": "log₁₀(1000):",
-        "textHi": "log₁₀(1000):",
+        "textEn": "log_1_0(1000):",
+        "textHi": "log_1_0(1000):",
         "ans": "3"
     },
     {
         "type": "Numerical",
-        "textEn": "sin²30° + cos²30°:",
-        "textHi": "sin²30° + cos²30°:",
+        "textEn": "sin^230° + cos^230°:",
+        "textHi": "sin^230° + cos^230°:",
         "ans": "1"
     }
 ];

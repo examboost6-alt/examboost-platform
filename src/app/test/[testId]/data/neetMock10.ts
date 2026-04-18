@@ -5,8 +5,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 1,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "A particle has velocity v=t2−4t+3. At what time acceleration is zero?",
-    "textHi": "A particle has velocity v=t2−4t+3. At what time acceleration is zero? (Hindi translated via AI)",
+    "textEn": "A particle has velocity v=t2-4t+3. At what time acceleration is zero?",
+    "textHi": "A particle has velocity v=t2-4t+3. At what time acceleration is zero? (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -35,23 +35,23 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 2,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "If force F = kx², work done from 0 to a is:",
-    "textHi": "If force F = kx², work done from 0 to a is: (Hindi translated via AI)",
+    "textEn": "If force F = kx^2, work done from 0 to a is:",
+    "textHi": "If force F = kx^2, work done from 0 to a is: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
-        "textEn": "ka²",
-        "textHi": "ka²"
+        "textEn": "ka^2",
+        "textHi": "ka^2"
       },
       {
         "id": 2,
-        "textEn": "ka³/3",
-        "textHi": "ka³/3"
+        "textEn": "ka^3/3",
+        "textHi": "ka^3/3"
       },
       {
         "id": 3,
-        "textEn": "ka³",
-        "textHi": "ka³"
+        "textEn": "ka^3",
+        "textHi": "ka^3"
       },
       {
         "id": 4,
@@ -100,23 +100,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "gT²/2",
-        "textHi": "gT²/2"
+        "textEn": "gT^2/2",
+        "textHi": "gT^2/2"
       },
       {
         "id": 2,
-        "textEn": "gT²/8",
-        "textHi": "gT²/8"
+        "textEn": "gT^2/8",
+        "textHi": "gT^2/8"
       },
       {
         "id": 3,
-        "textEn": "gT²/4",
-        "textHi": "gT²/4"
+        "textEn": "gT^2/4",
+        "textHi": "gT^2/4"
       },
       {
         "id": 4,
-        "textEn": "gT²",
-        "textHi": "gT²"
+        "textEn": "gT^2",
+        "textHi": "gT^2"
       }
     ],
     "correctOption": 2
@@ -280,23 +280,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ML⁻¹T⁻²",
-        "textHi": "ML⁻¹T⁻²"
+        "textEn": "ML^-¹T^-^2",
+        "textHi": "ML^-¹T^-^2"
       },
       {
         "id": 2,
-        "textEn": "MLT⁻²",
-        "textHi": "MLT⁻²"
+        "textEn": "MLT^-^2",
+        "textHi": "MLT^-^2"
       },
       {
         "id": 3,
-        "textEn": "ML²T⁻²",
-        "textHi": "ML²T⁻²"
+        "textEn": "ML^2T^-^2",
+        "textHi": "ML^2T^-^2"
       },
       {
         "id": 4,
-        "textEn": "M⁻¹L⁻²T²",
-        "textHi": "M⁻¹L⁻²T²"
+        "textEn": "M^-¹L^-^2T^2",
+        "textHi": "M^-¹L^-^2T^2"
       }
     ],
     "correctOption": 1
@@ -515,8 +515,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 18,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Cp − Cv =",
-    "textHi": "Cp − Cv = (Hindi translated via AI)",
+    "textEn": "Cp - Cv =",
+    "textHi": "Cp - Cv = (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -645,13 +645,13 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "1/r²",
-        "textHi": "1/r²"
+        "textEn": "1/r^2",
+        "textHi": "1/r^2"
       },
       {
         "id": 3,
-        "textEn": "r²",
-        "textHi": "r²"
+        "textEn": "r^2",
+        "textHi": "r^2"
       },
       {
         "id": 4,
@@ -795,8 +795,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "I²",
-        "textHi": "I²"
+        "textEn": "I^2",
+        "textHi": "I^2"
       },
       {
         "id": 3,
@@ -1280,8 +1280,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "E²",
-        "textHi": "E²"
+        "textEn": "E^2",
+        "textHi": "E^2"
       },
       {
         "id": 4,
@@ -1360,23 +1360,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "s⁻¹",
-        "textHi": "s⁻¹"
+        "textEn": "s^-¹",
+        "textHi": "s^-¹"
       },
       {
         "id": 2,
-        "textEn": "L mol⁻¹ s⁻¹",
-        "textHi": "L mol⁻¹ s⁻¹"
+        "textEn": "L mol^-¹ s^-¹",
+        "textHi": "L mol^-¹ s^-¹"
       },
       {
         "id": 3,
-        "textEn": "mol L⁻¹ s⁻¹",
-        "textHi": "mol L⁻¹ s⁻¹"
+        "textEn": "mol L^-¹ s^-¹",
+        "textHi": "mol L^-¹ s^-¹"
       },
       {
         "id": 4,
-        "textEn": "L² mol⁻² s⁻¹",
-        "textHi": "L² mol⁻² s⁻¹"
+        "textEn": "L^2 mol^-^2 s^-¹",
+        "textHi": "L^2 mol^-^2 s^-¹"
       }
     ],
     "correctOption": 2
@@ -1475,8 +1475,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 50,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Raoult’s law valid for:",
-    "textHi": "Raoult’s law valid for: (Hindi translated via AI)",
+    "textEn": "Raoult's law valid for:",
+    "textHi": "Raoult's law valid for: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -1900,23 +1900,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "−NO₂",
-        "textHi": "−NO₂"
+        "textEn": "-NO_2",
+        "textHi": "-NO_2"
       },
       {
         "id": 2,
-        "textEn": "−OH",
-        "textHi": "−OH"
+        "textEn": "-OH",
+        "textHi": "-OH"
       },
       {
         "id": 3,
-        "textEn": "−Cl",
-        "textHi": "−Cl"
+        "textEn": "-Cl",
+        "textHi": "-Cl"
       },
       {
         "id": 4,
-        "textEn": "−COOH",
-        "textHi": "−COOH"
+        "textEn": "-COOH",
+        "textHi": "-COOH"
       }
     ],
     "correctOption": 2
@@ -1930,8 +1930,8 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "FeCl₃",
-        "textHi": "FeCl₃"
+        "textEn": "FeCl_3",
+        "textHi": "FeCl_3"
       },
       {
         "id": 2,
@@ -1940,8 +1940,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "H₂",
-        "textHi": "H₂"
+        "textEn": "H_2",
+        "textHi": "H_2"
       },
       {
         "id": 4,
@@ -2065,8 +2065,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       }
     ],
     "correctOption": 2
@@ -2345,8 +2345,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 79,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Hybridization of CO₂:",
-    "textHi": "Hybridization of CO₂: (Hindi translated via AI)",
+    "textEn": "Hybridization of CO_2:",
+    "textHi": "Hybridization of CO_2: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2355,18 +2355,18 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 3,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 4,
-        "textEn": "dsp²",
-        "textHi": "dsp²"
+        "textEn": "dsp^2",
+        "textHi": "dsp^2"
       }
     ],
     "correctOption": 1
@@ -2375,8 +2375,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 80,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Oxidation state of Mn in KMnO₄:",
-    "textHi": "Oxidation state of Mn in KMnO₄: (Hindi translated via AI)",
+    "textEn": "Oxidation state of Mn in KMnO_4:",
+    "textHi": "Oxidation state of Mn in KMnO_4: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2410,13 +2410,13 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "KMnO₄",
-        "textHi": "KMnO₄"
+        "textEn": "KMnO_4",
+        "textHi": "KMnO_4"
       },
       {
         "id": 2,
-        "textEn": "H₂",
-        "textHi": "H₂"
+        "textEn": "H_2",
+        "textHi": "H_2"
       },
       {
         "id": 3,
@@ -2425,8 +2425,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textEn": "Cl^-",
+        "textHi": "Cl^-"
       }
     ],
     "correctOption": 1
@@ -2560,18 +2560,18 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Groups 13–18",
-        "textHi": "Groups 13–18"
+        "textEn": "Groups 13-18",
+        "textHi": "Groups 13-18"
       },
       {
         "id": 2,
-        "textEn": "1–2",
-        "textHi": "1–2"
+        "textEn": "1-2",
+        "textHi": "1-2"
       },
       {
         "id": 3,
-        "textEn": "3–12",
-        "textHi": "3–12"
+        "textEn": "3-12",
+        "textHi": "3-12"
       },
       {
         "id": 4,
@@ -2590,13 +2590,13 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       },
       {
         "id": 2,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 3,
@@ -2605,8 +2605,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "CH₄",
-        "textHi": "CH₄"
+        "textEn": "CH_4",
+        "textHi": "CH_4"
       }
     ],
     "correctOption": 3
@@ -2620,23 +2620,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Na₂O",
-        "textHi": "Na₂O"
+        "textEn": "Na_2O",
+        "textHi": "Na_2O"
       },
       {
         "id": 2,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 3,
-        "textEn": "SO₂",
-        "textHi": "SO₂"
+        "textEn": "SO_2",
+        "textHi": "SO_2"
       },
       {
         "id": 4,
-        "textEn": "NO₂",
-        "textHi": "NO₂"
+        "textEn": "NO_2",
+        "textHi": "NO_2"
       }
     ],
     "correctOption": 1
@@ -2650,8 +2650,8 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "SO₂",
-        "textHi": "SO₂"
+        "textEn": "SO_2",
+        "textHi": "SO_2"
       },
       {
         "id": 2,
@@ -2665,8 +2665,8 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "Na₂O",
-        "textHi": "Na₂O"
+        "textEn": "Na_2O",
+        "textHi": "Na_2O"
       }
     ],
     "correctOption": 1
@@ -2685,18 +2685,18 @@ export const neetMock10Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 3,
-        "textEn": "SO₂",
-        "textHi": "SO₂"
+        "textEn": "SO_2",
+        "textHi": "SO_2"
       },
       {
         "id": 4,
-        "textEn": "NO₂",
-        "textHi": "NO₂"
+        "textEn": "NO_2",
+        "textHi": "NO_2"
       }
     ],
     "correctOption": 1
@@ -2830,23 +2830,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Ribosome – protein synthesis",
-        "textHi": "Ribosome – protein synthesis"
+        "textEn": "Ribosome - protein synthesis",
+        "textHi": "Ribosome - protein synthesis"
       },
       {
         "id": 2,
-        "textEn": "Golgi – packaging",
-        "textHi": "Golgi – packaging"
+        "textEn": "Golgi - packaging",
+        "textHi": "Golgi - packaging"
       },
       {
         "id": 3,
-        "textEn": "Mitochondria – photosynthesis",
-        "textHi": "Mitochondria – photosynthesis"
+        "textEn": "Mitochondria - photosynthesis",
+        "textHi": "Mitochondria - photosynthesis"
       },
       {
         "id": 4,
-        "textEn": "Lysosome – digestion",
-        "textHi": "Lysosome – digestion"
+        "textEn": "Lysosome - digestion",
+        "textHi": "Lysosome - digestion"
       }
     ],
     "correctOption": 3
@@ -2890,23 +2890,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "A–T",
-        "textHi": "A–T"
+        "textEn": "A-T",
+        "textHi": "A-T"
       },
       {
         "id": 2,
-        "textEn": "G–C",
-        "textHi": "G–C"
+        "textEn": "G-C",
+        "textHi": "G-C"
       },
       {
         "id": 3,
-        "textEn": "A–G",
-        "textHi": "A–G"
+        "textEn": "A-G",
+        "textHi": "A-G"
       },
       {
         "id": 4,
-        "textEn": "T–C",
-        "textHi": "T–C"
+        "textEn": "T-C",
+        "textHi": "T-C"
       }
     ],
     "correctOption": 2
@@ -2975,8 +2975,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 100,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C₆H₁₂O₆ is:",
-    "textHi": "C₆H₁₂O₆ is: (Hindi translated via AI)",
+    "textEn": "C_6H_1_2O_6 is:",
+    "textHi": "C_6H_1_2O_6 is: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -3910,23 +3910,23 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
-        "textEn": "O₂",
-        "textHi": "O₂"
+        "textEn": "O_2",
+        "textHi": "O_2"
       },
       {
         "id": 3,
-        "textEn": "N₂",
-        "textHi": "N₂"
+        "textEn": "N_2",
+        "textHi": "N_2"
       },
       {
         "id": 4,
-        "textEn": "H₂",
-        "textHi": "H₂"
+        "textEn": "H_2",
+        "textHi": "H_2"
       }
     ],
     "correctOption": 1
@@ -4120,8 +4120,8 @@ export const neetMock10Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂ & pH",
-        "textHi": "CO₂ & pH"
+        "textEn": "CO_2 & pH",
+        "textHi": "CO_2 & pH"
       },
       {
         "id": 2,
@@ -4175,8 +4175,8 @@ export const neetMock10Questions: QuestionType[] = [
     "id": 140,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "Which hormone increases blood Ca²⁺?",
-    "textHi": "Which hormone increases blood Ca²⁺? (Hindi translated via AI)",
+    "textEn": "Which hormone increases blood Ca^2^+?",
+    "textHi": "Which hormone increases blood Ca^2^+? (Hindi translated via AI)",
     "options": [
       {
         "id": 1,

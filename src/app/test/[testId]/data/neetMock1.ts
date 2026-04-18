@@ -20,13 +20,13 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "g(√3/2 − 0.5)",
-        "textHi": "जी(√3/2 − 0.5)"
+        "textEn": "g(√3/2 - 0.5)",
+        "textHi": "जी(√3/2 - 0.5)"
       },
       {
         "id": 4,
-        "textEn": "g(0.5 − √3/2)",
-        "textHi": "जी(0.5 − √3/2)"
+        "textEn": "g(0.5 - √3/2)",
+        "textHi": "जी(0.5 - √3/2)"
       }
     ],
     "correctOption": 4
@@ -50,8 +50,8 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "mv²",
-        "textHi": "एमवी²"
+        "textEn": "mv^2",
+        "textHi": "एमवी^2"
       },
       {
         "id": 4,
@@ -95,23 +95,23 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 4,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "If force F = kx², work done from 0 to x is:",
-    "textHi": "यदि बल F = kx², तो 0 से x तक किया गया कार्य है:",
+    "textEn": "If force F = kx^2, work done from 0 to x is:",
+    "textHi": "यदि बल F = kx^2, तो 0 से x तक किया गया कार्य है:",
     "options": [
       {
         "id": 1,
-        "textEn": "kx²",
-        "textHi": "kx²"
+        "textEn": "kx^2",
+        "textHi": "kx^2"
       },
       {
         "id": 2,
-        "textEn": "kx³/3",
-        "textHi": "kx³/3"
+        "textEn": "kx^3/3",
+        "textHi": "kx^3/3"
       },
       {
         "id": 3,
-        "textEn": "kx³",
-        "textHi": "kx³"
+        "textEn": "kx^3",
+        "textHi": "kx^3"
       },
       {
         "id": 4,
@@ -165,13 +165,13 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "R²",
-        "textHi": "आर²"
+        "textEn": "R^2",
+        "textHi": "आर^2"
       },
       {
         "id": 3,
-        "textEn": "R³ᐟ²",
-        "textHi": "र³ᐟ²"
+        "textEn": "R^3ᐟ^2",
+        "textHi": "र^3ᐟ^2"
       },
       {
         "id": 4,
@@ -220,8 +220,8 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Net force ≠ 0",
-        "textHi": "शुद्ध बल ≠ 0"
+        "textEn": "Net force != 0",
+        "textHi": "शुद्ध बल != 0"
       },
       {
         "id": 2,
@@ -230,8 +230,8 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "Acceleration ≠ 0",
-        "textHi": "त्वरण ≠ 0"
+        "textEn": "Acceleration != 0",
+        "textHi": "त्वरण != 0"
       },
       {
         "id": 4,
@@ -335,8 +335,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 12,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "If potential energy is U = ax², force is:",
-    "textHi": "यदि स्थितिज ऊर्जा U = ax² है, तो बल है:",
+    "textEn": "If potential energy is U = ax^2, force is:",
+    "textHi": "यदि स्थितिज ऊर्जा U = ax^2 है, तो बल है:",
     "options": [
       {
         "id": 1,
@@ -555,13 +555,13 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "V²/R",
-        "textHi": "वी²/आर"
+        "textEn": "V^2/R",
+        "textHi": "वी^2/आर"
       },
       {
         "id": 3,
-        "textEn": "I²R",
-        "textHi": "मैं²आर"
+        "textEn": "I^2R",
+        "textHi": "मैं^2आर"
       },
       {
         "id": 4,
@@ -860,8 +860,8 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "f²",
-        "textHi": "एफ²"
+        "textEn": "f^2",
+        "textHi": "एफ^2"
       },
       {
         "id": 4,
@@ -1240,23 +1240,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "MLT⁻²",
-        "textHi": "एमएलटी⁻²"
+        "textEn": "MLT^-^2",
+        "textHi": "एमएलटी^-^2"
       },
       {
         "id": 2,
-        "textEn": "ML²T⁻²",
-        "textHi": "एमएल²टी⁻²"
+        "textEn": "ML^2T^-^2",
+        "textHi": "एमएल^2टी^-^2"
       },
       {
         "id": 3,
-        "textEn": "MLT⁻¹",
-        "textHi": "एमएलटी⁻¹"
+        "textEn": "MLT^-¹",
+        "textHi": "एमएलटी^-¹"
       },
       {
         "id": 4,
-        "textEn": "MT⁻²",
-        "textHi": "MT⁻²"
+        "textEn": "MT^-^2",
+        "textHi": "MT^-^2"
       }
     ],
     "correctOption": 1
@@ -1270,8 +1270,8 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "N/m²",
-        "textHi": "एन/एम²"
+        "textEn": "N/m^2",
+        "textHi": "एन/एम^2"
       },
       {
         "id": 2,
@@ -1330,23 +1330,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ML²T⁻¹",
-        "textHi": "एमएल²टी⁻¹"
+        "textEn": "ML^2T^-¹",
+        "textHi": "एमएल^2टी^-¹"
       },
       {
         "id": 2,
-        "textEn": "ML²T⁻²",
-        "textHi": "एमएल²टी⁻²"
+        "textEn": "ML^2T^-^2",
+        "textHi": "एमएल^2टी^-^2"
       },
       {
         "id": 3,
-        "textEn": "MLT⁻²",
-        "textHi": "एमएलटी⁻²"
+        "textEn": "MLT^-^2",
+        "textHi": "एमएलटी^-^2"
       },
       {
         "id": 4,
-        "textEn": "MLT⁻¹",
-        "textHi": "एमएलटी⁻¹"
+        "textEn": "MLT^-¹",
+        "textHi": "एमएलटी^-¹"
       }
     ],
     "correctOption": 1
@@ -1390,23 +1390,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "s⁻¹",
-        "textHi": "एस⁻¹"
+        "textEn": "s^-¹",
+        "textHi": "एस^-¹"
       },
       {
         "id": 2,
-        "textEn": "mol L⁻¹ s⁻¹",
-        "textHi": "मोल L⁻¹ s⁻¹"
+        "textEn": "mol L^-¹ s^-¹",
+        "textHi": "मोल L^-¹ s^-¹"
       },
       {
         "id": 3,
-        "textEn": "L mol⁻¹ s⁻¹",
-        "textHi": "एल मोल⁻¹ एस⁻¹"
+        "textEn": "L mol^-¹ s^-¹",
+        "textHi": "एल मोल^-¹ एस^-¹"
       },
       {
         "id": 4,
-        "textEn": "L² mol⁻² s⁻¹",
-        "textHi": "L² mol⁻² s⁻¹"
+        "textEn": "L^2 mol^-^2 s^-¹",
+        "textHi": "L^2 mol^-^2 s^-¹"
       }
     ],
     "correctOption": 3
@@ -1445,8 +1445,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 49,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "pH of 10⁻³ M HCl is:",
-    "textHi": "10⁻³ M HCl का pH है:",
+    "textEn": "pH of 10^-^3 M HCl is:",
+    "textHi": "10^-^3 M HCl का pH है:",
     "options": [
       {
         "id": 1,
@@ -1870,23 +1870,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "NH₃",
-        "textHi": "एनएच₃"
+        "textEn": "NH_3",
+        "textHi": "एनएच_3"
       },
       {
         "id": 2,
-        "textEn": "OH⁻",
+        "textEn": "OH^-",
         "textHi": "ओह!"
       },
       {
         "id": 3,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 4,
-        "textEn": "CH₄",
-        "textHi": "सीएच₄"
+        "textEn": "CH_4",
+        "textHi": "सीएच_4"
       }
     ],
     "correctOption": 2
@@ -1990,8 +1990,8 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CH₄",
-        "textHi": "सीएच₄"
+        "textEn": "CH_4",
+        "textHi": "सीएच_4"
       },
       {
         "id": 2,
@@ -2020,13 +2020,13 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 2,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 3,
@@ -2345,8 +2345,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 79,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Bond angle in NH₃ is:",
-    "textHi": "NH₃ में आबंध कोण है:",
+    "textEn": "Bond angle in NH_3 is:",
+    "textHi": "NH_3 में आबंध कोण है:",
     "options": [
       {
         "id": 1,
@@ -2375,8 +2375,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 80,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Shape of CO₂:",
-    "textHi": "CO₂ का आकार:",
+    "textEn": "Shape of CO_2:",
+    "textHi": "CO_2 का आकार:",
     "options": [
       {
         "id": 1,
@@ -2470,23 +2470,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 2,
-        "textEn": "NH₃",
-        "textHi": "एनएच₃"
+        "textEn": "NH_3",
+        "textHi": "एनएच_3"
       },
       {
         "id": 3,
-        "textEn": "CN⁻",
-        "textHi": "सीएन⁻"
+        "textEn": "CN^-",
+        "textHi": "सीएन^-"
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "सीएल⁻"
+        "textEn": "Cl^-",
+        "textHi": "सीएल^-"
       }
     ],
     "correctOption": 3
@@ -2495,8 +2495,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 84,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Oxidation state of Mn in KMnO₄:",
-    "textHi": "KMnO₄ में Mn की ऑक्सीकरण अवस्था:",
+    "textEn": "Oxidation state of Mn in KMnO_4:",
+    "textHi": "KMnO_4 में Mn की ऑक्सीकरण अवस्था:",
     "options": [
       {
         "id": 1,
@@ -2530,17 +2530,17 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Groups 1–2",
+        "textEn": "Groups 1-2",
         "textHi": "समूह 1-2"
       },
       {
         "id": 2,
-        "textEn": "3–12",
+        "textEn": "3-12",
         "textHi": "3-12"
       },
       {
         "id": 3,
-        "textEn": "13–18",
+        "textEn": "13-18",
         "textHi": "13-18"
       },
       {
@@ -2600,13 +2600,13 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 4,
-        "textEn": "NH₃",
-        "textHi": "एनएच₃"
+        "textEn": "NH_3",
+        "textHi": "एनएच_3"
       }
     ],
     "correctOption": 2
@@ -3005,8 +3005,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 101,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C₄ plants minimize photorespiration by:",
-    "textHi": "C₄ पौधे प्रकाश श्वसन को निम्न द्वारा कम करते हैं:",
+    "textEn": "C_4 plants minimize photorespiration by:",
+    "textHi": "C_4 पौधे प्रकाश श्वसन को निम्न द्वारा कम करते हैं:",
     "options": [
       {
         "id": 1,
@@ -3015,13 +3015,13 @@ export const neetMock1Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "CO₂ concentration",
-        "textHi": "CO₂ एकाग्रता"
+        "textEn": "CO_2 concentration",
+        "textHi": "CO_2 एकाग्रता"
       },
       {
         "id": 3,
-        "textEn": "O₂ release",
-        "textHi": "ओ₂ रिलीज"
+        "textEn": "O_2 release",
+        "textHi": "ओ_2 रिलीज"
       },
       {
         "id": 4,
@@ -3035,8 +3035,8 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 102,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "Which enzyme fixes CO₂ in Calvin cycle?",
-    "textHi": "कौन सा एंजाइम केल्विन चक्र में CO₂ को स्थिर करता है?",
+    "textEn": "Which enzyme fixes CO_2 in Calvin cycle?",
+    "textHi": "कौन सा एंजाइम केल्विन चक्र में CO_2 को स्थिर करता है?",
     "options": [
       {
         "id": 1,
@@ -3305,7 +3305,7 @@ export const neetMock1Questions: QuestionType[] = [
     "id": 111,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "Mendel’s law of segregation occurs in:",
+    "textEn": "Mendel's law of segregation occurs in:",
     "textHi": "मेंडल का पृथक्करण का नियम घटित होता है:",
     "options": [
       {
@@ -4060,18 +4060,18 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Stroke volume × heart rate",
-        "textHi": "स्ट्रोक की मात्रा × हृदय गति"
+        "textEn": "Stroke volume x heart rate",
+        "textHi": "स्ट्रोक की मात्रा x हृदय गति"
       },
       {
         "id": 2,
-        "textEn": "Blood pressure × heart rate",
-        "textHi": "रक्तचाप × हृदय गति"
+        "textEn": "Blood pressure x heart rate",
+        "textHi": "रक्तचाप x हृदय गति"
       },
       {
         "id": 3,
-        "textEn": "Stroke volume × BP",
-        "textHi": "स्ट्रोक की मात्रा × बीपी"
+        "textEn": "Stroke volume x BP",
+        "textHi": "स्ट्रोक की मात्रा x बीपी"
       },
       {
         "id": 4,
@@ -4120,23 +4120,23 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Na⁺",
-        "textHi": "ना⁺"
+        "textEn": "Na^+",
+        "textHi": "ना^+"
       },
       {
         "id": 2,
-        "textEn": "K⁺",
-        "textHi": "क⁺"
+        "textEn": "K^+",
+        "textHi": "क^+"
       },
       {
         "id": 3,
-        "textEn": "Ca²⁺",
-        "textHi": "Ca²⁺"
+        "textEn": "Ca^2^+",
+        "textHi": "Ca^2^+"
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "सीएल⁻"
+        "textEn": "Cl^-",
+        "textHi": "सीएल^-"
       }
     ],
     "correctOption": 3
@@ -4150,8 +4150,8 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Low CO₂",
-        "textHi": "कम CO₂"
+        "textEn": "Low CO_2",
+        "textHi": "कम CO_2"
       },
       {
         "id": 2,
@@ -4390,13 +4390,13 @@ export const neetMock1Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂ binding",
-        "textHi": "CO₂ बाइंडिंग"
+        "textEn": "CO_2 binding",
+        "textHi": "CO_2 बाइंडिंग"
       },
       {
         "id": 2,
-        "textEn": "O₂ release",
-        "textHi": "ओ₂ रिलीज"
+        "textEn": "O_2 release",
+        "textHi": "ओ_2 रिलीज"
       },
       {
         "id": 3,

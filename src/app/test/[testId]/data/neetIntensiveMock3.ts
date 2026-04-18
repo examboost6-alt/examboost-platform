@@ -10,8 +10,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "g(sinθ – μcosθ)",
-        "textHi": "g(sinθ – μcosθ)"
+        "textEn": "g(sinθ - μcosθ)",
+        "textHi": "g(sinθ - μcosθ)"
       },
       {
         "id": 2,
@@ -35,13 +35,13 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 2,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Two bodies of masses m₁, m₂ collide elastically → relative velocity after collision = ?",
-    "textHi": " (Hindi translated via AI) \nTwo bodies of masses m₁, m₂ collide elastically → relative velocity after collision = ?",
+    "textEn": "Two bodies of masses m_1, m_2 collide elastically → relative velocity after collision = ?",
+    "textHi": " (Hindi translated via AI) \nTwo bodies of masses m_1, m_2 collide elastically → relative velocity after collision = ?",
     "options": [
       {
         "id": 1,
-        "textEn": "– relative velocity before collision",
-        "textHi": "– relative velocity before collision"
+        "textEn": "- relative velocity before collision",
+        "textHi": "- relative velocity before collision"
       },
       {
         "id": 2,
@@ -70,13 +70,13 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ω²A",
-        "textHi": "ω²A"
+        "textEn": "ω^2A",
+        "textHi": "ω^2A"
       },
       {
         "id": 2,
-        "textEn": "A/ω²",
-        "textHi": "A/ω²"
+        "textEn": "A/ω^2",
+        "textHi": "A/ω^2"
       },
       {
         "id": 3,
@@ -100,23 +100,23 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½ mω²A²",
-        "textHi": "½ mω²A²"
+        "textEn": "1/2 mω^2A^2",
+        "textHi": "1/2 mω^2A^2"
       },
       {
         "id": 2,
-        "textEn": "mω²A²",
-        "textHi": "mω²A²"
+        "textEn": "mω^2A^2",
+        "textHi": "mω^2A^2"
       },
       {
         "id": 3,
-        "textEn": "½ kA²",
-        "textHi": "½ kA²"
+        "textEn": "1/2 kA^2",
+        "textHi": "1/2 kA^2"
       },
       {
         "id": 4,
-        "textEn": "kA²",
-        "textHi": "kA²"
+        "textEn": "kA^2",
+        "textHi": "kA^2"
       }
     ],
     "correctOption": 1
@@ -130,23 +130,23 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½ MR²",
-        "textHi": "½ MR²"
+        "textEn": "1/2 MR^2",
+        "textHi": "1/2 MR^2"
       },
       {
         "id": 2,
-        "textEn": "1/4 MR²",
-        "textHi": "1/4 MR²"
+        "textEn": "1/4 MR^2",
+        "textHi": "1/4 MR^2"
       },
       {
         "id": 3,
-        "textEn": "½ MR² + M(h²/12)",
-        "textHi": "½ MR² + M(h²/12)"
+        "textEn": "1/2 MR^2 + M(h^2/12)",
+        "textHi": "1/2 MR^2 + M(h^2/12)"
       },
       {
         "id": 4,
-        "textEn": "1/2 MR² + MR²/12",
-        "textHi": "1/2 MR² + MR²/12"
+        "textEn": "1/2 MR^2 + MR^2/12",
+        "textHi": "1/2 MR^2 + MR^2/12"
       }
     ],
     "correctOption": 4
@@ -255,8 +255,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "Δx = (n + ½) λ",
-        "textHi": "Δx = (n + ½) λ"
+        "textEn": "Δx = (n + 1/2) λ",
+        "textHi": "Δx = (n + 1/2) λ"
       },
       {
         "id": 3,
@@ -340,18 +340,18 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "½ CV²",
-        "textHi": "½ CV²"
+        "textEn": "1/2 CV^2",
+        "textHi": "1/2 CV^2"
       },
       {
         "id": 2,
-        "textEn": "CV²",
-        "textHi": "CV²"
+        "textEn": "CV^2",
+        "textHi": "CV^2"
       },
       {
         "id": 3,
-        "textEn": "½ C/V",
-        "textHi": "½ C/V"
+        "textEn": "1/2 C/V",
+        "textHi": "1/2 C/V"
       },
       {
         "id": 4,
@@ -605,8 +605,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 21,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Friedel–Crafts fails with:",
-    "textHi": " (Hindi translated via AI) \nFriedel–Crafts fails with:",
+    "textEn": "Friedel-Crafts fails with:",
+    "textHi": " (Hindi translated via AI) \nFriedel-Crafts fails with:",
     "options": [
       {
         "id": 1,
@@ -875,8 +875,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 30,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Van der Waals constant ‘a’ → measures:",
-    "textHi": " (Hindi translated via AI) \nVan der Waals constant ‘a’ → measures:",
+    "textEn": "Van der Waals constant 'a' → measures:",
+    "textHi": " (Hindi translated via AI) \nVan der Waals constant 'a' → measures:",
     "options": [
       {
         "id": 1,
@@ -905,8 +905,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 31,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Van der Waals constant ‘b’ → measures:",
-    "textHi": " (Hindi translated via AI) \nVan der Waals constant ‘b’ → measures:",
+    "textEn": "Van der Waals constant 'b' → measures:",
+    "textHi": " (Hindi translated via AI) \nVan der Waals constant 'b' → measures:",
     "options": [
       {
         "id": 1,
@@ -1000,23 +1000,23 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textEn": "CN^-",
+        "textHi": "CN^-"
       },
       {
         "id": 2,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 3,
-        "textEn": "F⁻",
-        "textHi": "F⁻"
+        "textEn": "F^-",
+        "textHi": "F^-"
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textEn": "Cl^-",
+        "textHi": "Cl^-"
       }
     ],
     "correctOption": 1
@@ -1030,8 +1030,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 2,
@@ -1040,13 +1040,13 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textEn": "CN^-",
+        "textHi": "CN^-"
       },
       {
         "id": 4,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       }
     ],
     "correctOption": 1
@@ -1160,8 +1160,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "van’t Hoff factor",
-        "textHi": "van’t Hoff factor"
+        "textEn": "van't Hoff factor",
+        "textHi": "van't Hoff factor"
       },
       {
         "id": 4,
@@ -1355,8 +1355,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 46,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "0.01 M CH₃COOH → Ka = 1.8×10⁻⁵ → degree of ionization α = ?",
-    "textHi": " (Hindi translated via AI) \n0.01 M CH₃COOH → Ka = 1.8×10⁻⁵ → degree of ionization α = ?",
+    "textEn": "0.01 M CH_3COOH → Ka = 1.8x10^-⁵ → degree of ionization α = ?",
+    "textHi": " (Hindi translated via AI) \n0.01 M CH_3COOH → Ka = 1.8x10^-⁵ → degree of ionization α = ?",
     "options": [
       {
         "id": 1,
@@ -1385,8 +1385,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 47,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "pH of 0.001 M HCl → consider contribution from H₂O:",
-    "textHi": " (Hindi translated via AI) \npH of 0.001 M HCl → consider contribution from H₂O:",
+    "textEn": "pH of 0.001 M HCl → consider contribution from H_2O:",
+    "textHi": " (Hindi translated via AI) \npH of 0.001 M HCl → consider contribution from H_2O:",
     "options": [
       {
         "id": 1,
@@ -1415,8 +1415,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 48,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Oxidation state of Mn in KMnO₄:",
-    "textHi": " (Hindi translated via AI) \nOxidation state of Mn in KMnO₄:",
+    "textEn": "Oxidation state of Mn in KMnO_4:",
+    "textHi": " (Hindi translated via AI) \nOxidation state of Mn in KMnO_4:",
     "options": [
       {
         "id": 1,
@@ -1445,28 +1445,28 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 49,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Hybridization of SF₆:",
-    "textHi": " (Hindi translated via AI) \nHybridization of SF₆:",
+    "textEn": "Hybridization of SF_6:",
+    "textHi": " (Hindi translated via AI) \nHybridization of SF_6:",
     "options": [
       {
         "id": 1,
-        "textEn": "sp³d²",
-        "textHi": "sp³d²"
+        "textEn": "sp^3d^2",
+        "textHi": "sp^3d^2"
       },
       {
         "id": 2,
-        "textEn": "sp³d³",
-        "textHi": "sp³d³"
+        "textEn": "sp^3d^3",
+        "textHi": "sp^3d^3"
       },
       {
         "id": 3,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 4,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       }
     ],
     "correctOption": 1
@@ -1475,8 +1475,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 50,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Bond order in O₂⁻:",
-    "textHi": " (Hindi translated via AI) \nBond order in O₂⁻:",
+    "textEn": "Bond order in O_2^-:",
+    "textHi": " (Hindi translated via AI) \nBond order in O_2^-:",
     "options": [
       {
         "id": 1,
@@ -1505,8 +1505,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 51,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Vander Waals ‘a’ constant → represents:",
-    "textHi": " (Hindi translated via AI) \nVander Waals ‘a’ constant → represents:",
+    "textEn": "Vander Waals 'a' constant → represents:",
+    "textHi": " (Hindi translated via AI) \nVander Waals 'a' constant → represents:",
     "options": [
       {
         "id": 1,
@@ -1565,8 +1565,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 53,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "ΔG° = –RT ln K → ΔG° > 0 → reaction:",
-    "textHi": " (Hindi translated via AI) \nΔG° = –RT ln K → ΔG° > 0 → reaction:",
+    "textEn": "ΔG° = -RT ln K → ΔG° > 0 → reaction:",
+    "textHi": " (Hindi translated via AI) \nΔG° = -RT ln K → ΔG° > 0 → reaction:",
     "options": [
       {
         "id": 1,
@@ -1595,8 +1595,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 54,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Rate law ≠ molecularity in:",
-    "textHi": " (Hindi translated via AI) \nRate law ≠ molecularity in:",
+    "textEn": "Rate law != molecularity in:",
+    "textHi": " (Hindi translated via AI) \nRate law != molecularity in:",
     "options": [
       {
         "id": 1,
@@ -1955,8 +1955,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 66,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Friedel–Crafts reaction fails with:",
-    "textHi": " (Hindi translated via AI) \nFriedel–Crafts reaction fails with:",
+    "textEn": "Friedel-Crafts reaction fails with:",
+    "textHi": " (Hindi translated via AI) \nFriedel-Crafts reaction fails with:",
     "options": [
       {
         "id": 1,
@@ -2225,8 +2225,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 75,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Van der Waals constant ‘a’ → attraction",
-    "textHi": " (Hindi translated via AI) \nVan der Waals constant ‘a’ → attraction",
+    "textEn": "Van der Waals constant 'a' → attraction",
+    "textHi": " (Hindi translated via AI) \nVan der Waals constant 'a' → attraction",
     "options": [
       {
         "id": 1,
@@ -2255,8 +2255,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 76,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Van der Waals constant ‘b’ → molecular volume",
-    "textHi": " (Hindi translated via AI) \nVan der Waals constant ‘b’ → molecular volume",
+    "textEn": "Van der Waals constant 'b' → molecular volume",
+    "textHi": " (Hindi translated via AI) \nVan der Waals constant 'b' → molecular volume",
     "options": [
       {
         "id": 1,
@@ -2345,8 +2345,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 79,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Strong field ligand → low spin → CN⁻",
-    "textHi": " (Hindi translated via AI) \nStrong field ligand → low spin → CN⁻",
+    "textEn": "Strong field ligand → low spin → CN^-",
+    "textHi": " (Hindi translated via AI) \nStrong field ligand → low spin → CN^-",
     "options": [
       {
         "id": 1,
@@ -2375,8 +2375,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 80,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Weak field ligand → high spin → H₂O",
-    "textHi": " (Hindi translated via AI) \nWeak field ligand → high spin → H₂O",
+    "textEn": "Weak field ligand → high spin → H_2O",
+    "textHi": " (Hindi translated via AI) \nWeak field ligand → high spin → H_2O",
     "options": [
       {
         "id": 1,
@@ -2775,13 +2775,13 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "Ψs – Ψp",
-        "textHi": "Ψs – Ψp"
+        "textEn": "Ψs - Ψp",
+        "textHi": "Ψs - Ψp"
       },
       {
         "id": 3,
-        "textEn": "Ψs × Ψp",
-        "textHi": "Ψs × Ψp"
+        "textEn": "Ψs x Ψp",
+        "textHi": "Ψs x Ψp"
       },
       {
         "id": 4,
@@ -2795,8 +2795,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 94,
     "type": "MCQ",
     "subject": "Botany",
-    "textEn": "C3 plant → first product of CO₂ fixation:",
-    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO₂ fixation:",
+    "textEn": "C3 plant → first product of CO_2 fixation:",
+    "textHi": " (Hindi translated via AI) \nC3 plant → first product of CO_2 fixation:",
     "options": [
       {
         "id": 1,
@@ -4180,8 +4180,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
@@ -4220,8 +4220,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "Bowman’s capsule",
-        "textHi": "Bowman’s capsule"
+        "textEn": "Bowman's capsule",
+        "textHi": "Bowman's capsule"
       },
       {
         "id": 4,
@@ -4625,8 +4625,8 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 155,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "Respiration → alveoli → gas exchange → O₂ diffuses:",
-    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → gas exchange → O₂ diffuses:",
+    "textEn": "Respiration → alveoli → gas exchange → O_2 diffuses:",
+    "textHi": " (Hindi translated via AI) \nRespiration → alveoli → gas exchange → O_2 diffuses:",
     "options": [
       {
         "id": 1,
@@ -4655,13 +4655,13 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "id": 156,
     "type": "MCQ",
     "subject": "Zoology",
-    "textEn": "CO₂ transported mainly as:",
-    "textHi": " (Hindi translated via AI) \nCO₂ transported mainly as:",
+    "textEn": "CO_2 transported mainly as:",
+    "textHi": " (Hindi translated via AI) \nCO_2 transported mainly as:",
     "options": [
       {
         "id": 1,
-        "textEn": "dissolved CO₂",
-        "textHi": "dissolved CO₂"
+        "textEn": "dissolved CO_2",
+        "textHi": "dissolved CO_2"
       },
       {
         "id": 2,
@@ -4780,23 +4780,23 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 2
@@ -4810,23 +4810,23 @@ export const neetIntensiveMock3Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O⁺",
-        "textHi": "O⁺"
+        "textEn": "O^+",
+        "textHi": "O^+"
       },
       {
         "id": 2,
-        "textEn": "O⁻",
-        "textHi": "O⁻"
+        "textEn": "O^-",
+        "textHi": "O^-"
       },
       {
         "id": 3,
-        "textEn": "AB⁺",
-        "textHi": "AB⁺"
+        "textEn": "AB^+",
+        "textHi": "AB^+"
       },
       {
         "id": 4,
-        "textEn": "AB⁻",
-        "textHi": "AB⁻"
+        "textEn": "AB^-",
+        "textHi": "AB^-"
       }
     ],
     "correctOption": 3

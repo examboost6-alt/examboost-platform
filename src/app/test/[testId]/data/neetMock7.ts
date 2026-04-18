@@ -5,8 +5,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 1,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "A particle moves such that x=t3−3t2. Velocity at t = 2 s is:",
-    "textHi": "A particle moves such that x=t3−3t2. Velocity at t = 2 s is: (Hindi translated via AI)",
+    "textEn": "A particle moves such that x=t3-3t2. Velocity at t = 2 s is:",
+    "textHi": "A particle moves such that x=t3-3t2. Velocity at t = 2 s is: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -70,23 +70,23 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "MR²",
-        "textHi": "MR²"
+        "textEn": "MR^2",
+        "textHi": "MR^2"
       },
       {
         "id": 2,
-        "textEn": "MR²/2",
-        "textHi": "MR²/2"
+        "textEn": "MR^2/2",
+        "textHi": "MR^2/2"
       },
       {
         "id": 3,
-        "textEn": "MR²/4",
-        "textHi": "MR²/4"
+        "textEn": "MR^2/4",
+        "textHi": "MR^2/4"
       },
       {
         "id": 4,
-        "textEn": "2MR²",
-        "textHi": "2MR²"
+        "textEn": "2MR^2",
+        "textHi": "2MR^2"
       }
     ],
     "correctOption": 2
@@ -260,8 +260,8 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "v = r²ω",
-        "textHi": "v = r²ω"
+        "textEn": "v = r^2ω",
+        "textHi": "v = r^2ω"
       },
       {
         "id": 4,
@@ -280,23 +280,23 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "ML²T⁻¹",
-        "textHi": "ML²T⁻¹"
+        "textEn": "ML^2T^-¹",
+        "textHi": "ML^2T^-¹"
       },
       {
         "id": 2,
-        "textEn": "MLT⁻¹",
-        "textHi": "MLT⁻¹"
+        "textEn": "MLT^-¹",
+        "textHi": "MLT^-¹"
       },
       {
         "id": 3,
-        "textEn": "ML²T⁻²",
-        "textHi": "ML²T⁻²"
+        "textEn": "ML^2T^-^2",
+        "textHi": "ML^2T^-^2"
       },
       {
         "id": 4,
-        "textEn": "MLT⁻²",
-        "textHi": "MLT⁻²"
+        "textEn": "MLT^-^2",
+        "textHi": "MLT^-^2"
       }
     ],
     "correctOption": 1
@@ -305,28 +305,28 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 11,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Potential energy function U = kx³, force is:",
-    "textHi": "Potential energy function U = kx³, force is: (Hindi translated via AI)",
+    "textEn": "Potential energy function U = kx^3, force is:",
+    "textHi": "Potential energy function U = kx^3, force is: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
-        "textEn": "3kx²",
-        "textHi": "3kx²"
+        "textEn": "3kx^2",
+        "textHi": "3kx^2"
       },
       {
         "id": 2,
-        "textEn": "-3kx²",
-        "textHi": "-3kx²"
+        "textEn": "-3kx^2",
+        "textHi": "-3kx^2"
       },
       {
         "id": 3,
-        "textEn": "kx²",
-        "textHi": "kx²"
+        "textEn": "kx^2",
+        "textHi": "kx^2"
       },
       {
         "id": 4,
-        "textEn": "-kx²",
-        "textHi": "-kx²"
+        "textEn": "-kx^2",
+        "textHi": "-kx^2"
       }
     ],
     "correctOption": 2
@@ -335,8 +335,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 12,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "In non-inertial frame, Newton’s law fails due to:",
-    "textHi": "In non-inertial frame, Newton’s law fails due to: (Hindi translated via AI)",
+    "textEn": "In non-inertial frame, Newton's law fails due to:",
+    "textHi": "In non-inertial frame, Newton's law fails due to: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -375,13 +375,13 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "A²",
-        "textHi": "A²"
+        "textEn": "A^2",
+        "textHi": "A^2"
       },
       {
         "id": 3,
-        "textEn": "A³",
-        "textHi": "A³"
+        "textEn": "A^3",
+        "textHi": "A^3"
       },
       {
         "id": 4,
@@ -535,8 +535,8 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "T²",
-        "textHi": "T²"
+        "textEn": "T^2",
+        "textHi": "T^2"
       }
     ],
     "correctOption": 1
@@ -645,8 +645,8 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 2,
-        "textEn": "I²",
-        "textHi": "I²"
+        "textEn": "I^2",
+        "textHi": "I^2"
       },
       {
         "id": 3,
@@ -655,8 +655,8 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 4,
-        "textEn": "R²",
-        "textHi": "R²"
+        "textEn": "R^2",
+        "textHi": "R^2"
       }
     ],
     "correctOption": 2
@@ -910,8 +910,8 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "A·m²",
-        "textHi": "A·m²"
+        "textEn": "A·m^2",
+        "textHi": "A·m^2"
       },
       {
         "id": 2,
@@ -995,8 +995,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 34,
     "type": "MCQ",
     "subject": "Physics",
-    "textEn": "Young’s double slit depends on:",
-    "textHi": "Young’s double slit depends on: (Hindi translated via AI)",
+    "textEn": "Young's double slit depends on:",
+    "textHi": "Young's double slit depends on: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -1150,8 +1150,8 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "E = mc²",
-        "textHi": "E = mc²"
+        "textEn": "E = mc^2",
+        "textHi": "E = mc^2"
       },
       {
         "id": 2,
@@ -1355,23 +1355,23 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 46,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "For reaction: 2A → Products, rate law = k[A]². If [A] doubles, rate becomes:",
-    "textHi": "For reaction: 2A → Products, rate law = k[A]². If [A] doubles, rate becomes: (Hindi translated via AI)",
+    "textEn": "For reaction: 2A → Products, rate law = k[A]^2. If [A] doubles, rate becomes:",
+    "textHi": "For reaction: 2A → Products, rate law = k[A]^2. If [A] doubles, rate becomes: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
-        "textEn": "2×",
-        "textHi": "2×"
+        "textEn": "2x",
+        "textHi": "2x"
       },
       {
         "id": 2,
-        "textEn": "4×",
-        "textHi": "4×"
+        "textEn": "4x",
+        "textHi": "4x"
       },
       {
         "id": 3,
-        "textEn": "8×",
-        "textHi": "8×"
+        "textEn": "8x",
+        "textHi": "8x"
       },
       {
         "id": 4,
@@ -1390,23 +1390,23 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "mol L⁻¹ s⁻¹",
-        "textHi": "mol L⁻¹ s⁻¹"
+        "textEn": "mol L^-¹ s^-¹",
+        "textHi": "mol L^-¹ s^-¹"
       },
       {
         "id": 2,
-        "textEn": "s⁻¹",
-        "textHi": "s⁻¹"
+        "textEn": "s^-¹",
+        "textHi": "s^-¹"
       },
       {
         "id": 3,
-        "textEn": "L mol⁻¹ s⁻¹",
-        "textHi": "L mol⁻¹ s⁻¹"
+        "textEn": "L mol^-¹ s^-¹",
+        "textHi": "L mol^-¹ s^-¹"
       },
       {
         "id": 4,
-        "textEn": "mol² L⁻² s⁻¹",
-        "textHi": "mol² L⁻² s⁻¹"
+        "textEn": "mol^2 L^-^2 s^-¹",
+        "textHi": "mol^2 L^-^2 s^-¹"
       }
     ],
     "correctOption": 1
@@ -1900,13 +1900,13 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CH₃COOH",
-        "textHi": "CH₃COOH"
+        "textEn": "CH_3COOH",
+        "textHi": "CH_3COOH"
       },
       {
         "id": 2,
-        "textEn": "CCl₃COOH",
-        "textHi": "CCl₃COOH"
+        "textEn": "CCl_3COOH",
+        "textHi": "CCl_3COOH"
       },
       {
         "id": 3,
@@ -1960,13 +1960,13 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "sp³",
-        "textHi": "sp³"
+        "textEn": "sp^3",
+        "textHi": "sp^3"
       },
       {
         "id": 2,
-        "textEn": "sp²",
-        "textHi": "sp²"
+        "textEn": "sp^2",
+        "textHi": "sp^2"
       },
       {
         "id": 3,
@@ -2080,8 +2080,8 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "NO₂",
-        "textHi": "NO₂"
+        "textEn": "NO_2",
+        "textHi": "NO_2"
       },
       {
         "id": 2,
@@ -2140,13 +2140,13 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "H₂SO₄",
-        "textHi": "H₂SO₄"
+        "textEn": "H_2SO_4",
+        "textHi": "H_2SO_4"
       },
       {
         "id": 2,
-        "textEn": "HNO₃",
-        "textHi": "HNO₃"
+        "textEn": "HNO_3",
+        "textHi": "HNO_3"
       },
       {
         "id": 3,
@@ -2345,8 +2345,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 79,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Bond angle of CH₄:",
-    "textHi": "Bond angle of CH₄: (Hindi translated via AI)",
+    "textEn": "Bond angle of CH_4:",
+    "textHi": "Bond angle of CH_4: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2375,8 +2375,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 80,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Shape of NH₃:",
-    "textHi": "Shape of NH₃: (Hindi translated via AI)",
+    "textEn": "Shape of NH_3:",
+    "textHi": "Shape of NH_3: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2405,8 +2405,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 81,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Oxidation state of Cr in K₂Cr₂O₇:",
-    "textHi": "Oxidation state of Cr in K₂Cr₂O₇: (Hindi translated via AI)",
+    "textEn": "Oxidation state of Cr in K_2Cr_2O_7:",
+    "textHi": "Oxidation state of Cr in K_2Cr_2O_7: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2470,23 +2470,23 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       },
       {
         "id": 2,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       },
       {
         "id": 3,
-        "textEn": "CN⁻",
-        "textHi": "CN⁻"
+        "textEn": "CN^-",
+        "textHi": "CN^-"
       },
       {
         "id": 4,
-        "textEn": "Cl⁻",
-        "textHi": "Cl⁻"
+        "textEn": "Cl^-",
+        "textHi": "Cl^-"
       }
     ],
     "correctOption": 3
@@ -2495,8 +2495,8 @@ export const neetMock7Questions: QuestionType[] = [
     "id": 84,
     "type": "MCQ",
     "subject": "Chemistry",
-    "textEn": "Coordination number of Fe in [Fe(CN)₆]³⁻:",
-    "textHi": "Coordination number of Fe in [Fe(CN)₆]³⁻: (Hindi translated via AI)",
+    "textEn": "Coordination number of Fe in [Fe(CN)_6]^3^-:",
+    "textHi": "Coordination number of Fe in [Fe(CN)_6]^3^-: (Hindi translated via AI)",
     "options": [
       {
         "id": 1,
@@ -2570,13 +2570,13 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "NH₃",
-        "textHi": "NH₃"
+        "textEn": "NH_3",
+        "textHi": "NH_3"
       },
       {
         "id": 4,
-        "textEn": "H₂O",
-        "textHi": "H₂O"
+        "textEn": "H_2O",
+        "textHi": "H_2O"
       }
     ],
     "correctOption": 2
@@ -3820,8 +3820,8 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 2,
@@ -3830,13 +3830,13 @@ export const neetMock7Questions: QuestionType[] = [
       },
       {
         "id": 3,
-        "textEn": "SO₂",
-        "textHi": "SO₂"
+        "textEn": "SO_2",
+        "textHi": "SO_2"
       },
       {
         "id": 4,
-        "textEn": "NO₂",
-        "textHi": "NO₂"
+        "textEn": "NO_2",
+        "textHi": "NO_2"
       }
     ],
     "correctOption": 2
@@ -4030,18 +4030,18 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "O₂",
-        "textHi": "O₂"
+        "textEn": "O_2",
+        "textHi": "O_2"
       },
       {
         "id": 2,
-        "textEn": "CO₂",
-        "textHi": "CO₂"
+        "textEn": "CO_2",
+        "textHi": "CO_2"
       },
       {
         "id": 3,
-        "textEn": "N₂",
-        "textHi": "N₂"
+        "textEn": "N_2",
+        "textHi": "N_2"
       },
       {
         "id": 4,
@@ -4060,13 +4060,13 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "Stroke volume × heart rate",
-        "textHi": "Stroke volume × heart rate"
+        "textEn": "Stroke volume x heart rate",
+        "textHi": "Stroke volume x heart rate"
       },
       {
         "id": 2,
-        "textEn": "Blood pressure × heart rate",
-        "textHi": "Blood pressure × heart rate"
+        "textEn": "Blood pressure x heart rate",
+        "textHi": "Blood pressure x heart rate"
       },
       {
         "id": 3,
@@ -4210,13 +4210,13 @@ export const neetMock7Questions: QuestionType[] = [
     "options": [
       {
         "id": 1,
-        "textEn": "CO₂ binding",
-        "textHi": "CO₂ binding"
+        "textEn": "CO_2 binding",
+        "textHi": "CO_2 binding"
       },
       {
         "id": 2,
-        "textEn": "O₂ release",
-        "textHi": "O₂ release"
+        "textEn": "O_2 release",
+        "textHi": "O_2 release"
       },
       {
         "id": 3,
