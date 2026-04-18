@@ -154,17 +154,18 @@ export default function AnalyticsCommandCenter() {
               { id: 'performance', label: 'Test Telemetry', icon: Target },
             ].map((tab) => {
               const isActive = activeTab === tab.id;
+              const TabIcon = tab.icon;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => setActiveTab(tab.id as 'overview' | 'traffic' | 'revenue' | 'performance')}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
                     isActive
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-white dark:bg-[#0f172a] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 >
-                  <tab.icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`}/>
+                  <TabIcon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`}/>
                   {tab.label}
                 </button>
               );
@@ -194,7 +195,6 @@ export default function AnalyticsCommandCenter() {
             </AnimatePresence>
           )}
         </div>
-      </div>
     </div>
   );
 }
