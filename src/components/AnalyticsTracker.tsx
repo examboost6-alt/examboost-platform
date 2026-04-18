@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 
 export default function AnalyticsTracker() {
     const pathname = usePathname();
@@ -33,6 +34,11 @@ export default function AnalyticsTracker() {
                 else if (ua.includes('Android')) os = 'Android';
                 else if (ua.includes('iOS') || ua.includes('iPhone')) os = 'iOS';
 
+                // Get User ID
+                const supabase = getSupabaseClient();
+                const { data: { session } } = await supabase.auth.getSession();
+                const userId = session?.user?.id || null;
+
                 // Hit our custom API route to insert into Supabase securely
                 await fetch('/api/analytics/track', {
                     method: 'POST',
@@ -41,7 +47,8 @@ export default function AnalyticsTracker() {
                         path: pathname,
                         device_type: deviceType,
                         browser,
-                        os
+                        os,
+                        user_id: userId
                     })
                 });
             } catch (err) {

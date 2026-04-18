@@ -100,7 +100,7 @@ export default function AdvancedUserManagement() {
             // Determine Live Activity mapping (Online in last 10 mins)
             const latestView = rawViews.find(v => v.user_id === profile.id);
             let isOnline = false;
-            let lastLoginStr = 'Never';
+            let lastLoginStr = 'No Data';
             if (latestView) {
                 const viewedAt = new Date(latestView.created_at);
                 const diffMins = (Date.now() - viewedAt.getTime()) / 60000;
@@ -108,6 +108,8 @@ export default function AdvancedUserManagement() {
                 lastLoginStr = diffMins < 60 ? `${Math.floor(diffMins)}m ago` : diffMins < 1440 ? `${Math.floor(diffMins/60)}h ago` : viewedAt.toLocaleDateString();
             } else if (profile.last_sign_in_at) {
                 lastLoginStr = new Date(profile.last_sign_in_at).toLocaleDateString();
+            } else if (profile.created_at) {
+                lastLoginStr = `Joined: ${new Date(profile.created_at).toLocaleDateString()}`;
             }
 
             // Stats
@@ -119,8 +121,8 @@ export default function AdvancedUserManagement() {
                 totalSpent,
                 isOnline,
                 lastLoginStr,
-                device: latestView?.device_type || 'Unknown Desktop',
-                city: latestView?.city || 'Unknown Geo',
+                device: latestView?.device_type || 'Unregistered',
+                city: latestView?.city || 'Unknown Entity',
                 testCount
             };
         });
