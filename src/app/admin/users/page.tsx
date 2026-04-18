@@ -238,7 +238,7 @@ export default function AdvancedUserManagement() {
     };
 
     return (
-        <div className="flex flex-col gap-6 pb-8 min-h-screen relative">
+        <div className="flex flex-col gap-6 pb-8 h-full relative">
             
             {/* Header Module */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 bg-white dark:bg-[#0f172a] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">

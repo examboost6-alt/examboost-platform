@@ -125,7 +125,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (!authChecked) return null;
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#020813] text-slate-900 dark:text-slate-100 font-sans flex overflow-hidden">
+    <div className="h-[100dvh] w-full bg-slate-50 dark:bg-[#020813] text-slate-900 dark:text-slate-100 font-sans flex overflow-hidden">
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {mobileSidebarOpen && (
