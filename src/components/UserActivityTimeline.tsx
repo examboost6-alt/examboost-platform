@@ -74,40 +74,41 @@ export default function UserActivityTimeline({ userId }: UserActivityTimelinePro
         <div className="flex flex-col gap-6 mt-2">
             
             {/* Header / Tabs */}
-            <div className="flex items-center p-1 bg-slate-100/80 dark:bg-slate-800/80 rounded-xl overflow-x-auto no-scrollbar shadow-inner border border-slate-200/50 dark:border-slate-700/50">
+            <div className="flex items-center p-1.5 bg-slate-100 dark:bg-slate-800/80 rounded-2xl overflow-x-auto no-scrollbar shadow-inner border border-slate-200/50 dark:border-slate-700/50 gap-1.5">
                 <button 
                     onClick={() => setActiveTab('timeline')}
-                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'timeline' ? 'bg-white dark:bg-[#020617] text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'timeline' ? 'bg-white dark:bg-[#020617] text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
                 >
-                    <Activity className="w-3.5 h-3.5" /> Timeline
+                    <Activity className="w-4 h-4" /> Timeline
                 </button>
                 <button 
                     onClick={() => setActiveTab('tests')}
-                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'tests' ? 'bg-white dark:bg-[#020617] text-purple-600 dark:text-purple-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'tests' ? 'bg-white dark:bg-[#020617] text-purple-600 dark:text-purple-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
                 >
-                    <PlayCircle className="w-3.5 h-3.5" /> Test Attempts
+                    <PlayCircle className="w-4 h-4" /> Assessment Focus
                 </button>
                 <button 
                     onClick={() => setActiveTab('payments')}
-                    className={`flex-1 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'payments' ? 'bg-white dark:bg-[#020617] text-emerald-600 dark:text-emerald-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${activeTab === 'payments' ? 'bg-white dark:bg-[#020617] text-emerald-600 dark:text-emerald-400 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
                 >
-                    <CreditCard className="w-3.5 h-3.5" /> Payments
+                    <CreditCard className="w-4 h-4" /> Financial Ledger
                 </button>
             </div>
 
-            <div className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm min-h-[300px]">
+            <div className="bg-slate-50/50 dark:bg-[#0a0f1c] rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-sm min-h-[400px]">
                 <AnimatePresence mode="wait">
                     
                     {/* TIMELINE TAB */}
                     {activeTab === 'timeline' && (
                         <motion.div key="timeline" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>
-                            <div className="flex items-center justify-between mb-6">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
                                 <div>
-                                    <h3 className="text-sm font-black text-slate-800 dark:text-slate-200">Page Visit History</h3>
-                                    <p className="text-xs font-semibold text-slate-500 mt-1">Detailed breakdown of the user's journey and time spent across the platform.</p>
+                                    <h3 className="text-base font-black text-slate-800 dark:text-slate-200">Page Visit History</h3>
+                                    <p className="text-xs font-semibold text-slate-500 mt-1">Detailed breakdown of the user's navigational telemetry.</p>
                                 </div>
-                                <div className="px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold text-xs rounded-lg border border-indigo-200 dark:border-indigo-500/20">
-                                    {data.pageViews.length} Views Logged
+                                <div className="px-4 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 font-bold text-xs rounded-xl border border-indigo-200 dark:border-indigo-500/20 shadow-sm flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                                    {data.pageViews.length} Node Captures
                                 </div>
                             </div>
 
@@ -122,10 +123,10 @@ export default function UserActivityTimeline({ userId }: UserActivityTimelinePro
                                         <div key={idx} className="relative pl-6 pb-6 last:pb-0">
                                             <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-white dark:border-[#0f172a] shadow-sm ${view.durationSeconds === -1 ? 'bg-emerald-500 animate-pulse' : 'bg-indigo-400'}`}></div>
                                             
-                                            <div className="bg-slate-50/80 dark:bg-slate-800/30 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 hover:border-indigo-200 dark:hover:border-indigo-500/30 hover:bg-white dark:hover:bg-slate-800/60 hover:shadow-sm transition-all">
+                                            <div className="bg-white dark:bg-slate-800/40 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-md transition-all">
                                                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
                                                     <div className="min-w-0 flex-1">
-                                                        <p className="font-bold text-[13px] text-slate-800 dark:text-slate-200 font-mono break-all leading-relaxed">
+                                                        <p className="font-bold text-[13px] text-indigo-900 dark:text-indigo-200 font-mono break-all leading-relaxed">
                                                             {view.path}
                                                         </p>
                                                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-[11px] font-semibold text-slate-500">

@@ -461,30 +461,33 @@ export default function AdvancedUserManagement() {
                             className="fixed inset-y-0 right-0 w-full max-w-xl bg-white dark:bg-[#0f172a] shadow-2xl z-[110] border-l border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
                         >
                             {/* Modal Header */}
-                            <div className="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#020617] flex justify-between items-start">
-                                <div>
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-indigo-500 flex items-center justify-center font-black text-2xl text-white shadow-xl shadow-primary/30 relative">
-                                            {selectedUser.photo_path ? (
-                                                <img src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/student-photos/${selectedUser.photo_path}`} className="w-full h-full object-cover rounded-2xl" />
-                                            ) : (selectedUser.full_name?.charAt(0) || 'U')}
-                                            {selectedUser.isOnline && <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-emerald-500 border-4 border-white dark:border-[#020617] rounded-full shadow-sm"></div>}
+                            <div className="relative p-8 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-br from-slate-100 to-slate-50 dark:from-[#0b1221] dark:to-[#020617] shrink-0 overflow-hidden">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
+                                <div className="absolute top-4 right-4 z-20">
+                                    <button onClick={() => setSelectedUser(null)} className="p-2 bg-white/50 backdrop-blur-md dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 transition-colors shadow-sm">
+                                        <X className="w-5 h-5" />
+                                    </button>
+                                </div>
+                                <div className="relative z-10 flex flex-col md:flex-row md:items-end gap-5">
+                                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-primary to-indigo-500 flex items-center justify-center font-black text-3xl text-white shadow-xl shadow-primary/20 relative shrink-0 border-2 border-white dark:border-[#0f172a]">
+                                        {selectedUser.photo_path ? (
+                                            <img src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/student-photos/${selectedUser.photo_path}`} className="w-full h-full object-cover rounded-2xl" />
+                                        ) : (selectedUser.full_name?.charAt(0) || 'U')}
+                                        {selectedUser.isOnline && <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 border-4 border-white dark:border-[#0f172a] rounded-full shadow-sm"></div>}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight truncate">{selectedUser.full_name || 'Anonymous User'}</h2>
+                                        <p className="text-sm font-semibold text-slate-500 truncate mb-3">{selectedUser.email}</p>
+                                        <div className="flex gap-2 flex-wrap">
+                                            <span className={`text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded shadow-sm border ${selectedUser.status === 'Banned' ? 'bg-rose-50 text-rose-600 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20' : 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20'}`}>
+                                                {selectedUser.status || 'Active'}
+                                            </span>
+                                            <span className="text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded shadow-sm border bg-white text-slate-600 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700">
+                                                {selectedUser.role || 'Student'}
+                                            </span>
                                         </div>
                                     </div>
-                                    <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">{selectedUser.full_name || 'Anonymous User'}</h2>
-                                    <p className="text-sm font-semibold text-slate-500 break-all">{selectedUser.email}</p>
-                                    <div className="flex gap-2 mt-3">
-                                        <span className={`text-[10px] uppercase font-black tracking-widest px-2 py-0.5 rounded border ${selectedUser.status === 'Banned' ? 'bg-rose-50 text-rose-600 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20' : 'bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20'}`}>
-                                            {selectedUser.status || 'Active'}
-                                        </span>
-                                        <span className="text-[10px] uppercase font-black tracking-widest px-2 py-0.5 rounded border bg-slate-100 text-slate-600 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700">
-                                            {selectedUser.role || 'Student'}
-                                        </span>
-                                    </div>
                                 </div>
-                                <button onClick={() => setSelectedUser(null)} className="p-2 bg-white dark:bg-[#0f172a] hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 transition-colors shadow-sm">
-                                    <X className="w-5 h-5" />
-                                </button>
                             </div>
 
                             {/* Scrollable Content */}
