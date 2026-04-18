@@ -3,7 +3,6 @@
 import React, { useState, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, FileText, Calendar, Loader2, LayoutDashboard, Target, CircleDollarSign, Users } from "lucide-react";
-import AdminLayout from "@/components/AdminLayout";
 import { ChartSkeleton, KPISkeleton, TableSkeleton } from "./components/Skeletons";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 
@@ -108,9 +107,8 @@ export default function AnalyticsCommandCenter() {
   );
 
   return (
-    <AdminLayout>
-      <div className="flex flex-col min-h-screen pb-12">
-        <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#020617]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 pb-4 pt-2 -mx-4 px-4 sm:-mx-8 sm:px-8 mb-8 shadow-sm">
+    <div className="flex flex-col min-h-screen pb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#020617]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 pb-4 pt-2 -mx-4 px-4 sm:-mx-8 sm:px-8 mb-8 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-[1600px] mx-auto">
             <div>
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
@@ -197,6 +195,6 @@ export default function AnalyticsCommandCenter() {
           )}
         </div>
       </div>
-    </AdminLayout>
+    </div>
   );
 }
