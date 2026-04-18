@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Filter, MoreVertical, UserCheck, UserX, UserPlus, ShieldCheck, Download, Users as UsersIcon, Smartphone, MapPin, AlertTriangle, Activity, Loader2, Clock, Upload, ChevronRight, X, ChevronLeft, Calendar, FileText, Ban, Trash2, PowerOff, Power } from "lucide-react";
 import { getSupabaseClient } from "@/lib/supabaseClient";
+import UserActivityTimeline from "@/components/UserActivityTimeline";
 
 // -------------------------------------------------------------
 // HELPER: Quick CSV Export
@@ -485,35 +486,8 @@ export default function AdvancedUserManagement() {
                                     </div>
                                 </div>
 
-                                {/* Activity Timeline (PRO FEATURE) */}
-                                <div>
-                                    <h3 className="text-xs font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
-                                        <Activity className="w-4 h-4 text-primary" /> Session Telemetry
-                                    </h3>
-                                    <div className="relative border-l-2 border-slate-100 dark:border-slate-800 ml-4 pl-6 pb-2 flex flex-col gap-6">
-                                        
-                                        {/* Exam Node */}
-                                        <div className="relative">
-                                            <div className="absolute -left-[31px] top-0 w-4 h-4 bg-purple-500 border-4 border-white dark:border-[#0f172a] rounded-full shadow-sm"></div>
-                                            <p className="font-bold text-sm text-slate-800 dark:text-slate-200">Completed Assessments</p>
-                                            <p className="text-xs font-semibold text-slate-500 mt-1">Logged {selectedUser.testCount} attempt(s) mapping to user_tests array schema.</p>
-                                        </div>
-
-                                        {/* Purchase Node */}
-                                        <div className="relative">
-                                            <div className="absolute -left-[31px] top-0 w-4 h-4 bg-emerald-500 border-4 border-white dark:border-[#0f172a] rounded-full shadow-sm"></div>
-                                            <p className="font-bold text-sm text-slate-800 dark:text-slate-200">Financial LTV (Subscriptions)</p>
-                                            <p className="text-xs font-semibold text-slate-500 mt-1">Generated ₹{selectedUser.totalSpent.toLocaleString()} across verified payment nodes.</p>
-                                        </div>
-
-                                        {/* Auth Node */}
-                                        <div className="relative">
-                                            <div className="absolute -left-[31px] top-0 w-4 h-4 bg-blue-500 border-4 border-white dark:border-[#0f172a] rounded-full shadow-sm"></div>
-                                            <p className="font-bold text-sm text-slate-800 dark:text-slate-200">Connection Handshake</p>
-                                            <p className="text-xs font-semibold text-slate-500 mt-1">Session alive marker updated {selectedUser.lastLoginStr}.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                {/* Advanced Pro Activity Timeline */}
+                                <UserActivityTimeline userId={selectedUser.id} />
 
                                 {/* Admin Force Actions */}
                                 <div>

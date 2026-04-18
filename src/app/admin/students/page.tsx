@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSupabaseClient } from "@/lib/supabaseClient";
+import UserActivityTimeline from "@/components/UserActivityTimeline";
 import {
   Search,
   Eye,
@@ -454,6 +455,10 @@ export default function AdminStudentsPage() {
                         </button>
                      </div>
                    )}
+                </div>
+
+                <div className="pt-2">
+                   <UserActivityTimeline userId={selected.id} />
                 </div>
               </div>
             </motion.div>
