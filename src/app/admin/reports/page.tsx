@@ -25,7 +25,7 @@ export default function AnalyticsCommandCenter() {
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", \`examboost_report_\${dateRange}.csv\`);
+      link.setAttribute("download", `examboost_report_${dateRange}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -103,13 +103,13 @@ export default function AnalyticsCommandCenter() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={\`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap \${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
                     isActive
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-white dark:bg-[#0f172a] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
-                  }\`}
+                  }`}
                 >
-                  <tab.icon className={\`w-4 h-4 \${isActive ? 'text-white' : 'text-slate-400'}\`}/>
+                  <tab.icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`}/>
                   {tab.label}
                 </button>
               );

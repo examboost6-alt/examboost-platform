@@ -141,10 +141,10 @@ export default function RevenueTab({ dateRange }: { dateRange: string }) {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                {topCourses.map((course, i) => (
                   <React.Fragment key={course.id}>
-                    <tr onClick={() => setActiveCourseId(activeCourseId === course.id ? null : course.id)} className={\`cursor-pointer transition-colors \${activeCourseId === course.id ? 'bg-indigo-50/50 dark:bg-indigo-900/10' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'}\`}>
+                    <tr onClick={() => setActiveCourseId(activeCourseId === course.id ? null : course.id)} className={`cursor-pointer transition-colors ${activeCourseId === course.id ? 'bg-indigo-50/50 dark:bg-indigo-900/10' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}>
                       <td className="p-4 pl-6">
                         <div className="flex items-center gap-4">
-                           <div className={\`w-10 h-10 rounded-lg flex items-center justify-center font-black \${course.iconBg}\`}>
+                           <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-black ${course.iconBg}`}>
                              #{i+1}
                            </div>
                            <span className="font-bold text-slate-800 dark:text-white text-sm">{course.name}</span>

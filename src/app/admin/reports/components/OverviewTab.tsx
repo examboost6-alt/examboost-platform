@@ -121,7 +121,7 @@ export default function OverviewTab({ dateRange }: { dateRange: string }) {
                      <span className="text-xs font-black text-white">{step.count.toLocaleString()}</span>
                   </div>
                   <div className="w-full bg-slate-800/50 rounded-full h-2 mt-1.5 overflow-hidden">
-                     <motion.div initial={{ width: 0 }} animate={{ width: \`\${step.percentage}%\` }} transition={{ duration: 1, delay: i * 0.1 }} className="h-full bg-gradient-to-r from-indigo-500 to-blue-400"></motion.div>
+                     <motion.div initial={{ width: 0 }} animate={{ width: `${step.percentage}%` }} transition={{ duration: 1, delay: i * 0.1 }} className="h-full bg-gradient-to-r from-indigo-500 to-blue-400"></motion.div>
                   </div>
                   <div className="text-[10px] text-indigo-400 font-bold mt-1 text-right">{step.percentage}% Retained</div>
                </div>

@@ -81,7 +81,7 @@ export default function TestPerformanceTab({ dateRange }: { dateRange: string })
                     <RechartsTooltip cursor={{fill: '#f1f5f9', opacity: 0.1}} contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }} />
                     <Bar dataKey="completed" name="Success %" radius={[4, 4, 0, 0]}>
                       {difficultyData.map((entry, index) => (
-                        <Cell key={\`cell-\${index}\`} fill={entry.color} />
+                        <Cell key={`cell-${index}`} fill={entry.color} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -90,7 +90,7 @@ export default function TestPerformanceTab({ dateRange }: { dateRange: string })
           </motion.div>
 
           {/* Most Wrong Questions Drill-down Box */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className={\`bg-rose-50 dark:bg-rose-500/5 rounded-2xl border transition-colors \${showWrongQuestions ? 'border-rose-200 dark:border-rose-500/20 shadow-sm' : 'border-dashed border-rose-200 dark:border-rose-500/30'} p-1\`}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className={`bg-rose-50 dark:bg-rose-500/5 rounded-2xl border transition-colors ${showWrongQuestions ? 'border-rose-200 dark:border-rose-500/20 shadow-sm' : 'border-dashed border-rose-200 dark:border-rose-500/30'} p-1`}>
              {showWrongQuestions ? (
                <div className="px-5 py-5 relative">
                   <button onClick={() => setShowWrongQuestions(false)} className="absolute top-4 right-4 p-1.5 rounded-lg text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-colors">

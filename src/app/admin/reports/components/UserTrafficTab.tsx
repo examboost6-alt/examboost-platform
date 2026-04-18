@@ -82,7 +82,7 @@ export default function UserTrafficTab({ dateRange }: { dateRange: string }) {
                 />
                 <Bar dataKey="value" radius={[0, 4, 4, 0]} onClick={handleBarClick}>
                   {trafficSourceData.map((entry, index) => (
-                    <Cell key={\`cell-\${index}\`} fill={entry.color} className="hover:opacity-80 transition-opacity" />
+                    <Cell key={`cell-${index}`} fill={entry.color} className="hover:opacity-80 transition-opacity" />
                   ))}
                 </Bar>
               </BarChart>
@@ -108,7 +108,7 @@ export default function UserTrafficTab({ dateRange }: { dateRange: string }) {
                  <PieChart>
                    <Pie data={newVsReturningData} innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value" stroke="none">
                       {newVsReturningData.map((entry, index) => (
-                         <Cell key={\`pie-\${index}\`} fill={entry.color} />
+                         <Cell key={`pie-${index}`} fill={entry.color} />
                       ))}
                    </Pie>
                  </PieChart>
