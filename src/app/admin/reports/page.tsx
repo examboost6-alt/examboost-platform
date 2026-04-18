@@ -2,7 +2,7 @@
 
 import React, { useState, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, FileText, Calendar, Loader2, LayoutDashboard, Global, Target, CircleDollarSign } from "lucide-react";
+import { Download, FileText, Calendar, Loader2, LayoutDashboard, Globe, Target, CircleDollarSign } from "lucide-react";
 import AdminLayout from "@/components/AdminLayout";
 import { ChartSkeleton, KPISkeleton, TableSkeleton } from "./components/Skeletons";
 
