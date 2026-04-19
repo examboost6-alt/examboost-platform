@@ -108,8 +108,8 @@ export default function AnalyticsCommandCenter() {
 
   return (
     <div className="flex flex-col min-h-screen pb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#020617]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 pb-4 pt-2 -mx-4 px-4 sm:-mx-8 sm:px-8 mb-8 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-[1600px] mx-auto">
+      <div className="sticky top-0 z-40 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-8 shadow-sm shadow-slate-200/50 dark:shadow-none mx-auto max-w-[1600px]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
             <div>
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                  Command Center <span className="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary text-[10px] uppercase tracking-widest border border-secondary/20">Live</span>
@@ -146,7 +146,7 @@ export default function AnalyticsCommandCenter() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 mt-6 overflow-x-auto custom-scrollbar-dark pb-1 max-w-[1600px] mx-auto">
+          <div className="flex items-center gap-2 mt-6 overflow-x-auto custom-scrollbar-dark pb-1 w-full">
             {[
               { id: 'overview', label: 'Overview', icon: LayoutDashboard },
               { id: 'traffic', label: 'User Analytics', icon: Users },
