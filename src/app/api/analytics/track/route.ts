@@ -24,11 +24,26 @@ export async function POST(req: Request) {
         }
 
         // 2. Approximate Location via Request IP & Headers
-        // In production on Vercel, x-real-ip and x-vercel-ip-* headers are available.
+        // In production on Vercel, x-real-ip and x-vercel-ip-* headers are extremely reliable and cannot be ad-blocked.
         const ip = req.headers.get('x-real-ip') || req.headers.get('x-forwarded-for') || '127.0.0.1';
-        const city = clientCity || req.headers.get('x-vercel-ip-city') || 'Unknown';
-        const region = req.headers.get('x-vercel-ip-country-region') || 'Unknown';
-        const country = clientCountry || req.headers.get('x-vercel-ip-country') || 'Unknown';
+        
+        let vercelCity = req.headers.get('x-vercel-ip-city');
+        let vercelCountry = req.headers.get('x-vercel-ip-country');
+        let vercelRegion = req.headers.get('x-vercel-ip-country-region');
+
+        // Decode Vercel URIs (e.g. San%20Jose -> San Jose)
+        if (vercelCity) vercelCity = decodeURIComponent(vercelCity);
+        if (vercelCountry) vercelCountry = decodeURIComponent(vercelCountry);
+        if (vercelRegion) vercelRegion = decodeURIComponent(vercelRegion);
+
+        // Prioritize Server-Side Edge Location -> Client-Side Fallback -> 'Unknown'
+        const city = (vercelCity && vercelCity !== 'Unknown') ? vercelCity :
+                     (clientCity && clientCity !== 'Unknown') ? clientCity : 'Unknown';
+                     
+        const country = (vercelCountry && vercelCountry !== 'Unknown') ? vercelCountry :
+                        (clientCountry && clientCountry !== 'Unknown') ? clientCountry : 'Unknown';
+                        
+        const region = (vercelRegion && vercelRegion !== 'Unknown') ? vercelRegion : 'Unknown';
 
         // 3. Insert into Supabase
         const { error } = await supabase.from('page_views').insert({
