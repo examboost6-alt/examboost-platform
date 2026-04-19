@@ -124,6 +124,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (!authChecked) return null;
 
+  const isExpanded = sidebarOpen || mobileSidebarOpen;
+
   return (
     <div className="h-[100dvh] w-full bg-slate-50 dark:bg-[#020813] text-slate-900 dark:text-slate-100 font-sans flex overflow-hidden">
       {/* Mobile Sidebar Overlay */}
@@ -143,7 +145,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <motion.aside
         initial={false}
         animate={{ 
-          width: sidebarOpen ? 280 : 80,
+          width: isExpanded ? 280 : 80,
           x: mobileSidebarOpen ? 0 : (!sidebarOpen && typeof window !== 'undefined' && window.innerWidth < 1024 ? -280 : 0)
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -154,7 +156,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            {sidebarOpen && (
+            {isExpanded && (
               <motion.span 
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} 
                 className="font-black text-xl tracking-tight text-white"
@@ -182,7 +184,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     ? "bg-[#142d5e] text-white shadow-inner" 
                     : "text-slate-400 hover:bg-[#142d5e]/50 hover:text-slate-100"
                 }`}
-                title={!sidebarOpen ? link.label : undefined}
+                title={!isExpanded ? link.label : undefined}
               >
                 <div className={`relative flex items-center justify-center ${isActive ? 'text-accent' : 'text-slate-400 group-hover:text-accent'} transition-colors`}>
                   <Icon className="w-5 h-5 shrink-0" />
@@ -190,7 +192,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <div className="absolute inset-0 bg-accent/20 blur-md rounded-full" />
                   )}
                 </div>
-                {sidebarOpen && (
+                {isExpanded && (
                   <span className="font-semibold text-sm tracking-wide truncate">{link.label}</span>
                 )}
               </Link>
@@ -201,7 +203,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="p-4 border-t border-[#193264] shrink-0 bg-[#0c1a3b]">
           <button onClick={onLogout} className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-slate-400 hover:bg-rose-500/10 hover:text-rose-400 transition-colors justify-start">
             <LogOut className="w-5 h-5 shrink-0" />
-            {sidebarOpen && <span className="font-semibold text-sm tracking-wide">Secure Logout</span>}
+            {isExpanded && <span className="font-semibold text-sm tracking-wide">Secure Logout</span>}
           </button>
         </div>
       </motion.aside>
