@@ -2,7 +2,7 @@
 
 import React, { useState, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, FileText, Calendar, Loader2, LayoutDashboard, Target, CircleDollarSign, Users } from "lucide-react";
+import { Download, FileText, Calendar, Loader2, LayoutDashboard, Target, CircleDollarSign, Users, X } from "lucide-react";
 import { ChartSkeleton, KPISkeleton, TableSkeleton } from "./components/Skeletons";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 
@@ -24,6 +24,7 @@ export default function AnalyticsCommandCenter() {
   const [activeTab, setActiveTab] = useState<'overview' | 'traffic' | 'revenue' | 'performance'>('overview');
   const [dateRange, setDateRange] = useState('7d');
   const [isExporting, setIsExporting] = useState(false);
+  const [showPanel, setShowPanel] = useState(true);
   
   // Real data state
   const [data, setData] = useState<AnalyticsPayload>({
@@ -108,70 +109,95 @@ export default function AnalyticsCommandCenter() {
 
   return (
     <div className="flex flex-col min-h-screen pb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <div className="sticky top-0 z-40 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-8 shadow-sm shadow-slate-200/50 dark:shadow-none mx-auto max-w-[1600px]">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-                 Command Center <span className="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary text-[10px] uppercase tracking-widest border border-secondary/20">Live</span>
-              </h1>
-            </div>
-            
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="relative">
-                <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                <select
-                  value={dateRange}
-                  onChange={(e) => setDateRange(e.target.value)}
-                  className="pl-9 pr-8 py-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer shadow-sm appearance-none"
-                >
-                  <option value="24h">Today</option>
-                  <option value="7d">Last 7 Days</option>
-                  <option value="30d">Last 30 Days</option>
-                  <option value="90d">Last 90 Days</option>
-                  <option value="empty">Empty Test Range</option>
-                </select>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+      <AnimatePresence>
+        {showPanel && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            exit={{ opacity: 0, y: -10, scale: 0.98, height: 0, overflow: 'hidden' }} 
+            className="sticky top-4 z-40 w-full bg-white/90 dark:bg-[#0f172a]/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-8 shadow-lg shadow-slate-200/50 dark:shadow-none mx-auto max-w-[1600px] overflow-hidden"
+          >
+            <button 
+              onClick={() => setShowPanel(false)} 
+              className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors z-50" 
+              title="Hide Panel"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full pr-8">
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                   Command Center <span className="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary text-[10px] uppercase tracking-widest border border-secondary/20">Live</span>
+                </h1>
+              </div>
+              
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="relative">
+                  <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <select
+                    value={dateRange}
+                    onChange={(e) => setDateRange(e.target.value)}
+                    className="pl-9 pr-8 py-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer shadow-sm appearance-none"
+                  >
+                    <option value="24h">Today</option>
+                    <option value="7d">Last 7 Days</option>
+                    <option value="30d">Last 30 Days</option>
+                    <option value="90d">Last 90 Days</option>
+                    <option value="empty">Empty Test Range</option>
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 pl-3">
+                   <button onClick={mockExportCSV} disabled={isExporting} className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold shadow-sm transition-colors disabled:opacity-50">
+                     {isExporting ? <Loader2 className="w-4 h-4 animate-spin"/> : <Download className="w-4 h-4" />} CSV
+                   </button>
+                   <button onClick={handleExportPDF} className="flex items-center gap-2 px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-sm shadow-indigo-500/20 transition-colors">
+                     <FileText className="w-4 h-4" /> PDF
+                   </button>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 pl-3">
-                 <button onClick={mockExportCSV} disabled={isExporting} className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold shadow-sm transition-colors disabled:opacity-50">
-                   {isExporting ? <Loader2 className="w-4 h-4 animate-spin"/> : <Download className="w-4 h-4" />} CSV
-                 </button>
-                 <button onClick={handleExportPDF} className="flex items-center gap-2 px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-sm shadow-indigo-500/20 transition-colors">
-                   <FileText className="w-4 h-4" /> PDF
-                 </button>
-              </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2 mt-6 overflow-x-auto custom-scrollbar-dark pb-1 w-full">
-            {[
-              { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-              { id: 'traffic', label: 'User Analytics', icon: Users },
-              { id: 'revenue', label: 'Revenue', icon: CircleDollarSign },
-              { id: 'performance', label: 'Test Telemetry', icon: Target },
-            ].map((tab) => {
-              const isActive = activeTab === tab.id;
-              const TabIcon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as 'overview' | 'traffic' | 'revenue' | 'performance')}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
-                    isActive
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-white dark:bg-[#0f172a] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
-                  }`}
-                >
-                  <TabIcon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`}/>
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+            <div className="flex items-center gap-2 mt-6 overflow-x-auto custom-scrollbar-dark pb-1 w-full">
+              {[
+                { id: 'overview', label: 'Overview', icon: LayoutDashboard },
+                { id: 'traffic', label: 'User Analytics', icon: Users },
+                { id: 'revenue', label: 'Revenue', icon: CircleDollarSign },
+                { id: 'performance', label: 'Test Telemetry', icon: Target },
+              ].map((tab) => {
+                const isActive = activeTab === tab.id;
+                const TabIcon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as 'overview' | 'traffic' | 'revenue' | 'performance')}
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
+                      isActive
+                        ? 'bg-primary text-white shadow-md'
+                        : 'bg-white dark:bg-[#0f172a] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
+                    }`}
+                  >
+                    <TabIcon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`}/>
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {!showPanel && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="sticky top-4 z-40 flex justify-end mb-8 pointer-events-none w-full max-w-[1600px] mx-auto">
+           <button onClick={() => setShowPanel(true)} className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-full shadow-lg shadow-slate-200/50 dark:shadow-none text-sm font-bold text-slate-700 dark:text-slate-300 transition-all hover:scale-105 active:scale-95 group">
+             <LayoutDashboard className="w-4 h-4 text-primary" />
+             <span className="hidden sm:inline-block">Restore Controls</span>
+           </button>
+        </motion.div>
+      )}
 
         <div className="flex-1 w-full max-w-[1600px] mx-auto">
           {data.loading ? (
