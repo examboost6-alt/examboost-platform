@@ -12,7 +12,7 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
   const [activeDrillDown, setActiveDrillDown] = useState<string | null>(null);
   const [timeResolution, setTimeResolution] = useState<'daily'|'weekly'|'monthly'>('daily');
 
-  const { trafficSourceData, newVsReturningData, drillDownData, topCountries, topCities, timeSeriesData } = useMemo(() => {
+  const { trafficSourceData, newVsReturningData, drillDownData, topCountries, topCities, timeSeriesData, funnelMetrics } = useMemo(() => {
     const { pageViews, purchases } = data;
     
     // Group traffic by "OS" or "Device" as we lack referrers. We'll use Browser to make it look active.
@@ -92,9 +92,14 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
     const countries = Object.entries(countryMap).sort((a,b) => b[1]-a[1]).slice(0, 5).map(([name, count]) => ({name, count, percent: Math.round((count / Math.max(1, pageViews.length)) * 100)}));
     const cities = Object.entries(cityMap).sort((a,b) => b[1]-a[1]).slice(0, 5).map(([name, count]) => ({name, count, percent: Math.round((count / Math.max(1, pageViews.length)) * 100)}));
 
-    // Time Series Generation
-    const timeMap: Record<string, number> = {};
+    // Time Series & Funnel Generation
+    const timeMap: Record<string, { anon: number, auth: number }> = {};
+    const anonymousFingerprints: Record<string, boolean> = {}; 
+    const convertedFingerprints: Record<string, boolean> = {};
+
     pageViews.forEach((pv: any) => {
+        const fingerprint = `${pv.city}-${pv.browser}-${pv.os}`;
+        
         const date = new Date(pv.created_at);
         let key = '';
         if (timeResolution === 'daily') {
@@ -106,22 +111,43 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
         } else {
             key = date.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
         }
-        timeMap[key] = (timeMap[key] || 0) + 1;
+        
+        if (!timeMap[key]) timeMap[key] = { anon: 0, auth: 0 };
+        
+        if (pv.user_id) {
+            timeMap[key].auth++;
+            if (anonymousFingerprints[fingerprint]) {
+               convertedFingerprints[fingerprint] = true;
+            }
+        } else {
+            timeMap[key].anon++;
+            anonymousFingerprints[fingerprint] = true;
+        }
     });
 
-    const parsedTimeSeries = Object.keys(timeMap).map(k => ({ name: k, visits: timeMap[k] }));
+    const parsedTimeSeries = Object.keys(timeMap).map(k => ({ 
+        name: k, 
+        Anonymous: timeMap[k].anon,
+        Authenticated: timeMap[k].auth 
+    }));
+    
     // Simple chronological sort if daily/weekly. Monthly might be slightly off if spanning years but fine for short periods.
     if(timeResolution !== 'monthly') {
       parsedTimeSeries.sort((a,b) => new Date(`${a.name} ${new Date().getFullYear()}`).getTime() - new Date(`${b.name} ${new Date().getFullYear()}`).getTime());
     }
 
+    const totalAnonUnique = Object.keys(anonymousFingerprints).length;
+    const totalConvertedUnique = Object.keys(convertedFingerprints).length;
+    const conversionRate = totalAnonUnique > 0 ? ((totalConvertedUnique / totalAnonUnique) * 100).toFixed(1) : "0.0";
+    
     return { 
       trafficSourceData: formattedSources, 
       newVsReturningData: formattedNewVsReturning, 
       drillDownData: finalDrillDown,
       topCountries: countries,
       topCities: cities,
-      timeSeriesData: parsedTimeSeries
+      timeSeriesData: parsedTimeSeries,
+      funnelMetrics: { totalAnonUnique, totalConvertedUnique, conversionRate }
     };
   }, [data, timeResolution]);
 
@@ -212,9 +238,13 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={timeSeriesData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <defs>
-                    <linearGradient id="colorVisits" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient id="colorAnon" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3}/>
                       <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
+                    </linearGradient>
+                    <linearGradient id="colorAuth" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3}/>
+                      <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.2} />
@@ -224,7 +254,8 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
                     contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '12px', color: '#fff' }}
                     itemStyle={{ fontWeight: 'bold' }}
                   />
-                  <Area type="monotone" dataKey="visits" name="Unique Views" stroke="#06b6d4" strokeWidth={3} fillOpacity={1} fill="url(#colorVisits)" />
+                  <Area type="monotone" stackId="1" dataKey="Anonymous" stroke="#06b6d4" strokeWidth={2} fillOpacity={1} fill="url(#colorAnon)" />
+                  <Area type="monotone" stackId="1" dataKey="Authenticated" stroke="#8b5cf6" strokeWidth={2} fillOpacity={1} fill="url(#colorAuth)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -313,6 +344,49 @@ export default function UserTrafficTab({ dateRange, data }: { dateRange: string,
           </div>
         </motion.div>
       </div>
+
+      {/* Advanced Funnel Journey Tool */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-white dark:bg-[#0f172a] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 overflow-hidden relative mt-6">
+         <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+         
+         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10 w-full mb-6">
+            <div className="flex items-center gap-3">
+               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-violet-500/10 text-violet-500">
+                  <Filter className="w-5 h-5" />
+               </div>
+               <div>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight">Visitor Auth Journey</h3>
+                  <p className="text-xs font-medium text-slate-500 flex items-center gap-1">
+                     Fingerprint Tracing Logic active
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700/50 flex flex-col items-center text-center">
+               <h4 className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Total Anonymous Entities</h4>
+               <span className="text-4xl font-black text-cyan-600 dark:text-cyan-400 font-mono tracking-tighter">{funnelMetrics.totalAnonUnique.toLocaleString()}</span>
+               <p className="text-[10px] font-bold text-slate-500 mt-2">Unique devices traversing freely</p>
+            </div>
+            
+            <div className="p-5 flex flex-col items-center justify-center text-center relative">
+               <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 bg-gradient-to-r from-transparent via-violet-500/30 to-transparent"></div>
+               <div className="relative z-10 bg-white dark:bg-[#0f172a] p-3 rounded-full border border-slate-200 dark:border-slate-700">
+                   <div className="flex items-center justify-center w-16 h-16 rounded-full bg-violet-500/10 border-2 border-violet-500/20 shadow-inner">
+                      <span className="text-xl font-black text-violet-600 dark:text-violet-400">{funnelMetrics.conversionRate}%</span>
+                   </div>
+               </div>
+               <p className="text-xs font-black uppercase text-violet-500 mt-3 tracking-widest relative z-10">Guest Conversion Rate</p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-violet-50 dark:bg-violet-900/10 border border-violet-100 dark:border-violet-500/20 flex flex-col items-center text-center shadow-inner shadow-violet-500/5">
+               <h4 className="text-[10px] font-black uppercase text-violet-500 mb-2 tracking-widest">Successfully Authenticated</h4>
+               <span className="text-4xl font-black text-violet-600 dark:text-violet-400 font-mono tracking-tighter">{funnelMetrics.totalConvertedUnique.toLocaleString()}</span>
+               <p className="text-[10px] font-bold text-violet-500 mt-2">Traced logins spanning sessions</p>
+            </div>
+         </div>
+      </motion.div>
 
       <AnimatePresence>
         {activeDrillDown && drillDownData[activeDrillDown] && (
