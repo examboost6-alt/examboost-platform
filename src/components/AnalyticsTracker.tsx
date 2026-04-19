@@ -47,18 +47,41 @@ export default function AnalyticsTracker() {
                     console.log("Analytics Auth Check Skipped: Tracking as Anonymous");
                 }
 
-                // Fetch Geo IP info gracefully
-                let geoCity = null;
-                let geoCountry = null;
+                // Fetch Geo IP info gracefully with robust 3-tier cascading fallback
+                let geoCity = 'Unknown';
+                let geoCountry = 'Unknown';
                 try {
+                    // Tier 1: Try secure IP resolution API (geojs.io)
                     const geoRes = await fetch('https://get.geojs.io/v1/ip/geo.json');
                     if (geoRes.ok) {
                         const geoData = await geoRes.json();
-                        geoCity = geoData.city;
-                        geoCountry = geoData.country;
+                        geoCity = geoData.city || 'Unknown';
+                        geoCountry = geoData.country || 'Unknown';
+                    } else {
+                        throw new Error("Tier 1 failed");
                     }
-                } catch (e) {
-                    // Fail silently, use server side IP fallback
+                } catch (e1) {
+                    try {
+                        // Tier 2: Trial fallback (ipapi.co)
+                        const fbRes = await fetch('https://ipapi.co/json/');
+                        if (fbRes.ok) {
+                            const fbData = await fbRes.json();
+                            geoCity = fbData.city || 'Unknown';
+                            geoCountry = fbData.country_name || 'Unknown';
+                        } else {
+                            throw new Error("Tier 2 failed");
+                        }
+                    } catch (e2) {
+                        // Tier 3: Absolute local offline fallback using timezone heuristics
+                        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                        if (tz) {
+                            const parts = tz.split('/');
+                            if (parts.length >= 2) {
+                                geoCity = parts[parts.length - 1].replace('_', ' ');
+                                geoCountry = parts[0];
+                            }
+                        }
+                    }
                 }
 
                 // Hit our custom API route to insert into Supabase securely

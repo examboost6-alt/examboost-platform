@@ -23,6 +23,8 @@ export interface AnalyticsPayload {
 export default function AnalyticsCommandCenter() {
   const [activeTab, setActiveTab] = useState<'overview' | 'traffic' | 'revenue' | 'performance'>('overview');
   const [dateRange, setDateRange] = useState('7d');
+  const [customStartDate, setCustomStartDate] = useState('');
+  const [customEndDate, setCustomEndDate] = useState('');
   const [isExporting, setIsExporting] = useState(false);
   const [showPanel, setShowPanel] = useState(true);
   
@@ -49,19 +51,39 @@ export default function AnalyticsCommandCenter() {
       setData(prev => ({ ...prev, loading: true }));
       
       try {
-        const now = new Date();
-        if (dateRange === '24h') now.setHours(now.getHours() - 24);
-        else if (dateRange === '7d') now.setDate(now.getDate() - 7);
-        else if (dateRange === '30d') now.setDate(now.getDate() - 30);
-        else if (dateRange === '90d') now.setDate(now.getDate() - 90);
-        const isoThreshold = now.toISOString();
+        let fetchPromise = [];
+        let isoThreshold = "";
+        let isoEndThreshold = "";
 
-        const [pvRes, utRes, pRes, profRes] = await Promise.all([
-          supabase.from('page_views').select('*').gte('created_at', isoThreshold),
-          supabase.from('user_tests').select('*').gte('created_at', isoThreshold),
-          supabase.from('purchases').select('*').gte('created_at', isoThreshold),
-          supabase.from('profiles').select('id, full_name, email, created_at')
-        ]);
+        if (dateRange === 'custom') {
+            isoThreshold = customStartDate ? new Date(customStartDate).toISOString() : new Date("2000-01-01").toISOString();
+            const end = new Date(customEndDate || new Date());
+            end.setHours(23, 59, 59, 999);
+            isoEndThreshold = end.toISOString();
+            
+            fetchPromise = [
+              supabase.from('page_views').select('*').gte('created_at', isoThreshold).lte('created_at', isoEndThreshold),
+              supabase.from('user_tests').select('*').gte('created_at', isoThreshold).lte('created_at', isoEndThreshold),
+              supabase.from('purchases').select('*').gte('created_at', isoThreshold).lte('created_at', isoEndThreshold),
+              supabase.from('profiles').select('id, full_name, email, created_at')
+            ];
+        } else {
+            const now = new Date();
+            if (dateRange === '24h') now.setHours(now.getHours() - 24);
+            else if (dateRange === '7d') now.setDate(now.getDate() - 7);
+            else if (dateRange === '30d') now.setDate(now.getDate() - 30);
+            else if (dateRange === '90d') now.setDate(now.getDate() - 90);
+            isoThreshold = now.toISOString();
+
+            fetchPromise = [
+              supabase.from('page_views').select('*').gte('created_at', isoThreshold),
+              supabase.from('user_tests').select('*').gte('created_at', isoThreshold),
+              supabase.from('purchases').select('*').gte('created_at', isoThreshold),
+              supabase.from('profiles').select('id, full_name, email, created_at')
+            ];
+        }
+
+        const [pvRes, utRes, pRes, profRes] = await Promise.all(fetchPromise);
 
         if (isMounted) {
           setData({
@@ -80,7 +102,7 @@ export default function AnalyticsCommandCenter() {
     
     fetchRealData();
     return () => { isMounted = false; };
-  }, [dateRange, supabase]);
+  }, [dateRange, customStartDate, customEndDate, supabase]);
 
   const mockExportCSV = () => {
     setIsExporting(true);
@@ -137,18 +159,39 @@ export default function AnalyticsCommandCenter() {
                   <select
                     value={dateRange}
                     onChange={(e) => setDateRange(e.target.value)}
-                    className="pl-9 pr-8 py-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer shadow-sm appearance-none"
+                    className="pl-9 pr-8 py-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer shadow-sm appearance-none min-w-[140px]"
                   >
                     <option value="24h">Today</option>
                     <option value="7d">Last 7 Days</option>
                     <option value="30d">Last 30 Days</option>
                     <option value="90d">Last 90 Days</option>
+                    <option value="custom">Custom Date</option>
                     <option value="empty">Empty Test Range</option>
                   </select>
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                     <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
+
+                <AnimatePresence>
+                   {dateRange === 'custom' && (
+                     <motion.div initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: 'auto' }} exit={{ opacity: 0, width: 0 }} className="flex items-center gap-2 overflow-hidden">
+                        <input 
+                           type="date" 
+                           value={customStartDate} 
+                           onChange={(e) => setCustomStartDate(e.target.value)}
+                           className="py-1.5 px-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary" 
+                        />
+                        <span className="text-sm font-bold text-slate-400">to</span>
+                        <input 
+                           type="date" 
+                           value={customEndDate} 
+                           onChange={(e) => setCustomEndDate(e.target.value)}
+                           className="py-1.5 px-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-secondary" 
+                        />
+                     </motion.div>
+                   )}
+                </AnimatePresence>
 
                 <div className="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 pl-3">
                    <button onClick={mockExportCSV} disabled={isExporting} className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold shadow-sm transition-colors disabled:opacity-50">
