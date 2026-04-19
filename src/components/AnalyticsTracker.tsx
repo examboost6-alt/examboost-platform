@@ -35,9 +35,17 @@ export default function AnalyticsTracker() {
                 else if (ua.includes('iOS') || ua.includes('iPhone')) os = 'iOS';
 
                 // Get User ID
-                const supabase = getSupabaseClient();
-                const { data: { session } } = await supabase.auth.getSession();
-                const userId = session?.user?.id || null;
+                // Get User ID carefully to not block tracking for anonymous visits
+                let userId = null;
+                try {
+                    const supabase = getSupabaseClient();
+                    if (supabase) {
+                        const { data } = await supabase.auth.getSession();
+                        userId = data?.session?.user?.id || null;
+                    }
+                } catch (authErr) {
+                    console.log("Analytics Auth Check Skipped: Tracking as Anonymous");
+                }
 
                 // Fetch Geo IP info gracefully
                 let geoCity = null;
