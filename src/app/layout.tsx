@@ -209,6 +209,18 @@ export default function RootLayout({
                         `,
                     }}
                 />
+                {/* Google tag (gtag.js) */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFT891M6HL"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KFT891M6HL');
+                        `,
+                    }}
+                />
             </head>
             <body className={`antialiased font-sans ${inter.variable} overflow-x-hidden`}>
                 <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

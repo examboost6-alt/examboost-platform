@@ -6,9 +6,17 @@ import { getSupabaseClient } from "@/lib/supabaseClient";
 
 export default function LiveVisitorNotifier() {
   const [enabled, setEnabled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const audioCtxRef = useRef<AudioContext | null>(null);
 
-  // Play a "pop/ding" sound synthetically using AudioContext
+  useEffect(() => {
+    setIsMounted(true);
+    const saved = localStorage.getItem('visitorNotificationsEnabled');
+    if (saved === 'true' && "Notification" in window && Notification.permission === "granted") {
+      setEnabled(true);
+    }
+  }, []);
+
   const playNotificationSound = () => {
     try {
       if (!audioCtxRef.current) {
@@ -21,11 +29,9 @@ export default function LiveVisitorNotifier() {
       const gainNode = ctx.createGain();
 
       osc.type = "sine";
-      // Start at a high frequency (ping)
       osc.frequency.setValueAtTime(800, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
 
-      // Attack / Decay for a bell-like "ding"
       gainNode.gain.setValueAtTime(0, ctx.currentTime);
       gainNode.gain.linearRampToValueAtTime(1, ctx.currentTime + 0.05);
       gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
@@ -42,12 +48,12 @@ export default function LiveVisitorNotifier() {
 
   const handleToggle = async () => {
     if (!enabled) {
-      // Prompt for notifications
       if ("Notification" in window) {
         const perm = await Notification.requestPermission();
         if (perm === "granted") {
           setEnabled(true);
-          playNotificationSound(); // Immediate feedback
+          localStorage.setItem('visitorNotificationsEnabled', 'true');
+          playNotificationSound();
           new Notification("Notifications Enabled", {
             body: "You will now receive alerts for live web traffic.",
             icon: '/logo.png'
@@ -60,6 +66,7 @@ export default function LiveVisitorNotifier() {
       }
     } else {
       setEnabled(false);
+      localStorage.setItem('visitorNotificationsEnabled', 'false');
     }
   };
 
