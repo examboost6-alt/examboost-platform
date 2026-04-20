@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSupabaseClient } from "@/lib/supabaseClient";
+import LiveVisitorNotifier from "@/components/LiveVisitorNotifier";
 import {
   LayoutDashboard,
   Users,
@@ -246,10 +247,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
             )}
-            <button aria-label="Notifications" className="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
-              <Bell className="w-5 h-5" />
-              <span className="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-accent border-2 border-white dark:border-slate-900" />
-            </button>
+            <LiveVisitorNotifier />
             <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-blue-500 text-white flex items-center justify-center font-black text-lg ml-2 shadow-md shadow-primary/20 border-2 border-white dark:border-slate-800 cursor-pointer">
               A
             </div>

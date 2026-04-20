@@ -97,6 +97,7 @@ export const metadata: Metadata = {
     publisher: 'ExamBoost',
     category: 'Education',
     classification: 'Educational Platform',
+    manifest: '/manifest.json',
 };
 
 export const viewport = {
@@ -195,6 +196,17 @@ export default function RootLayout({
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify(jsonLdBreadcrumbList),
+                    }}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            if ('serviceWorker' in navigator) {
+                                window.addEventListener('load', function() {
+                                    navigator.serviceWorker.register('/sw.js').catch(function(err) {});
+                                });
+                            }
+                        `,
                     }}
                 />
             </head>

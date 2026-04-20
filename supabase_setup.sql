@@ -118,3 +118,7 @@ BEGIN
             FOR ALL USING (auth.role() = 'authenticated');
     END IF;
 END $$;
+
+-- 4. Enable Realtime Replication for page_views
+-- This allows the Admin panel to receive live push notifications when a new visitor lands on the site.
+ALTER PUBLICATION supabase_realtime ADD TABLE page_views;
