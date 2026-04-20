@@ -263,7 +263,7 @@ function JEE_NTA_TestEngine() {
                             score += 4;
                             correct++;
                         } else {
-                            // Section B Numerical has no negative marking for incorrect
+                            score -= 1;
                             incorrect++;
                         }
                     }
