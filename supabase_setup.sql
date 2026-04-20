@@ -89,3 +89,32 @@ BEGIN
             FOR SELECT USING (auth.role() = 'authenticated');
     END IF;
 END $$;
+
+-- 3. Create contact_messages table to store messages from the public contact page
+CREATE TABLE IF NOT EXISTS public.contact_messages (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT,
+    subject TEXT,
+    message TEXT NOT NULL,
+    status TEXT DEFAULT 'Unread' -- 'Unread', 'Replied', 'Closed'
+);
+
+-- Enable RLS for contact messages
+ALTER TABLE public.contact_messages ENABLE ROW LEVEL SECURITY;
+
+-- Note: We do NOT need to add a policy for anonymous users to insert here 
+-- because our Next.js /api/contact endpoint securely handles insertions using the Supabase Service Role Key.
+
+-- Allow read/update access for authenticated users (Admins)
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies WHERE tablename = 'contact_messages' AND policyname = 'Enable access for authenticated users (Admin)'
+    ) THEN
+        CREATE POLICY "Enable access for authenticated users (Admin)" ON public.contact_messages
+            FOR ALL USING (auth.role() = 'authenticated');
+    END IF;
+END $$;

@@ -140,27 +140,40 @@ export default function ContactClient() {
 
                             <form className="space-y-8" onSubmit={async (e) => {
                                 e.preventDefault();
-                                const formData = new FormData(e.currentTarget);
+                                const form = e.currentTarget;
+                                const formData = new FormData(form);
                                 const data = {
                                     name: formData.get('firstName') + ' ' + (formData.get('lastName') || ''),
                                     email: formData.get('email'),
                                     subject: formData.get('subject'),
-                                    message: formData.get('message'),
-                                    status: 'Unread'
+                                    message: formData.get('message')
                                 };
+                                
                                 try {
-                                    const { getSupabaseClient } = await import('@/lib/supabaseClient');
-                                    const supabase = getSupabaseClient();
-                                    if(supabase) {
-                                        const { error } = await supabase.from('contact_messages').insert([data]);
-                                        if (error) alert("Could not send message. Ensure 'contact_messages' table exists. Error: " + error.message);
-                                        else {
-                                            alert("Message sent successfully!");
-                                            e.currentTarget.reset();
-                                        }
+                                    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                                    const originalText = submitBtn.innerHTML;
+                                    submitBtn.innerHTML = 'Sending...';
+                                    submitBtn.disabled = true;
+
+                                    const res = await fetch('/api/contact', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify(data)
+                                    });
+
+                                    const json = await res.json();
+                                    
+                                    if (json.success) {
+                                        alert("Message sent successfully! Our team will get back to you soon.");
+                                        form.reset();
+                                    } else {
+                                        alert("Could not send message: " + (json.error || "Unknown error"));
                                     }
+
+                                    submitBtn.innerHTML = originalText;
+                                    submitBtn.disabled = false;
                                 } catch (err) {
-                                    alert("Client error.");
+                                    alert("Client error. Please try again later.");
                                 }
                             }}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
