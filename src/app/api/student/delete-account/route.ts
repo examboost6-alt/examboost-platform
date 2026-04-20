@@ -24,6 +24,10 @@ export async function POST(req: Request) {
 
     const userId = user.id;
 
+    if (user.email === 'harshbudhauliya892@gmail.com') {
+      return NextResponse.json({ success: false, error: 'Cannot delete the primary admin account for security reasons' }, { status: 403 });
+    }
+
     // Delete associated specific custom data first
     await supabaseAdmin.from('purchases').delete().eq('user_id', userId);
     await supabaseAdmin.from('user_tests').delete().eq('user_id', userId);

@@ -802,6 +802,12 @@ export default function StudentDashboard() {
         return;
       }
 
+      if (userEmail === 'harshbudhauliya892@gmail.com') {
+        alert("You cannot delete the primary admin account for security reasons.");
+        setIsDeletingAccount(false);
+        return;
+      }
+
       const res = await fetch('/api/student/delete-account', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
@@ -822,6 +828,13 @@ export default function StudentDashboard() {
       alert("Error deleting account.");
       setIsDeletingAccount(false);
     }
+  };
+
+  const handleLogout = async () => {
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+    await supabase.auth.signOut();
+    router.replace('/login');
   };
 
   // --- Sub-Components for Different Modules ---
@@ -2283,6 +2296,18 @@ export default function StudentDashboard() {
                 className="bg-red-50 border text-sm border-red-200 text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-red-100 transition-colors"
               >
                 Delete
+              </button>
+            </div>
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+              <div>
+                <p className="font-bold text-slate-700 text-sm">Logout</p>
+                <p className="text-xs text-slate-500 font-medium mt-0.5">Sign out of your account on this device.</p>
+              </div>
+              <button 
+                onClick={handleLogout}
+                className="bg-slate-100 border text-sm border-slate-200 text-slate-700 px-4 py-2 rounded-lg font-bold hover:bg-slate-200 transition-colors"
+              >
+                Logout
               </button>
             </div>
           </div>
