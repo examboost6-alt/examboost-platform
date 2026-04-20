@@ -108,7 +108,6 @@ export const viewport = {
 };
 
 import AnalyticsTracker from '@/components/AnalyticsTracker';
-import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default function RootLayout({
     children,
@@ -204,7 +203,6 @@ export default function RootLayout({
                     <AnalyticsTracker />
                     <Navbar />
                     <main className="overflow-x-hidden flex-1">
-                    <Breadcrumbs />
                     {children}
                 </main>
                     <Footer />
