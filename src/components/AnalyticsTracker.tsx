@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
-import UAParser from 'ua-parser-js';
+import { UAParser } from 'ua-parser-js';
 
 function getOrCreateVisitorId() {
     if (typeof window === 'undefined') return 'unknown-visitor';
