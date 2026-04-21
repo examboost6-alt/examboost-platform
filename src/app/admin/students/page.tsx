@@ -72,7 +72,14 @@ export default function AdminStudentsPage() {
     const load = async (isInitial = true) => {
       if (isInitial) setLoading(true);
       try {
-        const res = await fetch("/api/admin/students-data");
+        // Enforce hard cache bypassing using timestamp querying + config explicitly blocking browser/fetch caches!
+        const res = await fetch(`/api/admin/students-data?t=${Date.now()}`, { 
+          cache: "no-store",
+          headers: {
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache"
+          }
+        });
         const json = await res.json();
         
         if (!cancelled && json.success) {
@@ -98,13 +105,26 @@ export default function AdminStudentsPage() {
     load(true);
     
     // Near real-time polling every 5 seconds (update details ek dum correct in 5s)
-    const interval = setInterval(() => {
+    let interval = setInterval(() => {
         load(false);
     }, 5000);
+
+    // Advanced Live WebSocket Connection to immediately push newly landed visitors
+    const supabase = getSupabaseClient();
+    let channel: any;
+    if (supabase) {
+        channel = supabase.channel('live-admin-board')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'page_views' }, () => {
+            // Immediate update on real-time event
+            load(false);
+        })
+        .subscribe();
+    }
 
     return () => {
       cancelled = true;
       clearInterval(interval);
+      if (channel) supabase?.removeChannel(channel);
     };
   }, []);
 
