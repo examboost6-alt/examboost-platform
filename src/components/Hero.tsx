@@ -99,7 +99,7 @@ export default function Hero() {
                             className="mb-14"
                         >
                             <Link 
-                                href="/series" 
+                                href="/signup" 
                                 className="inline-flex bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xl px-10 py-4 border-2 border-[#EA580C] rounded-full transition-transform hover:-translate-y-1 shadow-[0_10px_20px_-10px_rgba(249,115,22,0.6)]"
                             >
                                 Apply Now
