@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { getSupabaseClient } from '@/lib/supabaseClient';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ForgotPasswordClient() {
     const [email, setEmail] = useState('');
@@ -50,17 +51,37 @@ export default function ForgotPasswordClient() {
                 </p>
 
                 <form className="space-y-6" onSubmit={onSubmit}>
-                    {error ? (
-                        <div className="rounded-xl border border-red-200 bg-red-50 text-red-700 px-4 py-3 font-semibold text-sm">
-                            {error}
-                        </div>
-                    ) : null}
+                    <AnimatePresence mode="popLayout">
+                        {error && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm"
+                            >
+                                <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                                <div className="text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
+                                    {error}
+                                </div>
+                            </motion.div>
+                        )}
 
-                    {success ? (
-                        <div className="rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-3 font-semibold text-sm">
-                            {success}
-                        </div>
-                    ) : null}
+                        {success && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                className="rounded-xl border border-emerald-200/60 dark:border-emerald-500/20 bg-emerald-50/80 dark:bg-emerald-500/10 p-4 flex gap-3 items-start shadow-sm"
+                            >
+                                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                                <div className="text-sm font-medium text-emerald-800 dark:text-emerald-200 leading-snug">
+                                    {success}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
                     <div className="space-y-2">
                         <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>

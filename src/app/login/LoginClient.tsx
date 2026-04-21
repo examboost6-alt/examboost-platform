@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, Eye, EyeOff } from 'lucide-react';
+import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, Eye, EyeOff, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LoginClient() {
     const router = useRouter();
@@ -195,17 +195,46 @@ export default function LoginClient() {
                     </div>
 
                     <form className="space-y-6" onSubmit={onSubmit}>
-                        {error ? (
-                            <div className="rounded-xl border border-red-200 bg-red-50 text-red-700 px-4 py-3 font-semibold text-sm">
-                                {error}
-                            </div>
-                        ) : null}
+                        <AnimatePresence mode="popLayout">
+                            {error && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                >
+                                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                                    <div className="text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
+                                        {error === 'Invalid login credentials' ? (
+                                            <span>
+                                                We couldn't find an account matching these details. Please check your credentials or{' '}
+                                                <Link href="/signup" className="underline font-bold hover:text-red-900 dark:hover:text-red-100 transition-colors">
+                                                    create a new account
+                                                </Link>.
+                                            </span>
+                                        ) : (
+                                            error
+                                        )}
+                                    </div>
+                                </motion.div>
+                            )}
 
-                        {resendMessage ? (
-                            <div className="rounded-xl border border-orange-200 bg-orange-50 text-orange-800 px-4 py-3 font-semibold text-sm">
-                                {resendMessage}
-                            </div>
-                        ) : null}
+                            {resendMessage && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="rounded-xl border border-orange-200/60 dark:border-orange-500/20 bg-orange-50/80 dark:bg-orange-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                >
+                                    <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
+                                    <div className="text-sm font-medium text-orange-800 dark:text-orange-200 leading-snug">
+                                        {resendMessage}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
 
                         <div className="space-y-2">
                             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
