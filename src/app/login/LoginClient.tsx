@@ -23,6 +23,12 @@ export default function LoginClient() {
         setError(null);
         setResendMessage(null);
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setError('Please enter a valid email address (e.g. name@example.com).');
+            return;
+        }
+
         const supabase = getSupabaseClient();
         if (!supabase) {
             setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
