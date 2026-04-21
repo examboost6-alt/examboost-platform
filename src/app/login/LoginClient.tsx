@@ -186,7 +186,7 @@ export default function LoginClient() {
                     </Link>
 
                     <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Log In to Account</h1>
-                    <p className="text-slate-600 dark:text-slate-400 font-medium mb-10">Enter your credentials to access your dashboard.</p>
+                    <p className="text-slate-600 dark:text-slate-400 font-medium mb-10">Enter your email and password to access your dashboard.</p>
 
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-[1px] flex-1 bg-slate-200 dark:bg-slate-800"></div>
@@ -208,7 +208,7 @@ export default function LoginClient() {
                                     <div className="text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
                                         {error === 'Invalid login credentials' ? (
                                             <span>
-                                                We couldn't find an account matching these details. Please check your credentials or{' '}
+                                                Incorrect email or password. Please check your details and try again, or{' '}
                                                 <Link href="/signup" className="underline font-bold hover:text-red-900 dark:hover:text-red-100 transition-colors">
                                                     create a new account
                                                 </Link>.
