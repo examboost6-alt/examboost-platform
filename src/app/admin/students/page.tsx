@@ -69,8 +69,8 @@ export default function AdminStudentsPage() {
   useEffect(() => {
     let cancelled = false;
 
-    const load = async () => {
-      setLoading(true);
+    const load = async (isInitial = true) => {
+      if (isInitial) setLoading(true);
       try {
         const res = await fetch("/api/admin/students-data");
         const json = await res.json();
@@ -78,18 +78,33 @@ export default function AdminStudentsPage() {
         if (!cancelled && json.success) {
           setRows(json.profiles || []);
           setAnonymousVisitors(json.anonymousVisitors || []);
+          
+          // Smoothly update the sidebar if viewing an anonymous guest live
+          setSelectedAnonymous(prev => {
+              if (prev && json.anonymousVisitors) {
+                  const updated = json.anonymousVisitors.find((v: any) => v.fingerprint === prev.fingerprint);
+                  if (updated) return updated;
+              }
+              return prev;
+          });
         }
       } catch (err) {
         console.error("Failed to load students data", err);
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled && isInitial) setLoading(false);
       }
     };
 
-    load();
+    load(true);
+    
+    // Near real-time polling every 5 seconds (update details ek dum correct in 5s)
+    const interval = setInterval(() => {
+        load(false);
+    }, 5000);
 
     return () => {
       cancelled = true;
+      clearInterval(interval);
     };
   }, []);
 

@@ -9,7 +9,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { path, device_type, browser, os, user_id, city: clientCity, country: clientCountry } = body;
+        const { path, device_type, browser, os, user_id, visitor_id, client_tz } = body;
 
         if (!path) {
             return NextResponse.json({ error: 'Path is required' }, { status: 400 });
@@ -23,27 +23,51 @@ export async function POST(req: Request) {
             if (user) userId = user.id;
         }
 
-        // 2. Approximate Location via Request IP & Headers
-        // In production on Vercel, x-real-ip and x-vercel-ip-* headers are extremely reliable and cannot be ad-blocked.
-        const ip = req.headers.get('x-real-ip') || req.headers.get('x-forwarded-for') || '127.0.0.1';
+        // 2. Server-Side Location Tracking (Immune to Client AdBlockers)
+        let city = 'Unknown';
+        let country = 'Unknown';
+        let region = 'Unknown';
+
+        // Get actual client IP
+        const ip = req.headers.get('x-real-ip') || req.headers.get('x-forwarded-for') || '';
+        const ipToTrace = (ip && ip.split(',')[0].trim()) || null;
         
         let vercelCity = req.headers.get('x-vercel-ip-city');
         let vercelCountry = req.headers.get('x-vercel-ip-country');
         let vercelRegion = req.headers.get('x-vercel-ip-country-region');
 
-        // Decode Vercel URIs (e.g. San%20Jose -> San Jose)
-        if (vercelCity) vercelCity = decodeURIComponent(vercelCity);
-        if (vercelCountry) vercelCountry = decodeURIComponent(vercelCountry);
-        if (vercelRegion) vercelRegion = decodeURIComponent(vercelRegion);
+        if (vercelCity) city = decodeURIComponent(vercelCity);
+        if (vercelCountry) country = decodeURIComponent(vercelCountry);
+        if (vercelRegion) region = decodeURIComponent(vercelRegion);
 
-        // Prioritize Server-Side Edge Location -> Client-Side Fallback -> 'Unknown'
-        const city = (vercelCity && vercelCity !== 'Unknown') ? vercelCity :
-                     (clientCity && clientCity !== 'Unknown') ? clientCity : 'Unknown';
-                     
-        const country = (vercelCountry && vercelCountry !== 'Unknown') ? vercelCountry :
-                        (clientCountry && clientCountry !== 'Unknown') ? clientCountry : 'Unknown';
-                        
-        const region = (vercelRegion && vercelRegion !== 'Unknown') ? vercelRegion : 'Unknown';
+        // If Vercel headers missed it, do a quick, reliable fallback server-side
+        if (city === 'Unknown' || country === 'Unknown') {
+            try {
+                if (ipToTrace && ipToTrace !== '127.0.0.1' && ipToTrace !== '::1') {
+                    const geoRes = await fetch(`http://ip-api.com/json/${ipToTrace}?fields=status,country,regionName,city`, { cache: 'no-store' });
+                    if (geoRes.ok) {
+                        const geoData = await geoRes.json();
+                        if (geoData.status === 'success') {
+                            if (geoData.city) city = geoData.city;
+                            if (geoData.country) country = geoData.country;
+                            if (geoData.regionName) region = geoData.regionName;
+                        }
+                    }
+                } else if (client_tz) {
+                    // Absolute last resort: timezone heuristics
+                    const parts = client_tz.split('/');
+                    if (parts.length >= 2) {
+                        city = parts[parts.length - 1].replace('_', ' ');
+                        country = parts[0];
+                    }
+                }
+            } catch (err) {
+                console.error("Server-side IP location fetch failed.");
+            }
+        }
+
+        const safeVisitorId = visitor_id ? `visitor_${visitor_id}` : 'unknown';
+        const storableRegion = `${region}|${safeVisitorId}`;
 
         // 3. Insert into Supabase
         const { error } = await supabase.from('page_views').insert({
@@ -52,7 +76,7 @@ export async function POST(req: Request) {
             browser: browser || 'Other',
             os: os || 'Other',
             city,
-            region,
+            region: storableRegion,
             country,
             user_id: userId
         });

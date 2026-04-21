@@ -38,8 +38,17 @@ export async function GET(req: Request) {
                 // Count for registered users
                 profileViewMap[pv.user_id] = (profileViewMap[pv.user_id] || 0) + 1;
             } else {
-                // Group Anonymous
-                const fp = `${pv.city || 'Unknown'}-${pv.browser || 'Unknown'}-${pv.os || 'Unknown'}-${pv.device_type || 'Desktop'}`;
+                // Determine accurate fingerprint utilizing the visitor_id that we embedded in `region`
+                // region format: "RegionName|visitor_xyz"
+                const parts = (pv.region || '').split('|');
+                let extractedVisitorId = parts.length > 1 ? parts[1] : null;
+                const actualRegion = parts[0] || 'Unknown';
+
+                // Ensure a unique key
+                const fp = extractedVisitorId 
+                           ? `Guest-${extractedVisitorId.replace('visitor_', '').substring(0, 8)}` 
+                           : `${pv.city || 'Unknown'}-${pv.browser || 'Unknown'}-${pv.os || 'Unknown'}-${pv.device_type || 'Desktop'}`;
+
                 if (!anonymousMap[fp]) {
                     anonymousMap[fp] = {
                         fingerprint: fp,
