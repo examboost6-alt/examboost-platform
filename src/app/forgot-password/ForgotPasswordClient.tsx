@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, AlertCircle, CheckCircle2, Unlock, MailCheck } from 'lucide-react';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -18,7 +18,7 @@ export default function ForgotPasswordClient() {
         setSuccess(null);
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        if (!emailRegex.test(email.trim())) {
             setError('Please enter a valid email address (e.g. name@example.com).');
             return;
         }
@@ -36,7 +36,7 @@ export default function ForgotPasswordClient() {
             const checkRes = await fetch('/api/auth/check-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({ email: email.trim() })
             });
             const checkData = await checkRes.json();
 
@@ -54,12 +54,12 @@ export default function ForgotPasswordClient() {
 
             // If exists, proceed to send reset link
             const redirectTo = `${window.location.origin}/reset-password`;
-            const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
+            const { error: resetError } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo });
 
             if (resetError) {
                 setError(resetError.message);
             } else {
-                setSuccess(`Success! A password reset link has been sent to ${email}.`);
+                setSuccess(`Success`);
             }
         } catch (err: any) {
             setError('An unexpected error occurred. Please try again.');
@@ -70,7 +70,7 @@ export default function ForgotPasswordClient() {
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-[#020617] flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans">
-            <div className="w-full max-w-6xl bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col md:flex-row mb-10 mt-16 md:mt-24">
+            <div className="w-full max-w-6xl bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col md:flex-row mb-10 mt-16 md:mt-24 min-h-[700px]">
                 
                 {/* Left Side Decorative Column */}
                 <div className="hidden md:flex flex-col justify-between w-1/2 bg-slate-50 dark:bg-[#060c21] border-r border-slate-200 dark:border-slate-800 p-12 relative overflow-hidden">
@@ -155,71 +155,131 @@ export default function ForgotPasswordClient() {
                         <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Login
                     </Link>
 
-                    <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Reset Password</h1>
-                    <p className="text-slate-600 dark:text-slate-400 font-medium mb-10">
-                        Enter your registered email address and we'll verify it to send a secure reset link.
-                    </p>
+                    <AnimatePresence mode="wait">
+                        {!success ? (
+                            <motion.div
+                                key="form"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                                className="w-full"
+                            >
+                                <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Reset Password</h1>
+                                <p className="text-slate-600 dark:text-slate-400 font-medium mb-10">
+                                    Enter your registered email address and we'll verify it to send a secure reset link.
+                                </p>
 
-                    <form className="space-y-6" onSubmit={onSubmit}>
-                        <AnimatePresence mode="popLayout">
-                            {error && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm"
-                                >
-                                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-                                    <div className="text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
-                                        {error}
+                                <form className="space-y-6" onSubmit={onSubmit}>
+                                    <AnimatePresence mode="popLayout">
+                                        {error && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                            >
+                                                <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                                                <div className="text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
+                                                    {error}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
+                                        <input
+                                            type="email"
+                                            placeholder="student@example.com"
+                                            required
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-[#F97316] focus:ring-4 focus:ring-[#F97316]/20 dark:focus:border-orange-400 dark:focus:ring-orange-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
+                                        />
                                     </div>
-                                </motion.div>
-                            )}
 
-                            {success && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="rounded-xl border border-emerald-200/60 dark:border-emerald-500/20 bg-emerald-50/80 dark:bg-emerald-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        className="w-full bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_8px_25px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                                    >
+                                        {loading ? 'Verifying email...' : 'Verify & Send Link'} <ArrowRight className="w-5 h-5" />
+                                    </button>
+                                </form>
+
+                                <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center font-medium text-slate-600 dark:text-slate-400">
+                                    Don't have an account yet?{' '}
+                                    <Link href="/signup" className="text-orange-600 dark:text-orange-400 hover:underline font-bold">
+                                        Create a free account
+                                    </Link>
+                                </div>
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                key="success"
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                transition={{ type: "spring", bounce: 0.4, duration: 0.6 }}
+                                className="flex flex-col items-center justify-center text-center py-10 w-full"
+                            >
+                                <motion.div 
+                                    initial={{ scale: 0, rotate: -180 }}
+                                    animate={{ scale: 1, rotate: 0 }}
+                                    transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
+                                    className="w-24 h-24 bg-blue-100 dark:bg-blue-500/20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20"
                                 >
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                                    <div className="text-sm font-medium text-emerald-800 dark:text-emerald-200 leading-snug">
-                                        {success}
-                                    </div>
+                                    <Unlock className="w-12 h-12 text-blue-600 dark:text-blue-400" />
                                 </motion.div>
-                            )}
-                        </AnimatePresence>
+                                
+                                <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">Check Your Inbox!</h2>
+                                <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto leading-relaxed">
+                                    A secure password reset link has been dispatched to <br/>
+                                    <span className="font-bold text-slate-900 dark:text-white px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg inline-block mt-2">{email}</span>
+                                </p>
+                                
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                    className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 mb-10 w-full max-w-sm shadow-sm"
+                                >
+                                    <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center justify-center gap-2">
+                                        <AlertCircle className="w-5 h-5 text-blue-500" /> Next Steps
+                                    </h3>
+                                    <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-3 text-left">
+                                        <li className="flex gap-3">
+                                            <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-black flex items-center justify-center shrink-0 text-xs">1</div>
+                                            <span>Open your email and find the reset link.</span>
+                                        </li>
+                                        <li className="flex gap-3">
+                                            <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-black flex items-center justify-center shrink-0 text-xs">2</div>
+                                            <span>Click it to create a brand new password securely.</span>
+                                        </li>
+                                        <li className="flex gap-3">
+                                            <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-black flex items-center justify-center shrink-0 text-xs">3</div>
+                                            <span>Come back and log in with your new credentials!</span>
+                                        </li>
+                                    </ul>
+                                </motion.div>
 
-                        <div className="space-y-2">
-                            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
-                            <input
-                                type="email"
-                                placeholder="student@example.com"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-[#F97316] focus:ring-4 focus:ring-[#F97316]/20 dark:focus:border-orange-400 dark:focus:ring-orange-400/20 rounded-xl outline-none transition-all text-slate-900 dark:text-white font-medium placeholder:text-slate-400"
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="w-full bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-60 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_8px_25px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
-                        >
-                            {loading ? 'Verifying email...' : 'Verify & Send Link'} <ArrowRight className="w-5 h-5" />
-                        </button>
-                    </form>
-
-                    <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center font-medium text-slate-600 dark:text-slate-400">
-                        Don't have an account yet?{' '}
-                        <Link href="/signup" className="text-orange-600 dark:text-orange-400 hover:underline font-bold">
-                            Create a free account
-                        </Link>
-                    </div>
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.6 }}
+                                    className="w-full max-w-sm"
+                                >
+                                    <Link
+                                        href="/login"
+                                        className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_8px_25px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                                    >
+                                        Return to Login <ArrowRight className="w-5 h-5" />
+                                    </Link>
+                                </motion.div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
         </div>
