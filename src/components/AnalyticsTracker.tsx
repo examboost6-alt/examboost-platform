@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
+import UAParser from 'ua-parser-js';
 
 function getOrCreateVisitorId() {
     if (typeof window === 'undefined') return 'unknown-visitor';
@@ -26,25 +27,13 @@ export default function AnalyticsTracker() {
 
         const trackView = async () => {
             try {
-                // Get basic device info (Client side is fine, but we will enhance on server)
-                const ua = window.navigator.userAgent;
-                let deviceType = 'Desktop';
-                if (/Mobi|Android/i.test(ua)) deviceType = 'Mobile';
-                if (/Tablet|iPad/i.test(ua)) deviceType = 'Tablet';
+                // Get extremely exact device info using UAParser
+                const parser = new UAParser();
+                const result = parser.getResult();
                 
-                let browser = 'Other';
-                if (ua.includes('Chrome') || ua.includes('CriOS')) browser = 'Chrome';
-                else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
-                else if (ua.includes('Firefox') || ua.includes('FxiOS')) browser = 'Firefox';
-                else if (ua.includes('Edg')) browser = 'Edge';
-                else if (ua.includes('Opera') || ua.includes('OPR')) browser = 'Opera';
-
-                let os = 'Other';
-                if (ua.includes('Win')) os = 'Windows';
-                else if (ua.includes('Mac')) os = 'macOS';
-                else if (ua.includes('Linux') && !ua.includes('Android')) os = 'Linux';
-                else if (ua.includes('Android')) os = 'Android';
-                else if (ua.includes('iOS') || ua.match(/iPhone|iPad|iPod/i)) os = 'iOS';
+                const deviceType = result.device.type ? (result.device.type.charAt(0).toUpperCase() + result.device.type.slice(1)) : 'Desktop';
+                const browser = result.browser.name ? `${result.browser.name} ${result.browser.version?.split('.')[0] || ''}`.trim() : 'Other';
+                const os = result.os.name ? `${result.os.name} ${result.os.version || ''}`.trim() : 'Other';
 
                 // Get User ID
                 let userId = null;

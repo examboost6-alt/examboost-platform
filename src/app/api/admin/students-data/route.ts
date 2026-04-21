@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+export const dynamic = 'force-dynamic';
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
@@ -23,7 +25,7 @@ export async function GET(req: Request) {
         // To avoid bringing down the database, we limit to the most recent 20000 page views
         const { data: pageViews, error: vError } = await supabaseAdmin
             .from("page_views")
-            .select("id, path, created_at, city, country, os, browser, device_type, user_id")
+            .select("id, path, created_at, city, country, region, os, browser, device_type, user_id")
             .order("created_at", { ascending: false })
             .limit(20000);
 
