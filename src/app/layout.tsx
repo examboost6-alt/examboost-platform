@@ -110,7 +110,8 @@ export const viewport = {
     userScalable: false,
 };
 
-import AnalyticsTracker from '@/components/AnalyticsTracker';
+import dynamic from 'next/dynamic';
+const AnalyticsTracker = dynamic(() => import('@/components/AnalyticsTracker'), { ssr: false });
 
 export default function RootLayout({
     children,
@@ -222,12 +223,12 @@ export default function RootLayout({
                     }}
                 />
                 <Script
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                     src={`https://www.googletagmanager.com/gtag/js?id=G-KFT891M6HL`}
                 />
                 <Script
                     id="google-analytics"
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                     dangerouslySetInnerHTML={{
                         __html: `
                             window.dataLayer = window.dataLayer || [];
