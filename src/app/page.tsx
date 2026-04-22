@@ -1,15 +1,17 @@
+import dynamic from 'next/dynamic';
 import Hero from '@/components/Hero';
-import Banners from '@/components/Banners';
-import Categories from '@/components/Categories';
-import Features from '@/components/Features';
-import DashboardPreview from '@/components/DashboardPreview';
-import FreeTests from '@/components/FreeTests';
-import Pricing from '@/components/Pricing';
-import Testimonials from '@/components/Testimonials';
-import AppPromo from '@/components/AppPromo';
-import BlogSection from '@/components/BlogSection';
-import TrustIndicators from '@/components/TrustIndicators';
-import TestSeriesSection from '@/components/TestSeriesSection';
+
+const Banners = dynamic(() => import('@/components/Banners'));
+const Categories = dynamic(() => import('@/components/Categories'));
+const Features = dynamic(() => import('@/components/Features'));
+const DashboardPreview = dynamic(() => import('@/components/DashboardPreview'));
+const FreeTests = dynamic(() => import('@/components/FreeTests'));
+const Pricing = dynamic(() => import('@/components/Pricing'));
+const Testimonials = dynamic(() => import('@/components/Testimonials'));
+const AppPromo = dynamic(() => import('@/components/AppPromo'));
+const BlogSection = dynamic(() => import('@/components/BlogSection'));
+const TrustIndicators = dynamic(() => import('@/components/TrustIndicators'));
+const TestSeriesSection = dynamic(() => import('@/components/TestSeriesSection'));
 
 export default function Home() {
     return (
