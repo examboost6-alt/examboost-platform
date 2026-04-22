@@ -358,8 +358,10 @@ export default function Navbar() {
                             <Search className="w-4 h-4 text-slate-400 group-focus-within:text-[#F97316] transition-colors" />
                         </div>
                         <input
+                            id="desktop-search"
                             type="text"
                             placeholder="Search exams..."
+                            aria-label="Search exams"
                             className="pl-10 pr-4 py-2.5 w-40 lg:w-48 xl:w-56 transition-all duration-300 bg-slate-100 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:border-slate-300 dark:focus:border-slate-700 rounded-full text-sm outline-none text-darkText dark:text-slate-200 placeholder:text-slate-400 focus:ring-4 focus:ring-slate-200/60 dark:focus:ring-slate-800/60"
                         />
                     </div>
@@ -447,7 +449,7 @@ export default function Navbar() {
                             <div className="container mx-auto px-4 flex flex-col flex-1 overflow-hidden pt-6">
                                 <div className="relative shrink-0 mb-6">
                                     <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                                    <input type="text" placeholder="Search exams..." className="w-full pl-12 pr-4 py-3.5 bg-slate-100 dark:bg-slate-800/80 border border-transparent focus:border-slate-300 dark:focus:border-slate-700 rounded-2xl outline-none text-sm text-darkText dark:text-white shadow-inner" />
+                                    <input id="mobile-search" aria-label="Search exams" type="text" placeholder="Search exams..." className="w-full pl-12 pr-4 py-3.5 bg-slate-100 dark:bg-slate-800/80 border border-transparent focus:border-slate-300 dark:focus:border-slate-700 rounded-2xl outline-none text-sm text-darkText dark:text-white shadow-inner" />
                                 </div>
                                 <div className="flex flex-col gap-4 overflow-y-auto px-1 -mx-1 custom-scrollbar pb-6">
                                     {/* Main Navigation Group */}

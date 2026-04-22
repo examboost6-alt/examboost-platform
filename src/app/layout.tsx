@@ -200,6 +200,16 @@ export default function RootLayout({
                         __html: JSON.stringify(jsonLdBreadcrumbList),
                     }}
                 />
+            </head>
+            <body className={`antialiased font-sans ${inter.variable} overflow-x-hidden`}>
+                <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+                    <AnalyticsTracker />
+                    <Navbar />
+                    <main className="overflow-x-hidden flex-1">
+                    {children}
+                </main>
+                    <Footer />
+                </ThemeProvider>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -229,16 +239,6 @@ export default function RootLayout({
                         `,
                     }}
                 />
-            </head>
-            <body className={`antialiased font-sans ${inter.variable} overflow-x-hidden`}>
-                <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-                    <AnalyticsTracker />
-                    <Navbar />
-                    <main className="overflow-x-hidden flex-1">
-                    {children}
-                </main>
-                    <Footer />
-                </ThemeProvider>
             </body>
         </html>
     );

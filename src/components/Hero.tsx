@@ -179,11 +179,12 @@ export default function Hero() {
                             className="relative z-20 w-[90%] sm:w-[80%] lg:w-[120%] max-w-[600px] -mr-8"
                         >
                             <Image 
-                                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1000&auto=format&fit=crop" 
+                                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&auto=format&fit=crop" 
                                 alt="Educator" 
                                 width={1000}
                                 height={1000}
                                 priority
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                                 className="w-full h-auto object-contain mix-blend-darken dark:mix-blend-normal rounded-t-full filter contrast-125 saturate-110"
                             />
                         </motion.div>
