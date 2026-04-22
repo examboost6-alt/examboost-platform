@@ -4,8 +4,12 @@ import { BookOpen, Award, Users, CheckCircle, ArrowRight, PlayCircle, FileText, 
 import TestSeriesPackages from '@/components/TestSeriesPackages';
 
 export const metadata = {
-  title: 'JEE Preparation - ExamBoost',
-  description: 'Comprehensive preparation resources, mock tests, and study materials for JEE.'
+  title: 'JEE Preparation & Crash Course 2026 - ExamBoost',
+  description: 'Comprehensive preparation resources, JEE crash course 2026, JEE mock test free, and study materials for JEE Main & Advanced.',
+  keywords: ['JEE crash course 2026', 'JEE mock test free', 'JEE preparation', 'JEE Main mock test'],
+  alternates: {
+    canonical: 'https://www.examboost.in/exams/engineering-entrance/jee'
+  }
 };
 
 export default function JeePage() {
@@ -27,7 +31,7 @@ export default function JeePage() {
           
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:from-accent dark:to-primary">JEE</span>
+              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:from-accent dark:to-primary">JEE</span> with our Crash Course 2026
             </h1>
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
               Top-tier study materials, interactive mock tests, and expert guidance to help you secure top ranks in your JEE journey.

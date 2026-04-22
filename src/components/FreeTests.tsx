@@ -25,11 +25,11 @@ export default function FreeTests() {
                         </div>
 
                         <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
-                            Unlock <span className="text-[#F97316]">Free</span> Premium <br /> Mock Tests
+                            Unlock <span className="text-[#F97316]">Free</span> Premium <br /> JEE & SSC Mock Tests
                         </h2>
 
                         <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-8">
-                            Experience our actual testing environment and powerful post-exam analytics for absolutely zero cost. Establish your baseline now.
+                            Experience our actual testing environment and powerful post-exam analytics for zero cost. Whether you need a <strong>JEE mock test free</strong> of charge, or exploring the best <strong>SSC preparation Delhi</strong> has to offer, establish your baseline now. We also provide insights into <strong>NEET coaching Delhi fees</strong> and more.
                         </p>
 
                         <div className="flex flex-wrap gap-4 mb-10">

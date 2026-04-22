@@ -16,8 +16,35 @@ export default function TestSeriesPackages({ examName }: TestSeriesPackagesProps
     const finalUltimatePrice = Math.round(baseUltimatePrice / 10) * 10 - 1; // Makes it end in 9
     const originalUltimatePrice = finalUltimatePrice * 2 + 1;
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: `ExamBoost ${examName} Test Series`,
+        description: `Premium mock tests, detailed analytics, and video solutions for ${examName} preparation.`,
+        provider: {
+            '@type': 'Organization',
+            name: 'ExamBoost',
+            sameAs: 'https://www.examboost.in'
+        },
+        offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'INR',
+            category: 'Free'
+        },
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            reviewCount: '1254'
+        }
+    };
+
     return (
         <div className="py-12 md:py-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">

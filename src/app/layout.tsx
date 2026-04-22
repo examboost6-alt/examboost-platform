@@ -17,10 +17,10 @@ const inter = Inter({
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.examboost.in'),
     title: {
-        default: "ExamBoost | India's Most Advanced Test Platform",
+        default: "ExamBoost - Best JEE/NEET/Govt Exam Prep Platform",
         template: '%s | ExamBoost',
     },
-    description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams. JEE, NEET, Banking, Railway, Police, MBA, Law exams preparation.',
+    description: 'Boost your exam preparation with free mock tests, real CBT UI, and analytics. Expert coaching for JEE, NEET, SSC, Banking, and Railway exams. Start your JEE mock test free or SSC preparation in Delhi today.',
     applicationName: 'ExamBoost',
     keywords: [
         'exam preparation',
@@ -30,16 +30,17 @@ export const metadata: Metadata = {
         'banking exams',
         'railway exams',
         'police exams',
-        'MBA entrance',
-        'law entrance',
         'competitive exams',
         'online test series',
         'CBT practice',
         'exam analytics',
         'previous year papers',
-        'AI-driven analytics',
-        'verified solutions',
-        'ExamBoost India'
+        'ExamBoost India',
+        'JEE mock test free',
+        'SSC preparation Delhi',
+        'NEET coaching Delhi fees',
+        'JEE crash course 2026',
+        'SSC CGL mock test free'
     ],
     alternates: {
         canonical: '/',
@@ -48,29 +49,29 @@ export const metadata: Metadata = {
         type: 'website',
         url: 'https://www.examboost.in',
         siteName: 'ExamBoost',
-        title: "ExamBoost | India's Most Advanced Test Platform",
-        description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams.',
+        title: "ExamBoost - Best JEE/NEET/Govt Exam Prep Platform",
+        description: 'Boost your exam preparation with free mock tests, real CBT UI, and expert coaching for JEE, NEET, SSC, and Banking exams.',
         images: [
-            {
-                url: '/logo.png',
-                width: 512,
-                height: 512,
-                alt: 'ExamBoost',
-            },
             {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'ExamBoost - Advanced Test Platform',
             },
+            {
+                url: '/logo.png',
+                width: 512,
+                height: 512,
+                alt: 'ExamBoost Logo',
+            }
         ],
         locale: 'en_IN',
     },
     twitter: {
         card: 'summary_large_image',
-        title: "ExamBoost | India's Most Advanced Test Platform",
-        description: 'Boost your exam preparation with mock tests, real CBT UI, verified solutions, and performance analytics across top competitive exams.',
-        images: ['/logo.png', '/og-image.jpg'],
+        title: "ExamBoost - Best JEE/NEET/Govt Exam Prep Platform",
+        description: 'Boost your exam preparation with free mock tests, real CBT UI, and expert coaching for JEE, NEET, SSC, and Banking exams.',
+        images: ['/og-image.jpg', '/logo.png'],
         creator: '@examboost',
         site: '@examboost',
     },

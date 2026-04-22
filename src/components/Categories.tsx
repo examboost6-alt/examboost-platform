@@ -37,8 +37,17 @@ export default function Categories() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]"
                         >
-                            Explore Target <span className="text-[#F97316]">Categories</span>
+                            Explore Top <span className="text-[#F97316]">Exam Categories</span>
                         </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-slate-600 dark:text-slate-400 mt-4 max-w-lg"
+                        >
+                            From the ultimate <strong>JEE crash course 2026</strong> to an <strong>SSC CGL mock test free</strong> of charge, explore categories designed for guaranteed success.
+                        </motion.p>
                     </div>
 
                     <motion.div

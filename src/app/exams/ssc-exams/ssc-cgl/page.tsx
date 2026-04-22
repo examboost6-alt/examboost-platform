@@ -10,7 +10,11 @@ import SscTestSeriesCards from '@/components/SscTestSeriesCards';
 
 export const metadata = {
     title: 'SSC CGL Preparation & Mock Tests - ExamBoost',
-    description: 'Complete SSC CGL Tier 1 & Tier 2 preparation. Practice with TCS iON interface mock tests, previous year papers, and detailed analytics.'
+    description: 'Complete SSC CGL Tier 1 & Tier 2 preparation in Delhi. Practice with TCS iON interface, SSC CGL mock test free, previous year papers, and detailed analytics.',
+    keywords: ['SSC CGL mock test free', 'SSC preparation Delhi', 'SSC CGL Tier 1 mock test', 'SSC CGL preparation'],
+    alternates: {
+        canonical: 'https://www.examboost.in/exams/ssc-exams/ssc-cgl'
+    }
 };
 
 export default function SSCCGLPage() {
@@ -40,7 +44,7 @@ export default function SSCCGLPage() {
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-[1.15]">
-                                Master the <span className="text-primary dark:text-accent">SSC CGL</span> with Real Exam Experience
+                                Master the <span className="text-primary dark:text-accent">SSC CGL</span> with the Best SSC Preparation Delhi
                             </h1>
 
                             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
