@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Sparkles, Trophy, Users, ArrowRight, ChevronLeft, Eye, EyeOff, Mail, AlertCircle, ExternalLink, CheckCircle2, RefreshCw, Edit2 } from 'lucide-react';
+import { Sparkles, Trophy, Users, ArrowRight, ChevronLeft, Eye, EyeOff, Mail, AlertCircle, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -129,13 +129,13 @@ export default function SignupClient() {
         }
 
         setResendCooldownUntil(Date.now() + 60_000);
-        setResendMessage(`Fresh verification email sent to ${email.trim()}. Check your inbox & spam folder.`);
+        setResendMessage(`Fresh verification email sent to ${email.trim()}. Check your inbox.`);
     };
 
     return (
         <div className="w-full min-h-screen bg-white dark:bg-[#060D1A] flex flex-col lg:flex-row font-sans overflow-x-hidden">
             
-            {/* Left Form Area - Rich, Legible Inputs & Proportional Spacing */}
+            {/* Left Form Area - Ultra Clean Senior Developer Layout */}
             <div className="w-full lg:w-1/2 xl:w-[45%] min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-14 bg-white dark:bg-[#0B1120] relative z-10 order-2 lg:order-1">
                 
                 {/* Header Navigation */}
@@ -258,108 +258,61 @@ export default function SignupClient() {
                                 </form>
                             </motion.div>
                         ) : (
-                            /* Professional 3-Step Education Email Verification Screen */
+                            /* Senior Developer Clean Verification Screen (No AI-template clutter!) */
                             <motion.div
                                 key="success"
-                                initial={{ opacity: 0, scale: 0.95, y: 15 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="flex flex-col items-center justify-center text-center py-2 w-full"
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="w-full text-center py-4 max-w-md mx-auto"
                             >
-                                <motion.div 
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 0.1, type: "spring", bounce: 0.5 }}
-                                    className="w-20 h-20 bg-orange-100 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-500/30 rounded-full flex items-center justify-center mb-5 shadow-xl shadow-orange-500/10 relative"
-                                >
-                                    <Mail className="w-10 h-10 text-[#F97316] dark:text-orange-400" />
-                                    <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-4 w-4 bg-[#F97316]"></span>
-                                    </span>
-                                </motion.div>
+                                <div className="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 text-[#F97316] dark:text-orange-400 flex items-center justify-center mx-auto mb-5 shadow-sm">
+                                    <Mail className="w-7 h-7" />
+                                </div>
                                 
-                                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-xs uppercase tracking-widest mb-3 border border-orange-200 dark:border-orange-800/50">
-                                    <Sparkles className="w-3.5 h-3.5" /> Account Created
-                                </span>
-
-                                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">One Last Step: Verify Email!</h2>
-                                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto leading-relaxed">
-                                    We sent an official account activation email to: <br/>
-                                    <span className="font-bold text-slate-900 dark:text-white px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg inline-block mt-2 border border-slate-200 dark:border-slate-700 text-sm">
-                                        {email}
-                                    </span>
+                                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">Check your inbox</h2>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                                    We sent a confirmation link to <span className="font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">{email}</span>. Click the link inside to activate your account.
                                 </p>
 
-                                {/* 3-Step Visual Guide Cards */}
-                                <div className="w-full text-left space-y-3 mb-6 bg-slate-50 dark:bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
-                                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">How to activate your account:</h3>
-                                    
-                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
-                                        <div className="w-7 h-7 rounded-full bg-orange-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">1</div>
-                                        <div>
-                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Open your Gmail / Email Inbox</h4>
-                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">Look for an email from ExamBoost with subject <em>"Confirm Your Signup"</em>.</p>
-                                        </div>
-                                    </div>
+                                <a
+                                    href="https://mail.google.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all shadow-md flex items-center justify-center gap-2 mb-6"
+                                >
+                                    Open Gmail <ExternalLink className="w-4 h-4" />
+                                </a>
 
-                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
-                                        <div className="w-7 h-7 rounded-full bg-orange-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">2</div>
-                                        <div>
-                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Click "Confirm Email" Button inside Email</h4>
-                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">This activates your account securely (link expires in 24 hours).</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
-                                        <div className="w-7 h-7 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">3</div>
-                                        <div>
-                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Log In & Access All Free Mocks</h4>
-                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">After clicking, you can log in and start attempting tests immediately!</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Direct CTA & Resend Controls */}
-                                <div className="w-full space-y-3">
-                                    <a
-                                        href="https://mail.google.com"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
-                                    >
-                                        Open Gmail Inbox Now <ExternalLink className="w-4 h-4" />
-                                    </a>
-
-                                    <div className="flex items-center justify-between gap-3 pt-2">
+                                <div className="text-xs text-slate-500 dark:text-slate-400 space-y-2.5 border-t border-slate-100 dark:border-slate-800 pt-5">
+                                    <p>
+                                        Didn't receive the email? Check your spam folder or{' '}
                                         <button
                                             type="button"
                                             onClick={onResendEmail}
                                             disabled={resending || (resendCooldownUntil ? Date.now() < resendCooldownUntil : false)}
-                                            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-[#F97316] dark:hover:text-orange-400 transition-colors"
+                                            className="font-bold text-[#F97316] dark:text-orange-400 hover:underline inline-block"
                                         >
-                                            <RefreshCw className={`w-3.5 h-3.5 ${resending ? 'animate-spin' : ''}`} />
-                                            {resending ? 'Resending...' : 'Resend Email Link'}
+                                            {resending ? 'Resending...' : 'Resend link'}
                                         </button>
+                                    </p>
 
+                                    <p>
+                                        Entered the wrong email?{' '}
                                         <button
                                             type="button"
                                             onClick={() => { setSuccess(false); setError(null); }}
-                                            className="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+                                            className="font-bold text-slate-700 dark:text-slate-300 hover:underline inline-block"
                                         >
-                                            <Edit2 className="w-3.5 h-3.5" /> Mistyped Email? Edit
+                                            Change email address
                                         </button>
-                                    </div>
+                                    </p>
 
                                     {resendMessage && (
-                                        <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-200 dark:border-emerald-800 text-center">
+                                        <p className="font-bold text-emerald-600 dark:text-emerald-400 pt-1">
                                             {resendMessage}
-                                        </div>
+                                        </p>
                                     )}
-
-                                    <div className="text-[11px] text-slate-500 dark:text-slate-400 pt-1 text-center">
-                                        💡 <strong>Tip:</strong> Can't find the email? Please check your <strong>Spam</strong> or <strong>Promotions</strong> tab.
-                                    </div>
                                 </div>
                             </motion.div>
                         )}
@@ -375,7 +328,7 @@ export default function SignupClient() {
                 </div>
             </div>
 
-            {/* Right Side Instagram-Style Full-Bleed Banner */}
+            {/* Right Side Full-Bleed Banner */}
             <div className="hidden lg:flex flex-col justify-between w-1/2 xl:w-[55%] min-h-screen bg-slate-900 dark:bg-[#080D1A] text-white p-10 xl:p-14 relative overflow-hidden border-l border-slate-800/80 shrink-0 order-1 lg:order-2">
                 {/* Soft Gradient Lighting */}
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
