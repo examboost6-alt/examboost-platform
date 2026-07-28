@@ -117,9 +117,13 @@ export default function SignupClient() {
         }
 
         setResending(true);
+        const emailRedirectTo = `${window.location.origin}/auth/callback`;
         const { error: resendErr } = await supabase.auth.resend({
             type: 'signup',
             email: email.trim(),
+            options: {
+                emailRedirectTo,
+            },
         });
         setResending(false);
 
@@ -129,7 +133,7 @@ export default function SignupClient() {
         }
 
         setResendCooldownUntil(Date.now() + 60_000);
-        setResendMessage(`Fresh verification email sent to ${email.trim()}. Check your inbox.`);
+        setResendMessage(`✓ Fresh verification email sent to ${email.trim()}. Please check your Gmail / Inbox now!`);
     };
 
     return (
