@@ -2,10 +2,35 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, Eye, EyeOff, AlertCircle, CheckCircle2, Sparkles } from 'lucide-react';
+import { Target, ShieldCheck, ArrowRight, BookOpen, ChevronLeft, Eye, EyeOff, AlertCircle, CheckCircle2, Sparkles, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
+
+function getFriendlyAuthError(rawError: string | null | undefined): string | null {
+    if (!rawError) return null;
+    const lower = rawError.toLowerCase();
+
+    if (lower.includes('invalid login credentials') || lower.includes('invalid_credentials')) {
+        return 'Incorrect email or password. Please double-check your spelling or click "Forgot Password?" to reset it.';
+    }
+    if (lower.includes('email not confirmed') || lower.includes('not confirmed') || lower.includes('email_not_confirmed')) {
+        return 'Email not verified yet! We have automatically sent a brand new verification link to your email. Please check your Gmail / Inbox now.';
+    }
+    if (lower.includes('user already registered') || lower.includes('already exists') || lower.includes('already registered')) {
+        return 'An account with this email address already exists! Click "Create a free account" or reset your password if you forgot it.';
+    }
+    if (lower.includes('password should be at least') || lower.includes('weak password')) {
+        return 'Password is too short. Please choose a password with at least 8 characters for account security.';
+    }
+    if (lower.includes('rate limit') || lower.includes('too many requests') || lower.includes('over_email_send_rate_limit')) {
+        return 'Security limit reached: You have requested email links too many times. Please wait 60 seconds before trying again.';
+    }
+    if (lower.includes('failed to fetch') || lower.includes('network') || lower.includes('connection')) {
+        return 'Internet connection error. Please check your Wi-Fi or mobile data and try again.';
+    }
+    return rawError;
+}
 
 export default function LoginClient() {
     const router = useRouter();
@@ -24,33 +49,43 @@ export default function LoginClient() {
         setResendMessage(null);
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            setError('Please enter a valid email address (e.g. name@example.com).');
+        if (!emailRegex.test(email.trim())) {
+            setError('Please enter a valid email address (e.g. rahul.sharma@gmail.com).');
             return;
         }
 
         const supabase = getSupabaseClient();
         if (!supabase) {
-            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            setError('Auth service is temporarily unavailable. Please refresh the page and try again.');
             return;
         }
 
         setLoading(true);
 
         const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-            email,
+            email: email.trim(),
             password,
         });
 
-        setLoading(false);
-
         if (signInError) {
-            setError(signInError.message);
+            setLoading(false);
+            const friendly = getFriendlyAuthError(signInError.message);
+            setError(friendly);
+
+            // If email not confirmed, AUTOMATICALLY trigger background verification link resend!
+            if (signInError.message?.toLowerCase().includes('not confirmed') || signInError.message?.toLowerCase().includes('email_not_confirmed')) {
+                supabase.auth.resend({ type: 'signup', email: email.trim() }).then(({ error: resendErr }) => {
+                    if (!resendErr) {
+                        setResendMessage(`We automatically dispatched a new verification link to ${email.trim()}. Please check your Gmail / Inbox.`);
+                    }
+                });
+            }
             return;
         }
 
         const userId = signInData.user?.id;
         if (!userId) {
+            setLoading(false);
             router.replace('/onboarding');
             router.refresh();
             return;
@@ -61,6 +96,8 @@ export default function LoginClient() {
             .select('admission_completed')
             .eq('id', userId)
             .maybeSingle();
+
+        setLoading(false);
 
         const admissionCompleted = Boolean((profileData as any)?.admission_completed);
         router.replace(admissionCompleted ? '/dashboard' : '/onboarding');
@@ -74,35 +111,35 @@ export default function LoginClient() {
         const now = Date.now();
         if (resendCooldownUntil && now < resendCooldownUntil) {
             const remainingSeconds = Math.ceil((resendCooldownUntil - now) / 1000);
-            setError(`Please wait ${remainingSeconds}s before resending again.`);
+            setError(`Please wait ${remainingSeconds}s before requesting another verification email.`);
             return;
         }
 
         const supabase = getSupabaseClient();
         if (!supabase) {
-            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            setError('Auth service is temporarily unavailable. Please refresh the page and try again.');
             return;
         }
 
-        if (!email) {
-            setError('Please enter your email first.');
+        if (!email.trim()) {
+            setError('Please enter your registered email address first.');
             return;
         }
 
         setResending(true);
         const { error: resendError } = await supabase.auth.resend({
             type: 'signup',
-            email,
+            email: email.trim(),
         });
         setResending(false);
 
         if (resendError) {
-            setError(resendError.message);
+            setError(getFriendlyAuthError(resendError.message));
             return;
         }
 
         setResendCooldownUntil(Date.now() + 60_000);
-        setResendMessage('Confirmation email sent. Please check your inbox and spam folder.');
+        setResendMessage(`Verification email sent to ${email.trim()}. Please check your Gmail inbox and spam folder.`);
     };
 
     return (
@@ -155,7 +192,7 @@ export default function LoginClient() {
                         transition={{ delay: 0.2, duration: 0.4 }}
                         className="text-slate-300 font-medium text-base xl:text-lg leading-relaxed mb-8 max-w-lg"
                     >
-                        Login to access your personal dashboard, review test analytics, and compete with over 10 Lakh+ serious students nationwide.
+                        Login to access your personal dashboard, review test analytics, and compete with over 10 Lakh+ serious Indian aspirants nationwide.
                     </motion.p>
 
                     <div className="space-y-4">
@@ -183,14 +220,14 @@ export default function LoginClient() {
                     </div>
                 </div>
 
-                {/* Bottom Testimonial */}
+                {/* Bottom Footer */}
                 <div className="relative z-10 shrink-0 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
                     <span className="font-semibold">© 2026 ExamBoost Inc. All rights reserved.</span>
                     <span className="font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer">Privacy & Terms</span>
                 </div>
             </div>
 
-            {/* Right Side Form Column - Rich, Legible Inputs & Proportional Spacing */}
+            {/* Right Side Form Column - User-Friendly Indian Error Handling & Auto Verification */}
             <div className="w-full lg:w-1/2 xl:w-[45%] min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-14 bg-white dark:bg-[#0B1120] relative z-10">
                 
                 {/* Header Navigation */}
@@ -208,7 +245,7 @@ export default function LoginClient() {
                 {/* Main Form Center Box */}
                 <div className="w-full max-w-md xl:max-w-lg mx-auto my-auto py-6">
                     <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">Log In</h1>
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium mb-8">Enter your credentials to access your ExamBoost dashboard.</p>
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium mb-8">Enter your registered details to access your dashboard.</p>
 
                     <form className="space-y-5" onSubmit={onSubmit}>
                         <AnimatePresence mode="popLayout">
@@ -218,21 +255,35 @@ export default function LoginClient() {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                     transition={{ duration: 0.2 }}
-                                    className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                    className="rounded-2xl border border-red-200/80 dark:border-red-500/30 bg-red-50/90 dark:bg-red-500/10 p-4 flex flex-col gap-2.5 shadow-sm"
                                 >
-                                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-                                    <div className="text-xs sm:text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
-                                        {error === 'Invalid login credentials' ? (
-                                            <span>
-                                                Incorrect email or password. Please check your details and try again, or{' '}
-                                                <Link href="/signup" className="underline font-bold hover:text-red-900 dark:hover:text-red-100 transition-colors">
-                                                    create a new account
-                                                </Link>.
-                                            </span>
-                                        ) : (
-                                            error
-                                        )}
+                                    <div className="flex items-start gap-3">
+                                        <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                                        <div className="text-xs sm:text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
+                                            {error}
+                                        </div>
                                     </div>
+
+                                    {error.toLowerCase().includes('email not verified') ? (
+                                        <div className="pt-2 border-t border-red-200/60 dark:border-red-500/20 flex flex-col sm:flex-row items-center gap-2">
+                                            <a
+                                                href="https://mail.google.com"
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+                                            >
+                                                Open Gmail Inbox <ExternalLink className="w-3.5 h-3.5" />
+                                            </a>
+                                            <button
+                                                type="button"
+                                                onClick={onResendConfirmation}
+                                                disabled={resending}
+                                                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold hover:bg-slate-50 transition-colors"
+                                            >
+                                                {resending ? 'Resending...' : 'Resend Email Link'}
+                                            </button>
+                                        </div>
+                                    ) : null}
                                 </motion.div>
                             )}
 
@@ -242,11 +293,24 @@ export default function LoginClient() {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                     transition={{ duration: 0.2 }}
-                                    className="rounded-xl border border-orange-200/60 dark:border-orange-500/20 bg-orange-50/80 dark:bg-orange-500/10 p-4 flex gap-3 items-start shadow-sm"
+                                    className="rounded-2xl border border-orange-200/80 dark:border-orange-500/30 bg-orange-50/90 dark:bg-orange-500/10 p-4 flex flex-col gap-2.5 shadow-sm"
                                 >
-                                    <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
-                                    <div className="text-xs sm:text-sm font-medium text-orange-800 dark:text-orange-200 leading-snug">
-                                        {resendMessage}
+                                    <div className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
+                                        <div className="text-xs sm:text-sm font-medium text-orange-800 dark:text-orange-200 leading-snug">
+                                            {resendMessage}
+                                        </div>
+                                    </div>
+
+                                    <div className="pt-2 border-t border-orange-200/60 dark:border-orange-500/20">
+                                        <a
+                                            href="https://mail.google.com"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+                                        >
+                                            Open Gmail Inbox <ExternalLink className="w-3.5 h-3.5" />
+                                        </a>
                                     </div>
                                 </motion.div>
                             )}
@@ -256,7 +320,7 @@ export default function LoginClient() {
                             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
                             <input
                                 type="email"
-                                placeholder="student@example.com"
+                                placeholder="rahul.sharma@gmail.com"
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -302,21 +366,6 @@ export default function LoginClient() {
                         >
                             {loading ? 'Logging in...' : 'Login securely'} <ArrowRight className="w-5 h-5" />
                         </button>
-
-                        {error?.toLowerCase().includes('not confirmed') ? (
-                            <button
-                                type="button"
-                                onClick={onResendConfirmation}
-                                disabled={resending || (resendCooldownUntil ? Date.now() < resendCooldownUntil : false)}
-                                className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-colors"
-                            >
-                                {resending
-                                    ? 'Sending...'
-                                    : resendCooldownUntil && Date.now() < resendCooldownUntil
-                                        ? 'Please wait...'
-                                        : 'Resend confirmation email'}
-                            </button>
-                        ) : null}
                     </form>
                 </div>
 

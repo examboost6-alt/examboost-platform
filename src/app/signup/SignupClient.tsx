@@ -2,10 +2,29 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Sparkles, Trophy, Users, ArrowRight, ChevronLeft, Eye, EyeOff, Mail, AlertCircle } from 'lucide-react';
+import { Sparkles, Trophy, Users, ArrowRight, ChevronLeft, Eye, EyeOff, Mail, AlertCircle, ExternalLink, CheckCircle2, RefreshCw, Edit2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
+
+function getFriendlyAuthError(rawError: string | null | undefined): string | null {
+    if (!rawError) return null;
+    const lower = rawError.toLowerCase();
+
+    if (lower.includes('user already registered') || lower.includes('already exists') || lower.includes('already registered')) {
+        return 'An account with this email address already exists! Click "Login instead" to log in, or use "Forgot Password?" if you forgot your password.';
+    }
+    if (lower.includes('password should be at least') || lower.includes('weak password')) {
+        return 'Password is too short. Please choose a password with at least 8 characters for account security.';
+    }
+    if (lower.includes('rate limit') || lower.includes('too many requests') || lower.includes('over_email_send_rate_limit')) {
+        return 'Security limit reached: You have requested email links too many times. Please wait 60 seconds before trying again.';
+    }
+    if (lower.includes('failed to fetch') || lower.includes('network') || lower.includes('connection')) {
+        return 'Internet connection error. Please check your Wi-Fi or mobile data and try again.';
+    }
+    return rawError;
+}
 
 export default function SignupClient() {
     const router = useRouter();
@@ -16,34 +35,41 @@ export default function SignupClient() {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [success, setSuccess] = useState<string | null>(null);
+    const [success, setSuccess] = useState<boolean>(false);
+    const [resending, setResending] = useState(false);
+    const [resendMessage, setResendMessage] = useState<string | null>(null);
+    const [resendCooldownUntil, setResendCooldownUntil] = useState<number | null>(null);
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
-        setSuccess(null);
 
         // Strict Name Validation
         const nameRegex = /^[A-Za-z\s]{2,40}$/;
         if (!nameRegex.test(firstName.trim()) || /asdf|qwer|zxcv/i.test(firstName)) {
-            setError('Please enter a real, valid first name (letters only, min 2 characters).');
+            setError('Please enter a real first name (letters only, min 2 characters). E.g. Rahul');
             return;
         }
         if (lastName.trim() && !nameRegex.test(lastName.trim())) {
-            setError('Please enter a real, valid last name (letters only).');
+            setError('Please enter a real last name (letters only). E.g. Sharma');
             return;
         }
 
         // Strict Email Validation
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!emailRegex.test(email.trim())) {
-            setError('Please enter a valid, real email address (e.g. yourname@gmail.com).');
+            setError('Please enter a valid email address (e.g. rahul.sharma@gmail.com).');
+            return;
+        }
+
+        if (password.length < 8) {
+            setError('Password must be at least 8 characters long for account security.');
             return;
         }
 
         const supabase = getSupabaseClient();
         if (!supabase) {
-            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            setError('Auth service is temporarily unavailable. Please refresh the page and try again.');
             return;
         }
 
@@ -66,11 +92,44 @@ export default function SignupClient() {
         setLoading(false);
 
         if (signUpError) {
-            setError(signUpError.message);
+            setError(getFriendlyAuthError(signUpError.message));
             return;
         }
 
-        setSuccess(`Success`);
+        setSuccess(true);
+    };
+
+    const onResendEmail = async () => {
+        setError(null);
+        setResendMessage(null);
+
+        const now = Date.now();
+        if (resendCooldownUntil && now < resendCooldownUntil) {
+            const remainingSeconds = Math.ceil((resendCooldownUntil - now) / 1000);
+            setError(`Please wait ${remainingSeconds}s before requesting another email.`);
+            return;
+        }
+
+        const supabase = getSupabaseClient();
+        if (!supabase) {
+            setError('Auth service is temporarily unavailable. Please refresh the page.');
+            return;
+        }
+
+        setResending(true);
+        const { error: resendErr } = await supabase.auth.resend({
+            type: 'signup',
+            email: email.trim(),
+        });
+        setResending(false);
+
+        if (resendErr) {
+            setError(getFriendlyAuthError(resendErr.message));
+            return;
+        }
+
+        setResendCooldownUntil(Date.now() + 60_000);
+        setResendMessage(`Fresh verification email sent to ${email.trim()}. Check your inbox & spam folder.`);
     };
 
     return (
@@ -114,9 +173,9 @@ export default function SignupClient() {
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                                 transition={{ duration: 0.2 }}
-                                                className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-3.5 flex gap-3 items-start shadow-sm mb-2"
+                                                className="rounded-2xl border border-red-200/80 dark:border-red-500/30 bg-red-50/90 dark:bg-red-500/10 p-4 flex gap-3 items-start shadow-sm mb-2"
                                             >
-                                                <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                                                <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                                                 <div className="text-xs sm:text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
                                                     {error}
                                                 </div>
@@ -129,7 +188,7 @@ export default function SignupClient() {
                                             <label className="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">First Name <span className="text-red-500">*</span></label>
                                             <input
                                                 type="text"
-                                                placeholder="John"
+                                                placeholder="Rahul"
                                                 required
                                                 value={firstName}
                                                 onChange={(e) => setFirstName(e.target.value)}
@@ -140,7 +199,7 @@ export default function SignupClient() {
                                             <label className="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">Last Name</label>
                                             <input
                                                 type="text"
-                                                placeholder="Doe"
+                                                placeholder="Sharma"
                                                 value={lastName}
                                                 onChange={(e) => setLastName(e.target.value)}
                                                 className="w-full px-4 py-3 sm:px-5 sm:py-3.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 focus:border-[#F97316] focus:ring-4 focus:ring-[#F97316]/20 rounded-xl outline-none transition-all text-sm sm:text-base text-slate-900 dark:text-white font-medium placeholder:text-slate-400 shadow-sm"
@@ -152,7 +211,7 @@ export default function SignupClient() {
                                         <label className="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">Email Address <span className="text-red-500">*</span></label>
                                         <input
                                             type="email"
-                                            placeholder="student@example.com"
+                                            placeholder="rahul.sharma@gmail.com"
                                             required
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
@@ -199,35 +258,108 @@ export default function SignupClient() {
                                 </form>
                             </motion.div>
                         ) : (
+                            /* Professional 3-Step Education Email Verification Screen */
                             <motion.div
                                 key="success"
-                                initial={{ opacity: 0, scale: 0.9, y: 15 }}
+                                initial={{ opacity: 0, scale: 0.95, y: 15 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                transition={{ type: "spring", bounce: 0.4, duration: 0.6 }}
-                                className="flex flex-col items-center justify-center text-center py-4 w-full"
+                                transition={{ duration: 0.4 }}
+                                className="flex flex-col items-center justify-center text-center py-2 w-full"
                             >
                                 <motion.div 
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
-                                    transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
-                                    className="w-20 h-20 bg-emerald-100 dark:bg-emerald-500/20 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/20"
+                                    transition={{ delay: 0.1, type: "spring", bounce: 0.5 }}
+                                    className="w-20 h-20 bg-orange-100 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-500/30 rounded-full flex items-center justify-center mb-5 shadow-xl shadow-orange-500/10 relative"
                                 >
-                                    <Mail className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
+                                    <Mail className="w-10 h-10 text-[#F97316] dark:text-orange-400" />
+                                    <span className="absolute -top-1 -right-1 flex h-4 w-4">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-4 w-4 bg-[#F97316]"></span>
+                                    </span>
                                 </motion.div>
                                 
-                                <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">Check Your Inbox!</h2>
-                                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto leading-relaxed">
-                                    We've sent a secure verification link to <br/>
-                                    <span className="font-bold text-slate-900 dark:text-white px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg inline-block mt-2">{email}</span>
+                                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-xs uppercase tracking-widest mb-3 border border-orange-200 dark:border-orange-800/50">
+                                    <Sparkles className="w-3.5 h-3.5" /> Account Created
+                                </span>
+
+                                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">One Last Step: Verify Email!</h2>
+                                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto leading-relaxed">
+                                    We sent an official account activation email to: <br/>
+                                    <span className="font-bold text-slate-900 dark:text-white px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg inline-block mt-2 border border-slate-200 dark:border-slate-700 text-sm">
+                                        {email}
+                                    </span>
                                 </p>
 
-                                <div className="w-full max-w-sm mb-6">
-                                    <Link
-                                        href="/login"
-                                        className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white py-3.5 rounded-xl font-bold text-base transition-all shadow-md flex items-center justify-center gap-2"
+                                {/* 3-Step Visual Guide Cards */}
+                                <div className="w-full text-left space-y-3 mb-6 bg-slate-50 dark:bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">How to activate your account:</h3>
+                                    
+                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
+                                        <div className="w-7 h-7 rounded-full bg-orange-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">1</div>
+                                        <div>
+                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Open your Gmail / Email Inbox</h4>
+                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">Look for an email from ExamBoost with subject <em>"Confirm Your Signup"</em>.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
+                                        <div className="w-7 h-7 rounded-full bg-orange-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">2</div>
+                                        <div>
+                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Click "Confirm Email" Button inside Email</h4>
+                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">This activates your account securely (link expires in 24 hours).</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-3 p-3 bg-white dark:bg-slate-800/80 rounded-xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
+                                        <div className="w-7 h-7 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">3</div>
+                                        <div>
+                                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Log In & Access All Free Mocks</h4>
+                                            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">After clicking, you can log in and start attempting tests immediately!</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Direct CTA & Resend Controls */}
+                                <div className="w-full space-y-3">
+                                    <a
+                                        href="https://mail.google.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all shadow-[0_5px_20px_rgba(249,115,22,0.3)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
                                     >
-                                        Proceed to Login <ArrowRight className="w-4 h-4" />
-                                    </Link>
+                                        Open Gmail Inbox Now <ExternalLink className="w-4 h-4" />
+                                    </a>
+
+                                    <div className="flex items-center justify-between gap-3 pt-2">
+                                        <button
+                                            type="button"
+                                            onClick={onResendEmail}
+                                            disabled={resending || (resendCooldownUntil ? Date.now() < resendCooldownUntil : false)}
+                                            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-[#F97316] dark:hover:text-orange-400 transition-colors"
+                                        >
+                                            <RefreshCw className={`w-3.5 h-3.5 ${resending ? 'animate-spin' : ''}`} />
+                                            {resending ? 'Resending...' : 'Resend Email Link'}
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            onClick={() => { setSuccess(false); setError(null); }}
+                                            className="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+                                        >
+                                            <Edit2 className="w-3.5 h-3.5" /> Mistyped Email? Edit
+                                        </button>
+                                    </div>
+
+                                    {resendMessage && (
+                                        <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-200 dark:border-emerald-800 text-center">
+                                            {resendMessage}
+                                        </div>
+                                    )}
+
+                                    <div className="text-[11px] text-slate-500 dark:text-slate-400 pt-1 text-center">
+                                        💡 <strong>Tip:</strong> Can't find the email? Please check your <strong>Spam</strong> or <strong>Promotions</strong> tab.
+                                    </div>
                                 </div>
                             </motion.div>
                         )}

@@ -2,10 +2,23 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ArrowRight, Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { ChevronLeft, ArrowRight, Eye, EyeOff, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
+
+function getFriendlyAuthError(rawError: string | null | undefined): string | null {
+    if (!rawError) return null;
+    const lower = rawError.toLowerCase();
+
+    if (lower.includes('password should be at least') || lower.includes('weak password')) {
+        return 'Password is too short. Please choose a password with at least 8 characters for account security.';
+    }
+    if (lower.includes('failed to fetch') || lower.includes('network') || lower.includes('connection')) {
+        return 'Internet connection error. Please check your Wi-Fi or mobile data and try again.';
+    }
+    return rawError;
+}
 
 export default function ResetPasswordClient() {
     const router = useRouter();
@@ -21,7 +34,7 @@ export default function ResetPasswordClient() {
     useEffect(() => {
         const supabase = getSupabaseClient();
         if (!supabase) {
-            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            setError('Auth service is temporarily unavailable. Please refresh the page.');
             return;
         }
 
@@ -47,22 +60,22 @@ export default function ResetPasswordClient() {
 
         const supabase = getSupabaseClient();
         if (!supabase) {
-            setError('Auth is not configured. Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+            setError('Auth service is temporarily unavailable. Please refresh the page.');
             return;
         }
 
         if (!ready) {
-            setError('The reset link is not ready yet. Please open the link from your email again.');
+            setError('The password reset token is expired or invalid. Please request a new password reset link.');
             return;
         }
 
         if (password.length < 8) {
-            setError('Password must be at least 8 characters long.');
+            setError('Password must be at least 8 characters long for account security.');
             return;
         }
 
         if (password !== confirmPassword) {
-            setError('Passwords do not match.');
+            setError('Passwords do not match. Please retype your new password accurately in both fields.');
             return;
         }
 
@@ -71,11 +84,11 @@ export default function ResetPasswordClient() {
         setLoading(false);
 
         if (updateError) {
-            setError(updateError.message);
+            setError(getFriendlyAuthError(updateError.message));
             return;
         }
 
-        setSuccess('Password updated successfully. Redirecting to login...');
+        setSuccess('Password updated successfully! Redirecting you to login...');
         setTimeout(() => {
             router.push('/login');
         }, 1200);
@@ -107,7 +120,7 @@ export default function ResetPasswordClient() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-500/10 p-3.5 flex gap-3 items-start shadow-sm"
+                                className="rounded-xl border border-red-200/80 dark:border-red-500/30 bg-red-50/90 dark:bg-red-500/10 p-3.5 flex gap-3 items-start shadow-sm"
                             >
                                 <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                                 <div className="text-xs sm:text-sm font-medium text-red-800 dark:text-red-200 leading-snug">
@@ -120,9 +133,10 @@ export default function ResetPasswordClient() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="rounded-xl border border-emerald-200/60 dark:border-emerald-500/20 bg-emerald-50/80 dark:bg-emerald-500/10 p-3.5 font-medium text-xs sm:text-sm text-emerald-800 dark:text-emerald-200"
+                                className="rounded-xl border border-emerald-200/80 dark:border-emerald-500/30 bg-emerald-50/90 dark:bg-emerald-500/10 p-3.5 flex gap-3 items-center font-medium text-xs sm:text-sm text-emerald-800 dark:text-emerald-200"
                             >
-                                {success}
+                                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                                <div>{success}</div>
                             </motion.div>
                         )}
                     </AnimatePresence>
