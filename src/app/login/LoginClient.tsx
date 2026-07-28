@@ -74,7 +74,7 @@ export default function LoginClient() {
 
             // If email not confirmed, AUTOMATICALLY trigger background verification link resend!
             if (signInError.message?.toLowerCase().includes('not confirmed') || signInError.message?.toLowerCase().includes('email_not_confirmed')) {
-                supabase.auth.resend({ type: 'signup', email: email.trim() }).then(({ error: resendErr }) => {
+                supabase.auth.resend({ type: 'signup', email: email.trim() }).then(({ error: resendErr }: { error: any }) => {
                     if (!resendErr) {
                         setResendMessage(`We automatically dispatched a new verification link to ${email.trim()}. Please check your Gmail / Inbox.`);
                     }
