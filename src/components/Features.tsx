@@ -6,12 +6,12 @@ import Image from 'next/image';
 
 export default function Features() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-100 dark:border-slate-800">
+        <section className="py-12 sm:py-16 md:py-24 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-100 dark:border-slate-800">
             <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-slate-50 to-transparent dark:from-slate-900/30 to-transparent pointer-events-none -z-10" />
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1200px]">
                 
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export default function Features() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6"
+                        className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-4 sm:mb-6"
                     >
                         Built to Give You an <span className="text-[#F97316]">Unfair Advantage</span>
                     </motion.h2>

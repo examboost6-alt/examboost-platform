@@ -43,11 +43,11 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="py-24 bg-white dark:bg-[#060D1A] overflow-hidden relative z-10 border-t border-slate-100 dark:border-slate-800">
+        <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-[#060D1A] overflow-hidden relative z-10 border-t border-slate-100 dark:border-slate-800">
             {/* Soft Flowing Background */}
             <div className="absolute inset-0 z-0 opacity-50 dark:opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-50 via-white to-white dark:from-orange-900/10 dark:via-[#060D1A] dark:to-[#060D1A]"></div>
 
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px] relative z-20 mb-16 flex flex-col items-center text-center">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px] relative z-20 mb-10 sm:mb-16 flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function Testimonials() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800/50 text-orange-600 font-bold text-xs tracking-widest uppercase mb-4 shadow-sm">
                         <MdAutoGraph className="w-4 h-4" /> Wall of Fame
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif font-black text-slate-900 dark:text-white tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-slate-900 dark:text-white tracking-tight">
                         Loved by <span className="text-[#F97316] relative inline-block">
                             Toppers
                             <svg className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none text-orange-400 opacity-50" viewBox="0 0 100 40" preserveAspectRatio="none">

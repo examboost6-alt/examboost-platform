@@ -41,12 +41,12 @@ const benefits = [
 
 export default function Pricing() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-200 dark:border-slate-800 overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-24 bg-slate-50 dark:bg-[#0B1120] relative z-10 border-t border-slate-200 dark:border-slate-800 overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-5 pointer-events-none mix-blend-overlay"></div>
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
 
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

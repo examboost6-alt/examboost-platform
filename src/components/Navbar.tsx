@@ -183,7 +183,18 @@ export default function Navbar() {
         { label: 'Contact', href: '/contact' }
     ];
 
-    if (pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/onboarding') || pathname.startsWith('/series') || pathname.startsWith('/test')) {
+    if (
+        pathname.startsWith('/admin') || 
+        pathname.startsWith('/dashboard') || 
+        pathname.startsWith('/onboarding') || 
+        pathname.startsWith('/series') || 
+        pathname.startsWith('/test') ||
+        pathname.startsWith('/login') ||
+        pathname.startsWith('/signup') ||
+        pathname.startsWith('/forgot-password') ||
+        pathname.startsWith('/reset-password') ||
+        pathname.startsWith('/auth')
+    ) {
         return null;
     }
 

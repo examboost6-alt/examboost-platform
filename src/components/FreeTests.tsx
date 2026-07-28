@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function FreeTests() {
     return (
-        <section className="py-24 bg-orange-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 px-4 md:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
+        <section className="py-12 sm:py-16 md:py-24 bg-orange-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 px-4 md:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
             {/* Soft vector shapes in background */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100 to-transparent dark:from-orange-900/20 pointer-events-none opacity-60"></div>
 
@@ -16,15 +16,15 @@ export default function FreeTests() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20"
+                    className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20"
                 >
                     {/* Left Written Content */}
                     <div className="w-full lg:w-1/2">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs tracking-widest uppercase mb-6 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs tracking-widest uppercase mb-4 sm:mb-6 shadow-sm">
                             <MdCardGiftcard className="w-4 h-4 text-[#F97316]" /> Start Without Paying
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-4 sm:mb-6">
                             Unlock <span className="text-[#F97316]">Free</span> Premium <br /> JEE & SSC Mock Tests
                         </h2>
 

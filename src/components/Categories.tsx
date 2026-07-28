@@ -16,10 +16,10 @@ const categories = [
 
 export default function Categories() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-slate-900/50 relative z-10 border-t border-slate-100 dark:border-slate-800 overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-24 bg-slate-50 dark:bg-slate-900/50 relative z-10 border-t border-slate-100 dark:border-slate-800 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px]">
                 
-                <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
                     <div className="max-w-2xl">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export default function Categories() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]"
+                            className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]"
                         >
                             Explore Top <span className="text-[#F97316]">Exam Categories</span>
                         </motion.h2>
