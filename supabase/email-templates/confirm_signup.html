@@ -3,153 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Your ExamBoost Account</title>
+    <title>Activate Your ExamBoost Account</title>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #F8FAFC;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #060D1A !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
         }
-        .container {
-            max-width: 580px;
-            margin: 0 auto;
-            background-color: #FFFFFF;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        table, td {
+            border-collapse: collapse !important;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
         }
-        .header {
+        img {
+            border: 0;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+        .email-wrapper {
+            width: 100% !important;
             background-color: #060D1A;
-            padding: 32px 24px;
+            padding: 40px 16px;
+        }
+        .main-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #0F172A;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0B1120 100%);
+            padding: 40px 32px 32px 32px;
             text-align: center;
-            border-bottom: 3px solid #F97316;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .content {
-            padding: 40px 32px;
-            color: #334155;
-            line-height: 1.6;
+        .logo-img {
+            height: 42px;
+            width: auto;
+            margin-bottom: 24px;
         }
-        .badge {
+        .status-badge {
             display: inline-block;
-            background-color: #FFF7ED;
-            border: 1px solid #FFEDD5;
+            background: rgba(249, 115, 22, 0.12);
+            border: 1px solid rgba(249, 115, 22, 0.3);
             color: #F97316;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 30px;
+        }
+        .body-content {
+            padding: 40px 36px;
+            color: #E2E8F0;
+            background-color: #0F172A;
         }
         h1 {
-            color: #0F172A;
-            font-size: 24px;
-            font-weight: 800;
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1.25;
             margin: 0 0 16px 0;
             letter-spacing: -0.5px;
-        }
-        p {
-            margin: 0 0 20px 0;
-            font-size: 15px;
-            color: #475569;
-        }
-        .email-highlight {
-            font-weight: 700;
-            color: #0F172A;
-            background-color: #F1F5F9;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-        .button-wrapper {
             text-align: center;
-            margin: 32px 0;
         }
-        .btn-primary {
-            display: inline-block;
-            background-color: #F97316;
-            color: #FFFFFF !important;
+        .sub-text {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0 0 28px 0;
+            text-align: center;
+        }
+        .email-pill {
+            color: #F97316;
             font-weight: 700;
+            background: rgba(249, 115, 22, 0.1);
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+        .cta-container {
+            text-align: center;
+            margin: 36px 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+            color: #FFFFFF !important;
+            font-weight: 800;
             font-size: 16px;
             text-decoration: none;
-            padding: 16px 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
-            transition: all 0.2s ease;
+            padding: 18px 42px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px -5px rgba(249, 115, 22, 0.5);
+            letter-spacing: 0.3px;
         }
-        .card-box {
-            background-color: #F8FAFC;
-            border: 1px solid #E2E8F0;
+        .feature-grid {
+            background-color: #1E293B;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0 24px 0;
+        }
+        .feature-item {
+            display: table;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+        .feature-icon {
+            display: table-cell;
+            width: 36px;
+            vertical-align: top;
+            font-size: 18px;
+        }
+        .feature-text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 13px;
+            color: #CBD5E1;
+            line-height: 1.5;
+        }
+        .feature-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .link-box {
+            background-color: #060D1A;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             margin-top: 24px;
-            font-size: 13px;
-            color: #64748B;
-        }
-        .card-box p {
-            margin: 0 0 8px 0;
-            font-size: 13px;
-        }
-        .link-text {
-            color: #F97316;
             word-break: break-all;
+        }
+        .link-title {
             font-size: 12px;
+            font-weight: 700;
+            color: #94A3B8;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .link-url {
+            color: #F97316;
+            font-size: 12px;
+            text-decoration: none;
+            font-family: monospace;
         }
         .footer {
-            background-color: #F8FAFC;
-            padding: 24px 32px;
+            background-color: #060D1A;
+            padding: 32px 36px;
             text-align: center;
-            border-top: 1px solid #E2E8F0;
-            font-size: 12px;
-            color: #94A3B8;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .footer a {
+        .footer-text {
             color: #64748B;
-            text-decoration: underline;
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer-brand {
+            color: #94A3B8;
+            font-weight: 800;
+            font-size: 13px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
-    <div style="padding: 40px 16px; background-color: #F8FAFC;">
-        <div className="container">
+    <div className="email-wrapper">
+        <div className="main-card">
+            
             <!-- Header Section -->
-            <div className="header">
-                <img src="https://examboost.in/white-logo.png" alt="ExamBoost Logo" style="height: 36px; max-width: 180px; object-fit: contain;" />
+            <div className="header-bg">
+                <img src="https://examboost.in/white-logo.png" alt="ExamBoost Enterprise" className="logo-img" />
+                <br />
+                <div className="status-badge">&check; Official Account Activation</div>
             </div>
 
-            <!-- Main Body Content -->
-            <div className="content">
-                <div className="badge">Account Verification</div>
+            <!-- Body Section -->
+            <div className="body-content">
+                <h1>Welcome to ExamBoost</h1>
                 
-                <h1>Confirm Your Email Address</h1>
-                
-                <p>Welcome to ExamBoost! We received a registration request for <span className="email-highlight">{{ .Email }}</span>.</p>
-                
-                <p>Click the button below to confirm your email address and activate your account to access all free mock tests, TCS CBT simulator, and real-time rank analytics.</p>
+                <p className="sub-text">
+                    You're one click away from activating your official student account for <span className="email-pill">{{ .Email }}</span>.
+                </p>
 
-                <!-- Action CTA Button -->
-                <div className="button-wrapper">
-                    <a href="{{ .ConfirmationURL }}" target="_blank" className="btn-primary">Confirm Email Address &rarr;</a>
+                <!-- High Impact CTA Button -->
+                <div className="cta-container">
+                    <a href="{{ .ConfirmationURL }}" target="_blank" className="cta-btn">
+                        Activate ExamBoost Account &rarr;
+                    </a>
                 </div>
 
-                <p style="font-size: 13px; color: #64748B; text-align: center;">This link will expire in 24 hours for security reasons.</p>
+                <!-- Enterprise Feature Grid -->
+                <div className="feature-grid">
+                    <div className="feature-item">
+                        <div className="feature-icon">⚡</div>
+                        <div className="feature-text">
+                            <div className="feature-title">Real TCS CBT Exam Simulator</div>
+                            Experience actual exam Interface for JEE, NEET, SSC & Banking.
+                        </div>
+                    </div>
+                    <div className="feature-item" style="padding-top: 12px;">
+                        <div className="feature-icon">📈</div>
+                        <div className="feature-text">
+                            <div className="feature-title">Instant AIR & Percentile Analytics</div>
+                            Get detailed speed, accuracy, and topic-level weak area analysis.
+                        </div>
+                    </div>
+                    <div className="feature-item" style="padding-top: 12px;">
+                        <div className="feature-icon">🔒</div>
+                        <div className="feature-text">
+                            <div className="feature-title">256-Bit Encrypted Security</div>
+                            Your performance data and scores remain 100% private and protected.
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Fallback Link Section -->
-                <div className="card-box">
-                    <p style="font-weight: 700; color: #334155;">Having trouble with the button?</p>
-                    <p>Copy and paste the following link directly into your browser URL bar:</p>
-                    <a href="{{ .ConfirmationURL }}" className="link-text">{{ .ConfirmationURL }}</a>
+                <!-- Security Fallback Link Box -->
+                <div className="link-box">
+                    <div className="link-title">Direct Verification URL:</div>
+                    <a href="{{ .ConfirmationURL }}" className="link-url">{{ .ConfirmationURL }}</a>
                 </div>
             </div>
 
             <!-- Footer Section -->
             <div className="footer">
-                <p style="margin-bottom: 8px;"><strong>ExamBoost</strong> &bull; India's Premier Competitive Exam Platform</p>
-                <p style="margin-bottom: 0;">If you did not register on ExamBoost, please ignore this email.<br/>&copy; 2026 ExamBoost Inc. All rights reserved.</p>
+                <div className="footer-brand">EXAMBOOST PLATFORM</div>
+                <p className="footer-text">
+                    India's Premier Competitive Exam Preparation Platform<br />
+                    If you did not create an account on ExamBoost, please ignore this email.<br />
+                    &copy; 2026 ExamBoost Inc. All rights reserved.
+                </p>
             </div>
+
         </div>
     </div>
 </body>
