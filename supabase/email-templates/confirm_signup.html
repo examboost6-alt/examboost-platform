@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your ExamBoost Account</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F8FAFC;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 580px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .header {
+            background-color: #060D1A;
+            padding: 32px 24px;
+            text-align: center;
+            border-bottom: 3px solid #F97316;
+        }
+        .content {
+            padding: 40px 32px;
+            color: #334155;
+            line-height: 1.6;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #FFF7ED;
+            border: 1px solid #FFEDD5;
+            color: #F97316;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #0F172A;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+        }
+        p {
+            margin: 0 0 20px 0;
+            font-size: 15px;
+            color: #475569;
+        }
+        .email-highlight {
+            font-weight: 700;
+            color: #0F172A;
+            background-color: #F1F5F9;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        .button-wrapper {
+            text-align: center;
+            margin: 32px 0;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #F97316;
+            color: #FFFFFF !important;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+            transition: all 0.2s ease;
+        }
+        .card-box {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #64748B;
+        }
+        .card-box p {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+        }
+        .link-text {
+            color: #F97316;
+            word-break: break-all;
+            font-size: 12px;
+        }
+        .footer {
+            background-color: #F8FAFC;
+            padding: 24px 32px;
+            text-align: center;
+            border-top: 1px solid #E2E8F0;
+            font-size: 12px;
+            color: #94A3B8;
+        }
+        .footer a {
+            color: #64748B;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div style="padding: 40px 16px; background-color: #F8FAFC;">
+        <div className="container">
+            <!-- Header Section -->
+            <div className="header">
+                <img src="https://examboost.in/white-logo.png" alt="ExamBoost Logo" style="height: 36px; max-width: 180px; object-fit: contain;" />
+            </div>
+
+            <!-- Main Body Content -->
+            <div className="content">
+                <div className="badge">Account Verification</div>
+                
+                <h1>Confirm Your Email Address</h1>
+                
+                <p>Welcome to ExamBoost! We received a registration request for <span className="email-highlight">{{ .Email }}</span>.</p>
+                
+                <p>Click the button below to confirm your email address and activate your account to access all free mock tests, TCS CBT simulator, and real-time rank analytics.</p>
+
+                <!-- Action CTA Button -->
+                <div className="button-wrapper">
+                    <a href="{{ .ConfirmationURL }}" target="_blank" className="btn-primary">Confirm Email Address &rarr;</a>
+                </div>
+
+                <p style="font-size: 13px; color: #64748B; text-align: center;">This link will expire in 24 hours for security reasons.</p>
+
+                <!-- Fallback Link Section -->
+                <div className="card-box">
+                    <p style="font-weight: 700; color: #334155;">Having trouble with the button?</p>
+                    <p>Copy and paste the following link directly into your browser URL bar:</p>
+                    <a href="{{ .ConfirmationURL }}" className="link-text">{{ .ConfirmationURL }}</a>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div className="footer">
+                <p style="margin-bottom: 8px;"><strong>ExamBoost</strong> &bull; India's Premier Competitive Exam Platform</p>
+                <p style="margin-bottom: 0;">If you did not register on ExamBoost, please ignore this email.<br/>&copy; 2026 ExamBoost Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
