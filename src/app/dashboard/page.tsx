@@ -134,7 +134,7 @@ export default function StudentDashboard() {
           
           <p className="font-inter text-slate-200 text-sm sm:text-base mb-6 max-w-sm leading-relaxed">
             One pass to access <br/>
-            <span className="text-white font-bold text-lg border-b-2 border-indigo-500 pb-0.5">200+ Test Series & Books</span>
+            <span className="inline-block mt-1 text-white font-bold text-base sm:text-lg bg-indigo-500/20 px-3 py-1 rounded-lg border border-indigo-500/30">200+ Test Series & Books</span>
           </p>
           
           <button className="bg-white text-black hover:bg-slate-200 active:scale-95 transition-all font-poppins font-bold px-6 py-2.5 sm:py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center">
@@ -173,9 +173,9 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 w-full min-w-0">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-8">
+        <div className="lg:col-span-2 space-y-8 min-w-0 w-full">
           
           {/* Upcoming Live Classes */}
           <div>
@@ -205,7 +205,7 @@ export default function StudentDashboard() {
           </div>
 
           {/* Weekly Progress Chart */}
-          <div className="premium-card border border-slate-100">
+          <div className="premium-card border border-slate-100 min-w-0 w-full overflow-hidden">
              <div className="flex justify-between items-center mb-6">
                <h2 className="font-poppins text-xl font-bold text-[#111827]">Weekly Progress</h2>
                <select className="bg-slate-50 border-none text-sm font-inter font-medium text-slate-600 rounded-lg px-3 py-1.5 focus:ring-0 cursor-pointer">
@@ -213,8 +213,8 @@ export default function StudentDashboard() {
                  <option>Last Week</option>
                </select>
              </div>
-             <div className="h-64 w-full">
-               <ResponsiveContainer width="100%" height="100%">
+             <div className="h-64 w-full min-w-0">
+               <ResponsiveContainer width="99%" height="100%">
                  <AreaChart data={weeklyData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
                    <defs>
                      <linearGradient id="colorHours" x1="0" y1="0" x2="0" y2="1">
@@ -234,7 +234,7 @@ export default function StudentDashboard() {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-8">
+        <div className="space-y-8 min-w-0 w-full">
           
           {/* Today's Tasks */}
           <div className="premium-card border border-slate-100">
