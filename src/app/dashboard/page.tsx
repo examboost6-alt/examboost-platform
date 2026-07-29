@@ -623,8 +623,7 @@ export default function StudentDashboard() {
       sub: `${myTestSeries.length} Enrolled`,
       icon: GraduationCap,
       color: "text-indigo-600",
-      bg: "bg-indigo-50/80 hover:bg-indigo-100/80",
-      border: "border-indigo-100",
+      bg: "bg-indigo-50/80",
       action: () => setActiveTab("my-tests")
     },
     {
@@ -632,9 +631,8 @@ export default function StudentDashboard() {
       title: "Free Mocks",
       sub: "Instant Practice",
       icon: Zap,
-      color: "text-amber-600",
-      bg: "bg-amber-50/80 hover:bg-amber-100/80",
-      border: "border-amber-100",
+      color: "text-orange-500",
+      bg: "bg-orange-50/80",
       action: () => setActiveTab("free-tests")
     },
     {
@@ -643,8 +641,7 @@ export default function StudentDashboard() {
       sub: "Top Educator Packs",
       icon: Sparkles,
       color: "text-purple-600",
-      bg: "bg-purple-50/80 hover:bg-purple-100/80",
-      border: "border-purple-100",
+      bg: "bg-purple-50/80",
       action: () => setActiveTab("courses")
     },
     {
@@ -653,8 +650,7 @@ export default function StudentDashboard() {
       sub: "Accuracy & Pace",
       icon: BarChart3,
       color: "text-blue-600",
-      bg: "bg-blue-50/80 hover:bg-blue-100/80",
-      border: "border-blue-100",
+      bg: "bg-blue-50/80",
       action: () => setActiveTab("performance")
     },
     {
@@ -662,9 +658,8 @@ export default function StudentDashboard() {
       title: "Leaderboard",
       sub: "All India Rank",
       icon: Trophy,
-      color: "text-amber-500",
-      bg: "bg-orange-50/80 hover:bg-orange-100/80",
-      border: "border-orange-100",
+      color: "text-orange-500",
+      bg: "bg-orange-50/80",
       action: () => setActiveTab("leaderboard")
     },
     {
@@ -673,8 +668,7 @@ export default function StudentDashboard() {
       sub: "Detailed Solutions",
       icon: History,
       color: "text-emerald-600",
-      bg: "bg-emerald-50/80 hover:bg-emerald-100/80",
-      border: "border-emerald-100",
+      bg: "bg-emerald-50/80",
       action: () => setActiveTab("analysis")
     }
   ];
@@ -685,31 +679,29 @@ export default function StudentDashboard() {
     <div className="space-y-6 sm:space-y-8 animate-in fade-in slide-in-from-bottom-3 duration-500">
       
       {/* PW Style Hero Digital Pass Banner */}
-      <div className="relative w-full rounded-3xl bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 p-6 sm:p-8 md:p-10 text-white overflow-hidden shadow-2xl border border-indigo-900/40">
+      <div className="relative w-full rounded-[32px] bg-[#131b39] p-6 sm:p-8 md:p-10 text-white overflow-hidden">
         
-        {/* Subtle mesh background grid & glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-purple-500/15 rounded-full blur-[90px] pointer-events-none"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+        {/* Subtle mesh background grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           
           <div className="max-w-2xl">
             {/* Target Exam Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-500/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider text-indigo-300 border border-indigo-500/30 mb-4 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Target Exam: <strong className="text-white">{studentInfo.targetExam}</strong></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a304e] rounded-full text-xs font-bold uppercase tracking-wide text-white/80 mb-6">
+              <Sparkles className="w-4 h-4 text-white/60" />
+              <span>TARGET EXAM: <strong>{studentInfo.targetExam}</strong></span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-3">
-              Welcome back, <span className="bg-gradient-to-r from-indigo-200 via-white to-purple-200 bg-clip-text text-transparent">{studentInfo.name.split(' ')[0]}!</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4 text-white">
+              Welcome back, yo!
             </h1>
             
-            <p className="text-slate-300 font-medium text-sm sm:text-base leading-relaxed mb-6">
+            <p className="text-slate-300 font-medium text-sm sm:text-base leading-relaxed mb-8">
               You are currently <strong className="text-emerald-400 font-bold">{studentInfo.stats.testsAttempted} tests</strong> ahead of average aspirants. Keep practicing to secure your AIR top rank!
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-4">
               <button
                 onClick={() => {
                   if (lastAttempt && lastAttempt.series_id) {
@@ -720,43 +712,45 @@ export default function StudentDashboard() {
                      setActiveTab('courses');
                   }
                 }}
-                className="bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white font-bold text-sm px-6 py-3.5 rounded-2xl shadow-lg shadow-indigo-600/40 transition-all flex items-center gap-2.5"
+                className="bg-[#5C45FD] hover:bg-[#4a36e0] active:scale-95 text-white font-bold text-sm px-6 py-4 rounded-2xl transition-all flex items-center gap-2.5"
               >
                 <PlayCircle className="w-5 h-5" />
-                {lastAttempt ? 'Resume Last Test' : 'Start Practice Mock'}
+                Start Practice Mock
               </button>
 
               <button
                 onClick={() => setActiveTab('performance')}
-                className="bg-white/10 hover:bg-white/20 active:scale-95 text-white font-bold text-sm px-6 py-3.5 rounded-2xl border border-white/15 backdrop-blur-md transition-all flex items-center gap-2"
+                className="bg-transparent hover:bg-white/5 active:scale-95 text-white font-bold text-sm px-6 py-4 rounded-2xl border border-white/20 transition-all flex items-center gap-2"
               >
-                <Target className="w-5 h-5 text-indigo-300" />
+                <Target className="w-5 h-5" />
                 Daily Goals & Stats
               </button>
             </div>
           </div>
 
           {/* Right Daily Goal Card */}
-          <div className="w-full lg:w-72 shrink-0 bg-white/10 backdrop-blur-xl border border-white/15 p-5 rounded-2xl flex flex-row lg:flex-col items-center justify-between gap-4 shadow-2xl">
-             <div className="flex items-center gap-3 lg:flex-col lg:text-center">
-               <div className="w-12 h-12 bg-amber-500/20 border border-amber-500/40 rounded-2xl flex items-center justify-center text-amber-400 shrink-0">
-                  <Flame className="w-6 h-6 animate-pulse" />
+          <div className="w-full lg:w-72 shrink-0 bg-[#202742] p-5 rounded-3xl flex flex-row items-center justify-between gap-4">
+             <div className="flex items-center gap-4">
+               <div className="w-12 h-12 bg-transparent border border-orange-500/40 rounded-[20px] flex items-center justify-center text-orange-400 shrink-0">
+                  <Flame className="w-6 h-6" />
                </div>
                <div>
-                 <div className="text-2xl font-black tracking-tight">{studentInfo.stats.dayStreak} Days</div>
-                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300">Daily Study Streak</div>
+                 <div className="text-2xl font-black tracking-tight text-white">{studentInfo.stats.dayStreak} Days</div>
+                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">DAILY STUDY STREAK</div>
                </div>
              </div>
 
-             <div className="h-10 w-px bg-white/15 lg:w-full lg:h-px my-1"></div>
+             <div className="h-10 w-px bg-white/10 mx-2"></div>
 
-             <div className="w-1/2 lg:w-full text-right lg:text-center">
-                <div className="text-xs font-bold text-slate-300 mb-1 flex items-center justify-between lg:justify-center gap-2">
-                  <span>Today Goal</span>
-                  <span className="text-emerald-400 font-bold">{studentInfo.stats.todayTimeSpentHours}h / 3.0h</span>
+             <div className="text-center">
+                <div className="text-xs font-bold text-slate-400 mb-1 whitespace-nowrap">
+                  Today Goal
                 </div>
-                <div className="w-full bg-slate-800/80 rounded-full h-2 overflow-hidden border border-white/10">
-                  <div className="bg-gradient-to-r from-emerald-400 to-indigo-400 h-full rounded-full transition-all duration-1000" style={{ width: `${Math.min((studentInfo.stats.todayTimeSpentHours / 3.0) * 100, 100)}%` }}></div>
+                <div className="text-xs font-bold text-emerald-400 mb-1">
+                  {studentInfo.stats.todayTimeSpentHours}h / 3.0h
+                </div>
+                <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                  <div className="bg-emerald-400 h-full rounded-full" style={{ width: `${Math.min((studentInfo.stats.todayTimeSpentHours / 3.0) * 100, 100)}%` }}></div>
                 </div>
              </div>
           </div>
@@ -767,18 +761,18 @@ export default function StudentDashboard() {
       {/* Gamified Modern Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
         {[
-          { label: "Tests Attempted", value: studentInfo.stats.testsAttempted, icon: FileText, color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
-          { label: "Average Accuracy", value: `${studentInfo.stats.accuracy}%`, icon: Target, color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-100" },
-          { label: "Predicted AIR Rank", value: `#${studentInfo.stats.rank}`, icon: Trophy, color: "text-amber-600", bg: "bg-amber-50", border: "border-amber-100" },
-          { label: "Total Practice Time", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-purple-600", bg: "bg-purple-50", border: "border-purple-100" },
+          { label: "TESTS ATTEMPTED", value: studentInfo.stats.testsAttempted, icon: FileText, color: "text-indigo-600", bg: "bg-indigo-50/60" },
+          { label: "AVERAGE ACCURACY", value: `${studentInfo.stats.accuracy}%`, icon: Target, color: "text-emerald-600", bg: "bg-emerald-50/60" },
+          { label: "PREDICTED AIR RANK", value: `#${studentInfo.stats.rank}`, icon: Trophy, color: "text-orange-500", bg: "bg-orange-50/60" },
+          { label: "TOTAL PRACTICE TIME", value: studentInfo.stats.timeSpent, icon: Clock, color: "text-purple-600", bg: "bg-purple-50/60" },
         ].map((stat, i) => (
-          <div key={i} className={`bg-white rounded-2xl p-4 sm:p-5 border ${stat.border} shadow-sm hover:shadow-md transition-all flex items-center justify-between`}>
+          <div key={i} className={`bg-white rounded-3xl p-5 border border-slate-100 flex items-center justify-between`}>
             <div>
-              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">{stat.label}</p>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{stat.value}</h3>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{stat.label}</p>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">{stat.value}</h3>
             </div>
-            <div className={`p-3 rounded-2xl ${stat.bg} ${stat.color} shrink-0`}>
-              <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className={`p-4 rounded-3xl ${stat.bg} ${stat.color} shrink-0`}>
+              <stat.icon className="w-6 h-6" />
             </div>
           </div>
         ))}
@@ -798,14 +792,14 @@ export default function StudentDashboard() {
             <button
               key={card.id}
               onClick={card.action}
-              className={`p-4 sm:p-5 bg-white border ${card.border} rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 text-left flex flex-col justify-between group active:scale-95`}
+              className={`p-5 bg-white border border-slate-100 rounded-3xl hover:border-slate-200 transition-all duration-300 text-left flex flex-col justify-between group active:scale-95`}
             >
-              <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${card.bg} ${card.color} flex items-center justify-center mb-3 transition-transform group-hover:scale-110`}>
-                <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className={`w-12 h-12 rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-4`}>
+                <card.icon className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-extrabold text-sm sm:text-base text-slate-800 group-hover:text-indigo-600 transition-colors leading-snug">{card.title}</h3>
-                <p className="text-[11px] font-semibold text-slate-400 mt-0.5">{card.sub}</p>
+                <h3 className="font-extrabold text-[15px] text-slate-800 group-hover:text-indigo-600 transition-colors leading-snug">{card.title}</h3>
+                <p className="text-xs font-semibold text-slate-400 mt-1">{card.sub}</p>
               </div>
             </button>
           ))}
@@ -1332,6 +1326,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] font-sans flex text-slate-900 selection:bg-indigo-200 overflow-hidden w-full max-w-[100vw]">
+      <style>{`.lucide { stroke-width: 1.5px; }`}</style>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       
       {/* Mobile Sidebar Backdrop */}
@@ -1423,30 +1418,30 @@ export default function StudentDashboard() {
            <div className="flex items-center gap-2 sm:gap-3">
              
              {/* Flame Streak Badge */}
-             <div className="flex items-center gap-1.5 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-full text-xs font-black text-amber-700 shadow-sm">
-               <Flame className="w-4 h-4 text-amber-500 fill-amber-500 animate-bounce" />
+             <div className="flex items-center gap-1.5 bg-orange-50/80 px-3 py-1.5 rounded-full text-xs font-black text-orange-600">
+               <Flame className="w-4 h-4 text-orange-500" />
                <span>{studentInfo.stats.dayStreak}</span>
              </div>
 
              {/* XP Coins Badge */}
-             <div className="flex items-center gap-1.5 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-full text-xs font-black text-indigo-700 shadow-sm">
-               <Star className="w-4 h-4 text-indigo-500 fill-indigo-500" />
+             <div className="flex items-center gap-1.5 bg-indigo-50/80 px-3 py-1.5 rounded-full text-xs font-black text-indigo-700">
+               <Star className="w-4 h-4 text-indigo-500" />
                <span>{studentInfo.stats.xp} XP</span>
              </div>
 
              {/* Gift Bonus Icon */}
-             <button aria-label="Daily bonus" className="p-2 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
-               <Gift className="w-4 h-4 text-purple-600" />
+             <button aria-label="Daily bonus" className="p-2 bg-purple-50/80 hover:bg-purple-100/80 rounded-full text-purple-600 transition-colors">
+               <Gift className="w-4 h-4" />
              </button>
 
              {/* Notifications */}
-             <button aria-label="Notifications" onClick={() => setActiveTab('notifications')} className="relative p-2 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
+             <button aria-label="Notifications" onClick={() => setActiveTab('notifications')} className="relative p-2 bg-slate-50 hover:bg-slate-100 rounded-full text-slate-600 transition-colors">
                <Bell className="w-4 h-4" />
-               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
              </button>
 
              {/* Profile Avatar */}
-             <button onClick={() => setActiveTab('profile')} className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold text-sm flex items-center justify-center overflow-hidden border border-indigo-200 ml-1">
+             <button onClick={() => setActiveTab('profile')} className="w-8 h-8 rounded-full bg-[#121633] text-white font-bold text-sm flex items-center justify-center overflow-hidden ml-1">
                {studentInfo.avatarUrl ? <img src={studentInfo.avatarUrl} alt="" className="w-full h-full object-cover" /> : studentInfo.name.charAt(0)}
              </button>
            </div>
@@ -1460,7 +1455,7 @@ export default function StudentDashboard() {
         </main>
 
         {/* Mobile Bottom Navigation Bar (PW App Style UX) */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200/80 px-3 py-2 flex items-center justify-around shadow-2xl">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-100 px-3 py-2 flex items-center justify-around shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
           {[
             { id: "overview", label: "Study", icon: LayoutDashboard },
             { id: "my-tests", label: "Batches", icon: GraduationCap },
@@ -1471,14 +1466,14 @@ export default function StudentDashboard() {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex flex-col items-center justify-center w-14 py-1 rounded-2xl transition-all ${
-                activeTab === item.id ? "text-indigo-600 font-bold" : "text-slate-400 font-medium"
+              className={`flex flex-col items-center justify-center w-14 py-1.5 rounded-2xl transition-all ${
+                activeTab === item.id ? "text-[#5C45FD] font-bold" : "text-slate-400 font-medium"
               }`}
             >
-              <item.icon className={`w-5 h-5 ${activeTab === item.id ? "scale-110" : ""}`} />
-              <span className="text-[10px] tracking-tight mt-0.5">{item.label}</span>
+              <item.icon className="w-6 h-6" />
+              <span className="text-[10px] mt-1">{item.label}</span>
               {activeTab === item.id && (
-                <span className="w-1 h-1 bg-indigo-600 rounded-full mt-0.5"></span>
+                <span className="w-1 h-1 bg-[#5C45FD] rounded-full mt-1"></span>
               )}
             </button>
           ))}
