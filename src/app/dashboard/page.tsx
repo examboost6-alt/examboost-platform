@@ -24,9 +24,15 @@ const globalStyles = `
   .lucide { stroke-width: 1.5px; }
   .premium-card {
     background: #FFFFFF;
-    border-radius: 24px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    padding: 16px;
+  }
+  @media (min-width: 640px) {
+    .premium-card {
+      border-radius: 24px;
+      padding: 24px;
+    }
   }
 `;
 
@@ -137,12 +143,9 @@ export default function StudentDashboard() {
             </button>
           </div>
           
-          <div className="hidden md:flex shrink-0 w-48 h-48 bg-white/10 rounded-[24px] items-center justify-center backdrop-blur-md border border-white/20">
-             {/* Simple flat vector illustration placeholder */}
-             <div className="relative w-32 h-32">
-                <div className="absolute inset-0 bg-[#22C55E]/20 rounded-full blur-xl"></div>
-                <GraduationCap className="w-full h-full text-white relative z-10" strokeWidth={1} />
-             </div>
+          <div className="hidden md:block shrink-0 w-48 h-48 rounded-[24px] overflow-hidden border-4 border-white/20 shadow-2xl relative">
+             <div className="absolute inset-0 bg-indigo-900/30 mix-blend-multiply z-10"></div>
+             <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80" alt="Student studying" className="w-full h-full object-cover relative z-0" />
           </div>
         </div>
       </div>
@@ -299,11 +302,11 @@ export default function StudentDashboard() {
       <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
         
         {/* Top Header (110px Height) */}
-        <header className="h-[110px] bg-[#0A0520] text-white px-4 sm:px-6 md:px-8 flex flex-col justify-center shrink-0 shadow-lg relative z-20">
+        <header className="h-[90px] sm:h-[110px] bg-[#0A0520] text-white px-3 sm:px-6 md:px-8 flex flex-col justify-center shrink-0 shadow-lg relative z-20">
            <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
              
-             <div className="flex items-center gap-4">
-               <button className="p-2 hover:bg-white/10 rounded-xl transition-colors text-white">
+             <div className="flex items-center gap-2 sm:gap-4">
+               <button className="p-1.5 sm:p-2 hover:bg-white/10 rounded-xl transition-colors text-white">
                  <Menu className="w-6 h-6" />
                </button>
                <div className="hidden sm:block">
@@ -311,40 +314,40 @@ export default function StudentDashboard() {
                  <h2 className="font-poppins text-xl font-bold tracking-tight">{studentInfo.name.split(' ')[0]} 👋</h2>
                </div>
                {/* Batch Selector */}
-               <div className="hidden md:flex ml-4 items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/10 hover:bg-white/20 cursor-pointer transition-colors">
+               <div className="hidden lg:flex ml-4 items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/10 hover:bg-white/20 cursor-pointer transition-colors">
                  <span className="font-inter font-bold text-sm">{studentInfo.targetExam}</span>
                  <span className="bg-[#EAB308] text-black text-[9px] font-black uppercase px-2 py-0.5 rounded-full">Pro</span>
                </div>
              </div>
 
-             <div className="flex items-center gap-2 sm:gap-4">
+             <div className="flex items-center gap-1.5 sm:gap-4">
                {/* Gift Icon */}
                <button className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-[#EAB308] transition-colors hidden sm:block">
                  <Star className="w-5 h-5 fill-current" />
                </button>
 
                {/* Gamified Badges */}
-               <div className="flex items-center bg-white/10 rounded-full p-1 border border-white/10">
-                 <div className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-manrope font-bold text-orange-400">
-                   <Flame className="w-4 h-4 fill-current" />
+               <div className="flex items-center bg-white/10 rounded-full p-1 border border-white/10 shrink-0">
+                 <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-manrope font-bold text-orange-400">
+                   <Flame className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
                    <span>{studentInfo.stats.dayStreak}</span>
                  </div>
-                 <div className="w-px h-4 bg-white/20 mx-1"></div>
-                 <div className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-manrope font-bold text-slate-300">
-                   <div className="w-4 h-4 rounded-full bg-slate-300 text-[#0A0520] flex items-center justify-center font-black text-[8px]">XP</div>
+                 <div className="w-px h-3 sm:h-4 bg-white/20 mx-0.5 sm:mx-1"></div>
+                 <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-manrope font-bold text-slate-300">
+                   <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-slate-300 text-[#0A0520] flex items-center justify-center font-black text-[7px] sm:text-[8px]">XP</div>
                    <span>{studentInfo.stats.xp}</span>
                  </div>
                </div>
 
                {/* Notifications */}
-               <button className="relative p-2.5 bg-white/5 hover:bg-white/10 rounded-full text-white transition-colors">
-                 <Bell className="w-5 h-5" />
-                 <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-[#EF4444] rounded-full border-2 border-[#0A0520]"></span>
+               <button className="relative p-2 sm:p-2.5 bg-white/5 hover:bg-white/10 rounded-full text-white transition-colors">
+                 <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
+                 <span className="absolute top-1 sm:top-1.5 right-1 sm:right-1.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#EF4444] rounded-full border-2 border-[#0A0520]"></span>
                </button>
 
                {/* Profile */}
-               <button className="w-10 h-10 rounded-full bg-[#4F46E5] flex items-center justify-center overflow-hidden border-2 border-white/20 ml-1">
-                 {studentInfo.avatarUrl ? <img src={studentInfo.avatarUrl} alt="" className="w-full h-full object-cover" /> : <User className="w-5 h-5 text-white" />}
+               <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#4F46E5] flex items-center justify-center overflow-hidden border-2 border-white/20 ml-0.5 sm:ml-1 shrink-0">
+                 {studentInfo.avatarUrl ? <img src={studentInfo.avatarUrl} alt="" className="w-full h-full object-cover" /> : <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
                </button>
              </div>
            </div>
