@@ -119,34 +119,31 @@ export default function StudentDashboard() {
 
   const HomeView = () => (
     <div className="space-y-6 sm:space-y-8 animate-in fade-in slide-in-from-bottom-3 duration-500 pb-24">
-      {/* Hero Card */}
-      <div className="relative w-full rounded-[24px] bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] p-6 sm:p-8 md:p-10 text-white overflow-hidden shadow-[0_8px_30px_rgba(79,70,229,0.3)]">
-        {/* Abstract Shapes */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl pointer-events-none transform -translate-x-1/4 translate-y-1/4"></div>
+      {/* Hero Card - Promotional Banner */}
+      <div className="relative w-full rounded-[24px] bg-[#161622] p-6 sm:p-8 text-white overflow-hidden shadow-lg border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Decorative Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+        <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none"></div>
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex-1">
-            <h1 className="font-poppins text-3xl sm:text-4xl font-bold mb-2">Continue Learning</h1>
-            <p className="font-inter text-white/80 text-lg mb-6">React Fundamentals • Lesson 12</p>
-            
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex-1 max-w-sm bg-black/20 rounded-full h-2.5 overflow-hidden backdrop-blur-sm">
-                <div className="bg-[#22C55E] h-full rounded-full" style={{ width: '78%' }}></div>
-              </div>
-              <span className="font-manrope font-bold text-sm">78%</span>
-            </div>
-
-            <button className="bg-white text-[#4F46E5] hover:bg-slate-50 active:scale-95 transition-all font-poppins font-bold px-8 py-3.5 rounded-full shadow-lg flex items-center gap-2">
-              <PlayCircle className="w-5 h-5" />
-              Resume Video
-            </button>
+        <div className="relative z-10 flex-1">
+          <div className="inline-flex items-center bg-[#EAB308]/10 text-[#EAB308] font-bold text-[10px] sm:text-xs px-2.5 py-1 rounded-md mb-3 sm:mb-4 border border-[#EAB308]/20">
+            <Crown className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5" /> INTRODUCING
           </div>
+          <h1 className="font-poppins text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 sm:mb-2 text-[#EAB308]">Examboost Pass PRO</h1>
+          <p className="font-inter text-slate-400 text-xs sm:text-sm mb-4 sm:mb-6">For Target JEE / NEET 2025</p>
           
-          <div className="hidden md:block shrink-0 w-48 h-48 rounded-[24px] overflow-hidden border-4 border-white/20 shadow-2xl relative">
-             <div className="absolute inset-0 bg-indigo-900/30 mix-blend-multiply z-10"></div>
-             <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80" alt="Student studying" className="w-full h-full object-cover relative z-0" />
-          </div>
+          <p className="font-inter text-slate-200 text-sm sm:text-base mb-6 max-w-sm leading-relaxed">
+            One pass to access <br/>
+            <span className="text-white font-bold text-lg border-b-2 border-indigo-500 pb-0.5">200+ Test Series & Books</span>
+          </p>
+          
+          <button className="bg-white text-black hover:bg-slate-200 active:scale-95 transition-all font-poppins font-bold px-6 py-2.5 sm:py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center">
+            Explore Pass <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+        </div>
+        
+        <div className="relative z-10 shrink-0 w-full sm:w-56 md:w-72 flex justify-center mt-4 sm:mt-0">
+           <img src="/shikhar-jee.png" alt="Examboost Pass" className="w-full h-auto max-h-48 sm:max-h-60 object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] hover:-translate-y-2 transition-transform duration-500" />
         </div>
       </div>
 
@@ -186,7 +183,7 @@ export default function StudentDashboard() {
                <h2 className="font-poppins text-xl font-bold text-[#111827]">Upcoming Live Classes</h2>
                <button className="text-[#4F46E5] font-inter font-semibold text-sm flex items-center gap-1 hover:underline">View All <ChevronRight className="w-4 h-4"/></button>
              </div>
-             <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+             <div className="flex gap-4 overflow-x-auto pb-4 snap-x scrollbar-hide">
                {upcomingClasses.map(cls => (
                  <div key={cls.id} className="premium-card shrink-0 w-80 snap-start border border-slate-100 flex flex-col justify-between">
                    <div className="flex items-center gap-4 mb-4">
@@ -296,10 +293,10 @@ export default function StudentDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex text-[#111827] selection:bg-indigo-200 overflow-hidden w-full">
+    <div className="min-h-screen bg-[#F8FAFC] flex text-[#111827] selection:bg-indigo-200 overflow-x-hidden w-full">
       <style>{globalStyles}</style>
       
-      <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
+      <div className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative w-full max-w-[100vw]">
         
         {/* Top Header (110px Height) */}
         <header className="h-[90px] sm:h-[110px] bg-[#0A0520] text-white px-3 sm:px-6 md:px-8 flex flex-col justify-center shrink-0 shadow-lg relative z-20">
