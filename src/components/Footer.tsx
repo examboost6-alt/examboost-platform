@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { Youtube, Instagram, Twitter, MessageCircle, MapPin, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,7 +12,6 @@ export default function Footer() {
         pathname.startsWith('/admin') || 
         pathname.startsWith('/dashboard') || 
         pathname.startsWith('/onboarding') || 
-        pathname.startsWith('/series') || 
         pathname.startsWith('/test') ||
         pathname.startsWith('/login') ||
         pathname.startsWith('/signup') ||
@@ -36,24 +34,14 @@ export default function Footer() {
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
                 {/* Clean Subscription CTA matching the hero cards */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-8 md:p-12 mb-20 shadow-xl shadow-slate-200/50 dark:shadow-none flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
-                >
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-8 md:p-12 mb-20 shadow-xl shadow-slate-200/50 dark:shadow-none flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
                     {/* Soft orange decorative blur behind CTA text */}
                     <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-64 h-64 bg-orange-100/50 dark:bg-[#F97316]/10 blur-[60px] rounded-full pointer-events-none" />
                     
                     <div className="text-center md:text-left relative z-10 max-w-2xl">
-                        {/* Animated background swirls behind the text */}
+                        {/* Background swirls behind the text */}
                         <svg className="absolute -top-10 -left-10 w-32 h-32 text-orange-200 dark:text-[#F97316]/20 opacity-50 pointer-events-none -rotate-12" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round">
-                            <motion.path 
-                                initial={{ pathLength: 0 }}
-                                whileInView={{ pathLength: 1 }}
-                                transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
-                                viewport={{ once: true }}
+                            <path 
                                 d="M20,60 C40,20 60,80 80,40 C95,15 110,70 130,50 C150,30 170,80 180,20" 
                             />
                         </svg>
@@ -67,20 +55,12 @@ export default function Footer() {
                     </div>
                     
                     <div className="shrink-0 relative z-10 hidden lg:block mr-12 mt-4">
-                        {/* Hand-drawn Animated Curly Arrow pointing to Button */}
+                        {/* Hand-drawn Curly Arrow pointing to Button */}
                         <svg className="absolute -left-20 -top-8 w-24 h-24 text-slate-400 dark:text-slate-500 rotate-12 pointer-events-none" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <motion.path 
-                                initial={{ pathLength: 0 }} 
-                                whileInView={{ pathLength: 1 }} 
-                                transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} 
-                                viewport={{ once: true }}
+                            <path 
                                 d="M10,90 Q40,30 90,50" 
                             />
-                            <motion.path 
-                                initial={{ opacity: 0 }} 
-                                whileInView={{ opacity: 1 }} 
-                                transition={{ duration: 0.2, delay: 1.5 }} 
-                                viewport={{ once: true }}
+                            <path 
                                 d="M70,35 L90,50 L75,70" 
                             />
                         </svg>
@@ -97,18 +77,13 @@ export default function Footer() {
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </Link>
                     </div>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
 
                     {/* Brand & About */}
                     <div className="lg:col-span-4 pr-0 lg:pr-8">
-                        <motion.div 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                        >
+                        <div>
                             <Link href="/" className="flex items-center gap-2 mb-6 inline-flex group">
                                 <div className="w-32 md:w-36 h-10 flex items-center justify-start group-hover:scale-105 transition-transform duration-300 origin-left relative">
                                     <Image src="/logo.png" alt="ExamBoost Logo" fill sizes="(max-width: 768px) 150px, 200px" className="object-contain dark:hidden" />
@@ -137,40 +112,26 @@ export default function Footer() {
                                 ))}
                             </div>
                             
-                            {/* Animated Signature Graphic */}
+                            {/* Signature Graphic */}
                             <div className="mt-8 relative hidden md:block opacity-60 hover:opacity-100 transition-opacity duration-300 w-fit cursor-default">
                                 <svg className="w-28 h-16 text-[#F97316] dark:text-orange-400 drop-shadow-sm" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                                    <motion.path 
-                                        initial={{ pathLength: 0 }}
-                                        whileInView={{ pathLength: 1 }}
-                                        transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
-                                        viewport={{ once: true }}
+                                    <path 
                                         d="M20,70 C40,10 60,90 80,50 C100,20 120,80 140,40 C160,20 180,70 190,30" 
                                     />
-                                    <motion.path 
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 2.2 }}
-                                        viewport={{ once: true }}
+                                    <path 
                                         d="M100,90 L180,90" strokeWidth="2" strokeDasharray="4 4" 
                                     />
                                 </svg>
                                 <p className="text-[10px] font-bold text-slate-800 dark:text-slate-400 mt-1 tracking-[0.2em] uppercase font-serif text-center absolute bottom-0 left-0 right-0">ExamBoost Team</p>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Custom separator line for larger screens */}
                     <div className="hidden lg:block lg:col-span-1 border-r border-slate-100 dark:border-slate-800 mr-8"></div>
 
                     {/* Links sections */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1, duration: 0.5 }}
-                        className="lg:col-span-2"
-                    >
+                    <div className="lg:col-span-2">
                         <h4 className="text-slate-900 dark:text-white font-black mb-6 text-sm uppercase tracking-widest flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#F97316] inline-block"></span>
                             Company
@@ -181,15 +142,9 @@ export default function Footer() {
                             <li><Link href="/blog" className="hover:text-[#F97316] transition-colors font-medium text-sm text-slate-600 dark:text-slate-400">Blog</Link></li>
                             <li><Link href="/contact" className="hover:text-[#F97316] transition-colors font-medium text-sm text-slate-600 dark:text-slate-400">Contact Us</Link></li>
                         </ul>
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
-                        className="lg:col-span-2"
-                    >
+                    <div className="lg:col-span-2">
                         <h4 className="text-slate-900 dark:text-white font-black mb-6 text-sm uppercase tracking-widest flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#F97316] inline-block"></span>
                             Exams
@@ -201,15 +156,9 @@ export default function Footer() {
                             <li><Link href="/exams/medical-entrance" className="hover:text-[#F97316] transition-colors font-medium text-sm text-slate-600 dark:text-slate-400">NEET UG</Link></li>
                             <li><Link href="/exams/banking" className="hover:text-[#F97316] transition-colors font-medium text-sm text-slate-600 dark:text-slate-400">Banking (PO)</Link></li>
                         </ul>
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.5 }}
-                        className="lg:col-span-3"
-                    >
+                    <div className="lg:col-span-3">
                         <h4 className="text-slate-900 dark:text-white font-black mb-6 text-sm uppercase tracking-widest flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#F97316] inline-block"></span>
                             Reach Us
@@ -236,18 +185,12 @@ export default function Footer() {
                                 <span className="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors">1800-123-4567</span>
                             </li>
                         </ul>
-                    </motion.div>
+                    </div>
 
                 </div>
 
                 {/* Bottom Bar */}
-                <motion.div 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                    className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10"
-                >
+                <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
                     <p className="text-slate-500 font-medium text-xs text-center md:text-left">
                         &copy; {new Date().getFullYear()} EXAMBOOST. All rights reserved. Made with ❤️ in India.
                     </p>
@@ -258,7 +201,7 @@ export default function Footer() {
                         <Link href="/refund" className="hover:text-[#F97316] hover:underline transition-colors">Refund Policy</Link>
                         <Link href="/sitemap" className="hover:text-[#F97316] hover:underline transition-colors">Sitemap</Link>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </footer>
     );

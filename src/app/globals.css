@@ -33,12 +33,27 @@ body {
     background-color: var(--background);
     color: var(--foreground);
     overflow-x: clip;
-    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 ::selection {
     background-color: theme('colors.primary.DEFAULT');
     color: white;
+}
+
+/* Modern Global Scrollbar */
+::-webkit-scrollbar { 
+    width: 8px; 
+    height: 8px; 
+}
+::-webkit-scrollbar-track { 
+    background: transparent; 
+}
+::-webkit-scrollbar-thumb { 
+    background: rgba(148, 163, 184, 0.35); 
+    border-radius: 9999px; 
+}
+::-webkit-scrollbar-thumb:hover { 
+    background: rgba(148, 163, 184, 0.6); 
 }
 
 /* Custom Scrollbar */

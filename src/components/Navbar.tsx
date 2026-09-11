@@ -74,8 +74,11 @@ export default function Navbar() {
 
     useEffect(() => {
         setMounted(true);
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 20;
+            setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -187,7 +190,6 @@ export default function Navbar() {
         pathname.startsWith('/admin') || 
         pathname.startsWith('/dashboard') || 
         pathname.startsWith('/onboarding') || 
-        pathname.startsWith('/series') || 
         pathname.startsWith('/test') ||
         pathname.startsWith('/login') ||
         pathname.startsWith('/signup') ||
@@ -198,9 +200,11 @@ export default function Navbar() {
         return null;
     }
 
+    const isSolidNavbar = scrolled || pathname !== '/';
+
     return (
         <>
-        <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 dark:bg-[#020617]/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isSolidNavbar ? 'bg-white/95 dark:bg-[#020617]/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 h-16 md:h-20 lg:h-24 flex items-center justify-between lg:justify-start relative z-10">
                 {/* Logo */}
