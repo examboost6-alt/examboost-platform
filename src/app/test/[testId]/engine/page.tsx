@@ -512,98 +512,101 @@ function UltraModernTestEngine() {
 
     return (
         <div className="flex flex-col h-[100dvh] font-sans bg-[#F4F6F9] text-slate-900 overflow-hidden select-none">
-            {/* Top Single Header: Clean, Compact, Zero-Waste */}
-            <header className="bg-white px-3 sm:px-6 h-14 border-b border-slate-200/80 flex items-center justify-between shrink-0 shadow-xs z-30">
-                {/* Left: Test Badge + Subject Switcher */}
-                <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-500 text-white flex items-center justify-center font-black text-xs shrink-0 shadow-sm shadow-indigo-500/20">
+            {/* Top Primary Header: Clean, Authoritative, Spacious */}
+            <header className="bg-white px-3 sm:px-6 h-13 sm:h-14 border-b border-slate-200/90 flex items-center justify-between shrink-0 z-30 shadow-xs">
+                {/* Left: Test Identity */}
+                <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-500 text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs shadow-indigo-500/20">
                         EB
                     </div>
-
-                    {/* Mobile Subject Dropdown */}
-                    <div className="sm:hidden relative">
-                        <select
-                            value={activeSubject}
-                            onChange={(e) => handleSubjectChange(e.target.value)}
-                            className="bg-slate-100 font-extrabold text-xs text-indigo-700 py-1.5 pl-2.5 pr-6 rounded-xl border border-slate-200/80 outline-none appearance-none"
-                        >
-                            {subjectsList.map(sub => {
-                                const subQs = mockQuestions.filter(q => q.subject === sub);
-                                const answeredCount = subQs.filter(q => responses[q.id] !== undefined && responses[q.id] !== '').length;
-                                return (
-                                    <option key={sub} value={sub}>
-                                        {sub} ({answeredCount}/{subQs.length})
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <ChevronRight className="w-3.5 h-3.5 text-indigo-600 absolute right-1.5 top-2 pointer-events-none rotate-90" />
-                    </div>
-
-                    {/* Desktop Subject Pills (Segmented) */}
-                    <div className="hidden sm:flex items-center bg-slate-100 p-0.5 rounded-xl">
-                        {subjectsList.map(sub => {
-                            const isActive = activeSubject === sub;
-                            const subQs = mockQuestions.filter(q => q.subject === sub);
-                            const answeredCount = subQs.filter(q => responses[q.id] !== undefined && responses[q.id] !== '').length;
-
-                            return (
-                                <button
-                                    key={sub}
-                                    onClick={() => handleSubjectChange(sub)}
-                                    className={`px-2.5 sm:px-3.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                                        isActive
-                                            ? 'bg-white text-indigo-600 shadow-xs font-extrabold'
-                                            : 'text-slate-500 hover:text-slate-800'
-                                    }`}
-                                >
-                                    <span>{sub}</span>
-                                    <span className={`text-[10px] px-1 rounded-full ${
-                                        isActive ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-200/70 text-slate-500'
-                                    }`}>
-                                        {answeredCount}/{subQs.length}
-                                    </span>
-                                </button>
-                            );
-                        })}
+                    <div className="min-w-0">
+                        <div className="font-extrabold text-xs sm:text-sm text-slate-900 truncate leading-tight">
+                            {examPaperName}
+                        </div>
+                        <div className="text-[10px] text-slate-400 font-medium hidden sm:block leading-none mt-0.5">
+                            Official CBT Engine • {examName}
+                        </div>
                     </div>
                 </div>
 
-                {/* Right: Timer + Palette + Submit */}
-                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                    {/* Minimal Countdown Pill */}
-                    <div className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl border text-xs sm:text-sm font-black tabular-nums transition-colors ${
-                        isUrgent
-                            ? 'bg-rose-50 text-rose-600 border-rose-200 animate-pulse'
-                            : 'bg-slate-50 text-slate-700 border-slate-200'
-                    }`}>
-                        <Clock className={`w-3.5 h-3.5 ${isUrgent ? 'text-rose-500' : 'text-slate-400'}`} />
-                        <span>{formatTime(timeLeft)}</span>
-                    </div>
+                {/* Center: Countdown Timer */}
+                <div className={`flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-xl border text-xs sm:text-sm font-black tabular-nums transition-colors shadow-xs ${
+                    isUrgent
+                        ? 'bg-rose-50 text-rose-600 border-rose-300 animate-pulse'
+                        : 'bg-slate-50 text-slate-800 border-slate-200/90'
+                }`}>
+                    <Clock className={`w-3.5 h-3.5 ${isUrgent ? 'text-rose-500' : 'text-indigo-600'}`} />
+                    <span>{formatTime(timeLeft)}</span>
+                </div>
 
+                {/* Right: Controls (Language + Palette Grid) */}
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                     {/* Language Switch */}
                     <button
                         onClick={() => setQuestionLang(l => l === 'english' ? 'hindi' : 'english')}
-                        className="hidden md:flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-600 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
+                        className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
+                        title="Switch Question Language"
                     >
-                        <Globe className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{questionLang === 'english' ? 'EN' : 'हिंदी'}</span>
+                        <Globe className="w-3.5 h-3.5 text-slate-500" />
+                        <span className="text-[11px] font-extrabold">{questionLang === 'english' ? 'EN' : 'HI'}</span>
                     </button>
 
-                    {/* Question Palette Trigger */}
+                    {/* Question Palette Trigger with clear label */}
                     <button
                         onClick={() => setIsPaletteOpen(true)}
-                        className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
+                        className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100/80 border border-indigo-200/80 transition-colors shadow-xs"
                         aria-label="Open Question Palette"
                     >
-                        <LayoutGrid className="w-3.5 h-3.5 text-indigo-600" />
-                        <span className="hidden sm:inline">Palette</span>
-                        <span className="bg-indigo-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-black">
+                        <LayoutGrid className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                        <span className="font-extrabold text-[11px] sm:text-xs">Grid</span>
+                        <span className="bg-indigo-600 text-white px-1.5 py-0.5 rounded-full text-[10px] font-black leading-none">
                             {currentQuestionIndex + 1}/{mockQuestions.length}
                         </span>
                     </button>
                 </div>
             </header>
+
+            {/* Level 2: Dedicated Subject Navigation Strip (Mobile & Laptop) */}
+            <div className="bg-slate-50/95 border-b border-slate-200/80 px-3 sm:px-6 py-1.5 flex items-center justify-between gap-3 shrink-0">
+                <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
+                    <span className="text-[10px] sm:text-xs uppercase font-bold text-slate-400 tracking-wider mr-1 hidden sm:inline shrink-0">
+                        Sections:
+                    </span>
+                    {subjectsList.map(sub => {
+                        const isActive = activeSubject === sub;
+                        const subQs = mockQuestions.filter(q => q.subject === sub);
+                        const answeredCount = subQs.filter(q => responses[q.id] !== undefined && responses[q.id] !== '').length;
+
+                        return (
+                            <button
+                                key={sub}
+                                onClick={() => handleSubjectChange(sub)}
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+                                    isActive
+                                        ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/25 font-extrabold'
+                                        : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-100/60'
+                                }`}
+                            >
+                                <span>{sub}</span>
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold leading-none ${
+                                    isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                                }`}>
+                                    {answeredCount}/{subQs.length}
+                                </span>
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Laptop Fullscreen button */}
+                <button
+                    onClick={toggleFullscreen}
+                    className="hidden lg:flex items-center gap-1 text-slate-500 hover:text-slate-800 text-xs font-semibold px-2 py-1 rounded-lg hover:bg-white border border-transparent hover:border-slate-200 transition-colors shrink-0"
+                >
+                    {isFullscreen ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
+                    <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
+                </button>
+            </div>
 
             {/* Main Stage: Focused, Clean, Room to Breathe */}
             <div className="flex flex-1 overflow-hidden relative">
@@ -615,34 +618,39 @@ function UltraModernTestEngine() {
                     >
                         {/* Question Metadata Bar */}
                         <div className="flex items-center justify-between mb-3 px-1">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 flex-wrap">
                                 <span className="font-black text-slate-900 text-base sm:text-lg">
                                     Q{currentSubjectIndex}
                                 </span>
                                 <span className="text-xs text-slate-400 font-semibold">
                                     of {subjectQuestions.length} in {activeSubject}
                                 </span>
+                                <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider hidden xs:inline">
+                                    Single Choice
+                                </span>
                             </div>
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1.5 sm:gap-2">
                                 {isCurrentMarked && (
-                                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200">
                                         <Bookmark className="w-3 h-3 fill-purple-600 text-purple-600" />
-                                        <span>Marked</span>
+                                        <span className="hidden sm:inline">Marked</span>
                                     </span>
                                 )}
-                                <span className="text-[11px] font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-                                    +4
+                                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                                    <span className="font-black">+4</span>
+                                    <span className="text-[10px] opacity-75 hidden xs:inline">Marks</span>
                                 </span>
-                                <span className="text-[11px] font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">
-                                    -1
+                                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">
+                                    <span className="font-black">-1</span>
+                                    <span className="text-[10px] opacity-75 hidden xs:inline">Mark</span>
                                 </span>
                             </div>
                         </div>
 
-                        {/* Question Text Box (Clean, Elegant, Readable) */}
+                        {/* Question Text Box (Clean, Elegant, Readable Sans-Serif) */}
                         <div className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-xs mb-4">
-                            <h2 className="text-slate-900 font-medium text-base sm:text-lg leading-relaxed select-text font-serif">
+                            <h2 className="text-slate-900 font-medium text-base sm:text-lg leading-relaxed select-text font-sans">
                                 {questionLang === 'hindi' ? currentQuestion?.textHi : currentQuestion?.textEn}
                             </h2>
                         </div>

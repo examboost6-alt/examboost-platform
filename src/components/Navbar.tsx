@@ -190,7 +190,7 @@ export default function Navbar() {
         pathname.startsWith('/admin') || 
         pathname.startsWith('/dashboard') || 
         pathname.startsWith('/onboarding') || 
-        pathname.startsWith('/test') ||
+        pathname.includes('/engine') ||
         pathname.startsWith('/login') ||
         pathname.startsWith('/signup') ||
         pathname.startsWith('/forgot-password') ||

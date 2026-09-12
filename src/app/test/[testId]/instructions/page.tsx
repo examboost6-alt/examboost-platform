@@ -37,51 +37,32 @@ export default function TestInstructions({ params }: { params: { testId: string 
     };
 
     return (
-        <div className="min-h-screen bg-slate-100 dark:bg-[#070B14] text-slate-900 dark:text-slate-100 font-sans pb-16 transition-colors duration-150">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#070B14] text-slate-900 dark:text-slate-100 font-sans pt-20 md:pt-24 lg:pt-28 pb-16 transition-colors duration-150">
             
-            {/* Top Examination Navigation Bar */}
-            <header className="bg-white dark:bg-[#0C1220] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Link 
-                            href={`/series/${seriesId}`}
-                            className="p-2 -ml-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5 text-xs font-semibold"
-                        >
-                            <ArrowLeft className="w-4 h-4" />
-                            <span className="hidden sm:inline">Back to Series</span>
-                        </Link>
-                        
-                        <div className="h-5 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+            {/* Main Instructions Wrapper */}
+            <main className="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                {/* Back Link & Server Status */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                    <Link 
+                        href={`/series/${seriesId}`}
+                        className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group"
+                    >
+                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                        <span>Back to Test Series</span>
+                    </Link>
 
-                        <div className="flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-xs">
-                                EB
-                            </div>
-                            <span className="font-bold text-sm tracking-tight hidden md:inline">ExamBoost CBT Portal</span>
-                        </div>
-                    </div>
-
-                    {/* Candidate & System Info */}
-                    <div className="flex items-center gap-3 text-xs">
-                        <div className="hidden sm:flex flex-col text-right">
-                            <span className="font-bold text-slate-900 dark:text-white">Candidate: Student</span>
-                            <span className="text-[11px] text-slate-500">System: C-104 • Server: Live</span>
-                        </div>
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold text-xs text-slate-700 dark:text-slate-300">
-                            ST
-                        </div>
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>CBT Exam Mode Active</span>
                     </div>
                 </div>
-            </header>
 
-            {/* Main Instructions Wrapper */}
-            <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-                
                 {/* Exam Title & Overview Hero */}
                 <div className="bg-white dark:bg-[#0C1220] rounded-2xl border border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-sm mb-6">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-5 mb-5">
                         <div>
-                            <div className="flex items-center gap-2 mb-1.5">
+                            <div className="flex items-center gap-2 mb-2 flex-wrap">
                                 <span className="px-2.5 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-400 text-xs font-bold uppercase tracking-wider border border-orange-200 dark:border-orange-800/60">
                                     {examFormat} Official Pattern
                                 </span>
@@ -89,7 +70,7 @@ export default function TestInstructions({ params }: { params: { testId: string 
                                     NTA CBT Simulation
                                 </span>
                             </div>
-                            <h1 className="text-xl sm:text-2xl lg:text-3xl font-serif font-black text-slate-900 dark:text-white">
+                            <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                                 {testTitle}
                             </h1>
                         </div>
