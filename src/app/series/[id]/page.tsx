@@ -251,42 +251,87 @@ export default function SeriesPage() {
         <script src="https://checkout.razorpay.com/v1/checkout.js" async />
 
         {/* Premium Dark Hero Banner */}
-        <section className="bg-[#0B1222] text-white border-b border-slate-800/80 relative overflow-hidden py-8 sm:py-12">
+        <section className="bg-gradient-to-b from-[#080E1B] via-[#0B1325] to-[#080D1A] text-white border-b border-slate-800/80 relative overflow-hidden pt-6 pb-7 sm:py-12">
           {/* Subtle ambient lighting */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 sm:w-96 h-80 sm:h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-            {/* Top Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-3">
-              <span className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider">
-                {courseData.exam} Entrance 2026
+            {/* Top Unified Badges */}
+            <div className="flex items-center gap-2 mb-3 flex-wrap">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-wider">
+                <Zap className="w-3.5 h-3.5 text-orange-400" />
+                {courseData.exam} 2026
               </span>
-              <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-medium">
-                {courseData.testCount} Full-Length Mocks
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300 text-xs font-semibold">
+                {courseData.testCount} Full Mocks
               </span>
-              <span className="flex items-center gap-1 text-xs font-bold text-amber-400 bg-amber-950/40 border border-amber-800/40 px-2.5 py-1 rounded-full">
-                <Star className="w-3.5 h-3.5 fill-amber-400" />
-                {courseData.rating} ({courseData.ratingCount} Aspirants)
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-semibold">
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <span>{courseData.rating}</span>
+                <span className="text-amber-400/60 font-normal">({courseData.ratingCount})</span>
               </span>
             </div>
 
-            {/* Big Headline */}
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight leading-[1.15] mb-3 text-white">
+            {/* Modern Punchy Headline */}
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.2] mb-2 sm:mb-3 text-white">
               {courseData.title}
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed mb-6 font-medium">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 max-w-2xl font-normal">
               {courseData.description}
             </p>
 
-            {/* TWO PRIMARY ACTION BUTTONS (Bina padhe pata lag jaye!) */}
-            <div className="flex flex-wrap items-center gap-3.5">
+            {/* Structured 2x2 Value Highlights Grid (Mobile First) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-5 max-w-3xl">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+                  <PlayCircle className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-white leading-tight">Test 01 Free</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5 leading-none">Instant access</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0">
+                  <CheckCircle className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-white leading-tight">Real NTA CBT</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5 leading-none">+4 / -1 marking</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+                <div className="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0">
+                  <Award className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-white leading-tight">All India Rank</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5 leading-none">Live percentile</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+                <div className="w-7 h-7 rounded-lg bg-purple-500/15 text-purple-400 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-white leading-tight">Re-attempts</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5 leading-none">Valid till exam</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Clear Visual Hierarchy Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 max-w-xl">
               <button
                 onClick={() => startTestDirectly(tests[0].id)}
-                className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-900/40 flex items-center gap-2.5 transition-all hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full sm:w-auto px-5 py-2.5 sm:py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-950/40 flex items-center justify-center gap-2 transition-all"
               >
-                <PlayCircle className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                <PlayCircle className="w-4 h-4 shrink-0" />
                 <span>Start Free Mock (Test 01)</span>
               </button>
 
@@ -294,27 +339,19 @@ export default function SeriesPage() {
                 <button
                   onClick={initiatePayment}
                   disabled={isCheckoutLoading}
-                  className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-900/40 flex items-center gap-2.5 transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60"
+                  className="w-full sm:w-auto px-5 py-2.5 sm:py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/90 active:scale-[0.98] text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-60 shadow-sm"
                 >
-                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                  <span>Unlock All {courseData.testCount} Tests • ₹{courseData.price}</span>
+                  <Lock className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+                  <span>Unlock All {courseData.testCount} Tests • <span className="text-orange-400 font-bold">₹{courseData.price}</span></span>
                 </button>
               )}
-            </div>
-
-            {/* Features Row */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 pt-5 border-t border-slate-800 text-xs text-slate-300">
-              <span className="flex items-center gap-2 font-medium"><Check className="w-4 h-4 text-emerald-400" /> Test 01 is 100% Free</span>
-              <span className="flex items-center gap-2 font-medium"><Check className="w-4 h-4 text-emerald-400" /> Real NTA CBT Interface (+4 / -1)</span>
-              <span className="flex items-center gap-2 font-medium"><Check className="w-4 h-4 text-emerald-400" /> Instant All India Rank & Percentile</span>
-              <span className="flex items-center gap-2 font-medium"><Check className="w-4 h-4 text-emerald-400" /> Unlimited Re-attempts</span>
             </div>
 
           </div>
         </section>
 
         {/* Main Content Area */}
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
           <div className="flex flex-col lg:flex-row gap-8 items-start">
 
             {/* Left Column: Test List & Tabs */}
@@ -325,7 +362,7 @@ export default function SeriesPage() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setActiveTab('tests')}
-                    className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
+                    className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                       activeTab === 'tests'
                         ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-sm'
                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -336,7 +373,7 @@ export default function SeriesPage() {
 
                   <button
                     onClick={() => setActiveTab('syllabus')}
-                    className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
+                    className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                       activeTab === 'syllabus'
                         ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-sm'
                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -353,76 +390,88 @@ export default function SeriesPage() {
 
               {/* TAB 1: Tests List */}
               {activeTab === 'tests' && (
-                <div className="space-y-3.5">
+                <div className="space-y-3.5 sm:space-y-4">
                   {tests.map((test) => (
                     <div
                       key={test.id}
-                      className={`p-4 sm:p-5 rounded-2xl border transition-all flex items-center justify-between gap-4 bg-white dark:bg-[#0C1220] ${
+                      className={`group p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3.5 sm:gap-4 bg-white dark:bg-[#0C1220] ${
                         test.isFree
-                          ? 'border-emerald-500/80 dark:border-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20 shadow-sm ring-1 ring-emerald-500/30'
-                          : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                          ? 'border-emerald-500/80 dark:border-emerald-500/60 bg-gradient-to-br from-emerald-50/40 via-white to-emerald-50/10 dark:from-emerald-950/25 dark:via-[#0C1220] dark:to-emerald-950/10 shadow-sm hover:shadow-md ring-1 ring-emerald-500/20'
+                          : 'border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 shadow-xs hover:shadow-sm'
                       }`}
                     >
                       {/* Left: Test Info */}
-                      <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
+                        {/* Test Number Badge */}
                         <div
-                          className={`w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 font-bold ${
+                          className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex flex-col items-center justify-center shrink-0 font-bold transition-transform ${
                             test.isFree
-                              ? 'bg-emerald-600 text-white shadow-sm'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                              ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/30'
+                              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60'
                           }`}
                         >
-                          <span className="text-[10px] uppercase opacity-80 leading-none">Test</span>
-                          <span className="text-base font-black leading-none mt-0.5">{String(test.number).padStart(2, '0')}</span>
+                          <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider opacity-85 leading-none">TEST</span>
+                          <span className="text-base sm:text-lg font-black leading-none mt-0.5">{String(test.number).padStart(2, '0')}</span>
                         </div>
 
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 mb-1 flex-wrap">
-                            <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white truncate">
+                        {/* Title & Metadata */}
+                        <div className="min-w-0 flex-1">
+                          {/* Title + Free Badge */}
+                          <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                            <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-snug">
                               {test.title}
                             </h3>
                             {test.isFree && (
-                              <span className="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[11px] font-black uppercase tracking-wider shrink-0 border border-emerald-300/50">
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shrink-0 border border-emerald-300/60 dark:border-emerald-800/60 shadow-xs">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                                 100% Free Demo
                               </span>
                             )}
                           </div>
 
-                          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                            <span>{test.questions} Questions</span>
-                            <span>•</span>
-                            <span>{test.marks} Marks</span>
-                            <span>•</span>
-                            <span>{test.duration}</span>
+                          {/* Meta stats chips with icons (no broken/cramped wrapping) */}
+                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-medium text-[11px] sm:text-xs">
+                              <HelpCircle className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                              <span>{test.questions} Questions</span>
+                            </span>
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-medium text-[11px] sm:text-xs">
+                              <Award className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                              <span>{test.marks} Marks</span>
+                            </span>
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-medium text-[11px] sm:text-xs">
+                              <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                              <span>{test.duration}</span>
+                            </span>
                           </div>
                         </div>
                       </div>
 
-                      {/* Right: Button */}
-                      <div className="shrink-0">
+                      {/* Right/Bottom: Action Button */}
+                      <div className="w-full sm:w-auto shrink-0 pt-2 sm:pt-0 border-t border-slate-100 dark:border-slate-800/60 sm:border-0 mt-0.5 sm:mt-0">
                         {test.isFree ? (
                           <button
                             onClick={() => startTestDirectly(test.id)}
-                            className="px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] sm:hover:scale-105 active:scale-95"
                           >
-                            <PlayCircle className="w-4 h-4" />
-                            <span>Start Free</span>
+                            <PlayCircle className="w-4 h-4 shrink-0" />
+                            <span>Start Free Mock</span>
                           </button>
                         ) : isPurchased ? (
                           <button
                             onClick={() => startTestDirectly(test.id)}
-                            className="px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] sm:hover:scale-105 active:scale-95"
                           >
-                            <PlayCircle className="w-4 h-4" />
+                            <PlayCircle className="w-4 h-4 shrink-0" />
                             <span>Start Test</span>
                           </button>
                         ) : (
                           <button
                             onClick={initiatePayment}
-                            className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs flex items-center gap-1.5 transition-colors"
+                            className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors border border-slate-200/60 dark:border-slate-700/50"
                           >
-                            <Lock className="w-3.5 h-3.5 text-slate-400" />
-                            <span>Unlock</span>
+                            <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                            <span>Unlock Test</span>
                           </button>
                         )}
                       </div>
