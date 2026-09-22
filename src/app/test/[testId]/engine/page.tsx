@@ -96,14 +96,20 @@ function UltraModernTestEngine() {
         let ename = isNeet ? 'NEET UG' : 'JEE MAIN';
         let epaper = isNeet ? 'NEET Full Mock Test' : 'JEE Main Full Mock';
 
-        if (testId.includes('ai-mock') && typeof sessionStorage !== 'undefined') {
+        if ((testId.includes('ai-mock') || testId.includes('daily-challenge')) && typeof sessionStorage !== 'undefined') {
             const paramsStr = sessionStorage.getItem('aiMockParams');
             if (paramsStr) {
                 const aiParams = JSON.parse(paramsStr);
                 const generated = generateAIMockQuestions(aiParams);
                 qs = generated.qs;
                 subs = generated.subs;
-                epaper = 'AI Custom Mock Test';
+                if (testId.includes('daily-challenge')) {
+                    epaper = "Today's JEE Daily Challenge (18 Qs)";
+                    setTimeLeft(20 * 60);
+                } else {
+                    epaper = 'AI Custom Mock Test';
+                    setTimeLeft(Math.max(15, qs.length) * 60);
+                }
             }
         }
 

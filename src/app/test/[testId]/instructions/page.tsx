@@ -18,15 +18,32 @@ export default function TestInstructions({ params }: { params: { testId: string 
     const isNeet = testId.includes('med');
     const seriesId = testId.replace(/-test-\d+$/, '') || 'mock-eng-1';
 
-    const duration = 180; // 3 hours
-    const totalQuestions = isNeet ? 180 : 75;
-    const totalMarks = isNeet ? 720 : 300;
-    const examFormat = isNeet ? 'NEET UG 2026' : 'JEE Main 2026';
+    const isAiMock = testId.includes('ai-mock');
+    const isDaily = testId.includes('daily-challenge');
+
+    let duration = 180; // 3 hours
+    let totalQuestions = isNeet ? 180 : 75;
+    let totalMarks = isNeet ? 720 : 300;
+    let examFormat = isNeet ? 'NEET UG 2026' : 'JEE Main 2026';
     
     // Extract test number
     const testNumMatch = testId.match(/test-(\d+)/);
     const testNumber = testNumMatch ? testNumMatch[1].padStart(2, '0') : '01';
-    const testTitle = `${isNeet ? 'Medical' : 'Engineering'} Full Mock Test ${testNumber}`;
+    let testTitle = `${isNeet ? 'Medical' : 'Engineering'} Full Mock Test ${testNumber}`;
+
+    if (isDaily) {
+        duration = 20;
+        totalQuestions = 18;
+        totalMarks = 72;
+        examFormat = 'JEE Daily Sprint';
+        testTitle = "Today's JEE Daily Challenge (18 Qs)";
+    } else if (isAiMock) {
+        duration = 45;
+        totalQuestions = 30;
+        totalMarks = 120;
+        examFormat = 'Adaptive AI Mock';
+        testTitle = 'AI Custom Practice Drill';
+    }
 
     const handleProceed = () => {
         if (!agree) {
