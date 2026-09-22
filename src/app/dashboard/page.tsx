@@ -182,22 +182,30 @@ export default function StudentDashboard() {
     { name: "Bookmarks", icon: Bookmark, href: "#" },
   ];
 
+  interface LeaderboardEntry {
+    rank: number;
+    name: string;
+    air: string;
+    score: string;
+    isUser?: boolean;
+  }
+
   // Dynamic Leaderboard list inserting student based on real attempts
-  const baseLeaderboard = [
+  const baseLeaderboard: LeaderboardEntry[] = [
     { rank: 1, name: "Aarav Sharma", air: "AIR 512", score: "99.6%" },
     { rank: 2, name: "Priya Patel", air: "AIR 1,224", score: "98.9%" },
     { rank: 3, name: "Rohan Verma", air: "AIR 3,760", score: "98.4%" },
   ];
 
-  const userLeaderboardEntry = {
-    rank: metrics.hasAttempts ? 4 : 4,
+  const userLeaderboardEntry: LeaderboardEntry = {
+    rank: 4,
     name: `${studentInfo.name.split(" ")[0]} (You)`,
     air: metrics.hasAttempts ? `AIR ${metrics.airRank}` : "Unranked",
     score: metrics.hasAttempts ? `${metrics.percentile}%` : "--",
     isUser: true,
   };
 
-  const leaderboardData = [
+  const leaderboardData: LeaderboardEntry[] = [
     ...baseLeaderboard,
     userLeaderboardEntry,
     { rank: 5, name: "Ananya Iyer", air: "AIR 5,300", score: "97.8%" },
